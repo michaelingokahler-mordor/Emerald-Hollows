@@ -55,3 +55,7 @@ Runway-Obergrenze bleibt 1.000 Credits inklusive Fehlversuchen. Bisher 139: ursp
 Der Nutzer hat am 18.10.2026 bestätigt, dass der öffentliche Touchmodus funktioniert; Gerät und Betriebssystem wurden nicht angegeben. Vor dem nächsten Kapitel: Feedback zu den überarbeiteten Rätseln, Hörprobe und gezielte Prüfung der Installation auf Android und iPhone/iPad. Browseremulation ist kein Gerätetest. Dann jeweils ein neues Kapitel mitsamt Regeln, Karten, Medien und Replays entwickeln.
 
 Die Zeit bleibt das erste Ranglistenkriterium. Gesamtpunkte aus Kristallen und Gegnern entscheiden Gleichstände. Neue Gegnertypen erhalten vor ihrer Einführung einen festen Punktwert; die Kristallquote bleibt davon unabhängig.
+
+## Rückmeldung zu Level 10 und Darstellung (0.5)
+
+Der Nutzer bestätigt das Komplexitätsniveau des neuen Finales als gute Grundlage für weitere Höhlen. Folgekapitel sollen dieses Zusammenspiel aus Planung, räumlichen Konsequenzen und Timing weiterführen, mit ruhigen Rätseln zwischen schwierigeren Passagen. Die Vollversion bleibt mit 100 Haupt- und 20 eingebetteten Geheimleveln geplant. Die Demo erhält einen grün-roten Pseudodrachen als Aufgaben- und Hinweisgeber; er verändert keine Spielregel.

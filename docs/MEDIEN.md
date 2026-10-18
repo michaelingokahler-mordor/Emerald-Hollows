@@ -46,3 +46,9 @@ Am 18.10.2026 wurden über Runway drei instrumentale Musikaufträge erstellt. De
 Die Titel wechseln nach ihrem Ende. Bei nahen Gegnern oder knapper Zeit kommen zurückhaltende rhythmische Akzente aus dem vorhandenen Runway-Steinaufprall hinzu; die Musik wird nicht einfach schneller abgespielt. Hysterese und Überblendung vermeiden dauerndes Umschalten. Das ursprüngliche Musikstück bleibt als historisches Asset erhalten.
 
 Gesamtverbrauch einschließlich aller bisherigen und neuen Fehlversuche: **139 / 1.000 Credits** (115 bisher + 24 neu). PWA-Symbole sind aus dem vorhandenen Runway-Smaragd abgeleitet; dafür entstand kein weiterer Generierungsverbrauch.
+
+## Ergänzung 0.5 – Pseudodrache als Hinweisgeber
+
+Neue Illustration mit grünem Körper und roten Flügelhäuten, nach einer vom Nutzer bereitgestellten visuellen Referenz und dem vorhandenen Titelbild als Stilreferenz. Runway-Aufträge und vollständiger Prompt: artifacts/guide-production-v0.5.json. Zwei intern fehlgeschlagene Versuche erzeugten keine verwendbaren Bilder. Nettoverbrauch für erfolgreiche Illustration und Freistellung: 21 Credits. Neuer Projektstand: **160 / 1.000 Credits**.
+
+Der ausgewählte freigestellte Rohentwurf liegt unter artifacts/raw/pseudodragon-guide-cutout.png. tools/prepare-guide.mjs erzeugt daraus die 512 × 512 große WebP-Datei public/assets/pseudodragon-guide.webp mit erhaltener Transparenz. Ein ruhiger CSS-Zyklus bewegt das vollständige Porträt; reduzierte Bewegung deaktiviert ihn. Es wurden keine zusätzlichen Animationsbilder erzeugt.

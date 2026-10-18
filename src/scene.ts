@@ -17,6 +17,7 @@ export class CaveScene extends Phaser.Scene {
   drawnLevel?:string; lastInput:InputFrame={}; loaded=false; music?:Phaser.Sound.BaseSound;
   lastSfx=new Map<string,number>();
   track=0;lastBeat=-1;dangerUntil=0;dangerMix=0;musicStarted=false;
+  heroAnimationMs=0;
   constructor(bridge:SceneBridge){super('cave');this.bridge=bridge;}
   preload():void{
     const base=import.meta.env.BASE_URL+'assets/';
@@ -46,7 +47,7 @@ export class CaveScene extends Phaser.Scene {
       return this.add.image(x*CELL+CELL/2,y*CELL+CELL/2,'tiles',frame).setDisplaySize(CELL,CELL).setDepth(terrain==='exit'?2:0);
     }));
     this.player.setVisible(true).clearTint().setAlpha(1);
-    this.previous.clear();this.prevPlayer={...sim.state.player};this.clock.reset();this.drawnLevel=sim.level.id;
+    this.previous.clear();this.prevPlayer={...sim.state.player};this.clock.reset();this.heroAnimationMs=0;this.drawnLevel=sim.level.id;
     this.cameras.main.setBounds(0,0,sim.level.width*CELL,sim.level.height*CELL);
     this.renderState(sim.state,1);this.cameras.main.centerOn(this.player.x,this.player.y);
     this.startMusic();
@@ -70,6 +71,11 @@ export class CaveScene extends Phaser.Scene {
         this.effects(events);this.bridge.changed(events);
       });
     }else alpha=1;
+    const moving=this.prevPlayer.x!==sim.state.player.x||this.prevPlayer.y!==sim.state.player.y;
+    if(this.bridge.active()&&sim.state.status==='playing'){
+      if(moving||this.lastInput.snap)this.heroAnimationMs+=Math.min(delta,100);
+      else this.heroAnimationMs=0;
+    }
     this.renderState(sim.state,alpha);
     const cam=this.cameras.main;
     // Phaser scroll is expressed relative to the unzoomed viewport center.
@@ -108,7 +114,8 @@ export class CaveScene extends Phaser.Scene {
     for(const [id,badge]of this.badges)if(!s.entities.some(e=>e.id===id&&e.kind==='crystal-crawler')){badge.destroy();this.badges.delete(id);}
     const moving=this.prevPlayer.x!==s.player.x||this.prevPlayer.y!==s.player.y;
     const digging=this.lastInput.snap&&this.bridge.active();
-    this.player.setTexture(digging?'digging':'hero',row[s.player.direction]*4+(moving||digging?s.tick%4:0));
+    // Visual cadence is independent of the 100 ms rule clock and freezes on pause.
+    this.player.setTexture(digging?'digging':'hero',row[s.player.direction]*4+(moving||digging?Math.floor(this.heroAnimationMs/180)%4:0));
     this.player.setPosition((Phaser.Math.Linear(this.prevPlayer.x,s.player.x,alpha)+0.5)*CELL,(Phaser.Math.Linear(this.prevPlayer.y,s.player.y,alpha)+0.5)*CELL);
     if(s.status==='dead')this.player.setTint(0xc96d64).setAlpha(0.55);
   }

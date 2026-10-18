@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-18T13:19:13.402Z",
+  "version": "0.5.0",
+  "unitTests": 80,
+  "solvedLevels": 10,
+  "alternativeFinaleSolutions": 1,
+  "desktop": [
+    {
+      "browser": "Chrome",
+      "viewport": "1280x720",
+      "dpr": 1,
+      "status": "PASS"
+    },
+    {
+      "browser": "Edge",
+      "viewport": "1920x1080",
+      "dpr": 2,
+      "status": "PASS"
+    }
+  ],
+  "mobile": {
+    "browser": "Chrome emulation",
+    "viewports": [
+      "390x844",
+      "844x390"
+    ],
+    "dpr": 3,
+    "status": "PASS",
+    "physicalDevice": false
+  },
+  "checks": [
+    "readable footer",
+    "planned 120 levels",
+    "bot disclaimer removed in EN/DE",
+    "guide in briefing and hint",
+    "long dialog scrolling",
+    "reduced motion",
+    "hint pauses timer"
+  ],
+  "animation": {
+    "poseMilliseconds": 180,
+    "observedIntervals": [
+      183,
+      183
+    ],
+    "pauseFreezesPhase": true,
+    "simulationChanged": false
+  },
+  "mediaCredits": 160,
+  "newMediaCredits": 21,
+  "serverChanged": false,
+  "publicTestSubmissions": false,
+  "limitations": [
+    "physical device not tested",
+    "user art and animation feedback pending",
+    "Turnstile researched, not activated"
+  ]
+}

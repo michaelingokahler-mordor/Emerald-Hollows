@@ -1,57 +1,38 @@
-# Lathmar: Emerald Hollows 0.4.0 – Prüfbericht
+# Lathmar: Emerald Hollows 0.5.0 – Prüfbericht
 
-Stand: 18. Oktober 2026. Level 10 erhält einen bewachten Pflichtdurchgang und zwei geprüfte Lösungen. Bestzeiten zeigen die Gesamtpunkte; bei gleicher Zeit entscheidet die höhere Punktzahl. Die Kristallquote bleibt davon unabhängig.
+Stand: 18. Oktober 2026. Änderungen betreffen Darstellung, Fußbereich, Hinweisgeber und den Erklärungstext der Rangliste. Level, Regeln, Bewegungstempo und Server bleiben unverändert.
 
-## Automatisierte Prüfung
+## Automatisiert
 
-| Prüfung | Ergebnis |
+- 80 Vitest-Tests bestanden; TypeScript und Produktionsbuild erfolgreich.
+- Alle zehn zeitgebundenen Lösungen und die alternative Level-10-Felsfalle bestehen erneut, einschließlich identischer Endzustände bei 30/60/144 Render-FPS.
+- Die gespeicherten Karten- und Replay-Prüfsummen bleiben erhalten.
+- Die transparente Pseudodrachen-Grafik ist lokal gespeichert und im Offline-Cache enthalten.
+
+## Tatsächlich im Browser geprüft
+
+| Umgebung | Ergebnis |
 |---|---|
-| TypeScript und Produktionsbuild | bestanden |
-| Vitest | 80 Tests bestanden |
-| Zeitgebundene Lösungen | 10/10 erfolgreich; zusätzliche Felsfallenlösung für Level 10 erfolgreich |
-| Replays bei 30, 60 und 144 Render-FPS | identische Simulations-Endzustände |
-| Level 10: Einschließen | 89 Takte, Krabbler lebt im geschlossenen Gehege, 30 Kristallpunkte + 5 Gegnerpunkte |
-| Level 10: Felsfalle | 131 Takte, Krabbler zerquetscht, 30 Kristallpunkte + 5 Gegnerpunkte |
-| Level 10: Gefahr | blindes Vorschieben ohne die Wartephase endet tödlich; ohne den bewachten Gang sind Quote und Ausgang nicht erreichbar |
-| Punkte | Smaragd 1, Diamant 3, Schieferkrabbler 5, Kristallkrabbler 10; keine Änderung der Quote oder Replay-Prüfsummen |
-| Einschließen | Bonus verschwindet beim Wiederöffnen; wiederholte Berechnung erzeugt keine zusätzlichen Punkte |
-| Bestzeiten | kürzere Zeit gewinnt; bei gleicher Zeit höhere Punktzahl; gleiche Zeit und Punkte teilen den Rang |
-| Alte Rekorde | Karten 01–09 unverändert; alter Level-10-Durchlauf bleibt anhand seiner archivierten Karte prüfbar |
-| Offline-Warteschlange | bei gleicher Zeit bleibt der Durchlauf mit mehr Punkten erhalten, unabhängig von der Reihenfolge |
-| Lokale API | Punkte serverseitig aus bestätigten Durchläufen berechnet; Zeit-/Punktsortierung, Gleichrang und Nichtüberschreiben durch langsamere Läufe geprüft |
-| Sicherungsformat | verschlüsselter Rundlauf, manipulierte Daten abgewiesen, SQLite-Fremdschlüsselprüfung; neue Punkte erhalten, alte Sicherungen ohne Punkte weiterhin einlesbar |
+| Chrome 1280 × 720, DPR 1 | größere Fußschrift, 120-Level-Hinweis, bereinigter Ranglistentext, Drache in Aufgaben- und Hinweisbox, EN/DE erfolgreich |
+| Edge 1920 × 1080, DPR 2 | dieselben Prüfungen erfolgreich |
+| Chrome-Touchemulation 390 × 844, DPR 3 | keine horizontale Überbreite; lange Hinweise und Schaltflächen erreichbar |
+| Chrome-Touchemulation 844 × 390, DPR 3 | lange Box bleibt im sichtbaren Bereich und lässt sich intern zu den Schaltflächen scrollen |
+| Reduzierte Bewegung | Drachenbewegung deaktiviert |
+| Hinweis geöffnet | Countdown bleibt stehen |
+| Miner im Entwicklungsbuild | drei tatsächliche Posenwechsel beobachtet; gemessene Abstände 183/183 ms; Pause hält die Animationsphase an |
 
-Die API-Prüfung umfasst weiterhin Profilanlage, Besitzerprüfung, wiederholte Uploads, mehrteilige Verifikation, ungültige Endzustände, Ausschluss des Übungsmodus und CORS. Schreibende Testläufe verwenden ausschließlich die lokale Wrangler/D1-Datenbank.
+Der geplante Abstand pro Pose beträgt 180 ms statt bisher 100 ms. Der vierteilige Zyklus dauert damit 0,72 statt 0,4 Sekunden. Die Spielfigur bewegt sich weiterhin nach dem bisherigen 100-ms-Regeltakt. Die Beobachtung im Entwicklungsbuild erfasst echte Renderer-Aufrufe; ein erster Prüfansatz importierte versehentlich eine andere Vite-Modulinstanz und wurde korrigiert.
 
-Nachweise: `artifacts/level-verification.json`, `artifacts/api-verification.json`, `artifacts/backup-verification.json`, `artifacts/verification-v0.4.json`, `tests/finale-and-score.test.ts` und die bisherigen Kern- und Speichertests.
+Skripte: tools/browser-v05.js und tools/browser-animation-v05.js. Screenshots: output/playwright/v05-*.png. Kompakte Übersicht: artifacts/visual-review-v0.5.webp. Die lange Querformatbox wurde zusätzlich separat geprüft. Eine physische Handyprüfung ist in dieser Version nicht erfolgt.
 
-## Tatsächlich ausgeführte Browserprüfung in 0.4
+## Medien und Feedback
 
-| Umgebung | Geprüft |
-|---|---|
-| Chrome, 1280 × 720, DPR 1 | beide Level-10-Lösungen im Spiel, Punktezähler, Ergebnisaufschlüsselung, englische/deutsche Hilfe und Bestzeiten |
-| Edge, 1920 × 1080, DPR 2 | dieselben beiden Lösungen und Anzeigen; keine JavaScript-Seitenfehler |
-| Chrome-Touchemulation, 390 × 844, DPR 3 | beide Lösungen, Punkteanzeige, Rangliste in beiden Sprachen ohne horizontalen Überlauf |
-| Chrome-Touchemulation, 844 × 390, DPR 3 | Level-10-Start, Punkteanzeige und Sprachwechsel; Touchfelder liegen außerhalb des Spielfelds |
+Der Pseudodrache ist eine neue Runway-Illustration, angeregt durch die vom Nutzer bereitgestellte Referenz. Ein CSS-Zyklus bewegt das Porträt dezent; es ist keine Folge neu gezeichneter Körperposen. Zwei Bildversuche scheiterten intern. Die erfolgreiche Illustration und Freistellung kosteten netto 21 Credits, laut Kontoständen 2615 → 2594. Projektgesamt: **160 / 1000 Credits**. Prompts, Aufträge und Verarbeitung: artifacts/guide-production-v0.5.json und docs/MEDIEN.md.
 
-Die Browserprüfung der Rangliste verwendet lokale Beispieldaten. Die tatsächliche API-Sortierung wurde separat gegen die lokale Datenbank getestet. Es wurden keine Testprofile oder Testrekorde in die öffentliche Rangliste geschrieben. Die Bildsichtung umfasst das Finale, die neue Tabelle sowie mobiles Hoch- und Querformat. Skript: `tools/browser-v04.js`; Bilder unter `output/playwright/`; kompakte Übersicht in `artifacts/visual-review-v0.4.webp`.
+Das Komplexitätsniveau von Level 10 wurde vom Nutzer ausdrücklich positiv beurteilt. Der neue Hinweisgeber und die verlangsamte Animation benötigen noch seine gestalterische Rückmeldung.
 
-Die umfassenderen Prüfungen von 0.3 zu Zwei-Finger-Graben, Offline-Neuladen, Profilwiederherstellung und Tastaturabschlüssen sind in `artifacts/verification-v0.3.json` dokumentiert. Sie wurden in 0.4 nicht vollständig wiederholt.
+## Rangliste und Veröffentlichung
 
-## Server, Sicherung und Veröffentlichung
+Der öffentliche Satz über automatisch erzeugte Lösungen wurde in beiden Sprachen entfernt. Turnstile wurde recherchiert und in docs/RANGLISTENSCHUTZ.md eingeordnet; es ist nicht aktiviert. Keine Servermigration, keine Änderung an Rekorden, keine öffentlichen Testeinsendungen.
 
-Vor der Servermigration wurde eine zusätzliche verschlüsselte Sicherung erfolgreich erstellt (Backup-Workflow 39127181141). Migration `0002_score.sql` ergänzt die Punktespalte. Aus elf bestätigten Produktionsdurchläufen wurden die Punkte berechnet und die zehn bestehenden Rekorde ergänzt; anschließend fehlte bei keinem Rekord die Punktzahl. Bestehende Zeiten bleiben erhalten.
-
-Die alte Level-10-Karte bleibt im Archiv. Ihre Rekorde werden nicht mit dem neuen Finale verglichen; Freischaltungen bleiben erhalten. Lokale Altbestzeiten ohne gespeicherten Endzustand zeigen zunächst ihre Kristallpunkte mit einer Kennzeichnung. Ein neuer Durchlauf oder die Wiederherstellung des Onlineprofils liefert die vollständige Wertung.
-
-Die täglichen verschlüsselten Sicherungen bleiben aktiv. Der lokale Wiederherstellungstest berücksichtigt beide Datenbankformate. Eine produktive Datenbankwiederherstellung wurde in 0.4 nicht durchgeführt. Die abschließende öffentliche Prüfung und Commit-/Worker-Kennungen werden separat in `release/deployment-verification-v0.4.json` dokumentiert.
-
-## Menschliches Feedback und Grenzen
-
-Der Nutzer hat die Grafik und den öffentlichen Touchmodus positiv beurteilt. Sein Hinweis auf den ignorierbaren Krabbler führte zum Umbau von Level 10. Ein menschlicher Spieldurchlauf dieser neuen Fassung steht noch aus; erfolgreiche Lösungsreplays belegen die Lösbarkeit, nicht den subjektiven Schwierigkeitsgrad.
-
-Die Gerätesimulation ersetzt keine Prüfung auf einem physischen Android-Gerät, iPhone oder iPad. Home-Bildschirm-Installation, Safari, Firefox, schwächere Hardware und eine menschliche Hörabnahme bleiben offen. Es handelt sich weder um einen Lasttest noch um einen allgemeinen Leistungsnachweis.
-
-## Medien und Pakete
-
-Keine neuen Runway-Generierungen: weiterhin **139 von höchstens 1.000 Credits**. Web- und Quell-ZIP enthalten beide Finale-Replays, Regeln, Lösungen und diesen Bericht. Private Schlüssel, Datenbanken und Zugangsdaten sind ausgeschlossen. Paketprüfung und SHA-256-Summen liegen unter `release/`. Der Browserstart benötigt keine Installation; der lokale Starthelfer benötigt Node.js 24.
+Produktionsprüfung und Commitkennungen werden nach Veröffentlichung in release/deployment-verification-v0.5.json festgehalten. Die weitergehenden Prüfungen von 0.4 stehen in PRUEFBERICHT-0.4.md; sie werden hier nicht als neu durchgeführt ausgegeben.

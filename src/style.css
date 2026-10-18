@@ -15,3 +15,14 @@ footer a{color:inherit}.home-links{flex-wrap:wrap;gap:8px 24px}.profile-grid{dis
 @media(max-width:600px){.ranking{font-size:14px;table-layout:fixed}.ranking th,.ranking td{padding:10px 5px;overflow-wrap:anywhere}.ranking th:nth-child(2){width:34%}.score-meter{font-size:10px}}
 
 .card-actions{flex-wrap:wrap}
+/* Readable footer over the detailed title art. The campaign remains a future plan. */
+footer{align-items:center;font:12px/1.6 system-ui,sans-serif;letter-spacing:.6px;color:#d3ded5;padding:18px 0;border-color:#92aaa74d}
+.footer-campaign{display:flex;flex-direction:column;gap:5px}.footer-campaign>span{color:#b9d2c3;letter-spacing:1.4px}.footer-campaign small{font-size:12px;letter-spacing:0;color:#eadbbd}.footer-production{color:#d3ded5}.footer-production a{color:#c7f0dc;text-underline-offset:4px}
+.home{display:flex;flex-direction:column;padding-bottom:0}.hero-copy{margin-bottom:38px}.home footer{position:relative;bottom:auto;left:auto;right:auto;flex-shrink:0;margin-top:auto;margin-left:-5.5vw;margin-right:-5.5vw;padding:18px 5.5vw;background:#0c191ef2}.art-caption{bottom:132px}
+.guide-modal{width:min(740px,100%)}.guide-message{display:grid;grid-template-columns:170px minmax(0,1fr);align-items:center;gap:24px;margin:8px 0 24px}.guide-portrait{display:block;width:170px;height:170px;object-fit:contain;filter:drop-shadow(0 8px 12px #0005);transform-origin:50% 90%;animation:guide-breathe 4.8s ease-in-out infinite}.guide-speech{border-left:2px solid #7fa68a66;padding-left:20px}.guide-speech .eyebrow{font-size:10px;letter-spacing:1px}.guide-speech p{margin:10px 0 0;color:#e0e7d9}.guide-modal .actions{margin-top:20px}
+@keyframes guide-breathe{0%,100%{transform:translateY(0) rotate(-.4deg)}50%{transform:translateY(-3px) rotate(.4deg)}}
+@media(max-width:1000px){.home footer,.page footer{font-size:12px}.home footer{align-items:flex-start}.footer-production{max-width:310px;text-align:right}}
+@media(max-width:600px){.home{padding-bottom:0}.home footer{margin-left:-22px;margin-right:-22px;padding:16px 22px;gap:12px}.footer-production{max-width:none;text-align:left}.guide-message{grid-template-columns:86px minmax(0,1fr);gap:12px;margin-bottom:18px}.guide-portrait{width:86px;height:100px}.guide-speech{padding-left:12px}.guide-speech .eyebrow{font-size:9px;letter-spacing:.4px}.guide-modal{padding:22px 18px}.guide-modal p{font-size:13px;line-height:1.65}}
+@media(pointer:coarse) and (orientation:landscape) and (max-height:550px){.guide-message{grid-template-columns:100px minmax(0,1fr);gap:16px;margin-bottom:10px}.guide-portrait{width:100px;height:110px}.guide-modal{padding:18px 24px}.guide-modal .actions{margin-top:12px}}
+@media(prefers-reduced-motion:reduce){.guide-portrait{animation:none}}
+.guide-modal{max-height:100%;overflow-y:auto}

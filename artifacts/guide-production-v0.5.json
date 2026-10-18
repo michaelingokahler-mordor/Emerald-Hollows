@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-18",
+  "key": "pseudodragon-guide",
+  "prompt": "Original game character portrait for a warm, hand-painted 2D cave adventure. Use @dragon only as a loose creature reference: a SMALL intelligent pseudodragon, emerald-green scaled body, warm crimson red wing membranes and russet-red dorsal spines, pale gold belly, expressive alert amber eyes, slender curved horns, long curled tail. Four legs and two separate batlike wings. Friendly, shrewd, ancient little companion, not a baby, no human clothes. New pose: sitting upright in a three-quarter view, facing slightly right toward a dialogue panel, one front claw lifted as if giving advice, wings folded loosely but their red membranes clearly visible. Full creature including tail and horns, compact clear silhouette, centered with 12 percent empty margin. Match @style's painterly outlined shading, earthy colors and warm lantern highlights. Clean solid light neutral grey background for subsequent cutout, no environment, no book, no floor shadow, no text, no letters, no logo, no signature. Readable at 160 pixels high.",
+  "provider": "Runway",
+  "reference": "User-supplied green pseudodragon reference, used as visual guidance; existing Runway title art used as style reference",
+  "generationTask": "9e753695-0a5c-4110-9dbf-299cde7bcd3f",
+  "cutoutTask": "6c46ad1a-6303-40da-b55e-ed2c47834823",
+  "failedTasks": [
+    "58a7c888-d633-497e-bab0-c796f753b2fa",
+    "50a5d71a-1a3c-4bff-af15-380b84245855"
+  ],
+  "failureReason": "INTERNAL.BAD_OUTPUT.CODE01",
+  "startingBalance": 2615,
+  "endingBalance": 2594,
+  "netCredits": 21,
+  "previousProjectCredits": 139,
+  "totalProjectCredits": 160,
+  "limit": 1000,
+  "rawFile": "artifacts/raw/pseudodragon-guide-cutout.png",
+  "gameFile": "public/assets/pseudodragon-guide.webp",
+  "processing": "Runway transparent cutout; Sharp resized to 512x512 WebP, quality 90, alphaQuality 100. CSS adds a 4.8-second gentle motion loop; reduced-motion disables it.",
+  "originalUncutDownload": "Generation succeeded but local download was reset; the complete selected cutout is stored locally."
+}

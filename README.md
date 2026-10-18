@@ -60,3 +60,5 @@ TypeScript mit strenger Prüfung, Phaser 4.2.1, Vite und Vitest. Die Simulation 
 `src/core` enthält Regeln und Replay-Prüfung, `src/levels.ts` die Karten, `src/campaign.ts` den Kampagnenaufbau, `src/main.ts` die Oberfläche, `server` die API und Migrationen. `public/replays` enthält erfolgreiche Lösungen. Die Runway-Quellen und Produktionsnachweise liegen unter `artifacts`; Bearbeitungsskripte unter `tools`.
 
 Die 100-Level-Kampagne, Geheimkapitel und neuen Mechaniken sind der weitere Ausbau und noch nicht Teil dieser Zehn-Level-Demo. Echte Mobilgeräte und die subjektive Musik-/Spielspaßabnahme stehen gesondert im [Prüfbericht](docs/PRUEFBERICHT.md).
+
+Version 0.5 ergänzt den grün-roten Pseudodrachen in Aufgaben- und Hinweisboxen, einen lesbareren Fußbereich und den Hinweis auf die geplanten 120 Level. Lauf- und Grabeposen wechseln alle 180 ms statt alle 100 ms; Bewegung, Simulation und Rekorde behalten ihren bisherigen Takt. Einordnung möglicher Human-Checks: [Ranglistenschutz](docs/RANGLISTENSCHUTZ.md).

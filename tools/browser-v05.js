@@ -1,0 +1,36 @@
+async(page)=>{
+ const tag=page.viewportSize().width,errors=[];page.on('pageerror',e=>errors.push(String(e)));
+ await page.locator('[data-action="continue"]:not(:disabled)').waitFor();
+ await page.getByText('Planned full game: 120 levels · 100 main caves + 20 secret caves',{exact:true}).waitFor();
+ const footer=await page.locator('footer').evaluate(el=>({font:parseFloat(getComputedStyle(el).fontSize),width:el.getBoundingClientRect().width}));
+ if(footer.font<12||footer.width>page.viewportSize().width)throw Error('Footer readability');
+ await page.screenshot({path:`output/playwright/v05-${tag}-home.png`,fullPage:true});
+ await page.getByRole('button',{name:'Best times',exact:true}).click();
+ if(/cannot distinguish|automated solution/.test(await page.locator('#ui').innerText()))throw Error('Bot sentence remains');
+ await page.locator('[data-action="home"]').first().click();
+ await page.addInitScript(()=>{localStorage.setItem('emerald-hollows.save.v2',JSON.stringify({version:2,language:'en',timed:Object.fromEntries(Array.from({length:10},(_,i)=>[String(i+1).padStart(2,'0'),{ticks:1000,points:30}])),pending:[],music:0,sfx:0}));});
+ await page.reload();await page.locator('[data-action="continue"]:not(:disabled)').waitFor();
+ await page.getByRole('button',{name:'The ten caves',exact:true}).click();
+ await page.locator('[data-action="level"][data-level="9"]').click();
+ const portrait=page.locator('.guide-portrait');
+ await portrait.waitFor();await page.waitForFunction(()=>{const img=document.querySelector('.guide-portrait');return img?.complete&&img.naturalWidth>0;});
+ await page.screenshot({path:`output/playwright/v05-${tag}-briefing.png`,fullPage:true});
+ const enter=page.getByRole('button',{name:'Enter cave',exact:true});await enter.scrollIntoViewIfNeeded();await enter.click();
+ await page.getByRole('button',{name:'Hint',exact:true}).click();
+ await portrait.waitFor();
+ const before=await page.locator('#timer').innerText();await page.waitForTimeout(350);if(before!==await page.locator('#timer').innerText())throw Error('Hint consumes time');
+ await page.emulateMedia({reducedMotion:'reduce'});
+ if(await portrait.evaluate(el=>getComputedStyle(el).animationName)!=='none')throw Error('Reduced motion ignored');
+ await page.emulateMedia({reducedMotion:'no-preference'});
+ const back=page.getByRole('button',{name:'Back to the cave',exact:true});await back.scrollIntoViewIfNeeded();await back.click();
+ await page.keyboard.press('Escape');await page.getByRole('button',{name:'Cave selection',exact:true}).click();
+ await page.locator('[data-action="home"]').first().click();await page.getByRole('button',{name:'Deutsch',exact:true}).click();
+ await page.getByText('Geplante Vollversion: 120 Level · 100 Hauptlevel + 20 Geheimlevel',{exact:true}).waitFor();
+ await page.getByRole('button',{name:'Die zehn Höhlen',exact:true}).click();await page.locator('[data-action="level"][data-level="5"]').click();
+ await page.getByAltText('Grün-roter Pseudodrache',{exact:true}).waitFor();
+ await page.getByText('DEIN HÖHLENBEGLEITER',{exact:true}).waitFor();
+ await page.screenshot({path:`output/playwright/v05-${tag}-briefing-de.png`,fullPage:true});
+ if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('Horizontal overflow');
+ if(errors.length)throw Error(errors.join('\n'));
+ return{status:'PASS',viewport:page.viewportSize(),checks:['readable footer and planned 120 levels','ranking sentence removed','guide in briefing and hint','English/German','reduced motion','hint pauses timer','buttons reachable'],publicWrites:false};
+}
