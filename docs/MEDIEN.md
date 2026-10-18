@@ -86,3 +86,8 @@ Die vorausgehenden Hebel-/Torentwürfe verbrauchten netto 56 Credits (Projektsta
 `artifacts/mechanism-production-01.json` dokumentiert die Entwürfe; `artifacts/mechanism-production-v0.7.json` sämtliche Integrationsversuche, Kosten, Prompts und Verwendungen. Verwendet werden der vollständige freigestellte Hebelarm samt Zahnrad und das geschlossene bemalte Holztor. `tools/prepare-mechanisms.mjs` beschneidet und verkleinert sie mit erhaltener Transparenz zu `mechanism-lever.webp` und `mechanism-gate.webp`.
 
 Der Hebel dreht sich um sein Zahnrad. Das geöffnete Tor zeigt ausgeschnittene Randteile desselben Rahmens; so springen Pfosten beim Schalten nicht. Das Magazin verwendet diesen Rahmen und vorhandene Felsgrafiken. Zustandsmarkierungen bleiben als lesbare UI darüber. Der separat generierte offene Torentwurf und unvollständige Freistellungen sind archiviert, aber nicht im Spiel. Keine weitere Musik- oder Miner-Generierung.
+
+
+## Eigenständige Aufgaben (0.8)
+
+Keine neuen Generierungen. Runway-Hebel, Tore, Miner und übrige Medien bleiben unverändert. Projektstand weiterhin 262 / 1.000 Credits netto (271 konservativ ohne Erstattungen).

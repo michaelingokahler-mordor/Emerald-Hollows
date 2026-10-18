@@ -1,0 +1,296 @@
+{
+  "date": "2026-10-18T18:31:01.837Z",
+  "note": "Actual deterministic solution routes, not optimality proofs or human play times. Local CPU timing is not Cloudflare CPU accounting.",
+  "levels": [
+    {
+      "id": "11",
+      "size": [
+        32,
+        22
+      ],
+      "nonWallCells": 200,
+      "quota": 22,
+      "timeLimit": 360,
+      "oldHash": "d6c32c97",
+      "newHash": "d6c32c97",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 19.1,
+          "points": 38,
+          "finds": 26,
+          "moves": 163,
+          "apiChunks": 2,
+          "maxLocalChunkMs": 0.75
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "size": [
+        36,
+        26
+      ],
+      "nonWallCells": 348,
+      "quota": 22,
+      "timeLimit": 420,
+      "oldHash": "35032cee",
+      "newHash": "35032cee",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 21.5,
+          "points": 31,
+          "finds": 25,
+          "moves": 170,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 0.97
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "size": [
+        40,
+        27
+      ],
+      "nonWallCells": 414,
+      "quota": 28,
+      "timeLimit": 480,
+      "oldHash": "f4d68568",
+      "newHash": "f4d68568",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 27.2,
+          "points": 36,
+          "finds": 28,
+          "moves": 216,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 1.63
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "size": [
+        48,
+        30
+      ],
+      "nonWallCells": 257,
+      "quota": 36,
+      "timeLimit": 600,
+      "oldHash": "1492a97a",
+      "newHash": "f594abf0",
+      "routes": [
+        {
+          "name": "west",
+          "status": "won",
+          "seconds": 28,
+          "points": 40,
+          "finds": 34,
+          "moves": 242,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 1.38
+        },
+        {
+          "name": "east",
+          "status": "won",
+          "seconds": 22.7,
+          "points": 39,
+          "finds": 29,
+          "moves": 196,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 1.11
+        },
+        {
+          "name": "gallery",
+          "status": "won",
+          "seconds": 28.9,
+          "points": 43,
+          "finds": 35,
+          "moves": 252,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 1.42
+        },
+        {
+          "name": "workshop",
+          "status": "won",
+          "seconds": 28.5,
+          "points": 37,
+          "finds": 31,
+          "moves": 252,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 1.01
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "size": [
+        36,
+        28
+      ],
+      "nonWallCells": 132,
+      "quota": 30,
+      "timeLimit": 600,
+      "oldHash": "e0714f9d",
+      "newHash": "4a5d23d9",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 19.5,
+          "points": 35,
+          "finds": 27,
+          "moves": 133,
+          "apiChunks": 2,
+          "maxLocalChunkMs": 1.27
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "size": [
+        46,
+        31
+      ],
+      "nonWallCells": 183,
+      "quota": 40,
+      "timeLimit": 600,
+      "oldHash": "09ea0506",
+      "newHash": "5c8c3864",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 36.6,
+          "points": 47,
+          "finds": 33,
+          "moves": 306,
+          "apiChunks": 4,
+          "maxLocalChunkMs": 1.03
+        },
+        {
+          "name": "lower",
+          "status": "won",
+          "seconds": 39.8,
+          "points": 47,
+          "finds": 33,
+          "moves": 354,
+          "apiChunks": 4,
+          "maxLocalChunkMs": 1.39
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "size": [
+        44,
+        32
+      ],
+      "nonWallCells": 165,
+      "quota": 38,
+      "timeLimit": 600,
+      "oldHash": "4e75a86b",
+      "newHash": "624f8374",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 25.5,
+          "points": 39,
+          "finds": 31,
+          "moves": 223,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 0.44
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "size": [
+        48,
+        32
+      ],
+      "nonWallCells": 263,
+      "quota": 36,
+      "timeLimit": 600,
+      "oldHash": "c816808e",
+      "newHash": "6f09f8ba",
+      "routes": [
+        {
+          "name": "safe",
+          "status": "won",
+          "seconds": 23.1,
+          "points": 45,
+          "finds": 27,
+          "moves": 210,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 0.46
+        },
+        {
+          "name": "fast",
+          "status": "won",
+          "seconds": 16.9,
+          "points": 41,
+          "finds": 23,
+          "moves": 130,
+          "apiChunks": 2,
+          "maxLocalChunkMs": 0.48
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "size": [
+        44,
+        30
+      ],
+      "nonWallCells": 200,
+      "quota": 38,
+      "timeLimit": 600,
+      "oldHash": "8161cd7a",
+      "newHash": "0fa3e74e",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 47,
+          "points": 41,
+          "finds": 31,
+          "moves": 391,
+          "apiChunks": 5,
+          "maxLocalChunkMs": 0.83
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "size": [
+        48,
+        34
+      ],
+      "nonWallCells": 209,
+      "quota": 44,
+      "timeLimit": 600,
+      "oldHash": "7242a4d6",
+      "newHash": "fdf6d284",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 35,
+          "points": 47,
+          "finds": 35,
+          "moves": 274,
+          "apiChunks": 4,
+          "maxLocalChunkMs": 0.95
+        }
+      ]
+    }
+  ]
+}

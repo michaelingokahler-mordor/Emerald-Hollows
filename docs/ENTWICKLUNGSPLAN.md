@@ -22,6 +22,10 @@ Level 11–20 sind spielbar: Hebel und gekoppelte Tore, blaue Rechts- und lila L
 
 Level 11–20 sind neu gebaut; ab Kapitelstufe 4 stehen größere Abbaugebiete und Routenwahl im Vordergrund. Die Karten wachsen bis 64 × 40. Obligatorische Käferaufgaben bleiben verbindlich. Runway-Hebel und -Tore ersetzen die gezeichneten Platzhalter. Nur für diese neuen Kartenrevisionen beginnen die Ranglisten neu; Freischaltungen und Level 01–10 bleiben erhalten. Siehe [Prüfbericht](PRUEFBERICHT.md) für reale Lösungszeiten und offene menschliche Abnahme. Die früheren Minutenprognosen wurden durch die gemessenen Replays nicht bestätigt.
 
+## Lieferung 0.8: Eigenständige Aufgaben und Umgehungsschutz
+
+14–20 wurden neu entworfen; 11–13 bleiben bestehen. Die Änderungen und Gegenprüfungen stehen in [Kapitelrollen 0.8](KAPITEL-2-ROLLEN-0.8.md). Ab jetzt gelten die [Leveldesign-Regeln](LEVELDESIGN-REGELN.md) für kommende Kapitel. Vor dem Bau von 21–30 werden Leitentscheidung, Folge, Sammelplanung und Abgrenzung je Karte festgehalten; ein Lösungsreplay allein ist keine Abnahme.
+
 ## Weitere Kapitel — ab 21 noch nicht implementiert
 
 | Level | Einführung und Schwerpunkt |

@@ -15,7 +15,7 @@ export function solve(level:LevelDefinition,initialWait=0):Simulation {
         const obstacles=new Set(sim.state.entities.filter(e=>e.kind==='rock'||isCrawler(e.kind)).map(e=>`${e.x},${e.y}`));
         const queue=[{...sim.state.player,first:undefined as Direction|undefined}],seen=new Set([`${sim.state.player.x},${sim.state.player.y}`]);let next:Direction|undefined;
         for(let i=0;i<queue.length;i++){const n=queue[i];if(targets.has(`${n.x},${n.y}`)){next=n.first;break;}for(const dir of DIRECTIONS){const d=DELTAS[dir],nx=n.x+d.x,ny=n.y+d.y,key=`${nx},${ny}`;if(seen.has(key)||obstacles.has(key)||!['earth','empty'].includes(sim.terrainAt(nx,ny)))continue;seen.add(key);queue.push({x:nx,y:ny,direction:dir,first:n.first??dir});}}
-        if(!next)throw Error(`${level.id}: unreachable deposit ${instruction} at ${sim.state.player.x},${sim.state.player.y}; remaining ${[...targets].join(" ")}`);tick({direction:next});
+        if(!next)throw Error(`${level.id}: unreachable deposit ${instruction} at ${sim.state.player.x},${sim.state.player.y}; remaining ${[...targets].join(" ")}; obstacles ${JSON.stringify(sim.state.entities.filter(e=>isCrawler(e.kind)||e.kind==='rock'))}`);tick({direction:next});
       }continue;
     }
     if(op==='use'){tick({direction:p as Direction,snap:true});tick();continue;}
@@ -44,7 +44,7 @@ export function solve(level:LevelDefinition,initialWait=0):Simulation {
           seen.add(key);queue.push({x,y,path:[...current.path,dir]});
         }
       }
-      if(!path?.length)throw new Error(`${level.id}: no route to ${tx},${ty} at tick ${sim.state.tick}`);
+      if(!path?.length)throw new Error(`${level.id}: no route to ${tx},${ty} at tick ${sim.state.tick}, points ${sim.state.points}/${level.quota}, objective ${sim.state.objectiveDone}`);
       tick({direction:path[0]});
       if(sim.state.status==='won')break;
     }

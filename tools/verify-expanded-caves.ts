@@ -1,6 +1,6 @@
 import {writeFile} from 'node:fs/promises';
 import {CHAPTER_TWO,CHAPTER_TWO_ROUTES} from '../src/chapter-two';
-import {CHAPTER_TWO as OLD} from '../src/chapter-two-v06';
+import {CHAPTER_TWO as OLD} from '../src/chapter-two-v07';
 import {levelHash,runReplay,Simulation} from '../src/core/simulation';
 import {solve} from './solution';
 import {verifyChunk} from '../server/worker';
@@ -19,5 +19,5 @@ for(const level of CHAPTER_TWO){
  const cells=[...level.map.join('')],previous=OLD.find(l=>l.id===level.id)!;
  report.push({id:level.id,size:[level.width,level.height],nonWallCells:cells.filter(c=>c!=='#'&&c!=='X').length,quota:level.quota,timeLimit:level.timeSeconds,oldHash:levelHash(previous),newHash:levelHash(level),routes});
 }
-await writeFile('artifacts/expanded-caves-verification.json',JSON.stringify({date:new Date().toISOString(),note:'Actual deterministic solution routes, not optimality proofs or human play times. Local CPU timing is not Cloudflare CPU accounting.',levels:report},null,2)+'\n');
+await writeFile('artifacts/distinct-caves-verification.json',JSON.stringify({date:new Date().toISOString(),note:'Actual deterministic solution routes, not optimality proofs or human play times. Local CPU timing is not Cloudflare CPU accounting.',levels:report},null,2)+'\n');
 console.table(report.map(l=>({id:l.id,area:l.nonWallCells,quota:l.quota,seconds:l.routes[0].seconds,finds:l.routes[0].finds,alternatives:l.routes.length})));

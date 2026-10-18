@@ -159,3 +159,5 @@ export const LEGACY_LEVELS:LevelDefinition[]=[
 }
 ,...CHAPTER_TWO_V06
 ];
+import {CHAPTER_TWO as CHAPTER_TWO_V07} from './chapter-two-v07';
+LEGACY_LEVELS.push(...CHAPTER_TWO_V07.filter(l=>Number(l.id)>=14));

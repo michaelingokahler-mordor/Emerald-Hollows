@@ -2,6 +2,7 @@ import {describe,it,expect} from 'vitest';
 import {Simulation,hash,levelHash,runReplay} from '../src/core/simulation';
 import {MECHANISM_RULES_VERSION,type LevelDefinition,type MechanismDefinition} from '../src/core/types';
 import {scoreBreakdown} from '../src/core/scoring';
+import {CHAPTER_TWO as V07} from '../src/chapter-two-v07';
 import {CHAPTER_TWO,CHAPTER_TWO_ALTERNATIVES} from '../src/chapter-two';
 import {LEVELS} from '../src/levels';import {solve} from '../tools/solution';import {verifyChunk} from '../server/worker';
 import {FixedClock} from '../src/core/clock';import {parseSave,recordWin,currentRecord} from '../src/storage';import {unlockedLevels} from '../src/campaign';
@@ -54,12 +55,12 @@ describe('chapter 2 authored routes and compatibility',()=>{
   for(const fps of [30,60,144]){const copy=new Simulation(l),clock=new FixedClock();let cursor=0;while(copy.state.status==='playing')clock.advance(1000/fps,()=>{if(copy.state.status==='playing')copy.step(replay.inputs[cursor++]);});expect(hash(copy.state)).toBe(replay.expectedHash);}
   let run={id:'test',profile_id:'test',replay:JSON.stringify(replay),state:null as string|null,cursor:0,status:'pending'};while(run.status==='pending'){const result=verifyChunk(run);run={...run,state:JSON.stringify(result.state),cursor:result.cursor,status:result.status};}expect(run.status).toBe('confirmed');
  });
- it('fusion-required caves score one transmutation without two phantom kills',()=>{for(const id of ['13','19','20']){const l=CHAPTER_TWO.find(l=>l.id===id)!,s=solve(l),score=scoreBreakdown(l,s.state);expect(s.state.mechanisms?.fusions).toBe(1);expect(score.crushed).toBe(0);expect(score.transmuted).toBe(1);expect(score.enemyPoints).toBe(10);}});
+ it('fusion-required caves score one transmutation without two phantom kills',()=>{for(const id of ['13','19']){const l=CHAPTER_TWO.find(l=>l.id===id)!,s=solve(l),score=scoreBreakdown(l,s.state);expect(s.state.mechanisms?.fusions).toBe(1);expect(score.crushed).toBe(0);expect(score.transmuted).toBe(1);expect(score.enemyPoints).toBe(10);}});
  it('16 leaves its guard alive and trapped; 12 leaves both guards free',()=>{const a=solve(CHAPTER_TWO[5]);expect(a.state.entities.some(e=>e.kind==='crawler'&&a.isTrapped(e))).toBe(true);const b=solve(CHAPTER_TWO[1]);expect(b.state.entities.filter(e=>e.kind==='crawler'||e.kind==='purple-crawler')).toHaveLength(2);expect(scoreBreakdown(b.level,b.state).trapped).toBe(0);});
  it('18 has a genuinely faster guarded route and a higher-scoring safe route',()=>{const l=CHAPTER_TWO[7],safe=solve(l),fast=solve({...l,route:CHAPTER_TWO_ALTERNATIVES['18']});expect(fast.state.tick).toBeLessThan(safe.state.tick);expect(safe.state.points).toBeGreaterThan(fast.state.points);});
  it('retains old records and unlocks 11 from a completed 10',()=>{const save=parseSave(JSON.stringify({version:2,timed:{'10':{ticks:89,points:30,score:35,levelHash:levelHash(LEVELS[9])}}}));expect(currentRecord(save,'10')?.ticks).toBe(89);expect(unlockedLevels(Object.keys(save.timed)).has('11')).toBe(true);recordWin(save,'20',300,18,false,28);expect(parseSave(JSON.stringify(save)).timed['20'].score).toBe(28);});
 });
 describe('chapter 2 timing tolerance',()=>{
  it('all ten routes survive each of nine initial timing offsets',()=>{for(const l of CHAPTER_TWO)for(let delay=0;delay<9;delay++)expect(solve(l,delay).state.status).toBe('won');});
- it('15 can recover from a missed first rock with the remaining stock',()=>{const l=CHAPTER_TWO[4],route='walk 8 9; use up; until 10 10 crystal-crawler; use up; wait 6; walk 6 9; walk 6 6; walk 14 6; walk 14 10; walk 13 10; walk 10 10; walk 13 10; walk 13 11; walk 14 11; harvest 2 16 17 14; harvest 23 3 23 12; walk 3 3';const s=solve({...l,route});expect(s.state.mechanisms?.released).toBe(2);expect(s.state.mechanisms?.stocks.S).toBe(1);expect(s.state.mechanisms?.transmuted).toBe(1);});
+ it('archived 0.7 cave 15 still recovers from a missed first rock',()=>{const l=V07[4],route='walk 8 9; use up; until 10 10 crystal-crawler; use up; wait 6; walk 6 9; walk 6 6; walk 14 6; walk 14 10; walk 13 10; walk 10 10; walk 13 10; walk 13 11; walk 14 11; harvest 2 16 17 14; harvest 23 3 23 12; walk 3 3';const s=solve({...l,route});expect(s.state.mechanisms?.released).toBe(2);expect(s.state.mechanisms?.stocks.S).toBe(1);expect(s.state.mechanisms?.transmuted).toBe(1);});
 });

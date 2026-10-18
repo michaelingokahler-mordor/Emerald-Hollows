@@ -38,9 +38,11 @@ The opening caves introduce collecting, falling rocks, pushing, and rolling. Cav
 
 Cave 10 is the first substantial combined challenge. Three required diamonds lie beyond a guarded passage. Both containment and a rock trap are supported solutions; the layout makes dealing with the passage necessary without an extra mandatory crawler objective.
 
-Chapter 2, **The Abandoned Workings (11–20)**, introduces linked gates in 11, opposite crawler directions and fusion in 12, and finite rock magazines in 13. From cave 14 onward, familiar mechanisms serve larger mining expeditions with several deposits and alternative collection routes. Cave 14 offers 53 points for a quota of 36; any three of its four districts suffice. Cave 16 requires a live trapped guard. Cave 18 supports a faster guarded route. Cave 20 spans 64 × 40 cells with five mining districts; its main verified route collects 69 crystals. Every dispenser apparatus remains visible from its controls.
+Chapter 2, **The Abandoned Workings (11–20)**, introduces linked gates, opposite crawler directions, fusion and finite rock magazines in 11–13. Version 0.8 rebuilds 14–20 around different decisions: choosing three ore districts, trapping a living crawler with a dropped rock, securing a mining junction, preparing a disposal shaft for the return journey, choosing a guarded shortcut, joining two separately released patrols, and using the same rock first against a guard and then moving it out of the passage.
 
-Version 0.7 replaces maps 11–20 and starts fresh best times for those revisions. Caves 01–10 and their records are unchanged. Recorded automated solutions take roughly 19–70 seconds, depending on the cave and route; these are not human first-play estimates. The earlier 3–6 minute design target has not been demonstrated. No waiting or movement slowdown was added to force that duration.
+Only maps 14–20 start fresh best times in 0.8. Caves 01–13 and their records remain unchanged; existing unlocks survive. The collecting-only bypass in 17 is closed and tested. Verified routes in the revised caves take about 17–47 seconds. They are known automated solutions, not human first-play estimates, and some are shorter than in 0.7. Distinct decisions take priority over adding floor area. Human playtesting is still required.
+
+[Current chapter roles](docs/KAPITEL-2-ROLLEN-0.8.md) and [level design rules for future chapters](docs/LEVELDESIGN-REGELN.md) document the implementation and acceptance checks (German).
 
 Completing a cave in timed or practice mode unlocks the next one. Their results remain separate. Best times are compared only within the same map revision. Existing unlocks are preserved when a cave changes; pending results from older revisions are still checked and archived.
 

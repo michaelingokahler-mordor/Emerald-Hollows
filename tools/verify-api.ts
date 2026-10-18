@@ -3,6 +3,7 @@ import {MECHANISM_RULES_VERSION} from '../src/core/types';
 import assert from 'node:assert/strict';
 import {writeFile} from 'node:fs/promises';
 import {LEVELS} from '../src/levels';
+import {CHAPTER_TWO as V07} from '../src/chapter-two-v07';
 import {LEGACY_LEVELS} from '../src/legacy-levels';
 import {solve} from './solution';
 const base=process.env.TEST_API??'http://127.0.0.1:8787';
@@ -35,6 +36,10 @@ const oldChapter=solve(LEGACY_LEVELS.find(l=>l.id==='20')!).exportReplay(),oldCh
 await call('/runs',{id:oldChapterId,replay:oldChapter},auth,201);
 let oldStatus='pending';while(oldStatus==='pending')oldStatus=(await call('/runs/'+oldChapterId+'/verify',{},auth)).status;
 assert.equal(oldStatus,'confirmed');assert.ok(!(await call('/leaderboard/20')).entries.some((e:any)=>e.nickname===nameA));
+const v07=solve(V07.find(l=>l.id==='20')!).exportReplay(),v07id=crypto.randomUUID();
+await call('/runs',{id:v07id,replay:v07},auth,201);
+let v07status='pending';while(v07status==='pending')v07status=(await call('/runs/'+v07id+'/verify',{},auth)).status;
+assert.equal(v07status,'confirmed');assert.ok(!(await call('/leaderboard/20')).entries.some((e:any)=>e.nickname===nameA));
 for(const level of LEVELS.filter(l=>['06','07','09','10'].includes(l.id))){
  const replay=solve(level).exportReplay(),runId=crypto.randomUUID();
  await call('/runs',{id:runId,replay},auth,201);
@@ -44,7 +49,7 @@ for(const level of LEVELS.filter(l=>['06','07','09','10'].includes(l.id))){
 }
 assert.ok((await call('/health')).supportedRules.includes(MECHANISM_RULES_VERSION));
 for(const level of LEVELS.slice(10)){const sim=solve(level),replay=sim.exportReplay(),runId=crypto.randomUUID();await call('/runs',{id:runId,replay},auth,201);let status='pending';while(status==='pending')status=(await call('/runs/'+runId+'/verify',{},auth)).status;assert.equal(status,'confirmed');assert.ok((await call('/leaderboard/'+level.id)).entries.some((e:any)=>e.nickname===nameA&&e.score===scoreBreakdown(level,sim.state).total));}
-recovered=await call('/profile',undefined,auth);assert.equal(recovered.records.length,15);assert.equal(recovered.archivedRecords.length,2);
+recovered=await call('/profile',undefined,auth);assert.equal(recovered.records.length,15);assert.equal(recovered.archivedRecords.length,3);
 await call('/runs',{id:crypto.randomUUID(),replay:{...r,practice:true}},auth,400);
 await call('/runs',{id:crypto.randomUUID(),replay:{...r,inputs:[{direction:'cheat'}]}},auth,400);
 const wrong=crypto.randomUUID();await call('/runs',{id:wrong,replay:{...solve(LEVELS[0]).exportReplay(),expectedHash:'aaaaaaaa'}},auth,201);assert.equal((await call('/runs/'+wrong+'/verify',{},auth)).status,'rejected');
@@ -60,5 +65,5 @@ assert.ok(rank(nameC)<rank(nameB)&&rank(nameB)<rank(nameA));
 await submit(solve(highLevel).exportReplay(),auth);scored=(await call('/leaderboard/08')).entries;assert.equal(rank(nameA),rank(nameB));
 await submit(solve(highLevel,1).exportReplay(),auth);const best=(await call('/profile',undefined,auth)).records.find((r:any)=>r.level_id==='08');assert.equal(best.ticks,66);assert.equal(best.score,18);assert.equal(best.points,18);
 
-const report={date:new Date().toISOString(),target:'local Wrangler/D1',status:'PASS',checks:['profile creation','auth ownership','recovery','bounded verification','idempotent upload','leaderboard','practice rejection','invalid inputs','wrong final hash','CORS','archived 0.2 and 0.6 runs accepted and excluded from current boards','four revised caves confirmed with score','all ten chapter 2 levels verified with scores and checkpoint continuation','time first and score tiebreaker','equal-score equal-time shared rank','slower score cannot replace faster record','recovery retains archived unlocks'],verificationRequests:requests};
+const report={date:new Date().toISOString(),target:'local Wrangler/D1',status:'PASS',checks:['profile creation','auth ownership','recovery','bounded verification','idempotent upload','leaderboard','practice rejection','invalid inputs','wrong final hash','CORS','archived 0.2, 0.6 and 0.7 runs accepted and excluded from current boards','four revised caves confirmed with score','all ten chapter 2 levels verified with scores and checkpoint continuation','time first and score tiebreaker','equal-score equal-time shared rank','slower score cannot replace faster record','recovery retains archived unlocks'],verificationRequests:requests};
 await writeFile('artifacts/api-verification.json',JSON.stringify(report,null,2)+'\n');console.log(report);

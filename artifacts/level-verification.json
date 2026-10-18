@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-18T17:05:31.107Z",
+  "verifiedAt": "2026-10-18T18:30:59.866Z",
   "levels": [
     {
       "id": "01",
@@ -120,74 +120,74 @@
     },
     {
       "id": "14",
-      "name": "Wechselverkehr",
+      "name": "Die vier Reviere",
       "status": "won",
-      "ticks": 272,
+      "ticks": 280,
       "points": 40,
       "score": 40,
-      "hash": "71ca80f7"
+      "hash": "bfcece5e"
     },
     {
       "id": "15",
-      "name": "Stein für Stein",
+      "name": "Der steinerne Riegel",
       "status": "won",
-      "ticks": 322,
-      "points": 44,
-      "score": 54,
-      "hash": "0f6a2599"
+      "ticks": 195,
+      "points": 35,
+      "score": 40,
+      "hash": "7d88905a"
     },
     {
       "id": "16",
-      "name": "Der Besucher",
+      "name": "Der bewachte Knoten",
       "status": "won",
-      "ticks": 257,
-      "points": 49,
-      "score": 54,
-      "hash": "ceda7d26"
+      "ticks": 366,
+      "points": 47,
+      "score": 52,
+      "hash": "0c4e3816"
     },
     {
       "id": "17",
-      "name": "Der Rückweg",
+      "name": "Der vorbereitete Rückweg",
       "status": "won",
-      "ticks": 479,
-      "points": 72,
-      "score": 72,
-      "hash": "a9561e0d"
+      "ticks": 255,
+      "points": 39,
+      "score": 39,
+      "hash": "7dc81223"
     },
     {
       "id": "18",
-      "name": "Der lange oder der kurze Weg",
+      "name": "Die Abkürzung",
       "status": "won",
-      "ticks": 510,
-      "points": 92,
-      "score": 92,
-      "hash": "5f6db94b"
+      "ticks": 231,
+      "points": 45,
+      "score": 45,
+      "hash": "20a4dfba"
     },
     {
       "id": "19",
-      "name": "Das richtige Treffen",
+      "name": "Zwei getrennte Wege",
       "status": "won",
-      "ticks": 540,
-      "points": 80,
-      "score": 90,
-      "hash": "7263852b"
+      "ticks": 470,
+      "points": 41,
+      "score": 51,
+      "hash": "2ae91154"
     },
     {
       "id": "20",
-      "name": "Das alte Förderwerk",
+      "name": "Der letzte Abtransport",
       "status": "won",
-      "ticks": 649,
-      "points": 103,
-      "score": 113,
-      "hash": "bd16fef8"
+      "ticks": 350,
+      "points": 47,
+      "score": 52,
+      "hash": "964a09c7"
     }
   ],
   "chapterAlternatives": [
     {
       "id": "18",
       "method": "shortcut",
-      "ticks": 311,
-      "points": 63
+      "ticks": 169,
+      "points": 41
     }
   ],
   "alternativeSolutions": [

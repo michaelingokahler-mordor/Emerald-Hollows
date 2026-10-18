@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const checksum=b=>createHash('sha256').update(b).digest('hex');
 const results=[];
 for(const kind of ['web','source']){
-  const name=`emerald-hollows-0.7.0-${kind}.zip`;
+  const name=`emerald-hollows-0.8.0-${kind}.zip`;
   const raw=await readFile('release/'+name),zip=unzipSync(raw),keys=Object.keys(zip);
   assert(keys.every(k=>!k.startsWith('/')&&!k.includes('..')&&!k.includes('node_modules')&&!k.includes('.env')&&!k.includes('/private/')&&!k.includes('.wrangler')&&!k.includes('.dev.vars')));
   const prefix=kind==='web'?'web/':'public/';

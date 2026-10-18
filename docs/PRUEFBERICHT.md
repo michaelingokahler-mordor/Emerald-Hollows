@@ -1,3 +1,54 @@
+# Lathmar: Emerald Hollows 0.8.0 – unterschiedliche Aufgaben
+
+Stand: 18. Oktober 2026. Geändert wurden ausschließlich die Kartenrevisionen 14–20. 01–13, Simulationstakt, Laufanimation, Spielregeln und Runway-Medien bleiben erhalten. Die Varianten von 0.7 sind für ausstehende Offline-Replays archiviert.
+
+## Was sich spielerisch ändert
+
+14 bietet vier unterschiedlich gebaute Reviere. 15 nutzt einen Spenderfels als lebendigen Riegel. 16 sichert einen verzweigten Knoten. 17 verlangt einen vorbereiteten Entsorgungsschacht und das Verschieben des Rückwegfelsens. 18 verbindet einen sicheren, reicheren Umweg mit einer schnelleren bewachten Route. 19 führt zwei getrennt freigegebene Patrouillen zusammen und nutzt einen natürlichen Felsen statt eines Spenders. 20 verwendet denselben Felsen zuerst gegen einen Gegner und anschließend als zu verschiebendes Hindernis.
+
+Die Karten 14–20 verwenden keine skalierten Sammelraumvorlagen mehr. Die neuen Stollen sind teilweise kompakter. Bekannte automatische Wege wurden dadurch teilweise kürzer; eine längere menschliche Spielzeit wird nicht behauptet. Aktuelle Rollen: [KAPITEL-2-ROLLEN-0.8.md](KAPITEL-2-ROLLEN-0.8.md). Verbindliche Folgerungen für kommende Kapitel: [LEVELDESIGN-REGELN.md](LEVELDESIGN-REGELN.md), auch in `AGENTS.md` verankert.
+
+| Level | Raster | Quote | Hauptreplay |
+|---|---|---|---|
+| 14 | 48 × 30 | 36 | 28.0 s |
+| 15 | 36 × 28 | 30 | 19.5 s |
+| 16 | 46 × 31 | 40 | 36.6 s |
+| 17 | 44 × 32 | 38 | 25.5 s |
+| 18 | 48 × 32 | 36 | 23.1 s |
+| 19 | 44 × 30 | 38 | 47.0 s |
+| 20 | 48 × 34 | 44 | 35.0 s |
+
+18: sichere Route 23,1 s / 45 Kristallpunkte, schnelle Route 16,9 s / 41 Kristallpunkte. Diese Eingabefolgen sind verifiziert, nicht als optimal bewiesen. Es liegen noch keine neuen menschlichen Rekorde oder Erstspielzeiten für 0.8 vor.
+
+## Automatisierte Prüfung
+
+- **168 Tests bestanden.** Alle 20 Hauptlösungen und angebotenen Alternativen erfolgreich. Kapitel 2 enthält 15 dokumentierte Routen insgesamt, einschließlich der Hauptwege.
+- Alle zehn Kapitel-2-Hauptwege bestehen bei neun anfänglichen Timing-Verschiebungen sowie mit identischen Ergebnissen bei 30/60/144 Render-FPS. Checkpoint-Rekonstruktion, Zurücksetzen und Server-Verifikation bestehen.
+- **17:** alter 0.7-Sammel-Bypass scheitert. Vorbereitung, Umschalten und Verschieben separat ausgelassen: kein Erfolg. Zusätzlicher struktureller Erreichbarkeitstest nach der Schaltung: der Fels trennt Ausgang und Vorbereitungsstelle vom Spieler; ohne das Hindernis ist der Ausgang erreichbar. Westliche Beute allein liegt unter der Quote. Diese Nachweise gehen über den Erfolg einer einzelnen Musterlösung hinaus.
+- **15:** ein ausgegebener Fels, kein getöteter Gegner, Blau lebt in einer Zweierzelle. Ohne Ausgabe kein Zielabschluss.
+- **19:** beide Freigaben nötig, genau eine Fusion und Umwandlung, kein Spender vorhanden.
+- **20:** gezieltes Zerquetschen, mindestens ein Schiebeereignis, Fels in der stabilen Ablage und entfernter Ausgangshebel. Auch eine volle Sekunde Pause nach dem Schieben ist geprüft. Gegenläufe ohne Schieben oder Ausgangsschaltung scheitern.
+- Lokaler Wrangler/D1-Test bestätigt sämtliche aktuellen Kapitel-2-Replays und die Archivierung von 0.2-, 0.6- und 0.7-Durchläufen. Freischaltungen bleiben erhalten. Keine öffentlichen Testprofile oder Rekorde erzeugt.
+- Produktionsbuild, TypeScript und Worker-Bundle erfolgreich. ZIP-Prüfung und Veröffentlichung erhalten separate Auslieferungsnachweise.
+
+Nachweise: `artifacts/distinct-caves-verification.json`, `artifacts/level-verification.json`, `artifacts/api-verification.json`, `tests/distinct-caves.test.ts`.
+
+## Tatsächlich durchgeführte Browserprüfungen
+
+Chrome 1280 × 720/DPR 1, Edge 1920 × 1080/DPR 2 sowie Chrome-Touchemulation 390 × 844/DPR 3: alle sieben geänderten Karten vom Menü bis zum erfolgreichen Abschluss. Für diese systematischen Durchläufe wurde die Replay-Uhr sechsfach beschleunigt. EN/DE und Freischaltungen aus 0.7 geprüft. Die beobachteten Bedienansichten passen vollständig in die Kamera.
+
+Separater normaler Spieltakt: zwei gleichzeitige CDP-Touchpunkte geben bei gehaltenem Hebel genau einen Felsen aus; erneutes Drücken per Tastatur einen weiteren. Pause/Neuladen behält den Vorrat, Neustart setzt ihn zurück. Querformat 844 × 390/DPR 3 ohne horizontale Überbreite; Bedienansicht etwa 40,7 CSS-Pixel pro Kachel.
+
+Der Produktionsbuild startet nach Offline-Neuladen, zeigt alle zwanzig Karten und spielt das Finale bei normalem Takt erfolgreich bis zum Ende. Englische Hilfe geprüft. Der absichtlich offline angeforderte `online.json`-Abruf erzeugt einen erwarteten Netzwerkfehler; Spiel und Replay laufen aus dem Cache.
+
+Level 19 wurde zusätzlich bei normalem Takt auf der mobilen Emulation abgespielt: beide getrennten Beobachtungsansichten bleiben vollständig sichtbar (etwa 36,6 bzw. 33,4 CSS-Pixel je Kachel). Nach der letzten Anpassung der stabilen Felsablage wurde das Finale erneut geprüft.
+
+Kein physisches Handy getestet, keine neue menschliche Spiel- oder Hörabnahme. Ob die Änderungen subjektiv ausreichend abwechslungsreich sind, bleibt ausdrücklich offen. Keine neuen Mediengenerierungen; Runway-Projektstand 262 Credits netto.
+
+Die folgenden Abschnitte sind historische Prüfungen früherer Versionen.
+
+---
+
 # Lathmar: Emerald Hollows 0.7.0 – größere Fördergänge
 
 Stand: 18. Oktober 2026. Level 11–20 wurden neu aufgebaut. 11–13 führen die Mechanismen ein; ab 14 verbinden größere Abbaugebiete, verteilte Edelsteine und mehrere Sammelwege die Apparaturen. Hebel und Tore verwenden jetzt die Runway-Motive. Bewegungstempo, Regeln und Miner-Animation bleiben erhalten.

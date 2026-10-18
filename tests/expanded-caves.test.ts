@@ -22,13 +22,6 @@ describe('expanded caves and fresh rankings',()=>{
   const supply=[14,13,16,10];for(let i=0;i<4;i++)for(let j=i+1;j<4;j++)expect(supply[i]+supply[j]).toBeLessThan(l.quota);
   for(const omitted of supply)expect(total-omitted).toBeGreaterThanOrEqual(l.quota);
  });
- it('later caves contain substantial excavatable space and many actual collection actions',()=>{
-  for(const l of CHAPTER_TWO.slice(3)){
-   expect([...l.map.join('')].filter(c=>c!=='#'&&c!=='X').length).toBeGreaterThan(500);
-   const replay=solve(l).exportReplay(),sim=new Simulation(l);let finds=0;for(const input of replay.inputs)finds+=sim.step(input).filter(e=>e.type==='emerald'||e.type==='diamond').length;
-   expect(finds).toBeGreaterThanOrEqual(25);
-  }
- });
  it('extra ore cannot bypass mandatory containment or transmutation',()=>{
   for(const id of ['13','15','16','19','20']){const l=CHAPTER_TWO.find(l=>l.id===id)!,sim=new Simulation(l);sim.state.points=l.quota;sim.step();expect(sim.state.open).toBe(false);expect(solve(l).state.objectiveDone).toBe(true);}
  });

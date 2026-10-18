@@ -1,0 +1,81 @@
+{
+  "at": "2026-10-18T18:29:44.053154+00:00",
+  "status": "PASS",
+  "changedLevels": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "replaySpeed": 6,
+  "environments": [
+    {
+      "browser": "Chrome",
+      "viewport": [
+        1280,
+        720
+      ],
+      "dpr": 1
+    },
+    {
+      "browser": "Edge",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "dpr": 2
+    },
+    {
+      "browser": "Chrome touch emulation",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 3
+    }
+  ],
+  "normalClockControls": {
+    "twoSimultaneousTouchPoints": true,
+    "heldSingleRock": true,
+    "keyboardRepressSecondRock": true,
+    "pauseReloadPreservesStock": true,
+    "restartRestoresStock": true,
+    "landscape": [
+      844,
+      390,
+      3
+    ]
+  },
+  "productionOffline": {
+    "normalClock": true,
+    "reload": true,
+    "all20Caves": true,
+    "level20Won": true,
+    "englishHelp": true
+  },
+  "physicalPhone": false,
+  "humanPlaytest": false,
+  "normalClockLevel19": {
+    "won": true,
+    "views": [
+      {
+        "x": 7,
+        "width": 10,
+        "cellCss": 36.6265
+      },
+      {
+        "x": 14,
+        "width": 11,
+        "cellCss": 33.4066
+      }
+    ],
+    "clipped": false
+  },
+  "finaleRevisionRecheck": [
+    "Chrome mobile 390x844, sixfold replay",
+    "Chrome production offline, normal clock"
+  ]
+}
