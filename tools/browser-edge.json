@@ -1,0 +1,1 @@
+{"browser":{"browserName":"chromium","launchOptions":{"channel":"msedge","headless":true},"contextOptions":{"viewport":{"width":1920,"height":1080},"deviceScaleFactor":2}}}

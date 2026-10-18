@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "rulesVersion": "crystal-delve/1",
+  "levelId": "08",
+  "levelHash": "41597140",
+  "practice": false,
+  "inputs": [
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    }
+  ],
+  "expectedHash": "5dad0cdf"
+}

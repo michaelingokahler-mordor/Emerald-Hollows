@@ -1,0 +1,183 @@
+{
+  "limit": 1000,
+  "startingBalance": 2874,
+  "entries": [
+    {
+      "key": "tiles",
+      "prompt": "A production-ready sprite texture atlas for an original 2D cave puzzle game, high resolution hand painted Amiga adventure art, warm earthy brown, slate blue rock, emerald green, brushed bronze. EXACTLY a 4 by 4 grid of equal square cells, no gutters, no labels, no text, orthographic FRONT VIEW cave cross-section, never isometric. Every cell has a flat near-black background #101b20. Each object centered with 12 percent padding. Row 1 left to right: compact brown soil with roots filling the whole tile; alternate soil texture filling tile; dark layered slate stone wall filling tile; dark riveted iron reinforced wall filling tile. Row 2: one heavy rounded grey boulder; one faceted luminous green emerald; one angular icy blue-white diamond; a wooden mine doorway closed with dark door. Row 3: the same wooden mine doorway open with restrained teal interior light; small original six-legged slate-blue cave beetle facing right; same beetle in a second walking pose facing right; same beetle in a third walking pose facing right. Row 4: subtle very dark cave rock background tile filling tile; weathered warm masonry tile filling tile; a few tiny amber dust particles centered; fourth beetle walking pose facing right. All objects readable at 64px. Painterly outlined material shading, restrained highlights, rich textures, beautiful coherent game art. No bloom, no pixelation, no 3D renders.",
+      "taskId": "4bbb88b4-b439-4c54-945b-767b353fe3a5",
+      "taskType": "workflow_gemini_image",
+      "creditsRemaining": 2854,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/tiles.png"
+    },
+    {
+      "key": "music",
+      "prompt": "Instrumental Amiga tracker-inspired underground adventure game music. Warm sampled marimba melody, mellow rounded synth bass, delicate plucked strings, soft brushed percussion, occasional sparkling bell notes. Curious, cozy, exploratory, quietly mysterious. 92 BPM, simple memorable motif, restrained dynamics. No singing, no voices, no loud drums, no orchestral crescendo. Consistent steady texture suitable as a repeating background during thoughtful cave puzzles.",
+      "taskId": "5467b371-896f-4810-b82b-8e5783ed4511",
+      "taskType": "workflow_lyria3_clip",
+      "creditsRemaining": 2850,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/music.mp3"
+    },
+    {
+      "key": "hero",
+      "prompt": "Create one precise production sprite sheet, exactly 4 columns by 4 rows of equal square cells, no lines, no text. Original friendly compact cave explorer with big mustard-bronze helmet with small round lamp, russet scarf, dark teal jacket, brown gloves and boots, short sturdy proportions. Rich hand-painted high-resolution 2D Amiga adventure illustration matching @style, crisp silhouette, front-facing cave cross-section game. ALL backgrounds pure flat solid magenta #ff00ff for later removal, no floor, no shadows on background. Each character same size and aligned to center of its cell, full body with generous margins. Row 1 four sequential walking frames facing RIGHT in profile. Row 2 four sequential walking frames facing LEFT in profile. Row 3 four sequential walking frames facing DOWN toward viewer. Row 4 four sequential walking frames facing UP away from viewer (back of helmet visible). Four different foot poses per row, same character identity, helmet and clothing in all 16 cells. Do not draw any letters or labels, no borders, no tile objects.",
+      "taskId": "ff3b057f-e6ae-4bfb-9ee7-8572a69f6afc",
+      "taskType": "workflow_gemini_image",
+      "creditsRemaining": 2830,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/hero.png"
+    },
+    {
+      "key": "dig",
+      "prompt": "A small hand pick crunches once into dry compact soil, short warm earthy scrape, tiny loose pebbles, close dry game foley. One soft action only, no voice, no music.",
+      "taskId": "da24f41a-240a-4062-bd83-beef6fc1c7d6",
+      "taskType": "workflow_audio_sfx",
+      "creditsRemaining": 2829,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/dig.mp3"
+    },
+    {
+      "key": "emerald",
+      "prompt": "A small green gemstone collected: one delicate bright glass chime with a soft rounded attack and short shimmering tail, warm magical game feedback, no voice or music.",
+      "taskId": "e852bb8d-1ba5-47b4-91ef-eda8c987dbe8",
+      "taskType": "workflow_audio_sfx",
+      "creditsRemaining": 2828,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/emerald.mp3"
+    },
+    {
+      "key": "impact",
+      "prompt": "A heavy rounded rock lands once on stone in a small cave, deep solid clunk and brief dry grit, short controlled resonance, no music or voices.",
+      "taskId": "6d75e62c-8683-4fa9-9c2b-6c260fd7bb5c",
+      "taskType": "workflow_audio_sfx",
+      "creditsRemaining": 2827,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/impact.mp3"
+    },
+    {
+      "key": "tiles-cutout",
+      "prompt": "Remove background: keep all separate boulders, gemstones, wooden doorways, beetles and amber particles",
+      "taskId": "de6fc21b-0d07-4be4-8d6a-48bd39e9e7da",
+      "taskType": "workflow_sam3_image_segmentation",
+      "creditsRemaining": 2826,
+      "status": "FAILED_NO_DETECTIONS"
+    },
+    {
+      "key": "title",
+      "prompt": "A cinematic wide hand-painted illustration for an original cave puzzle game title screen. Match the illustrated material textures and palette of @style. An abandoned old mine with heavy rough timber supports, winding dark tunnels, warm copper lanterns, green emerald crystals and icy blue-white diamonds embedded in rock, layered slate blue rock, earthy brown ground, little golden motes. FRONT-FACING cave cross-section, storybook Amiga adventure atmosphere redrawn beautifully for modern high resolution, subtle brush texture and confident dark contours. Composition: the left 45 percent is very dark quiet slate cave wall with subtle texture, suitable for overlay title and menu; the right 55 percent has a beautiful glowing crystal grotto, wooden mine doorway in the middle distance, warm lantern light. No characters, no text, no letters, no UI, no border, no logo. Not a 3D render, not pixel art, no neon bloom.",
+      "taskId": "61b5e640-0a1c-43c3-b710-4cd8e5d4390c",
+      "taskType": "workflow_gemini_image",
+      "creditsRemaining": 2806,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/title.png"
+    },
+    {
+      "key": "tiles-cutout-retry",
+      "prompt": "Remove background: keep game sprites",
+      "taskId": "e4e97516-aa46-4e6e-8fce-bb6e7a1bfb4a",
+      "taskType": "workflow_sam3_image_segmentation",
+      "creditsRemaining": 2806,
+      "status": "FAILED_NO_DETECTIONS"
+    },
+    {
+      "key": "hero-cutout",
+      "prompt": "Remove background: keep all sixteen explorers",
+      "taskId": "f1b7e42e-604d-4657-af76-975a48af8a4e",
+      "taskType": "workflow_sam3_image_segmentation",
+      "creditsRemaining": 2805,
+      "status": "FAILED_NO_DETECTIONS"
+    },
+    {
+      "key": "digging",
+      "prompt": "Edit @hero into a DIGGING ANIMATION sprite sheet. Keep EXACTLY the same 4 by 4 square grid, character scale, helmet, scarf, clothes, style and flat magenta #ff00ff background. Row 1 faces RIGHT, row 2 LEFT, row 3 toward viewer DOWN, row 4 away from viewer UP. Each row shows four sequential poses of this character digging with a small handheld bronze pickaxe: ready, lift, strike, recovery. Keep full body and tool within each cell with plenty of margin. Keep all figures the same size and aligned consistently. Background pure solid magenta, no floor or shadows on the background, no text, no labels or borders. Preserve the original hand-painted Amiga adventure game character.",
+      "taskId": "609a793d-4b56-4bc8-a7b1-f2682581f6f2",
+      "taskType": "workflow_gemini_image",
+      "creditsRemaining": 2786,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/digging.png"
+    },
+    {
+      "key": "diamond",
+      "prompt": "A precious ice diamond collected: two clear crystalline bell tones rising gently, delicate short sparkle, restrained rewarding video game sound, no music bed, no speech.",
+      "taskId": "a4121b8c-fb61-4b12-9cca-78a8de9bc0fa",
+      "taskType": "workflow_audio_sfx",
+      "creditsRemaining": 2786,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/diamond.mp3"
+    },
+    {
+      "key": "push",
+      "prompt": "Heavy rounded rock sliding one short distance on gritty cave stone, low dry scrape with a small soft thud, close compact game foley, no voice, no music.",
+      "taskId": "1676af8c-1c9d-48f9-abd6-4af3016c0648",
+      "taskType": "workflow_audio_sfx",
+      "creditsRemaining": 2785,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/push.mp3"
+    },
+    {
+      "key": "death",
+      "prompt": "A short gentle descending three-note wooden and glass game failure cue, sympathetic and soft, slightly hollow cave resonance, no scream, no voice.",
+      "taskId": "653864ee-0d98-473b-a634-8d9befb3243d",
+      "taskType": "workflow_audio_sfx",
+      "creditsRemaining": 2783,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/death.mp3"
+    },
+    {
+      "key": "open",
+      "prompt": "Old wooden mine doorway gently unlatches, brass mechanism clicks followed by a soft magical resonant chime, clear positive game cue, no voices or music.",
+      "taskId": "ed411e3e-151d-4110-b185-fd71fb7fa69f",
+      "taskType": "workflow_audio_sfx",
+      "creditsRemaining": 2781,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/open.mp3"
+    },
+    {
+      "key": "win",
+      "prompt": "A warm short four-note ascending marimba and bell victory flourish, charming Amiga adventure game reward, restrained percussion, no singing, no voice.",
+      "taskId": "1b27ed3d-a99b-4752-824a-f840ba3c52fe",
+      "taskType": "workflow_audio_sfx",
+      "creditsRemaining": 2779,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/win.mp3"
+    },
+    {
+      "key": "hero-cutout-retry",
+      "prompt": "Remove background: keep people",
+      "taskId": "3fedec81-f13a-46d3-8ba8-3dd35cbfa733",
+      "taskType": "workflow_sam3_image_segmentation",
+      "creditsRemaining": 2778,
+      "status": "FAILED_NO_DETECTIONS"
+    },
+    {
+      "key": "digging-cutout",
+      "prompt": "Remove background: keep people",
+      "taskId": "f7cae159-6ef8-45d4-87a5-7a08bc486ddc",
+      "taskType": "workflow_sam3_image_segmentation",
+      "creditsRemaining": 2777,
+      "status": "FAILED_NO_DETECTIONS"
+    },
+    {
+      "key": "digging-corrected",
+      "prompt": "Correct this existing sprite sheet @sheet, keeping the same exact 4x4 grid, scale, dark outlines, outfit, colors, and PURE SOLID MAGENTA background. The rows are four directions and ALL four frames in each row MUST maintain that direction throughout the digging animation. Row 1: RIGHT PROFILE in all four cells. Row 2: LEFT PROFILE in all four cells (mirror the four poses of row 1; no right-facing or front-facing frames). Row 3: FRONT VIEW in all four cells, helmet lamp facing viewer; no side-facing frames. Row 4: BACK VIEW in all four cells, rear of helmet and scarf visible, NO FACE visible in any cell. Each row is a small pickaxe digging animation: ready, raise pick, strike toward that row's direction, recover. Tools and body stay within their square cell. Fix particularly row 2 columns 2 and 3, row 3 column 3 and row 4 column 3. No text, no cell numbers, no captions. Preserve high-resolution hand-painted Amiga game art.",
+      "taskId": "43fd8add-2151-4c82-8c39-59bfd9f559ea",
+      "taskType": "workflow_gemini_image",
+      "creditsRemaining": 2759,
+      "status": "SUCCEEDED_REJECTED_DIRECTION_ERRORS",
+      "localFile": "artifacts/raw/digging-corrected.png"
+    }
+  ],
+  "notes": "Balance verified before and after production. Includes the rejected 20-credit digging variant. Five failed segmentation attempts were refunded. Per-job intermediate balances can include delayed refunds.",
+  "finalBalance": 2759,
+  "netCreditsSpent": 115,
+  "verifiedAt": "2026-10-18",
+  "costSummary": {
+    "imagesIncludingRejectedVariant": 100,
+    "music": 4,
+    "soundEffects": 11,
+    "failedSegmentationNetAfterRefund": 0,
+    "total": 115
+  }
+}

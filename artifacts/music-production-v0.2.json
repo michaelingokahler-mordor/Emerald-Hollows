@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-18",
+  "startingBalance": 2759,
+  "finalBalance": 2735,
+  "credits": 24,
+  "projectTotal": 139,
+  "projectLimit": 1000,
+  "entries": [
+    {
+      "key": "music-calm",
+      "prompt": "Instrumental warm Amiga tracker adventure soundtrack for Lathmar: Emerald Hollows. Underground old mine, thoughtful cave puzzles. Exactly 96 BPM, steady 4/4. Marimba, soft plucked strings, mellow sampled synth bass, quiet brushed percussion, little bell details. Long evolving instrumental with several related motifs and varied accompaniment, no vocals, no speech. Gentle exploration, warm curiosity, restrained dynamics. Avoid a big ending or dramatic build; suitable for continuous background listening.",
+      "taskId": "b2c0ab28-6f22-4793-91ce-6b5905f87cfd",
+      "credits": 8,
+      "status": "SUCCEEDED_DOWNLOAD_FAILED",
+      "listeningReview": "pending human review",
+      "note": "Repeated ECONNRESET from delivery URL; not integrated."
+    },
+    {
+      "key": "music-brisk",
+      "prompt": "Instrumental Amiga tracker-inspired cave adventure music for Lathmar: Emerald Hollows. Brisk playful exploration, energetic but never frantic. Exactly 120 BPM steady 4/4, warm plucked synth arpeggios, rounded bass, marimba and short glass notes, crisp light percussion. Longer evolving arrangement with several memorable motifs and quiet variations, suitable for puzzle action over several minutes. No vocals, no speech, no loud cinematic drums, no huge build or dramatic final chord. Warm earthy underground atmosphere; leave room for gameplay sound effects.",
+      "taskId": "5ce5b81a-b74c-4d51-88a6-58298eb2b43a",
+      "credits": 8,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/music-brisk.mp3",
+      "listeningReview": "pending human review"
+    },
+    {
+      "key": "music-calm-replacement",
+      "prompt": "Instrumental warm Amiga tracker adventure soundtrack for Lathmar: Emerald Hollows. Underground old mine, thoughtful cave puzzles. Exactly 96 BPM, steady 4/4. Marimba, soft plucked strings, mellow sampled synth bass, quiet brushed percussion, little bell details. Long evolving instrumental with several related motifs and varied accompaniment, no vocals, no speech. Gentle exploration, warm curiosity, restrained dynamics. Avoid a big ending or dramatic build; suitable for continuous background listening.",
+      "taskId": "ab8dc6d3-2c70-4316-a323-d826240d3b3d",
+      "credits": 8,
+      "status": "SUCCEEDED",
+      "localFile": "artifacts/raw/music-calm.mp3",
+      "listeningReview": "pending human review"
+    }
+  ],
+  "processing": "Both integrated tracks trimmed to 168 seconds, 1-second fade-in, 4-second fade-out, loudnorm target -23 LUFS. Danger percussion uses the original Runway impact sample at the nominal 96/120 BPM; listening review pending."
+}

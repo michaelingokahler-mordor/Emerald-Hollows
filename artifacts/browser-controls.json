@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-18",
+  "chrome": {
+    "status": "PASS",
+    "normalTicks": 55,
+    "practiceTicks": 55
+  },
+  "edge": {
+    "status": "PASS",
+    "normalTicks": 55,
+    "practiceTicks": 54
+  },
+  "checks": [
+    "keyboard movement",
+    "snap collection",
+    "pause freezes countdown",
+    "restart resets quota and time",
+    "blur handler pauses",
+    "normal keyboard win saved",
+    "practice keyboard win saved separately",
+    "normal record retained on reload"
+  ],
+  "nativeTabSwitch": "Headless browser did not dispatch focus event; blur handler was exercised with an explicit event. Native interactive tab switch remains unverified."
+}

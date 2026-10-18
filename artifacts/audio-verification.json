@@ -1,0 +1,77 @@
+{
+  "createdAt": "2026-10-18T08:32:20.760Z",
+  "specs": [
+    {
+      "key": "dig",
+      "source": "artifacts/raw/dig.mp3",
+      "duration": 0.48,
+      "output": "public/assets/dig.ogg",
+      "processing": "leading silence trim, -20 LUFS target",
+      "listeningReview": "pending human review"
+    },
+    {
+      "key": "emerald",
+      "source": "artifacts/raw/emerald.mp3",
+      "duration": 0.48,
+      "output": "public/assets/emerald.ogg",
+      "processing": "leading silence trim, -20 LUFS target",
+      "listeningReview": "pending human review"
+    },
+    {
+      "key": "diamond",
+      "source": "artifacts/raw/diamond.mp3",
+      "duration": 0.680249,
+      "output": "public/assets/diamond.ogg",
+      "processing": "leading silence trim, -20 LUFS target",
+      "listeningReview": "pending human review"
+    },
+    {
+      "key": "push",
+      "source": "artifacts/raw/push.mp3",
+      "duration": 0.6,
+      "output": "public/assets/push.ogg",
+      "processing": "leading silence trim, -20 LUFS target",
+      "listeningReview": "pending human review"
+    },
+    {
+      "key": "impact",
+      "source": "artifacts/raw/impact.mp3",
+      "duration": 0.8,
+      "output": "public/assets/impact.ogg",
+      "processing": "leading silence trim, -20 LUFS target",
+      "listeningReview": "pending human review"
+    },
+    {
+      "key": "death",
+      "source": "artifacts/raw/death.mp3",
+      "duration": 1.2,
+      "output": "public/assets/death.ogg",
+      "processing": "leading silence trim, -20 LUFS target",
+      "listeningReview": "pending human review"
+    },
+    {
+      "key": "open",
+      "source": "artifacts/raw/open.mp3",
+      "duration": 1.48,
+      "output": "public/assets/open.ogg",
+      "processing": "leading silence trim, -20 LUFS target",
+      "listeningReview": "pending human review"
+    },
+    {
+      "key": "win",
+      "source": "artifacts/raw/win.mp3",
+      "duration": 2,
+      "output": "public/assets/win.ogg",
+      "processing": "leading silence trim, -20 LUFS target",
+      "listeningReview": "pending human review"
+    },
+    {
+      "key": "music",
+      "source": "artifacts/raw/music.mp3",
+      "duration": 30.772167,
+      "output": "public/assets/music.ogg",
+      "processing": "1.5s seam crossfade, -23 LUFS target",
+      "listeningReview": "pending human review"
+    }
+  ]
+}

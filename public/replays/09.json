@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "rulesVersion": "crystal-delve/1",
+  "levelId": "09",
+  "levelHash": "a3033323",
+  "practice": false,
+  "inputs": [
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right",
+      "snap": true
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    }
+  ],
+  "expectedHash": "1b4facc7"
+}

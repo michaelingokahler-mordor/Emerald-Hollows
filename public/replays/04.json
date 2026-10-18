@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "rulesVersion": "crystal-delve/1",
+  "levelId": "04",
+  "levelHash": "40ed9567",
+  "practice": false,
+  "inputs": [
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right",
+      "snap": true
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "up"
+    }
+  ],
+  "expectedHash": "719f30ae"
+}

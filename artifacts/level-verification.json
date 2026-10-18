@@ -1,0 +1,85 @@
+{
+  "verifiedAt": "2026-10-18T11:26:48.508Z",
+  "levels": [
+    {
+      "id": "01",
+      "name": "Die erste Schicht",
+      "status": "won",
+      "ticks": 36,
+      "points": 8,
+      "hash": "04f772c3"
+    },
+    {
+      "id": "02",
+      "name": "Unter Last",
+      "status": "won",
+      "ticks": 28,
+      "points": 10,
+      "hash": "2db1a950"
+    },
+    {
+      "id": "03",
+      "name": "Platz zum Schieben",
+      "status": "won",
+      "ticks": 31,
+      "points": 12,
+      "hash": "6778af01"
+    },
+    {
+      "id": "04",
+      "name": "Die rollende Galerie",
+      "status": "won",
+      "ticks": 42,
+      "points": 15,
+      "hash": "719f30ae"
+    },
+    {
+      "id": "05",
+      "name": "Der Schieferkrabbler",
+      "status": "won",
+      "ticks": 46,
+      "points": 12,
+      "hash": "c971618a"
+    },
+    {
+      "id": "06",
+      "name": "Das Herz der alten Mine",
+      "status": "won",
+      "ticks": 64,
+      "points": 24,
+      "hash": "c45efd3c"
+    },
+    {
+      "id": "07",
+      "name": "Zwei Schächte",
+      "status": "won",
+      "ticks": 46,
+      "points": 9,
+      "hash": "568dc58e"
+    },
+    {
+      "id": "08",
+      "name": "Der lange Bogen",
+      "status": "won",
+      "ticks": 46,
+      "points": 12,
+      "hash": "5dad0cdf"
+    },
+    {
+      "id": "09",
+      "name": "Über dem Abgrund",
+      "status": "won",
+      "ticks": 50,
+      "points": 15,
+      "hash": "1b4facc7"
+    },
+    {
+      "id": "10",
+      "name": "Ein Tor nach Lathmar",
+      "status": "won",
+      "ticks": 73,
+      "points": 30,
+      "hash": "d5ce9243"
+    }
+  ]
+}

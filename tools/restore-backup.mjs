@@ -1,0 +1,11 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {decryptBackup} from './backup.mjs';
+const [source,keyFile,target]=process.argv.slice(2);
+if(!source||!keyFile||!target)throw Error('Usage: node tools/restore-backup.mjs archive.ehbackup private.pem output.sql');
+const data=decryptBackup(await readFile(source,'utf8'),await readFile(keyFile,'utf8'));
+if(data.format!==1)throw Error('Unsupported backup');
+const columns={profiles:['id','nickname','token_hash','created_at'],runs:['id','profile_id','level_id','level_hash','rules_version','replay','state','cursor','status','created_at'],scores:['profile_id','level_id','level_hash','rules_version','ticks','points','run_id']};
+const value=v=>v===null?'NULL':typeof v==='number'&&Number.isFinite(v)?String(v):typeof v==='string'?"'"+v.replaceAll("'","''")+"'":(()=>{throw Error('Invalid field');})();
+let sql=await readFile('server/migrations/0001_initial.sql','utf8');
+for(const table of ['profiles','runs','scores'])for(const row of data.tables[table])sql+=`\nINSERT INTO ${table}(${columns[table].join(',')}) VALUES(${columns[table].map(k=>value(row[k])).join(',')});`;
+sql+='\nPRAGMA foreign_key_check;\n';await writeFile(target,sql);console.log('Restore SQL written for an EMPTY database. Keep this file private.');

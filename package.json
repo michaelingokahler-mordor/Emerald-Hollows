@@ -1,0 +1,30 @@
+{
+  "name": "emerald-hollows",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "node tools/build-offline.mjs --icons-only && tsc --noEmit && vite build && node tools/build-offline.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "verify:levels": "tsx tools/verify-levels.ts",
+    "assets": "node tools/prepare-assets.mjs",
+    "package": "npm run build && node tools/package.mjs",
+    "server:dev": "wrangler dev --config server/wrangler.jsonc",
+    "server:migrate": "wrangler d1 migrations apply emerald-hollows --local --config server/wrangler.jsonc"
+  },
+  "dependencies": {
+    "phaser": "4.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "fflate": "0.8.3",
+    "sharp": "0.35.5",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vite": "8.3.4",
+    "vitest": "5.0.5",
+    "wrangler": "4.151.1"
+  }
+}

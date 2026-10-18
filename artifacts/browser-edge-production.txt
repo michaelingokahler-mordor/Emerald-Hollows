@@ -1,0 +1,39 @@
+### Result
+{"env":{"dpr":2,"width":1280,"height":720,"agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0"},"levels":[{"level":1,"status":"PASS","canvas":{"width":2508,"height":1160,"cssWidth":1254,"cssHeight":580,"dpr":2},"result":"LÖSUNG ERFOLGREICH ABGESPIELT\nEin Stück tiefer\n\nDer Weg ist frei. Die nächste Höhle wartet.\n\n8\nKristallpunkte\n3.6 s\nLösungsdauer\n\nDieser Durchlauf zählt nicht als eigener Erfolg.\n\nNächste Höhle →\nHöhlenübersicht\nReplay speichern"},{"level":2,"status":"PASS","canvas":{"width":2508,"height":1160,"cssWidth":1254,"cssHeight":580,"dpr":2},"result":"LÖSUNG ERFOLGREICH ABGESPIELT\nEin Stück tiefer\n\nDer Weg ist frei. Die nächste Höhle wartet.\n\n10\nKristallpunkte\n2.8 s\nLösungsdauer\n\nDieser Durchlauf zählt nicht als eigener Erfolg.\n\nNächste Höhle →\nHöhlenübersicht\nReplay speichern"},{"level":3,"status":"PASS","canvas":{"width":2508,"height":1160,"cssWidth":1254,"cssHeight":580,"dpr":2},"result":"LÖSUNG ERFOLGREICH ABGESPIELT\nEin Stück tiefer\n\nDer Weg ist frei. Die nächste Höhle wartet.\n\n12\nKristallpunkte\n3.1 s\nLösungsdauer\n\nDieser Durchlauf zählt nicht als eigener Erfolg.\n\nNächste Höhle →\nHöhlenübersicht\nReplay speichern"},{"level":4,"status":"PASS","canvas":{"width":2508,"height":1160,"cssWidth":1254,"cssHeight":580,"dpr":2},"result":"LÖSUNG ERFOLGREICH ABGESPIELT\nEin Stück tiefer\n\nDer Weg ist frei. Die nächste Höhle wartet.\n\n15\nKristallpunkte\n4.2 s\nLösungsdauer\n\nDieser Durchlauf zählt nicht als eigener Erfolg.\n\nNächste Höhle →\nHöhlenübersicht\nReplay speichern"},{"level":5,"status":"PASS","canvas":{"width":2508,"height":1160,"cssWidth":1254,"cssHeight":580,"dpr":2},"result":"LÖSUNG ERFOLGREICH ABGESPIELT\nEin Stück tiefer\n\nDer Weg ist frei. Die nächste Höhle wartet.\n\n12\nKristallpunkte\n4.6 s\nLösungsdauer\n\nDieser Durchlauf zählt nicht als eigener Erfolg.\n\nNächste Höhle →\nHöhlenübersicht\nReplay speichern"},{"level":6,"status":"PASS","canvas":{"width":2508,"height":1160,"cssWidth":1254,"cssHeight":580,"dpr":2},"result":"LÖSUNG ERFOLGREICH ABGESPIELT\nDas Herz der Mine\n\nDu hast den letzten Ausgang erreicht. Die alte Mine gibt ihre Schätze nur den Aufmerksamen preis.\n\n24\nKristallpunkte\n6.4 s\nLösungsdauer\n\nDieser Durchlauf zählt nicht als eigener Erfolg.\n\nHöhlenübersicht\nReplay speichern"}],"errors":[],"replayProgressIsolation":"PASS"}
+### Ran Playwright code
+```js
+await (async (page) => {
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+  await page.reload();
+  await page.getByRole('button',{name:'In die Mine →'}).waitFor({state:'visible'});
+  await page.waitForFunction(()=>!document.querySelector('[data-action="continue"]').disabled);
+  const env=await page.evaluate(()=>({dpr:devicePixelRatio,width:innerWidth,height:innerHeight,agent:navigator.userAgent}));
+  const prefix=env.agent.includes('Edg/')?'edge':'chrome';
+  await page.screenshot({path:`output/playwright/${prefix}-title.png`});
+  await page.getByRole('button',{name:'Die sechs Höhlen',exact:true}).click();
+  if(await page.getByRole('button',{name:'Lösung ansehen',exact:true}).count()!==6)throw new Error('Expected six real levels');
+  await page.screenshot({path:`output/playwright/${prefix}-levels.png`});
+  const levels=[];
+  for(let i=0;i<6;i++){
+    await page.getByRole('button',{name:'Lösung ansehen',exact:true}).nth(i).click();
+    await page.getByRole('button',{name:'Lösung starten',exact:true}).click();
+    await page.waitForTimeout(180);
+    const canvas=await page.locator('canvas').evaluate(c=>({width:c.width,height:c.height,cssWidth:c.clientWidth,cssHeight:c.clientHeight,dpr:devicePixelRatio}));
+    if(Math.abs(canvas.width-canvas.cssWidth*canvas.dpr)>2)throw new Error('Canvas DPR mismatch');
+    await page.screenshot({path:`output/playwright/${prefix}-level-${i+1}.png`});
+    await page.getByText('LÖSUNG ERFOLGREICH ABGESPIELT',{exact:true}).waitFor({state:'visible',timeout:20000});
+    const result=await page.getByRole('dialog').innerText();
+    levels.push({level:i+1,status:'PASS',canvas,result});
+    if(i===5)await page.screenshot({path:`output/playwright/${prefix}-completion.png`});
+    await page.getByRole('button',{name:'Höhlenübersicht',exact:true}).click();
+  }
+  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('crystal-delve.save.v1')||'{}'));
+  if(Object.keys(saved.timed||{}).length||Object.keys(saved.training||{}).length)throw new Error('Replay polluted progress');
+  if(errors.length)throw new Error(errors.join('\n'));
+  return {env,levels,errors,replayProgressIsolation:'PASS'};
+}
+)(page);
+```
+### Events
+- New console entries: .playwright-cli\console-2026-10-18T08-38-40-048Z.log#L2

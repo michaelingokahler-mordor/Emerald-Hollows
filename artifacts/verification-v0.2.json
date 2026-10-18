@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-18",
+  "version": "0.2.0",
+  "unitTests": 60,
+  "solvedLevels": 10,
+  "desktop": [
+    {
+      "browser": "Chrome 155",
+      "viewport": "1280x720",
+      "dpr": 1,
+      "result": "PASS",
+      "checks": [
+        "nickname",
+        "sequential unlock",
+        "keyboard",
+        "pause and exact reload",
+        "all ten visual replays"
+      ]
+    },
+    {
+      "browser": "Edge 155",
+      "viewport": "1920x1080",
+      "dpr": 2,
+      "result": "PASS",
+      "checks": [
+        "nickname",
+        "sequential unlock",
+        "keyboard",
+        "pause and exact reload",
+        "all ten visual replays"
+      ]
+    }
+  ],
+  "mobile": {
+    "browser": "Chrome 155 emulation",
+    "viewports": [
+      "390x844",
+      "844x390"
+    ],
+    "dpr": 3,
+    "result": "PASS",
+    "checks": [
+      "two-finger move and dig",
+      "controls outside cave",
+      "exact reload",
+      "offline reload"
+    ],
+    "physicalDeviceTested": false
+  },
+  "onlineUi": {
+    "target": "LOCAL Wrangler/D1 only",
+    "result": "PASS",
+    "normalTicks": 55,
+    "practiceTicks": 55,
+    "checks": [
+      "normal keyboard win",
+      "practice separate",
+      "pause",
+      "restart",
+      "explicit blur handler",
+      "profile creation",
+      "automatic replay upload",
+      "confirmed ranking",
+      "corrupt import preserves save",
+      "valid import preserves profile",
+      "recovery restores name and confirmed record"
+    ],
+    "nativeTabSwitch": false
+  },
+  "sitePreview": {
+    "path": "/games/more-projects/emerald-hollows/",
+    "result": "PASS",
+    "checks": [
+      "More Projects card",
+      "nested assets",
+      "solution replay",
+      "scoped service worker"
+    ]
+  },
+  "visualReview": [
+    "home",
+    "all ten cave views",
+    "mobile portrait and landscape",
+    "More Projects card"
+  ],
+  "backup": {
+    "liveWorkflow": "https://github.com/michaelingokahler-mordor/Emerald-Hollows-Backups/actions/runs/39122488181",
+    "result": "PASS",
+    "liveArchiveRestoredToEmptySQLite": true,
+    "fixtureDataRestore": true,
+    "productionD1Restore": false
+  },
+  "limitations": [
+    "Human music listening pending",
+    "Human playability review pending",
+    "Physical phones and home-screen installation pending",
+    "Native interactive window switch pending",
+    "Not a load test"
+  ],
+  "mediaCredits": 139
+}

@@ -1,0 +1,9 @@
+{
+  "$schema":"../node_modules/wrangler/config-schema.json",
+  "name":"emerald-hollows-api",
+  "main":"worker.ts",
+  "compatibility_date":"2026-10-18",
+  "workers_dev":true,
+  "vars":{"ALLOWED_ORIGINS":"https://sabnockworks.com,https://www.sabnockworks.com,http://127.0.0.1:5173,http://127.0.0.1:4173"},
+  "d1_databases":[{"binding":"DB","database_name":"emerald-hollows","database_id":"981ffcff-002a-47b5-9b3a-3836362f6ba2","migrations_dir":"migrations"}]
+}

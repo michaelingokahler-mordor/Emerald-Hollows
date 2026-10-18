@@ -1,0 +1,16 @@
+node_modules/
+dist/
+release/
+.vite/
+artifacts/private/
+*.log
+.playwright-cli/
+output/
+.wrangler/
+.env*
+!.env.example
+.dev.vars*
+!server/.dev.vars.example
+*.sqlite*
+*.db
+backups/

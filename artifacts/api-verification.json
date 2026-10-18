@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-18T11:26:47.658Z",
+  "target": "local Wrangler/D1",
+  "status": "PASS",
+  "checks": [
+    "profile creation",
+    "auth ownership",
+    "recovery",
+    "bounded verification",
+    "idempotent upload",
+    "leaderboard",
+    "practice rejection",
+    "invalid inputs",
+    "wrong final hash",
+    "CORS"
+  ],
+  "verificationRequests": 3
+}
