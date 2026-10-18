@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-18T11:55:53.713Z",
+  "date": "2026-10-18T12:22:25.624Z",
   "target": "local Wrangler/D1",
   "status": "PASS",
   "checks": [
@@ -14,7 +14,10 @@
     "wrong final hash",
     "CORS",
     "archived 0.2 runs accepted and excluded from current board",
-    "three revised caves confirmed",
+    "four revised caves confirmed with score",
+    "time first and score tiebreaker",
+    "equal-score equal-time shared rank",
+    "slower score cannot replace faster record",
     "recovery retains archived unlocks"
   ],
   "verificationRequests": 3

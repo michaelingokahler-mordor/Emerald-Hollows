@@ -5,6 +5,18 @@ export function hash(value: unknown): string {
   for (const c of JSON.stringify(value)) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); }
   return (h >>> 0).toString(16).padStart(8, '0');
 }
+export function crawlerIsTrapped(state:GameState,crawler:Entity):boolean {
+  const queue=[{x:crawler.x,y:crawler.y}],seen=new Set([`${crawler.x},${crawler.y}`]);
+  for(let i=0;i<queue.length;i++){
+    const p=queue[i];if(state.player.x===p.x&&state.player.y===p.y||seen.size>2)return false;
+    for(const d of Object.values(DELTAS)){
+      const x=p.x+d.x,y=p.y+d.y,key=`${x},${y}`,e=state.entities.find(e=>e.x===x&&e.y===y);
+      if(seen.has(key)||state.terrain[y]?.[x]!=='empty'||e&&!isCrawler(e.kind))continue;
+      seen.add(key);queue.push({x,y});
+    }
+  }
+  return seen.size<=2;
+}
 export function levelHash(level: LevelDefinition): string {
   return hash({ map: level.map, quota: level.quota, time: level.timeSeconds, rules: rulesFor(level), ...(level.objective?{objective:level.objective}:{}) });
 }
@@ -60,16 +72,7 @@ export class Simulation {
   isTrapped(crawler:Entity):boolean {
     // A live crawler must be confined to at most two empty cells, with the player outside.
     // Ignore other crawlers as barriers: moving enemies cannot permanently seal a pen.
-    const queue=[{x:crawler.x,y:crawler.y}],seen=new Set([`${crawler.x},${crawler.y}`]);
-    for(let i=0;i<queue.length;i++){
-      const p=queue[i];if(this.playerAt(p.x,p.y)||seen.size>2)return false;
-      for(const d of Object.values(DELTAS)){
-        const x=p.x+d.x,y=p.y+d.y,key=`${x},${y}`,e=this.entityAt(x,y);
-        if(seen.has(key)||this.terrainAt(x,y)!=='empty'||e&&!isCrawler(e.kind))continue;
-        seen.add(key);queue.push({x,y});
-      }
-    }
-    return seen.size<=2;
+    return crawlerIsTrapped(this.state,crawler);
   }
   step(input:InputFrame = {}): GameEvent[] {
     this.events = [];

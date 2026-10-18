@@ -22,7 +22,7 @@ PWA-Updates bleiben wartend, solange noch ein altes Spielfenster geöffnet ist. 
 
 `POST /profiles` legt ein freiwilliges Profil an; `GET/POST /profile` liest es bzw. ändert den Namen. Authentifizierung: `Bearer Profil-ID.geheimer-Code`. Nur SHA-256 des zufälligen 256-Bit-Codes liegt auf dem Server. Der Code ersetzt das Passwort; es gibt keine Wiederherstellung per E-Mail.
 
-`POST /runs` nimmt einen streng geprüften Replay-Umschlag entgegen. Wiederholtes Senden derselben ID ist idempotent. `POST /runs/:id/verify` simuliert in begrenzten Abschnitten. Nur gewonnene Normalspiel-Durchläufe mit exakt passendem Ende werden eingetragen. `/leaderboard/:level` zeigt bis zu 100 Zeilen, getrennt nach Regel- und Levelversion. Gleiche Zeiten erhalten denselben Rang. Nicht alle möglichen Manipulationen sind erkennbar: automatisierte gültige Lösungen sind kein gelöstes Anti-Cheat-Problem.
+`POST /runs` nimmt einen streng geprüften Replay-Umschlag entgegen. Wiederholtes Senden derselben ID ist idempotent. `POST /runs/:id/verify` simuliert in begrenzten Abschnitten. Nur gewonnene Normalspiel-Durchläufe mit exakt passendem Ende werden eingetragen. `/leaderboard/:level` zeigt bis zu 100 Zeilen, getrennt nach Regel- und Levelversion. Bei gleicher Zeit gewinnt die höhere Gesamtwertung. Nur gleiche Zeit und gleiche Punktzahl teilen sich den Rang. Nicht alle möglichen Manipulationen sind erkennbar: automatisierte gültige Lösungen sind kein gelöstes Anti-Cheat-Problem.
 
 ## Tägliche Sicherung
 
@@ -45,3 +45,16 @@ Zusätzlich bietet D1 Time Travel im Free-Tarif sieben Tage Rückblick. Das ist 
 Der lokale Restore-Test prüft befüllte Beispieldaten, Manipulationserkennung und Import in leeres SQLite. Zusätzlich wurde das erste reale GitHub-Archiv entschlüsselt und in leeres SQLite importiert; es enthielt erwartungsgemäß noch keine Spielerprofile. Eine produktive D1-Umschaltung wurde nicht durchgeführt.
 
 Quellen: [Workers-Kontingente](https://developers.cloudflare.com/workers/platform/pricing/), [D1 Time Travel](https://developers.cloudflare.com/d1/reference/time-travel/), [PWA-Installation](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable).
+
+## Migration 0.4: Punktewertung
+
+Vor dem Eingriff eine manuelle verschlüsselte Sicherung im privaten Backup-Repository ausführen und ihren Erfolg kontrollieren. Migration 0002 ergänzt nur die nullable Spalte scores.score und einen Index. Sie löscht keine Datensätze. Die bestehende Spalte points bleibt die Kristallpunktzahl.
+
+1. Lokal testen: npm run server:migrate, npx tsx tools/verify-api.ts und node tools/verify-backup.mjs.
+2. Produktiv Migrationen mit npx wrangler d1 migrations apply emerald-hollows --remote --config server/wrangler.jsonc anwenden; dann den neuen Worker veröffentlichen.
+3. Bestätigte Durchläufe exportieren: SELECT id,profile_id,replay,state,cursor,status FROM runs WHERE status='confirmed'. Wrangler mit --json verwenden und die Ausgabe unter artifacts/private/score-runs.json sichern.
+4. npx tsx tools/backfill-scores.ts artifacts/private/score-runs.json artifacts/private/score-updates.sql ausführen. Das Werkzeug prüft Regelversion, Kartenrevision, Status, Tickzahl und Endzustands-Hash und berechnet den Score aus dem gespeicherten Endzustand.
+5. Die erzeugte SQL-Datei mit wrangler d1 execute und --remote --file auf die richtige Datenbank anwenden. Upserts sind wiederholbar: Schnellere Rekorde bleiben bestehen, Gleichstände werden nach Punkten verglichen. Es werden keine Namen oder Profilzugänge verändert.
+6. SELECT COUNT(*) FROM scores WHERE score IS NULL muss für die bekannten bestätigten Durchläufe null liefern. Ranglisten und Profilwiederherstellung prüfen. Dann Web-Build veröffentlichen.
+
+Die Wiederherstellung unterstützt alte Archive ohne score und neue mit score. Sie erstellt alle mitgelieferten Schema-Migrationen in einer leeren Datenbank. Bei alten Archiven kann die Nachbewertung anschließend wiederholt werden. Private Exporte und SQL-Dateien dürfen nicht in Git oder Release-Pakete gelangen.

@@ -31,9 +31,12 @@ for(const x of [7,12,18,23])h.set(x,15,'D');
 h.set(11,8,'D').set(14,8,'D').set(20,3,'R').rect(20,4,20,6,'.').set(20,7,'#');
 const j=new Cave(28,19).rect(3,8,20,8).set(15,7,'R').set(15,8,'.').set(15,9,' ').rect(10,10,20,10,' ').set(10,10,'C').rect(20,9,20,16).set(20,12,'M').set(20,14,'M').set(3,8,'P').set(20,16,'E');
 j.rect(3,4,8,7).rect(4,5,6,5,'#').rect(22,12,24,16).rect(21,16,22,16);
-const k=new Cave(40,26).rect(2,20,13,20).rect(10,18,10,19).rect(12,18,12,19).set(11,18,'R').rect(11,12,11,17).rect(11,12,34,12).rect(19,13,19,13,' ').set(20,12,'R').set(20,13,'.').rect(20,14,20,23,' ').rect(34,3,34,11,' ').rect(28,5,36,5,' ').set(28,5,'>').rect(34,3,37,3).set(37,3,'E').set(3,20,'P');
-for(const x of [12,14,16,21,23,25,27,29,31,33])k.set(x,12,'D');
-k.rect(33,3,33,10).rect(2,4,7,9).rect(4,10,4,19).rect(24,17,34,22).rect(30,13,30,17).set(6,5,'R').set(26,18,'M').set(28,21,'M');
+const k=new Cave(40,26).rect(2,20,13,20).rect(10,18,10,19).rect(12,18,12,19).set(11,18,'R').rect(11,12,11,17).rect(11,12,25,12).set(19,13,' ').set(20,12,'R').set(20,13,'.').rect(20,14,20,23,' ').set(3,20,'P');
+for(const x of [12,14,16,18,21,23,25])k.set(x,12,'D');
+k.rect(24,8,24,11).rect(24,8,26,8).set(27,8,'R').rect(28,8,35,8,' ').rect(28,6,28,7,' ').set(30,8,'<').set(28,9,'.').set(27,9,'.').rect(27,10,29,10).set(29,9,'.').rect(28,11,28,15,' ');
+k.rect(25,3,25,7).rect(25,3,30,3).rect(30,4,30,6).set(31,5,'R').set(31,6,'.').set(31,7,' ');
+k.rect(34,3,34,7).rect(34,3,37,3).set(34,6,'D').set(34,4,'D').set(36,3,'D').set(37,3,'E');
+k.rect(2,4,7,9).rect(4,10,4,19).set(6,5,'R').rect(23,13,23,18).rect(23,18,26,21).set(24,19,'M').set(26,21,'M');
 
 export const LEVELS: LevelDefinition[] = [
   {id:'01',name:'Die erste Schicht',subtitle:'Ein Licht im Dunkeln',width:18,height:12,map:a.map(),quota:8,timeSeconds:180,difficulty:1,hint:'Leertaste + Richtung sammelt nebenan, ohne dass du dich bewegst. Smaragde zählen 1, Diamanten 3. Du kannst auch nach oben graben.',solution:'Den ersten Smaragd nebenan aufnehmen. Die westliche Kammer absuchen, durch den unteren Durchgang wechseln und den Diamanten holen. Dann zum Ausgang im Nordosten.',route:'walk 3 2; snap right; walk 6 2; walk 7 4; walk 5 6; walk 3 8; walk 5 7; walk 10 7; walk 12 7; walk 12 8; walk 13 8; walk 15 8; walk 15 2',parTicks:0},
@@ -45,5 +48,20 @@ export const LEVELS: LevelDefinition[] = [
   ,{id:'07',name:'Der richtige Augenblick',subtitle:'Ein Abwurf aus sicherer Entfernung',width:28,height:18,map:g.map(),quota:9,timeSeconds:300,difficulty:3,rulesVersion:CRAWLER_RULES_VERSION,objective:'crush',hint:'Der Fels braucht mehrere Takte bis zur Laufbahn. Warte links neben seiner Stütze, bis der Krabbler von links an das Feld vor dem Fallschacht herankommt. Grabe die Stütze nebenan weg. Du musst ihn treffen, bevor der Ausgang öffnet.',solution:'Bei (16,5) stehen bleiben. Den Abwurf vorhalten: Stütze bei Takt 25 entfernen, damit der Fels den Krabbler bei Takt 28 trifft. Danach rechts absteigen, die drei Diamanten der unteren Galerie holen und zum westlichen Ausgang gehen.',route:'walk 16 5; wait 11; snap right; wait 4; walk 24 5; walk 24 13; walk 20 13; walk 18 13; walk 16 13; walk 5 13; walk 5 11',parTicks:0}
   ,{id:'08',name:'Der lange Bogen',subtitle:'Es gibt mehr als einen Weg',width:30,height:20,map:h.map(),quota:12,timeSeconds:360,difficulty:2,hint:'Wähle deine Route: Sechs Diamanten bieten 18 Punkte, aber vier Diamanten (12 Punkte) reichen. Vier liegen im unteren Rundgang, zwei im mittleren Abzweig. Du kannst Schätze aus beiden Wegen kombinieren; ein vollständiges Ausräumen ist nicht nötig.',solution:'Links nach unten graben, die vier Diamanten entlang der unteren Galerie einsammeln und rechts zum Ausgang aufsteigen. Die Kammer in der Mitte ist optional.',route:'walk 3 15; walk 7 15; walk 12 15; walk 18 15; walk 23 15; walk 25 15; walk 25 3',parTicks:0}
   ,{id:'09',name:'Ein kostbarer Gegner',subtitle:'Der Kristallkrabbler',width:28,height:19,map:j.map(),quota:5,timeSeconds:300,difficulty:3,rulesVersion:CRAWLER_RULES_VERSION,objective:'crystal-crush',hint:'Der blaue Krabbler mit Diamantzeichen verwandelt sich beim Zerquetschen in einen Diamanten (3 Punkte). Auch der fallende Stein verschwindet dabei. Zwei Smaragde ergänzen die Quote: Du brauchst den Diamanten des Krabblers.',solution:'Links der Stütze bei (14,8) warten. Bei Takt 14 rechts nebenan graben. Der Stein trifft bei Takt 16. Rechts in die Laufbahn steigen, den entstandenen Diamanten einsammeln und im östlichen Schacht beide Smaragde auf dem Weg zum Ausgang holen.',route:'walk 14 8; wait 2; snap right; wait 4; walk 20 8; walk 20 10; walk 15 10; walk 20 10; walk 20 12; walk 20 14; walk 20 16',parTicks:0}
-  ,{id:'10',name:'Ein Tor nach Lathmar',subtitle:'Am Ende der alten Mine',width:40,height:26,map:k.map(),quota:30,timeSeconds:480,difficulty:3,hint:'Schaffe rechts vom unteren Fels Platz. In der Galerie öffnest du den Fallschacht von der Seite. Zehn Diamanten genügen. Beobachte den Krabbler im letzten Aufstieg.',solution:'Rechte Nische freigraben, von links schieben und in die Galerie steigen. Den zweiten Stein seitlich untergraben, alle zehn Galeriediamanten sammeln und am Krabbler vorbei durch den Ostschacht zum Tor.',route:'walk 12 20; walk 12 19; snap up; walk 12 20; walk 10 20; walk 10 18; move right; walk 11 12; walk 12 12; walk 14 12; walk 16 12; walk 19 12; walk 19 13; snap right; wait 12; walk 19 12; walk 21 12; walk 23 12; walk 25 12; walk 27 12; walk 29 12; walk 31 12; walk 33 12; walk 34 12; walk 34 3; walk 37 3',parTicks:0}
+  , {
+  "id": "10",
+  "name": "Ein Tor nach Lathmar",
+  "subtitle": "Am Ende der alten Mine",
+  "width": 40,
+  "height": 26,
+  "map": k.map(),
+  "quota": 30,
+  "timeSeconds": 480,
+  "difficulty": 3,
+  "hint": "Der letzte Durchgang wird bewacht. Schiebe den Riegelstein nach rechts, wenn der Krabbler in der oberen Nische ist. Lass die Erde unter dem Riegel stehen und gehe durch den unteren Bogen. Alternativ erreichst du links oben die Felsfalle; nach dem Treffer musst du ihren Stein im Gang nach rechts wegschieben. Drei Diamanten liegen erst hinter der Wache.",
+  "solution": "Zuerst den unteren Schiebestein lösen und den Galeriestein seitlich untergraben. Sieben Diamanten sammeln. Am bewachten Riegel warten, bis der Krabbler in der oberen Nische ist, und den Riegel nach rechts schieben. Die Stützerde nicht freigraben. Unten herum zum letzten Aufstieg gehen und die drei übrigen Diamanten holen. Alternative: den Krabbler rechts lassen, den oberen Abwurf vorbereiten, treffen und den gelandeten Stein nach rechts wegschieben.",
+  "route": "walk 12 20; walk 12 19; snap up; walk 12 20; walk 10 20; walk 10 18; move right; walk 11 12; walk 12 12; walk 14 12; walk 16 12; walk 18 12; walk 19 12; walk 19 13; snap right; wait 12; walk 19 12; walk 21 12; walk 23 12; walk 25 12; walk 24 12; walk 24 8; walk 26 8; wait 10; move right; walk 27 9; walk 27 10; walk 29 10; walk 29 8; walk 30 8; walk 34 6; walk 34 4; walk 36 3; walk 37 3",
+  "parTicks": 0,
+  "rulesVersion": "emerald-hollows/2"
+}
 ];

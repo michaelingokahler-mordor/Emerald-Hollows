@@ -1,8 +1,10 @@
 import { LEVELS } from './levels';
 import { hash, runReplay, levelHash } from './core/simulation';
 import type { Replay } from './core/types';
-import { checkedReplay } from './core/replay-validation';
-export interface RecordEntry {ticks:number;points:number;levelHash?:string}
+import { checkedReplay, replayLevel } from './core/replay-validation';
+import {scoreBreakdown,betterResult} from './core/scoring';
+export interface RecordEntry {ticks:number;points:number;score?:number;levelHash?:string}
+function replayScore(replay:Replay):number {try{const level=replayLevel(replay,true);return level?scoreBreakdown(level,runReplay(level,replay).state).total:0;}catch{return 0;}}
 export interface PendingRun {id:string;replay:Replay;serverId?:string;status:'pending'|'confirmed'|'rejected'}
 export function compactRuns(runs:PendingRun[]):PendingRun[]{
   const waiting=new Map<string,PendingRun>();
@@ -10,7 +12,7 @@ export function compactRuns(runs:PendingRun[]):PendingRun[]{
     if(run.status!=='pending')continue;
     const key=[run.replay.levelId,run.replay.levelHash,run.replay.rulesVersion].join('/');
     const best=waiting.get(key);
-    if(!best||run.replay.inputs.length<best.replay.inputs.length)waiting.set(key,run);
+    if(!best||run.replay.inputs.length<best.replay.inputs.length||run.replay.inputs.length===best.replay.inputs.length&&replayScore(run.replay)>replayScore(best.replay))waiting.set(key,run);
   }
   return [...waiting.values(),...runs.filter(r=>r.status!=='pending').slice(-10)];
 }
@@ -37,7 +39,7 @@ export function parseSave(raw:string|null,strict=false):SaveData {
     for(const bucket of ['timed','training'] as const){
       if(x[bucket]&&typeof x[bucket]==='object')for(const [id,r]of Object.entries(x[bucket])){
         const v=r as RecordEntry;
-        if(v&&LEVELS.some(l=>l.id===id)&&Number.isInteger(v.ticks)&&v.ticks>0&&Number.isInteger(v.points)&&v.points>=0)base[bucket][id]={ticks:v.ticks,points:v.points,levelHash:typeof v.levelHash==='string'?v.levelHash:LEGACY_HASHES[id]};
+        if(v&&LEVELS.some(l=>l.id===id)&&Number.isInteger(v.ticks)&&v.ticks>0&&Number.isInteger(v.points)&&v.points>=0)base[bucket][id]={ticks:v.ticks,points:v.points,...(Number.isInteger(v.score)&&v.score!>=v.points?{score:v.score}:{}),levelHash:typeof v.levelHash==='string'?v.levelHash:LEGACY_HASHES[id]};
       }
     }
     base.lastLevel=Number.isInteger(x.lastLevel)?Math.min(x.version===1?5:LEVELS.length-1,Math.max(0,x.lastLevel)):0;
@@ -75,10 +77,11 @@ export function exportSave(save:SaveData):string{
   // Portable progress excludes account secrets and unverified runs.
   return serializeSave({...save,profile:undefined,pending:[],suspended:undefined});
 }
-export function recordWin(save:SaveData,id:string,ticks:number,points:number,practice:boolean):void{
+export function recordWin(save:SaveData,id:string,ticks:number,points:number,practice:boolean,score=points):void{
   const bucket=practice?save.training:save.timed;
   const revision=levelHash(LEVELS.find(l=>l.id===id)!);
-  if(!bucket[id]||bucket[id].levelHash!==revision||ticks<bucket[id].ticks)bucket[id]={ticks,points,levelHash:revision};
+  const previous=bucket[id];
+  if(!previous||previous.levelHash!==revision||betterResult(ticks,score,{ticks:previous.ticks,score:previous.score??previous.points})||ticks===previous.ticks&&previous.score===undefined&&score===previous.points)bucket[id]={ticks,points,score,levelHash:revision};
 }
 
 export function currentRecord(save:SaveData,id:string):RecordEntry|undefined {const r=(save.practice?save.training:save.timed)[id];return r?.levelHash===levelHash(LEVELS.find(l=>l.id===id)!)?r:undefined;}

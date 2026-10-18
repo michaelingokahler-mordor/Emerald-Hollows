@@ -1,4 +1,4 @@
-# Verbindliche Regeln – Lathmar: Emerald Hollows 0.3
+# Verbindliche Regeln – Lathmar: Emerald Hollows 0.4
 
 Ein Takt dauert 100 ms. Die Figur bewegt sich in vier Richtungen und fällt nicht. Erde verschwindet beim Betreten oder beim benachbarten Graben. Ein Tick verarbeitet maximal eine Spielereingabe. Der kurze Eingabepuffer gilt 150 ms; die zuletzt gedrückte Richtung hat Vorrang. Tabwechsel pausiert und verwirft gepufferte Eingaben.
 
@@ -31,6 +31,18 @@ Der blaue Krabbler mit Diamantmarkierung folgt denselben Bewegungsregeln wie der
 
 In Höhle 06 müssen Kristallquote und Einsperraufgabe erfüllt sein. Der Krabbler muss leben, sein zusammenhängender freier Bewegungsraum darf höchstens zwei Felder enthalten, und der Spieler muss außerhalb stehen. Andere Krabbler zählen nicht als feste Barriere. Wird das Gehege wieder geöffnet, schließt der Ausgang erneut. In 07 muss ein Schieferkrabbler zerquetscht, in 09 ein Kristallkrabbler umgewandelt werden. Die Aufgabe erscheint im HUD; Übung und Lösungsreplays verwenden dieselben Bedingungen.
 
+## Punktewertung
+
+Die Kristallquote bleibt getrennt von der Gesamtwertung. Smaragd = 1, Diamant = 3 Punkte. Pro Schieferkrabbler zählen 5 zusätzliche Punkte, wenn er zerquetscht oder am Levelende sicher in höchstens zwei freien Zellen eingeschlossen ist. Ein umgewandelter Kristallkrabbler zählt 10 Zusatzpunkte; sein Diamant zählt erst beim Einsammeln weitere 3 Kristallpunkte. Einsperren eines Kristallkrabblers gibt keinen Zusatzbonus.
+
+Die Wertung wird aus dem Zustand abgeleitet. Wiederholtes Öffnen und Schließen eines Geheges sammelt keine Punkte; ein freigelassener Krabbler verliert den Einschließbonus. Gegnerpunkte allein öffnen keinen Ausgang. Die Live-Anzeige zeigt den aktuell gültigen Gesamtwert. Ranglisten verwenden nur den Endwert eines bestätigten Normalspiel-Durchlaufs.
+
+Kürzere Zeit gewinnt immer. Erst bei identischer Tickzahl entscheidet die höhere Gesamtwertung. Stimmen Zeit und Punkte überein, teilen sich Spieler den Rang. Lokale Rekorde und die Offline-Warteschlange verwenden dieselbe Reihenfolge. Die Punkte gehören zum angezeigten Durchlauf, nicht zu einem unabhängigen langsameren Punkterekord.
+
+## Finale
+
+Höhle 10 verlangt keine zusätzliche Aufgabenbedingung. Der bewachte Gang liegt zwischen den ersten sieben und den letzten drei Pflichtdiamanten. Der Riegel kann den Krabbler in der oberen Nische einschließen; die Erde darunter muss stehen bleiben. Alternativ wird von einer sicheren Plattform ein Stein abgeworfen. Dieser muss nach dem Treffer im Gang nach rechts weggeschoben werden. Beide Lösungen werden mit normalen Regeln geprüft und sind in der Höhlenauswahl abrufbar.
+
 ## Fortschritt und Wiedergabe
 
 Normal- und Übungsergebnisse werden getrennt in `emerald-hollows.save.v2` gespeichert. Vorhandene Version-1-Spielstände werden übernommen. Pro Level zählt die kürzeste erfolgreiche Tickzahl. Ein Erfolg in einem der beiden Modi öffnet die nächste Höhle. Fortsetzen stellt einen gespeicherten laufenden Versuch pausiert wieder her; sonst beginnt das zuletzt gewählte Level neu. Neustart setzt den Versuch vollständig zurück. Neues Spiel verlangt eine Bestätigung und löscht den lokalen Kampagnenfortschritt, nicht das Online-Profil oder öffentliche Rekorde.
@@ -39,6 +51,8 @@ Eine zweite lokale Kopie hilft bei beschädigten Daten. Unter Profil & Sicherung
 
 Auf Touchgeräten bewegen die Richtungstasten die Figur. Zum Graben nebenan die Grabentaste halten und zusätzlich eine Richtung drücken. Die Bedienelemente liegen außerhalb der Höhlenansicht. Orientierung und Fokuswechsel pausieren den Versuch.
 
-Ein Replay enthält Regelversion, Levelkennung und -Prüfsumme, tickbezogene Eingaben, Modus und erwarteten Endzustand. Die unveränderten Höhlen verwenden `crystal-delve/1`, die überarbeiteten Höhlen 06, 07 und 09 `emerald-hollows/2`. Die mitgelieferten Lösungen verwenden dieselbe Simulation wie normales Spielen. Es gibt keine Teleports, freigeschalteten Ausgänge oder ausgeschalteten Gegner für die Wiedergabe.
+Ein Replay enthält Regelversion, Levelkennung und -Prüfsumme, tickbezogene Eingaben, Modus und erwarteten Endzustand. Die unveränderten Höhlen verwenden `crystal-delve/1`, die überarbeiteten Höhlen 06, 07, 09 und 10 `emerald-hollows/2`. Die mitgelieferten Lösungen verwenden dieselbe Simulation wie normales Spielen. Es gibt keine Teleports, freigeschalteten Ausgänge oder ausgeschalteten Gegner für die Wiedergabe.
 
-Erfolge alter Kartenrevisionen behalten ihre Freischaltungen, erscheinen aber nicht als aktuelle Bestzeiten. Bereits aufgezeichnete 0.2-Durchläufe bleiben hochladbar und werden mit den archivierten Karten geprüft. Öffentliche Ranglisten zeigen ausschließlich die aktuelle Karten- und Regelversion. Eine Profilwiederherstellung übernimmt auch historische Erfolge für die Freischaltung. Ein laufender Versuch auf einer ersetzten Karte kann nicht fortgesetzt werden und startet neu; Versuche auf unveränderten Karten bleiben fortsetzbar.
+Erfolge alter Kartenrevisionen behalten ihre Freischaltungen, erscheinen aber nicht als aktuelle Bestzeiten. Bereits aufgezeichnete ältere Durchläufe bleiben hochladbar und werden mit den archivierten Karten geprüft. Öffentliche Ranglisten zeigen ausschließlich die aktuelle Karten- und Regelversion. Eine Profilwiederherstellung übernimmt auch historische Erfolge für die Freischaltung. Ein laufender Versuch auf einer ersetzten Karte kann nicht fortgesetzt werden und startet neu; Versuche auf unveränderten Karten bleiben fortsetzbar.
+
+Die abgeleitete Wertung hat die Kennung `scoreVersion: 1` und verändert bestehende Simulationszustände oder Replay-Prüfsummen nicht. Alte lokale Werte ohne Gesamtwertung behalten ihre Kristallpunkte mit †-Kennzeichnung. Serverseitig werden gespeicherte bestätigte Endzustände nachbewertet; ihre Zeiten und Freischaltungen bleiben erhalten.

@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-18T12:29:40.380Z",
+  "version": "0.4.0",
+  "unitTests": 80,
+  "solvedLevels": 10,
+  "alternativeFinaleSolutions": 1,
+  "finale": {
+    "trap": {
+      "ticks": 89,
+      "score": 35
+    },
+    "crush": {
+      "ticks": 131,
+      "score": 35
+    },
+    "mistimedTrapIsLethal": true,
+    "guardPassageRequired": true
+  },
+  "desktop": [
+    {
+      "browser": "Chrome",
+      "viewport": "1280x720",
+      "dpr": 1,
+      "status": "PASS"
+    },
+    {
+      "browser": "Edge",
+      "viewport": "1920x1080",
+      "dpr": 2,
+      "status": "PASS"
+    }
+  ],
+  "mobile": {
+    "browser": "Chrome emulation",
+    "viewports": [
+      "390x844",
+      "844x390"
+    ],
+    "dpr": 3,
+    "status": "PASS",
+    "physicalDeviceTested": false
+  },
+  "browserChecks": [
+    "both final replays",
+    "score HUD and result breakdown",
+    "English/German help and ranking",
+    "mobile layout"
+  ],
+  "rankingUiData": "fixtures; actual ordering separately tested against local Wrangler/D1",
+  "api": "See api-verification.json",
+  "backup": "See backup-verification.json",
+  "productionMigration": {
+    "name": "0002_score.sql",
+    "confirmedRuns": 11,
+    "records": 10,
+    "missingScoresAfterBackfill": 0,
+    "preMigrationBackupRun": "39127181141",
+    "workerVersion": "29635686-9200-4d18-a754-438aadffcc12"
+  },
+  "publicFixtureSubmissions": false,
+  "mediaCredits": 139,
+  "newMediaCredits": 0,
+  "limitations": [
+    "new finale human playthrough pending",
+    "physical mobile device and home-screen installation not tested",
+    "no production D1 restore",
+    "not a load test"
+  ],
+  "previousBroaderChecks": "artifacts/verification-v0.3.json"
+}

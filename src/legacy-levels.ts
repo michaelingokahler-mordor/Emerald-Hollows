@@ -1,5 +1,5 @@
 import type { LevelDefinition } from './core/types';
-// Retained only to verify outstanding 0.2 runs and keep historical records. Not selectable.
+// Retained only to verify outstanding older runs and keep historical records. Not selectable.
 export const LEGACY_LEVELS:LevelDefinition[]=[
   {
     "id": "06",
@@ -113,4 +113,47 @@ export const LEGACY_LEVELS:LevelDefinition[]=[
     "route": "walk 11 15; snap right; wait 8; walk 16 15; walk 18 15; walk 20 15; walk 22 15; walk 24 15; walk 26 15; walk 26 4; walk 20 4",
     "parTicks": 0
   }
+,
+{
+  "id": "10",
+  "name": "Ein Tor nach Lathmar",
+  "subtitle": "Am Ende der alten Mine",
+  "width": 40,
+  "height": 26,
+  "map": [
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "X######################################X",
+    "X######################################X",
+    "X################################....E#X",
+    "X#......#########################. ####X",
+    "X#....R.####################>    .   ##X",
+    "X#......#########################. ####X",
+    "X#......#########################. ####X",
+    "X#......#########################. ####X",
+    "X#......#########################. ####X",
+    "X###.############################. ####X",
+    "X###.############################# ####X",
+    "X###.######.D.D.D...RD.D.D.D.D.D.D.####X",
+    "X###.######.####### .#########.########X",
+    "X###.######.######## #########.########X",
+    "X###.######.######## #########.########X",
+    "X###.######.######## #########.########X",
+    "X###.######.######## ###...........####X",
+    "X###.#####.R.####### ###..M........####X",
+    "X###.#####.#.####### ###...........####X",
+    "X#.P..........###### ###...........####X",
+    "X################### ###....M......####X",
+    "X################### ###...........####X",
+    "X################### ##################X",
+    "X######################################X",
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  ],
+  "quota": 30,
+  "timeSeconds": 480,
+  "difficulty": 3,
+  "hint": "Schaffe rechts vom unteren Fels Platz. In der Galerie öffnest du den Fallschacht von der Seite. Zehn Diamanten genügen. Beobachte den Krabbler im letzten Aufstieg.",
+  "solution": "Rechte Nische freigraben, von links schieben und in die Galerie steigen. Den zweiten Stein seitlich untergraben, alle zehn Galeriediamanten sammeln und am Krabbler vorbei durch den Ostschacht zum Tor.",
+  "route": "walk 12 20; walk 12 19; snap up; walk 12 20; walk 10 20; walk 10 18; move right; walk 11 12; walk 12 12; walk 14 12; walk 16 12; walk 19 12; walk 19 13; snap right; wait 12; walk 19 12; walk 21 12; walk 23 12; walk 25 12; walk 27 12; walk 29 12; walk 31 12; walk 33 12; walk 34 12; walk 34 3; walk 37 3",
+  "parTicks": 0
+}
 ];

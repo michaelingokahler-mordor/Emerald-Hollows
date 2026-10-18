@@ -12,7 +12,7 @@ Den ersten Smaragd nebenan aufnehmen. Die westliche Kammer absuchen, durch den u
 
 Hinweis: Leertaste + Richtung sammelt nebenan, ohne dass du dich bewegst. Smaragde zählen 1, Diamanten 3. Du kannst auch nach oben graben.
 
-Geprüfter Durchlauf: 36 Takte / 3.6 Sekunden, 8 Punkte. Replay: public/replays/01.json.
+Geprüfter Durchlauf: 36 Takte / 3.6 Sekunden, 8 Kristallpunkte, 8 Wertungspunkte. Replay: public/replays/01.json.
 
 ```text
 XXXXXXXXXXXXXXXXXX
@@ -57,7 +57,7 @@ Bis zum Seitengang gehen, von (9,5) nach rechts untergraben und den Stein in den
 
 Hinweis: Der Stein versperrt den Gang. Geh links unter ihn, grabe von der Seite seine Stütze weg und warte in Sicherheit.
 
-Geprüfter Durchlauf: 28 Takte / 2.8 Sekunden, 10 Punkte. Replay: public/replays/02.json.
+Geprüfter Durchlauf: 28 Takte / 2.8 Sekunden, 10 Kristallpunkte, 10 Wertungspunkte. Replay: public/replays/02.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXX
@@ -102,7 +102,7 @@ Zur rechten Nische (13,8), Erde oberhalb entfernen. Über den unteren Gang zurü
 
 Hinweis: Rechts vom Felsen steckt noch Erde. Räume sie von unten frei. Schiebe den Stein dann von links zur Seite; darüber liegt die Kristallkammer.
 
-Geprüfter Durchlauf: 31 Takte / 3.1 Sekunden, 12 Punkte. Replay: public/replays/03.json.
+Geprüfter Durchlauf: 31 Takte / 3.1 Sekunden, 12 Kristallpunkte, 12 Wertungspunkte. Replay: public/replays/03.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXX
@@ -151,7 +151,7 @@ Vor dem Stapel anhalten und das linke Seitenfeld nebenan freigraben. Nach dem Ab
 
 Hinweis: Felsen rollen von runden Unterlagen ab. Seitenfeld und Feld darunter müssen frei sein. Sind beide Seiten frei, rollt der Stein nach links.
 
-Geprüfter Durchlauf: 42 Takte / 4.2 Sekunden, 15 Punkte. Replay: public/replays/04.json.
+Geprüfter Durchlauf: 42 Takte / 4.2 Sekunden, 15 Kristallpunkte, 15 Wertungspunkte. Replay: public/replays/04.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -201,7 +201,7 @@ Von (12,6) geschützt beobachten. Die Stütze so entfernen, dass der fallende St
 
 Hinweis: Der Krabbler folgt der Wand rechts und bewegt sich alle drei Takte. Beobachte ihn geschützt. Untergrabe den Stein, wenn der Krabbler von rechts zur Schachtmitte zurückkommt.
 
-Geprüfter Durchlauf: 46 Takte / 4.6 Sekunden, 12 Punkte. Replay: public/replays/05.json.
+Geprüfter Durchlauf: 46 Takte / 4.6 Sekunden, 12 Kristallpunkte, 17 Wertungspunkte. Replay: public/replays/05.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -249,7 +249,7 @@ Den linken Diamanten holen, zum Fels gehen und den Krabbler beobachten. Den Stei
 
 Hinweis: Der Krabbler muss lebend in höchstens zwei freien Feldern eingeschlossen bleiben. Schiebe den Fels in den Zugang, wenn er in einer Nische ist. Sammle danach drei Diamanten. Quote und Aufgabe öffnen gemeinsam den Ausgang.
 
-Geprüfter Durchlauf: 46 Takte / 4.6 Sekunden, 9 Punkte. Replay: public/replays/06.json.
+Geprüfter Durchlauf: 46 Takte / 4.6 Sekunden, 9 Kristallpunkte, 14 Wertungspunkte. Replay: public/replays/06.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -297,7 +297,7 @@ Bei (16,5) stehen bleiben. Den Abwurf vorhalten: Stütze bei Takt 25 entfernen, 
 
 Hinweis: Der Fels braucht mehrere Takte bis zur Laufbahn. Warte links neben seiner Stütze, bis der Krabbler von links an das Feld vor dem Fallschacht herankommt. Grabe die Stütze nebenan weg. Du musst ihn treffen, bevor der Ausgang öffnet.
 
-Geprüfter Durchlauf: 66 Takte / 6.6 Sekunden, 9 Punkte. Replay: public/replays/07.json.
+Geprüfter Durchlauf: 66 Takte / 6.6 Sekunden, 9 Kristallpunkte, 14 Wertungspunkte. Replay: public/replays/07.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -346,7 +346,7 @@ Links nach unten graben, die vier Diamanten entlang der unteren Galerie einsamme
 
 Hinweis: Wähle deine Route: Sechs Diamanten bieten 18 Punkte, aber vier Diamanten (12 Punkte) reichen. Vier liegen im unteren Rundgang, zwei im mittleren Abzweig. Du kannst Schätze aus beiden Wegen kombinieren; ein vollständiges Ausräumen ist nicht nötig.
 
-Geprüfter Durchlauf: 46 Takte / 4.6 Sekunden, 12 Punkte. Replay: public/replays/08.json.
+Geprüfter Durchlauf: 46 Takte / 4.6 Sekunden, 12 Kristallpunkte, 12 Wertungspunkte. Replay: public/replays/08.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -393,7 +393,7 @@ Links der Stütze bei (14,8) warten. Bei Takt 14 rechts nebenan graben. Der Stei
 
 Hinweis: Der blaue Krabbler mit Diamantzeichen verwandelt sich beim Zerquetschen in einen Diamanten (3 Punkte). Auch der fallende Stein verschwindet dabei. Zwei Smaragde ergänzen die Quote: Du brauchst den Diamanten des Krabblers.
 
-Geprüfter Durchlauf: 42 Takte / 4.2 Sekunden, 5 Punkte. Replay: public/replays/09.json.
+Geprüfter Durchlauf: 42 Takte / 4.2 Sekunden, 5 Kristallpunkte, 15 Wertungspunkte. Replay: public/replays/09.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -439,36 +439,36 @@ walk 20 16
 
 Am Ende der alten Mine. 40 × 26 Felder, Quote 30, 480 Sekunden, Schwierigkeit 3/3.
 
-Rechte Nische freigraben, von links schieben und in die Galerie steigen. Den zweiten Stein seitlich untergraben, alle zehn Galeriediamanten sammeln und am Krabbler vorbei durch den Ostschacht zum Tor.
+Zuerst den unteren Schiebestein lösen und den Galeriestein seitlich untergraben. Sieben Diamanten sammeln. Am bewachten Riegel warten, bis der Krabbler in der oberen Nische ist, und den Riegel nach rechts schieben. Die Stützerde nicht freigraben. Unten herum zum letzten Aufstieg gehen und die drei übrigen Diamanten holen. Alternative: den Krabbler rechts lassen, den oberen Abwurf vorbereiten, treffen und den gelandeten Stein nach rechts wegschieben.
 
-Hinweis: Schaffe rechts vom unteren Fels Platz. In der Galerie öffnest du den Fallschacht von der Seite. Zehn Diamanten genügen. Beobachte den Krabbler im letzten Aufstieg.
+Hinweis: Der letzte Durchgang wird bewacht. Schiebe den Riegelstein nach rechts, wenn der Krabbler in der oberen Nische ist. Lass die Erde unter dem Riegel stehen und gehe durch den unteren Bogen. Alternativ erreichst du links oben die Felsfalle; nach dem Treffer musst du ihren Stein im Gang nach rechts wegschieben. Drei Diamanten liegen erst hinter der Wache.
 
-Geprüfter Durchlauf: 73 Takte / 7.3 Sekunden, 30 Punkte. Replay: public/replays/10.json.
+Geprüfter Durchlauf: 89 Takte / 8.9 Sekunden, 30 Kristallpunkte, 35 Wertungspunkte. Replay: public/replays/10.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 X######################################X
 X######################################X
-X################################....E#X
-X#......#########################.·####X
-X#....R.####################>····.···##X
-X#......#########################.·####X
-X#......#########################.·####X
-X#......#########################.·####X
-X#......#########################.·####X
-X###.############################.·####X
-X###.#############################·####X
-X###.######.D.D.D...RD.D.D.D.D.D.D.####X
-X###.######.#######·.#########.########X
-X###.######.########·#########.########X
-X###.######.########·#########.########X
-X###.######.########·#########.########X
-X###.######.########·###...........####X
-X###.#####.R.#######·###..M........####X
-X###.#####.#.#######·###...........####X
-X#.P..........######·###...........####X
-X###################·###....M......####X
-X###################·###...........####X
+X########################......###..DE#X
+X#......#################.####.###D####X
+X#....R.#################.####.R##.####X
+X#......#################.##·#..##D####X
+X#......#################.##·##·##.####X
+X#......################...R··<·····###X
+X#......################.##...#########X
+X###.###################.##...#########X
+X###.###################.###·##########X
+X###.######.D.D.D.D.RD.D.D##·##########X
+X###.######.#######·.##.####·##########X
+X###.######.########·##.####·##########X
+X###.######.########·##.####·##########X
+X###.######.########·##.###############X
+X###.######.########·##.###############X
+X###.#####.R.#######·##....############X
+X###.#####.#.#######·##.M..############X
+X#.P..........######·##....############X
+X###################·##...M############X
+X###################·##################X
 X###################·##################X
 X######################################X
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -490,6 +490,7 @@ walk 11 12
 walk 12 12
 walk 14 12
 walk 16 12
+walk 18 12
 walk 19 12
 walk 19 13
 snap right
@@ -498,11 +499,75 @@ walk 19 12
 walk 21 12
 walk 23 12
 walk 25 12
-walk 27 12
-walk 29 12
-walk 31 12
-walk 33 12
-walk 34 12
-walk 34 3
+walk 24 12
+walk 24 8
+walk 26 8
+wait 10
+move right
+walk 27 9
+walk 27 10
+walk 29 10
+walk 29 8
+walk 30 8
+walk 34 6
+walk 34 4
+walk 36 3
+walk 37 3
+```
+
+## Alternative in Höhle 10: Felsfalle
+
+Auch diese Lösung verwendet die normale Simulation und denselben Ausgang. Replay: public/replays/10-crush.json.
+
+```text
+walk 12 20
+walk 12 19
+snap up
+walk 12 20
+walk 10 20
+walk 10 18
+move right
+walk 11 12
+walk 12 12
+walk 14 12
+walk 16 12
+walk 18 12
+walk 19 12
+walk 19 13
+snap right
+wait 12
+walk 19 12
+walk 21 12
+walk 23 12
+walk 25 12
+walk 24 12
+walk 24 8
+walk 26 8
+wait 0
+move right
+walk 26 8
+walk 25 8
+walk 25 3
+walk 30 3
+walk 30 6
+wait 16
+snap right
+wait 5
+walk 30 3
+walk 25 3
+walk 25 8
+walk 27 8
+walk 27 9
+walk 27 10
+walk 29 10
+walk 29 8
+walk 30 8
+move right
+move right
+move right
+move right
+walk 34 6
+walk 34 4
+walk 36 3
 walk 37 3
 ```

@@ -1,10 +1,10 @@
 {
-  "date": "2026-10-18T11:26:47.803Z",
+  "date": "2026-10-18T12:21:24.930Z",
   "status": "PASS",
   "checks": [
     "encrypt/decrypt",
     "tamper rejection",
-    "empty SQLite restore",
+    "old and new score formats restored to empty SQLite",
     "foreign key consistency"
   ],
   "liveD1Restore": false

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "rulesVersion": "crystal-delve/1",
+  "rulesVersion": "emerald-hollows/2",
   "levelId": "10",
-  "levelHash": "592c4b7d",
+  "levelHash": "20426033",
   "practice": false,
   "inputs": [
     {
@@ -141,7 +141,19 @@
       "direction": "right"
     },
     {
-      "direction": "right"
+      "direction": "left"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
     },
     {
       "direction": "right"
@@ -149,17 +161,25 @@
     {
       "direction": "right"
     },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
     {
-      "direction": "right"
+      "direction": "right",
+      "snap": false
     },
     {
-      "direction": "right"
+      "direction": "down"
     },
     {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
+      "direction": "down"
     },
     {
       "direction": "right"
@@ -174,10 +194,19 @@
       "direction": "up"
     },
     {
-      "direction": "up"
+      "direction": "right"
     },
     {
-      "direction": "up"
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
     },
     {
       "direction": "up"
@@ -204,5 +233,5 @@
       "direction": "right"
     }
   ],
-  "expectedHash": "d5ce9243"
+  "expectedHash": "c2a964f7"
 }

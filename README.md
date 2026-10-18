@@ -24,9 +24,13 @@ WASD/Pfeile bewegen und graben. Leertaste plus Richtung gräbt oder sammelt nebe
 
 Die Sprache lässt sich im Hauptmenü oder unter Einstellungen wechseln. Englisch ist die Voreinstellung. Die Credits sind über das Hauptmenü und den Abschlussbildschirm erreichbar; Herkunft und Lizenznachweise stehen in [docs/CREDITS.md](docs/CREDITS.md).
 
-Version 0.3 unterscheidet drei Krabblerlektionen: 06 einsperren, 07 einen Abwurf zeitlich abstimmen, 09 einen Kristallkrabbler in einen Diamanten verwandeln. Die zusätzlichen Kristalle in 08 ermöglichen bewusst verschiedene Sammelwege. Vorhandene Freischaltungen bleiben erhalten. Bestzeiten werden nur zwischen identischen Kartenrevisionen verglichen; ältere wartende Ergebnisse werden weiterhin geprüft und archiviert.
+Seit Version 0.3 unterscheiden sich die drei Krabblerlektionen: 06 einsperren, 07 einen Abwurf zeitlich abstimmen, 09 einen Kristallkrabbler in einen Diamanten verwandeln. Die zusätzlichen Kristalle in 08 ermöglichen bewusst verschiedene Sammelwege. Vorhandene Freischaltungen bleiben erhalten. Bestzeiten werden nur zwischen identischen Kartenrevisionen verglichen; ältere wartende Ergebnisse werden weiterhin geprüft und archiviert.
 
 Erfolge im Normal- oder Übungsspiel öffnen die nächste Höhle. Zeiten bleiben getrennt. „Fortsetzen“ lädt den laufenden Versuch; gespeichert wird ungefähr jede Sekunde und beim Pausieren. Ein Stromausfall kann die letzte Sekunde verlieren. Der Browser hält zusätzlich eine vorherige geprüfte Kopie vor. Importierte und alte lokale Erfolge erzeugen keine öffentlichen Ranglisteneinträge.
+
+Version 0.4 baut Höhle 10 zum bewachten Finale um: Drei Pflichtdiamanten liegen hinter der Krabblerpassage. Einsperren und Felsfalle sind als zwei reguläre Lösungsreplays verfügbar. Das Finale besitzt keine zusätzliche Pflichtaufgabe; seine Geometrie macht den Durchgang notwendig.
+
+Best Times zeigt Zeit und Punkte. Die kürzere Zeit gewinnt, bei Gleichstand die höhere Punktzahl. Smaragde zählen 1, Diamanten 3 Punkte. Ein zerquetschter oder am Ende sicher eingeschlossener Schieferkrabbler bringt 5 zusätzliche Punkte; ein umgewandelter Kristallkrabbler 10. Sein eingesammelter Diamant zählt weitere 3. Gegnerpunkte beeinflussen die Kristallquote nicht. Ältere rein lokale Werte sind mit † als reine Kristallpunkte gekennzeichnet; Online-Ergebnisse werden aus ihren geprüften Durchläufen ergänzt.
 
 ## Online-Profil und Sicherung
 
@@ -51,7 +55,7 @@ npm run package
 node tools/verify-package.mjs
 ```
 
-TypeScript mit strenger Prüfung, Phaser 4.2.1, Vite und Vitest. Die Simulation ist unabhängig von Phaser. 100-ms-Takt, deterministische Replays. Unveränderte Karten behalten `crystal-delve/1`; die überarbeiteten Krabblerkarten verwenden `emerald-hollows/2`. Der Speicher übernimmt `crystal-delve.save.v1` automatisch.
+TypeScript mit strenger Prüfung, Phaser 4.2.1, Vite und Vitest. Die Simulation ist unabhängig von Phaser. 100-ms-Takt, deterministische Replays. Unveränderte Karten behalten `crystal-delve/1`; die überarbeiteten Krabblerkarten und das Finale verwenden `emerald-hollows/2`. Der Speicher übernimmt `crystal-delve.save.v1` automatisch.
 
 `src/core` enthält Regeln und Replay-Prüfung, `src/levels.ts` die Karten, `src/campaign.ts` den Kampagnenaufbau, `src/main.ts` die Oberfläche, `server` die API und Migrationen. `public/replays` enthält erfolgreiche Lösungen. Die Runway-Quellen und Produktionsnachweise liegen unter `artifacts`; Bearbeitungsskripte unter `tools`.
 

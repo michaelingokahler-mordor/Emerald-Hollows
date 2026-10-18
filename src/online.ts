@@ -1,5 +1,5 @@
 import type { SaveData } from './storage';
-export interface RankedEntry {nickname:string;ticks:number;rank:number}
+export interface RankedEntry {nickname:string;ticks:number;points:number;score:number;rank:number}
 export class OnlineService {
   base='';busy=false;message='Online-Rangliste wird vorbereitet.';
   async configure():Promise<void>{

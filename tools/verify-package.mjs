@@ -5,11 +5,12 @@ import assert from 'node:assert/strict';
 const checksum=b=>createHash('sha256').update(b).digest('hex');
 const results=[];
 for(const kind of ['web','source']){
-  const name=`emerald-hollows-0.3.0-${kind}.zip`;
+  const name=`emerald-hollows-0.4.0-${kind}.zip`;
   const raw=await readFile('release/'+name),zip=unzipSync(raw),keys=Object.keys(zip);
   assert(keys.every(k=>!k.startsWith('/')&&!k.includes('..')&&!k.includes('node_modules')&&!k.includes('.env')&&!k.includes('/private/')&&!k.includes('.wrangler')&&!k.includes('.dev.vars')));
   const prefix=kind==='web'?'web/':'public/';
   for(const file of await readdir('public/assets'))assert.equal(checksum(zip[prefix+'assets/'+file]),checksum(await readFile('public/assets/'+file)));
+  assert(zip[prefix+'replays/10-crush.json']);
   for(let i=1;i<=10;i++)assert(zip[prefix+'replays/'+String(i).padStart(2,'0')+'.json']);
   for(const doc of ['CREDITS.md','REGELN.md','LEVELS-UND-LOESUNGEN.md','MEDIEN.md','PRUEFBERICHT.md','PHASER-LICENSE.txt','EVENTEMITTER3-LICENSE.txt'])assert(zip['docs/'+doc]);
   if(kind==='web'){assert(zip['Start-Emerald-Hollows.cmd']);assert.equal(checksum(zip['serve.mjs']),checksum(await readFile('tools/serve.mjs')));assert(zip['web/index.html']);}

@@ -1,6 +1,6 @@
 # Lathmar: Emerald Hollows — freigegebener Ausbau
 
-## Lieferung 0.3: Die alte Mine
+## Lieferung 0.4: Die alte Mine
 
 Zehn handgebaute Höhlen, fortlaufende Freischaltung, lokale Bestzeiten, getrennte Übungserfolge, Spielername, öffentlicher Zeitvergleich, Export/Import, automatische Sicherungskopie, Fortsetzen laufender Versuche, Touchsteuerung, installierbare Offline-Webapp und zwei längere Musikstücke. Die bewährte Grafik bleibt erhalten.
 
@@ -10,9 +10,9 @@ Spieladresse: https://sabnockworks.com/games/more-projects/emerald-hollows/
 
 Ranglisten-API: https://emerald-hollows-api.emerald-hollows.workers.dev
 
-Die Karten 01–05 bleiben bestehen. 06 verlangt, einen Schieferkrabbler lebend einzusperren. 07 übt den zeitlich abgestimmten Abwurf aus größerer Höhe. 08 bietet bewusst 18 Kristallpunkte bei einer Quote von 12: Der Spieler wählt einen Sammelweg. 09 führt den Kristallkrabbler ein, der beim Zerquetschen zusammen mit dem fallenden Objekt verschwindet und einen Diamanten hinterlässt. 10 kombiniert bekannte Regeln in einer 40 × 26 großen Höhle. Keine neue Mechanik wird im Finale vorausgesetzt.
+Die Karten 01–05 bleiben bestehen. 06 verlangt, einen Schieferkrabbler lebend einzusperren. 07 übt den zeitlich abgestimmten Abwurf aus größerer Höhe. 08 bietet bewusst 18 Kristallpunkte bei einer Quote von 12: Der Spieler wählt einen Sammelweg. 09 führt den Kristallkrabbler ein, der beim Zerquetschen zusammen mit dem fallenden Objekt verschwindet und einen Diamanten hinterlässt. 10 kombiniert bekannte Regeln in einer 40 × 26 großen Höhle mit einem notwendigen bewachten Durchgang: Einschließen oder Felsfalle öffnen den Weg zu den letzten drei Diamanten. Keine neue Mechanik wird im Finale vorausgesetzt.
 
-Die gesamte Spieloberfläche ist zwischen Englisch und Deutsch umschaltbar; die Einstellung wird gespeichert. Die Credits nennen die tatsächlichen Mitwirkenden, Werkzeuge und Inspirationsspiele. Freischaltungen aus 0.2 bleiben erhalten. Bestzeiten der umgebauten Karten 06, 07 und 09 werden anhand ihrer Kartenrevision getrennt gewertet; die übrigen Rekorde bleiben gültig.
+Die gesamte Spieloberfläche ist zwischen Englisch und Deutsch umschaltbar; die Einstellung wird gespeichert. Die Credits nennen die tatsächlichen Mitwirkenden, Werkzeuge und Inspirationsspiele. Freischaltungen aus 0.2 bleiben erhalten. Bestzeiten der umgebauten Karten 06, 07, 09 und 10 werden anhand ihrer Kartenrevision getrennt gewertet; die übrigen Rekorde bleiben gültig.
 
 ## Weitere Kapitel — noch nicht implementiert
 
@@ -53,3 +53,5 @@ Musik erhält Kapitelthemen und eine dezente Gefahrenschicht. Die Demo verwendet
 Runway-Obergrenze bleibt 1.000 Credits inklusive Fehlversuchen. Bisher 139: ursprüngliche Medien 115, Musikrunde 24 einschließlich einer nicht herunterladbaren Ersatzproduktion. Kein automatischer bezahlter Hostingwechsel. Workers Free wurde am 18.10.2026 im Konto bestätigt.
 
 Der Nutzer hat am 18.10.2026 bestätigt, dass der öffentliche Touchmodus funktioniert; Gerät und Betriebssystem wurden nicht angegeben. Vor dem nächsten Kapitel: Feedback zu den überarbeiteten Rätseln, Hörprobe und gezielte Prüfung der Installation auf Android und iPhone/iPad. Browseremulation ist kein Gerätetest. Dann jeweils ein neues Kapitel mitsamt Regeln, Karten, Medien und Replays entwickeln.
+
+Die Zeit bleibt das erste Ranglistenkriterium. Gesamtpunkte aus Kristallen und Gegnern entscheiden Gleichstände. Neue Gegnertypen erhalten vor ihrer Einführung einen festen Punktwert; die Kristallquote bleibt davon unabhängig.

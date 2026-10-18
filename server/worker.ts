@@ -3,6 +3,7 @@ import { checkedReplay, replayLevel } from '../src/core/replay-validation';
 import { RULES_VERSION, CRAWLER_RULES_VERSION, rulesFor, type GameState, type Replay } from '../src/core/types';
 import { LEVELS } from '../src/levels';
 import { normalizeName, validName } from '../src/storage';
+import {scoreBreakdown,SCORE_VERSION} from '../src/core/scoring';
 interface Statement {bind(...values:unknown[]):Statement;first<T=Record<string,unknown>>():Promise<T|null>;all<T=Record<string,unknown>>():Promise<{results:T[]}>;run():Promise<unknown>}
 export interface Database {prepare(query:string):Statement;batch(statements:Statement[]):Promise<unknown[]>}
 export interface Env {DB:Database;ALLOWED_ORIGINS:string;BACKUP_READ_TOKEN?:string}
@@ -53,7 +54,7 @@ async function handle(request:Request,env:Env):Promise<Response>{
     const {results}=await env.DB.prepare(`SELECT rowid AS backup_rowid,* FROM ${table} WHERE rowid>? ORDER BY rowid LIMIT ${pageSize}`).bind(Number(after)).all();
     return json({rows:results,next:results.length===pageSize?String(results.at(-1)!.backup_rowid):null});
   }
-  if(request.method==='GET'&&path==='/health')return json({ok:true,rulesVersion:RULES_VERSION,supportedRules:[RULES_VERSION,CRAWLER_RULES_VERSION]});
+  if(request.method==='GET'&&path==='/health')return json({ok:true,rulesVersion:RULES_VERSION,supportedRules:[RULES_VERSION,CRAWLER_RULES_VERSION],scoreVersion:SCORE_VERSION});
   if(request.method==='POST'&&path==='/profiles'){
     const body=await readBody(request);const nickname=normalizeName(String(body.nickname??''));if(!validName(nickname))return json({error:'name'},400);
     await quota(env,'profiles',30);
@@ -64,13 +65,13 @@ async function handle(request:Request,env:Env):Promise<Response>{
   const levelMatch=/^\/leaderboard\/([0-9]{2})$/.exec(path);
   if(request.method==='GET'&&levelMatch){
     const level=LEVELS.find(l=>l.id===levelMatch[1]);if(!level)return json({error:'level'},404);
-    const {results}=await env.DB.prepare('SELECT p.nickname,s.ticks,RANK() OVER (ORDER BY s.ticks) AS rank FROM scores s JOIN profiles p ON p.id=s.profile_id WHERE s.level_id=? AND s.level_hash=? AND s.rules_version=? ORDER BY s.ticks,s.profile_id LIMIT 100').bind(level.id,levelHash(level),rulesFor(level)).all();
+    const {results}=await env.DB.prepare('SELECT p.nickname,s.ticks,s.points,COALESCE(s.score,s.points) AS score,RANK() OVER (ORDER BY s.ticks,COALESCE(s.score,s.points) DESC) AS rank FROM scores s JOIN profiles p ON p.id=s.profile_id WHERE s.level_id=? AND s.level_hash=? AND s.rules_version=? ORDER BY s.ticks,COALESCE(s.score,s.points) DESC,s.profile_id LIMIT 100').bind(level.id,levelHash(level),rulesFor(level)).all();
     return json({entries:results});
   }
   if(path==='/profile'){
     const profile=await identify(request,env);
     if(request.method==='GET'){
-      const {results}=await env.DB.prepare('SELECT level_id,level_hash,rules_version,ticks,points FROM scores WHERE profile_id=?').bind(profile.id).all<{level_id:string;level_hash:string;rules_version:string;ticks:number;points:number}>();
+      const {results}=await env.DB.prepare('SELECT level_id,level_hash,rules_version,ticks,points,COALESCE(score,points) AS score FROM scores WHERE profile_id=?').bind(profile.id).all<{level_id:string;level_hash:string;rules_version:string;ticks:number;points:number;score:number}>();
       return json({nickname:profile.nickname,records:results.filter(r=>LEVELS.some(l=>l.id===r.level_id&&r.level_hash===levelHash(l)&&r.rules_version===rulesFor(l))),archivedRecords:results.filter(r=>LEVELS.some(l=>l.id===r.level_id&&(r.level_hash!==levelHash(l)||r.rules_version!==rulesFor(l))))});
     }
     if(request.method==='POST'){
@@ -98,7 +99,8 @@ async function handle(request:Request,env:Env):Promise<Response>{
     const update=env.DB.prepare('UPDATE runs SET state=?,cursor=?,status=? WHERE id=? AND cursor=?').bind(JSON.stringify(result.state),result.cursor,result.status,run.id,run.cursor);
     if(result.status==='confirmed'){
       const r=result.replay;
-      await env.DB.batch([update,env.DB.prepare('INSERT INTO scores(profile_id,level_id,level_hash,rules_version,ticks,points,run_id) VALUES(?,?,?,?,?,?,?) ON CONFLICT(profile_id,level_id,level_hash,rules_version) DO UPDATE SET ticks=excluded.ticks,points=excluded.points,run_id=excluded.run_id WHERE excluded.ticks<scores.ticks').bind(profile.id,r.levelId,r.levelHash,r.rulesVersion,result.state.tick,result.state.points,run.id)]);
+      const score=scoreBreakdown(replayLevel(r,true)!,result.state).total;
+      await env.DB.batch([update,env.DB.prepare('INSERT INTO scores(profile_id,level_id,level_hash,rules_version,ticks,points,score,run_id) VALUES(?,?,?,?,?,?,?,?) ON CONFLICT(profile_id,level_id,level_hash,rules_version) DO UPDATE SET ticks=excluded.ticks,points=excluded.points,score=excluded.score,run_id=excluded.run_id WHERE excluded.ticks<scores.ticks OR (excluded.ticks=scores.ticks AND excluded.score>COALESCE(scores.score,scores.points))').bind(profile.id,r.levelId,r.levelHash,r.rulesVersion,result.state.tick,result.state.points,score,run.id)]);
     }else await update.run();
     return json({status:result.status,cursor:result.cursor});
   }
