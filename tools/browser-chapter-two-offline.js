@@ -7,6 +7,6 @@ async(page)=>{
  await page.getByRole('button',{name:'How to play',exact:true}).click();const help=await page.locator('[role="dialog"]').innerText();if(/Graben|Hebel|Käfer|Richtung/.test(help))throw Error('Untranslated help '+help);await page.locator('[data-action="home"]').click();
  await page.context().setOffline(true);await page.reload();await page.locator('[data-action="continue"]:not(:disabled)').waitFor();
  await page.getByRole('button',{name:'The twenty caves',exact:true}).click();if(await page.locator('.level-card').count()!==20)throw Error('Missing offline caves');
- await page.locator('[data-action="replay"][data-level="19"]').click();await page.getByRole('button',{name:'Start solution',exact:true}).click();await page.getByRole('dialog').filter({hasText:'SOLUTION REPLAY COMPLETE'}).waitFor({timeout:20000});
+ await page.locator('[data-action="replay"][data-level="19"]').click();await page.getByRole('button',{name:'Start solution',exact:true}).click();await page.getByRole('dialog').filter({hasText:'SOLUTION REPLAY COMPLETE'}).waitFor({timeout:90000});
  await page.screenshot({path:'output/playwright/chapter2-offline-complete.png'});await page.context().setOffline(false);return{status:'PASS',productionBuild:true,offlineReload:true,offlineLevel20Won:true,twentyCaves:true,englishHelp:true};
 }

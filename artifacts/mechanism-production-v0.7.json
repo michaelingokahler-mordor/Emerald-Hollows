@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-18",
+  "provider": "Runway",
+  "previousProjectCredits": 236,
+  "startingAccountBalance": 2477,
+  "endingAccountBalance": 2451,
+  "grossCredits": 27,
+  "refundInferred": 1,
+  "netCredits": 26,
+  "totalProjectCredits": 262,
+  "conservativeProjectCredits": 271,
+  "limit": 1000,
+  "entries": [
+    {
+      "taskId": "4872c4c2-7762-45e9-8347-f904c4a87051",
+      "submittedCredits": 20,
+      "status": "Unused open-gate image; segmentation damaged metal. Runtime uses matching strips of the approved closed frame.",
+      "prompt": "Edit @gate into its fully OPEN state for a 2D game. Keep exactly the same square oak outer frame, bolts, painted material style, size, alignment and orthographic front view. The blue iron sliding grille has been raised up into the top lintel and is no longer visible across the passage: the entire interior opening is clear dark background, with NO bars, NO crossbar and NO plate floating in the middle. A narrow strip of the raised grille may be tucked directly under the top lintel, above the clear opening. Preserve the bottom wooden sill and side posts. Uniform dark background, no scene, no text, no letters. One standalone open gate."
+    },
+    {
+      "taskId": "e4b16975-a789-4c68-bec2-8fbb4d63be90",
+      "submittedCredits": 1,
+      "status": "Rejected: lost pivot and board.",
+      "prompt": "the complete lever with its wooden mounting plate and metal arm"
+    },
+    {
+      "taskId": "ebc69231-8fca-41be-97ce-c3d3dbdaa2b1",
+      "submittedCredits": 1,
+      "status": "Rejected: lost bars.",
+      "prompt": "the complete wooden gate frame and all metal bars; remove background including between the bars"
+    },
+    {
+      "taskId": "992fe512-19ba-4cf0-8cb8-12e85db6cb5c",
+      "submittedCredits": 1,
+      "status": "Rejected: lost raised grille.",
+      "prompt": "the entire wooden gate frame, leaving its interior opening transparent"
+    },
+    {
+      "taskId": "d19682e0-ec57-4fa7-a12f-cdd84a28c7ad",
+      "submittedCredits": 1,
+      "status": "Used: isolated arm and gear; wall-mounted pivot.",
+      "prompt": "lever assembly"
+    },
+    {
+      "taskId": "3373086e-1ba4-4d6b-9650-299a521beb7f",
+      "submittedCredits": 1,
+      "status": "Used: complete closed gate with transparent gaps.",
+      "prompt": "gate"
+    },
+    {
+      "taskId": "79190486-fc07-4e5d-a607-736dd431d78e",
+      "submittedCredits": 1,
+      "status": "Unused: board cutout contains holes where hardware was.",
+      "prompt": "wooden mounting board"
+    },
+    {
+      "taskId": "c4af6f3b-2a09-4d3e-9f88-ec5f3b091280",
+      "submittedCredits": 1,
+      "status": "Failed; one credit refund inferred from balance.",
+      "prompt": "gate"
+    }
+  ],
+  "processing": "tools/prepare-mechanisms.mjs preserves Runway alpha, crops gate frame and resizes to WebP. Runtime rotates the isolated lever about its brass pivot; the open gate retains four strips from the exact same frame. Rejected open-state generation and failed segmentation attempts are included in the budget."
+}

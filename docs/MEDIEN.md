@@ -29,6 +29,8 @@ Metadaten und Verarbeitung stehen in `artifacts/audio-verification.json`. Dateip
 
 Verbindliches Produktionslimit: 1.000 Runway-Credits. Die abschließende Bilanz steht im Prüfbericht. Das Spiel selbst verursacht keine Generierungskosten und benötigt keine API-Schlüssel.
 
+Aktueller Stand nach der Geräte-Entwurfsrunde vom 18.10.2026: **236 / 1.000 Credits netto**. Die Runde enthält 56 Credits für zwei ausgewählte und zwei verworfene Bildentwürfe. Ein weiterer fehlgeschlagener Auftrag wurde zunächst mit 8 Credits belastet; der Abgleich des Kontostands ergibt eine Erstattung. Konservativ ohne deren Anrechnung: **244 / 1.000**. Historische Zwischenstände weiter unten bleiben als Produktionsverlauf erhalten. Prompts, Dateien und Bilanz: `artifacts/mechanism-production-01.json`; Vorschau: `artifacts/mechanism-review/index.html`. Die neuen Geräte sind Rohentwürfe und noch nicht in das Spiel integriert.
+
 ## Inspirations- und Werkzeugnachweise
 
 Spielidee inspiriert von Emerald Mine und Boulder Dash. Umsetzung als eigenständiges Spiel mit eigenen Regeln und Leveln. Darstellung mit Phaser (MIT-Lizenz), Entwicklung mit TypeScript und Vite. Angaben zu Paketlizenzen bleiben in den npm-Paketen und der Lockdatei nachvollziehbar.
@@ -75,3 +77,12 @@ Der Nutzer hat Entwurf A ausgewählt. Seine vier seitlichen Laufposen werden rec
 ## Kapitel 2 (0.6.0)
 
 Keine zusätzliche Mediengenerierung: weiterhin 180 / 1.000 Runway-Credits. Hebel, Tore, Magazinrahmen und Richtungsmarkierungen werden in Phaser gezeichnet (src/mechanism-view.ts). Die sichtbaren Magazinsteine verwenden die vorhandene Felsgrafik; Blau und Lila verwenden eingefärbte vorhandene Käferbilder mit verschiedenen Winkelmarkierungen. Die Diamantmarkierung kennzeichnet den Kristallkäfer. Schalten, Ausgabe und Fusion verwenden bestehende Push-, Impact- und Diamond-Geräusche. Die ausgewählte Miner-Folge A und die 240 ms pro Pose bleiben unverändert.
+
+
+## Größere Höhlen und Runway-Mechanismen (0.7.0)
+
+Die vorausgehenden Hebel-/Torentwürfe verbrauchten netto 56 Credits (Projektstand 236). Für Integration, einen offenen Torentwurf und mehrere Freistellversuche kamen netto 26 hinzu: **262 / 1.000 Credits**, konservativ einschließlich erstatteter Versuche 271. Das Konto sank in dieser Integrationsrunde von 2477 auf 2451. Ein zwischenzeitlicher, nicht diesem Projekt zugeordneter Kontoverbrauch wird nicht eingerechnet.
+
+`artifacts/mechanism-production-01.json` dokumentiert die Entwürfe; `artifacts/mechanism-production-v0.7.json` sämtliche Integrationsversuche, Kosten, Prompts und Verwendungen. Verwendet werden der vollständige freigestellte Hebelarm samt Zahnrad und das geschlossene bemalte Holztor. `tools/prepare-mechanisms.mjs` beschneidet und verkleinert sie mit erhaltener Transparenz zu `mechanism-lever.webp` und `mechanism-gate.webp`.
+
+Der Hebel dreht sich um sein Zahnrad. Das geöffnete Tor zeigt ausgeschnittene Randteile desselben Rahmens; so springen Pfosten beim Schalten nicht. Das Magazin verwendet diesen Rahmen und vorhandene Felsgrafiken. Zustandsmarkierungen bleiben als lesbare UI darüber. Der separat generierte offene Torentwurf und unvollständige Freistellungen sind archiviert, aber nicht im Spiel. Keine weitere Musik- oder Miner-Generierung.

@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-18",
+  "provider": "Runway",
+  "kind": "Mechanism art proposals; not integrated game assets",
+  "referenceTask": "4bbb88b4-b439-4c54-945b-767b353fe3a5",
+  "startingBalance": 2555,
+  "endingBalance": 2499,
+  "grossCredits": 64,
+  "refundedCredits": 8,
+  "netCredits": 56,
+  "previousProjectCredits": 180,
+  "totalProjectCredits": 236,
+  "conservativeGrossProjectCredits": 244,
+  "limit": 1000,
+  "entries": [
+    {
+      "id": "c18fa488-bb05-40a0-9870-32437c13b263",
+      "prompt": "Create ONE standalone game-art object: a heavy vertical sliding iron mine gate in its CLOSED position, fully visible, centered and nearly square. Orthographic straight-on FRONT VIEW for a 2D cave cross-section, not isometric. Match the hand-painted outlined warm-earth and slate-blue material style in @mine, but draw only this gate, not the reference sheet. Rough dark oak side posts and a chunky lintel, battered blue-black wrought iron bars, a few aged brass rivets, subtle ochre highlights from upper left, restrained greenish oxidized patina. Four thick vertical bars and two horizontal crosspieces, readable dark gaps between them, obvious physical weight. The sliding gate should be clearly different from the existing wooden exit door. Include a small blank brass identification plate, with NO letter or number. Bold readable silhouette and broad material shapes at 64px; rich painterly texture at large scale. All of the gate including frame must fit within the image with 10 percent margin. No scenery, no wall beyond the frame, no floor, no text, no interface borders. Flat dark charcoal #101b20 background. This is a production design draft, single object, no collage.",
+      "grossCredits": 8,
+      "netCredits": 0,
+      "status": "failed; 8-credit refund inferred from account balance reconciliation"
+    },
+    {
+      "id": "a6c6bb61-d995-4269-8218-29303849e7fe",
+      "prompt": "ONE standalone game-art object: an old mine control LEVER, mounted on a chunky square dark oak backing plate with four worn iron corner bolts. A stout angled wrought-iron handle with an ochre wooden grip rises clearly up and to the left from a brass toothed pivot. A visible small iron linkage and two distinct detent notches make its purpose obvious. Orthographic straight-on front elevation for a 2D cave cross-section. Match the warm hand-painted outlined materials of @mine: dark weathered wood grain, slate-blue forged iron, aged brass edges, highlights from upper left. A small blank brass identification plate below the pivot, NO letters or numbers. Broad simple shapes and a strongly distinct handle silhouette that remain recognizable at 40 to 64 pixels; not a UI icon, not flat vector art, not photorealistic, not isometric. Full object with 12 percent padding on all sides. No wall, scenery, floor, characters or text. Flat dark charcoal #101b20 background, no cast shadow outside the object. Single lever in one position, no collage or repeated views.",
+      "grossCredits": 8,
+      "netCredits": 8,
+      "status": "succeeded; rejected hammer-like silhouette",
+      "file": "artifacts/mechanism-review/lever-draft.png"
+    },
+    {
+      "id": "e1674df1-f9a4-4306-8a6b-0458a22fa5d4",
+      "prompt": "Create ONE standalone game-art object: a heavy vertical sliding iron mine gate in its CLOSED position, fully visible, centered and nearly square. Orthographic straight-on FRONT VIEW for a 2D cave cross-section, not isometric. Match the hand-painted outlined warm-earth and slate-blue material style in @mine, but draw only this gate, not the reference sheet. Rough dark oak side posts and a chunky lintel, battered blue-black wrought iron bars, a few aged brass rivets, subtle ochre highlights from upper left, restrained greenish oxidized patina. Four thick vertical bars and two horizontal crosspieces, readable dark gaps between them, obvious physical weight. The sliding gate should be clearly different from the existing wooden exit door. Include a small blank brass identification plate, with NO letter or number. Bold readable silhouette and broad material shapes at 64px; rich painterly texture at large scale. All of the gate including frame must fit within the image with 10 percent margin. No scenery, no wall beyond the frame, no floor, no text, no interface borders. Flat dark charcoal #101b20 background. This is a production design draft, single object, no collage.",
+      "grossCredits": 8,
+      "netCredits": 8,
+      "status": "succeeded; rejected background and unwanted text",
+      "file": "artifacts/mechanism-review/gate-draft.png"
+    },
+    {
+      "id": "c639f628-bcd5-4c90-8740-eea6d2f2668e",
+      "prompt": "Paint ONE functional mining lever as a game object, orthographic straight-on front view, matching the warm outlined hand-painted wood and metal style of @mine. A SINGLE long slim iron lever arm points diagonally up-left from ONE circular brass pivot near the lower center. At the far tip of the arm is ONE small rounded ochre wooden handgrip, inline with the arm. The handle shape must read unmistakably as a pull lever. NO hammer head, NO axe, NO pickaxe, NO horizontal crossbar at the tip, NO second handle. The pivot is bolted to a roughly square weathered oak mounting block with four blue-black iron bolts. Subtle gear teeth only around the bottom pivot, a small blank brass label below it. Keep details simple: at 40px the diagonal arm, handgrip, pivot and wooden mount must remain distinct. Slate-blue iron, warm chestnut wood, aged brass, light from upper left. Full object centered with generous empty margins, no background scenery, no floor, no text or numbers, flat charcoal background #101b20. One lever in one pose, not a sheet, not isometric, not a 3D render.",
+      "grossCredits": 20,
+      "netCredits": 20,
+      "status": "succeeded; selected draft",
+      "file": "artifacts/mechanism-review/lever-revised.png"
+    },
+    {
+      "id": "1a3e5603-b288-4d78-8836-d207a71fbb9b",
+      "prompt": "Create one isolated CLOSED iron sliding mine gate for a 2D cave game. Use @gate as the construction reference and @lever as the exact hand-painted outlined material style reference. Straight-on orthographic FRONT view, compact square wooden outer frame, four thick slate-blue iron vertical bars with visible empty gaps, one iron cross brace and a small blank brass identification plate. Weathered oak, aged brass rivets, subtle warm top-left highlights. Entire gate contained within a centered square area with 10 percent margins. IMPORTANT: remove every letter, number, signature and color-code scribble from the reference. There must be ABSOLUTELY NO TEXT anywhere. Uniform dark charcoal background matching the empty background of @lever, including all gaps between bars. No orange glow or gradient, no wall, floor or surrounding scenery. Bold simple silhouette legible at forty pixels. One object, one closed state, not a sheet.",
+      "grossCredits": 20,
+      "netCredits": 20,
+      "status": "succeeded; selected draft after visual inspection",
+      "file": "artifacts/mechanism-review/gate-revised.png"
+    }
+  ],
+  "processing": "Original Runway PNGs, unchanged. HTML displays different CSS sizes only. No transparency, separate moving parts or open gate state produced yet.",
+  "reviewPage": "artifacts/mechanism-review/index.html"
+}

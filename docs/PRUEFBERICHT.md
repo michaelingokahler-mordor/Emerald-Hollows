@@ -1,3 +1,51 @@
+# Lathmar: Emerald Hollows 0.7.0 – größere Fördergänge
+
+Stand: 18. Oktober 2026. Level 11–20 wurden neu aufgebaut. 11–13 führen die Mechanismen ein; ab 14 verbinden größere Abbaugebiete, verteilte Edelsteine und mehrere Sammelwege die Apparaturen. Hebel und Tore verwenden jetzt die Runway-Motive. Bewegungstempo, Regeln und Miner-Animation bleiben erhalten.
+
+## Umfang und tatsächliche Lösungszeiten
+
+| Level | Raster | Begehbare/abbaubare Zellen | Quote | Geprüfte bekannte Routen |
+|---|---|---|---|---|
+| 11 | 32 × 22 | 200 | 22 | 19.1–19.1 s |
+| 12 | 36 × 26 | 348 | 22 | 21.5–21.5 s |
+| 13 | 40 × 27 | 414 | 28 | 27.2–27.2 s |
+| 14 | 48 × 30 | 733 | 36 | 19.3–27.3 s |
+| 15 | 48 × 32 | 700 | 42 | 32.2–33.9 s |
+| 16 | 50 × 32 | 624 | 48 | 25.1–25.7 s |
+| 17 | 52 × 34 | 732 | 56 | 47.9–47.9 s |
+| 18 | 56 × 34 | 743 | 60 | 31.1–51.0 s |
+| 19 | 56 × 36 | 912 | 72 | 52.4–54.0 s |
+| 20 | 64 × 40 | 1134 | 84 | 57.8–70.3 s |
+
+Die Zeiten stammen aus deterministischen Eingabefolgen, nicht aus menschlichen Erstversuchen; sie beweisen keine Optimalität. Die ursprüngliche Zielvorstellung von drei bis sechs Minuten für bekannte Routen ist damit **nicht erreicht**. Der größere Inhalt wird ohne künstliche Wartezeiten oder langsameres Bewegungstempo angeboten. Menschliches Feedback zu Orientierung, Routenwahl und Spieldauer steht noch aus.
+
+Level 14 bietet vier Bezirke mit 53 verfügbaren Punkten bei Quote 36. Zwei Bezirke genügen nie, jede Kombination aus drei Bezirken genügt. Level 18 bietet einen kürzeren bewachten Weg und einen längeren sicheren Sammelweg. In 13, 15, 19 und 20 lässt sich die erforderliche Umwandlung eines Kristallkäfers nicht durch zusätzliches Sammeln umgehen. Level 16 verlangt weiterhin das lebendige Einsperren.
+
+## Automatisierte Prüfung
+
+- 156 Vitest-Tests bestanden, einschließlich sämtlicher neuer Kartenrevisionen und zusätzlicher Lösungsrouten.
+- Alle 20 Hauptlösungen sowie Alternativen erneut erfolgreich. Kapitel 2 besitzt 19 geprüfte Routen insgesamt; die erfolgreiche Hauptlösung ist dabei jeweils mitgezählt.
+- Identische Ergebnisse bei 30/60/144 Render-FPS; zusätzlich neun anfängliche Zeitversätze je Kapitel-2-Karte. Neustart, Fehlwurf und obligatorische Ziele geprüft.
+- Lokaler Wrangler/D1-Durchlauf: sämtliche neuen Replays samt Punkten bestätigt. Alte 0.6-Replays bleiben verifizierbar, erscheinen aber nicht in Ranglisten der neuen Karten. Freischaltungen bleiben erhalten.
+- Karten und Replays 01–10 unverändert. Keine öffentlichen Testeinträge erzeugt und keine Datenbankeinträge gelöscht. Die neue Kartenprüfsumme trennt die Bestzeiten von 11–20 automatisch.
+- Nachweise: `artifacts/expanded-caves-verification.json`, `artifacts/level-verification.json`, `artifacts/api-verification.json`.
+
+## Browserprüfung
+
+Chrome 1280 × 720/DPR 1, Edge 1920 × 1080/DPR 2 und Chrome-Touchemulation 390 × 844/DPR 3 spielten alle zehn neuen Karten vom Menü bis zum erfolgreichen Abschluss ab. Diese systematischen Durchläufe verwendeten sechsfach beschleunigte Replay-Wiedergabe. Die Apparaturen blieben vollständig im Bild. Englisch und Deutsch sowie erhaltene Freischaltungen alter Karten wurden geprüft.
+
+Ein separater Test mit zwei gleichzeitigen CDP-Touchpunkten und Tastatur lief mit normalem Spieltakt: ein gehaltener Hebel gibt genau einen Stein aus, erneutes Drücken einen weiteren; Pause/Neuladen erhält den Vorrat, Neustart stellt ihn wieder her. Auch 844 × 390 im Querformat ohne horizontale Überbreite geprüft. Keine physische Handyprüfung und keine neue menschliche Spiel- oder Hörabnahme.
+
+Die neuen Runway-Grafiken wurden zusätzlich an 13, 14, 15 und 20 in Desktop- und Mobilansicht geprüft; die Apparaturen bleiben vollständig sichtbar. Produktionsbuild und beide ZIP-Pakete bestehen die technische Prüfung. Nach Offline-Neuladen sind alle 20 Level vorhanden; Level 20 wurde bei normalem Takt bis zum erfolgreichen Abschluss abgespielt. Browsernachweis: `artifacts/expanded-browser-verification.json`. Die Veröffentlichung wird zusätzlich unter `release/deployment-verification-v0.7.0.json` dokumentiert.
+
+## Medien
+
+26 neue Runway-Credits netto einschließlich verworfener Freistellungen (2477 → 2451). Projektgesamt **262 / 1.000**, konservativ ohne Erstattungen 271 / 1.000. Herkunft, Prompts und Verwendungen: `artifacts/mechanism-production-v0.7.json`. Die offene Toransicht verwendet dieselben Rahmenstücke wie das geschlossene Tor, damit die Geometrie beim Öffnen stabil bleibt. Die neue separate offene Generierung wurde nicht verwendet.
+
+Die folgenden Abschnitte sind historische Prüfungen früherer Versionen.
+
+---
+
 # Lathmar: Emerald Hollows 0.6.0 – Kapitel 2
 
 Stand: 18. Oktober 2026. Zwanzig spielbare Höhlen; Level 11–20 ergänzen Hebel/Tore, zwei Käferrichtungen, Verschmelzung und dosierte Steinspender. Die Laufanimation A bleibt bei 240 ms pro Pose. Keine neuen Runway-Generierungen.

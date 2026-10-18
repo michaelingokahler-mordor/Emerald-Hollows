@@ -1,0 +1,43 @@
+{
+  "sources": {
+    "lever": "artifacts/mechanism-review/lever-cutout-v2.png",
+    "gate": "artifacts/mechanism-review/gate-closed-cutout-v2.png"
+  },
+  "leverPivot": [
+    0.615,
+    0.585
+  ],
+  "gateCrop": {
+    "left": 128,
+    "top": 112,
+    "width": 768,
+    "height": 784
+  },
+  "openFrameCrops": [
+    [
+      0,
+      0,
+      54,
+      256
+    ],
+    [
+      202,
+      0,
+      54,
+      256
+    ],
+    [
+      54,
+      0,
+      148,
+      44
+    ],
+    [
+      54,
+      224,
+      148,
+      32
+    ]
+  ],
+  "note": "Runway alpha retained. Open frame uses the same painted frame strips; no new generated frame registration drift. Lever gear and arm rotate together on the cave wall; the rejected incomplete board is not used."
+}

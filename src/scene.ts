@@ -27,6 +27,8 @@ export class CaveScene extends Phaser.Scene {
   preload():void{
     const base=import.meta.env.BASE_URL+'assets/';
     this.load.atlas('tiles',base+'tiles.png',base+'tiles.json');
+    this.load.image('mechanism-lever',base+'mechanism-lever.webp');
+    this.load.image('mechanism-gate',base+'mechanism-gate.webp');
     this.load.spritesheet('hero',base+'hero.png',{frameWidth:256,frameHeight:256});
     this.load.spritesheet('digging',base+'digging.png',{frameWidth:256,frameHeight:256});
     for(const key of ['dig','emerald','diamond','push','impact','death','open','win','music-calm','music-brisk'])this.load.audio(key,base+key+'.ogg');

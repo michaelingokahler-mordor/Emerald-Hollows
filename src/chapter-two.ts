@@ -1,68 +1,99 @@
-import {MECHANISM_RULES_VERSION,type LevelDefinition,type MechanismDefinition,type ViewRoom} from './core/types';
-class MapBuilder{
- rows:string[][];
- constructor(readonly width:number,readonly height:number){this.rows=Array.from({length:height},(_,y)=>Array.from({length:width},(_,x)=>x===0||y===0||x===width-1||y===height-1?'X':'#'));}
- rect(x:number,y:number,x2:number,y2:number,c='.'){for(let j=y;j<=y2;j++)for(let i=x;i<=x2;i++)this.rows[j][i]=c;return this;}
- set(x:number,y:number,c:string){this.rows[y][x]=c;return this;}
- map(){return this.rows.map(r=>r.join(''));}
-}
-const devices=():MechanismDefinition=>({gates:[],levers:[],dispensers:[]});
-function gate(m:MechanismDefinition,id:string,x:number,y:number,open=false,label=id){m.gates.push({id,x,y,open,label});}
-function lever(m:MechanismDefinition,id:string,x:number,y:number,gates:string[]=[],dispensers:string[]=[],view?:ViewRoom,label=id){m.levers.push({id,x,y,gates,dispensers,label,...(view?{view}:{})});}
-function magazine(m:MechanismDefinition,id:string,x:number,y:number,stock=3){m.dispensers.push({id,x,y,stock,label:id});}
-function level(id:string,name:string,subtitle:string,b:MapBuilder,m:MechanismDefinition,quota:number,hint:string,route:string,english:NonNullable<LevelDefinition['english']>,difficulty=2,timeSeconds=420):LevelDefinition{for(const d of [...m.gates,...m.levers,...m.dispensers])b.set(d.x,d.y,'#');return{id,name,subtitle,width:b.width,height:b.height,map:b.map(),mechanisms:m,quota,timeSeconds,difficulty,hint,solution:hint,route,parTicks:0,rulesVersion:MECHANISM_RULES_VERSION,english};}
-export const CHAPTER_TWO:LevelDefinition[]=[];
+import {CHAPTER_TWO as PREVIOUS} from './chapter-two-v06';
+import {CaveDesign,corridor,deposit} from './cave-design';
+import {MECHANISM_RULES_VERSION,type LevelDefinition,type MechanismDefinition} from './core/types';
+export const CHAPTER_TWO:LevelDefinition[]=PREVIOUS.map(l=>structuredClone(l));
+export const CHAPTER_TWO_ALTERNATIVES:Record<string,string>={};
+export const CHAPTER_TWO_ROUTES:Record<string,Record<string,string>>={};
+const old=(id:string)=>PREVIOUS.find(l=>l.id===id)!;
+const set=(l:LevelDefinition)=>{CHAPTER_TWO[Number(l.id)-11]=l;};
+const beforeExit=(l:LevelDefinition)=>l.route.split(';').slice(0,-1).join(';');
+function expand(id:string,w:number,h:number){const source=old(id);return{source,b:new CaveDesign(w,h,source),m:structuredClone(source.mechanisms!),base:{...source,width:w,height:h,timeSeconds:900}};}
+
 {
- const b=new MapBuilder(30,20).rect(2,8,22,8).rect(15,6,15,7).rect(17,6,17,7).rect(16,3,16,5).rect(16,3,25,3).set(16,6,'R').set(3,8,'P').set(18,3,'D').set(21,3,'D').set(24,3,'D').set(25,3,'E');
- const m=devices();gate(m,'A',9,8);lever(m,'A-lever',5,7,['A'],[],undefined,'A');
- CHAPTER_TWO.push(level('11','Das erste Tor','Ein Hebel, ein neuer Weg',b,m,9,'Halte Graben und drücke zum Hebel A. Lass die Tasten vor dem nächsten Schalten los. Hinter dem Tor: erst die rechte Felsablage von unten freigraben, dann den Stein von links schieben.','walk 5 8; use up; walk 17 8; walk 17 7; snap up; walk 17 8; walk 15 8; walk 15 6; move right; walk 16 3; walk 24 3; walk 25 3',{name:'The first gate',subtitle:'One lever, a new way',hint:'Hold Dig and press towards lever A. Release the keys before switching again. Beyond the gate, clear the rock bay on the right from below, then push the rock from the left.'}));
+ const{source,b,m,base}=expand('11',32,22);
+ const west=deposit(b,2,11,11,6,10,1),east=deposit(b,18,11,12,9,10,2,1);
+ b.set(25,3,'.').set(3,19,'E');corridor(b,3,8,3,19);corridor(b,25,3,25,11);
+ m.gates.push({id:'B',label:'B',x:3,y:17,open:true});m.levers[0].gates.push('B');m.levers[0].label='A/B';
+ set({...base,map:b.map(m),mechanisms:m,quota:22,timeSeconds:360,route:`${beforeExit(source)}; ${east.route}; walk 5 8; use up; ${west.route}; walk 3 19`,hint:'A öffnet die östliche Mine, B den Ausgang im Westen. Beide Tore wechseln gegensinnig. Hole genügend Schätze hinter A, kehre zum Hebel zurück und öffne B. Die untere Westkammer bietet weitere Smaragde.',solution:'A öffnen, den Schiebestein lösen und die obere Galerie sammeln. In der Ostkammer weiter sammeln. Zum Hebel zurückkehren und B öffnen; im Westen die Quote ergänzen und nach Süden zum Ausgang.',english:{name:'The first gate',subtitle:'Outward through A, home through B',hint:'A opens the eastern mine; B opens the western exit. They switch in opposite directions. Gather ore beyond A, return to the lever and open B. The lower western chamber offers more emeralds.'}});
 }
+
+// Protected observation first: independent left/right circuits, then a separate fusion chamber.
 {
- const b=new MapBuilder(36,22).rect(2,10,34,10).rect(11,10,15,10,' ').rect(11,7,12,8,' ').rect(24,10,28,10,' ').rect(24,12,25,13,' ').rect(34,5,34,9).set(3,10,'P').set(14,10,'<').set(27,10,'l').set(30,10,'D').set(32,10,'D').set(34,10,'D').set(34,5,'E');
- const m=devices();gate(m,'A',11,9);gate(m,'B',24,11);lever(m,'A-lever',9,9,['A'],[],undefined,'A');lever(m,'B-lever',22,9,['B'],[],undefined,'B');
- CHAPTER_TWO.push(level('12','Die zweite Runde','Rechts herum, links herum',b,m,9,'Blau biegt bevorzugt rechts ab, Lila links. Öffne A: Blau nimmt auf dem Rückweg die obere Schleife. Öffne B: Lila nimmt die untere Schleife. Nutze jeweils den Umweg zum Durchqueren; die Käfer bleiben frei.','walk 9 10; use up; until 11 8 crawler; walk 22 10; use up; until 24 12 purple-crawler; walk 34 10; walk 34 5',{name:'The second circuit',subtitle:'Right around, left around',hint:'Blue prefers right turns; purple prefers left turns. Open A so blue takes the upper loop on its return. Open B so purple takes the lower loop. Cross while each crawler takes its detour; both remain free.'}));
+ const b=new CaveDesign(36,26),m:MechanismDefinition={gates:[{id:'F',label:'F',x:25,y:3,open:false},{id:'G',label:'F',x:34,y:20,open:false}],levers:[{id:'F-lever',label:'F',x:20,y:6,gates:['F','G'],dispensers:[],view:{x:18,y:1,width:12,height:8}}],dispensers:[]};
+ b.rect(4,2,8,4,' ').set(6,3,'#').set(8,3,'<').rect(12,2,16,4,' ').set(14,3,'#').set(16,3,'l').rect(22,3,28,3,' ').set(24,3,'>').set(26,3,'l');
+ const west=deposit(b,2,11,12,13,10,1),east=deposit(b,21,11,13,13,12,2,1);
+ corridor(b,3,7,30,7,30,11);corridor(b,3,7,3,11);corridor(b,30,17,34,17,34,24);b.set(3,7,'P').set(34,24,'E');
+ set({id:'12',name:'Die zweite Runde',subtitle:'Beobachten, verbinden, sammeln',width:36,height:26,map:b.map(m),mechanisms:m,quota:22,timeSeconds:420,difficulty:2,rulesVersion:MECHANISM_RULES_VERSION,parTicks:0,route:`${west.route}; walk 20 7; use up; wait 18; ${east.route}; walk 34 24`,hint:'Oben kannst du die Richtungen geschützt beobachten: Blau bevorzugt rechts, Lila links. Hebel F verbindet das getrennte Paar rechts und öffnet den Ausgang. Beim Treffen entsteht ein Kristallkäfer. Sammle danach die Quote in den beiden unteren Kammern.',solution:'Die Westkammer sammeln. Am oberen Beobachtungsweg Hebel F betätigen und das Treffen ansehen. In der Ostkammer die Quote ergänzen und rechts zum Ausgang gehen.',english:{name:'The second circuit',subtitle:'Observe, connect, collect',hint:'Watch safely above: blue prefers right turns, purple left. Lever F connects the separate pair on the right and opens the exit. Their meeting creates a crystal crawler. Gather your quota in the two lower chambers.'}});
 }
+
 {
- const b=new MapBuilder(32,22).rect(2,7,13,7).rect(6,4,6,6).rect(6,4,20,4).rect(20,5,20,10).rect(12,10,16,10,' ').rect(17,10,20,10).rect(14,8,14,9,' ').set(14,7,'.').set(14,6,'R').set(12,10,'>').set(15,10,'l').set(3,7,'P').set(5,7,'M').set(8,7,'M').set(20,10,'E');
- const m=devices();gate(m,'A',14,10);lever(m,'A-lever',10,6,['A'],[],undefined,'A');
- CHAPTER_TWO.push(level('13','Ein kostbares Treffen','Aus zwei Käfern wird einer',b,m,5,'Öffne A und beobachte das Treffen: Berühren sich Blau und Lila seitlich, entsteht auf dem blauen Feld ein Kristallkäfer. Grabe die Stütze des Felsens weg, wenn er in den Schacht steigt. Sein Diamant ist für die Quote nötig.','walk 10 7; use up; walk 13 7; until 14 9 crystal-crawler; snap right; wait 8; walk 6 7; walk 6 4; walk 20 4; walk 20 9; walk 19 10; walk 14 10; walk 20 10',{name:'A precious meeting',subtitle:'Two crawlers become one',hint:'Open A and watch the meeting: side-by-side contact between blue and purple creates a crystal crawler on the blue cell. Dig out the rock support when it climbs the shaft. Its diamond is required for the quota.'},3));
+ const{source,b,m,base}=expand('19',40,27);
+ const west=deposit(b,2,14,11,11,10,1),east=deposit(b,24,5,14,20,12,2,1);
+ corridor(b,3,7,3,14);corridor(b,18,4,26,4,26,5);
+ set({...base,id:'13',name:'Ein kostbares Treffen',subtitle:'Ein Zug, ein Stein',map:b.map(m),mechanisms:m,quota:28,timeSeconds:480,objective:'crystal-crush',route:`${west.route}; ${beforeExit(source)}; ${east.route}; walk 20 10`,hint:'Jetzt kommt der Steinspender: Jeder neue Zug an S gibt genau einen Stein frei. A führt Blau und Lila zusammen. Löse S aus, wenn der Kristallkäfer im Schacht zwei Felder unter der Ausgabe steht. Der Treffer und 28 Kristallpunkte öffnen den Ausgang. Drei Steine erlauben einen zweiten Versuch.',solution:'Westliche Lagerstätte sammeln. A schalten, zu S wechseln und den Abwurf vorhalten. Nach dem Treffer den Diamanten holen. Den großen Ostabbau durchsuchen und zum Ausgang zurückkehren.',english:{name:'A precious meeting',subtitle:'One pull, one rock',hint:'The magazine is new: each fresh pull of S releases one rock. A brings blue and purple together. Pull S when the crystal crawler is two cells below the outlet. A hit and 28 gem points open the exit. Three rocks allow another attempt.'}});
 }
+
 {
- const b=new MapBuilder(32,22).rect(3,10,24,10).rect(10,6,10,9).rect(10,6,12,6).rect(12,3,12,5).rect(17,11,24,15).set(20,15,'D').set(23,15,'D').set(3,10,'P').set(12,3,'E');
- const m=devices();gate(m,'A',15,10);gate(m,'B',12,5,true);lever(m,'AB',12,9,['A','B'],[],undefined,'A/B');
- CHAPTER_TWO.push(level('14','Wechselverkehr','Zwei Tore, zwei Zustände',b,m,6,'Der Hebel öffnet A und schließt B – und umgekehrt. Hole zuerst die Diamanten hinter A. Kehre dann zum Hebel zurück und öffne B für den Ausgang. Ein belegtes Tor verhindert die gesamte Schaltung.','walk 12 10; use up; walk 20 15; walk 23 15; walk 12 10; use up; walk 10 6; walk 12 6; walk 12 3',{name:'Passing places',subtitle:'Two gates, two states',hint:'The lever opens A and closes B, or the reverse. Collect the diamonds behind A, return to the lever, then open B for the exit. An occupied closing gate blocks the entire switch.'}));
+ const{source,b,m,base}=expand('15',48,32);
+ const west=deposit(b,2,16,17,14,14,2),east=deposit(b,23,3,23,12,14,2,1),deep=deposit(b,23,20,23,10,12,2);
+ b.set(14,11,'.').set(3,3,'E');corridor(b,3,3,3,9);corridor(b,14,11,23,11);corridor(b,16,11,16,16);corridor(b,44,14,44,20);
+ const action=source.route;
+ const main=`${action}; ${west.route}; ${east.route}; walk 3 3`,deepRoute=`${action}; ${deep.route}; ${east.route}; walk 3 3`;
+ set({...base,map:b.map(m),mechanisms:m,quota:42,objective:'crystal-crush',route:main,hint:'Der Steinspender ist eine Station auf deiner Sammelrunde. Triff den Kristallkäfer und plane danach einen Weg durch mindestens zwei der drei Abbaugebiete. 42 Punkte werden benötigt. Der Vorrat ist endlich; nach einem Fehlwurf kannst du den nächsten Durchgang abwarten.',solution:'Den Kristallkäfer mit einem dosierten Stein treffen. Den entstandenen Diamanten holen. Westlichen und östlichen Abbau sammeln, dann zum Ausgang über dem Start zurückkehren. Der tiefe Ostabbau kann den Westabbau ersetzen.',english:{name:'One stone at a time',subtitle:'A tool for the whole mine',hint:'The magazine is one stop on your mining circuit. Hit the crystal crawler, then choose a route through at least two of the three deposits. You need 42 points. Stock is finite; after a miss, wait for another pass.'}});CHAPTER_TWO_ROUTES['15']={main,deep:deepRoute};
 }
+
 {
- const b=new MapBuilder(26,20).rect(2,9,8,9).rect(6,6,6,8).rect(6,6,14,6).rect(14,7,14,11).rect(10,8,10,11,' ').rect(11,10,13,10,' ').rect(11,11,14,11).set(13,10,'C').set(3,9,'P').set(5,9,'M').set(14,11,'E');
- const m=devices();magazine(m,'S',10,7,3);lever(m,'S-lever',8,8,[],['S'],{x:7,y:6,width:9,height:7},'S');
- CHAPTER_TWO.push(level('15','Stein für Stein','Ein Zug, ein Stein',b,m,4,'Der Vorrat S gibt pro neuem Hebelzug einen Stein frei. Halten wiederholt nicht. Warte, bis der Kristallkäfer unten auf dem Fallschachtfeld steht, und löse aus. Bei einem Fehlwurf kannst du erneut versuchen, solange der Schacht frei und Vorrat übrig ist.','walk 8 9; until 10 10 crystal-crawler; use up; wait 6; walk 6 9; walk 6 6; walk 14 6; walk 14 10; walk 13 11; walk 10 11; walk 14 11',{name:'One stone at a time',subtitle:'One pull, one rock',hint:'Magazine S releases one rock per fresh lever pull. Holding does not repeat. Wait until the crystal crawler stands below the shaft, then release. After a miss you can try again while the outlet is clear and stock remains.'}));
+ const{source,b,m,base}=expand('16',50,32);
+ const west=deposit(b,2,16,18,14,14,2),east=deposit(b,33,3,15,13,14,2,1),deep=deposit(b,25,21,23,9,14,2);
+ corridor(b,3,10,3,16);corridor(b,27,10,33,10);corridor(b,27,10,27,21);corridor(b,19,25,25,25);corridor(b,46,15,46,21);
+ const main=`${west.route}; ${beforeExit(source)}; ${east.route}; walk 27 4`,lower=`${beforeExit(source)}; ${deep.route}; ${east.route}; walk 27 4`;
+ set({...base,map:b.map(m),mechanisms:m,quota:48,objective:'trap',route:main,hint:'Der Hauptgang wird für mehrere Sammelwege gebraucht. Sperre Blau mit A lebend in die obere Nische ein; damit wird B zum Ausgang wieder frei. Danach wählst du zwischen Westabbau, Ostgalerie und tiefer Mine. 48 Punkte und der eingeschlossene Käfer öffnen den Ausgang.',solution:'Im Westen sammeln. Den Käfer mit A in die Nische lenken und erneut schalten, sobald er oben ist. Den Hauptgang durchqueren, östliche Lagerstätte sammeln und über B nach oben zum Ausgang gehen.',english:{name:'The visitor',subtitle:'A safe passage for every circuit',hint:'Several mining routes share the main passage. Use A to trap blue alive in the upper niche, reopening B at the exit. Then choose between the western deposit, eastern gallery and deep mine. You need 48 points and the trapped guard.'}});CHAPTER_TWO_ROUTES['16']={main,lower};
 }
+
 {
- const b=new MapBuilder(32,22).rect(3,10,27,10).rect(11,10,15,10,' ').set(11,8,' ').rect(27,4,27,9).set(14,10,'<').set(20,10,'D').set(22,10,'D').set(24,10,'D').set(3,10,'P').set(27,4,'E');
- const m=devices();gate(m,'A',11,9);gate(m,'B',27,6,true);lever(m,'AB',9,9,['A','B'],[],undefined,'A/B');
- CHAPTER_TWO.push(level('16','Der Besucher','Diesmal bleibt er hier',b,m,9,'Öffne die obere Seitenkammer mit A. Sobald Blau ganz oben ist, schalte erneut: Er bleibt lebend eingeschlossen, und Tor B zum Ausgang öffnet wieder. Anders als in Höhle 12 ist der Gang danach dauerhaft sicher.','walk 9 10; use up; until 11 8 crawler; use up; walk 27 10; walk 27 4',{name:'The visitor',subtitle:'This time it stays',hint:'Open the upper side chamber with A. When blue reaches the top, switch again: it stays alive inside and exit gate B reopens. Unlike cave 12, the passage is now permanently safe.'}));
+ const{source,b,m,base}=expand('17',52,34);
+ const west=deposit(b,2,18,18,14,14,2),east=deposit(b,28,3,22,13,14,3,1),deep=deposit(b,27,21,23,11,14,2);
+ corridor(b,3,12,3,18);corridor(b,23,12,28,12);corridor(b,47,15,47,21);corridor(b,19,27,27,27);
+ const route=`${west.route}; ${source.route.replace('walk 22 12',`${east.route}; ${deep.route}; walk 22 12`)}`;
+ set({...base,map:b.map(m),mechanisms:m,quota:56,route,hint:'Plane den Rückweg, bevor du tief in die Mine gehst. Lege erst die Felsablage frei und hole den oberen Diamanten. Drei große Abbaugebiete bieten 72 Punkte; du brauchst 56. Der letzte Hebel schließt den unteren Hinweg und öffnet die obere Rückverbindung.',solution:'Westabbau sammeln. Ablage vorbereiten, Fels kontrolliert fallen lassen, oberen Diamanten holen und Fels zur Seite schieben. Ost- und Tiefabbau durchsuchen. Erst dann den letzten Hebel schalten und über die obere Verbindung zum Ausgang zurückkehren.',english:{name:'The way back',subtitle:'Prepare the return before going deep',hint:'Plan your return before heading deeper. Clear the rock bay and retrieve the upper diamond first. Three large deposits bring the total to 72 points; you need 56. The last lever closes the lower outward route and opens the upper return link.'}});
 }
+
 {
- const b=new MapBuilder(34,24).rect(3,12,23,12).rect(3,5,3,11).rect(11,7,11,11).rect(12,7,12,11,' ').rect(12,3,12,5).rect(13,13,13,13,' ').rect(3,8,14,8).set(12,8,' ').rect(16,8,20,8).rect(20,9,20,11).set(12,7,'.').set(12,6,'R').set(12,3,'D').set(18,12,'D').set(22,12,'D').set(3,12,'P').set(3,5,'E');
- const m=devices();gate(m,'A',9,12,true);gate(m,'B',15,8);lever(m,'AB',22,11,['A','B'],[],undefined,'A/B');
- CHAPTER_TWO.push(level('17','Der Rückweg','Erst Platz schaffen',b,m,9,'Grabe zuerst die Ablage rechts neben dem unteren Fallschacht frei. Lass dann den Felsen kontrolliert fallen und hole den oberen Diamanten. Schiebe den gelandeten Felsen in die Ablage. Der letzte Hebel schließt den Hinweg, öffnet aber die obere Rückverbindung.','walk 12 12; snap right; walk 11 12; walk 11 7; snap right; wait 7; walk 12 7; walk 12 3; walk 12 7; walk 11 7; walk 11 12; move right; wait 2; walk 22 12; use up; walk 20 12; walk 20 8; walk 3 8; walk 3 5',{name:'The way back',subtitle:'Make room first',hint:'Clear the landing bay to the right of the lower shaft first. Drop the rock safely and collect the upper diamond, then push the fallen rock into the bay. The final lever closes your outward route but opens the upper return connection.'},3));
+ const{source,b,m,base}=expand('18',56,34);
+ const west=deposit(b,2,23,22,9,14,4),east=deposit(b,34,2,20,14,16,4,1),deep=deposit(b,30,23,24,9,14,4);
+ b.set(27,3,'.').set(53,19,'E');corridor(b,3,16,3,23);corridor(b,27,16,30,16,30,23);corridor(b,27,3,34,3);corridor(b,52,15,52,19,53,19);corridor(b,51,16,51,23);
+ const main=`${source.route}; ${east.route}; ${deep.route}; ${west.route}; walk 53 19`;
+ const fast=`walk 8 3; walk 8 8; walk 12 8; use up; until 17 6 purple-crawler; walk 24 8; walk 24 3; walk 27 3; ${east.route}; ${deep.route}; walk 53 19`;
+ set({...base,map:b.map(m),mechanisms:m,quota:60,route:main,hint:'Wähle eine Kombination aus Sammelgebieten und Verbindungen. Der mittlere Weg ist kurz, aber Lila bewacht ihn; A lenkt ihn kurz um. Der untere Bogen ist sicher. 60 Punkte genügen, du musst nicht jede Lagerstätte leeren. Zeit zählt vor Punkten.',solution:'Für die sichere Runde den unteren Bogen nutzen und seine Diamanten sammeln. Hohe Ostgalerie, tiefe Mine und optional Westabbau durchsuchen. Zum Ausgang an der Ostverbindung gehen. Schneller: Lila umlenken, durch die Mitte und nur Ostgalerie sowie Tiefabbau sammeln.',english:{name:'The long way or the short',subtitle:'Choose the route and the ore',hint:'Choose both deposits and connections. Purple guards the short middle passage; A diverts it briefly. The lower loop is safe. 60 points suffice, so you can leave a deposit untouched. Time ranks before score.'}});CHAPTER_TWO_ALTERNATIVES['18']=fast;CHAPTER_TWO_ROUTES['18']={safe:main,fast};
 }
+
 {
- const b=new MapBuilder(32,22).rect(3,3,8,3).rect(3,4,3,16).rect(3,16,27,16).rect(27,3,27,15).rect(8,4,8,8).rect(8,8,24,8).rect(14,8,19,8,' ').set(17,6,' ').rect(24,3,24,7).rect(24,3,27,3).set(16,8,'r').set(11,8,'D').set(21,8,'D').set(23,8,'D').set(8,16,'D').set(14,16,'D').set(20,16,'D').set(24,16,'D').set(3,3,'P').set(27,3,'E');
- b.rect(3,11,3,12,'#').rect(3,10,7,10).rect(7,11,7,13).rect(3,13,7,13).rect(3,14,3,16).rect(12,16,15,16,'#').rect(11,17,11,19).rect(11,19,16,19).rect(16,17,16,18).set(14,19,'D');
- const m=devices();gate(m,'A',17,7);lever(m,'A-lever',12,7,['A'],[],undefined,'A');
- CHAPTER_TWO.push(level('18','Der lange oder der kurze Weg','Zeit, Punkte oder Sicherheit',b,m,9,'Unten liegen vier sichere Diamanten; drei reichen. Der mittlere Weg ist kürzer, aber Lila bewacht ihn. Mit Hebel A lenkst du den Käfer in die obere Nische. Die Rangliste wertet zuerst Zeit, dann Punkte bei Gleichstand.','walk 3 10; walk 7 10; walk 7 13; walk 3 13; walk 3 16; walk 11 16; walk 11 19; walk 16 19; walk 16 16; walk 20 16; walk 27 16; walk 27 3',{name:'The long way or the short',subtitle:'Time, points or safety',hint:'Four safe diamonds lie below; three are enough. The middle route is shorter but guarded by purple. Lever A diverts it into the upper alcove. The leaderboard ranks time first, then points for equal times.'}));
+ const{source,b,m,base}=expand('19',56,36);
+ const west=deposit(b,2,15,10,19,14,2),middle=deposit(b,16,16,17,18,14,3,1),east=deposit(b,36,3,18,14,14,4),deep=deposit(b,36,22,18,12,14,3,1);
+ corridor(b,3,7,3,15);corridor(b,20,10,25,10,25,16);corridor(b,18,4,36,4);corridor(b,32,27,36,27);corridor(b,49,16,49,22);
+ const main=`${west.route}; ${beforeExit(source)}; ${middle.route}; ${east.route}; walk 20 10`,lower=`${beforeExit(source)}; ${middle.route}; ${deep.route}; ${east.route}; walk 20 10`;
+ set({...base,map:b.map(m),mechanisms:m,quota:72,objective:'crystal-crush',route:main,hint:'Das Treffen und der Abwurf öffnen nur einen Teil der Aufgabe. Sammle 72 Punkte in den vier Lagerstätten und triff den Kristallkäfer. Die Reihenfolge der Abbaugebiete ist frei; der Ostabbau ist besonders reich. A verbindet, S dosiert. Die Apparatur bleibt vom Bedienplatz sichtbar.',solution:'Westabbau sammeln. A schalten, mit S den Kristallkäfer treffen und seinen Diamanten holen. Mittleren und östlichen Abbau durchsuchen. Danach zum Ausgang am alten Kontrollgang zurückkehren. Alternativ den tiefen Ostabbau statt Westen nutzen.',english:{name:'The right meeting',subtitle:'One machine in a much larger mine',hint:'The meeting and drop solve only part of the task. Gather 72 points across four deposits and hit the crystal crawler. Choose the order of the deposits; the east is especially rich. A connects, S releases. The full machine stays visible from its controls.'}});CHAPTER_TWO_ROUTES['19']={main,lower};
 }
+
+// Four ore districts around a coupled interchange. No pair satisfies the quota.
 {
- const b=new MapBuilder(30,20).rect(2,7,11,7).rect(8,4,8,6).rect(8,4,18,4).rect(18,5,18,10).rect(14,10,20,10).rect(14,6,14,8,' ').set(14,10,' ').set(13,9,'>').rect(15,9,16,9,' ').set(15,9,'l').set(3,7,'P').set(5,7,'M').set(7,7,'M').set(20,10,'E');
- const m=devices();gate(m,'A',14,9);magazine(m,'S',14,5,3);const view={x:9,y:5,width:9,height:7};lever(m,'A-lever',10,6,['A'],[],view,'A');lever(m,'S-lever',11,6,[],['S'],view,'S');
- CHAPTER_TWO.push(level('19','Das richtige Treffen','Erst verbinden, dann auslösen',b,m,5,'Öffne A, um Blau und Lila zusammenzuführen. Wechsle dann zum Hebel S. Löse einen Stein aus, sobald der Kristallkäfer in den Schacht steigt und noch zwei Felder unter der Ausgabe steht. Alle Teile der Apparatur bleiben vom Bedienplatz sichtbar.','walk 10 7; use up; walk 11 7; until 14 8 crystal-crawler; use up; wait 7; walk 8 7; walk 8 4; walk 18 4; walk 18 9; walk 17 10; walk 14 10; walk 20 10',{name:'The right meeting',subtitle:'Join first, release second',hint:'Open A to bring blue and purple together. Move to lever S and release a rock when the crystal crawler climbs the shaft and is still two cells below the outlet. The entire apparatus stays visible from the controls.'},3));
+ const b=new CaveDesign(48,30),m:MechanismDefinition={gates:[],levers:[],dispensers:[]};
+ const west=deposit(b,2,3,17,23,14,0),east=deposit(b,32,3,14,10,7,2,1),north=deposit(b,22,2,8,9,10,2),south=deposit(b,29,20,17,8,7,1,1);
+ b.rect(21,13,26,17);corridor(b,18,15,21,15);corridor(b,25,9,25,13);corridor(b,26,15,33,15,33,12);corridor(b,26,17,26,22,29,22);
+ corridor(b,18,7,20,7,20,4,22,4);corridor(b,44,12,44,20);
+ m.gates=[{id:'A',label:'A',x:20,y:15,open:false},{id:'A2',label:'A',x:25,y:11,open:false},{id:'B',label:'B',x:29,y:15,open:true},{id:'B2',label:'B',x:27,y:22,open:true}];
+ m.levers=[{id:'AB',label:'A/B',x:23,y:12,gates:['A','A2','B','B2'],dispensers:[]}];
+ b.set(22,16,'P').set(24,16,'E');const switchAB='walk 23 13; use up';
+ const routes={safe:`${switchAB}; ${west.route}; ${north.route}; ${switchAB}; ${south.route}; walk 24 16`,east:`${east.route}; ${south.route}; ${switchAB}; ${west.route}; walk 24 16`,gallery:`${east.route}; ${switchAB}; ${north.route}; ${west.route}; walk 24 16`};
+ set({id:'14',name:'Wechselverkehr',subtitle:'Vier Lagerstätten, ein Rundweg',width:48,height:30,map:b.map(m),mechanisms:m,quota:36,timeSeconds:600,difficulty:2,rulesVersion:MECHANISM_RULES_VERSION,hint:'53 Punkte, Quote 36: Du brauchst mindestens drei Fundgebiete. A öffnet West und Nord, B Ost und Süd. Wähle deine Runde und nutze die äußeren Verbindungen. Alle vier Dreierkombinationen reichen.',solution:'A öffnen, West und Nord absuchen. Am zentralen Hebel auf B wechseln, die südliche Werkstatt sammeln und zum Ausgang zurückkehren. Ost kann eines der anderen Gebiete ersetzen.',route:routes.safe,parTicks:0,english:{name:'Passing places',subtitle:'Four deposits, one circuit',hint:'53 points, quota 36: visit at least three deposits. A opens west and north; B opens east and south. Choose your circuit and use the outer links. Any three deposits provide enough points.'}});CHAPTER_TWO_ROUTES['14']={...routes,workshop:`${east.route}; ${south.route}; ${switchAB}; ${north.route}; walk 24 16`};
 }
+
+// The haulage machinery now connects five substantial mining districts.
 {
- const b=new MapBuilder(44,28).rect(3,22,15,22).rect(9,19,9,21).rect(11,19,11,21).rect(9,20,11,20).set(9,18,'.').set(11,18,'.').set(10,18,'R').rect(10,10,10,17).rect(10,10,28,10).rect(22,9,28,9).rect(28,11,28,14).rect(28,14,34,14).rect(34,5,34,13).rect(30,12,34,12).rect(30,8,30,10,' ').set(29,11,'>').rect(31,11,32,11,' ').set(31,11,'l').set(30,12,' ').rect(34,5,40,5).rect(36,5,39,5,' ').set(37,5,'l').set(37,3,' ').rect(40,3,40,4).set(3,22,'P').set(12,10,'D').set(14,10,'D').set(16,10,'D').set(35,5,'D').set(40,5,'D').set(40,3,'E');
- const m=devices();gate(m,'A',21,10);lever(m,'A-lever',18,9,['A'],[],undefined,'A');gate(m,'B',30,11);magazine(m,'S',30,7,3);const view={x:25,y:7,width:9,height:7};lever(m,'B-lever',26,8,['B'],[],view,'B');lever(m,'S-lever',27,8,[],['S'],view,'S');gate(m,'C',34,7);lever(m,'AC',32,13,['A','C'],[],undefined,'A/C');gate(m,'D',37,4);lever(m,'D-lever',34,4,['D'],[],undefined,'D');
- CHAPTER_TWO.push(level('20','Das alte Förderwerk','Alles greift ineinander',b,m,18,'Löse zuerst den Schiebestein und öffne A. Führe in der nächsten Kammer die Käfer mit B zusammen; S liefert den Abwurf. Hole den entstandenen Diamanten über den unteren Bogen. A/C öffnet den Aufstieg. Oben lenkt D den letzten lila Käfer um.','walk 11 22; walk 11 19; snap up; walk 11 20; walk 9 20; walk 9 18; move right; walk 10 10; walk 18 10; use up; walk 22 10; walk 22 9; walk 26 9; use up; walk 27 9; until 30 10 crystal-crawler; use up; wait 7; walk 28 9; walk 28 14; walk 34 14; walk 34 12; walk 30 12; walk 32 12; use down; walk 34 12; walk 34 5; use up; until 37 3 purple-crawler; walk 40 5; walk 40 3',{name:'The old haulage works',subtitle:'Everything connects',hint:'Solve the pushing puzzle and open A. In the next chamber, B brings the crawlers together; S releases the rock. Collect the new diamond via the lower bend. A/C opens the ascent. At the top, D diverts the final purple crawler.'},3,600));
+ const{source,b,m,base}=expand('20',64,40);
+ const roots=deposit(b,2,2,6,15,10,2),south=deposit(b,3,26,25,13,14,3,1),middle=deposit(b,14,13,11,8,10,2),east=deposit(b,44,2,18,18,14,3),deep=deposit(b,38,24,24,15,14,3,1);
+ corridor(b,6,16,6,22);corridor(b,15,22,15,26);corridor(b,22,10,23,10,23,13);corridor(b,40,5,44,5);corridor(b,34,14,35,14,35,27,38,27);
+ const main=source.route.replace('walk 11 22',`${south.route}; walk 11 22`).replace('walk 22 9',`${middle.route}; walk 22 9`).replace('walk 34 14','walk 34 14; '+deep.route+'; walk 34 14').replace('walk 40 3',`${east.route}; walk 40 3`);
+ const safe=main.replace(south.route,`${roots.route}; ${south.route}`),mixed=main.replace(south.route,`${roots.route}; ${south.route}`).replace(east.route,'walk 40 5');
+ set({...base,map:b.map(m),mechanisms:m,quota:84,timeSeconds:1200,objective:'crystal-crush',hint:'Fünf Fundgebiete umgeben das Förderwerk. Suche dir eine Runde für 84 Punkte; nicht jede Lagerstätte ist nötig. Fusion und Abwurf gehören zur Aufgabe. Bereite Schiebestein und Rückweg vor. Jede Apparatur bleibt am Hebel vollständig sichtbar.',solution:'Südabbau sammeln, Schiebestein lösen und A öffnen. Mittlere Lagerstätte ausräumen. B führt die Käfer zusammen, S trifft den Kristallkäfer. Tiefen Ostabbau besuchen, Fusionsdiamant holen und A/C schalten. Oben Lila umlenken, hohen Ostabbau sammeln und zum Ausgang zurückkehren.',route:main,english:{name:'The old haulage works',subtitle:'Five districts, one expedition',hint:'Five deposits surround the haulage works. Plan a circuit for 84 points; not every deposit is needed. Fusion and a controlled drop are required. Prepare the pushing puzzle and return route. Each machine stays fully visible from its controls.'}});CHAPTER_TWO_ROUTES['20']={main,complete:safe,mixed};
 }
-export const CHAPTER_TWO_ALTERNATIVES:Record<string,string>={
- '18':'walk 8 3; walk 8 8; walk 12 8; use up; until 17 6 purple-crawler; walk 24 8; walk 24 3; walk 27 3'
-};

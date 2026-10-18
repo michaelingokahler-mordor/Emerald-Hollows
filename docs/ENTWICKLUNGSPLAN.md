@@ -18,6 +18,10 @@ Die gesamte Spieloberfläche ist zwischen Englisch und Deutsch umschaltbar; die 
 
 Level 11–20 sind spielbar: Hebel und gekoppelte Tore, blaue Rechts- und lila Links-Käfer, Verschmelzung, endliche Steinspender, temporäre Umlenkung, dauerhaftes Einsperren und ein kombiniertes Kapitelende. Bedienapparaturen bleiben auf einem Bildschirm sichtbar. Alte Karten, Ergebnisse und die gewählte Laufanimation A bleiben erhalten. Details: [Regeln](KAPITEL-2-MECHANIKEN.md) und [Lösungen](LEVELS-UND-LOESUNGEN.md).
 
+## Lieferung 0.7: Größere Höhlen und mehrere Sammelwege
+
+Level 11–20 sind neu gebaut; ab Kapitelstufe 4 stehen größere Abbaugebiete und Routenwahl im Vordergrund. Die Karten wachsen bis 64 × 40. Obligatorische Käferaufgaben bleiben verbindlich. Runway-Hebel und -Tore ersetzen die gezeichneten Platzhalter. Nur für diese neuen Kartenrevisionen beginnen die Ranglisten neu; Freischaltungen und Level 01–10 bleiben erhalten. Siehe [Prüfbericht](PRUEFBERICHT.md) für reale Lösungszeiten und offene menschliche Abnahme. Die früheren Minutenprognosen wurden durch die gemessenen Replays nicht bestätigt.
+
 ## Weitere Kapitel — ab 21 noch nicht implementiert
 
 | Level | Einführung und Schwerpunkt |
@@ -68,4 +72,10 @@ Der Nutzer bestätigt das Komplexitätsniveau des neuen Finales als gute Grundla
 
 Ein konkreter [Entwurf für 11–30](LEVELS-11-30-ENTWURF.md) liegt vor. Er schlägt frühere Hebel/Tore und Teleporter vor wurde für 11–20 mit den besprochenen Käfern und dem Steinspender umgesetzt. 21–30 bleiben zur gemeinsamen Besprechung offen.
 
-Die Besprechung ergänzt [blaue/lila Käfer, Verschmelzung und einen dosierenden Steinspender](KAPITEL-2-MECHANIKEN.md). Der Nutzer verlangt die vollständige Sicht auf Hebel und Apparatur. Level 12 und 16 bleiben zur späteren praktischen Gegenüberstellung im Entwurf. Die neuen Regelideen sind noch nicht implementiert.
+Die Besprechung ergänzt [blaue/lila Käfer, Verschmelzung und einen dosierenden Steinspender](KAPITEL-2-MECHANIKEN.md). Diese Regeln sind seit 0.6 implementiert. Der Nutzer verlangt die vollständige Sicht auf Hebel und Apparatur. Level 12 und 16 stehen zur praktischen Gegenüberstellung im Spiel bereit.
+
+## Rückmeldung nach 0.6: mehr Höhle und Sammelwege
+
+Neue Vorgabe: Die ersten drei Level eines Kapitels führen Mechaniken ein; ab dem vierten Level dienen sie einer umfangreicheren Sammelaufgabe. Mehrere Fundgebiete und alternative Wege sollen Zeitrekorde interessant machen. Die aktuellen 11–20 sind dafür zu kurz. [Recherche mit Bestzeiten, klassischen Karten und konkretem Ausbauvorschlag](LEVEL-DESIGN-RECHERCHE-2026-10-18.md). Die größeren Karten und neuen Zeitziele sind noch nicht umgesetzt oder spielerisch bestätigt.
+
+Für passendere Hebel-/Torgrafik liegen Runway-Entwürfe vor. Diese zusätzliche Runde kostet 56 Credits netto; Projektstand jetzt **236 / 1.000 Credits** (einschließlich verworfener Bilder). Ohne Anrechnung einer aus der Kontobilanz erschlossenen Rückerstattung von 8 Credits beträgt der konservative Stand 244. Die Entwürfe sind noch nicht in den Spielatlas integriert; Protokoll: `artifacts/mechanism-production-01.json`.

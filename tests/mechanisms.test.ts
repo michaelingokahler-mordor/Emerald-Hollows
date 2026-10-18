@@ -61,5 +61,5 @@ describe('chapter 2 authored routes and compatibility',()=>{
 });
 describe('chapter 2 timing tolerance',()=>{
  it('all ten routes survive each of nine initial timing offsets',()=>{for(const l of CHAPTER_TWO)for(let delay=0;delay<9;delay++)expect(solve(l,delay).state.status).toBe('won');});
- it('15 can recover from a missed first rock with the remaining stock',()=>{const l=CHAPTER_TWO[4],route='walk 8 9; use up; until 10 10 crystal-crawler; use up; wait 6; walk 6 9; walk 6 6; walk 14 6; walk 14 10; walk 13 10; walk 10 10; walk 13 10; walk 13 11; walk 14 11';const s=solve({...l,route});expect(s.state.mechanisms?.released).toBe(2);expect(s.state.mechanisms?.stocks.S).toBe(1);expect(s.state.mechanisms?.transmuted).toBe(1);});
+ it('15 can recover from a missed first rock with the remaining stock',()=>{const l=CHAPTER_TWO[4],route='walk 8 9; use up; until 10 10 crystal-crawler; use up; wait 6; walk 6 9; walk 6 6; walk 14 6; walk 14 10; walk 13 10; walk 10 10; walk 13 10; walk 13 11; walk 14 11; harvest 2 16 17 14; harvest 23 3 23 12; walk 3 3';const s=solve({...l,route});expect(s.state.mechanisms?.released).toBe(2);expect(s.state.mechanisms?.stocks.S).toBe(1);expect(s.state.mechanisms?.transmuted).toBe(1);});
 });

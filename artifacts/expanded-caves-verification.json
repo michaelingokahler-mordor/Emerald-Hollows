@@ -1,0 +1,336 @@
+{
+  "date": "2026-10-18T17:17:10.995Z",
+  "note": "Actual deterministic solution routes, not optimality proofs or human play times. Local CPU timing is not Cloudflare CPU accounting.",
+  "levels": [
+    {
+      "id": "11",
+      "size": [
+        32,
+        22
+      ],
+      "nonWallCells": 200,
+      "quota": 22,
+      "timeLimit": 360,
+      "oldHash": "9ce9b0a2",
+      "newHash": "d6c32c97",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 19.1,
+          "points": 38,
+          "finds": 26,
+          "moves": 163,
+          "apiChunks": 2,
+          "maxLocalChunkMs": 1.42
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "size": [
+        36,
+        26
+      ],
+      "nonWallCells": 348,
+      "quota": 22,
+      "timeLimit": 420,
+      "oldHash": "d804885a",
+      "newHash": "35032cee",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 21.5,
+          "points": 31,
+          "finds": 25,
+          "moves": 170,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 0.97
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "size": [
+        40,
+        27
+      ],
+      "nonWallCells": 414,
+      "quota": 28,
+      "timeLimit": 480,
+      "oldHash": "67ee4f3b",
+      "newHash": "f4d68568",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 27.2,
+          "points": 36,
+          "finds": 28,
+          "moves": 216,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 1.36
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "size": [
+        48,
+        30
+      ],
+      "nonWallCells": 733,
+      "quota": 36,
+      "timeLimit": 600,
+      "oldHash": "c6a76901",
+      "newHash": "1492a97a",
+      "routes": [
+        {
+          "name": "safe",
+          "status": "won",
+          "seconds": 27.2,
+          "points": 40,
+          "finds": 34,
+          "moves": 234,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 1.63
+        },
+        {
+          "name": "east",
+          "status": "won",
+          "seconds": 26.5,
+          "points": 37,
+          "finds": 31,
+          "moves": 232,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 1.4
+        },
+        {
+          "name": "gallery",
+          "status": "won",
+          "seconds": 27.3,
+          "points": 43,
+          "finds": 35,
+          "moves": 236,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 1.38
+        },
+        {
+          "name": "workshop",
+          "status": "won",
+          "seconds": 19.3,
+          "points": 39,
+          "finds": 29,
+          "moves": 162,
+          "apiChunks": 2,
+          "maxLocalChunkMs": 0.75
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "size": [
+        48,
+        32
+      ],
+      "nonWallCells": 700,
+      "quota": 42,
+      "timeLimit": 900,
+      "oldHash": "d815e310",
+      "newHash": "e0714f9d",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 32.2,
+          "points": 44,
+          "finds": 34,
+          "moves": 278,
+          "apiChunks": 4,
+          "maxLocalChunkMs": 0.88
+        },
+        {
+          "name": "deep",
+          "status": "won",
+          "seconds": 33.9,
+          "points": 42,
+          "finds": 32,
+          "moves": 298,
+          "apiChunks": 4,
+          "maxLocalChunkMs": 0.87
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "size": [
+        50,
+        32
+      ],
+      "nonWallCells": 624,
+      "quota": 48,
+      "timeLimit": 900,
+      "oldHash": "629fce6d",
+      "newHash": "09ea0506",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 25.7,
+          "points": 49,
+          "finds": 35,
+          "moves": 214,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 3.31
+        },
+        {
+          "name": "lower",
+          "status": "won",
+          "seconds": 25.1,
+          "points": 49,
+          "finds": 35,
+          "moves": 208,
+          "apiChunks": 3,
+          "maxLocalChunkMs": 2.58
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "size": [
+        52,
+        34
+      ],
+      "nonWallCells": 732,
+      "quota": 56,
+      "timeLimit": 900,
+      "oldHash": "b9cb5f47",
+      "newHash": "4e75a86b",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 47.9,
+          "points": 72,
+          "finds": 52,
+          "moves": 417,
+          "apiChunks": 5,
+          "maxLocalChunkMs": 0.9
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "size": [
+        56,
+        34
+      ],
+      "nonWallCells": 743,
+      "quota": 60,
+      "timeLimit": 900,
+      "oldHash": "b81a4162",
+      "newHash": "c816808e",
+      "routes": [
+        {
+          "name": "safe",
+          "status": "won",
+          "seconds": 51,
+          "points": 92,
+          "finds": 60,
+          "moves": 454,
+          "apiChunks": 6,
+          "maxLocalChunkMs": 1.28
+        },
+        {
+          "name": "fast",
+          "status": "won",
+          "seconds": 31.1,
+          "points": 63,
+          "finds": 41,
+          "moves": 248,
+          "apiChunks": 4,
+          "maxLocalChunkMs": 1.18
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "size": [
+        56,
+        36
+      ],
+      "nonWallCells": 912,
+      "quota": 72,
+      "timeLimit": 900,
+      "oldHash": "8ad1f97f",
+      "newHash": "8161cd7a",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 54,
+          "points": 80,
+          "finds": 58,
+          "moves": 460,
+          "apiChunks": 6,
+          "maxLocalChunkMs": 1.41
+        },
+        {
+          "name": "lower",
+          "status": "won",
+          "seconds": 52.4,
+          "points": 77,
+          "finds": 55,
+          "moves": 444,
+          "apiChunks": 6,
+          "maxLocalChunkMs": 1.18
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "size": [
+        64,
+        40
+      ],
+      "nonWallCells": 1134,
+      "quota": 84,
+      "timeLimit": 1200,
+      "oldHash": "3601bb63",
+      "newHash": "7242a4d6",
+      "routes": [
+        {
+          "name": "main",
+          "status": "won",
+          "seconds": 64.9,
+          "points": 103,
+          "finds": 69,
+          "moves": 530,
+          "apiChunks": 7,
+          "maxLocalChunkMs": 1.98
+        },
+        {
+          "name": "complete",
+          "status": "won",
+          "seconds": 70.3,
+          "points": 119,
+          "finds": 81,
+          "moves": 580,
+          "apiChunks": 8,
+          "maxLocalChunkMs": 1.58
+        },
+        {
+          "name": "mixed",
+          "status": "won",
+          "seconds": 57.8,
+          "points": 96,
+          "finds": 64,
+          "moves": 472,
+          "apiChunks": 6,
+          "maxLocalChunkMs": 1.92
+        }
+      ]
+    }
+  ]
+}

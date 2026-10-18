@@ -1,3 +1,5 @@
+> Aktualisierung 0.7: Die größere Fassung von 11–20 ist implementiert. Verbindliche aktuelle Karten und Lösungen stehen in [LEVELS-UND-LOESUNGEN.md](LEVELS-UND-LOESUNGEN.md), gemessene Zeiten und Prüfgrenzen im [Prüfbericht](PRUEFBERICHT.md). Frühere Kartenbeschreibungen und Zeitprognosen unten bleiben als Entwurfshistorie erhalten.
+
 # Level 11–30 — Vorschlag zur gemeinsamen Besprechung
 
 Stand: 18. Oktober 2026. **11–20 sind in 0.6.0 umgesetzt; 21–30 bleiben ein nicht freigegebener Entwurf.** Die ursprünglichen Zielgrößen unten dokumentieren die Besprechung; aktuelle Karten, Maße und Lösungen stehen in [LEVELS-UND-LOESUNGEN.md](LEVELS-UND-LOESUNGEN.md). Die Namen sind Arbeitstitel. Der verbindliche bisherige Ausbau steht in ENTWICKLUNGSPLAN.md.

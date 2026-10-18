@@ -1,3 +1,5 @@
+> Aktualisierung 0.7: Die größere Fassung von 11–20 ist implementiert. Verbindliche aktuelle Karten und Lösungen stehen in [LEVELS-UND-LOESUNGEN.md](LEVELS-UND-LOESUNGEN.md), gemessene Zeiten und Prüfgrenzen im [Prüfbericht](PRUEFBERICHT.md). Frühere Kartenbeschreibungen und Zeitprognosen unten bleiben als Entwurfshistorie erhalten.
+
 # Kapitel 2 – Käferrichtungen, Verschmelzung und Steinspender
 
 Stand: 18. Oktober 2026. In Version 0.6.0 implementiert und durch Regeltests, Lösungsreplays und Browserdurchläufe geprüft. Bestehende Level 01–10 und ihre Replays bleiben unverändert.

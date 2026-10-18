@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-18T14:27:34.257Z",
+  "verifiedAt": "2026-10-18T17:05:31.107Z",
   "levels": [
     {
       "id": "01",
@@ -95,99 +95,99 @@
       "id": "11",
       "name": "Das erste Tor",
       "status": "won",
-      "ticks": 36,
-      "points": 9,
-      "score": 9,
-      "hash": "de9b4e84"
+      "ticks": 191,
+      "points": 38,
+      "score": 38,
+      "hash": "6b466433"
     },
     {
       "id": "12",
       "name": "Die zweite Runde",
       "status": "won",
-      "ticks": 56,
-      "points": 9,
-      "score": 9,
-      "hash": "aca35557"
+      "ticks": 215,
+      "points": 31,
+      "score": 31,
+      "hash": "d484e0c5"
     },
     {
       "id": "13",
       "name": "Ein kostbares Treffen",
       "status": "won",
-      "ticks": 114,
-      "points": 5,
-      "score": 15,
-      "hash": "b7a97c09"
+      "ticks": 272,
+      "points": 36,
+      "score": 46,
+      "hash": "f4bbdf7c"
     },
     {
       "id": "14",
       "name": "Wechselverkehr",
       "status": "won",
-      "ticks": 56,
-      "points": 6,
-      "score": 6,
-      "hash": "d07e31d4"
+      "ticks": 272,
+      "points": 40,
+      "score": 40,
+      "hash": "71ca80f7"
     },
     {
       "id": "15",
       "name": "Stein für Stein",
       "status": "won",
-      "ticks": 43,
-      "points": 4,
-      "score": 14,
-      "hash": "3a9c50a2"
+      "ticks": 322,
+      "points": 44,
+      "score": 54,
+      "hash": "0f6a2599"
     },
     {
       "id": "16",
       "name": "Der Besucher",
       "status": "won",
-      "ticks": 41,
-      "points": 9,
-      "score": 14,
-      "hash": "1d2a715b"
+      "ticks": 257,
+      "points": 49,
+      "score": 54,
+      "hash": "ceda7d26"
     },
     {
       "id": "17",
       "name": "Der Rückweg",
       "status": "won",
-      "ticks": 80,
-      "points": 9,
-      "score": 9,
-      "hash": "7ee0fe00"
+      "ticks": 479,
+      "points": 72,
+      "score": 72,
+      "hash": "a9561e0d"
     },
     {
       "id": "18",
       "name": "Der lange oder der kurze Weg",
       "status": "won",
-      "ticks": 64,
-      "points": 12,
-      "score": 12,
-      "hash": "fdb3bbc5"
+      "ticks": 510,
+      "points": 92,
+      "score": 92,
+      "hash": "5f6db94b"
     },
     {
       "id": "19",
       "name": "Das richtige Treffen",
       "status": "won",
-      "ticks": 71,
-      "points": 5,
-      "score": 15,
-      "hash": "5aab35c3"
+      "ticks": 540,
+      "points": 80,
+      "score": 90,
+      "hash": "7263852b"
     },
     {
       "id": "20",
       "name": "Das alte Förderwerk",
       "status": "won",
-      "ticks": 128,
-      "points": 18,
-      "score": 28,
-      "hash": "deb7d07f"
+      "ticks": 649,
+      "points": 103,
+      "score": 113,
+      "hash": "bd16fef8"
     }
   ],
   "chapterAlternatives": [
     {
       "id": "18",
       "method": "shortcut",
-      "ticks": 59,
-      "points": 9
+      "ticks": 311,
+      "points": 63
     }
   ],
   "alternativeSolutions": [

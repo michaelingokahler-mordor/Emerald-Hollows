@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-18T17:23:45.955139+00:00",
+  "status": "PASS",
+  "newMaps": [
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "automatedReplaySpeed": 6,
+  "environments": [
+    {
+      "browser": "Chrome",
+      "width": 1280,
+      "height": 720,
+      "dpr": 1,
+      "levels": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "browser": "Edge",
+      "width": 1920,
+      "height": 1080,
+      "dpr": 2,
+      "levels": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "browser": "Chrome touch emulation",
+      "width": 390,
+      "height": 844,
+      "dpr": 3,
+      "levels": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    }
+  ],
+  "artRecheck": {
+    "levels": [
+      13,
+      14,
+      15,
+      20
+    ],
+    "environments": [
+      "Chrome 1280x720",
+      "Chrome touch 390x844"
+    ],
+    "apparatusVisible": true
+  },
+  "normalSpeedControls": {
+    "simultaneousCDPTouchPoints": 2,
+    "heldLeverSingleRock": true,
+    "repressSecondRock": true,
+    "pauseReloadPreservesStock": true,
+    "restartRestoresStock": true,
+    "landscape": [
+      844,
+      390,
+      3
+    ]
+  },
+  "humanPlaytest": false,
+  "physicalPhone": false,
+  "screenshots": "output/playwright/expanded-*.png; chapter2-touch-*.png",
+  "limits": "Full-map replays use sixfold clock acceleration. Separate controls test uses normal clock. Human pacing remains unverified.",
+  "productionOffline": {
+    "status": "PASS",
+    "normalSpeed": true,
+    "reloadOffline": true,
+    "level20Won": true,
+    "allTwentyCavesAvailable": true,
+    "englishHelp": true
+  }
+}

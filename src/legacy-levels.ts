@@ -1,4 +1,5 @@
 import type { LevelDefinition } from './core/types';
+import {CHAPTER_TWO as CHAPTER_TWO_V06} from './chapter-two-v06';
 // Retained only to verify outstanding older runs and keep historical records. Not selectable.
 export const LEGACY_LEVELS:LevelDefinition[]=[
   {
@@ -156,4 +157,5 @@ export const LEGACY_LEVELS:LevelDefinition[]=[
   "route": "walk 12 20; walk 12 19; snap up; walk 12 20; walk 10 20; walk 10 18; move right; walk 11 12; walk 12 12; walk 14 12; walk 16 12; walk 19 12; walk 19 13; snap right; wait 12; walk 19 12; walk 21 12; walk 23 12; walk 25 12; walk 27 12; walk 29 12; walk 31 12; walk 33 12; walk 34 12; walk 34 3; walk 37 3",
   "parTicks": 0
 }
+,...CHAPTER_TWO_V06
 ];
