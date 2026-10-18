@@ -45,3 +45,5 @@ for(const [input,output]of [['hero','hero'],['digging','digging']]){
 }
 await sharp('artifacts/raw/title.png').resize({width:1920,withoutEnlargement:true}).webp({quality:87}).toFile(out+'/title.webp');
 console.log('Atlases and title prepared.');
+
+await import('./prepare-selected-miner.mjs');

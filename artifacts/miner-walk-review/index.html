@@ -26,13 +26,13 @@
 </div>
 <div class="note"><strong>Worauf achten?</strong> Ist der Schritt schon oben in kleiner Darstellung erkennbar? Wirkt B zu hüpfend? Passt A besser zur Hackenanimation? Mit „Einzelbild weiter“ kannst du die Posen prüfen. Die neuen Kontaktposen 1 und 3 ähneln sich noch stark; dies sind Entwürfe, keine fertige anatomisch saubere Schrittfolge.</div>
 <p class="muted">Die optionale Fahrt zeigt die bisherige Spielgeschwindigkeit: 64 Pixel pro 100 ms. Die Gänge hier sind nur eine Darstellung, keine neue Spielsimulation. Links werden die neuen Entwürfe gespiegelt; Vorder- und Rückansicht werden nach der Auswahl separat entworfen.</p>
-<p class="foot">Neue Grafiken: Runway · 20 Credits für beide Entwürfe zusammen · Projektstand 180 / 1.000 Credits. Die öffentlichen Spielgrafiken wurden nicht ersetzt. <a href="../../docs/KAPITEL-2-MECHANIKEN.md">Notizen zu Käfern und Steinspender</a></p>
+<p class="foot">Neue Grafiken: Runway · 20 Credits für beide Entwürfe zusammen · Projektstand 180 / 1.000 Credits. Entwurf A wurde ausgewählt und wird ab Version 0.5.2 für die seitlichen Laufposen verwendet. <a href="../../docs/KAPITEL-2-MECHANIKEN.md">Notizen zu Käfern und Steinspender</a></p>
 <script>
 const canvases=[...document.querySelectorAll('canvas')];
 const controls={speed:document.querySelector('#speed'),direction:document.querySelector('#direction'),travel:document.querySelector('#travel'),play:document.querySelector('#play'),step:document.querySelector('#step')};
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let playing=!reduced,phase=0,travel=0,last=performance.now(),ready=false;
-const sources={old:'../../public/assets/hero.png',a:'walk-a.png',b:'walk-b.png',dig:'../../public/assets/digging.png'};
+const sources={old:'original-hero.png',a:'walk-a.png',b:'walk-b.png',dig:'../../public/assets/digging.png'};
 const images={};
 function playLabel(){controls.play.textContent=playing?'Pause':'Abspielen';}
 playLabel();

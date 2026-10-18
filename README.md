@@ -84,10 +84,10 @@ The project uses strict TypeScript, Phaser 4.2.1, Vite, and Vitest with pinned d
 | `artifacts` | Runway source assets and production records |
 | `tools` | Asset processing, packaging, and verification scripts |
 
-### Current presentation update — 0.5.1
+### Current presentation update — 0.5.2
 
 A green-and-red pseudodragon accompanies objectives and hints. The title screen has a more readable footer and identifies the planned 120-level full game. Walking and digging poses now change every **240 ms**, giving a four-pose cycle of **0.96 seconds**. Movement and simulation retain their 100 ms tick, so this visual change does not alter routes or records.
 
-The previous 180 ms setting was an initial design choice, not a measured ideal. The existing side-facing sprites have weak leg differences; slower playback alone does not turn them into a clearly articulated walk cycle. Improved poses remain a possible art refinement.
+The previous 180 ms setting was an initial design choice, not a measured ideal. Version 0.5.2 uses the selected walk variant A for the right-facing poses and mirrors it for the left-facing poses. The new frames alternate between an extended and a bent leg silhouette. Front/back poses and the pickaxe animation are unchanged; the two contact poses still look similar and may receive further refinement.
 
 See the [validation report (German)](docs/PRUEFBERICHT.md) for completed checks and their limits, including the distinction between browser emulation and physical mobile-device testing. The [leaderboard protection notes (German)](docs/RANGLISTENSCHUTZ.md) document optional future measures.

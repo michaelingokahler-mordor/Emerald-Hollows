@@ -1,3 +1,16 @@
+# Lathmar: Emerald Hollows 0.5.2 – ausgewählte Laufanimation A
+
+Stand: 18. Oktober 2026. Vom Nutzer ausgewählter Entwurf A für seitliche Laufposen integriert. Links wird jede Rechts-Pose gespiegelt, ohne die Bildfolge umzudrehen. 240 ms pro Pose bleiben erhalten.
+
+- Pixelprüfung: alle vier Rechtsposen entsprechen A, alle vier Linksposen dessen Spiegelung. Vorder-/Rückansicht pixelgleich zum bisherigen Atlas; Hackenanimation bytegleich. Nachweis: `artifacts/miner-selected-verification.json`.
+- TypeScript und Produktionsbuild erfolgreich.
+- Chrome 1280 × 720: tatsächliche Posenwechsel mit 249/234 ms gemessen; Pause friert die Phase ein. Linksbewegung mit Frames 4–7 geprüft, Spielansicht aufgenommen.
+- Keine Level-, Regel-, Server- oder Punkteänderung. Die weitergehenden Prüfungen unten sind frühere Ergebnisse. Keine neue vollständige Geräteprüfung oder Mediengenerierung.
+
+Die Veröffentlichung erhält den Dateivergleich `release/deployment-verification-v0.5.2.json`.
+
+---
+
 # Lathmar: Emerald Hollows 0.5.1 – Prüfbericht
 
 Stand: 18. Oktober 2026. Lauf- und Grabeposen wechseln jetzt alle 240 ms (vier Posen: 0,96 Sekunden). Der Wert 180 ms in 0.5 war eine gestalterische Testeinstellung, kein empirisch ermitteltes Optimum. Die Sichtung des vorhandenen Spritebogens zeigt insbesondere seitlich zu ähnliche Beinposen; 240 ms verbessert die Betrachtungszeit, ersetzt aber keine neu gezeichnete Schrittfolge.

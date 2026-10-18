@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "rightFramesMatchSelectedA": 4,
+  "leftFramesMatchMirroredA": 4,
+  "frontBackPixelsUnchanged": true,
+  "diggingFileUnchanged": true,
+  "heroSha256": "aa9026702a1330837e2ef8ad22b74c14b6c0244d9f98f8497e3185ad93a3703b"
+}

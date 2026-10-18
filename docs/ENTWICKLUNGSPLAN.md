@@ -50,7 +50,7 @@ Musik erhält Kapitelthemen und eine dezente Gefahrenschicht. Die Demo verwendet
 
 ## Kosten und nächste Abnahmen
 
-Runway-Obergrenze bleibt 1.000 Credits inklusive Fehlversuchen. Bisher 180: ursprüngliche Medien 115, Musikrunde 24 einschließlich einer nicht herunterladbaren Ersatzproduktion, Pseudodrache 21, zwei neue seitliche Laufproben 20. Für 0.5.1 selbst wurden keine Medien generiert; die Laufproben entstanden danach und sind noch nicht im Spiel integriert. Kein automatischer bezahlter Hostingwechsel. Workers Free wurde am 18.10.2026 im Konto bestätigt.
+Runway-Obergrenze bleibt 1.000 Credits inklusive Fehlversuchen. Bisher 180: ursprüngliche Medien 115, Musikrunde 24 einschließlich einer nicht herunterladbaren Ersatzproduktion, Pseudodrache 21, zwei neue seitliche Laufproben 20. Für 0.5.1 selbst wurden keine Medien generiert; die Laufproben entstanden danach. Der Nutzer wählte A; dessen seitliche Posen sind ab 0.5.2 integriert. Kein automatischer bezahlter Hostingwechsel. Workers Free wurde am 18.10.2026 im Konto bestätigt.
 
 Der Nutzer hat am 18.10.2026 bestätigt, dass der öffentliche Touchmodus funktioniert; Gerät und Betriebssystem wurden nicht angegeben. Vor dem nächsten Kapitel: Feedback zu den überarbeiteten Rätseln, Hörprobe und gezielte Prüfung der Installation auf Android und iPhone/iPad. Browseremulation ist kein Gerätetest. Dann jeweils ein neues Kapitel mitsamt Regeln, Karten, Medien und Replays entwickeln.
 

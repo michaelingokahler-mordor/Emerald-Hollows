@@ -65,3 +65,9 @@ Zwei seitliche Laufentwürfe wurden als gemeinsamer 4×2-Spritebogen mit dem vor
 - Browserprüfung mit `tools/browser-miner-review.js`: Bilder geladen, Pause, Einzelbild, Geschwindigkeit, Richtungswechsel, Bewegungsvorschau; 64-Pixel-Darstellung bei Canvasbreite 256; keine horizontale Überbreite bei 390 × 844; reduzierte Bewegung startet pausiert. Screenshots liegen unter `output/playwright/miner-review-*.png`.
 
 Öffentliche Spielgrafiken, Hackenanimation, Bewegungstempo und Replays sind unverändert. Die Auswahl und das subjektive Bewegungsgefühl werden mit dem Nutzer beurteilt; eine neue vollständige Spielprüfung war für diese getrennte Vorschau nicht erforderlich.
+
+## Auswahl und Integration 0.5.2
+
+Der Nutzer hat Entwurf A ausgewählt. Seine vier seitlichen Laufposen werden rechts unverändert und links jeweils gespiegelt verwendet. Die Bilddauer bleibt 240 ms. Vorder- und Rückansicht bleiben aus dem bisherigen Miner-Spritebogen erhalten; die Hackenanimation bleibt bytegleich. Die ursprüngliche Grafik ist zusätzlich als `artifacts/miner-walk-review/original-hero.png` für den Vergleich gesichert.
+
+`tools/prepare-selected-miner.mjs` setzt die ausgewählte Folge in den Spielatlas ein und wird auch am Ende von `npm run assets` aufgerufen. Dabei werden RGBA-Pixel direkt kopiert, sodass transparente Ränder und die bewahrten Ansichten keine Rundungsänderungen durch erneute Alpha-Komposition erhalten. Nachweis: `artifacts/miner-selected-verification.json`. Keine neue Generierung, weiterhin 180 / 1.000 Runway-Credits.
