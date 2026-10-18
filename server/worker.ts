@@ -1,6 +1,6 @@
 import { Simulation, hash, levelHash } from '../src/core/simulation';
-import { checkedReplay } from '../src/core/replay-validation';
-import { RULES_VERSION, type GameState, type Replay } from '../src/core/types';
+import { checkedReplay, replayLevel } from '../src/core/replay-validation';
+import { RULES_VERSION, CRAWLER_RULES_VERSION, rulesFor, type GameState, type Replay } from '../src/core/types';
 import { LEVELS } from '../src/levels';
 import { normalizeName, validName } from '../src/storage';
 interface Statement {bind(...values:unknown[]):Statement;first<T=Record<string,unknown>>():Promise<T|null>;all<T=Record<string,unknown>>():Promise<{results:T[]}>;run():Promise<unknown>}
@@ -30,8 +30,8 @@ async function quota(env:Env,group:string,limit:number):Promise<void>{
 }
 export function verifyChunk(run:Run):{status:string;state:GameState;cursor:number;replay:Replay}{
   const replay=JSON.parse(run.replay) as Replay;
-  const level=LEVELS.find(l=>l.id===replay.levelId)!;
-  if(!level||replay.rulesVersion!==RULES_VERSION||replay.levelHash!==levelHash(level))throw new Error('Retired rules');
+  const level=replayLevel(replay,true);
+  if(!level||replay.rulesVersion!==rulesFor(level)||replay.levelHash!==levelHash(level))throw new Error('Retired rules');
   const sim=new Simulation(level);
   if(run.state)sim.state=JSON.parse(run.state);
   let cursor=run.cursor;
@@ -53,7 +53,7 @@ async function handle(request:Request,env:Env):Promise<Response>{
     const {results}=await env.DB.prepare(`SELECT rowid AS backup_rowid,* FROM ${table} WHERE rowid>? ORDER BY rowid LIMIT ${pageSize}`).bind(Number(after)).all();
     return json({rows:results,next:results.length===pageSize?String(results.at(-1)!.backup_rowid):null});
   }
-  if(request.method==='GET'&&path==='/health')return json({ok:true,rulesVersion:RULES_VERSION});
+  if(request.method==='GET'&&path==='/health')return json({ok:true,rulesVersion:RULES_VERSION,supportedRules:[RULES_VERSION,CRAWLER_RULES_VERSION]});
   if(request.method==='POST'&&path==='/profiles'){
     const body=await readBody(request);const nickname=normalizeName(String(body.nickname??''));if(!validName(nickname))return json({error:'name'},400);
     await quota(env,'profiles',30);
@@ -64,14 +64,14 @@ async function handle(request:Request,env:Env):Promise<Response>{
   const levelMatch=/^\/leaderboard\/([0-9]{2})$/.exec(path);
   if(request.method==='GET'&&levelMatch){
     const level=LEVELS.find(l=>l.id===levelMatch[1]);if(!level)return json({error:'level'},404);
-    const {results}=await env.DB.prepare('SELECT p.nickname,s.ticks,RANK() OVER (ORDER BY s.ticks) AS rank FROM scores s JOIN profiles p ON p.id=s.profile_id WHERE s.level_id=? AND s.level_hash=? AND s.rules_version=? ORDER BY s.ticks,s.profile_id LIMIT 100').bind(level.id,levelHash(level),RULES_VERSION).all();
+    const {results}=await env.DB.prepare('SELECT p.nickname,s.ticks,RANK() OVER (ORDER BY s.ticks) AS rank FROM scores s JOIN profiles p ON p.id=s.profile_id WHERE s.level_id=? AND s.level_hash=? AND s.rules_version=? ORDER BY s.ticks,s.profile_id LIMIT 100').bind(level.id,levelHash(level),rulesFor(level)).all();
     return json({entries:results});
   }
   if(path==='/profile'){
     const profile=await identify(request,env);
     if(request.method==='GET'){
-      const {results}=await env.DB.prepare('SELECT level_id,level_hash,ticks,points FROM scores WHERE profile_id=? AND rules_version=?').bind(profile.id,RULES_VERSION).all<{level_id:string;level_hash:string;ticks:number;points:number}>();
-      return json({nickname:profile.nickname,records:results.filter(r=>{const l=LEVELS.find(l=>l.id===r.level_id);return l&&r.level_hash===levelHash(l);})});
+      const {results}=await env.DB.prepare('SELECT level_id,level_hash,rules_version,ticks,points FROM scores WHERE profile_id=?').bind(profile.id).all<{level_id:string;level_hash:string;rules_version:string;ticks:number;points:number}>();
+      return json({nickname:profile.nickname,records:results.filter(r=>LEVELS.some(l=>l.id===r.level_id&&r.level_hash===levelHash(l)&&r.rules_version===rulesFor(l))),archivedRecords:results.filter(r=>LEVELS.some(l=>l.id===r.level_id&&(r.level_hash!==levelHash(l)||r.rules_version!==rulesFor(l))))});
     }
     if(request.method==='POST'){
       const body=await readBody(request);const nickname=normalizeName(String(body.nickname??''));if(!validName(nickname))return json({error:'name'},400);
@@ -82,7 +82,7 @@ async function handle(request:Request,env:Env):Promise<Response>{
   if(request.method==='POST'&&path==='/runs'){
     const profile=await identify(request,env),body=await readBody(request);
     if(typeof body.id!=='string'||!/^[0-9a-f-]{36}$/.test(body.id))return json({error:'id'},400);
-    let replay:Replay;try{replay=checkedReplay(body.replay);}catch{return json({error:'replay'},400);}
+    let replay:Replay;try{replay=checkedReplay(body.replay,false,true);}catch{return json({error:'replay'},400);}
     const existing=await env.DB.prepare('SELECT id,profile_id FROM runs WHERE id=?').bind(body.id).first<{id:string;profile_id:string}>();
     if(existing)return existing.profile_id===profile.id?json({id:existing.id}):json({error:'conflict'},409);
     await quota(env,'runs:'+profile.id,60);await quota(env,'runs',500);

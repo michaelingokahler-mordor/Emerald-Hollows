@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "rulesVersion": "crystal-delve/1",
+  "rulesVersion": "emerald-hollows/2",
   "levelId": "09",
-  "levelHash": "a3033323",
+  "levelHash": "92317197",
   "practice": false,
   "inputs": [
     {
@@ -33,6 +33,14 @@
       "direction": "right"
     },
     {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {},
+    {},
+    {
       "direction": "right",
       "snap": true
     },
@@ -40,10 +48,6 @@
     {},
     {},
     {},
-    {},
-    {},
-    {},
-    {},
     {
       "direction": "right"
     },
@@ -63,64 +67,10 @@
       "direction": "right"
     },
     {
-      "direction": "right"
+      "direction": "down"
     },
     {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
+      "direction": "down"
     },
     {
       "direction": "left"
@@ -138,8 +88,38 @@
       "direction": "left"
     },
     {
-      "direction": "left"
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
     }
   ],
-  "expectedHash": "1b4facc7"
+  "expectedHash": "b209d137"
 }

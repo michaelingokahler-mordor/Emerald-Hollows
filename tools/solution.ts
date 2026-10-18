@@ -1,5 +1,5 @@
 import { Simulation } from '../src/core/simulation';
-import { DELTAS, DIRECTIONS, type Direction, type InputFrame, type LevelDefinition } from '../src/core/types';
+import { DELTAS, DIRECTIONS, isCrawler, type Direction, type InputFrame, type LevelDefinition } from '../src/core/types';
 export function solve(level:LevelDefinition,initialWait=0):Simulation {
   const sim=new Simulation(level);
   const tick=(input:InputFrame={})=>{sim.step(input);if(sim.state.status==='dead')throw new Error(`${level.id} tick ${sim.state.tick} (${sim.state.player.x},${sim.state.player.y}): ${sim.state.deathReason}`);};
@@ -22,7 +22,7 @@ export function solve(level:LevelDefinition,initialWait=0):Simulation {
           if(seen.has(key))continue;
           const t=sim.terrainAt(x,y),e=sim.entityAt(x,y);
           if(!['empty','earth'].includes(t)&&!(t==='exit'&&sim.state.open))continue;
-          if(e&&(e.kind==='rock'||e.kind==='crawler'))continue;
+          if(e&&(e.kind==='rock'||isCrawler(e.kind)))continue;
           seen.add(key);queue.push({x,y,path:[...current.path,dir]});
         }
       }

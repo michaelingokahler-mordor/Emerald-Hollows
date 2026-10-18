@@ -2,7 +2,7 @@
 
 Alle Lösungen wurden im Normalspiel mit aktiven Gegnern, Schwerkraft und Countdown ausgeführt und als Replay erneut geprüft. Ein Lösungsreplay beweist Lösbarkeit; es ersetzt kein menschliches Urteil über Spielspaß.
 
-Legende: X Außenwand, # Mauer, . Erde, Leerzeichen Gang, P Spieler, E Ausgang, R Fels, M Smaragd, D Diamant, >/< /^/v Krabbler mit Startausrichtung.
+Legende: X Außenwand, # Mauer, . Erde, Leerzeichen Gang, P Spieler, E Ausgang, R Fels, M Smaragd, D Diamant, C Kristallkrabbler, >/< /^/v Krabbler mit Startausrichtung.
 
 ## 01 – Die erste Schicht
 
@@ -241,41 +241,35 @@ walk 24 6
 walk 24 3
 ```
 
-## 06 – Das Herz der alten Mine
+## 06 – Hinter Stein und Riegel
 
-Alles, was du gelernt hast. 36 × 24 Felder, Quote 24, 420 Sekunden, Schwierigkeit 3/3.
+Einsperren statt erschlagen. 26 × 18 Felder, Quote 9, 300 Sekunden, Schwierigkeit 2/3.
 
-Die rechte Nische freiräumen, von links schieben, die obere Galerie von links nach rechts absuchen. Den zweiten Felsen seitlich untergraben, die restlichen Diamanten sammeln und am Krabbler vorbei zum Ausgang steigen.
+Den linken Diamanten holen, zum Fels gehen und den Krabbler beobachten. Den Stein nach rechts in den Zugang schieben, wenn der Krabbler in der oberen Nische ist. Unter dem Riegel hindurch in die rechte Kammer gehen, zwei Diamanten sammeln und zum Ausgang aufsteigen.
 
-Hinweis: Unten zuerst den Abstellplatz rechts freiräumen. Oben den Fels in seinen Schacht schicken. Im letzten Aufstieg den Krabbler beobachten: Du bewegst dich schneller als er.
+Hinweis: Der Krabbler muss lebend in höchstens zwei freien Feldern eingeschlossen bleiben. Schiebe den Fels in den Zugang, wenn er in einer Nische ist. Sammle danach drei Diamanten. Quote und Aufgabe öffnen gemeinsam den Ausgang.
 
-Geprüfter Durchlauf: 64 Takte / 6.4 Sekunden, 24 Punkte. Replay: public/replays/06.json.
+Geprüfter Durchlauf: 46 Takte / 4.6 Sekunden, 9 Punkte. Replay: public/replays/06.json.
 
 ```text
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##################################X
-X##################################X
-X##...R..###....R..##########...E##X
-X##......###.......##########.·####X
-X##..##..###.......#####>····.···##X
-X##..##..###.......##########.·####X
-X##......###.......##########.·####X
-X##......###.......##########.·####X
-X############################.·####X
-X############################.·####X
-X#############################·####X
-X##########.D.D.D...RD.D.D.D.D.####X
-X##########.#######·.########.#####X
-X##########.########·########.#####X
-X##########.########·########.#####X
-X#########.R.#######·##...R......##X
-X#########.#.#######·##..........##X
-X#.P..........######·##..###.....##X
-X#.......###########·##..###.....##X
-X#.......###########·##..........##X
-X#.......###########·##..........##X
-X##################################X
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXX
+X########################X
+X########################X
+X########################X
+X########################X
+X###################E...#X
+X#############·########.#X
+X#############^########.#X
+X#...........R··#######.#X
+X#............#########.#X
+X#...###................#X
+X#...###.....####.......#X
+X#.P......D..####...D.D.#X
+X#...........####.###...#X
+X#...........####.......#X
+X########################X
+X########################X
+XXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
@@ -283,61 +277,47 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 12 18
-walk 12 17
-snap up
-walk 12 18
-walk 10 18
-walk 10 16
+walk 10 12
+walk 12 8
+wait 8
 move right
-walk 11 12
-walk 12 12
-walk 14 12
-walk 16 12
-walk 19 12
-walk 19 13
-snap right
-wait 10
-walk 19 12
-walk 21 12
+walk 13 10
+walk 20 12
+walk 22 12
 walk 23 12
-walk 25 12
-walk 27 12
-walk 29 12
-walk 30 12
-walk 30 3
-walk 32 3
+walk 23 5
+walk 20 5
 ```
 
-## 07 – Zwei Schächte
+## 07 – Der richtige Augenblick
 
-Die Reihenfolge zählt. 26 × 18 Felder, Quote 9, 300 Sekunden, Schwierigkeit 2/3.
+Ein Abwurf aus sicherer Entfernung. 28 × 18 Felder, Quote 9, 300 Sekunden, Schwierigkeit 3/3.
 
-Die erste Stütze von links entfernen, warten und die beiden mittleren Diamanten sammeln. An der zweiten Nische genauso vorgehen und den letzten Diamanten vor dem Ausgang holen.
+Bei (16,5) stehen bleiben. Den Abwurf vorhalten: Stütze bei Takt 25 entfernen, damit der Fels den Krabbler bei Takt 28 trifft. Danach rechts absteigen, die drei Diamanten der unteren Galerie holen und zum westlichen Ausgang gehen.
 
-Hinweis: Öffne jeden Schacht von seiner linken Nische aus. Warte, bis der Stein unter dem Gang verschwunden ist. Dann erst weitergehen.
+Hinweis: Der Fels braucht mehrere Takte bis zur Laufbahn. Warte links neben seiner Stütze, bis der Krabbler von links an das Feld vor dem Fallschacht herankommt. Grabe die Stütze nebenan weg. Du musst ihn treffen, bevor der Ausgang öffnet.
 
-Geprüfter Durchlauf: 46 Takte / 4.6 Sekunden, 9 Punkte. Replay: public/replays/07.json.
+Geprüfter Durchlauf: 66 Takte / 6.6 Sekunden, 9 Punkte. Replay: public/replays/07.json.
 
 ```text
-XXXXXXXXXXXXXXXXXXXXXXXXXX
-X########################X
-X########################X
-X########################X
-X########################X
-X#P.......R.D.D...R.D.E##X
-X##.####··.#####··.######X
-X##.######·#######·######X
-X##.######·#######·######X
-X#.....###·#######·######X
-X#.....###·#######·######X
-X#.....###·#######·######X
-X#...M.###·#######·######X
-X#.....###·#######·######X
-X#.....###·#######·######X
-X########################X
-X########################X
-XXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X##########################X
+X##########################X
+X##########################X
+X################R#########X
+X#.P.....................##X
+X################·######.##X
+X################·######.##X
+X######·>···············.##X
+X#######################.##X
+X#######################.##X
+X####E...###############.##X
+X####....###############.##X
+X####...........D.D.D....##X
+X##########################X
+X##########################X
+X##########################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
@@ -345,22 +325,17 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 8 5
-walk 8 6
-walk 9 6
-snap right
-wait 10
-walk 9 5
-walk 12 5
-walk 14 5
 walk 16 5
-walk 16 6
-walk 17 6
+wait 11
 snap right
-wait 10
-walk 17 5
-walk 20 5
-walk 22 5
+wait 4
+walk 24 5
+walk 24 13
+walk 20 13
+walk 18 13
+walk 16 13
+walk 5 13
+walk 5 11
 ```
 
 ## 08 – Der lange Bogen
@@ -369,7 +344,7 @@ Es gibt mehr als einen Weg. 30 × 20 Felder, Quote 12, 360 Sekunden, Schwierigke
 
 Links nach unten graben, die vier Diamanten entlang der unteren Galerie einsammeln und rechts zum Ausgang aufsteigen. Die Kammer in der Mitte ist optional.
 
-Hinweis: Vier Diamanten reichen. Die untere Galerie bietet einen sicheren Rundweg. Die mittlere Kammer enthält zusätzliche Kristalle; du musst nicht jeden Schatz mitnehmen.
+Hinweis: Wähle deine Route: Sechs Diamanten bieten 18 Punkte, aber vier Diamanten (12 Punkte) reichen. Vier liegen im unteren Rundgang, zwei im mittleren Abzweig. Du kannst Schätze aus beiden Wegen kombinieren; ein vollständiges Ausräumen ist nicht nötig.
 
 Geprüfter Durchlauf: 46 Takte / 4.6 Sekunden, 12 Punkte. Replay: public/replays/08.json.
 
@@ -410,39 +385,36 @@ walk 25 15
 walk 25 3
 ```
 
-## 09 – Über dem Abgrund
+## 09 – Ein kostbarer Gegner
 
-Ein Schritt zur Seite. 32 × 22 Felder, Quote 15, 360 Sekunden, Schwierigkeit 3/3.
+Der Kristallkrabbler. 28 × 19 Felder, Quote 5, 300 Sekunden, Schwierigkeit 3/3.
 
-Von (11,15) das Seitenfeld rechts freigraben. Der obere Stapelstein rollt nach links und fällt. Die fünf Diamanten sammeln und im Osten nach oben steigen.
+Links der Stütze bei (14,8) warten. Bei Takt 14 rechts nebenan graben. Der Stein trifft bei Takt 16. Rechts in die Laufbahn steigen, den entstandenen Diamanten einsammeln und im östlichen Schacht beide Smaragde auf dem Weg zum Ausgang holen.
 
-Hinweis: Der obere Fels braucht links ein freies Seitenfeld. Darunter wartet schon der Schacht. Grabe nebenan, warte den Fall ab und gehe dann durch die Galerie.
+Hinweis: Der blaue Krabbler mit Diamantzeichen verwandelt sich beim Zerquetschen in einen Diamanten (3 Punkte). Auch der fallende Stein verschwindet dabei. Zwei Smaragde ergänzen die Quote: Du brauchst den Diamanten des Krabblers.
 
-Geprüfter Durchlauf: 50 Takte / 5.0 Sekunden, 15 Punkte. Replay: public/replays/09.json.
+Geprüfter Durchlauf: 42 Takte / 4.2 Sekunden, 5 Punkte. Replay: public/replays/09.json.
 
 ```text
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##############################X
-X##############################X
-X##############################X
-X#.......###########E......####X
-X#......R#################.####X
-X#..M....#################.####X
-X#.......#################.####X
-X#.......#################.####X
-X####.####################.####X
-X####.####################.####X
-X####.####################.####X
-X####.####################.####X
-X####.####################.####X
-X####.####################.####X
-X#P..........R..D.D.D.D.D..####X
-X###########·R#################X
-X###########·##################X
-X###########·##################X
-X###########·##################X
-X##############################X
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X##########################X
+X##########################X
+X##########################X
+X##......##################X
+X##.###..##################X
+X##......##################X
+X##......######R###########X
+X##P.................######X
+X##############·####.######X
+X#########C·········.######X
+X###################.######X
+X###################M#...##X
+X###################.#...##X
+X###################M#...##X
+X###################.#...##X
+X###################E....##X
+X##########################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
@@ -450,17 +422,17 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 11 15
+walk 14 8
+wait 2
 snap right
-wait 8
-walk 16 15
-walk 18 15
-walk 20 15
-walk 22 15
-walk 24 15
-walk 26 15
-walk 26 4
-walk 20 4
+wait 4
+walk 20 8
+walk 20 10
+walk 15 10
+walk 20 10
+walk 20 12
+walk 20 14
+walk 20 16
 ```
 
 ## 10 – Ein Tor nach Lathmar

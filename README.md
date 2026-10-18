@@ -1,6 +1,6 @@
 # Lathmar: Emerald Hollows
 
-Eine Browserdemo mit zehn handgebauten Höhlen, warmer Amiga-inspirierter Grafik und Runway-Musik. Deutsche Oberfläche, Tastatur und Touch, Übungsmodus, automatische Speicherstände, Offline-Installation und optionale öffentliche Bestzeiten.
+Eine Browserdemo mit zehn handgebauten Höhlen, warmer Amiga-inspirierter Grafik und Runway-Musik. Umschaltbare englische/deutsche Oberfläche, Tastatur und Touch, Übungsmodus, automatische Speicherstände, Offline-Installation und optionale öffentliche Bestzeiten.
 
 - [Im Browser spielen](https://sabnockworks.com/games/more-projects/emerald-hollows/)
 - [More Projects bei SabnockWorks](https://sabnockworks.com/games/more-projects/#emerald-hollows)
@@ -20,7 +20,11 @@ Alternativ das Web-ZIP vollständig entpacken und unter Windows `Start-Emerald-H
 
 ## Spielen
 
-WASD/Pfeile bewegen und graben. Leertaste plus Richtung gräbt oder sammelt nebenan. R startet neu, Escape pausiert. Mobil: Richtungstasten links; „Graben“ rechts halten und gleichzeitig eine Richtung berühren. Smaragde zählen einen, Diamanten drei Punkte. Bei erfüllter Quote öffnet der Ausgang. Fallende Objekte und Krabbler bleiben auch im Übungsmodus gefährlich.
+WASD/Pfeile bewegen und graben. Leertaste plus Richtung gräbt oder sammelt nebenan. R startet neu, Escape pausiert. Mobil: Richtungstasten links; „Graben“ rechts halten und gleichzeitig eine Richtung berühren. Smaragde zählen einen, Diamanten drei Punkte. Bei erfüllter Quote öffnet der Ausgang; Höhlen 06, 07 und 09 verlangen zusätzlich ihre angezeigte Krabbleraufgabe. Fallende Objekte und Krabbler bleiben auch im Übungsmodus gefährlich.
+
+Die Sprache lässt sich im Hauptmenü oder unter Einstellungen wechseln. Englisch ist die Voreinstellung. Die Credits sind über das Hauptmenü und den Abschlussbildschirm erreichbar; Herkunft und Lizenznachweise stehen in [docs/CREDITS.md](docs/CREDITS.md).
+
+Version 0.3 unterscheidet drei Krabblerlektionen: 06 einsperren, 07 einen Abwurf zeitlich abstimmen, 09 einen Kristallkrabbler in einen Diamanten verwandeln. Die zusätzlichen Kristalle in 08 ermöglichen bewusst verschiedene Sammelwege. Vorhandene Freischaltungen bleiben erhalten. Bestzeiten werden nur zwischen identischen Kartenrevisionen verglichen; ältere wartende Ergebnisse werden weiterhin geprüft und archiviert.
 
 Erfolge im Normal- oder Übungsspiel öffnen die nächste Höhle. Zeiten bleiben getrennt. „Fortsetzen“ lädt den laufenden Versuch; gespeichert wird ungefähr jede Sekunde und beim Pausieren. Ein Stromausfall kann die letzte Sekunde verlieren. Der Browser hält zusätzlich eine vorherige geprüfte Kopie vor. Importierte und alte lokale Erfolge erzeugen keine öffentlichen Ranglisteneinträge.
 
@@ -47,7 +51,7 @@ npm run package
 node tools/verify-package.mjs
 ```
 
-TypeScript mit strenger Prüfung, Phaser 4.2.1, Vite und Vitest. Die Simulation ist unabhängig von Phaser. 100-ms-Takt, deterministische Replays; die historische Regelkennung `crystal-delve/1` bleibt absichtlich erhalten, weil die Grundregeln unverändert sind. Der neue Speicher übernimmt `crystal-delve.save.v1` automatisch.
+TypeScript mit strenger Prüfung, Phaser 4.2.1, Vite und Vitest. Die Simulation ist unabhängig von Phaser. 100-ms-Takt, deterministische Replays. Unveränderte Karten behalten `crystal-delve/1`; die überarbeiteten Krabblerkarten verwenden `emerald-hollows/2`. Der Speicher übernimmt `crystal-delve.save.v1` automatisch.
 
 `src/core` enthält Regeln und Replay-Prüfung, `src/levels.ts` die Karten, `src/campaign.ts` den Kampagnenaufbau, `src/main.ts` die Oberfläche, `server` die API und Migrationen. `public/replays` enthält erfolgreiche Lösungen. Die Runway-Quellen und Produktionsnachweise liegen unter `artifacts`; Bearbeitungsskripte unter `tools`.
 

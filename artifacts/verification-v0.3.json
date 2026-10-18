@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-18T11:58:40.878Z",
+  "version": "0.3.0",
+  "unitTests": 72,
+  "solvedLevels": 10,
+  "desktop": [
+    {
+      "browser": "Chrome",
+      "viewport": "1280x720",
+      "dpr": 1,
+      "status": "PASS",
+      "checks": [
+        "English menus and credits",
+        "all ten solution replays",
+        "language persistence",
+        "language switch preserves paused state"
+      ]
+    },
+    {
+      "browser": "Edge",
+      "viewport": "1920x1080",
+      "dpr": 2,
+      "status": "PASS",
+      "checks": [
+        "English menus and credits",
+        "all ten solution replays",
+        "language persistence",
+        "language switch preserves paused state"
+      ]
+    }
+  ],
+  "mobile": {
+    "browser": "Chrome emulation",
+    "viewports": [
+      "390x844",
+      "844x390"
+    ],
+    "dpr": 3,
+    "status": "PASS",
+    "checks": [
+      "two-finger movement and dig",
+      "resume after reload",
+      "objective HUD in EN/DE for 06/07/09",
+      "credits",
+      "offline reload"
+    ],
+    "physicalDeviceTested": false
+  },
+  "localOnlineUi": {
+    "status": "PASS",
+    "normalTicks": 55,
+    "practiceTicks": 55,
+    "checks": [
+      "profile creation",
+      "automatic upload",
+      "confirmed leaderboard",
+      "corrupt import preserves state",
+      "valid import preserves profile",
+      "recovery restores verified time"
+    ],
+    "nativeTabSwitch": false
+  },
+  "api": "See api-verification.json",
+  "humanFeedback": {
+    "publicTouchWorks": true,
+    "deviceUnspecified": true,
+    "revisedCavePlaythroughPending": true
+  },
+  "visualReview": [
+    "three rebuilt caves",
+    "credits",
+    "mobile portrait and landscape"
+  ],
+  "mediaCredits": 139,
+  "newMediaCredits": 0,
+  "limitations": [
+    "physical device and home-screen installation tests pending",
+    "human listening pending",
+    "native focus change not verified",
+    "no production D1 restore in this version",
+    "not a load test"
+  ]
+}

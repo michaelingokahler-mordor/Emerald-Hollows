@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-18T11:26:47.658Z",
+  "date": "2026-10-18T11:55:53.713Z",
   "target": "local Wrangler/D1",
   "status": "PASS",
   "checks": [
@@ -12,7 +12,10 @@
     "practice rejection",
     "invalid inputs",
     "wrong final hash",
-    "CORS"
+    "CORS",
+    "archived 0.2 runs accepted and excluded from current board",
+    "three revised caves confirmed",
+    "recovery retains archived unlocks"
   ],
   "verificationRequests": 3
 }

@@ -1,6 +1,6 @@
 # Lathmar: Emerald Hollows — freigegebener Ausbau
 
-## Lieferung 0.2: Die alte Mine
+## Lieferung 0.3: Die alte Mine
 
 Zehn handgebaute Höhlen, fortlaufende Freischaltung, lokale Bestzeiten, getrennte Übungserfolge, Spielername, öffentlicher Zeitvergleich, Export/Import, automatische Sicherungskopie, Fortsetzen laufender Versuche, Touchsteuerung, installierbare Offline-Webapp und zwei längere Musikstücke. Die bewährte Grafik bleibt erhalten.
 
@@ -10,18 +10,20 @@ Spieladresse: https://sabnockworks.com/games/more-projects/emerald-hollows/
 
 Ranglisten-API: https://emerald-hollows-api.emerald-hollows.workers.dev
 
-Die ersten sechs Karten bleiben bestehen. 07 übt zwei kontrollierte Fallschächte, 08 alternative Sammelwege, 09 eine Rollfalle und 10 kombiniert die bekannten Regeln in einer 40 × 26 großen Höhle. Keine neue Mechanik wird im Finale vorausgesetzt.
+Die Karten 01–05 bleiben bestehen. 06 verlangt, einen Schieferkrabbler lebend einzusperren. 07 übt den zeitlich abgestimmten Abwurf aus größerer Höhe. 08 bietet bewusst 18 Kristallpunkte bei einer Quote von 12: Der Spieler wählt einen Sammelweg. 09 führt den Kristallkrabbler ein, der beim Zerquetschen zusammen mit dem fallenden Objekt verschwindet und einen Diamanten hinterlässt. 10 kombiniert bekannte Regeln in einer 40 × 26 großen Höhle. Keine neue Mechanik wird im Finale vorausgesetzt.
+
+Die gesamte Spieloberfläche ist zwischen Englisch und Deutsch umschaltbar; die Einstellung wird gespeichert. Die Credits nennen die tatsächlichen Mitwirkenden, Werkzeuge und Inspirationsspiele. Freischaltungen aus 0.2 bleiben erhalten. Bestzeiten der umgebauten Karten 06, 07 und 09 werden anhand ihrer Kartenrevision getrennt gewertet; die übrigen Rekorde bleiben gültig.
 
 ## Weitere Kapitel — noch nicht implementiert
 
 | Level | Einführung und Schwerpunkt |
 |---|---|
-| 11–20 | Kristallkäfer, Beute durch Zerquetschen, sichere Sammelrouten |
+| 11–20 | Kristallkrabbler vertiefen, Beute durch Zerquetschen, sichere Sammelrouten |
 | 21–30 | Schlüssel, klar markierte Hebel und Tore; Zwergen-Abzweig in 25 |
 | 31–40 | Dynamit, sichtbare Zündzeit, zerstörbare Mauern, 3 × 3 Explosion |
 | 41–50 | Paarweise Teleporter-Türen innerhalb einer Höhle; Verfolger |
 | 51–60 | Säure, ablassbare Wasserbecken, Schleusen und Treibsand |
-| 61–70 | Deterministisches Wachstum und kontrollierte Freiräume |
+| 61–70 | Corruption: deterministisches Wachstum und kontrollierte Freiräume |
 | 71–80 | Zeitweise aktive Zauberwände, Fels-zu-Smaragd; Elfen-Abzweig in 75 |
 | 81–90 | Größere verbundene Kammern und verschiebbare Steinriegel |
 | 91–100 | Kombinationen, Rückwege und Finale ohne neue Grundregeln |
@@ -38,6 +40,8 @@ Twisted Dwarves schieben Felsen auf berechenbaren horizontalen Wegen. Twisted El
 
 ## Festgelegte Regeln der Erweiterungen
 
+Das wachsende Material heißt in beiden Sprachen **Corruption**. Es wird als verderbende Kraft mit Bezug zu Lathmar gestaltet. Seine Ausbreitung bleibt deterministisch, durch Raumbegrenzungen steuerbar und optisch klar von Erde, Wasser und Kristallen unterscheidbar. Wachstumsrate, Umwandlung bei vollständiger Einschließung und genaue Darstellung werden vor Kapitel 61–70 festgelegt und mit Prüfkarten abgesichert. Corruption ist geplant und noch nicht spielbar; dieser Entwurf legt keine neuen Fakten für den Lathmar-Kanon fest.
+
 Teleporter sind feste, sichtbar zugeordnete Paare und transportieren zunächst nur die Spielfigur. Ein belegtes Ziel blockiert den Transfer. Ankunft löst keinen sofortigen Rücktransfer aus. Geheimtore zwischen Leveln sind davon getrennt.
 
 Hebel bewegen eindeutig markierte Tore, Schleusen oder Riegel auf vorgegebenen Bahnen. Belegte Felder werden nicht überschrieben. Wasserbecken werden von Hand definiert und zeigen eine erkennbare Wasserlinie. Tiefes Wasser blockiert die Spielfigur; Felsen und Kristalle sinken. Eine Schleuse lässt das Wasser schrittweise ab und legt Wege frei.
@@ -48,4 +52,4 @@ Musik erhält Kapitelthemen und eine dezente Gefahrenschicht. Die Demo verwendet
 
 Runway-Obergrenze bleibt 1.000 Credits inklusive Fehlversuchen. Bisher 139: ursprüngliche Medien 115, Musikrunde 24 einschließlich einer nicht herunterladbaren Ersatzproduktion. Kein automatischer bezahlter Hostingwechsel. Workers Free wurde am 18.10.2026 im Konto bestätigt.
 
-Vor dem nächsten Kapitel: menschlicher Durchlauf der Demo, Hörprobe, Tests auf einem echten Android-Gerät und iPhone/iPad. Browseremulation ist kein Gerätetest. Dann jeweils ein neues Kapitel mitsamt Regeln, Karten, Medien und Replays entwickeln.
+Der Nutzer hat am 18.10.2026 bestätigt, dass der öffentliche Touchmodus funktioniert; Gerät und Betriebssystem wurden nicht angegeben. Vor dem nächsten Kapitel: Feedback zu den überarbeiteten Rätseln, Hörprobe und gezielte Prüfung der Installation auf Android und iPhone/iPad. Browseremulation ist kein Gerätetest. Dann jeweils ein neues Kapitel mitsamt Regeln, Karten, Medien und Replays entwickeln.

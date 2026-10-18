@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "rulesVersion": "crystal-delve/1",
+  "rulesVersion": "emerald-hollows/2",
   "levelId": "06",
-  "levelHash": "1469a043",
+  "levelHash": "0e6e04d9",
   "practice": false,
   "inputs": [
     {
@@ -27,51 +27,40 @@
       "direction": "right"
     },
     {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
       "direction": "right"
     },
     {
       "direction": "right"
     },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up",
-      "snap": true
-    },
-    {
-      "direction": "down"
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
     {
       "direction": "right",
       "snap": false
     },
     {
-      "direction": "up"
+      "direction": "down"
     },
     {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "right"
+      "direction": "down"
     },
     {
       "direction": "right"
@@ -98,45 +87,7 @@
       "direction": "down"
     },
     {
-      "direction": "right",
-      "snap": true
-    },
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
+      "direction": "down"
     },
     {
       "direction": "right"
@@ -169,17 +120,14 @@
       "direction": "up"
     },
     {
-      "direction": "up"
+      "direction": "left"
     },
     {
-      "direction": "up"
+      "direction": "left"
     },
     {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
+      "direction": "left"
     }
   ],
-  "expectedHash": "c45efd3c"
+  "expectedHash": "4559151a"
 }

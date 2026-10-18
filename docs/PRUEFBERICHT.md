@@ -1,81 +1,55 @@
-# Lathmar: Emerald Hollows 0.2.0 – Prüfbericht
+# Lathmar: Emerald Hollows 0.3.0 – Prüfbericht
 
-Stand: 18. Oktober 2026. Zehn spielbare Höhlen, deutsche Oberfläche, Tastatur und Touchsteuerung. Der Ausbau auf 100 Haupt- und 20 Geheimlevel steht im Entwicklungsplan; diese zusätzlichen Karten und Mechaniken sind noch nicht Teil der Demo.
+Stand: 18. Oktober 2026. Zehn spielbare Höhlen mit umschaltbarer englischer/deutscher Oberfläche. Höhlen 06, 07 und 09 wurden ersetzt. Corruption ist im Ausbauplan benannt, aber noch nicht implementiert.
 
 ## Automatisierte Prüfung
 
 | Prüfung | Ergebnis |
 |---|---|
-| TypeScript, Produktionsbuild | bestanden |
-| Vitest | 60 Tests bestanden |
+| TypeScript und Produktionsbuild | bestanden |
+| Vitest | 72 Tests bestanden |
 | Zeitgebundene Lösungen | 10/10 erfolgreich und erneut abgespielt |
-| Replays bei 30, 60 und 144 Render-FPS | gleicher Simulations-Endzustand für alle zehn Level |
-| Alte Spielstände | Migration aus Version 1; keine automatische Übernahme in die öffentliche Rangliste |
-| Lokale Sicherung | Prüfsumme, zweite Kopie, Wiederherstellung bei beschädigtem Hauptspeicher |
-| Offline-Ergebnisse | Schnellster wartender Durchlauf je Level bleibt auch bei vielen Wiederholungen erhalten |
-| Serverprüfung | Alle zehn Lösungen akzeptiert; begrenzte Rechenschritte, falsche Eingaben/Endzustände und Übung abgelehnt |
-| API auf lokalem Wrangler/D1 | Profilanlage, Eigentümerprüfung, Wiederherstellung, idempotenter Upload, Rangliste, CORS bestanden |
-| Sicherung | Verschlüsseln, Entschlüsseln, Manipulationserkennung und SQLite-Import mit befüllten Beispieldaten bestanden |
+| Replays bei 30, 60 und 144 Render-FPS | identische Simulations-Endzustände |
+| Höhle 06 | Erfolg nur mit lebendem, eingeschlossenem Krabbler und Quote; Wiederöffnen des Geheges schließt den Ausgang |
+| Höhle 07 | zeitlich abgestimmter Abwurf trifft den Krabbler |
+| Höhle 09 | ein Diamant entsteht; Fallobjekt verschwindet; kein zweiter Bewegungsschritt oder sofortiger Punktgewinn |
+| Höhle 08 | 18 verfügbare Punkte, Quote 12; unterer und gemischter Sammelweg erfolgreich |
+| Alte Rekorde | alle sieben unveränderten Karten behalten ihre Prüfsummen; alte Erfolge öffnen weiterhin Folgehöhlen |
+| Alte Offline-Durchläufe | alle drei ersetzten Karten mit archivierten Definitionen erfolgreich verifiziert |
+| Sprache | gespeichert; Übersetzungen aller zehn Namen, Untertitel, Hinweise und dynamischer Zähler geprüft |
+| Lokale API | neue Durchläufe 06/07/09 bestätigt; alter 06-Durchlauf archiviert, aus aktueller Rangliste ausgeschlossen, bei Wiederherstellung als historischer Erfolg enthalten |
 
-Die Mechaniktests prüfen Fallen, Abrollen, Linkspriorität, blockierte Diagonalen, ruhende und fallende Objekte über Figuren, Schieben einschließlich Bewegungssperre im selben Takt, blockierte Schiebeketten, Nebenangraben, Bewegungskonflikte, Gegnerkontakt, Zerquetschen, Quote, Ausgang und Zeitablauf. Level 5 zerquetscht den Krabbler auch im Lösungsnachweis.
+Die API-Prüfung umfasst außerdem Profilanlage, Besitzerprüfung, Wiederholung von Uploads, mehrteilige Verifikation, falsche Eingaben/Endzustände, Ausschluss des Übungsmodus und CORS. Schreibende Tests verwenden ausschließlich eine lokale Wrangler/D1-Datenbank.
 
-| Level | Punkte | Takte | Restzeit |
-|---|---:|---:|---|
-| 01 – Die erste Schicht | 8 | 36 | vorhanden |
-| 02 – Unter Last | 10 | 28 | vorhanden |
-| 03 – Platz zum Schieben | 12 | 31 | vorhanden |
-| 04 – Die rollende Galerie | 15 | 42 | vorhanden |
-| 05 – Der Schieferkrabbler | 12 | 46 | vorhanden |
-| 06 – Das Herz der alten Mine | 24 | 64 | vorhanden |
-| 07 – Zwei Schächte | 9 | 46 | vorhanden |
-| 08 – Der lange Bogen | 12 | 46 | vorhanden |
-| 09 – Über dem Abgrund | 15 | 50 | vorhanden |
-| 10 – Ein Tor nach Lathmar | 30 | 73 | vorhanden |
+Nachweise: `artifacts/level-verification.json`, `artifacts/api-verification.json`, `artifacts/verification-v0.3.json`, `tests/crawlers-and-language.test.ts` sowie die vorhandenen Kern- und Speichertests.
 
-Ein Takt dauert 100 ms. Diese Zeiten stammen aus lückenlosen automatischen Eingaben bei bekannter Lösung. Sie sind keine gemessenen Erstspielzeiten und belegen keinen bestimmten Schwierigkeitsgrad. Die neue Demo bewahrt die bisherigen Regeln unter der Kennung `crystal-delve/1`.
+## Tatsächlich ausgeführte Browserprüfung
 
-Nachweise: `tests/`, `public/replays/`, `artifacts/level-verification.json`, `artifacts/api-verification.json`, `artifacts/backup-verification.json`.
+| Umgebung | Geprüft |
+|---|---|
+| Chrome, 1280 × 720, DPR 1 | englische Menüs, Credits, alle zehn Lösungen, Sprachwechsel und gespeicherte Auswahl |
+| Edge, 1920 × 1080, DPR 2 | dieselben Menüs und alle zehn englischen Lösungen; Sprachwechsel während Pause erhält exakt den Simulationszustand |
+| Chrome-Touchemulation, 390 × 844 / 844 × 390, DPR 3 | Zwei-Finger-Graben, Neustart nach Neuladen, neue Aufgabenanzeigen 06/07/09 in beiden Sprachen, Credits, Offline-Neuladen |
+| Chrome mit lokaler API | englische Profilanlage, echter Tastaturabschluss im Normal- und Übungsspiel, Upload, Rangliste, Import und Wiederherstellung |
 
-## Browser und Mobilgeräte
+Level 1 wurde per Tastatur in beiden Modi in jeweils 55 Takten abgeschlossen. Übungszeiten überschreiben keine Normalrekorde. Die Pause friert den Countdown ein. Ein explizites Blur-Ereignis pausiert; der Headless-Tabwechsel erzeugte keinen nativen Fokuswechsel. Bei offline geschalteter Verbindung schlägt der Abruf der bewusst nicht gecachten Online-Konfiguration erwartungsgemäß fehl; das Spiel startet trotzdem aus dem Service-Worker-Cache.
 
-Die Browserprüfungen verwenden die lokal installierten Versionen Chrome 155 und Edge 155 im Headless-Modus. Sie laden die echte Anwendung und bedienen DOM, Canvas und Eingaben. V0.1-Nachweise bleiben als historische Dateien erhalten; sie gelten nicht automatisch als erneute Abnahme der neuen Fassung.
+Die neuen Höhlen, Credits sowie mobile Hoch- und Querformate wurden anhand der aufgenommenen Bilder gesichtet. Neue Aufgabenanzeigen und Touchfelder überdecken das Spielfeld nicht. Skripte: `tools/browser-v03.js`, `tools/browser-mobile-v03.js`, `tools/browser-online-v03.js`. Screenshots liegen unter `output/playwright/`; eine kompakte Bildübersicht liegt in `artifacts/visual-review-v0.3.webp`.
 
-| Browser | Fenster / Pixeldichte | Umfang in Version 0.2 |
-|---|---|---|
-| Chrome | 1280 × 720 / DPR 1 | Name speichern, Freischaltung, Tastatur, Pausieren, exaktes Fortsetzen nach Neuladen, zehn visuelle Lösungsdurchläufe |
-| Edge | 1920 × 1080 / DPR 2 | Name speichern, Freischaltung, Tastatur, Fortsetzen, zehn visuelle Lösungsdurchläufe |
-| Chrome mit Mobilgeräteemulation | 390 × 844 / DPR 3; 844 × 390 | Zwei-Finger-Graben, separate Touchfläche, Hoch-/Querformat, exaktes Fortsetzen, Offline-Neuladen |
+## Menschliches Feedback und offene Abnahmen
 
-Beim Test wurden eine falsche Kamerazentrierung bei vergrößerter Pixeldichte und ein Cache-Problem mit dem `Vary: Origin`-Header korrigiert. Der Offline-Test lief danach erneut erfolgreich. Die Netzwerkanfrage für die bewusst nicht zwischengespeicherte Online-Konfiguration schlägt offline erwartungsgemäß fehl; die Anwendung startet trotzdem aus dem Cache.
+Der Nutzer hat die Grafik positiv beurteilt und bestätigt, dass der öffentliche Touchmodus funktioniert. Gerät und Betriebssystem wurden nicht genannt. Sein Feedback zur Ähnlichkeit von 06/07/09 führte zu den drei verschiedenen Krabbleraufgaben. Die neue Fassung dieser Rätsel braucht noch seinen Spieldurchlauf.
 
-Zusätzlich wurde Level 1 mit echten Tastatureingaben im Normal- und Übungsspiel abgeschlossen (je 55 Takte). Profilanlage, automatischer Upload, bestätigte Ranglistenanzeige, Import einer gültigen und einer beschädigten Sicherung sowie Profilwiederherstellung bestanden gegen die lokale API. Ein künstlich ausgelöstes Blur-Ereignis pausiert; der Headless-Tabwechsel erzeugte keinen nativen Fokuswechsel.
+Die Gerätesimulation ersetzt keine gezielte Prüfung auf Android, iPhone oder iPad. Home-Bildschirm-Installation, Safari, Firefox, interaktiver Fensterwechsel, schwächere Hardware und eine menschliche Hörabnahme der zwei Musikstücke sind weiterhin offen. Die Zielrate von 60 FPS ist kein allgemeiner Leistungsnachweis.
 
-Die More-Projects-Karte und der Spielstart im verschachtelten Website-Pfad wurden im lokalen Produktionspreview geprüft. Grafiken, Replay-Dateien und der auf diesen Spielpfad begrenzte Service Worker wurden korrekt geladen.
+## Server, Sicherung und Veröffentlichung
 
-Nachweise: `artifacts/verification-v0.2.json`, `artifacts/all-levels-v0.2.webp`, `tools/browser-v02.js`, `tools/browser-mobile.js`, `tools/browser-online-v02.js`, `tools/browser-site.js`, Screenshots unter `output/playwright/`. Dies ist Browseremulation, kein Test auf einem echten Android- oder iOS-Gerät. Safari und Firefox sind noch nicht geprüft.
+Die bestehende Datenbankstruktur bleibt unverändert. Die Rangliste filtert nach Karten- und Regelversion. Historische Werte werden nicht gelöscht; auch noch wartende 0.2-Ergebnisse bleiben prüfbar. Unveränderte Höhlen behalten ihre Rekorde. Laufende Versuche auf ersetzten Karten starten neu, Freischaltungen bleiben bestehen.
 
-## Server und Sicherung
+Die täglichen verschlüsselten Sicherungen und der bereits erfolgreich geprüfte Wiederherstellungsweg aus Version 0.2 bleiben bestehen. Deren Nachweise liegen in `artifacts/verification-v0.2.json`; in 0.3 wurde keine produktive D1-Wiederherstellung ausgeführt. Öffentliche Veröffentlichungsprüfung und Commit-/Worker-Kennungen werden separat in `release/deployment-verification-v0.3.json` dokumentiert. Testprofile wurden nicht öffentlich angelegt.
 
-Der Worker ist veröffentlicht; Health-Endpunkt und leere öffentliche Rangliste wurden tatsächlich abgerufen. Die schreibenden API-Prüfungen verwenden eine lokale Testdatenbank, damit keine künstlichen Rekorde in der öffentlichen Rangliste erscheinen.
+## Medien und Pakete
 
-Der erste reale Sicherungslauf im privaten GitHub-Repository wurde erfolgreich abgeschlossen. Sein Archiv wurde entschlüsselt und in eine leere SQLite-Datenbank importiert; die noch neue Produktionsdatenbank enthielt erwartungsgemäß keine Spielerprofile. Zusätzlich prüft der lokale Sicherungstest befüllte Daten. Eine produktive D1-Wiederherstellung oder ein Lasttest wurde nicht durchgeführt.
+Es wurden keine neuen Runway-Medien generiert. Der Kristallkrabbler nutzt die vorhandene Animation mit Einfärbung und Diamantmarkierung. Gesamtverbrauch: **139 von höchstens 1.000 Runway-Credits**.
 
-Freier Workers-Tarif im angemeldeten Konto geprüft. Kosten- und Kontingentgrenzen bleiben Plattformbedingungen. Zukünftige Sicherungen müssen über die Actions-Ergebnisse beobachtet werden. Gültige automatisch gespielte Lösungen sind möglich; die Replay-Prüfung ist kein vollständiger Schutz gegen Bots.
-
-## Medien und Grenzen der Abnahme
-
-Die bestehende Runway-Grafik bleibt erhalten. Neu sind zwei instrumentale Titel mit je 168 Sekunden, ein ruhiger und ein schnellerer. Beide Dateien wurden vollständig mit FFmpeg dekodiert. Das Spiel wechselt die Titel und ergänzt bei nahen Gegnern oder knapper Zeit dezente rhythmische Akzente. Eine menschliche Hörabnahme der neuen Musik und ihrer Übergänge steht noch aus.
-
-| Produktion | Credits |
-|---|---:|
-| Bisherige Grafik, Effekte und Musik einschließlich Fehlversuchen | 115 |
-| Drei neue Musikaufträge einschließlich eines nicht übertragbaren Ergebnisses | 24 |
-| **Gesamt** | **139 von höchstens 1.000** |
-
-Rohdateien, Prompts und Auftragskennungen sind dokumentiert. Der fehlgeschlagene Transfer wird nicht als verwendetes Medium ausgegeben. Das Spiel benötigt keine laufenden KI-Aufrufe.
-
-Noch offen: menschliches Spielfeedback zu Rätseln und Bewegungsgefühl, Hörabnahme, echte Mobilgeräte und Home-Bildschirm-Installation, interaktiver Fensterwechsel und Messungen auf leistungsschwächeren Geräten. Die Zielrate von 60 FPS ist kein allgemeiner Leistungsnachweis.
-
-## Pakete
-
-Web-ZIP: fertiges Spiel, lokaler Node-Server, Windows-Startdatei und Dokumentation. Quell-ZIP: zusätzlich Quellcode, Tests, Server, Rohmedien und festgeschriebene Abhängigkeiten. Private Schlüssel, lokale Datenbanken und Zugangsdaten werden ausgeschlossen. Prüfsummen und Paketprüfung liegen unter `release/`. Für das lokale Web-Paket ist Node.js 24 erforderlich; das öffentliche Browserspiel benötigt keine Installation.
+Web-ZIP: Spiel, lokaler Node-Server, Windows-Startdatei und Dokumentation. Quell-ZIP: zusätzlich Quellcode, Tests, Server, Rohmedien und festgeschriebene Abhängigkeiten. Private Schlüssel, Datenbanken und Zugangsdaten sind ausgeschlossen. Dateiprüfungen und SHA-256-Summen liegen unter `release/`. Der öffentliche Spielstart benötigt keine Installation; der lokale Starthelfer benötigt Node.js 24.

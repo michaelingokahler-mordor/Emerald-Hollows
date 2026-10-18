@@ -1,5 +1,9 @@
 # Medienherkunft und Produktion
 
+## Ergänzung 0.3
+
+Der Kristallkrabbler nutzt die bestehenden Runway-Krabblerbilder mit blauer Einfärbung und einer kleinen Diamantmarkierung aus dem vorhandenen Atlas. Seine Umwandlung verwendet vorhandene Diamantpartikel und den Diamantklang. Für diese Version wurden keine neuen Medien generiert: Der Verbrauch bleibt bei **139 / 1.000 Runway-Credits**. Vollständige Spielcredits: [CREDITS.md](CREDITS.md).
+
 Alle Spielbilder, acht Geräusche und der Musikentwurf wurden für Crystal Delve über die verbundene Runway-Plattform erzeugt. Keine Originalgrafiken, Musikstücke oder Karten der Inspirationsspiele wurden übernommen.
 
 Die vollständigen verwendeten Prompts und Runway-Auftragskennungen stehen in `artifacts/media-production.json`. Die heruntergeladenen Originaldateien liegen unter `artifacts/raw/`. Das Spiel lädt ausschließlich die daraus aufbereiteten lokalen Dateien in `public/assets/`.

@@ -1,4 +1,4 @@
-# Verbindliche Regeln – Lathmar: Emerald Hollows 0.2
+# Verbindliche Regeln – Lathmar: Emerald Hollows 0.3
 
 Ein Takt dauert 100 ms. Die Figur bewegt sich in vier Richtungen und fällt nicht. Erde verschwindet beim Betreten oder beim benachbarten Graben. Ein Tick verarbeitet maximal eine Spielereingabe. Der kurze Eingabepuffer gilt 150 ms; die zuletzt gedrückte Richtung hat Vorrang. Tabwechsel pausiert und verwirft gepufferte Eingaben.
 
@@ -25,6 +25,12 @@ Der Spieler kann einen ruhenden Felsen horizontal in ein völlig leeres Feld sch
 
 Alle drei Takte wählt er relativ zur Blickrichtung: rechts, geradeaus, links, zurück. Er bewegt sich nur in leere Gänge. Steine, Erde, Kristalle, Mauern und Ausgänge sperren seinen Weg. Eine echte Zellkollision mit dem Spieler tötet; bloße Nachbarschaft ist ungefährlich. Ein fallendes Objekt zerquetscht ihn ohne Explosion oder Bonuskristalle.
 
+## Kristallkrabbler und Aufgaben
+
+Der blaue Krabbler mit Diamantmarkierung folgt denselben Bewegungsregeln wie der Schieferkrabbler. Beim Treffer durch ein bereits fallendes Objekt werden Krabbler und Fallobjekt durch genau einen Diamanten im Feld des Krabblers ersetzt. Es gibt keine Explosion. Der Diamant bewegt sich erst wieder im nächsten Tick und zählt erst beim Einsammeln drei Punkte. Ein ruhendes Objekt löst keine Umwandlung aus.
+
+In Höhle 06 müssen Kristallquote und Einsperraufgabe erfüllt sein. Der Krabbler muss leben, sein zusammenhängender freier Bewegungsraum darf höchstens zwei Felder enthalten, und der Spieler muss außerhalb stehen. Andere Krabbler zählen nicht als feste Barriere. Wird das Gehege wieder geöffnet, schließt der Ausgang erneut. In 07 muss ein Schieferkrabbler zerquetscht, in 09 ein Kristallkrabbler umgewandelt werden. Die Aufgabe erscheint im HUD; Übung und Lösungsreplays verwenden dieselben Bedingungen.
+
 ## Fortschritt und Wiedergabe
 
 Normal- und Übungsergebnisse werden getrennt in `emerald-hollows.save.v2` gespeichert. Vorhandene Version-1-Spielstände werden übernommen. Pro Level zählt die kürzeste erfolgreiche Tickzahl. Ein Erfolg in einem der beiden Modi öffnet die nächste Höhle. Fortsetzen stellt einen gespeicherten laufenden Versuch pausiert wieder her; sonst beginnt das zuletzt gewählte Level neu. Neustart setzt den Versuch vollständig zurück. Neues Spiel verlangt eine Bestätigung und löscht den lokalen Kampagnenfortschritt, nicht das Online-Profil oder öffentliche Rekorde.
@@ -33,4 +39,6 @@ Eine zweite lokale Kopie hilft bei beschädigten Daten. Unter Profil & Sicherung
 
 Auf Touchgeräten bewegen die Richtungstasten die Figur. Zum Graben nebenan die Grabentaste halten und zusätzlich eine Richtung drücken. Die Bedienelemente liegen außerhalb der Höhlenansicht. Orientierung und Fokuswechsel pausieren den Versuch.
 
-Ein Replay enthält Regelversion `crystal-delve/1`, Levelkennung und -Prüfsumme, tickbezogene Eingaben, Modus und erwarteten Endzustand. Die mitgelieferten Lösungen verwenden dieselbe Simulation wie normales Spielen. Es gibt keine Teleports, freigeschalteten Ausgänge oder ausgeschalteten Gegner für die Wiedergabe.
+Ein Replay enthält Regelversion, Levelkennung und -Prüfsumme, tickbezogene Eingaben, Modus und erwarteten Endzustand. Die unveränderten Höhlen verwenden `crystal-delve/1`, die überarbeiteten Höhlen 06, 07 und 09 `emerald-hollows/2`. Die mitgelieferten Lösungen verwenden dieselbe Simulation wie normales Spielen. Es gibt keine Teleports, freigeschalteten Ausgänge oder ausgeschalteten Gegner für die Wiedergabe.
+
+Erfolge alter Kartenrevisionen behalten ihre Freischaltungen, erscheinen aber nicht als aktuelle Bestzeiten. Bereits aufgezeichnete 0.2-Durchläufe bleiben hochladbar und werden mit den archivierten Karten geprüft. Öffentliche Ranglisten zeigen ausschließlich die aktuelle Karten- und Regelversion. Eine Profilwiederherstellung übernimmt auch historische Erfolge für die Freischaltung. Ein laufender Versuch auf einer ersetzten Karte kann nicht fortgesetzt werden und startet neu; Versuche auf unveränderten Karten bleiben fortsetzbar.

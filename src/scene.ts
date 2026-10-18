@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { Simulation } from './core/simulation';
 import { FixedClock } from './core/clock';
-import type { GameEvent, GameState, InputFrame, Point } from './core/types';
+import { isCrawler, type GameEvent, type GameState, type InputFrame, type Point } from './core/types';
 export interface SceneBridge {
   simulation:()=>Simulation|undefined; active:()=>boolean; input:()=>InputFrame;
   changed:(events:GameEvent[])=>void; ready:()=>void; interrupted:()=>void;
@@ -11,6 +11,7 @@ const CELL=64;
 const row={right:0,left:1,down:2,up:3};
 export class CaveScene extends Phaser.Scene {
   clock=new FixedClock(); bridge:SceneBridge;
+  badges=new Map<number,Phaser.GameObjects.Image>();
   grounds:Phaser.GameObjects.Image[][]=[]; entities=new Map<number,Phaser.GameObjects.Image>();
   player!:Phaser.GameObjects.Image; previous=new Map<number,Point>(); prevPlayer:Point={x:0,y:0};
   drawnLevel?:string; lastInput:InputFrame={}; loaded=false; music?:Phaser.Sound.BaseSound;
@@ -35,7 +36,7 @@ export class CaveScene extends Phaser.Scene {
     if(!this.loaded)return;
     const sim=this.bridge.simulation();if(!sim)return;
     for(const rows of this.grounds)for(const tile of rows)tile.destroy();
-    for(const obj of this.entities.values())obj.destroy();this.entities.clear();
+    for(const obj of this.entities.values())obj.destroy();this.entities.clear();for(const badge of this.badges.values())badge.destroy();this.badges.clear();
     // Floor sprites share the same lifetime as terrain through a dedicated container.
     this.children.getByName('floors')?.destroy();
     const floors=this.add.container(0,0).setName('floors').setDepth(-1);
@@ -78,7 +79,7 @@ export class CaveScene extends Phaser.Scene {
   }
   updateMusic(s:GameState,delta:number):void{
     const now=performance.now();
-    const danger=this.bridge.active()&&s.status==='playing'&&((!s.practice&&s.remainingTicks<300)||s.entities.some(e=>e.kind==='crawler'&&Math.abs(e.x-s.player.x)+Math.abs(e.y-s.player.y)<=5));
+    const danger=this.bridge.active()&&s.status==='playing'&&((!s.practice&&s.remainingTicks<300)||s.entities.some(e=>isCrawler(e.kind)&&Math.abs(e.x-s.player.x)+Math.abs(e.y-s.player.y)<=5));
     if(danger)this.dangerUntil=now+2500;
     const target=this.bridge.active()&&now<this.dangerUntil?1:0;
     this.dangerMix+=Math.sign(target-this.dangerMix)*Math.min(Math.abs(target-this.dangerMix),delta/1500);
@@ -97,12 +98,14 @@ export class CaveScene extends Phaser.Scene {
     for(const[id,img]of this.entities)if(!live.has(id)){img.destroy();this.entities.delete(id);}
     for(const e of s.entities){
       let img=this.entities.get(e.id);
-      const frame=e.kind==='crawler'?`crawler-${Math.floor(s.tick/2)%4}`:e.kind;
+      const frame=isCrawler(e.kind)?`crawler-${Math.floor(s.tick/2)%4}`:e.kind;
       if(!img){img=this.add.image(0,0,'tiles',frame).setDisplaySize(CELL,CELL).setDepth(3);this.entities.set(e.id,img);}
-      const p=this.previous.get(e.id)??e;
+      const p=this.previous.get(e.id)??e;img.clearTint().setAngle(0).setFlipX(false);
       img.setPosition((Phaser.Math.Linear(p.x,e.x,alpha)+0.5)*CELL,(Phaser.Math.Linear(p.y,e.y,alpha)+0.5)*CELL).setFrame(frame);
-      if(e.kind==='crawler'){img.setFlipX(e.direction==='left');img.setAngle(e.direction==='up'?-90:e.direction==='down'?90:0);}
+      if(e.kind==='crystal-crawler'){img.setTint(0x8edfff);let badge=this.badges.get(e.id);if(!badge){badge=this.add.image(0,0,'tiles','diamond').setDisplaySize(25,25).setDepth(4);this.badges.set(e.id,badge);}badge.setPosition(img.x,img.y-12);}
+      if(isCrawler(e.kind)){img.setFlipX(e.direction==='left');img.setAngle(e.direction==='up'?-90:e.direction==='down'?90:0);}
     }
+    for(const [id,badge]of this.badges)if(!s.entities.some(e=>e.id===id&&e.kind==='crystal-crawler')){badge.destroy();this.badges.delete(id);}
     const moving=this.prevPlayer.x!==s.player.x||this.prevPlayer.y!==s.player.y;
     const digging=this.lastInput.snap&&this.bridge.active();
     this.player.setTexture(digging?'digging':'hero',row[s.player.direction]*4+(moving||digging?s.tick%4:0));
@@ -111,10 +114,10 @@ export class CaveScene extends Phaser.Scene {
   }
   effects(events:GameEvent[]):void{
     for(const event of events){
-      const key=event.type==='crush'?'impact':event.type;
+      const key=event.type==='crush'?'impact':event.type==='transmute'?'diamond':event.type;
       const now=performance.now();
       if(this.cache.audio.exists(key)&&now-(this.lastSfx.get(key)??-1000)>70){this.sound.play(key,{volume:this.bridge.volume().sfx*(key==='dig'?0.5:key==='impact'?0.7:1)});this.lastSfx.set(key,now);}
-      if(['dig','emerald','diamond','crush'].includes(event.type)){
+      if(['dig','emerald','diamond','crush','transmute'].includes(event.type)){
         const color=event.type==='dig'?0xcaa16b:event.type==='diamond'?0xc9ecff:0x8df0bb;
         for(let i=0;i<5;i++){
           const dot=this.add.circle((event.x+0.5)*CELL,(event.y+0.5)*CELL,2+i%2,color,0.8).setDepth(6);

@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-18T11:26:48.508Z",
+  "verifiedAt": "2026-10-18T11:58:09.120Z",
   "levels": [
     {
       "id": "01",
@@ -43,19 +43,19 @@
     },
     {
       "id": "06",
-      "name": "Das Herz der alten Mine",
-      "status": "won",
-      "ticks": 64,
-      "points": 24,
-      "hash": "c45efd3c"
-    },
-    {
-      "id": "07",
-      "name": "Zwei Schächte",
+      "name": "Hinter Stein und Riegel",
       "status": "won",
       "ticks": 46,
       "points": 9,
-      "hash": "568dc58e"
+      "hash": "4559151a"
+    },
+    {
+      "id": "07",
+      "name": "Der richtige Augenblick",
+      "status": "won",
+      "ticks": 66,
+      "points": 9,
+      "hash": "e124184c"
     },
     {
       "id": "08",
@@ -67,11 +67,11 @@
     },
     {
       "id": "09",
-      "name": "Über dem Abgrund",
+      "name": "Ein kostbarer Gegner",
       "status": "won",
-      "ticks": 50,
-      "points": 15,
-      "hash": "1b4facc7"
+      "ticks": 42,
+      "points": 5,
+      "hash": "b209d137"
     },
     {
       "id": "10",
