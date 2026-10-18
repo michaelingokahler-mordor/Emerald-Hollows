@@ -39,7 +39,7 @@ function resize():void{if(ready&&stage.clientWidth&&stage.clientHeight)scene.res
 window.addEventListener('resize',resize);
 function button(action:string,label:string,classes='',extra=''):string{return `<button class="${classes}" data-action="${action}" ${extra}>${label}</button>`;}
 function brand():string{return '<div class="eyebrow"><span class="gem-mark"></span> LATHMAR: EMERALD HOLLOWS <span class="muted">/ DIE ALTE MINE</span></div>';}
-function footer():string{return '<footer><div class="footer-campaign"><span>ZEHN HÖHLEN. EIN ABENTEUER.</span><small>Geplante Vollversion: 120 Level · 100 Hauptlevel + 20 Geheimlevel</small></div><span class="footer-production">DEMO 0.5 · GRAFIK & AUDIO MIT RUNWAY · <a href="https://github.com/michaelingokahler-mordor/Emerald-Hollows" target="_blank" rel="noopener">PROJEKT</a></span></footer>';}
+function footer():string{return '<footer><div class="footer-campaign"><span>ZEHN HÖHLEN. EIN ABENTEUER.</span><small>Geplante Vollversion: 120 Level · 100 Hauptlevel + 20 Geheimlevel</small></div><span class="footer-production">DEMO 0.5.1 · GRAFIK & AUDIO MIT RUNWAY · <a href="https://github.com/michaelingokahler-mordor/Emerald-Hollows" target="_blank" rel="noopener">PROJEKT</a></span></footer>';}
 function start(i:number,solution?:Replay):void{
   if(!ready||!LEVELS[i]||!unlocked().has(LEVELS[i].id))return;index=i;replay=solution;replayCursor=0;
   simulation=new Simulation(LEVELS[i],solution?false:save.practice);

@@ -8,6 +8,7 @@ export interface SceneBridge {
   volume:()=>{music:number;sfx:number};
 }
 const CELL=64;
+const HERO_POSE_MS=240;
 const row={right:0,left:1,down:2,up:3};
 export class CaveScene extends Phaser.Scene {
   clock=new FixedClock(); bridge:SceneBridge;
@@ -115,7 +116,7 @@ export class CaveScene extends Phaser.Scene {
     const moving=this.prevPlayer.x!==s.player.x||this.prevPlayer.y!==s.player.y;
     const digging=this.lastInput.snap&&this.bridge.active();
     // Visual cadence is independent of the 100 ms rule clock and freezes on pause.
-    this.player.setTexture(digging?'digging':'hero',row[s.player.direction]*4+(moving||digging?Math.floor(this.heroAnimationMs/180)%4:0));
+    this.player.setTexture(digging?'digging':'hero',row[s.player.direction]*4+(moving||digging?Math.floor(this.heroAnimationMs/HERO_POSE_MS)%4:0));
     this.player.setPosition((Phaser.Math.Linear(this.prevPlayer.x,s.player.x,alpha)+0.5)*CELL,(Phaser.Math.Linear(this.prevPlayer.y,s.player.y,alpha)+0.5)*CELL);
     if(s.status==='dead')this.player.setTint(0xc96d64).setAlpha(0.55);
   }

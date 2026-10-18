@@ -1,3 +1,19 @@
+# Lathmar: Emerald Hollows 0.5.1 – Prüfbericht
+
+Stand: 18. Oktober 2026. Lauf- und Grabeposen wechseln jetzt alle 240 ms (vier Posen: 0,96 Sekunden). Der Wert 180 ms in 0.5 war eine gestalterische Testeinstellung, kein empirisch ermitteltes Optimum. Die Sichtung des vorhandenen Spritebogens zeigt insbesondere seitlich zu ähnliche Beinposen; 240 ms verbessert die Betrachtungszeit, ersetzt aber keine neu gezeichnete Schrittfolge.
+
+## In 0.5.1 tatsächlich geprüft
+
+- 80 Vitest-Tests bestanden, TypeScript und Produktionsbuild erfolgreich.
+- Alle zehn Lösungsreplays und die alternative Felsfallenlösung von Level 10 bestehen; Karten und Spielregeln wurden nicht verändert.
+- Chrome 1280 × 720, DPR 1, Entwicklungsbuild: drei Posenwechsel aufgezeichnet, Abstände 233 und 250 ms. Die Abweichung vom Sollwert entsteht durch die Ausgabe in Renderframes. Ein Richtungswechsel wird bei der Messung nicht als zusätzlicher Posenwechsel gezählt.
+- Pause hält die Animationsphase an. Skript: `tools/browser-animation-v051.js`.
+- README vollständig ins Englische übersetzt. Der 20-Level-Entwurf ist ausdrücklich als noch nicht freigegeben gekennzeichnet.
+
+Kein neuer physischer Mobilgerätetest und keine erneute vollständige Layoutprüfung. Keine Mediengenerierung, keine Serveränderung und keine öffentlichen Testeinsendungen. Die subjektive Beurteilung des langsameren Miners bleibt beim Nutzer. Nach Veröffentlichung dokumentiert `release/deployment-verification-v0.5.1.json` den Vergleich der ausgelieferten Dateien mit dem Site-Commit.
+
+---
+
 # Lathmar: Emerald Hollows 0.5.0 – Prüfbericht
 
 Stand: 18. Oktober 2026. Änderungen betreffen Darstellung, Fußbereich, Hinweisgeber und den Erklärungstext der Rangliste. Level, Regeln, Bewegungstempo und Server bleiben unverändert.
@@ -36,3 +52,4 @@ Das Komplexitätsniveau von Level 10 wurde vom Nutzer ausdrücklich positiv beur
 Der öffentliche Satz über automatisch erzeugte Lösungen wurde in beiden Sprachen entfernt. Turnstile wurde recherchiert und in docs/RANGLISTENSCHUTZ.md eingeordnet; es ist nicht aktiviert. Keine Servermigration, keine Änderung an Rekorden, keine öffentlichen Testeinsendungen.
 
 Produktionsprüfung und Commitkennungen werden nach Veröffentlichung in release/deployment-verification-v0.5.json festgehalten. Die weitergehenden Prüfungen von 0.4 stehen in PRUEFBERICHT-0.4.md; sie werden hier nicht als neu durchgeführt ausgegeben.
+

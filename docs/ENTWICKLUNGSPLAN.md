@@ -50,7 +50,7 @@ Musik erhält Kapitelthemen und eine dezente Gefahrenschicht. Die Demo verwendet
 
 ## Kosten und nächste Abnahmen
 
-Runway-Obergrenze bleibt 1.000 Credits inklusive Fehlversuchen. Bisher 139: ursprüngliche Medien 115, Musikrunde 24 einschließlich einer nicht herunterladbaren Ersatzproduktion. Kein automatischer bezahlter Hostingwechsel. Workers Free wurde am 18.10.2026 im Konto bestätigt.
+Runway-Obergrenze bleibt 1.000 Credits inklusive Fehlversuchen. Bisher 160: ursprüngliche Medien 115, Musikrunde 24 einschließlich einer nicht herunterladbaren Ersatzproduktion, Pseudodrache 21. Für 0.5.1 wurden keine Medien generiert. Kein automatischer bezahlter Hostingwechsel. Workers Free wurde am 18.10.2026 im Konto bestätigt.
 
 Der Nutzer hat am 18.10.2026 bestätigt, dass der öffentliche Touchmodus funktioniert; Gerät und Betriebssystem wurden nicht angegeben. Vor dem nächsten Kapitel: Feedback zu den überarbeiteten Rätseln, Hörprobe und gezielte Prüfung der Installation auf Android und iPhone/iPad. Browseremulation ist kein Gerätetest. Dann jeweils ein neues Kapitel mitsamt Regeln, Karten, Medien und Replays entwickeln.
 
@@ -59,3 +59,7 @@ Die Zeit bleibt das erste Ranglistenkriterium. Gesamtpunkte aus Kristallen und G
 ## Rückmeldung zu Level 10 und Darstellung (0.5)
 
 Der Nutzer bestätigt das Komplexitätsniveau des neuen Finales als gute Grundlage für weitere Höhlen. Folgekapitel sollen dieses Zusammenspiel aus Planung, räumlichen Konsequenzen und Timing weiterführen, mit ruhigen Rätseln zwischen schwierigeren Passagen. Die Vollversion bleibt mit 100 Haupt- und 20 eingebetteten Geheimleveln geplant. Die Demo erhält einen grün-roten Pseudodrachen als Aufgaben- und Hinweisgeber; er verändert keine Spielregel.
+
+## Besprechung der nächsten 20 Hauptlevel
+
+Ein konkreter [Entwurf für 11–30](LEVELS-11-30-ENTWURF.md) liegt vor. Er schlägt frühere Hebel/Tore und Teleporter vor und ist noch nicht freigegeben. Die Kapitelzuordnung oben bleibt bis zur gemeinsamen Entscheidung der bisherige Plan.
