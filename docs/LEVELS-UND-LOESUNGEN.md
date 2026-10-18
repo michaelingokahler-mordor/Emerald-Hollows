@@ -1,8 +1,8 @@
-# Die zehn Höhlen – Entwurf und Lösungen
+# Die zwanzig Höhlen – Entwurf und Lösungen
 
 Alle Lösungen wurden im Normalspiel mit aktiven Gegnern, Schwerkraft und Countdown ausgeführt und als Replay erneut geprüft. Ein Lösungsreplay beweist Lösbarkeit; es ersetzt kein menschliches Urteil über Spielspaß.
 
-Legende: X Außenwand, # Mauer, . Erde, Leerzeichen Gang, P Spieler, E Ausgang, R Fels, M Smaragd, D Diamant, C Kristallkrabbler, >/< /^/v Krabbler mit Startausrichtung.
+Legende: X Außenwand, # Mauer, . Erde, Leerzeichen Gang, P Spieler, E Ausgang, R Fels, M Smaragd, D Diamant, C Kristallkrabbler, >/< /^/v blaue Krabbler mit Startausrichtung; u/r/d/l lila Krabbler. Geräte werden unter jeder Karte gesondert angegeben. use = frische Hebelbetätigung mit anschließendem Loslassen; until = auf Käfer an der angegebenen Koordinate warten.
 
 ## 01 – Die erste Schicht
 
@@ -30,6 +30,7 @@ XXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
 
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
@@ -78,6 +79,7 @@ XXXXXXXXXXXXXXXXXXXXXX
 
 In der Karte steht · für einen leeren Gang.
 
+
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
@@ -124,6 +126,7 @@ XXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
 
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
@@ -176,6 +179,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 In der Karte steht · für einen leeren Gang.
 
+
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
@@ -226,6 +230,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 In der Karte steht · für einen leeren Gang.
 
+
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
@@ -274,6 +279,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXX
 
 In der Karte steht · für einen leeren Gang.
 
+
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
@@ -321,6 +327,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
 
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
@@ -373,6 +380,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 In der Karte steht · für einen leeren Gang.
 
+
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
@@ -418,6 +426,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
 
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
@@ -476,6 +485,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 In der Karte steht · für einen leeren Gang.
 
+
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
@@ -513,6 +523,1001 @@ walk 34 6
 walk 34 4
 walk 36 3
 walk 37 3
+```
+
+## 11 – Das erste Tor
+
+Ein Hebel, ein neuer Weg. 30 × 20 Felder, Quote 9, 420 Sekunden, Schwierigkeit 2/3.
+
+Halte Graben und drücke zum Hebel A. Lass die Tasten vor dem nächsten Schalten los. Hinter dem Tor: erst die rechte Felsablage von unten freigraben, dann den Stein von links schieben.
+
+Hinweis: Halte Graben und drücke zum Hebel A. Lass die Tasten vor dem nächsten Schalten los. Hinter dem Tor: erst die rechte Felsablage von unten freigraben, dann den Stein von links schieben.
+
+Geprüfter Durchlauf: 36 Takte / 3.6 Sekunden, 9 Kristallpunkte, 9 Wertungspunkte. Replay: public/replays/11.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X############################X
+X############################X
+X###############..D..D..DE###X
+X###############.############X
+X###############.############X
+X##############.R.###########X
+X##############.#.###########X
+X#.P.....#.............######X
+X############################X
+X############################X
+X############################X
+X############################X
+X############################X
+X############################X
+X############################X
+X############################X
+X############################X
+X############################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "gates": [
+    {
+      "id": "A",
+      "x": 9,
+      "y": 8,
+      "open": false,
+      "label": "A"
+    }
+  ],
+  "levers": [
+    {
+      "id": "A-lever",
+      "x": 5,
+      "y": 7,
+      "gates": [
+        "A"
+      ],
+      "dispensers": [],
+      "label": "A"
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 5 8
+use up
+walk 17 8
+walk 17 7
+snap up
+walk 17 8
+walk 15 8
+walk 15 6
+move right
+walk 16 3
+walk 24 3
+walk 25 3
+```
+
+## 12 – Die zweite Runde
+
+Rechts herum, links herum. 36 × 22 Felder, Quote 9, 420 Sekunden, Schwierigkeit 2/3.
+
+Blau biegt bevorzugt rechts ab, Lila links. Öffne A: Blau nimmt auf dem Rückweg die obere Schleife. Öffne B: Lila nimmt die untere Schleife. Nutze jeweils den Umweg zum Durchqueren; die Käfer bleiben frei.
+
+Hinweis: Blau biegt bevorzugt rechts ab, Lila links. Öffne A: Blau nimmt auf dem Rückweg die obere Schleife. Öffne B: Lila nimmt die untere Schleife. Nutze jeweils den Umweg zum Durchqueren; die Käfer bleiben frei.
+
+Geprüfter Durchlauf: 56 Takte / 5.6 Sekunden, 9 Kristallpunkte, 9 Wertungspunkte. Replay: public/replays/12.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X##################################X
+X##################################X
+X##################################X
+X##################################X
+X#################################EX
+X#################################.X
+X##########··#####################.X
+X##########··#####################.X
+X#################################.X
+X#.P.......···<·........···l·.D.D.DX
+X##################################X
+X#######################··#########X
+X#######################··#########X
+X##################################X
+X##################################X
+X##################################X
+X##################################X
+X##################################X
+X##################################X
+X##################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "gates": [
+    {
+      "id": "A",
+      "x": 11,
+      "y": 9,
+      "open": false,
+      "label": "A"
+    },
+    {
+      "id": "B",
+      "x": 24,
+      "y": 11,
+      "open": false,
+      "label": "B"
+    }
+  ],
+  "levers": [
+    {
+      "id": "A-lever",
+      "x": 9,
+      "y": 9,
+      "gates": [
+        "A"
+      ],
+      "dispensers": [],
+      "label": "A"
+    },
+    {
+      "id": "B-lever",
+      "x": 22,
+      "y": 9,
+      "gates": [
+        "B"
+      ],
+      "dispensers": [],
+      "label": "B"
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 9 10
+use up
+until 11 8 crawler
+walk 22 10
+use up
+until 24 12 purple-crawler
+walk 34 10
+walk 34 5
+```
+
+## 13 – Ein kostbares Treffen
+
+Aus zwei Käfern wird einer. 32 × 22 Felder, Quote 5, 420 Sekunden, Schwierigkeit 3/3.
+
+Öffne A und beobachte das Treffen: Berühren sich Blau und Lila seitlich, entsteht auf dem blauen Feld ein Kristallkäfer. Grabe die Stütze des Felsens weg, wenn er in den Schacht steigt. Sein Diamant ist für die Quote nötig.
+
+Hinweis: Öffne A und beobachte das Treffen: Berühren sich Blau und Lila seitlich, entsteht auf dem blauen Feld ein Kristallkäfer. Grabe die Stütze des Felsens weg, wenn er in den Schacht steigt. Sein Diamant ist für die Quote nötig.
+
+Geprüfter Durchlauf: 114 Takte / 11.4 Sekunden, 5 Kristallpunkte, 15 Wertungspunkte. Replay: public/replays/13.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X##############################X
+X##############################X
+X##############################X
+X#####...............##########X
+X#####.#############.##########X
+X#####.#######R#####.##########X
+X#.P.M..M......#####.##########X
+X#############·#####.##########X
+X#############·#####.##########X
+X###########>·#l·...E##########X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "gates": [
+    {
+      "id": "A",
+      "x": 14,
+      "y": 10,
+      "open": false,
+      "label": "A"
+    }
+  ],
+  "levers": [
+    {
+      "id": "A-lever",
+      "x": 10,
+      "y": 6,
+      "gates": [
+        "A"
+      ],
+      "dispensers": [],
+      "label": "A"
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 10 7
+use up
+walk 13 7
+until 14 9 crystal-crawler
+snap right
+wait 8
+walk 6 7
+walk 6 4
+walk 20 4
+walk 20 9
+walk 19 10
+walk 14 10
+walk 20 10
+```
+
+## 14 – Wechselverkehr
+
+Zwei Tore, zwei Zustände. 32 × 22 Felder, Quote 6, 420 Sekunden, Schwierigkeit 2/3.
+
+Der Hebel öffnet A und schließt B – und umgekehrt. Hole zuerst die Diamanten hinter A. Kehre dann zum Hebel zurück und öffne B für den Ausgang. Ein belegtes Tor verhindert die gesamte Schaltung.
+
+Hinweis: Der Hebel öffnet A und schließt B – und umgekehrt. Hole zuerst die Diamanten hinter A. Kehre dann zum Hebel zurück und öffne B für den Ausgang. Ein belegtes Tor verhindert die gesamte Schaltung.
+
+Geprüfter Durchlauf: 56 Takte / 5.6 Sekunden, 6 Kristallpunkte, 6 Wertungspunkte. Replay: public/replays/14.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X##############################X
+X##############################X
+X###########E##################X
+X###########.##################X
+X##############################X
+X#########...##################X
+X#########.####################X
+X#########.####################X
+X#########.####################X
+X##P...........#.........######X
+X################........######X
+X################........######X
+X################........######X
+X################........######X
+X################...D..D.######X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "gates": [
+    {
+      "id": "A",
+      "x": 15,
+      "y": 10,
+      "open": false,
+      "label": "A"
+    },
+    {
+      "id": "B",
+      "x": 12,
+      "y": 5,
+      "open": true,
+      "label": "B"
+    }
+  ],
+  "levers": [
+    {
+      "id": "AB",
+      "x": 12,
+      "y": 9,
+      "gates": [
+        "A",
+        "B"
+      ],
+      "dispensers": [],
+      "label": "A/B"
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 12 10
+use up
+walk 20 15
+walk 23 15
+walk 12 10
+use up
+walk 10 6
+walk 12 6
+walk 12 3
+```
+
+## 15 – Stein für Stein
+
+Ein Zug, ein Stein. 26 × 20 Felder, Quote 4, 420 Sekunden, Schwierigkeit 2/3.
+
+Der Vorrat S gibt pro neuem Hebelzug einen Stein frei. Halten wiederholt nicht. Warte, bis der Kristallkäfer unten auf dem Fallschachtfeld steht, und löse aus. Bei einem Fehlwurf kannst du erneut versuchen, solange der Schacht frei und Vorrat übrig ist.
+
+Hinweis: Der Vorrat S gibt pro neuem Hebelzug einen Stein frei. Halten wiederholt nicht. Warte, bis der Kristallkäfer unten auf dem Fallschachtfeld steht, und löse aus. Bei einem Fehlwurf kannst du erneut versuchen, solange der Schacht frei und Vorrat übrig ist.
+
+Geprüfter Durchlauf: 43 Takte / 4.3 Sekunden, 4 Kristallpunkte, 14 Wertungspunkte. Replay: public/replays/15.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXX
+X########################X
+X########################X
+X########################X
+X########################X
+X########################X
+X#####.........##########X
+X#####.#######.##########X
+X#####.###·###.##########X
+X#.P.M...#·###.##########X
+X#########···C.##########X
+X#########·...E##########X
+X########################X
+X########################X
+X########################X
+X########################X
+X########################X
+X########################X
+X########################X
+XXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "gates": [],
+  "levers": [
+    {
+      "id": "S-lever",
+      "x": 8,
+      "y": 8,
+      "gates": [],
+      "dispensers": [
+        "S"
+      ],
+      "label": "S",
+      "view": {
+        "x": 7,
+        "y": 6,
+        "width": 9,
+        "height": 7
+      }
+    }
+  ],
+  "dispensers": [
+    {
+      "id": "S",
+      "x": 10,
+      "y": 7,
+      "stock": 3,
+      "label": "S"
+    }
+  ]
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 8 9
+until 10 10 crystal-crawler
+use up
+wait 6
+walk 6 9
+walk 6 6
+walk 14 6
+walk 14 10
+walk 13 11
+walk 10 11
+walk 14 11
+```
+
+## 16 – Der Besucher
+
+Diesmal bleibt er hier. 32 × 22 Felder, Quote 9, 420 Sekunden, Schwierigkeit 2/3.
+
+Öffne die obere Seitenkammer mit A. Sobald Blau ganz oben ist, schalte erneut: Er bleibt lebend eingeschlossen, und Tor B zum Ausgang öffnet wieder. Anders als in Höhle 12 ist der Gang danach dauerhaft sicher.
+
+Hinweis: Öffne die obere Seitenkammer mit A. Sobald Blau ganz oben ist, schalte erneut: Er bleibt lebend eingeschlossen, und Tor B zum Ausgang öffnet wieder. Anders als in Höhle 12 ist der Gang danach dauerhaft sicher.
+
+Geprüfter Durchlauf: 41 Takte / 4.1 Sekunden, 9 Kristallpunkte, 14 Wertungspunkte. Replay: public/replays/16.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X##############################X
+X##############################X
+X##############################X
+X##########################E###X
+X##########################.###X
+X##############################X
+X##########################.###X
+X##########·###############.###X
+X##########################.###X
+X##P.......···<·....D.D.D...###X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+X##############################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "gates": [
+    {
+      "id": "A",
+      "x": 11,
+      "y": 9,
+      "open": false,
+      "label": "A"
+    },
+    {
+      "id": "B",
+      "x": 27,
+      "y": 6,
+      "open": true,
+      "label": "B"
+    }
+  ],
+  "levers": [
+    {
+      "id": "AB",
+      "x": 9,
+      "y": 9,
+      "gates": [
+        "A",
+        "B"
+      ],
+      "dispensers": [],
+      "label": "A/B"
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 9 10
+use up
+until 11 8 crawler
+use up
+walk 27 10
+walk 27 4
+```
+
+## 17 – Der Rückweg
+
+Erst Platz schaffen. 34 × 24 Felder, Quote 9, 420 Sekunden, Schwierigkeit 3/3.
+
+Grabe zuerst die Ablage rechts neben dem unteren Fallschacht frei. Lass dann den Felsen kontrolliert fallen und hole den oberen Diamanten. Schiebe den gelandeten Felsen in die Ablage. Der letzte Hebel schließt den Hinweg, öffnet aber die obere Rückverbindung.
+
+Hinweis: Grabe zuerst die Ablage rechts neben dem unteren Fallschacht frei. Lass dann den Felsen kontrolliert fallen und hole den oberen Diamanten. Schiebe den gelandeten Felsen in die Ablage. Der letzte Hebel schließt den Hinweg, öffnet aber die obere Rückverbindung.
+
+Geprüfter Durchlauf: 80 Takte / 8.0 Sekunden, 9 Kristallpunkte, 9 Wertungspunkte. Replay: public/replays/17.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X################################X
+X################################X
+X###########D####################X
+X###########.####################X
+X##E########.####################X
+X##.########R####################X
+X##.#######..####################X
+X##.........·..#.....############X
+X##.#######.·#######.############X
+X##.#######.·#######.############X
+X##.#######.·#######.############X
+X##P.....#........D...D.#########X
+X############·###################X
+X################################X
+X################################X
+X################################X
+X################################X
+X################################X
+X################################X
+X################################X
+X################################X
+X################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "gates": [
+    {
+      "id": "A",
+      "x": 9,
+      "y": 12,
+      "open": true,
+      "label": "A"
+    },
+    {
+      "id": "B",
+      "x": 15,
+      "y": 8,
+      "open": false,
+      "label": "B"
+    }
+  ],
+  "levers": [
+    {
+      "id": "AB",
+      "x": 22,
+      "y": 11,
+      "gates": [
+        "A",
+        "B"
+      ],
+      "dispensers": [],
+      "label": "A/B"
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 12 12
+snap right
+walk 11 12
+walk 11 7
+snap right
+wait 7
+walk 12 7
+walk 12 3
+walk 12 7
+walk 11 7
+walk 11 12
+move right
+wait 2
+walk 22 12
+use up
+walk 20 12
+walk 20 8
+walk 3 8
+walk 3 5
+```
+
+## 18 – Der lange oder der kurze Weg
+
+Zeit, Punkte oder Sicherheit. 32 × 22 Felder, Quote 9, 420 Sekunden, Schwierigkeit 2/3.
+
+Unten liegen vier sichere Diamanten; drei reichen. Der mittlere Weg ist kürzer, aber Lila bewacht ihn. Mit Hebel A lenkst du den Käfer in die obere Nische. Die Rangliste wertet zuerst Zeit, dann Punkte bei Gleichstand.
+
+Hinweis: Unten liegen vier sichere Diamanten; drei reichen. Der mittlere Weg ist kürzer, aber Lila bewacht ihn. Mit Hebel A lenkst du den Käfer in die obere Nische. Die Rangliste wertet zuerst Zeit, dann Punkte bei Gleichstand.
+
+Geprüfter Durchlauf: 64 Takte / 6.4 Sekunden, 12 Kristallpunkte, 12 Wertungspunkte. Replay: public/replays/18.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X##############################X
+X##############################X
+X##P.....###############...E###X
+X##.####.###############.##.###X
+X##.####.###############.##.###X
+X##.####.########·######.##.###X
+X##.####.###############.##.###X
+X##.####...D..··r···.D.D.##.###X
+X##.#######################.###X
+X##.....###################.###X
+X######.###################.###X
+X######.###################.###X
+X##.....###################.###X
+X##.#######################.###X
+X##.#######################.###X
+X##.....D...####....D...D...###X
+X##########.####.##############X
+X##########.####.##############X
+X##########...D..##############X
+X##############################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "gates": [
+    {
+      "id": "A",
+      "x": 17,
+      "y": 7,
+      "open": false,
+      "label": "A"
+    }
+  ],
+  "levers": [
+    {
+      "id": "A-lever",
+      "x": 12,
+      "y": 7,
+      "gates": [
+        "A"
+      ],
+      "dispensers": [],
+      "label": "A"
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 3 10
+walk 7 10
+walk 7 13
+walk 3 13
+walk 3 16
+walk 11 16
+walk 11 19
+walk 16 19
+walk 16 16
+walk 20 16
+walk 27 16
+walk 27 3
+```
+
+## 19 – Das richtige Treffen
+
+Erst verbinden, dann auslösen. 30 × 20 Felder, Quote 5, 420 Sekunden, Schwierigkeit 3/3.
+
+Öffne A, um Blau und Lila zusammenzuführen. Wechsle dann zum Hebel S. Löse einen Stein aus, sobald der Kristallkäfer in den Schacht steigt und noch zwei Felder unter der Ausgabe steht. Alle Teile der Apparatur bleiben vom Bedienplatz sichtbar.
+
+Hinweis: Öffne A, um Blau und Lila zusammenzuführen. Wechsle dann zum Hebel S. Löse einen Stein aus, sobald der Kristallkäfer in den Schacht steigt und noch zwei Felder unter der Ausgabe steht. Alle Teile der Apparatur bleiben vom Bedienplatz sichtbar.
+
+Geprüfter Durchlauf: 71 Takte / 7.1 Sekunden, 5 Kristallpunkte, 15 Wertungspunkte. Replay: public/replays/19.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X############################X
+X############################X
+X############################X
+X#######...........##########X
+X#######.#########.##########X
+X#######.#####·###.##########X
+X#.P.M.M....##·###.##########X
+X#############·###.##########X
+X############>#l·#.##########X
+X#############·.....E########X
+X############################X
+X############################X
+X############################X
+X############################X
+X############################X
+X############################X
+X############################X
+X############################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "gates": [
+    {
+      "id": "A",
+      "x": 14,
+      "y": 9,
+      "open": false,
+      "label": "A"
+    }
+  ],
+  "levers": [
+    {
+      "id": "A-lever",
+      "x": 10,
+      "y": 6,
+      "gates": [
+        "A"
+      ],
+      "dispensers": [],
+      "label": "A",
+      "view": {
+        "x": 9,
+        "y": 5,
+        "width": 9,
+        "height": 7
+      }
+    },
+    {
+      "id": "S-lever",
+      "x": 11,
+      "y": 6,
+      "gates": [],
+      "dispensers": [
+        "S"
+      ],
+      "label": "S",
+      "view": {
+        "x": 9,
+        "y": 5,
+        "width": 9,
+        "height": 7
+      }
+    }
+  ],
+  "dispensers": [
+    {
+      "id": "S",
+      "x": 14,
+      "y": 5,
+      "stock": 3,
+      "label": "S"
+    }
+  ]
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 10 7
+use up
+walk 11 7
+until 14 8 crystal-crawler
+use up
+wait 7
+walk 8 7
+walk 8 4
+walk 18 4
+walk 18 9
+walk 17 10
+walk 14 10
+walk 20 10
+```
+
+## 20 – Das alte Förderwerk
+
+Alles greift ineinander. 44 × 28 Felder, Quote 18, 600 Sekunden, Schwierigkeit 3/3.
+
+Löse zuerst den Schiebestein und öffne A. Führe in der nächsten Kammer die Käfer mit B zusammen; S liefert den Abwurf. Hole den entstandenen Diamanten über den unteren Bogen. A/C öffnet den Aufstieg. Oben lenkt D den letzten lila Käfer um.
+
+Hinweis: Löse zuerst den Schiebestein und öffne A. Führe in der nächsten Kammer die Käfer mit B zusammen; S liefert den Abwurf. Hole den entstandenen Diamanten über den unteren Bogen. A/C öffnet den Aufstieg. Oben lenkt D den letzten lila Käfer um.
+
+Geprüfter Durchlauf: 128 Takte / 12.8 Sekunden, 18 Kristallpunkte, 28 Wertungspunkte. Replay: public/replays/20.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X##########################################X
+X##########################################X
+X####################################·##E##X
+X#######################################.##X
+X#################################.D·l··D##X
+X#################################.########X
+X##########################################X
+X#############################·###.########X
+X#####################.......#·###.########X
+X#########..D.D.D....#.......#·###.########X
+X#########.#################.>#l·#.########X
+X#########.#################.#·....########X
+X#########.#################.#####.########X
+X#########.#################.......########X
+X#########.################################X
+X#########.################################X
+X#########.################################X
+X########.R.###############################X
+X########.#.###############################X
+X########...###############################X
+X########.#.###############################X
+X##P............###########################X
+X##########################################X
+X##########################################X
+X##########################################X
+X##########################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "gates": [
+    {
+      "id": "A",
+      "x": 21,
+      "y": 10,
+      "open": false,
+      "label": "A"
+    },
+    {
+      "id": "B",
+      "x": 30,
+      "y": 11,
+      "open": false,
+      "label": "B"
+    },
+    {
+      "id": "C",
+      "x": 34,
+      "y": 7,
+      "open": false,
+      "label": "C"
+    },
+    {
+      "id": "D",
+      "x": 37,
+      "y": 4,
+      "open": false,
+      "label": "D"
+    }
+  ],
+  "levers": [
+    {
+      "id": "A-lever",
+      "x": 18,
+      "y": 9,
+      "gates": [
+        "A"
+      ],
+      "dispensers": [],
+      "label": "A"
+    },
+    {
+      "id": "B-lever",
+      "x": 26,
+      "y": 8,
+      "gates": [
+        "B"
+      ],
+      "dispensers": [],
+      "label": "B",
+      "view": {
+        "x": 25,
+        "y": 7,
+        "width": 9,
+        "height": 7
+      }
+    },
+    {
+      "id": "S-lever",
+      "x": 27,
+      "y": 8,
+      "gates": [],
+      "dispensers": [
+        "S"
+      ],
+      "label": "S",
+      "view": {
+        "x": 25,
+        "y": 7,
+        "width": 9,
+        "height": 7
+      }
+    },
+    {
+      "id": "AC",
+      "x": 32,
+      "y": 13,
+      "gates": [
+        "A",
+        "C"
+      ],
+      "dispensers": [],
+      "label": "A/C"
+    },
+    {
+      "id": "D-lever",
+      "x": 34,
+      "y": 4,
+      "gates": [
+        "D"
+      ],
+      "dispensers": [],
+      "label": "D"
+    }
+  ],
+  "dispensers": [
+    {
+      "id": "S",
+      "x": 30,
+      "y": 7,
+      "stock": 3,
+      "label": "S"
+    }
+  ]
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 11 22
+walk 11 19
+snap up
+walk 11 20
+walk 9 20
+walk 9 18
+move right
+walk 10 10
+walk 18 10
+use up
+walk 22 10
+walk 22 9
+walk 26 9
+use up
+walk 27 9
+until 30 10 crystal-crawler
+use up
+wait 7
+walk 28 9
+walk 28 14
+walk 34 14
+walk 34 12
+walk 30 12
+walk 32 12
+use down
+walk 34 12
+walk 34 5
+use up
+until 37 3 purple-crawler
+walk 40 5
+walk 40 3
 ```
 
 ## Alternative in Höhle 10: Felsfalle
@@ -570,4 +1575,19 @@ walk 34 6
 walk 34 4
 walk 36 3
 walk 37 3
+```
+
+## Alternative in Höhle 18: bewachte Abkürzung
+
+Replay: public/replays/18-shortcut.json. 59 Takte und 9 Kristallpunkte, gegenüber 64 Takten und 12 Kristallpunkten auf dem sicheren Weg.
+
+```text
+walk 8 3
+walk 8 8
+walk 12 8
+use up
+until 17 6 purple-crawler
+walk 24 8
+walk 24 3
+walk 27 3
 ```

@@ -1,3 +1,36 @@
+# Lathmar: Emerald Hollows 0.6.0 – Kapitel 2
+
+Stand: 18. Oktober 2026. Zwanzig spielbare Höhlen; Level 11–20 ergänzen Hebel/Tore, zwei Käferrichtungen, Verschmelzung und dosierte Steinspender. Die Laufanimation A bleibt bei 240 ms pro Pose. Keine neuen Runway-Generierungen.
+
+## Automatisierte Prüfung
+
+- 128 Vitest-Tests bestanden. TypeScript, Produktionsbuild und Worker-Bundle erfolgreich.
+- Alle 20 Hauptlösungen sowie Alternativen für 10 und 18 erfolgreich. Neue Replays bei 30/60/144 Render-FPS identisch. Die zehn neuen Lösungen funktionieren zusätzlich mit neun verschiedenen anfänglichen Wartezeiten.
+- Regeln prüfen beide Abbiegerichtungen, Fusion vor/nach Bewegung, Mehrfachkontakte, keine doppelte Bewegung oder Punkte, tödlichen Kontakt, atomare Torblockierung, gehaltene Hebel, Vorrat, Ausgabesperre, belegten Auslass und Neustart. Level 15 hat einen geprüften Lösungsweg nach einem Fehlwurf.
+- Karten und Replays 01–10 unverändert. Alte Bestzeiten/Freischaltungen bleiben erhalten; ein abgeschlossenes Level 10 öffnet 11.
+- Lokaler Wrangler/D1-Test: alle neuen Replays mit Gesamtwertung bestätigt, Wiederherstellung und schrittweise Serverprüfung bestanden. Keine öffentlichen Testprofile oder Ranglisteneinträge erzeugt.
+- Verschlüsselte Sicherung in leere SQLite-Datenbank wiederhergestellt; beschädigte Sicherung abgewiesen.
+
+- Produktionsbuild nach Offline-Neuladen: alle 20 Level vorhanden, Level-20-Replay ohne Netzwerk bis zum Abschluss abgespielt; englische Hilfe geprüft.
+
+## Tatsächliche Browserdurchläufe
+
+| Umgebung | Prüfung |
+|---|---|
+| Chrome, 1280 × 720, DPR 1 | Alle zehn neuen Replays vom Menü bis zum erfolgreichen Abschluss; englische/deutsche Kapitelübersicht; Screenshots aller Karten |
+| Edge, 1920 × 1080, DPR 2 | Alle zehn neuen Replays erfolgreich; Apparaturen vollständig im Kamerabild |
+| Chrome mit Touch-Emulation, 390 × 844, DPR 3 | Level 15, 19 und 20 erfolgreich; vollständige Apparaturen, etwa 40,5 CSS-Pixel pro Kachel |
+| Chrome mit Touch-Emulation, 844 × 390, DPR 3 | Dieselben drei Level erfolgreich; etwa 40,7 CSS-Pixel pro Kachel |
+| Zwei gleichzeitige Touchpunkte sowie Tastatur | Gehaltene Kombination gibt einen Stein aus; Loslassen und neuer Druck geben einen weiteren aus. Pausieren/Neuladen erhält den Vorrat, Neustart stellt ihn wieder her |
+
+Sichtprüfung der zehn Chrome-Spielansichten und der mobilen Apparatur erfolgt. Browsernachweis: `artifacts/chapter-two-verification.json`; Skripte unter `tools/browser-chapter-two*.js` und `tools/browser-mechanism-controls.js`. Screenshots liegen lokal unter `output/playwright/chapter2-*`.
+
+Die Touch-Prüfung verwendet Browseremulation, kein physisches Handy. Eine neue menschliche Spiel- oder Hörabnahme ist nicht erfolgt. Insbesondere das subjektive Verhältnis von Level 12 (vorübergehend umlenken) und 16 (dauerhaft einsperren) bleibt für den Nutzer zu beurteilen. Die kurzen Lösungszeiten sind automatisierte bekannte Routen, keine erwarteten Erstspielzeiten.
+
+Die folgenden Abschnitte dokumentieren frühere Versionen. Die Veröffentlichung von 0.6 erhält einen gesonderten Dateivergleich unter `release/deployment-verification-v0.6.0.json`.
+
+---
+
 # Lathmar: Emerald Hollows 0.5.2 – ausgewählte Laufanimation A
 
 Stand: 18. Oktober 2026. Vom Nutzer ausgewählter Entwurf A für seitliche Laufposen integriert. Links wird jede Rechts-Pose gespiegelt, ohne die Bildfolge umzudrehen. 240 ms pro Pose bleiben erhalten.

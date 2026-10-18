@@ -14,12 +14,16 @@ Die Karten 01–05 bleiben bestehen. 06 verlangt, einen Schieferkrabbler lebend 
 
 Die gesamte Spieloberfläche ist zwischen Englisch und Deutsch umschaltbar; die Einstellung wird gespeichert. Die Credits nennen die tatsächlichen Mitwirkenden, Werkzeuge und Inspirationsspiele. Freischaltungen aus 0.2 bleiben erhalten. Bestzeiten der umgebauten Karten 06, 07, 09 und 10 werden anhand ihrer Kartenrevision getrennt gewertet; die übrigen Rekorde bleiben gültig.
 
-## Weitere Kapitel — noch nicht implementiert
+## Lieferung 0.6: Die verlassenen Fördergänge
+
+Level 11–20 sind spielbar: Hebel und gekoppelte Tore, blaue Rechts- und lila Links-Käfer, Verschmelzung, endliche Steinspender, temporäre Umlenkung, dauerhaftes Einsperren und ein kombiniertes Kapitelende. Bedienapparaturen bleiben auf einem Bildschirm sichtbar. Alte Karten, Ergebnisse und die gewählte Laufanimation A bleiben erhalten. Details: [Regeln](KAPITEL-2-MECHANIKEN.md) und [Lösungen](LEVELS-UND-LOESUNGEN.md).
+
+## Weitere Kapitel — ab 21 noch nicht implementiert
 
 | Level | Einführung und Schwerpunkt |
 |---|---|
-| 11–20 | Kristallkrabbler vertiefen, Beute durch Zerquetschen, sichere Sammelrouten |
-| 21–30 | Schlüssel, klar markierte Hebel und Tore; Zwergen-Abzweig in 25 |
+| 11–20 | Implementiert: Hebel, Tore, zwei Käferrichtungen, Fusion und Steinspender |
+| 21–30 | Entwurf: Schlüssel, komplexere Torverbindungen; Zwergen-Abzweig in 25, Teleporter ab 26 zur Besprechung |
 | 31–40 | Dynamit, sichtbare Zündzeit, zerstörbare Mauern, 3 × 3 Explosion |
 | 41–50 | Paarweise Teleporter-Türen innerhalb einer Höhle; Verfolger |
 | 51–60 | Säure, ablassbare Wasserbecken, Schleusen und Treibsand |
@@ -50,7 +54,7 @@ Musik erhält Kapitelthemen und eine dezente Gefahrenschicht. Die Demo verwendet
 
 ## Kosten und nächste Abnahmen
 
-Runway-Obergrenze bleibt 1.000 Credits inklusive Fehlversuchen. Bisher 180: ursprüngliche Medien 115, Musikrunde 24 einschließlich einer nicht herunterladbaren Ersatzproduktion, Pseudodrache 21, zwei neue seitliche Laufproben 20. Für 0.5.1 selbst wurden keine Medien generiert; die Laufproben entstanden danach. Der Nutzer wählte A; dessen seitliche Posen sind ab 0.5.2 integriert. Kein automatischer bezahlter Hostingwechsel. Workers Free wurde am 18.10.2026 im Konto bestätigt.
+Runway-Obergrenze bleibt 1.000 Credits inklusive Fehlversuchen. Bisher 180: ursprüngliche Medien 115, Musikrunde 24 einschließlich einer nicht herunterladbaren Ersatzproduktion, Pseudodrache 21, zwei neue seitliche Laufproben 20. Für 0.5.1 selbst wurden keine Medien generiert; die Laufproben entstanden danach. Der Nutzer wählte A; dessen seitliche Posen sind ab 0.5.2 integriert. Kapitel 2 (0.6) verbraucht keine weiteren Runway-Credits. Kein automatischer bezahlter Hostingwechsel. Workers Free wurde am 18.10.2026 im Konto bestätigt.
 
 Der Nutzer hat am 18.10.2026 bestätigt, dass der öffentliche Touchmodus funktioniert; Gerät und Betriebssystem wurden nicht angegeben. Vor dem nächsten Kapitel: Feedback zu den überarbeiteten Rätseln, Hörprobe und gezielte Prüfung der Installation auf Android und iPhone/iPad. Browseremulation ist kein Gerätetest. Dann jeweils ein neues Kapitel mitsamt Regeln, Karten, Medien und Replays entwickeln.
 
@@ -62,6 +66,6 @@ Der Nutzer bestätigt das Komplexitätsniveau des neuen Finales als gute Grundla
 
 ## Besprechung der nächsten 20 Hauptlevel
 
-Ein konkreter [Entwurf für 11–30](LEVELS-11-30-ENTWURF.md) liegt vor. Er schlägt frühere Hebel/Tore und Teleporter vor und ist noch nicht freigegeben. Die Kapitelzuordnung oben bleibt bis zur gemeinsamen Entscheidung der bisherige Plan.
+Ein konkreter [Entwurf für 11–30](LEVELS-11-30-ENTWURF.md) liegt vor. Er schlägt frühere Hebel/Tore und Teleporter vor wurde für 11–20 mit den besprochenen Käfern und dem Steinspender umgesetzt. 21–30 bleiben zur gemeinsamen Besprechung offen.
 
 Die Besprechung ergänzt [blaue/lila Käfer, Verschmelzung und einen dosierenden Steinspender](KAPITEL-2-MECHANIKEN.md). Der Nutzer verlangt die vollständige Sicht auf Hebel und Apparatur. Level 12 und 16 bleiben zur späteren praktischen Gegenüberstellung im Entwurf. Die neuen Regelideen sind noch nicht implementiert.

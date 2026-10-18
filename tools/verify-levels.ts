@@ -1,3 +1,4 @@
+import {CHAPTER_TWO,CHAPTER_TWO_ALTERNATIVES} from '../src/chapter-two';
 import {FINALE_CRUSH_ROUTE} from '../src/finale-routes';
 import {scoreBreakdown} from '../src/core/scoring';
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -13,4 +14,5 @@ for(const level of LEVELS){
   console.log(`${level.id} ${level.name}: ${sim.state.status}, ${sim.state.points} points, ${sim.state.tick} ticks`);
 }
 const alternative=solve({...LEVELS[9],route:FINALE_CRUSH_ROUTE});runReplay(LEVELS[9],alternative.exportReplay());await writeFile('public/replays/10-crush.json',JSON.stringify(alternative.exportReplay(),null,2)+'\n');
-await writeFile('artifacts/level-verification.json',JSON.stringify({verifiedAt:new Date().toISOString(),levels:report,alternativeSolutions:[{id:'10',method:'crush',ticks:alternative.state.tick,points:alternative.state.points,score:scoreBreakdown(LEVELS[9],alternative.state).total}]},null,2)+'\n');
+const chapterAlternatives=[];for(const [id,route]of Object.entries(CHAPTER_TWO_ALTERNATIVES)){const l=CHAPTER_TWO.find(l=>l.id===id)!;const solved=solve({...l,route});runReplay(l,solved.exportReplay());await writeFile(`public/replays/${id}-shortcut.json`,JSON.stringify(solved.exportReplay(),null,2)+'\n');chapterAlternatives.push({id,method:'shortcut',ticks:solved.state.tick,points:solved.state.points});}
+await writeFile('artifacts/level-verification.json',JSON.stringify({verifiedAt:new Date().toISOString(),levels:report,chapterAlternatives,alternativeSolutions:[{id:'10',method:'crush',ticks:alternative.state.tick,points:alternative.state.points,score:scoreBreakdown(LEVELS[9],alternative.state).total}]},null,2)+'\n');

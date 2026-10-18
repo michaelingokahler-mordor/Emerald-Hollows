@@ -26,3 +26,5 @@ footer{align-items:center;font:12px/1.6 system-ui,sans-serif;letter-spacing:.6px
 @media(pointer:coarse) and (orientation:landscape) and (max-height:550px){.guide-message{grid-template-columns:100px minmax(0,1fr);gap:16px;margin-bottom:10px}.guide-portrait{width:100px;height:110px}.guide-modal{padding:18px 24px}.guide-modal .actions{margin-top:12px}}
 @media(prefers-reduced-motion:reduce){.guide-portrait{animation:none}}
 .guide-modal{max-height:100%;overflow-y:auto}
+
+.chapter-heading{grid-column:1/-1;margin:28px 0 0;color:var(--mint);font:26px Georgia,serif}.chapter-heading:first-child{margin-top:0}.modal{max-height:100%;overflow-y:auto}

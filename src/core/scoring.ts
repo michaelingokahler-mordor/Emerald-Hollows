@@ -7,11 +7,11 @@ export function scoreBreakdown(level:LevelDefinition,state:GameState){
   const map=level.map.join('');
   const initialSlate=[...map].filter(c=>'^v<>'.includes(c)).length;
   const initialCrystal=[...map].filter(c=>c==='C').length;
-  const livingSlate=state.entities.filter(e=>e.kind==='crawler');
+  const livingSlate=state.entities.filter(e=>e.kind==='crawler'||e.kind==='purple-crawler');
   const livingCrystal=state.entities.filter(e=>e.kind==='crystal-crawler');
-  const crushed=Math.max(0,initialSlate-livingSlate.length);
+  const crushed=state.mechanisms?.crushed??Math.max(0,initialSlate-livingSlate.length);
   const trapped=livingSlate.filter(e=>crawlerIsTrapped(state,e)).length;
-  const transmuted=Math.max(0,initialCrystal-livingCrystal.length);
+  const transmuted=state.mechanisms?.transmuted??Math.max(0,initialCrystal-livingCrystal.length);
   const enemyPoints=(crushed+trapped)*ENEMY_POINTS.crawler+transmuted*ENEMY_POINTS['crystal-crawler'];
   return {gems:state.points,enemyPoints,total:state.points+enemyPoints,crushed,trapped,transmuted};
 }

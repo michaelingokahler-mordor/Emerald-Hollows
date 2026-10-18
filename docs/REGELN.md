@@ -1,4 +1,4 @@
-# Verbindliche Regeln – Lathmar: Emerald Hollows 0.4
+# Verbindliche Regeln – Lathmar: Emerald Hollows 0.6
 
 Ein Takt dauert 100 ms. Die Figur bewegt sich in vier Richtungen und fällt nicht. Erde verschwindet beim Betreten oder beim benachbarten Graben. Ein Tick verarbeitet maximal eine Spielereingabe. Der kurze Eingabepuffer gilt 150 ms; die zuletzt gedrückte Richtung hat Vorrang. Tabwechsel pausiert und verwirft gepufferte Eingaben.
 
@@ -56,3 +56,11 @@ Ein Replay enthält Regelversion, Levelkennung und -Prüfsumme, tickbezogene Ein
 Erfolge alter Kartenrevisionen behalten ihre Freischaltungen, erscheinen aber nicht als aktuelle Bestzeiten. Bereits aufgezeichnete ältere Durchläufe bleiben hochladbar und werden mit den archivierten Karten geprüft. Öffentliche Ranglisten zeigen ausschließlich die aktuelle Karten- und Regelversion. Eine Profilwiederherstellung übernimmt auch historische Erfolge für die Freischaltung. Ein laufender Versuch auf einer ersetzten Karte kann nicht fortgesetzt werden und startet neu; Versuche auf unveränderten Karten bleiben fortsetzbar.
 
 Die abgeleitete Wertung hat die Kennung `scoreVersion: 1` und verändert bestehende Simulationszustände oder Replay-Prüfsummen nicht. Alte lokale Werte ohne Gesamtwertung behalten ihre Kristallpunkte mit †-Kennzeichnung. Serverseitig werden gespeicherte bestätigte Endzustände nachbewertet; ihre Zeiten und Freischaltungen bleiben erhalten.
+
+## Kapitel 2: Regelversion emerald-hollows/3
+
+Die Karten 11–20 verwenden die in [KAPITEL-2-MECHANIKEN.md](KAPITEL-2-MECHANIKEN.md) beschriebenen verbindlichen Regeln. Blau bevorzugt rechts, Lila links; beide bewegen sich alle drei Takte. Direkte Nachbarschaft eines verschiedenfarbigen Paars erzeugt genau einen Kristallkrabbler auf dem blauen Feld. Der neue Käfer bewegt sich im Entstehungstakt nicht nochmals. Fusion allein gibt keine Punkte.
+
+Graben plus Richtung zum benachbarten Hebel löst genau eine Betätigung aus. Zum erneuten Schalten muss mindestens ein Simulationstakt ohne diese Tastenkombination dazwischenliegen. Ein blockiertes schließendes Tor, ein belegtes Ausgabefeld, leerer Vorrat oder ein laufender Ausgabezyklus verhindert die gesamte gekoppelte Aktion. Es gibt keine Warteschlange. Die Sperrzeit eines erfolgreichen Steinspenders beträgt drei Takte (300 ms). Der ausgegebene Stein folgt noch im selben Takt der normalen Fallphase.
+
+Torstellungen, Magazinbestand, Sperrzeiten, Eingabelatch, erzeugte Entitätskennungen und Ereigniszähler gehören zum deterministischen Spielzustand. Fortsetzen und Serverprüfung rekonstruieren ihn aus dem Replay. Neustart setzt alles zurück. Karten und Replay-Endzustände der Level 01–10 bleiben unverändert.

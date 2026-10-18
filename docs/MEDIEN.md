@@ -71,3 +71,7 @@ Zwei seitliche Laufentwürfe wurden als gemeinsamer 4×2-Spritebogen mit dem vor
 Der Nutzer hat Entwurf A ausgewählt. Seine vier seitlichen Laufposen werden rechts unverändert und links jeweils gespiegelt verwendet. Die Bilddauer bleibt 240 ms. Vorder- und Rückansicht bleiben aus dem bisherigen Miner-Spritebogen erhalten; die Hackenanimation bleibt bytegleich. Die ursprüngliche Grafik ist zusätzlich als `artifacts/miner-walk-review/original-hero.png` für den Vergleich gesichert.
 
 `tools/prepare-selected-miner.mjs` setzt die ausgewählte Folge in den Spielatlas ein und wird auch am Ende von `npm run assets` aufgerufen. Dabei werden RGBA-Pixel direkt kopiert, sodass transparente Ränder und die bewahrten Ansichten keine Rundungsänderungen durch erneute Alpha-Komposition erhalten. Nachweis: `artifacts/miner-selected-verification.json`. Keine neue Generierung, weiterhin 180 / 1.000 Runway-Credits.
+
+## Kapitel 2 (0.6.0)
+
+Keine zusätzliche Mediengenerierung: weiterhin 180 / 1.000 Runway-Credits. Hebel, Tore, Magazinrahmen und Richtungsmarkierungen werden in Phaser gezeichnet (src/mechanism-view.ts). Die sichtbaren Magazinsteine verwenden die vorhandene Felsgrafik; Blau und Lila verwenden eingefärbte vorhandene Käferbilder mit verschiedenen Winkelmarkierungen. Die Diamantmarkierung kennzeichnet den Kristallkäfer. Schalten, Ausgabe und Fusion verwenden bestehende Push-, Impact- und Diamond-Geräusche. Die ausgewählte Miner-Folge A und die 240 ms pro Pose bleiben unverändert.

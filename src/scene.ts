@@ -1,4 +1,6 @@
 import Phaser from 'phaser';
+import {MechanismView} from './mechanism-view';
+import type {ViewRoom} from './core/types';
 import { Simulation } from './core/simulation';
 import { FixedClock } from './core/clock';
 import { isCrawler, type GameEvent, type GameState, type InputFrame, type Point } from './core/types';
@@ -19,6 +21,8 @@ export class CaveScene extends Phaser.Scene {
   lastSfx=new Map<string,number>();
   track=0;lastBeat=-1;dangerUntil=0;dangerMix=0;musicStarted=false;
   heroAnimationMs=0;
+  rig?:MechanismView; crawlerMarks=new Map<number,Phaser.GameObjects.Text>();
+  activeView?:ViewRoom; viewport={width:1280,height:720,dpr:1};
   constructor(bridge:SceneBridge){super('cave');this.bridge=bridge;}
   preload():void{
     const base=import.meta.env.BASE_URL+'assets/';
@@ -37,6 +41,8 @@ export class CaveScene extends Phaser.Scene {
   begin():void{
     if(!this.loaded)return;
     const sim=this.bridge.simulation();if(!sim)return;
+    this.rig?.destroy();this.rig=new MechanismView(this,sim.level);this.activeView=undefined;
+    for(const mark of this.crawlerMarks.values())mark.destroy();this.crawlerMarks.clear();
     for(const rows of this.grounds)for(const tile of rows)tile.destroy();
     for(const obj of this.entities.values())obj.destroy();this.entities.clear();for(const badge of this.badges.values())badge.destroy();this.badges.clear();
     // Floor sprites share the same lifetime as terrain through a dedicated container.
@@ -80,6 +86,15 @@ export class CaveScene extends Phaser.Scene {
     this.renderState(sim.state,alpha);
     const cam=this.cameras.main;
     // Phaser scroll is expressed relative to the unzoomed viewport center.
+    const near=sim.level.mechanisms?.levers.find(l=>l.view&&Math.abs(l.x-sim.state.player.x)+Math.abs(l.y-sim.state.player.y)<=1)?.view;
+    if(near)this.activeView=near;
+    const v=this.activeView,p=sim.state.player;
+    if(v&&(p.x<v.x||p.y<v.y||p.x>=v.x+v.width||p.y>=v.y+v.height))this.activeView=undefined;
+    const {width,height,dpr}=this.viewport;
+    const normalZoom=width<600?.65:width>=1600?1:.875;
+    const room=this.activeView;
+    cam.setZoom(dpr*(room?Math.min(normalZoom,width/(room.width*CELL+24),height/(room.height*CELL+24)):normalZoom));
+    if(room){cam.centerOn((room.x+room.width/2)*CELL,(room.y+room.height/2)*CELL);return;}
     const desired=cam.getScroll(this.player.x,this.player.y);
     const follow=1-Math.exp(-Math.min(delta,100)/85);
     cam.setScroll(Phaser.Math.Linear(cam.scrollX,desired.x,follow),Phaser.Math.Linear(cam.scrollY,desired.y,follow));
@@ -96,6 +111,7 @@ export class CaveScene extends Phaser.Scene {
     }
   }
   renderState(s:GameState,alpha:number):void{
+    this.rig?.update(s);
     for(let y=0;y<s.terrain.length;y++)for(let x=0;x<s.terrain[y].length;x++){
       const t=s.terrain[y][x],img=this.grounds[y]?.[x];if(!img)continue;
       if(t==='empty')img.setVisible(false);
@@ -110,9 +126,16 @@ export class CaveScene extends Phaser.Scene {
       const p=this.previous.get(e.id)??e;img.clearTint().setAngle(0).setFlipX(false);
       img.setPosition((Phaser.Math.Linear(p.x,e.x,alpha)+0.5)*CELL,(Phaser.Math.Linear(p.y,e.y,alpha)+0.5)*CELL).setFrame(frame);
       if(e.kind==='crystal-crawler'){img.setTint(0x8edfff);let badge=this.badges.get(e.id);if(!badge){badge=this.add.image(0,0,'tiles','diamond').setDisplaySize(25,25).setDepth(4);this.badges.set(e.id,badge);}badge.setPosition(img.x,img.y-12);}
-      if(isCrawler(e.kind)){img.setFlipX(e.direction==='left');img.setAngle(e.direction==='up'?-90:e.direction==='down'?90:0);}
+      if(isCrawler(e.kind)){
+        if(e.kind!=='crystal-crawler')img.setTint(e.kind==='purple-crawler'?0xc78beb:0x8abbe9);
+        img.setFlipX(e.direction==='left');img.setAngle(e.direction==='up'?-90:e.direction==='down'?90:0);
+        if(e.kind!=='crystal-crawler'){
+          let mark=this.crawlerMarks.get(e.id);if(!mark){mark=this.add.text(0,0,e.kind==='purple-crawler'?'↰':'↱',{fontFamily:'Arial',fontSize:'20px',fontStyle:'bold',color:'#ffffff',stroke:'#14202b',strokeThickness:4}).setOrigin(.5).setDepth(6);this.crawlerMarks.set(e.id,mark);}mark.setPosition(img.x+15,img.y-16);
+        }
+      }
     }
     for(const [id,badge]of this.badges)if(!s.entities.some(e=>e.id===id&&e.kind==='crystal-crawler')){badge.destroy();this.badges.delete(id);}
+    for(const[id,mark]of this.crawlerMarks)if(!s.entities.some(e=>e.id===id&&(e.kind==='crawler'||e.kind==='purple-crawler'))){mark.destroy();this.crawlerMarks.delete(id);}
     const moving=this.prevPlayer.x!==s.player.x||this.prevPlayer.y!==s.player.y;
     const digging=this.lastInput.snap&&this.bridge.active();
     // Visual cadence is independent of the 100 ms rule clock and freezes on pause.
@@ -122,10 +145,10 @@ export class CaveScene extends Phaser.Scene {
   }
   effects(events:GameEvent[]):void{
     for(const event of events){
-      const key=event.type==='crush'?'impact':event.type==='transmute'?'diamond':event.type;
+      const key=event.type==='crush'||event.type==='release'?'impact':event.type==='transmute'||event.type==='fusion'?'diamond':event.type==='switch'?'push':event.type;
       const now=performance.now();
       if(this.cache.audio.exists(key)&&now-(this.lastSfx.get(key)??-1000)>70){this.sound.play(key,{volume:this.bridge.volume().sfx*(key==='dig'?0.5:key==='impact'?0.7:1)});this.lastSfx.set(key,now);}
-      if(['dig','emerald','diamond','crush','transmute'].includes(event.type)){
+      if(['dig','emerald','diamond','crush','transmute','fusion'].includes(event.type)){
         const color=event.type==='dig'?0xcaa16b:event.type==='diamond'?0xc9ecff:0x8df0bb;
         for(let i=0;i<5;i++){
           const dot=this.add.circle((event.x+0.5)*CELL,(event.y+0.5)*CELL,2+i%2,color,0.8).setDepth(6);
@@ -136,6 +159,7 @@ export class CaveScene extends Phaser.Scene {
     }
   }
   resize(width:number,height:number,dpr:number):void{
+    this.viewport={width,height,dpr};
     this.scale.resize(Math.round(width*dpr),Math.round(height*dpr));
     this.game.canvas.style.width=width+'px';this.game.canvas.style.height=height+'px';
     this.cameras.main.setZoom(dpr*(width<600?0.65:width>=1600?1:0.875));

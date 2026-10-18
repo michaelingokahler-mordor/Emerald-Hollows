@@ -1,0 +1,209 @@
+{
+  "date": "2026-10-18T14:39:30.169Z",
+  "version": "0.6.0",
+  "oldTenReplaysUnchanged": true,
+  "automatedTests": 128,
+  "chrome": {
+    "viewport": "1280x720",
+    "dpr": 1,
+    "levels": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "allReplaysWon": true,
+    "bilingualMenu": true,
+    "apparatusCellCss": 56
+  },
+  "edge": {
+    "viewport": "1920x1080",
+    "dpr": 2,
+    "status": "PASS",
+    "results": [
+      {
+        "level": 11,
+        "status": "won",
+        "tick": 36,
+        "fusions": 0,
+        "released": 0
+      },
+      {
+        "level": 12,
+        "status": "won",
+        "tick": 56,
+        "fusions": 0,
+        "released": 0
+      },
+      {
+        "level": 13,
+        "status": "won",
+        "tick": 114,
+        "fusions": 1,
+        "released": 0
+      },
+      {
+        "level": 14,
+        "status": "won",
+        "tick": 56,
+        "fusions": 0,
+        "released": 0
+      },
+      {
+        "level": 15,
+        "apparatusVisible": true,
+        "cellCss": 64
+      },
+      {
+        "level": 15,
+        "status": "won",
+        "tick": 43,
+        "fusions": 0,
+        "released": 1
+      },
+      {
+        "level": 16,
+        "status": "won",
+        "tick": 41,
+        "fusions": 0,
+        "released": 0
+      },
+      {
+        "level": 17,
+        "status": "won",
+        "tick": 80,
+        "fusions": 0,
+        "released": 0
+      },
+      {
+        "level": 18,
+        "status": "won",
+        "tick": 64,
+        "fusions": 0,
+        "released": 0
+      },
+      {
+        "level": 19,
+        "apparatusVisible": true,
+        "cellCss": 64
+      },
+      {
+        "level": 19,
+        "status": "won",
+        "tick": 71,
+        "fusions": 1,
+        "released": 1
+      },
+      {
+        "level": 20,
+        "apparatusVisible": true,
+        "cellCss": 64
+      },
+      {
+        "level": 20,
+        "status": "won",
+        "tick": 128,
+        "fusions": 1,
+        "released": 1
+      }
+    ],
+    "bilingualChapterMenu": true
+  },
+  "mobilePortrait": {
+    "viewport": "390x844",
+    "dpr": 3,
+    "levels": [
+      15,
+      19,
+      20
+    ],
+    "allReplaysWon": true,
+    "completeApparatusVisible": true,
+    "cellCss": 40.53333333333333
+  },
+  "mobileLandscape": {
+    "viewport": "844x390",
+    "dpr": 3,
+    "status": "PASS",
+    "results": [
+      {
+        "level": 15,
+        "apparatusVisible": true,
+        "cellCss": 40.67796610169491
+      },
+      {
+        "level": 15,
+        "status": "won",
+        "tick": 43,
+        "fusions": 0,
+        "released": 1
+      },
+      {
+        "level": 19,
+        "apparatusVisible": true,
+        "cellCss": 40.67796610169491
+      },
+      {
+        "level": 19,
+        "status": "won",
+        "tick": 71,
+        "fusions": 1,
+        "released": 1
+      },
+      {
+        "level": 20,
+        "apparatusVisible": true,
+        "cellCss": 40.67796610169491
+      },
+      {
+        "level": 20,
+        "status": "won",
+        "tick": 128,
+        "fusions": 1,
+        "released": 1
+      }
+    ],
+    "bilingualChapterMenu": true
+  },
+  "controls": {
+    "status": "PASS",
+    "heldTouchSingleRelease": true,
+    "keyboardSingleRelease": true,
+    "checkpointReloadPreserved": true,
+    "restartRestoresStock": true,
+    "landscape": {
+      "cellCss": 40.67796610169491,
+      "view": {
+        "x": 7,
+        "y": 6,
+        "width": 9,
+        "height": 7
+      },
+      "world": {
+        "x": 315.91999999999996,
+        "y": 372,
+        "w": 840.1600000000001,
+        "h": 472.00000000000006
+      },
+      "overflow": false
+    }
+  },
+  "physicalMobileTest": false,
+  "newHumanPlaytest": false,
+  "publicTestSubmissions": false,
+  "additionalRunwayCredits": 0,
+  "production": {
+    "status": "PASS",
+    "productionBuild": true,
+    "offlineReload": true,
+    "offlineLevel20Won": true,
+    "twentyCaves": true,
+    "englishHelp": true
+  }
+}

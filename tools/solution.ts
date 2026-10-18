@@ -6,6 +6,12 @@ export function solve(level:LevelDefinition,initialWait=0):Simulation {
   for(let i=0;i<initialWait;i++)tick();
   for(const instruction of level.route.split(';').map(s=>s.trim())) {
     const [op,p,q]=instruction.split(' ');
+    if(op==='use'){tick({direction:p as Direction,snap:true});tick();continue;}
+    if(op==='until'){
+      const kind=instruction.split(' ')[3];let waits=0;
+      while(!sim.state.entities.some(e=>e.x===Number(p)&&e.y===Number(q)&&(!kind||e.kind===kind))){if(++waits>1000)throw Error(`${level.id}: timed out at ${instruction}`);tick();}
+      continue;
+    }
     if(op==='wait'){for(let i=0;i<Number(p);i++)tick();continue;}
     if(op==='snap'||op==='move'){tick({direction:p as Direction,snap:op==='snap'});continue;}
     const tx=Number(p),ty=Number(q);

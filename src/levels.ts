@@ -1,4 +1,5 @@
 import { CRAWLER_RULES_VERSION, type LevelDefinition } from './core/types';
+import {CHAPTER_TWO} from './chapter-two';
 
 // Authored geometry, not procedural generation. Coordinates include the outer wall.
 class Cave {
@@ -64,4 +65,4 @@ export const LEVELS: LevelDefinition[] = [
   "parTicks": 0,
   "rulesVersion": "emerald-hollows/2"
 }
-];
+,...CHAPTER_TWO];

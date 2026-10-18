@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-18T13:37:03.835Z",
+  "verifiedAt": "2026-10-18T14:27:34.257Z",
   "levels": [
     {
       "id": "01",
@@ -90,6 +90,104 @@
       "points": 30,
       "score": 35,
       "hash": "c2a964f7"
+    },
+    {
+      "id": "11",
+      "name": "Das erste Tor",
+      "status": "won",
+      "ticks": 36,
+      "points": 9,
+      "score": 9,
+      "hash": "de9b4e84"
+    },
+    {
+      "id": "12",
+      "name": "Die zweite Runde",
+      "status": "won",
+      "ticks": 56,
+      "points": 9,
+      "score": 9,
+      "hash": "aca35557"
+    },
+    {
+      "id": "13",
+      "name": "Ein kostbares Treffen",
+      "status": "won",
+      "ticks": 114,
+      "points": 5,
+      "score": 15,
+      "hash": "b7a97c09"
+    },
+    {
+      "id": "14",
+      "name": "Wechselverkehr",
+      "status": "won",
+      "ticks": 56,
+      "points": 6,
+      "score": 6,
+      "hash": "d07e31d4"
+    },
+    {
+      "id": "15",
+      "name": "Stein für Stein",
+      "status": "won",
+      "ticks": 43,
+      "points": 4,
+      "score": 14,
+      "hash": "3a9c50a2"
+    },
+    {
+      "id": "16",
+      "name": "Der Besucher",
+      "status": "won",
+      "ticks": 41,
+      "points": 9,
+      "score": 14,
+      "hash": "1d2a715b"
+    },
+    {
+      "id": "17",
+      "name": "Der Rückweg",
+      "status": "won",
+      "ticks": 80,
+      "points": 9,
+      "score": 9,
+      "hash": "7ee0fe00"
+    },
+    {
+      "id": "18",
+      "name": "Der lange oder der kurze Weg",
+      "status": "won",
+      "ticks": 64,
+      "points": 12,
+      "score": 12,
+      "hash": "fdb3bbc5"
+    },
+    {
+      "id": "19",
+      "name": "Das richtige Treffen",
+      "status": "won",
+      "ticks": 71,
+      "points": 5,
+      "score": 15,
+      "hash": "5aab35c3"
+    },
+    {
+      "id": "20",
+      "name": "Das alte Förderwerk",
+      "status": "won",
+      "ticks": 128,
+      "points": 18,
+      "score": 28,
+      "hash": "deb7d07f"
+    }
+  ],
+  "chapterAlternatives": [
+    {
+      "id": "18",
+      "method": "shortcut",
+      "ticks": 59,
+      "points": 9
     }
   ],
   "alternativeSolutions": [

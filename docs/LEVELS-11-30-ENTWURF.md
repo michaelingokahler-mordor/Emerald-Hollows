@@ -1,6 +1,6 @@
 # Level 11–30 — Vorschlag zur gemeinsamen Besprechung
 
-Stand: 18. Oktober 2026. **Entwurf, noch nicht freigegeben und nicht implementiert.** Die Namen sind Arbeitstitel. Der verbindliche bisherige Ausbau steht in ENTWICKLUNGSPLAN.md.
+Stand: 18. Oktober 2026. **11–20 sind in 0.6.0 umgesetzt; 21–30 bleiben ein nicht freigegebener Entwurf.** Die ursprünglichen Zielgrößen unten dokumentieren die Besprechung; aktuelle Karten, Maße und Lösungen stehen in [LEVELS-UND-LOESUNGEN.md](LEVELS-UND-LOESUNGEN.md). Die Namen sind Arbeitstitel. Der verbindliche bisherige Ausbau steht in ENTWICKLUNGSPLAN.md.
 
 ## Was sich gegenüber dem bisherigen Plan ändern würde
 
@@ -10,7 +10,7 @@ Level 10 ist der Maßstab für Kombinationsrätsel. Einführungen bleiben kürze
 
 ## Kapitel 2: Die verlassenen Fördergänge / The Abandoned Workings
 
-Ergänzt nach Nutzerfeedback: Hebel/Tore, blauer Rechts- und lila Links-Käfer, Verschmelzung zum Kristallkäfer sowie ein einzeln dosierender Steinspender. Die [Mechaniknotizen](KAPITEL-2-MECHANIKEN.md) trennen Nutzeranforderungen und vorgeschlagene Detailregeln. Apparaturen müssen vom Bedienplatz vollständig auf einem Bildschirm sichtbar sein.
+Ergänzt nach Nutzerfeedback: Hebel/Tore, blauer Rechts- und lila Links-Käfer, Verschmelzung zum Kristallkäfer sowie ein einzeln dosierender Steinspender. Die [Mechaniknotizen](KAPITEL-2-MECHANIKEN.md) dokumentieren die inzwischen implementierten Regeln. Apparaturen müssen vom Bedienplatz vollständig auf einem Bildschirm sichtbar sein.
 
 | Nr. | Arbeitstitel | Zielgröße | Eigenständiges Rätsel und beabsichtigte Lösung |
 |---|---|---|---|
