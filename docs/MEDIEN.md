@@ -52,3 +52,16 @@ Gesamtverbrauch einschließlich aller bisherigen und neuen Fehlversuche: **139 /
 Neue Illustration mit grünem Körper und roten Flügelhäuten, nach einer vom Nutzer bereitgestellten visuellen Referenz und dem vorhandenen Titelbild als Stilreferenz. Runway-Aufträge und vollständiger Prompt: artifacts/guide-production-v0.5.json. Zwei intern fehlgeschlagene Versuche erzeugten keine verwendbaren Bilder. Nettoverbrauch für erfolgreiche Illustration und Freistellung: 21 Credits. Neuer Projektstand: **160 / 1.000 Credits**.
 
 Der ausgewählte freigestellte Rohentwurf liegt unter artifacts/raw/pseudodragon-guide-cutout.png. tools/prepare-guide.mjs erzeugt daraus die 512 × 512 große WebP-Datei public/assets/pseudodragon-guide.webp mit erhaltener Transparenz. Ein ruhiger CSS-Zyklus bewegt das vollständige Porträt; reduzierte Bewegung deaktiviert ihn. Es wurden keine zusätzlichen Animationsbilder erzeugt.
+
+## Laufproben nach 0.5.1 – noch keine Spielintegration
+
+Zwei seitliche Laufentwürfe wurden als gemeinsamer 4×2-Spritebogen mit dem vorhandenen Miner als Figurenreferenz über Runway erzeugt. Kosten: 20 Credits, Kontostand 2594 → 2574; **Projektgesamt 180 / 1.000 Credits**. Keine neue Hackenanimation und keine neuen Vorder-/Rückansichten.
+
+- Rohdatei: `artifacts/raw/miner-walk-drafts-01.png`.
+- Vollständiger Prompt und Auftragskennung: `artifacts/miner-walk-production-01.json`.
+- Aufbereitung: `node tools/prepare-miner-drafts.mjs`; magentafarbenen Hintergrund entfernen, Helmmitten ausrichten, einheitlicher Maßstab pro Folge, vier Bilder pro Entwurf. Keine künstlich nachgezeichneten Beinposen.
+- Animierter Vergleich: `artifacts/miner-walk-review/index.html`, nach `npm run dev` unter `/artifacts/miner-walk-review/index.html` erreichbar. Alternativ lässt sich die Datei im vollständigen Checkout direkt im Browser öffnen.
+- A ist zurückhaltender; B hebt die Knie stärker. Beide verbessern den Wechsel zwischen weiter und enger Beinsilhouette. Die Kontaktposen 1 und 3 ähneln sich noch deutlich: Es sind Auswahlentwürfe, keine freigegebene endgültige Schrittfolge.
+- Browserprüfung mit `tools/browser-miner-review.js`: Bilder geladen, Pause, Einzelbild, Geschwindigkeit, Richtungswechsel, Bewegungsvorschau; 64-Pixel-Darstellung bei Canvasbreite 256; keine horizontale Überbreite bei 390 × 844; reduzierte Bewegung startet pausiert. Screenshots liegen unter `output/playwright/miner-review-*.png`.
+
+Öffentliche Spielgrafiken, Hackenanimation, Bewegungstempo und Replays sind unverändert. Die Auswahl und das subjektive Bewegungsgefühl werden mit dem Nutzer beurteilt; eine neue vollständige Spielprüfung war für diese getrennte Vorschau nicht erforderlich.

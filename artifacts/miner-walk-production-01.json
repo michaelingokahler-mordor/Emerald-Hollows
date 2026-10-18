@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-18",
+  "provider": "Runway",
+  "kind": "walking animation drafts; not integrated into live game",
+  "taskId": "d9bdaf5f-f0ca-449a-8242-caa55e8afc82",
+  "prompt": "Create a production animation TEST SPRITE SHEET for the existing cave-game miner in @miner. Preserve the character identity, proportions, ochre brass helmet and round lamp, brown scarf, teal jacket, gloves, brown trousers and heavy boots, warm hand-painted outlined game-art style. Fix the weak leg animation. Layout is exactly FOUR equal columns and TWO equal rows, eight separate fully visible miners, each centered in its own cell, no touching. Every pose faces strictly RIGHT in side profile. ROW 1 is walk variant A, restrained but clearly legible. ROW 2 is walk variant B, a bolder marching walk with higher bent knees and wider opposing arm swing, same miner and scale. In EACH row the FOUR frames left-to-right form this seamless cycle: 1 NEAR leg extended forward to right, FAR leg back left, legs apart; 2 NEAR foot planted under body while FAR knee swings forward bent and raised, legs passing; 3 FAR leg extended forward to right, NEAR leg back left, opposite contact pose; 4 FAR foot planted under body while NEAR knee swings forward bent and raised, opposite passing pose. Near leg lighter, far leg darker so opposite legs can be distinguished. CONTACT frames must have a wide stance, PASSING frames a narrow stance with one lifted knee. Do NOT repeat the same feet silhouette across all four frames. Opposite arms counter-swing. Keep helmet position, size and body volume consistent, allow only a tiny vertical body bob. No pickaxe for walking. Exactly two arms and two legs per miner. Plenty of empty padding, no ground, no cast shadow, no numbers, no text, no grid lines. Entire background perfectly flat pure magenta #ff00ff for game sprite extraction. Canvas 2:1 approximately; exact evenly spaced 4x2 cell layout matters more than filling cells. @miner is an identity/style reference, not a pose template: change the leg poses substantially.",
+  "reference": "Existing public/assets/hero.png character sheet",
+  "startingBalance": 2594,
+  "endingBalance": 2574,
+  "netCredits": 20,
+  "previousProjectCredits": 160,
+  "totalProjectCredits": 180,
+  "limit": 1000,
+  "rawFile": "artifacts/raw/miner-walk-drafts-01.png",
+  "processing": "tools/prepare-miner-drafts.mjs: magenta key, trim, align helmet centers, common scale per sequence; preview-only assets.",
+  "reviewPage": "artifacts/miner-walk-review/index.html",
+  "limitation": "Contact poses 1 and 3 are still similar; side-facing drafts only. Front/back and final gait refinement await user selection."
+}

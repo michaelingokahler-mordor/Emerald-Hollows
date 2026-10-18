@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Emerald Hollows – Miner-Laufprobe</title><link rel="icon" href="data:,">
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui,sans-serif;background:#101c22;color:#eee9dc}*{box-sizing:border-box}body{margin:0;padding:24px;max-width:1500px;margin-inline:auto}h1{font:clamp(28px,4vw,42px)/1.15 Georgia,serif;margin:8px 0 16px}h2{font-size:19px;margin:0 0 4px}p{max-width:85ch}.eyebrow{color:#d8b875;letter-spacing:.16em;font-size:12px}.muted{color:#b8c9c7}.toolbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:16px;border:1px solid #45615f;background:#203238;border-radius:12px;margin:24px 0}label{display:flex;align-items:center;gap:8px}button,select{font:inherit;color:inherit;background:#17272c;border:1px solid #668c80;padding:9px 12px;border-radius:6px}button{cursor:pointer}button:hover{background:#355249}button:focus-visible,select:focus-visible{outline:3px solid #f2cb7f;outline-offset:2px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{background:#1d2d33;border:1px solid #3c5359;border-radius:12px;padding:16px;min-width:0}.card p{font-size:14px;min-height:4.5em;margin:4px 0 12px}.card canvas{width:256px;max-width:100%;height:auto;margin-inline:auto;display:block;border-radius:8px;background:#122027}.note{background:#26372f;border-left:3px solid #d8b875;padding:14px 18px;margin-top:24px}.status{color:#b3dfc7;font-variant-numeric:tabular-nums;min-width:180px}#error{color:#ffb1a3}.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.strip img{width:100%;background:#142127}.caption{font-size:12px;color:#b8c9c7;margin:8px 0}.foot{border-top:1px solid #3c5359;padding-top:18px;font-size:14px}a{color:#b3dfc7}@media(max-width:1100px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){body{padding:14px}.cards{grid-template-columns:1fr}.toolbar{gap:10px}.card canvas{max-height:320px}.card p{min-height:0}}
+</style>
+</head>
+<body>
+<div class="eyebrow">LATHMAR · EMERALD HOLLOWS · GRAFIKENTWURF</div>
+<h1>Welcher Schritt passt zum Miner?</h1>
+<p>Die bisherigen Posen neben zwei neuen Laufproben. Alle laufen synchron mit derselben Bilddauer. Oben siehst du die Figur in <strong>64-Pixel-Kachelgröße</strong>, darunter vergrößert. Die Hackenfolge ist die unveränderte Referenz.</p>
+<div class="toolbar">
+<label>Bilddauer <select id="speed"><option value="180">180 ms</option><option value="240" selected>240 ms</option><option value="300">300 ms</option><option value="480">480 ms · Zeitlupe</option></select></label>
+<label>Richtung <select id="direction"><option value="right">Rechts</option><option value="left">Links</option></select></label>
+<label><input id="travel" type="checkbox">Durch den Gang bewegen</label>
+<button id="play" type="button">Pause</button><button id="step" type="button">Einzelbild weiter</button><span id="status" class="status" role="status" aria-live="off"></span>
+</div>
+<p id="error" role="alert" hidden></p>
+<div class="cards">
+<article class="card"><h2>Bisheriger Miner</h2><p class="muted">Kaum veränderte Bein-Silhouette; die Bewegung sitzt vor allem in den Armen.</p><canvas id="old" aria-label="Bisherige Laufanimation"></canvas><div class="caption">Bestehende Spielgrafik</div></article>
+<article class="card"><h2>Entwurf A · Kleiner Schritt</h2><p class="muted">Wechsel zwischen weitem Stand und angewinkeltem Bein. Weniger starkes Knieheben.</p><canvas id="a" aria-label="Neue Laufanimation A"></canvas><div class="caption">Vier Posen, von links nach rechts</div><div class="strip"><img src="a-0.png" alt="A Pose 1"><img src="a-1.png" alt="A Pose 2"><img src="a-2.png" alt="A Pose 3"><img src="a-3.png" alt="A Pose 4"></div></article>
+<article class="card"><h2>Entwurf B · Deutlicher Schritt</h2><p class="muted">Höheres Knie und größere Gesten. Gut sichtbar, möglicherweise zu marschierend.</p><canvas id="b" aria-label="Neue Laufanimation B"></canvas><div class="caption">Vier Posen, von links nach rechts</div><div class="strip"><img src="b-0.png" alt="B Pose 1"><img src="b-1.png" alt="B Pose 2"><img src="b-2.png" alt="B Pose 3"><img src="b-3.png" alt="B Pose 4"></div></article>
+<article class="card"><h2>Hacke · Referenz</h2><p class="muted">Unveränderte Grabeposen zum Vergleich von Stil und Lesbarkeit.</p><canvas id="dig" aria-label="Bestehende Hackenanimation"></canvas><div class="caption">Bestehende Spielgrafik</div></article>
+</div>
+<div class="note"><strong>Worauf achten?</strong> Ist der Schritt schon oben in kleiner Darstellung erkennbar? Wirkt B zu hüpfend? Passt A besser zur Hackenanimation? Mit „Einzelbild weiter“ kannst du die Posen prüfen. Die neuen Kontaktposen 1 und 3 ähneln sich noch stark; dies sind Entwürfe, keine fertige anatomisch saubere Schrittfolge.</div>
+<p class="muted">Die optionale Fahrt zeigt die bisherige Spielgeschwindigkeit: 64 Pixel pro 100 ms. Die Gänge hier sind nur eine Darstellung, keine neue Spielsimulation. Links werden die neuen Entwürfe gespiegelt; Vorder- und Rückansicht werden nach der Auswahl separat entworfen.</p>
+<p class="foot">Neue Grafiken: Runway · 20 Credits für beide Entwürfe zusammen · Projektstand 180 / 1.000 Credits. Die öffentlichen Spielgrafiken wurden nicht ersetzt. <a href="../../docs/KAPITEL-2-MECHANIKEN.md">Notizen zu Käfern und Steinspender</a></p>
+<script>
+const canvases=[...document.querySelectorAll('canvas')];
+const controls={speed:document.querySelector('#speed'),direction:document.querySelector('#direction'),travel:document.querySelector('#travel'),play:document.querySelector('#play'),step:document.querySelector('#step')};
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let playing=!reduced,phase=0,travel=0,last=performance.now(),ready=false;
+const sources={old:'../../public/assets/hero.png',a:'walk-a.png',b:'walk-b.png',dig:'../../public/assets/digging.png'};
+const images={};
+function playLabel(){controls.play.textContent=playing?'Pause':'Abspielen';}
+playLabel();
+Promise.all(Object.entries(sources).map(([id,src])=>new Promise((resolve,reject)=>{const img=new Image;img.onload=()=>{images[id]=img;resolve()};img.onerror=()=>reject(Error('Bild konnte nicht geladen werden: '+src));img.src=src}))).then(()=>{ready=true;draw()}).catch(error=>{const el=document.querySelector('#error');el.hidden=false;el.textContent=error.message;playing=false;playLabel()});
+function draw(){
+ if(!ready)return;
+ const ms=Number(controls.speed.value),frame=Math.floor(phase/ms)%4,left=controls.direction.value==='left';
+ document.querySelector('#status').textContent=`Pose ${frame+1} / 4 · Zyklus ${(ms*4/1000).toFixed(2)} s`;
+ for(const canvas of canvases){
+  const w=256,h=288,dpr=Math.min(devicePixelRatio||1,3);
+  if(canvas.width!==w*dpr){canvas.width=w*dpr;canvas.height=h*dpr}
+  const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+  ctx.strokeStyle='#34483e';ctx.lineWidth=1;
+  for(let x=0;x<=w;x+=64){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,88);ctx.stroke()}
+  ctx.beginPath();ctx.moveTo(0,70);ctx.lineTo(w,70);ctx.stroke();
+  const original=canvas.id==='old'||canvas.id==='dig';
+  const sy=original&&left?256:0;
+  const mirror=left&&!original;
+  function sprite(x,y,size){ctx.save();if(mirror){ctx.translate(x+size,y);ctx.scale(-1,1);ctx.drawImage(images[canvas.id],frame*256,sy,256,256,0,0,size,size)}else ctx.drawImage(images[canvas.id],frame*256,sy,256,256,x,y,size,size);ctx.restore()}
+  const moving=controls.travel.checked&&canvas.id!=='dig';
+  const position=moving?(travel%(w+64))-64:96;
+  sprite(left&&moving?w-64-position:position,8,64);
+  sprite(48,105,160);
+  ctx.fillStyle='#a9c0b8';ctx.font='12px system-ui';ctx.fillText('64 px',8,85);ctx.fillText('160 px · vergrößert',8,281);
+ }
+}
+controls.play.addEventListener('click',()=>{playing=!playing;last=performance.now();playLabel()});
+controls.step.addEventListener('click',()=>{playing=false;playLabel();phase=(Math.floor(phase/Number(controls.speed.value))+1)*Number(controls.speed.value);draw()});
+controls.speed.addEventListener('change',()=>{phase=0;draw()});
+controls.direction.addEventListener('change',draw);controls.travel.addEventListener('change',draw);
+document.addEventListener('visibilitychange',()=>{if(document.hidden){playing=false;playLabel()}last=performance.now()});
+function loop(now){const delta=Math.min(now-last,100);last=now;if(ready&&playing){phase+=delta;travel+=delta*.64}draw();requestAnimationFrame(loop)}requestAnimationFrame(loop);
+</script>
+</body>
+</html>

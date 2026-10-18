@@ -50,7 +50,7 @@ Musik erhält Kapitelthemen und eine dezente Gefahrenschicht. Die Demo verwendet
 
 ## Kosten und nächste Abnahmen
 
-Runway-Obergrenze bleibt 1.000 Credits inklusive Fehlversuchen. Bisher 160: ursprüngliche Medien 115, Musikrunde 24 einschließlich einer nicht herunterladbaren Ersatzproduktion, Pseudodrache 21. Für 0.5.1 wurden keine Medien generiert. Kein automatischer bezahlter Hostingwechsel. Workers Free wurde am 18.10.2026 im Konto bestätigt.
+Runway-Obergrenze bleibt 1.000 Credits inklusive Fehlversuchen. Bisher 180: ursprüngliche Medien 115, Musikrunde 24 einschließlich einer nicht herunterladbaren Ersatzproduktion, Pseudodrache 21, zwei neue seitliche Laufproben 20. Für 0.5.1 selbst wurden keine Medien generiert; die Laufproben entstanden danach und sind noch nicht im Spiel integriert. Kein automatischer bezahlter Hostingwechsel. Workers Free wurde am 18.10.2026 im Konto bestätigt.
 
 Der Nutzer hat am 18.10.2026 bestätigt, dass der öffentliche Touchmodus funktioniert; Gerät und Betriebssystem wurden nicht angegeben. Vor dem nächsten Kapitel: Feedback zu den überarbeiteten Rätseln, Hörprobe und gezielte Prüfung der Installation auf Android und iPhone/iPad. Browseremulation ist kein Gerätetest. Dann jeweils ein neues Kapitel mitsamt Regeln, Karten, Medien und Replays entwickeln.
 
@@ -63,3 +63,5 @@ Der Nutzer bestätigt das Komplexitätsniveau des neuen Finales als gute Grundla
 ## Besprechung der nächsten 20 Hauptlevel
 
 Ein konkreter [Entwurf für 11–30](LEVELS-11-30-ENTWURF.md) liegt vor. Er schlägt frühere Hebel/Tore und Teleporter vor und ist noch nicht freigegeben. Die Kapitelzuordnung oben bleibt bis zur gemeinsamen Entscheidung der bisherige Plan.
+
+Die Besprechung ergänzt [blaue/lila Käfer, Verschmelzung und einen dosierenden Steinspender](KAPITEL-2-MECHANIKEN.md). Der Nutzer verlangt die vollständige Sicht auf Hebel und Apparatur. Level 12 und 16 bleiben zur späteren praktischen Gegenüberstellung im Entwurf. Die neuen Regelideen sind noch nicht implementiert.

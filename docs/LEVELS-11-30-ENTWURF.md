@@ -10,20 +10,20 @@ Level 10 ist der Maßstab für Kombinationsrätsel. Einführungen bleiben kürze
 
 ## Kapitel 2: Die verlassenen Fördergänge / The Abandoned Workings
 
-Neue Grundmechanik: Hebel und zugeordnete Tore. Bekannte Krabbler und fallende Objekte erhalten neue räumliche Aufgaben.
+Ergänzt nach Nutzerfeedback: Hebel/Tore, blauer Rechts- und lila Links-Käfer, Verschmelzung zum Kristallkäfer sowie ein einzeln dosierender Steinspender. Die [Mechaniknotizen](KAPITEL-2-MECHANIKEN.md) trennen Nutzeranforderungen und vorgeschlagene Detailregeln. Apparaturen müssen vom Bedienplatz vollständig auf einem Bildschirm sichtbar sein.
 
 | Nr. | Arbeitstitel | Zielgröße | Eigenständiges Rätsel und beabsichtigte Lösung |
 |---|---|---|---|
 | 11 | Das erste Tor / The First Gate | 30 × 20 | Einen Hebel aus sicherer Position bedienen und die sichtbare Verbindung zum Tor verstehen. Hinter dem Tor wartet ein bekanntes Schieberätsel. Kein Gegner im Einführungsraum. |
-| 12 | Die zweite Runde / The Second Circuit | 34 × 22 | Ein Tor verbindet zwei Krabblergänge. Erst den Sammelweg vorbereiten, dann die Patrouille umleiten und den freigewordenen Gang nutzen. Der Hebel verändert die notwendige Route. |
-| 13 | Ein Stein, zwei Aufgaben / One Stone, Two Jobs | 32 × 22 | Ein begrenzter Felsvorrat zwingt zur Reihenfolge: erst den Kristallkrabbler unter die Fallstelle lenken, dann dessen Diamanten aus dem Schacht bergen. Ein voreiliger Abwurf verbraucht den benötigten Felsen. |
+| 12 | Die zweite Runde / The Second Circuit | 34 × 22 | Blaue und lila Käfer zunächst in getrennten Gängen sicher beobachten. Ihre entgegengesetzten Abbiegeprioritäten nutzen und mit einem Tor eine Patrouille vorübergehend umlenken. Noch keine notwendige Verschmelzung. |
+| 13 | Ein kostbares Treffen / A Precious Meeting | 32 × 22 | Einen blauen und einen lila Käfer durch ein Hebeltor zusammenführen. Aus beiden entsteht ein Kristallkäfer, der über eine bekannte einzelne Felsfalle den benötigten Diamanten liefert. Neue Lektion: Verschmelzung. |
 | 14 | Wechselverkehr / Passing Places | 36 × 24 | Ein Hebel schaltet zwei leere Torfelder gegenläufig. Eine sichere Zwischenkammer macht den Weg von Sammelraum zu Ausgang planbar. Beide Zustände sind vorab einsehbar. |
-| 15 | Der ruhige Schacht / The Quiet Shaft | 28 × 20 | Kompaktes Rätsel ohne Gegner: Die Reihenfolge beim Sammeln bestimmt, auf welche Seite zwei Felsen abrollen. Entlastung nach den Torlektionen, kein bloßer Spaziergang. |
+| 15 | Stein für Stein / One Stone at a Time | kompakte Bildschirmkammer | Ein Steinspender gibt pro Hebelzug genau einen Stein ab. Erst sicher in einen leeren Fangschacht abwerfen, dann einen vorhandenen Kristallkäfer in einer getrennten Bahn treffen. Vorrat, Klappe, Fallstrecke und Ziel zugleich sichtbar; keine Verschmelzung in dieser Einführung. |
 | 16 | Der Besucher / The Visitor | 36 × 24 | Einen Krabbler gezielt in eine Seitenkammer einlassen und das Tor hinter ihm schließen. Sein ursprünglicher Gang enthält benötigte Kristalle. Keine zusätzliche Pflichtaufgabe als Ersatz für gutes Kartenlayout. |
 | 17 | Der Rückweg / The Way Back | 38 × 24 | Beim Hinweg eine Felsablage freiräumen; sonst blockiert der spätere Abgang den Rückweg. Ein Tor öffnet eine Abkürzung erst von der anderen Seite. |
 | 18 | Der lange oder der kurze Weg / The Long Way or the Short | 38 × 26 | Ein sicherer längerer Sammelweg und eine kurze Krabblerpassage erfüllen dieselbe Quote. Zusätzliche Edelsteine und Gegnerpunkte belohnen bewusstes Risiko; schnellste Zeit bleibt das erste Ranglistenkriterium. |
-| 19 | Zwei Kammern, ein Hebel / Two Chambers, One Lever | 40 × 26 | Zwei verbundene Räume werden abwechselnd zugänglich. Erst Fallobjekte sichern und eine Krabblerroute ändern, dann den letzten Schaltzustand für den Ausgang herstellen. |
-| 20 | Das alte Förderwerk / The Old Haulage Works | 44 × 28 | Kapitelprüfung: Schiebeplatz, gelenkte Patrouille, Kristallkrabbler und Rückweg. Mindestens eine sichere Lösung; eine schnellere Variante darf engeres Timing verlangen. Keine neue Grundregel. |
+| 19 | Das richtige Treffen / The Right Meeting | 40 × 26, kompakte Apparatur | Mit Toren Blau und Lila zusammenführen, dann den Kristallkäfer mit einem einzeln ausgelösten Magazinstein treffen. Die gesamte Apparatur bleibt am Bedienplatz im Bild. Planung und Timing verbinden zwei bereits bekannte Regeln. |
+| 20 | Das alte Förderwerk / The Old Haulage Works | 44 × 28, mehrere Teilräume | Schiebeplatz, gelenkte Patrouillen, Käferverschmelzung, Steinspender und Rückweg kombinieren. Jede Apparatur ist für sich vollständig sichtbar. Mindestens eine sichere Lösung, keine neue Grundregel. |
 
 ## Kapitel 3: Die Torhallen / The Gate Halls
 
@@ -49,7 +49,7 @@ Neue Grundmechaniken: Schlüssel ab 21; nach Zustimmung feste Teleporterpaare ab
 - **Schlüssel:** Vorschlag: einmaliges Aufnehmen, passendes Schloss beim Betreten dauerhaft öffnen und Schlüssel verbrauchen. Identische Kennzeichen über Form und Farbe. Keine Punktprämie und kein Einfluss auf die Kristallquote. Beispielkarten dürfen keinen Schlüssel hinter seinem eigenen Schloss verstecken.
 - **Teleporter:** ein Transfer pro bewusstem Betreten, nur für die Spielfigur. Ausgangstür muss frei sein. Keine sofortige Rückreise beim Ankommen; erst verlassen und neu betreten. Genaue Tick-Reihenfolge und Fallobjektkontakt am Ziel werden vor Kartenbau festgelegt und getestet.
 - **Fallobjekte auf Toren:** Öffnen entfernt die Auflage; das Objekt wird im anschließenden Fallobjektschritt nach den bestehenden Regeln verarbeitet. Hinweise müssen diese Konsequenz vor dem ersten gefährlichen Einsatz zeigen.
-- **Gegner:** In diesen 20 Hauptleveln reichen Schiefer- und Kristallkrabbler. Twisted Dwarves erhalten im optionalen Zweig eigene sichere Einführungen. Sie werden nicht stillschweigend als weitere Hauptlevelmechanik vorausgesetzt.
+- **Gegner:** Kapitel 2 ergänzt den lila Käfer mit gespiegelter Abbiegepriorität. Blau und Lila können zum Kristallkäfer verschmelzen; Detailvorschläge stehen in KAPITEL-2-MECHANIKEN.md. Twisted Dwarves erhalten im optionalen Zweig eigene sichere Einführungen. Sie werden nicht stillschweigend als weitere Hauptlevelmechanik vorausgesetzt.
 
 ## Geheimzweig in 25
 
