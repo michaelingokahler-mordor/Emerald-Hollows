@@ -1,3 +1,20 @@
+# Update 0.10.0 — Die hungrigen Adern, Level 31–40
+
+Stand: 19. Oktober 2026. Zehn neue Karten; neue Regeln nur in Version 5. Bestehende Karten 01–30, Zeitlimits, Freischaltungen und Rekorde bleiben erhalten. Keine Datenbankmigration und keine Ranglistenlöschung.
+
+- **330 Tests in zwölf Dateien bestanden.** Zusätzlich erfolgreiche zeitgebundene Hauptlösungen für alle 40 Karten. Kapitel IV: alle Alternativen, neun Anfangsphasen pro Hauptlösung, Neustart, JSON-Zwischenstand, serverseitige Prüfabschnitte und gleiche Endzustände bei 30/60/144 Render-FPS.
+- **Geröllmeer:** 56 × 36, 400 Edelsteine mit insgesamt 460 Punkten; Quote verlangt alle. Zwei Referenzrouten und 24 gemischte Reihenfolgen sammeln vollständig. Keine innere Trennmauer; nur Außenrand, Ausgangsnische und Geräte. Diese Stichprobe beweist keine Wiederherstellbarkeit nach jeder beliebigen Fehlgrabung.
+- Umgehungsprüfungen: optimistische Erreichbarkeit, Quotenrechnung, weggelassene Hebel, fehlender/unterbrochener Transport. Gefundene Probleme vor Auslieferung behoben: rückwärts entkommende Helfer, blockierte Pit-Zugänge, fehlender Rückwegzwang in 33 und ein Erz-Tor-Bypass in 37. Details in [Kapitel IV](KAPITEL-4-UMSETZUNG.md).
+- Chrome 1280×720/DPR 1 und Edge 1920×1080/DPR 2: vollständige Browser-Replays aller zehn Karten bei sechsfacher Testgeschwindigkeit. Chrome-Mobil-Emulation 390×844/DPR 3: 32/35/36/37/40 bei dreifacher Testgeschwindigkeit. Alle erfolgreich, konstanter Zoom, keine automatischen Raumwechsel oder JavaScript-Fehler. Ein früher Chrome-Versuch wurde durch Entwicklungs-Neuladen unterbrochen; der saubere Wiederholungslauf bestand.
+- Mobile Touch-Betätigung des Pit-Hebels mit gleichzeitigem Graben + Richtung geprüft. Position bleibt stehen; Pause hält den Countdown an; serialisierter Spielstand erhält ihn; Neustart stellt den Anfangszustand wieder her. Vorbereitetes Test-Szenario am Hebel, kein menschlicher Durchlauf. Bedienpunkt, Auslass und Ziel der Apparaturen 32/35/40 passen gleichzeitig in die 390-Pixel-Ansicht. Screenshots lokal unter `output/playwright/`.
+- Lokale Wrangler/D1-HTTP-Prüfung: neue Regeln und alle 30 Karten der Kapitel II–IV bestätigt, öffentliche Ranglistenberechnung, Wiederherstellung, alte Offline-Beweise, Eigentümerprüfung und manipulierte Eingaben geprüft. Keine Testprofile auf dem öffentlichen Server erzeugt.
+- Produktionsbuild, strenge Typprüfung, Worker-Dry-Run und verschlüsselte Backup-/Wiederherstellungsprüfung bestanden. Dichte Felder nutzen einen temporären Belegungsindex; der Server prüft sie in kleineren Abschnitten. Gemessene lokale Laufzeiten sind keine Cloudflare-CPU-Garantie.
+- Keine neuen Medienkosten. Vorhandene gemalte Bilder mit Farbvarianten und Countdown-Anzeige. Musik und Mineranimation unverändert.
+
+Automatisierte Zeiten: [Messdaten](../artifacts/chapter-four-verification.json). Browserdaten: [Prüfprotokoll](../artifacts/chapter-four-browser.json). **Menschliche Spielabnahme, subjektiver Schwierigkeitsgrad und echtes Telefon bleiben offen.** Die riskanten Routen in 34/38 waren in den getesteten Gesamtlösungen langsamer als die sicheren; es wird kein ungemessener Zeitvorteil behauptet.
+
+---
+
 # Update 0.9.1 — Hinweise, Zeitlimits und Kamera
 
 Stand: 19. Oktober 2026. Keine Karten oder Spielregeln verändert. Alle 30 Zeitlimits anhand der bestätigten menschlichen Bestzeiten verkürzt; vollständige Tabelle und Abgrenzung gegenüber automatisierten Zeiten in [TIMING-FEEDBACK-0.9.1.md](TIMING-FEEDBACK-0.9.1.md).

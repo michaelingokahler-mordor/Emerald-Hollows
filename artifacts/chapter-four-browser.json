@@ -1,0 +1,488 @@
+{
+  "chrome": {
+    "status": "PASS",
+    "resumedPauses": 0,
+    "speed": 6,
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "dpr": 1,
+    "camera": {
+      "31": {
+        "minZoom": 0.875,
+        "maxZoom": 0.875,
+        "roomFrames": 0,
+        "frames": 253,
+        "maxOrdinaryScrollStep": 59.37431427648414,
+        "transfers": 0,
+        "last": {
+          "x": 110.49030860700822,
+          "y": 147.64539403321976
+        }
+      },
+      "32": {
+        "minZoom": 0.875,
+        "maxZoom": 0.875,
+        "roomFrames": 0,
+        "frames": 327,
+        "maxOrdinaryScrollStep": 60.38840979248472,
+        "transfers": 0,
+        "last": {
+          "x": 89.74227379304895,
+          "y": 287.2166181933731
+        }
+      },
+      "33": {
+        "minZoom": 0.875,
+        "maxZoom": 0.875,
+        "roomFrames": 0,
+        "frames": 320,
+        "maxOrdinaryScrollStep": 62.9970068112092,
+        "transfers": 0,
+        "last": {
+          "x": 91.12827314730218,
+          "y": 292.97401274595086
+        }
+      },
+      "34": {
+        "minZoom": 0.875,
+        "maxZoom": 0.875,
+        "roomFrames": 0,
+        "frames": 416,
+        "maxOrdinaryScrollStep": 63.296151466919866,
+        "transfers": 6,
+        "last": {
+          "x": 89.57142857142856,
+          "y": 298.71695121012885
+        }
+      },
+      "35": {
+        "minZoom": 0.875,
+        "maxZoom": 0.875,
+        "roomFrames": 0,
+        "frames": 271,
+        "maxOrdinaryScrollStep": 62.62818285450594,
+        "transfers": 0,
+        "last": {
+          "x": 90.82885221362838,
+          "y": 350.53392357620487
+        }
+      },
+      "36": {
+        "minZoom": 0.875,
+        "maxZoom": 0.875,
+        "roomFrames": 0,
+        "frames": 1051,
+        "maxOrdinaryScrollStep": 63.99077886504486,
+        "transfers": 0,
+        "last": {
+          "x": 2240.3450493907317,
+          "y": 216.11668332712813
+        }
+      },
+      "37": {
+        "minZoom": 0.875,
+        "maxZoom": 0.875,
+        "roomFrames": 0,
+        "frames": 444,
+        "maxOrdinaryScrollStep": 63.011472853210385,
+        "transfers": 2,
+        "last": {
+          "x": 89.87643969957362,
+          "y": 273.6677278789686
+        }
+      },
+      "38": {
+        "minZoom": 0.875,
+        "maxZoom": 0.875,
+        "roomFrames": 0,
+        "frames": 495,
+        "maxOrdinaryScrollStep": 63.99092451872137,
+        "transfers": 0,
+        "last": {
+          "x": 147.0394328418431,
+          "y": 41.43130511889864
+        }
+      },
+      "39": {
+        "minZoom": 0.875,
+        "maxZoom": 0.875,
+        "roomFrames": 0,
+        "frames": 396,
+        "maxOrdinaryScrollStep": 62.5026556705564,
+        "transfers": 9,
+        "last": {
+          "x": 89.57142857142856,
+          "y": 193.2267037871344
+        }
+      },
+      "40": {
+        "minZoom": 0.875,
+        "maxZoom": 0.875,
+        "roomFrames": 0,
+        "frames": 627,
+        "maxOrdinaryScrollStep": 63.85251970004801,
+        "transfers": 0,
+        "last": {
+          "x": 89.74855880726464,
+          "y": 301.074947751305
+        }
+      }
+    },
+    "results": [
+      {
+        "level": "31",
+        "ticks": 253,
+        "status": "won",
+        "points": 26,
+        "transfers": 0
+      },
+      {
+        "level": "32",
+        "ticks": 327,
+        "status": "won",
+        "points": 25,
+        "transfers": 0
+      },
+      {
+        "level": "33",
+        "ticks": 320,
+        "status": "won",
+        "points": 29,
+        "transfers": 0
+      },
+      {
+        "level": "34",
+        "ticks": 416,
+        "status": "won",
+        "points": 52,
+        "transfers": 6
+      },
+      {
+        "level": "35",
+        "ticks": 272,
+        "status": "won",
+        "points": 28,
+        "transfers": 0
+      },
+      {
+        "level": "36",
+        "ticks": 1052,
+        "status": "won",
+        "points": 460,
+        "transfers": 0
+      },
+      {
+        "level": "37",
+        "ticks": 444,
+        "status": "won",
+        "points": 37,
+        "transfers": 2
+      },
+      {
+        "level": "38",
+        "ticks": 495,
+        "status": "won",
+        "points": 49,
+        "transfers": 0
+      },
+      {
+        "level": "39",
+        "ticks": 397,
+        "status": "won",
+        "points": 46,
+        "transfers": 9
+      },
+      {
+        "level": "40",
+        "ticks": 628,
+        "status": "won",
+        "points": 53,
+        "transfers": 0
+      }
+    ],
+    "errors": []
+  },
+  "edge": {
+    "status": "PASS",
+    "resumedPauses": 0,
+    "speed": 6,
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "dpr": 2,
+    "camera": {
+      "31": {
+        "minZoom": 2,
+        "maxZoom": 2,
+        "roomFrames": 0,
+        "frames": 238,
+        "maxOrdinaryScrollStep": 126.42810799881465,
+        "transfers": 0,
+        "last": {
+          "x": -936.8423803294676,
+          "y": -431.2003697493927
+        }
+      },
+      "32": {
+        "minZoom": 2,
+        "maxZoom": 2,
+        "roomFrames": 0,
+        "frames": 313,
+        "maxOrdinaryScrollStep": 91.34492835411834,
+        "transfers": 0,
+        "last": {
+          "x": -946.9168746747017,
+          "y": -287.87072545715284
+        }
+      },
+      "33": {
+        "minZoom": 2,
+        "maxZoom": 2,
+        "roomFrames": 0,
+        "frames": 307,
+        "maxOrdinaryScrollStep": 59.841361717028576,
+        "transfers": 0,
+        "last": {
+          "x": -946.2661533675224,
+          "y": -312.8683890840614
+        }
+      },
+      "34": {
+        "minZoom": 2,
+        "maxZoom": 2,
+        "roomFrames": 0,
+        "frames": 400,
+        "maxOrdinaryScrollStep": 62.43355564051811,
+        "transfers": 6,
+        "last": {
+          "x": -947,
+          "y": -304.04509829423
+        }
+      },
+      "35": {
+        "minZoom": 2,
+        "maxZoom": 2,
+        "roomFrames": 0,
+        "frames": 254,
+        "maxOrdinaryScrollStep": 60.77043310984644,
+        "transfers": 0,
+        "last": {
+          "x": -946.4424407452962,
+          "y": -274.0182477309063
+        }
+      },
+      "36": {
+        "minZoom": 2,
+        "maxZoom": 2,
+        "roomFrames": 0,
+        "frames": 1037,
+        "maxOrdinaryScrollStep": 79.01491571506679,
+        "transfers": 0,
+        "last": {
+          "x": 742.9589008608187,
+          "y": -356.66990410070906
+        }
+      },
+      "37": {
+        "minZoom": 2,
+        "maxZoom": 2,
+        "roomFrames": 0,
+        "frames": 433,
+        "maxOrdinaryScrollStep": 79.18862100104309,
+        "transfers": 2,
+        "last": {
+          "x": -946.998612490776,
+          "y": -327.22212549461915
+        }
+      },
+      "38": {
+        "minZoom": 2,
+        "maxZoom": 2,
+        "roomFrames": 0,
+        "frames": 481,
+        "maxOrdinaryScrollStep": 160.42429645216052,
+        "transfers": 0,
+        "last": {
+          "x": -922.5007679113867,
+          "y": -469.9999988814333
+        }
+      },
+      "39": {
+        "minZoom": 2,
+        "maxZoom": 2,
+        "roomFrames": 0,
+        "frames": 383,
+        "maxOrdinaryScrollStep": 61.912726645579255,
+        "transfers": 9,
+        "last": {
+          "x": -947,
+          "y": -427.68411741775657
+        }
+      },
+      "40": {
+        "minZoom": 2,
+        "maxZoom": 2,
+        "roomFrames": 0,
+        "frames": 614,
+        "maxOrdinaryScrollStep": 98.95960638409815,
+        "transfers": 0,
+        "last": {
+          "x": -946.9158363339834,
+          "y": -301.33918825174965
+        }
+      }
+    },
+    "results": [
+      {
+        "level": "31",
+        "ticks": 253,
+        "status": "won",
+        "points": 26,
+        "transfers": 0
+      },
+      {
+        "level": "32",
+        "ticks": 327,
+        "status": "won",
+        "points": 25,
+        "transfers": 0
+      },
+      {
+        "level": "33",
+        "ticks": 320,
+        "status": "won",
+        "points": 29,
+        "transfers": 0
+      },
+      {
+        "level": "34",
+        "ticks": 416,
+        "status": "won",
+        "points": 52,
+        "transfers": 6
+      },
+      {
+        "level": "35",
+        "ticks": 272,
+        "status": "won",
+        "points": 28,
+        "transfers": 0
+      },
+      {
+        "level": "36",
+        "ticks": 1052,
+        "status": "won",
+        "points": 460,
+        "transfers": 0
+      },
+      {
+        "level": "37",
+        "ticks": 444,
+        "status": "won",
+        "points": 37,
+        "transfers": 2
+      },
+      {
+        "level": "38",
+        "ticks": 495,
+        "status": "won",
+        "points": 49,
+        "transfers": 0
+      },
+      {
+        "level": "39",
+        "ticks": 397,
+        "status": "won",
+        "points": 46,
+        "transfers": 9
+      },
+      {
+        "level": "40",
+        "ticks": 628,
+        "status": "won",
+        "points": 53,
+        "transfers": 0
+      }
+    ],
+    "errors": []
+  },
+  "touch": {
+    "status": "PASS",
+    "checks": [
+      "real simultaneous touch pit activation",
+      "snap preserves miner position",
+      "pause freezes pit countdown",
+      "serialized checkpoint retains pit state",
+      "restart restores initial pit",
+      "visible control, outlet and target on 390px display"
+    ],
+    "checkpoint": {
+      "tick": 13,
+      "pit": {
+        "active": true,
+        "due": 43,
+        "spawned": 0
+      },
+      "player": {
+        "x": 8,
+        "y": 7,
+        "direction": "down"
+      }
+    },
+    "apparatus": [
+      {
+        "id": "32",
+        "left": 1339.6923076923076,
+        "top": 161.84615384615387,
+        "w": 584.6153846153845,
+        "h": 892.3076923076923,
+        "allVisible": true
+      },
+      {
+        "id": "35",
+        "left": 699.6923076923077,
+        "top": 97.84615384615387,
+        "w": 584.6153846153845,
+        "h": 892.3076923076923,
+        "allVisible": true
+      },
+      {
+        "id": "40",
+        "left": 1851.6923076923076,
+        "top": 673.8461538461538,
+        "w": 584.6153846153845,
+        "h": 892.3076923076923,
+        "allVisible": true
+      }
+    ]
+  },
+  "mobileReplay": {
+    "status": "PASS",
+    "viewport": [
+      390,
+      844
+    ],
+    "dpr": 3,
+    "speed": 3,
+    "levels": [
+      32,
+      35,
+      36,
+      37,
+      40
+    ],
+    "ticks": [
+      327,
+      272,
+      1052,
+      444,
+      628
+    ],
+    "camera": "constant zoom; no automatic room framing",
+    "errors": []
+  },
+  "scope": "Browser replay and instrumented controls. Not a human playthrough or physical phone test. One first Chrome run was interrupted by a dev reload; the clean rerun passed."
+}

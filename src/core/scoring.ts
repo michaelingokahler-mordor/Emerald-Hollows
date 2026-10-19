@@ -7,7 +7,7 @@ export function scoreBreakdown(level:LevelDefinition,state:GameState){
   const map=level.map.join('');
   const initialSlate=[...map].filter(c=>'^v<>'.includes(c)).length;
   const initialCrystal=[...map].filter(c=>c==='C').length;
-  const livingSlate=state.entities.filter(e=>e.kind==='crawler'||e.kind==='purple-crawler');
+  const livingSlate=state.entities.filter(e=>e.kind==='crawler'||e.kind==='purple-crawler'||e.kind==='digger');
   const livingCrystal=state.entities.filter(e=>e.kind==='crystal-crawler');
   const crushed=state.mechanisms?.crushed??Math.max(0,initialSlate-livingSlate.length);
   const trapped=livingSlate.filter(e=>crawlerIsTrapped(state,e)).length;

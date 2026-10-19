@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-19T15:07:28.637Z",
+  "verifiedAt": "2026-10-19T17:56:05.602Z",
   "levels": [
     {
       "id": "01",
@@ -270,6 +270,96 @@
       "points": 101,
       "score": 101,
       "hash": "0718a67e"
+    },
+    {
+      "id": "31",
+      "name": "Ein ungewöhnlicher Bergmann",
+      "status": "won",
+      "ticks": 253,
+      "points": 26,
+      "score": 26,
+      "hash": "3af1698b"
+    },
+    {
+      "id": "32",
+      "name": "Was aus der Tiefe kommt",
+      "status": "won",
+      "ticks": 327,
+      "points": 25,
+      "score": 30,
+      "hash": "ddbc2f57"
+    },
+    {
+      "id": "33",
+      "name": "Den Nachschub stoppen",
+      "status": "won",
+      "ticks": 320,
+      "points": 29,
+      "score": 29,
+      "hash": "f0f47908"
+    },
+    {
+      "id": "34",
+      "name": "Die große Rundfahrt",
+      "status": "won",
+      "ticks": 416,
+      "points": 52,
+      "score": 57,
+      "hash": "03403810"
+    },
+    {
+      "id": "35",
+      "name": "Der Treffpunkt",
+      "status": "won",
+      "ticks": 272,
+      "points": 28,
+      "score": 38,
+      "hash": "e5480b26"
+    },
+    {
+      "id": "36",
+      "name": "Das offene Geröllmeer",
+      "status": "won",
+      "ticks": 1052,
+      "points": 460,
+      "score": 460,
+      "hash": "2d4517d2"
+    },
+    {
+      "id": "37",
+      "name": "Fracht über der Tiefe",
+      "status": "won",
+      "ticks": 444,
+      "points": 37,
+      "score": 42,
+      "hash": "a4c3e618"
+    },
+    {
+      "id": "38",
+      "name": "Eine letzte Schicht",
+      "status": "won",
+      "ticks": 495,
+      "points": 49,
+      "score": 49,
+      "hash": "e81a5ced"
+    },
+    {
+      "id": "39",
+      "name": "Die Ernte fällt nach unten",
+      "status": "won",
+      "ticks": 397,
+      "points": 46,
+      "score": 46,
+      "hash": "f2d308d0"
+    },
+    {
+      "id": "40",
+      "name": "Der Preis des Durchbruchs",
+      "status": "won",
+      "ticks": 628,
+      "points": 53,
+      "score": 63,
+      "hash": "38025e38"
     }
   ],
   "chapterAlternatives": [

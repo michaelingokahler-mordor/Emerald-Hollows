@@ -96,3 +96,8 @@ Keine neuen Generierungen. Runway-Hebel, Tore, Miner und übrige Medien bleiben 
 ## Kapitel 3, Version 0.9
 
 Keine neuen Runway-Generierungen und keine zusätzlichen Credits. Schlösser, Portale und das DW-Tor verwenden die vorhandene Runway-Torgrafik. Die Schlüsselzeichen, Sonnen-/Mondsiegel und Portallichter sind programmatische UI-Overlays in `src/passage-view.ts`; sie sind keine neuen Runway-Bilder. Audio und Mineranimation bleiben unverändert.
+
+
+## Kapitel 4, Version 0.10
+
+Keine neuen Generierungen oder Runway-Kosten. Der Grabe-Käfer verwendet die vorhandenen Käferbilder mit Bernsteinfärbung; Muttergestein die bestehende Wandtextur mit warmer Färbung. Pits verwenden das vorhandene gemalte Ausgangsbild mit Licht und simulierter Countdown-Anzeige. Diese Varianten und Anzeigen sind programmatisch zusammengesetzt, keine neuen Runway-Bilder. Mineranimation und Musik bleiben unverändert.

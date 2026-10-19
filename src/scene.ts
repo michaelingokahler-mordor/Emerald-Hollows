@@ -1,3 +1,4 @@
+import {MiningView} from './mining-view';
 import Phaser from 'phaser';
 import {PassageView} from './passage-view';
 import {MechanismView} from './mechanism-view';
@@ -23,6 +24,7 @@ export class CaveScene extends Phaser.Scene {
   track=0;lastBeat=-1;dangerUntil=0;dangerMix=0;musicStarted=false;
   heroAnimationMs=0;
   passages?:PassageView;
+  mining?:MiningView;
   rig?:MechanismView;
   activeView?:ViewRoom; viewport={width:1280,height:720,dpr:1};
   constructor(bridge:SceneBridge){super('cave');this.bridge=bridge;}
@@ -45,6 +47,7 @@ export class CaveScene extends Phaser.Scene {
   begin():void{
     if(!this.loaded)return;
     const sim=this.bridge.simulation();if(!sim)return;
+    this.mining?.destroy();this.mining=new MiningView(this,sim.level);
     this.passages?.destroy();this.passages=new PassageView(this,sim.level);
     this.rig?.destroy();this.rig=new MechanismView(this,sim.level);this.activeView=undefined;
     for(const rows of this.grounds)for(const tile of rows)tile.destroy();
@@ -54,8 +57,8 @@ export class CaveScene extends Phaser.Scene {
     const floors=this.add.container(0,0).setName('floors').setDepth(-1);
     this.grounds=sim.state.terrain.map((line,y)=>line.map((terrain,x)=>{
       floors.add(this.add.image(x*CELL+CELL/2,y*CELL+CELL/2,'tiles','floor').setDisplaySize(CELL,CELL));
-      const frame=terrain==='earth'?((x+y)%3===0?'earth-alt':'earth'):terrain==='exit'?'exit-closed':terrain==='empty'?'floor':terrain;
-      return this.add.image(x*CELL+CELL/2,y*CELL+CELL/2,'tiles',frame).setDisplaySize(CELL,CELL).setDepth(terrain==='exit'?2:0);
+      const frame=terrain==='earth'?((x+y)%3===0?'earth-alt':'earth'):terrain==='exit'?'exit-closed':terrain==='empty'?'floor':terrain==='bedrock'?'wall':terrain;
+      return this.add.image(x*CELL+CELL/2,y*CELL+CELL/2,'tiles',frame).setDisplaySize(CELL,CELL).setDepth(terrain==='exit'?2:0).setTint(terrain==='bedrock'?0xc3a47c:0xffffff);
     }));
     this.player.setVisible(true).clearTint().setAlpha(1);
     this.previous.clear();this.prevPlayer={...sim.state.player};this.clock.reset();this.heroAnimationMs=0;this.drawnLevel=sim.level.id;
@@ -119,7 +122,7 @@ export class CaveScene extends Phaser.Scene {
     }
   }
   renderState(s:GameState,alpha:number):void{
-    this.rig?.update(s);this.passages?.update(s);
+    this.rig?.update(s);this.passages?.update(s);this.mining?.update(s);
     for(let y=0;y<s.terrain.length;y++)for(let x=0;x<s.terrain[y].length;x++){
       const t=s.terrain[y][x],img=this.grounds[y]?.[x];if(!img)continue;
       if(t==='empty')img.setVisible(false);
@@ -135,7 +138,7 @@ export class CaveScene extends Phaser.Scene {
       img.setPosition((Phaser.Math.Linear(p.x,e.x,alpha)+0.5)*CELL,(Phaser.Math.Linear(p.y,e.y,alpha)+0.5)*CELL).setFrame(frame);
       if(e.kind==='crystal-crawler'){img.setTint(0x8edfff);let badge=this.badges.get(e.id);if(!badge){badge=this.add.image(0,0,'tiles','diamond').setDisplaySize(25,25).setDepth(4);this.badges.set(e.id,badge);}badge.setPosition(img.x,img.y-12);}
       if(isCrawler(e.kind)){
-        if(e.kind!=='crystal-crawler')img.setTint(e.kind==='purple-crawler'?0xc78beb:0x8abbe9);
+        if(e.kind!=='crystal-crawler')img.setTint(e.kind==='digger'?0xffb353:e.kind==='purple-crawler'?0xc78beb:0x8abbe9);
         img.setFlipX(e.direction==='left');img.setAngle(e.direction==='up'?-90:e.direction==='down'?90:0);
       }
     }
@@ -149,10 +152,10 @@ export class CaveScene extends Phaser.Scene {
   }
   effects(events:GameEvent[]):void{
     for(const event of events){
-      const key=event.type==='key'?'emerald':event.type==='unlock'||event.type==='teleport'?'open':event.type==='crush'||event.type==='release'?'impact':event.type==='transmute'||event.type==='fusion'?'diamond':event.type==='switch'?'push':event.type;
+      const key=event.type==='bore'?'dig':event.type==='spawn'?'impact':event.type==='key'?'emerald':event.type==='unlock'||event.type==='teleport'?'open':event.type==='crush'||event.type==='release'?'impact':event.type==='transmute'||event.type==='fusion'?'diamond':event.type==='switch'?'push':event.type;
       const now=performance.now();
       if(this.cache.audio.exists(key)&&now-(this.lastSfx.get(key)??-1000)>70){this.sound.play(key,{volume:this.bridge.volume().sfx*(key==='dig'?0.5:key==='impact'?0.7:1)});this.lastSfx.set(key,now);}
-      if(['dig','emerald','diamond','crush','transmute','fusion'].includes(event.type)){
+      if(['bore','dig','emerald','diamond','crush','transmute','fusion'].includes(event.type)){
         const color=event.type==='dig'?0xcaa16b:event.type==='diamond'?0xc9ecff:0x8df0bb;
         for(let i=0;i<5;i++){
           const dot=this.add.circle((event.x+0.5)*CELL,(event.y+0.5)*CELL,2+i%2,color,0.8).setDepth(6);

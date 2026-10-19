@@ -1,7 +1,7 @@
 import {writeFile,readFile} from 'node:fs/promises';
 import {CHAPTER_THREE_ROUTES} from '../src/chapter-three';
 import {LEVELS} from '../src/levels';
-const CHAPTER_THREE=LEVELS.slice(20);
+const CHAPTER_THREE=LEVELS.slice(20,30);
 import {solve} from './solution';
 import {Simulation,runReplay,levelHash} from '../src/core/simulation';
 import {verifyChunk} from '../server/worker';

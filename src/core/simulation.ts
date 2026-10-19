@@ -1,3 +1,4 @@
+import {validateMining,initializeMining,spawnPits} from './mining';
 import { DELTAS, DIRECTIONS, rulesFor, isCrawler, type Direction, type Entity, type GameEvent, type GameState, type InputFrame, type LevelDefinition, type Replay, type Terrain } from './types';
 import {hasMechanismRules} from './types';
 import {validatePassages,initializePassages,collectKey,unlockDoor,portalTarget,arrivalFree} from './passages';
@@ -14,26 +15,26 @@ export function crawlerIsTrapped(state:GameState,crawler:Entity):boolean {
     const p=queue[i];if(state.player.x===p.x&&state.player.y===p.y||seen.size>2)return false;
     for(const d of Object.values(DELTAS)){
       const x=p.x+d.x,y=p.y+d.y,key=`${x},${y}`,e=state.entities.find(e=>e.x===x&&e.y===y);
-      if(seen.has(key)||state.terrain[y]?.[x]!=='empty'||e&&!isCrawler(e.kind))continue;
+      if(seen.has(key)||!(crawler.kind==='digger'?['empty','earth','bedrock']:['empty']).includes(state.terrain[y]?.[x])||e&&!isCrawler(e.kind))continue;
       seen.add(key);queue.push({x,y});
     }
   }
   return seen.size<=2;
 }
 export function levelHash(level: LevelDefinition): string {
-  return hash({ map: level.map, quota: level.quota, time: level.timeSeconds, rules: rulesFor(level), ...(level.objective?{objective:level.objective}:{}),...(level.mechanisms?{mechanisms:level.mechanisms}:{}),...(level.passages?{passages:level.passages}:{}) });
+  return hash({ map: level.map, quota: level.quota, time: level.timeSeconds, rules: rulesFor(level), ...(level.objective?{objective:level.objective}:{}),...(level.mechanisms?{mechanisms:level.mechanisms}:{}),...(level.passages?{passages:level.passages}:{}),...(level.mining?{mining:level.mining}:{}) });
 }
 export function validateLevel(level: LevelDefinition): void {
   if (level.map.length !== level.height || level.map.some(r => r.length !== level.width)) throw new Error(`${level.id}: invalid dimensions`);
   const cells = level.map.join('');
-  if ((hasMechanismRules(level)?/[^#X. PERMDC^v<>urdl]/:/[^#X. PERMDC^v<>]/).test(cells)) throw new Error(`${level.id}: unknown tile`);
+  if ((hasMechanismRules(level)?/[^#X. PERMDC^v<>urdlH1234]/:/[^#X. PERMDC^v<>]/).test(cells)) throw new Error(`${level.id}: unknown tile`);
   if ([...cells].filter(c => c === 'P').length !== 1 || [...cells].filter(c => c === 'E').length !== 1) throw new Error(`${level.id}: exactly one player and exit required`);
   if (level.quota <= 0 || level.timeSeconds <= 0) throw new Error(`${level.id}: invalid quota/time`);
   if (level.map.some((r,y) => [...r].some((c,x) => (x===0 || y===0 || x===level.width-1 || y===level.height-1) && !'#X'.includes(c)))) throw new Error(`${level.id}: open boundary`);
   const available = [...cells].reduce((n,c) => n+(c==='M'?1:c==='D'||c==='C'?3:0),0);
   const fusionPotential=hasMechanismRules(level)?3*Math.min([...cells].filter(c=>'^v<>'.includes(c)).length,[...cells].filter(c=>'urdl'.includes(c)).length):0;
   if (available+fusionPotential < level.quota) throw new Error(`${level.id}: insufficient gems`);
-  validateMechanisms(level); validatePassages(level);
+  validateMechanisms(level); validatePassages(level); validateMining(level);
 }
 
 export class Simulation {
@@ -41,6 +42,7 @@ export class Simulation {
   state!: GameState;
   inputs: InputFrame[] = [];
   events: GameEvent[] = [];
+  private fallingIndex?:Map<string,Entity>;
   constructor(level: LevelDefinition, practice = false) { validateLevel(level); this.level = level; this.reset(practice); }
   reset(practice = this.state?.practice ?? false): void {
     this.inputs = []; this.events = [];
@@ -50,15 +52,15 @@ export class Simulation {
       terrain[y] = [];
       for (let x=0; x<this.level.width; x++) {
         const c = this.level.map[y][x];
-        terrain[y][x] = c === '#' ? 'wall' : c === 'X' ? 'steel' : c === '.' ? 'earth' : c === 'E' ? 'exit' : 'empty';
+        terrain[y][x] = c === '#' ? 'wall' : c === 'X' ? 'steel' : c === 'H' ? 'bedrock' : c === '.' ? 'earth' : c === 'E' ? 'exit' : 'empty';
         if (c === 'P') player = { x,y,direction:'down' };
-        if ('RMDC^>v<urdl'.includes(c)) entities.push({ id:entities.length+1,x,y,kind:c==='R'?'rock':c==='M'?'emerald':c==='D'?'diamond':c==='C'?'crystal-crawler':'urdl'.includes(c)?'purple-crawler':'crawler',falling:false,direction:({ '^':'up','>':'right','v':'down','<':'left',u:'up',r:'right',d:'down',l:'left' } as Record<string,Direction>)[c] ?? 'down' });
+        if ('RMDC^>v<urdl1234'.includes(c)) entities.push({ id:entities.length+1,x,y,kind:'1234'.includes(c)?'digger':c==='R'?'rock':c==='M'?'emerald':c==='D'?'diamond':c==='C'?'crystal-crawler':'urdl'.includes(c)?'purple-crawler':'crawler',falling:false,direction:({ '^':'up','>':'right','v':'down','<':'left',u:'up',r:'right',d:'down',l:'left','1':'up','2':'right','3':'down','4':'left' } as Record<string,Direction>)[c] ?? 'down' });
       }
     }
     this.state = { terrain, entities, player, tick:0, points:0, status:'playing', remainingTicks:this.level.timeSeconds*10,open:false,practice,deathReason:'',...(this.level.objective?{objectiveDone:false}:{}) };
-    initializeMechanisms(this.level,this.state); initializePassages(this.level,this.state);
+    initializeMechanisms(this.level,this.state); initializePassages(this.level,this.state); initializeMining(this.level,this.state);
   }
-  entityAt(x:number,y:number): Entity | undefined { return this.state.entities.find(e => e.x===x && e.y===y); }
+  entityAt(x:number,y:number): Entity | undefined { return this.fallingIndex?this.fallingIndex.get(`${x},${y}`):this.state.entities.find(e => e.x===x && e.y===y); }
   terrainAt(x:number,y:number): Terrain { return this.state.terrain[y]?.[x] ?? 'steel'; }
   playerAt(x:number,y:number): boolean { return this.state.player.x===x && this.state.player.y===y; }
   empty(x:number,y:number): boolean { return this.terrainAt(x,y)==='empty' && !this.entityAt(x,y) && !this.playerAt(x,y); }
@@ -108,7 +110,7 @@ export class Simulation {
         if(blockedArrival)this.emit('blocked',x,y);
         let canMove=!occupant&&!blockedArrival;
         if (!blockedArrival&&(occupant?.kind==='emerald' || occupant?.kind==='diamond')) { this.collect(occupant); canMove=true; }
-        else if (!blockedArrival && occupant && isCrawler(occupant.kind)) { s.player.x=x; s.player.y=y; this.die(occupant.kind==='crystal-crawler'?'Du bist mit einem Kristallkrabbler zusammengestoßen.':'Du bist mit einem Schieferkrabbler zusammengestoßen.'); return this.events; }
+        else if (!blockedArrival && occupant && isCrawler(occupant.kind)) { s.player.x=x; s.player.y=y; this.die(occupant.kind==='digger'?'Du bist mit einem Grabe-Käfer zusammengestoßen.':occupant.kind==='crystal-crawler'?'Du bist mit einem Kristallkrabbler zusammengestoßen.':'Du bist mit einem Schieferkrabbler zusammengestoßen.'); return this.events; }
         else if (!blockedArrival && occupant?.kind==='rock' && !occupant.falling && d.y===0 && this.empty(x+d.x,y)) {
           occupant.x+=d.x; moved.add(occupant.id); canMove=true; this.emit('push',x,y);
         }
@@ -120,14 +122,19 @@ export class Simulation {
       }
     }
     const falling = s.entities.filter(e=>!isCrawler(e.kind)).sort((a,b)=>b.y-a.y || a.x-b.x || a.id-b.id);
-    for (const e of falling) {
+    // Dense v5 ore fields use an ephemeral occupancy index during gravity only.
+    // Updating it in finally preserves the exact original sequential tick order.
+    if(s.mining)this.fallingIndex=new Map(s.entities.map(e=>[`${e.x},${e.y}`,e]));
+    try { for (const e of falling) {
+      const oldCell=`${e.x},${e.y}`;let removed=false;
+      try {
       if (moved.has(e.id)) continue;
       const below=this.entityAt(e.x,e.y+1);
       const playerBelow=this.playerAt(e.x,e.y+1);
       if (e.falling && (playerBelow || below && isCrawler(below.kind))) {
         if (playerBelow) { e.y++; this.die('Ein fallender Stein oder Kristall hat dich getroffen.'); return this.events; }
         if(below!.kind==='crystal-crawler'){
-          s.entities=s.entities.filter(item=>item.id!==e.id);
+          s.entities=s.entities.filter(item=>item.id!==e.id);removed=true;
           below!.kind='diamond';below!.falling=false;moved.add(below!.id);
           this.emit('transmute',below!.x,below!.y);
           if(s.mechanisms)s.mechanisms.transmuted++;
@@ -147,22 +154,25 @@ export class Simulation {
           if (this.empty(e.x+dx,e.y) && this.empty(e.x+dx,e.y+1)) { e.x+=dx; e.falling=true; moved.add(e.id); break; }
         }
       }
-    }
+      } finally {if(this.fallingIndex){this.fallingIndex.delete(oldCell);if(!removed)this.fallingIndex.set(`${e.x},${e.y}`,e);}}
+    } } finally {this.fallingIndex=undefined;}
     if (s.tick%3===0) {
       const newborn=new Set<number>();fuseCrawlers(s,this.events,newborn);
       for (const e of [...s.entities].filter(e=>isCrawler(e.kind)).sort((a,b)=>a.id-b.id)) {
         if(newborn.has(e.id)||!s.entities.includes(e))continue;
         const index=DIRECTIONS.indexOf(e.direction);
-        for (const turn of e.kind==='purple-crawler'?[3,0,1,2]:[1,0,3,2]) {
+        for (const turn of e.kind==='digger'?[0,1,3,2]:e.kind==='purple-crawler'?[3,0,1,2]:[1,0,3,2]) {
           const dir=DIRECTIONS[(index+turn)%4],d=DELTAS[dir],x=e.x+d.x,y=e.y+d.y;
-          if (this.terrainAt(x,y)!=='empty' || this.entityAt(x,y)) continue;
+          if (!(e.kind==='digger'?['empty','earth','bedrock']:['empty']).includes(this.terrainAt(x,y)) || this.entityAt(x,y)) continue;
+          if(e.kind==='digger'&&this.terrainAt(x,y)!=='empty'){s.terrain[y][x]='empty';s.mining!.excavated++;this.emit('bore',x,y);}
           e.direction=dir; e.x=x; e.y=y;
-          if (this.playerAt(x,y)) { this.die(e.kind==='crystal-crawler'?'Ein Kristallkrabbler hat dich erwischt.':'Ein Schieferkrabbler hat dich erwischt.'); return this.events; }
+          if (this.playerAt(x,y)) { this.die(e.kind==='digger'?'Ein Grabe-Käfer hat dich erwischt.':e.kind==='crystal-crawler'?'Ein Kristallkrabbler hat dich erwischt.':'Ein Schieferkrabbler hat dich erwischt.'); return this.events; }
           fuseCrawlers(s,this.events,newborn);
           break;
         }
       }
     }
+    spawnPits(this.level,s,this.events);
     if(this.level.objective==='trap')s.objectiveDone=s.entities.some(e=>isCrawler(e.kind)&&this.isTrapped(e));
     this.refreshExit();
     if (!s.practice && --s.remainingTicks<=0) this.die('Die Zeit ist abgelaufen. Im Übungsmodus kannst du ohne Countdown weiterspielen.');

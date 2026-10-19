@@ -71,7 +71,7 @@ describe('chapter three routes, timing and persistence',()=>{
    let run={id:'test',profile_id:'test',replay:JSON.stringify(r),state:null as string|null,cursor:0,status:'pending'};while(run.status==='pending'){const result=verifyChunk(run);run={...run,state:JSON.stringify(result.state),cursor:result.cursor,status:result.status};}expect(run.status).toBe('confirmed');
   }
  });
- for(const l of LEVELS.slice(20))it(`${l.id}: reference tolerates nine starting phases within the current deadline`,()=>{for(let delay=0;delay<9;delay++)expect(solve(l,delay).state.status).toBe('won');});
+ for(const l of LEVELS.slice(20,30))it(`${l.id}: reference tolerates nine starting phases within the current deadline`,()=>{for(let delay=0;delay<9;delay++)expect(solve(l,delay).state.status).toBe('won');});
  it('retains every pre-chapter-three map and its successful replay state',()=>{for(const old of baseline){const l=[...LEVELS,...LEGACY_LEVELS].find(l=>l.id===old.levelId&&levelHash(l)===old.levelHash)!;expect(l).toBeDefined();expect(levelHash(l)).toBe(old.levelHash);expect(hash(solve(l).state)).toBe(old.expectedHash);}});
  it('retains old scores and unlocks 21 from 20; chapter three scores persist',()=>{
   const save=defaultSave();recordWin(save,'20',350,47,false,52);recordWin(save,'21',539,60,false,60);const restored=parseSave(JSON.stringify(save));expect(currentRecord(restored,'20')?.ticks).toBe(350);expect(currentRecord(restored,'21')?.points).toBe(60);expect(unlockedLevels(['20']).has('21')).toBe(true);

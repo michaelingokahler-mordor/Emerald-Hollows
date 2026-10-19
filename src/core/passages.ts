@@ -1,8 +1,8 @@
-import {PASSAGE_RULES_VERSION,rulesFor,type LevelDefinition,type GameState,type GameEvent} from './types';
+import {MINING_RULES_VERSION,PASSAGE_RULES_VERSION,rulesFor,type LevelDefinition,type GameState,type GameEvent} from './types';
 
 export function validatePassages(l:LevelDefinition):void {
  const p=l.passages;if(!p)return;
- if(rulesFor(l)!==PASSAGE_RULES_VERSION)throw Error('Passages require rules v4');
+ if(![PASSAGE_RULES_VERSION,MINING_RULES_VERSION].includes(rulesFor(l)))throw Error('Passages require rules v4');
  const ids=new Set<string>(),cells=new Set((l.mechanisms?[...l.mechanisms.gates,...l.mechanisms.levers,...l.mechanisms.dispensers]:[]).map(d=>`${d.x},${d.y}`));
  for(const d of [...p.keys,...p.doors,...p.portals]){
   const cell=`${d.x},${d.y}`;

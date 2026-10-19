@@ -1,3 +1,4 @@
+import {CHAPTER_FOUR} from './chapter-four';
 import {CHAPTER_THREE} from './chapter-three';
 import {TIME_LIMITS} from './time-limits';
 import { CRAWLER_RULES_VERSION, type LevelDefinition } from './core/types';
@@ -67,4 +68,4 @@ export const LEVELS: LevelDefinition[] = [
   "parTicks": 0,
   "rulesVersion": "emerald-hollows/2"
 }
-,...CHAPTER_TWO,...CHAPTER_THREE].map(l=>({...l,timeSeconds:TIME_LIMITS[l.id]??l.timeSeconds})) as LevelDefinition[];
+,...CHAPTER_TWO,...CHAPTER_THREE,...CHAPTER_FOUR].map(l=>({...l,timeSeconds:TIME_LIMITS[l.id]??l.timeSeconds})) as LevelDefinition[];

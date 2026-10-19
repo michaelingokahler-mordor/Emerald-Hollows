@@ -76,3 +76,12 @@ Nur geänderte Karten erhalten über ihre Prüfsumme neue Ranglisten. Unverände
 - 31 Sammelkammern aus einer Vorlage: individuelle Maße machen keine individuelle Aufgabe.
 - Umgehung in 17: neue Querwege und zusätzliche Beute können ein früher notwendiges Rätsel vollständig entwerten.
 - 0.8: 15 verwendet einen Fels als lebendigen Riegel; 17 verknüpft Vorbereitung und Rückweg; 19 trennt zwei Zuführungen ohne Spender; 20 verwendet denselben Fels nacheinander als Gefahr und Hindernis. Ob sich diese Rollen für Spieler ausreichend unterscheiden, bleibt eine Frage der menschlichen Abnahme.
+
+
+## Ergänzungen aus Kapitel IV (0.10)
+
+- Hilfsgegner bis zur Freilassung auch gegen Rückwärtsausweichen sichern. Einen geschlossenen Vorwärtsausgang allein nicht als Käfig behandeln.
+- Ein Pit ist selbst unpassierbar: Spielerzugang zum Auslass seitlich führen. Mehrere Auslässe mit Populationsgrenzen testen; Abschalten entfernt keine bestehenden Gegner.
+- Auf jedem neuen Querweg erneut prüfen, ob er Tore oder notwendige Rückwege umgeht. In 37 entstand ein solcher Bypass durch einen seitlichen Erzast.
+- Bei Vollsammel-Aufgaben Quote gegen die gesamte Platzierung rechnen und nach dem Ausgang auf null verbliebene Edelsteine prüfen. Mehrere Abbaureihenfolgen und Startseiten testen; Umfang der Stichprobe benennen.
+- Eine lokale Abkürzung ist nicht automatisch die schnellste Gesamtlösung. Vorbereitung und Rückwege mitmessen; sichere und riskante Varianten nicht ohne gemessenen Vorteil als schnell/langsam bezeichnen.

@@ -1,6 +1,6 @@
 import { Simulation, hash, levelHash } from '../src/core/simulation';
 import { checkedReplay, replayLevel } from '../src/core/replay-validation';
-import { RULES_VERSION, CRAWLER_RULES_VERSION, MECHANISM_RULES_VERSION,PASSAGE_RULES_VERSION, rulesFor, type GameState, type Replay } from '../src/core/types';
+import { RULES_VERSION, CRAWLER_RULES_VERSION, MECHANISM_RULES_VERSION,MINING_RULES_VERSION,PASSAGE_RULES_VERSION, rulesFor, type GameState, type Replay } from '../src/core/types';
 import { LEVELS } from '../src/levels';
 import {compatibleHashes,currentServerRecords,type ServerRecord} from '../src/record-compatibility';
 import { normalizeName, validName } from '../src/storage';
@@ -37,7 +37,9 @@ export function verifyChunk(run:Run):{status:string;state:GameState;cursor:numbe
   const sim=new Simulation(level);
   if(run.state)sim.state=JSON.parse(run.state);
   let cursor=run.cursor;
-  const end=Math.min(cursor+100,replay.inputs.length);
+  // Dense ore fields get smaller verification chunks; result and rule order are unchanged.
+  const chunk=sim.state.entities.length>200?20:100;
+  const end=Math.min(cursor+chunk,replay.inputs.length);
   while(cursor<end&&sim.state.status==='playing')sim.step(replay.inputs[cursor++]);
   const complete=sim.state.status!=='playing'||cursor===replay.inputs.length;
   const valid=complete&&sim.state.status==='won'&&cursor===replay.inputs.length&&sim.state.tick===cursor&&hash(sim.state)===replay.expectedHash;
@@ -55,7 +57,7 @@ async function handle(request:Request,env:Env):Promise<Response>{
     const {results}=await env.DB.prepare(`SELECT rowid AS backup_rowid,* FROM ${table} WHERE rowid>? ORDER BY rowid LIMIT ${pageSize}`).bind(Number(after)).all();
     return json({rows:results,next:results.length===pageSize?String(results.at(-1)!.backup_rowid):null});
   }
-  if(request.method==='GET'&&path==='/health')return json({ok:true,rulesVersion:RULES_VERSION,supportedRules:[RULES_VERSION,CRAWLER_RULES_VERSION,MECHANISM_RULES_VERSION,PASSAGE_RULES_VERSION],scoreVersion:SCORE_VERSION,levels:LEVELS.length});
+  if(request.method==='GET'&&path==='/health')return json({ok:true,rulesVersion:RULES_VERSION,supportedRules:[RULES_VERSION,CRAWLER_RULES_VERSION,MECHANISM_RULES_VERSION,MINING_RULES_VERSION,PASSAGE_RULES_VERSION],scoreVersion:SCORE_VERSION,levels:LEVELS.length});
   if(request.method==='POST'&&path==='/profiles'){
     const body=await readBody(request);const nickname=normalizeName(String(body.nickname??''));if(!validName(nickname))return json({error:'name'},400);
     await quota(env,'profiles',30);

@@ -1,6 +1,6 @@
 # Lathmar: Emerald Hollows
 
-A cave action-puzzle game set in Lathmar, with warm Amiga-inspired artwork and Runway music. The playable browser demo contains **thirty handcrafted caves across three chapters**, English and German menus, keyboard and touch controls, a practice mode, automatic saves, offline installation, and optional public best times.
+A cave action-puzzle game set in Lathmar, with warm Amiga-inspired artwork and Runway music. The playable browser demo contains **forty handcrafted caves across four chapters**, English and German menus, keyboard and touch controls, a practice mode, automatic saves, offline installation, and optional public best times.
 
 The full game is planned to contain **120 levels: 100 main caves and 20 hidden levels**. These additional levels are not included in the current demo.
 
@@ -9,6 +9,14 @@ The full game is planned to contain **120 levels: 100 main caves and 20 hidden l
 - [Download the web and source packages](https://github.com/michaelingokahler-mordor/Emerald-Hollows/releases)
 - [Development roadmap (German)](docs/ENTWICKLUNGSPLAN.md)
 - [Chapter 3 implementation and verification (German)](docs/KAPITEL-3-UMSETZUNG.md)
+
+## Update 0.10.0 — The Hungry Veins
+
+Chapter IV adds caves **31–40**, amber diggers, hard bedrock and timed monster pits. Existing switches can stop future spawns; enemies already released stay in the cave. Diggers are useful for excavation but remain dangerous. Their enemy bonus does not count toward gem quotas.
+
+The chapter combines route choices, two fusion sites, continuous rock transport, limited magazines and vertical ore extraction. The **Open Scree Sea (36)** has no internal dividing walls: all **460 gem points** are required. Two reference routes and 24 shuffled extraction orders collect every gem. This is finite test coverage, not a guarantee against every fatal move or player-created obstruction.
+
+All existing 01–30 map hashes, records and unlocks are retained. Complete 30 in either mode to unlock 31. New deadlines are rounded to at most three times the measured automated reference, pending human records. [Design and timings](docs/KAPITEL-4-UMSETZUNG.md) · [Verification data](artifacts/chapter-four-verification.json).
 
 ## Update 0.9.1
 
@@ -36,7 +44,7 @@ Emeralds contribute one quota point; diamonds contribute three. Meet the crystal
 
 Choose English or German in the main menu or Settings. English is the default. Credits are available from the main menu and completion screen; asset provenance and license notices are documented in [Credits](docs/CREDITS.md).
 
-### The thirty caves
+### The forty caves
 
 The opening caves introduce collecting, falling rocks, pushing, and rolling. Cave 06 teaches containment, 07 teaches a timed rock drop, and 09 introduces a crystal crawler that becomes a diamond when crushed. Cave 08 deliberately offers more crystal points than required, allowing different collection routes.
 

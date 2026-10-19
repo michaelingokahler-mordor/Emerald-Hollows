@@ -1,8 +1,8 @@
-# Die dreißig Höhlen – Entwurf und Lösungen
+# Die vierzig Höhlen – Entwurf und Lösungen
 
 Alle Lösungen wurden im Normalspiel mit aktiven Gegnern, Schwerkraft und Countdown ausgeführt und als Replay erneut geprüft. Ein Lösungsreplay beweist Lösbarkeit; es ersetzt kein menschliches Urteil über Spielspaß.
 
-Legende: X Außenwand, # Mauer, . Erde, Leerzeichen Gang, P Spieler, E Ausgang, R Fels, M Smaragd, D Diamant, C Kristallkrabbler, >/< /^/v blaue Krabbler mit Startausrichtung; u/r/d/l lila Krabbler. Geräte werden unter jeder Karte gesondert angegeben. use = frische Hebelbetätigung mit anschließendem Loslassen; until = auf Käfer an der angegebenen Koordinate warten; harvest = alle erreichbaren Edelsteine im bezeichneten Bereich mit regulären Bewegungseingaben sammeln.
+Legende: X Außenwand, # Mauer, . Erde, Leerzeichen Gang, P Spieler, E Ausgang, R Fels, M Smaragd, D Diamant, C Kristallkrabbler, >/< /^/v blaue Krabbler mit Startausrichtung; u/r/d/l lila Krabbler; H hartes Muttergestein; 1/2/3/4 Grabe-Käfer (oben/rechts/unten/links). Geräte werden unter jeder Karte gesondert angegeben. use = frische Hebelbetätigung mit anschließendem Loslassen; until = auf Käfer an der angegebenen Koordinate warten; harvest = alle erreichbaren Edelsteine im bezeichneten Bereich mit regulären Bewegungseingaben sammeln.
 
 ## 01 – Die erste Schicht
 
@@ -3125,6 +3125,2359 @@ walk 52 32
 walk 52 38
 harvest 29 27 24 12
 walk 4 3
+```
+
+## 31 – Ein ungewöhnlicher Bergmann
+
+Die hungrigen Adern. 38 × 26 Felder, Quote 24, 70 Sekunden, Schwierigkeit 2/3.
+
+Bernsteinfarbene Grabe-Käfer öffnen das harte Muttergestein. Sie graben geradeaus; Hindernisse lenken sie rechts, links oder zurück. Lass A offen und sammle links, während er arbeitet. Der Sonnenschlüssel liegt hinter der Ader. Töte deinen Helfer nicht vorher.
+
+Hinweis: Bernsteinfarbene Grabe-Käfer öffnen das harte Muttergestein. Sie graben geradeaus; Hindernisse lenken sie rechts, links oder zurück. Lass A offen und sammle links, während er arbeitet. Der Sonnenschlüssel liegt hinter der Ader. Töte deinen Helfer nicht vorher.
+
+Geprüfter Durchlauf: 253 Takte / 25.3 Sekunden, 26 Kristallpunkte, 26 Wertungspunkte. Replay: public/replays/31.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X####################################X
+X##E#################################X
+X##.#################################X
+X##..M.M############..M...M...M...###X
+X##.###.############.############.###X
+X##.###.############.############.###X
+X##.################.############.###X
+X##P...#2#HHHHHHHHHH······#######M###X
+X##.################.##.#.#######.###X
+X##.################.##.#.###M....###X
+X##.################.##.#.###.###.###X
+X##M################.##...###.###.###X
+X##.################.########.###.###X
+X##.################.########M###.###X
+X##.#M...####....M...####M....###.###X
+X##.####.####.######.############.###X
+X##.####.####.######.############.###X
+X##.####.####D######......D######D###X
+X##.####.####.###################.###X
+X##....M.####.###################.###X
+X############..M...M....M....M....###X
+X####################################X
+X####################################X
+X####################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [
+    {
+      "id": "sun",
+      "seal": "sun",
+      "x": 20,
+      "y": 8
+    }
+  ],
+  "doors": [
+    {
+      "id": "exit",
+      "seal": "sun",
+      "x": 3,
+      "y": 3
+    }
+  ],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "A",
+      "label": "A",
+      "x": 9,
+      "y": 8,
+      "open": false
+    },
+    {
+      "id": "BACK",
+      "label": "A",
+      "x": 7,
+      "y": 8,
+      "open": false
+    }
+  ],
+  "levers": [
+    {
+      "id": "release",
+      "label": "A",
+      "x": 7,
+      "y": 7,
+      "gates": [
+        "A",
+        "BACK"
+      ],
+      "dispensers": []
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 7 6
+use down
+harvest 2 4 7 17
+until 25 8 digger
+walk 20 8
+harvest 12 4 23 19
+walk 3 2
+```
+
+## 32 – Was aus der Tiefe kommt
+
+Die hungrigen Adern. 42 × 26 Felder, Quote 24, 95 Sekunden, Schwierigkeit 2/3.
+
+P kündigt einen einzigen Grabe-Käfer an. Sammle den Seitenweg, während er die Ader öffnet. Die Felsfalle bedienst du von links neben der Stütze. Ein Abschalten löscht keinen bereits erschienenen Gegner. Der Schlüssel liegt im östlichen Bogen.
+
+Hinweis: P kündigt einen einzigen Grabe-Käfer an. Sammle den Seitenweg, während er die Ader öffnet. Die Felsfalle bedienst du von links neben der Stütze. Ein Abschalten löscht keinen bereits erschienenen Gegner. Der Schlüssel liegt im östlichen Bogen.
+
+Geprüfter Durchlauf: 327 Takte / 32.7 Sekunden, 25 Kristallpunkte, 30 Wertungspunkte. Replay: public/replays/32.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X########################################X
+X########################################X
+X##E#####################################X
+X##.###########################D.......##X
+X##..M..M######################.######.##X
+X##.####.######################.######.##X
+X##.####.######################.######M##X
+X##.#################.....R####M######.##X
+X##.#####....########.###..####.######.##X
+X##P#####..#·HHHHHHHH········##.######.##X
+X##.#####.###########.##·###·##.######M##X
+X##.#####.###########.##·###·##M######.##X
+X##.#####.###########.##·###·##.######.##X
+X##.#####.###########.##·····##.######.##X
+X##..M.M#.###########.#########.######.##X
+X##.#####.###########..M..M####.######D##X
+X##.#####.###########.####.####...D.##.##X
+X##.#####.###########.####.###########.##X
+X##.#####.###########.####.###########.##X
+X##.#####.###########...M...M....M...M.##X
+X##..M..M.###############################X
+X########################################X
+X########################################X
+X########################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": [
+    {
+      "id": "P",
+      "label": "P",
+      "x": 11,
+      "y": 10,
+      "direction": "right",
+      "delay": 30,
+      "interval": 0,
+      "maxAlive": 1,
+      "active": false
+    }
+  ]
+}
+```
+
+```json
+{
+  "keys": [
+    {
+      "id": "sun",
+      "seal": "sun",
+      "x": 35,
+      "y": 17
+    }
+  ],
+  "doors": [
+    {
+      "id": "exit",
+      "seal": "sun",
+      "x": 3,
+      "y": 4
+    }
+  ],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [],
+  "levers": [
+    {
+      "id": "wake",
+      "label": "P",
+      "x": 8,
+      "y": 8,
+      "gates": [],
+      "dispensers": [],
+      "pits": [
+        "P"
+      ]
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 8 7
+use down
+harvest 3 5 7 17
+until 28 10 digger
+walk 25 9
+until 26 10 digger
+snap right
+wait 5
+walk 35 17
+harvest 20 4 19 18
+walk 3 3
+```
+
+## 33 – Den Nachschub stoppen
+
+Die hungrigen Adern. 44 × 28 Felder, Quote 25, 95 Sekunden, Schwierigkeit 2/3.
+
+P liefert alle 24 Sekunden einen Grabe-Käfer, höchstens zwei gleichzeitig. Der Hebel hinter der Ader stoppt den Nachschub, schließt IN und öffnet OUT. Bereits erschienene Käfer bleiben. Hole den Mondschlüssel und kehre durch OUT zurück.
+
+Hinweis: P liefert alle 24 Sekunden einen Grabe-Käfer, höchstens zwei gleichzeitig. Der Hebel hinter der Ader stoppt den Nachschub, schließt IN und öffnet OUT. Bereits erschienene Käfer bleiben. Hole den Mondschlüssel und kehre durch OUT zurück.
+
+Geprüfter Durchlauf: 320 Takte / 32.0 Sekunden, 29 Kristallpunkte, 29 Wertungspunkte. Replay: public/replays/33.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X##########################################X
+X##########################################X
+X##E#######################################X
+X##.#######################################X
+X#######################...M...M...########X
+X##..M..M....###########.#########.########X
+X##.#####.##..##########.#########.########X
+X##P#####.###·#HHHHHHHHH·······###.########X
+X##.#####.##.##############·##·###M########X
+X##.#####M##.##############·##·###...M...##X
+X##.#####.##.##############·##·###.#####.##X
+X##.#M....##.##############····###.#####.##X
+X##.########.#####################.#####.##X
+X##.########.#####################D#####M##X
+X##.########.#####################.#####.##X
+X##.########.###########.M..M..###.#####.##X
+X##M########.###########.#####.###.#####.##X
+X##.########.###########.#####.###.#####.##X
+X##.########.###########.#####M###D#####.##X
+X##.########.###########D.M....###...M...##X
+X##.########.###########.#########.########X
+X##.########.###########.#########.########X
+X##....M...M......#...M....M....M..########X
+X##########################################X
+X##########################################X
+X##########################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": [
+    {
+      "id": "P",
+      "label": "P",
+      "x": 12,
+      "y": 8,
+      "direction": "right",
+      "delay": 10,
+      "interval": 240,
+      "maxAlive": 2,
+      "active": true
+    }
+  ]
+}
+```
+
+```json
+{
+  "keys": [
+    {
+      "id": "moon",
+      "seal": "moon",
+      "x": 40,
+      "y": 20
+    }
+  ],
+  "doors": [
+    {
+      "id": "exit",
+      "seal": "moon",
+      "x": 3,
+      "y": 4
+    }
+  ],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "IN",
+      "label": "IN",
+      "x": 14,
+      "y": 8,
+      "open": true
+    },
+    {
+      "id": "OUT",
+      "label": "OUT",
+      "x": 18,
+      "y": 23,
+      "open": false
+    },
+    {
+      "id": "EXIT",
+      "label": "OUT",
+      "x": 3,
+      "y": 5,
+      "open": false
+    }
+  ],
+  "levers": [
+    {
+      "id": "stop",
+      "label": "P / OUT",
+      "x": 23,
+      "y": 5,
+      "gates": [
+        "IN",
+        "OUT",
+        "EXIT"
+      ],
+      "dispensers": [],
+      "pits": [
+        "P"
+      ]
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+harvest 3 6 9 18
+until 30 8 digger
+walk 24 5
+use left
+walk 40 20
+harvest 20 5 22 20
+walk 3 3
+```
+
+## 34 – Die große Rundfahrt
+
+Die hungrigen Adern. 52 × 34 Felder, Quote 48, 120 Sekunden, Schwierigkeit 3/3.
+
+Sonnen- und Mondschlüssel gehören zu den beiden Ausgangsschlössern. Plane die Erzrunde mit A und B. CUT öffnet eine kurze Querverbindung durch Muttergestein, lässt aber einen Grabe-Käfer frei. Der längere Außenweg funktioniert ohne ihn.
+
+Hinweis: Sonnen- und Mondschlüssel gehören zu den beiden Ausgangsschlössern. Plane die Erzrunde mit A und B. CUT öffnet eine kurze Querverbindung durch Muttergestein, lässt aber einen Grabe-Käfer frei. Der längere Außenweg funktioniert ohne ihn.
+
+Geprüfter Durchlauf: 416 Takte / 41.6 Sekunden, 52 Kristallpunkte, 57 Wertungspunkte. Replay: public/replays/34.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X##################################################X
+X##################################################X
+X##E###############################################X
+X##.############..M.D..M....M....M....M.....·..####X
+X##.############.#############################.####X
+X##.############.#############################.####X
+X##.############.########D.M...M...M.#########.####X
+X##.############.########.##########.#########M####X
+X##...M..M.#####.########.##########.#########.####X
+X##.######.#####.########.##########.#########.####X
+X##.######.#####..M...M...##########M#####.....####X
+X##P######.#####.###################.#####.###.####X
+X##.######.#####.###################.#####.###.####X
+X##.######.#####.##################.....M..###.####X
+X##.##.M..·###...##################.##.#.D.###.####X
+X##.##########.##2#HHHHHHHHHHHHHHHH·····##.###.####X
+X##.##########...####################·#·##.###M####X
+X##.############.####################···##.###.####X
+X##.############.###################....M..###.####X
+X##.############.###################.#########.####X
+X##.############....M...M.##########.#########.####X
+X##..M..M..#####.########.##########M#########.####X
+X##.######.#####.########.##########.#########M####X
+X##.######.#####.########.##########.#########.####X
+X##.######.#####.########D..M...M...·#########.####X
+X##.##.DM..#####.#############################.####X
+X##.############.#############################.####X
+X##.############.#############################.####X
+X##..·...M...M.....M.....M.....M.....M....M...D####X
+X##################################################X
+X##################################################X
+X##################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [
+    {
+      "id": "sun",
+      "seal": "sun",
+      "x": 42,
+      "y": 15
+    },
+    {
+      "id": "moon",
+      "seal": "moon",
+      "x": 6,
+      "y": 26
+    }
+  ],
+  "doors": [
+    {
+      "id": "sun-lock",
+      "seal": "sun",
+      "x": 3,
+      "y": 5
+    },
+    {
+      "id": "moon-lock",
+      "seal": "moon",
+      "x": 3,
+      "y": 4
+    }
+  ],
+  "portals": [
+    {
+      "id": "Aa",
+      "pair": "A",
+      "x": 5,
+      "y": 29
+    },
+    {
+      "id": "Ab",
+      "pair": "A",
+      "x": 44,
+      "y": 4
+    },
+    {
+      "id": "Ba",
+      "pair": "B",
+      "x": 10,
+      "y": 15
+    },
+    {
+      "id": "Bb",
+      "pair": "B",
+      "x": 36,
+      "y": 25
+    }
+  ]
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "CUT",
+      "label": "CUT",
+      "x": 18,
+      "y": 16,
+      "open": false
+    },
+    {
+      "id": "BACK",
+      "label": "CUT",
+      "x": 16,
+      "y": 16,
+      "open": false
+    }
+  ],
+  "levers": [
+    {
+      "id": "cut",
+      "label": "CUT",
+      "x": 15,
+      "y": 16,
+      "gates": [
+        "CUT",
+        "BACK"
+      ],
+      "dispensers": []
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 6 26
+walk 42 15
+harvest 3 7 44 23
+harvest 16 4 31 4
+walk 3 3
+```
+
+## 35 – Der Treffpunkt
+
+Die hungrigen Adern. 40 × 30 Felder, Quote 28, 80 Sekunden, Schwierigkeit 3/3.
+
+Wähle U oder D als Treffpunkt für Blau und Lila. Der passende Spender liegt zwei Felder über der Spur. Sammle auch den Diamanten des Kristallkäfers: Die übrigen 25 Punkte reichen nicht. Beide Treffpunkte funktionieren; öffne nicht gedankenlos beide Zuführungen.
+
+Hinweis: Wähle U oder D als Treffpunkt für Blau und Lila. Der passende Spender liegt zwei Felder über der Spur. Sammle auch den Diamanten des Kristallkäfers: Die übrigen 25 Punkte reichen nicht. Beide Treffpunkte funktionieren; öffne nicht gedankenlos beide Zuführungen.
+
+Geprüfter Durchlauf: 272 Takte / 27.2 Sekunden, 28 Kristallpunkte, 38 Wertungspunkte. Replay: public/replays/35.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X######################################X
+X######################################X
+X##E######################..M......####X
+X##.######################.#######.####X
+X##.######################.#######D####X
+X##.######################....D###.####X
+X##.##############################.####X
+X##P.M...M...M..#·################.####X
+X##.###########.#·################M####X
+X##.#######·>#·······#l·##########.####X
+X##.##############################.####X
+X##.########·#########·###########.####X
+X##..M.M####·#########·######M.....####X
+X##.########·#########·######.####.####X
+X##.########·#########·######.####.####X
+X##.########·#########·######M####.####X
+X##.########·#########·######......####X
+X##..M...M..·M..#·####·###########.####X
+X##.########·##.#·####·###########.####X
+X##.########···········###########.####X
+X##.##############################M####X
+X##.##############################.####X
+X##.##############################.####X
+X##.##############################.####X
+X##...M....M....M....M....M....M...####X
+X######################################X
+X######################################X
+X######################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "U1",
+      "label": "U",
+      "x": 13,
+      "y": 10,
+      "open": false
+    },
+    {
+      "id": "U2",
+      "label": "U",
+      "x": 21,
+      "y": 10,
+      "open": false
+    },
+    {
+      "id": "D1",
+      "label": "D",
+      "x": 12,
+      "y": 11,
+      "open": false
+    },
+    {
+      "id": "D2",
+      "label": "D",
+      "x": 22,
+      "y": 11,
+      "open": false
+    }
+  ],
+  "levers": [
+    {
+      "id": "upper",
+      "label": "U",
+      "x": 6,
+      "y": 7,
+      "gates": [
+        "U1",
+        "U2"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "lower",
+      "label": "D",
+      "x": 6,
+      "y": 17,
+      "gates": [
+        "D1",
+        "D2"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "upper-drop",
+      "label": "U",
+      "x": 16,
+      "y": 8,
+      "gates": [],
+      "dispensers": [
+        "upper-rock"
+      ],
+      "view": {
+        "x": 13,
+        "y": 6,
+        "width": 8,
+        "height": 7
+      }
+    },
+    {
+      "id": "lower-drop",
+      "label": "D",
+      "x": 16,
+      "y": 18,
+      "gates": [],
+      "dispensers": [
+        "lower-rock"
+      ],
+      "view": {
+        "x": 13,
+        "y": 16,
+        "width": 8,
+        "height": 7
+      }
+    }
+  ],
+  "dispensers": [
+    {
+      "id": "upper-rock",
+      "label": "U",
+      "x": 17,
+      "y": 7,
+      "stock": 2
+    },
+    {
+      "id": "lower-rock",
+      "label": "D",
+      "x": 17,
+      "y": 17,
+      "stock": 2
+    }
+  ]
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 6 8
+use up
+walk 15 8
+until 17 10 crystal-crawler
+use right
+wait 4
+walk 17 10
+harvest 3 3 32 23
+walk 3 3
+```
+
+## 36 – Das offene Geröllmeer
+
+Die hungrigen Adern. 56 × 36 Felder, Quote 460, 305 Sekunden, Schwierigkeit 3/3.
+
+Sammle wirklich jeden Edelstein. Der Ausgang liegt gegenüber, hinter EXIT; sein Hebel steht im Feld. Räume Adern von der Seite oder von unten mit der Greiffunktion, und weiche fallenden Steinen aus. Die freien Außenränder verbinden die Reihen auch nach dem Abbau. Es gibt keine inneren Trennmauern und keine Gegner.
+
+Hinweis: Sammle wirklich jeden Edelstein. Der Ausgang liegt gegenüber, hinter EXIT; sein Hebel steht im Feld. Räume Adern von der Seite oder von unten mit der Greiffunktion, und weiche fallenden Steinen aus. Die freien Außenränder verbinden die Reihen auch nach dem Abbau. Es gibt keine inneren Trennmauern und keine Gegner.
+
+Geprüfter Durchlauf: 1052 Takte / 105.2 Sekunden, 460 Kristallpunkte, 460 Wertungspunkte. Replay: public/replays/36.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X....................................................#EX
+X....................................................##X
+X..RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR..X
+X..MMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMM..X
+X......................................................X
+X......................................................X
+X..R.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR...X
+X..MMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMM..X
+X......................................................X
+X......................................................X
+X...RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.R..X
+X..MMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMM..X
+X......................................................X
+X......................................................X
+X..RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR..X
+X..MMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMM..X
+X......................................................X
+X...........................#..........................X
+X..R.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR...X
+X..MMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDM..X
+X......................................................X
+X......................................................X
+X...RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.R..X
+X..MDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMM..X
+X......................................................X
+X......................................................X
+X..RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR..X
+X..MMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMM..X
+X......................................................X
+X......................................................X
+X..R.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR...X
+X..MMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMM..X
+X......................................................X
+XP.....................................................X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "EXIT",
+      "label": "EXIT",
+      "x": 54,
+      "y": 2,
+      "open": false
+    }
+  ],
+  "levers": [
+    {
+      "id": "exit",
+      "label": "EXIT",
+      "x": 28,
+      "y": 18,
+      "gates": [
+        "EXIT"
+      ],
+      "dispensers": []
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 1 18
+walk 27 18
+use right
+walk 1 18
+walk 1 33
+walk 3 33
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+walk 54 33
+walk 54 29
+walk 52 29
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+walk 1 29
+walk 1 25
+walk 3 25
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+walk 54 25
+walk 54 21
+walk 52 21
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+walk 1 21
+walk 1 17
+walk 3 17
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+walk 54 17
+walk 54 13
+walk 52 13
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+walk 1 13
+walk 1 9
+walk 3 9
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+snap up
+move right
+walk 54 9
+walk 54 5
+walk 52 5
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+snap up
+move left
+walk 1 5
+walk 1 34
+walk 54 34
+walk 54 1
+```
+
+## 37 – Fracht über der Tiefe
+
+Die hungrigen Adern. 44 × 30 Felder, Quote 34, 130 Sekunden, Schwierigkeit 3/3.
+
+Bereite die Landestelle rechts über A vor. Schiebe den Felsen ohne Pause viermal nach rechts über den Schacht. Ein geschobener Fels fällt in diesem Takt nicht. Öffne dann PEN/ORE: Der transportierte Fels hält den Käfer lebendig fest. Hole den Mondschlüssel im Erzbezirk.
+
+Hinweis: Bereite die Landestelle rechts über A vor. Schiebe den Felsen ohne Pause viermal nach rechts über den Schacht. Ein geschobener Fels fällt in diesem Takt nicht. Öffne dann PEN/ORE: Der transportierte Fels hält den Käfer lebendig fest. Hole den Mondschlüssel im Erzbezirk.
+
+Geprüfter Durchlauf: 444 Takte / 44.4 Sekunden, 37 Kristallpunkte, 42 Wertungspunkte. Replay: public/replays/37.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X##########################################X
+X##########################################X
+X##E#######################################X
+X##.############........·##################X
+X##.####..M.·###.#############..M...M...###X
+X##.####.#######.#############.########.###X
+X##.####.#######.#############.########.###X
+X##P.M.M.#######.########D.....########.###X
+X##.####.#######.########.####.########.###X
+X##.####...·R···.#>######.####M########.###X
+X##.#########···#########.####.########.###X
+X##.#########···#########.####...M..M.#.###X
+X##.#########···#######################.###X
+X##.#########···#######################.###X
+X##..M...####···#######################.###X
+X##.####.####···#######################M###X
+X##.####M####################.......###.###X
+X##.####.####################.#####.###.###X
+X##.####...M.D###############M#####.###.###X
+X##.#########################.#####.#.M.###X
+X##.###################D.M....#####.###.###X
+X##.###############################.###.###X
+X##.###############################.###.###X
+X##.###############################.###D###X
+X##....M....M....M....M....M....M...###.###X
+X##.###################################.###X
+X##.....M......M.......M......M......#..###X
+X##########################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [
+    {
+      "id": "moon",
+      "seal": "moon",
+      "x": 25,
+      "y": 12
+    }
+  ],
+  "doors": [
+    {
+      "id": "exit",
+      "seal": "moon",
+      "x": 3,
+      "y": 4
+    }
+  ],
+  "portals": [
+    {
+      "id": "Aa",
+      "pair": "A",
+      "x": 12,
+      "y": 5
+    },
+    {
+      "id": "Ab",
+      "pair": "A",
+      "x": 24,
+      "y": 4
+    }
+  ]
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "PEN",
+      "label": "PEN",
+      "x": 17,
+      "y": 10,
+      "open": false
+    },
+    {
+      "id": "ORE",
+      "label": "ORE",
+      "x": 37,
+      "y": 27,
+      "open": false
+    }
+  ],
+  "levers": [
+    {
+      "id": "pen",
+      "label": "PEN / ORE",
+      "x": 10,
+      "y": 9,
+      "gates": [
+        "PEN",
+        "ORE"
+      ],
+      "dispensers": []
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 11 5
+move right
+walk 16 10
+walk 23 4
+move right
+walk 11 10
+move right
+move right
+move right
+move right
+walk 10 10
+use up
+walk 25 12
+harvest 3 5 37 23
+walk 3 3
+```
+
+## 38 – Eine letzte Schicht
+
+Die hungrigen Adern. 54 × 38 Felder, Quote 46, 145 Sekunden, Schwierigkeit 3/3.
+
+P und Q öffnen Querverbindungen. Du kannst beide früh stoppen und außen sammeln oder länger arbeiten lassen und die Abkürzungen nutzen. R enthält nur zwei Steine. Ein ausgeschalteter Pit entfernt seine Käfer nicht. Sonnen- und Mondschlüssel liegen in verschiedenen Erzarmen.
+
+Hinweis: P und Q öffnen Querverbindungen. Du kannst beide früh stoppen und außen sammeln oder länger arbeiten lassen und die Abkürzungen nutzen. R enthält nur zwei Steine. Ein ausgeschalteter Pit entfernt seine Käfer nicht. Sonnen- und Mondschlüssel liegen in verschiedenen Erzarmen.
+
+Geprüfter Durchlauf: 495 Takte / 49.5 Sekunden, 49 Kristallpunkte, 49 Wertungspunkte. Replay: public/replays/38.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X####################################################X
+X####################################################X
+X##E...M.....M.....M.....M.....M.....M..D..M...######X
+X##.##########################################.######X
+X##.##########################################.######X
+X##P....##############...M...M....M....M...M...######X
+X##.##################.#.#####################.######X
+X##.##################.#.#·###################.######X
+X##.#####...##########.###·###################.######X
+X##.......#·HHHHHHHHHH·······#################.######X
+X##.####################·###·#################.######X
+X##.####################·###·######D..M...M....######X
+X##.####################·###·######.##########.######X
+X##.####################·····######M##########.######X
+X##.###############################.##########.######X
+X##..M...##########################....M...###.######X
+X##.####.#####################################.######X
+X##.####.############·····####################.######X
+X##.####M############·###·####################.######X
+X##.####.############·###·####################M######X
+X##.#M...############·###·####################.######X
+X##.#################·······HHHHHHHHHHH·######.######X
+X##.#######################.###########.######.######X
+X##.#######################.###########.######M######X
+X##.#######################.###########.######.######X
+X##..M...##################.###########.######.######X
+X#######.##################.###########.######.....##X
+X#######M##################.###########.######.###.##X
+X#######.##################.###########.######.###.##X
+X#######.##################.###########.######.###M##X
+X#######....M....M....M........M....M......M...###.##X
+X#######.########################.################.##X
+X#######.########################.################M##X
+X#######..M...DM....M..##########..M....M....M....D##X
+X####################################################X
+X####################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": [
+    {
+      "id": "P",
+      "label": "P",
+      "x": 10,
+      "y": 10,
+      "direction": "right",
+      "delay": 60,
+      "interval": 180,
+      "maxAlive": 1,
+      "active": true
+    },
+    {
+      "id": "Q",
+      "label": "Q",
+      "x": 40,
+      "y": 22,
+      "direction": "left",
+      "delay": 120,
+      "interval": 180,
+      "maxAlive": 1,
+      "active": true
+    }
+  ]
+}
+```
+
+```json
+{
+  "keys": [
+    {
+      "id": "sun",
+      "seal": "sun",
+      "x": 42,
+      "y": 16
+    },
+    {
+      "id": "moon",
+      "seal": "moon",
+      "x": 22,
+      "y": 34
+    }
+  ],
+  "doors": [
+    {
+      "id": "sun-lock",
+      "seal": "sun",
+      "x": 3,
+      "y": 4
+    },
+    {
+      "id": "moon-lock",
+      "seal": "moon",
+      "x": 3,
+      "y": 5
+    }
+  ],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [],
+  "levers": [
+    {
+      "id": "P",
+      "label": "P",
+      "x": 6,
+      "y": 5,
+      "gates": [],
+      "dispensers": [],
+      "pits": [
+        "P"
+      ]
+    },
+    {
+      "id": "Q",
+      "label": "Q",
+      "x": 38,
+      "y": 24,
+      "gates": [],
+      "dispensers": [],
+      "pits": [
+        "Q"
+      ]
+    },
+    {
+      "id": "drop-R",
+      "label": "R",
+      "x": 25,
+      "y": 8,
+      "gates": [],
+      "dispensers": [
+        "R"
+      ],
+      "view": {
+        "x": 22,
+        "y": 6,
+        "width": 8,
+        "height": 8
+      }
+    }
+  ],
+  "dispensers": [
+    {
+      "id": "R",
+      "label": "R",
+      "x": 26,
+      "y": 7,
+      "stock": 2
+    }
+  ]
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 6 6
+use up
+walk 39 24
+use left
+walk 42 16
+walk 22 34
+harvest 3 3 48 32
+walk 3 3
+```
+
+## 39 – Die Ernte fällt nach unten
+
+Die hungrigen Adern. 42 × 34 Felder, Quote 46, 115 Sekunden, Schwierigkeit 3/3.
+
+Stelle die beiden Felsen oben seitlich ab. Öffne ORE an der unteren Galerie und lass die vier Adern zu dir fallen. A verbindet Arbeitsgang und Sammelboden. Plane die Sammelrunde unter den Schächten; du brauchst die gesamte Ernte.
+
+Hinweis: Stelle die beiden Felsen oben seitlich ab. Öffne ORE an der unteren Galerie und lass die vier Adern zu dir fallen. A verbindet Arbeitsgang und Sammelboden. Plane die Sammelrunde unter den Schächten; du brauchst die gesamte Ernte.
+
+Geprüfter Durchlauf: 397 Takte / 39.7 Sekunden, 46 Kristallpunkte, 46 Wertungspunkte. Replay: public/replays/39.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X########################################X
+X########################################X
+X##E#####################################X
+X##.#####################################X
+X##.###.........................M...#####X
+X##.###.###.R·#########.R·#########.#####X
+X##.###.####.#####D#####.#####D####.#####X
+X##P..·.####·#####·#####·#####·####M#####X
+X##.########M#####M#####M#####M####.#####X
+X##.########D#####·#####D#####·.....#####X
+X##.########D#####D#####D#####D##########X
+X##.########·#####·#####·#####·##########X
+X##.########M#####M#####M#####M##########X
+X##.########·#####·#####·#####·##########X
+X##..M.M#################################X
+X##.########·#####·#####·#####·##########X
+X##.########·#####·#####·#####·##########X
+X##.########·#####·#####·#####·##########X
+X##.####....·#####·#####·#####·##########X
+X##.####.###·#####·#####·#####·##########X
+X##.####.###·#####·#####·#####·##########X
+X##.####.###·#####·#####·#####·##########X
+X##.####.###·#####·#####·#####·##########X
+X##.####.............................####X
+X##.################################.####X
+X##.################################.####X
+X##.####..M....M....M....M....######.####X
+X##.#########################.######.####X
+X##..M....M....M....M....M....M....·.####X
+X########################################X
+X########################################X
+X########################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [],
+  "portals": [
+    {
+      "id": "Aa",
+      "pair": "A",
+      "x": 6,
+      "y": 8
+    },
+    {
+      "id": "Ab",
+      "pair": "A",
+      "x": 35,
+      "y": 29
+    }
+  ]
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "DROP12",
+      "label": "ORE",
+      "x": 12,
+      "y": 15,
+      "open": false
+    },
+    {
+      "id": "DROP18",
+      "label": "ORE",
+      "x": 18,
+      "y": 15,
+      "open": false
+    },
+    {
+      "id": "DROP24",
+      "label": "ORE",
+      "x": 24,
+      "y": 15,
+      "open": false
+    },
+    {
+      "id": "DROP30",
+      "label": "ORE",
+      "x": 30,
+      "y": 15,
+      "open": false
+    }
+  ],
+  "levers": [
+    {
+      "id": "harvest",
+      "label": "ORE",
+      "x": 7,
+      "y": 19,
+      "gates": [
+        "DROP12",
+        "DROP18",
+        "DROP24",
+        "DROP30"
+      ],
+      "dispensers": []
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 11 6
+move right
+walk 23 6
+move right
+walk 8 19
+use left
+wait 12
+harvest 8 20 29 10
+harvest 3 5 33 25
+walk 3 3
+```
+
+## 40 – Der Preis des Durchbruchs
+
+Die hungrigen Adern. 56 × 40 Felder, Quote 53, 185 Sekunden, Schwierigkeit 3/3.
+
+Hole den Sonnenschlüssel und starte P. Lass den Helfer die Ader öffnen, bevor du über seine Zukunft entscheidest. Hinter der Ader liegt F für die Verschmelzung. LAST enthält nur einen Stein: Bewahre ihn für den Kristallkäfer auf. Sammle alle 50 normalen Punkte und seinen Diamanten. Der Mondschlüssel und P/R sichern den Heimweg.
+
+Hinweis: Hole den Sonnenschlüssel und starte P. Lass den Helfer die Ader öffnen, bevor du über seine Zukunft entscheidest. Hinter der Ader liegt F für die Verschmelzung. LAST enthält nur einen Stein: Bewahre ihn für den Kristallkäfer auf. Sammle alle 50 normalen Punkte und seinen Diamanten. Der Mondschlüssel und P/R sichern den Heimweg.
+
+Geprüfter Durchlauf: 628 Takte / 62.8 Sekunden, 53 Kristallpunkte, 63 Wertungspunkte. Replay: public/replays/40.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X######################################################X
+X######################################################X
+X##E###################################################X
+X##.###################################################X
+X##.#####..M..M..######################################X
+X########.######.######################################X
+X##.#####.######.######################################X
+X##P.M..M.######.###############..M...M...M...M...#####X
+X##.############.###############.################.#####X
+X##.############.###############...##############.#####X
+X##.############.###############.#.##############.#####X
+X##.#M...#######.###############.#.#########D.....#####X
+X##.####.#######.....###########.###########.####.#####X
+X##.####M###########·#HHHHHHHHHH········####M####.#####X
+X##.####.########################.##·##·####.####.#####X
+X##..M...########################.·#·##·####...M..#####X
+X##.#############################.##·##·#########.#####X
+X##.#############################.·#····#########.#####X
+X##.#############################.·##############.#####X
+X##.#########################>#·······#l#########M#####X
+X##.#############################################.#####X
+X##.####..M..M.##################################.#####X
+X##.####.########################################.#####X
+X##.####.########################################.#####X
+X##.####.###############.#.M..M.############..M...#####X
+X##.####.###############.######.############.####.#####X
+X##.####.###############.######.############M####.#####X
+X##.####..M...M.D#######.######.#######DM....####.#####X
+X##.############.#######.######.#################.#####X
+X##..M.M########.#######.######.#################.#####X
+X##.############.#######...M....M....M....M....M..#####X
+X##.############.#######.#####################.########X
+X##.############.#######.#####################M########X
+X##...M...M...M.....#....#####################.########X
+X#######################...M....M....M....M...D########X
+X######################################################X
+X######################################################X
+X######################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": [
+    {
+      "id": "P",
+      "label": "P",
+      "x": 19,
+      "y": 14,
+      "direction": "right",
+      "delay": 20,
+      "interval": 180,
+      "maxAlive": 1,
+      "active": false
+    }
+  ]
+}
+```
+
+```json
+{
+  "keys": [
+    {
+      "id": "wake-key",
+      "seal": "sun",
+      "x": 14,
+      "y": 22
+    },
+    {
+      "id": "home-key",
+      "seal": "moon",
+      "x": 31,
+      "y": 25
+    }
+  ],
+  "doors": [
+    {
+      "id": "wake-lock",
+      "seal": "sun",
+      "x": 15,
+      "y": 5
+    },
+    {
+      "id": "home-lock",
+      "seal": "moon",
+      "x": 3,
+      "y": 4
+    }
+  ],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "F1",
+      "label": "F",
+      "x": 30,
+      "y": 20,
+      "open": false
+    },
+    {
+      "id": "F2",
+      "label": "F",
+      "x": 38,
+      "y": 20,
+      "open": false
+    },
+    {
+      "id": "RETURN",
+      "label": "R",
+      "x": 20,
+      "y": 34,
+      "open": false
+    },
+    {
+      "id": "IN",
+      "label": "P",
+      "x": 21,
+      "y": 14,
+      "open": true
+    },
+    {
+      "id": "EXIT",
+      "label": "R",
+      "x": 3,
+      "y": 6,
+      "open": false
+    }
+  ],
+  "levers": [
+    {
+      "id": "wake",
+      "label": "P",
+      "x": 17,
+      "y": 10,
+      "gates": [],
+      "dispensers": [],
+      "pits": [
+        "P"
+      ]
+    },
+    {
+      "id": "fusion",
+      "label": "F",
+      "x": 35,
+      "y": 12,
+      "gates": [
+        "F1",
+        "F2"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "last",
+      "label": "LAST",
+      "x": 32,
+      "y": 17,
+      "gates": [],
+      "dispensers": [
+        "LAST"
+      ],
+      "view": {
+        "x": 29,
+        "y": 14,
+        "width": 9,
+        "height": 9
+      }
+    },
+    {
+      "id": "return",
+      "label": "P / R",
+      "x": 25,
+      "y": 25,
+      "gates": [
+        "RETURN",
+        "IN",
+        "EXIT"
+      ],
+      "dispensers": [],
+      "pits": [
+        "P"
+      ]
+    }
+  ],
+  "dispensers": [
+    {
+      "id": "LAST",
+      "label": "LAST",
+      "x": 34,
+      "y": 17,
+      "stock": 1
+    }
+  ]
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 14 22
+walk 16 10
+use right
+harvest 3 8 14 27
+until 39 14 digger
+walk 34 12
+use right
+walk 33 17
+until 34 20 crystal-crawler
+use left
+wait 6
+walk 34 20
+walk 31 25
+walk 26 25
+use left
+harvest 24 8 26 28
+walk 3 3
 ```
 
 ## Alternative in Höhle 10: Felsfalle

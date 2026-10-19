@@ -11,8 +11,9 @@ export function validateMechanisms(l:LevelDefinition):void{
  }
  for(const d of m.dispensers){if(!Number.isInteger(d.stock)||d.stock<1||d.stock>6||l.map[d.y+1]?.[d.x]!==' '||cells.has(`${d.x},${d.y+1}`))throw Error(`${l.id}: invalid magazine ${d.id}`);}
  for(const lever of m.levers){
-  if(!lever.gates.length&&!lever.dispensers.length||new Set(lever.gates).size!==lever.gates.length||new Set(lever.dispensers).size!==lever.dispensers.length||lever.gates.some(id=>!m.gates.some(g=>g.id===id))||lever.dispensers.some(id=>!m.dispensers.some(d=>d.id===id)))throw Error(`${l.id}: invalid lever links`);
+  if(!lever.gates.length&&!lever.dispensers.length&&!lever.pits?.length||new Set(lever.gates).size!==lever.gates.length||new Set(lever.dispensers).size!==lever.dispensers.length||lever.gates.some(id=>!m.gates.some(g=>g.id===id))||lever.dispensers.some(id=>!m.dispensers.some(d=>d.id===id)))throw Error(`${l.id}: invalid lever links`);
   const v=lever.view;if(v&&(![v.x,v.y,v.width,v.height].every(Number.isInteger)||v.width<1||v.height<1||v.x<0||v.y<0||v.x+v.width>l.width||v.y+v.height>l.height||lever.x<v.x||lever.y<v.y||lever.x>=v.x+v.width||lever.y>=v.y+v.height))throw Error(`${l.id}: invalid control room`);
+  if(lever.pits?.some(id=>!l.mining?.pits.some(p=>p.id===id))||new Set(lever.pits).size!==(lever.pits?.length??0))throw Error('Invalid pit links');
   if(lever.dispensers.length&&!v)throw Error(`${l.id}: magazine needs a visible control room`);
   if(v)for(const id of lever.dispensers){const d=m.dispensers.find(d=>d.id===id)!;if(d.x<v.x||d.x>=v.x+v.width||d.y<v.y||d.y+1>=v.y+v.height)throw Error(`${l.id}: magazine outside control room`);}
  }
@@ -33,6 +34,7 @@ export function activateLever(level:LevelDefinition,s:GameState,x:number,y:numbe
  if(gates.some(g=>m.gates[g.id]&&occupied(g.x,g.y))||dispensers.some(d=>m.stocks[d.id]===0||m.cooldowns[d.id]>s.tick||s.terrain[d.y+1][d.x]!=='empty'||occupied(d.x,d.y+1))){events.push({type:'blocked',x,y});return true;}
  for(const g of gates){m.gates[g.id]=!m.gates[g.id];s.terrain[g.y][g.x]=m.gates[g.id]?'empty':'wall';}
  for(const d of dispensers){m.stocks[d.id]--;m.released++;m.cooldowns[d.id]=s.tick+3;s.entities.push({id:m.nextId++,kind:'rock',x:d.x,y:d.y+1,direction:'down',falling:false});events.push({type:'release',x:d.x,y:d.y});}
+ for(const id of lever.pits??[]){const pit=s.mining!.pits[id],def=level.mining!.pits.find(p=>p.id===id)!;pit.active=!pit.active;if(pit.active)pit.due=s.tick+def.delay;}
  m.levers[lever.id]=!m.levers[lever.id];events.push({type:'switch',x,y});return true;
 }
 export function fuseCrawlers(s:GameState,events:GameEvent[],newborn:Set<number>):void{

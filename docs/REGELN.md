@@ -77,3 +77,12 @@ Das DW-Tor in Level 25 ist für den späteren Zwergen-Geheimzweig vorgesehen und
 ## Kontinuierlicher Schub über Schächte
 
 Ein bereits geschobener Fels wird in demselben 100-ms-Takt nicht erneut bewegt. Da die Spielereingabe vor der Schwerkraft ausgewertet wird, kann durchgehendes Schieben ihn über eine freie Schachtöffnung tragen. Ohne nächsten Schub fällt er. Das ist bestehendes Regelverhalten; Version 0.9 erklärt und verwendet es in Level 18, ohne alte Physik oder Replays zu ändern.
+
+
+## Kapitel IV: Grabe-Käfer und Pits (Regelversion 5)
+
+Bernsteinfarbene Grabe-Käfer bewegen sich alle drei Takte: geradeaus, rechts, links, zurück. Sie öffnen Erde und hartes Muttergestein. Der Miner kann Muttergestein nicht entfernen. Edelsteine, Felsen, Mauern und geschlossene Geräte blockieren den Käfer. Nach dem Graben wirkt die Schwerkraft ab dem nächsten Takt. Berührung tötet; Zerquetschen hinterlässt keinen Diamanten. Sicheres Einsperren oder Zerquetschen zählt fünf Gegnerpunkte. Erde und Muttergestein eignen sich nicht als Gefängniswand.
+
+Pits sind feste, ausschließlich von Monstern benutzbare Ausgänge mit sichtbarem Countdown. Nach Ablauf erscheint ein Grabe-Käfer im benachbarten Auslass. Einmalige Pits erzeugen einen Käfer pro Aktivierung; wiederkehrende Pits respektieren ihr Intervall und die örtliche Höchstzahl lebender Gegner. Ein belegter Auslass wartet, ohne mehrere Erscheinungen aufzustauen. Hebel stoppen zukünftige Erscheinungen; vorhandene Käfer bleiben. Erneutes Einschalten startet einen neuen Countdown. Pause und Speichern erhalten den Zustand.
+
+Im Geröllmeer (36) entspricht die Quote allen vorhandenen Edelsteinen. Von unten greifen und seitlich ausweichen vermeidet, unter einem gerade gelösten Felsen stehenzubleiben. Die Außenränder dienen als Verbindung zwischen den Adern. Das Ausgangstor benötigt zusätzlich seinen Hebel.

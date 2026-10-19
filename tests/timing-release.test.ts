@@ -10,7 +10,7 @@ import {defaultSave,parseSave,currentRecord,recordWin} from '../src/storage';
 import {solve} from '../tools/solution';
 
 describe('shorter deadlines without deleting valid records',()=>{
- for(const level of LEVELS)it(`${level.id}: unchanged puzzle, human ceiling, successful timed route and old offline proof`,()=>{
+ for(const level of LEVELS.filter(l=>Number(l.id)<=30))it(`${level.id}: unchanged puzzle, human ceiling, successful timed route and old offline proof`,()=>{
   const old=(archived as LevelDefinition[]).find(l=>l.id===level.id)!;
   expect(levelHash({...old,timeSeconds:level.timeSeconds})).toBe(levelHash(level));
   const human=feedback.boards.find(b=>b.level===level.id)!.data.entries.find(e=>e.nickname==='Mufti999')!;

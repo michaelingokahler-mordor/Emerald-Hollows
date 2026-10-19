@@ -1,0 +1,1093 @@
+{
+  "at": "2026-10-19T17:56:18.664Z",
+  "note": "Automated reference routes, phase offsets and finite extraction-order sampling. Not human feedback, optimal times, or a proof for every possible unsafe action. Local CPU timing is not Cloudflare accounting.",
+  "levels": [
+    {
+      "id": "31",
+      "hash": "4418f9df",
+      "quota": 24,
+      "timeSeconds": 70,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 25.3,
+          "points": 26,
+          "remainingGems": 0,
+          "excavated": 19,
+          "fusions": 0,
+          "pushes": 0,
+          "switches": [
+            [
+              7,
+              7
+            ]
+          ],
+          "spawned": 0,
+          "maxLocalChunkMs": 1.09
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "seconds": 25.3
+        },
+        {
+          "offset": 1,
+          "seconds": 25.3
+        },
+        {
+          "offset": 2,
+          "seconds": 25.6
+        },
+        {
+          "offset": 3,
+          "seconds": 25.6
+        },
+        {
+          "offset": 4,
+          "seconds": 25.6
+        },
+        {
+          "offset": 5,
+          "seconds": 25.9
+        },
+        {
+          "offset": 6,
+          "seconds": 25.9
+        },
+        {
+          "offset": 7,
+          "seconds": 25.9
+        },
+        {
+          "offset": 8,
+          "seconds": 26.2
+        }
+      ]
+    },
+    {
+      "id": "32",
+      "hash": "86f3960e",
+      "quota": 24,
+      "timeSeconds": 95,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 32.7,
+          "points": 25,
+          "remainingGems": 0,
+          "excavated": 8,
+          "fusions": 0,
+          "pushes": 0,
+          "switches": [
+            [
+              8,
+              8
+            ]
+          ],
+          "spawned": 1,
+          "maxLocalChunkMs": 0.89
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "seconds": 32.7
+        },
+        {
+          "offset": 1,
+          "seconds": 32.7
+        },
+        {
+          "offset": 2,
+          "seconds": 33
+        },
+        {
+          "offset": 3,
+          "seconds": 33
+        },
+        {
+          "offset": 4,
+          "seconds": 33
+        },
+        {
+          "offset": 5,
+          "seconds": 33.3
+        },
+        {
+          "offset": 6,
+          "seconds": 33.3
+        },
+        {
+          "offset": 7,
+          "seconds": 33.3
+        },
+        {
+          "offset": 8,
+          "seconds": 33.6
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "hash": "cc4dfdb8",
+      "quota": 25,
+      "timeSeconds": 95,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 32,
+          "points": 29,
+          "remainingGems": 0,
+          "excavated": 9,
+          "fusions": 0,
+          "pushes": 0,
+          "switches": [
+            [
+              23,
+              5
+            ]
+          ],
+          "spawned": 1,
+          "maxLocalChunkMs": 0.84
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "seconds": 32
+        },
+        {
+          "offset": 1,
+          "seconds": 32
+        },
+        {
+          "offset": 2,
+          "seconds": 32
+        },
+        {
+          "offset": 3,
+          "seconds": 32
+        },
+        {
+          "offset": 4,
+          "seconds": 32
+        },
+        {
+          "offset": 5,
+          "seconds": 32
+        },
+        {
+          "offset": 6,
+          "seconds": 32
+        },
+        {
+          "offset": 7,
+          "seconds": 32
+        },
+        {
+          "offset": 8,
+          "seconds": 32
+        }
+      ]
+    },
+    {
+      "id": "34",
+      "hash": "760b5775",
+      "quota": 48,
+      "timeSeconds": 120,
+      "routes": [
+        {
+          "name": "safe",
+          "seconds": 41.6,
+          "points": 52,
+          "remainingGems": 0,
+          "excavated": 0,
+          "fusions": 0,
+          "pushes": 0,
+          "switches": [],
+          "spawned": 0,
+          "maxLocalChunkMs": 1.2
+        },
+        {
+          "name": "shortcut",
+          "seconds": 53.6,
+          "points": 52,
+          "remainingGems": 0,
+          "excavated": 33,
+          "fusions": 0,
+          "pushes": 0,
+          "switches": [
+            [
+              15,
+              16
+            ]
+          ],
+          "spawned": 0,
+          "maxLocalChunkMs": 1.15
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "seconds": 41.6
+        },
+        {
+          "offset": 1,
+          "seconds": 41.7
+        },
+        {
+          "offset": 2,
+          "seconds": 41.8
+        },
+        {
+          "offset": 3,
+          "seconds": 41.9
+        },
+        {
+          "offset": 4,
+          "seconds": 42
+        },
+        {
+          "offset": 5,
+          "seconds": 42.1
+        },
+        {
+          "offset": 6,
+          "seconds": 42.2
+        },
+        {
+          "offset": 7,
+          "seconds": 42.3
+        },
+        {
+          "offset": 8,
+          "seconds": 42.4
+        }
+      ]
+    },
+    {
+      "id": "35",
+      "hash": "84b5b25e",
+      "quota": 28,
+      "timeSeconds": 80,
+      "routes": [
+        {
+          "name": "upper",
+          "seconds": 27.2,
+          "points": 28,
+          "remainingGems": 0,
+          "excavated": 0,
+          "fusions": 1,
+          "pushes": 0,
+          "switches": [
+            [
+              6,
+              7
+            ],
+            [
+              16,
+              8
+            ]
+          ],
+          "spawned": 0,
+          "maxLocalChunkMs": 0.66
+        },
+        {
+          "name": "lower",
+          "seconds": 43.2,
+          "points": 28,
+          "remainingGems": 0,
+          "excavated": 0,
+          "fusions": 1,
+          "pushes": 0,
+          "switches": [
+            [
+              6,
+              17
+            ],
+            [
+              16,
+              18
+            ]
+          ],
+          "spawned": 0,
+          "maxLocalChunkMs": 1.35
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "seconds": 27.2
+        },
+        {
+          "offset": 1,
+          "seconds": 27.2
+        },
+        {
+          "offset": 2,
+          "seconds": 27.2
+        },
+        {
+          "offset": 3,
+          "seconds": 27.2
+        },
+        {
+          "offset": 4,
+          "seconds": 27.2
+        },
+        {
+          "offset": 5,
+          "seconds": 27.2
+        },
+        {
+          "offset": 6,
+          "seconds": 27.8
+        },
+        {
+          "offset": 7,
+          "seconds": 27.8
+        },
+        {
+          "offset": 8,
+          "seconds": 27.8
+        }
+      ]
+    },
+    {
+      "id": "36",
+      "hash": "3853a834",
+      "quota": 460,
+      "timeSeconds": 305,
+      "routes": [
+        {
+          "name": "bottomFirst",
+          "seconds": 105.2,
+          "points": 460,
+          "remainingGems": 0,
+          "excavated": 0,
+          "fusions": 0,
+          "pushes": 0,
+          "switches": [
+            [
+              28,
+              18
+            ]
+          ],
+          "spawned": 0,
+          "maxLocalChunkMs": 5.06
+        },
+        {
+          "name": "topFirst",
+          "seconds": 102.2,
+          "points": 460,
+          "remainingGems": 0,
+          "excavated": 0,
+          "fusions": 0,
+          "pushes": 0,
+          "switches": [
+            [
+              28,
+              18
+            ]
+          ],
+          "spawned": 0,
+          "maxLocalChunkMs": 5.51
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "seconds": 105.2
+        },
+        {
+          "offset": 1,
+          "seconds": 105.3
+        },
+        {
+          "offset": 2,
+          "seconds": 105.4
+        },
+        {
+          "offset": 3,
+          "seconds": 105.5
+        },
+        {
+          "offset": 4,
+          "seconds": 105.6
+        },
+        {
+          "offset": 5,
+          "seconds": 105.7
+        },
+        {
+          "offset": 6,
+          "seconds": 105.8
+        },
+        {
+          "offset": 7,
+          "seconds": 105.9
+        },
+        {
+          "offset": 8,
+          "seconds": 106
+        }
+      ]
+    },
+    {
+      "id": "37",
+      "hash": "28604dfd",
+      "quota": 34,
+      "timeSeconds": 130,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 44.4,
+          "points": 37,
+          "remainingGems": 0,
+          "excavated": 0,
+          "fusions": 0,
+          "pushes": 4,
+          "switches": [
+            [
+              10,
+              9
+            ]
+          ],
+          "spawned": 0,
+          "maxLocalChunkMs": 1.13
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "seconds": 44.4
+        },
+        {
+          "offset": 1,
+          "seconds": 44.5
+        },
+        {
+          "offset": 2,
+          "seconds": 44.6
+        },
+        {
+          "offset": 3,
+          "seconds": 44.7
+        },
+        {
+          "offset": 4,
+          "seconds": 44.8
+        },
+        {
+          "offset": 5,
+          "seconds": 44.9
+        },
+        {
+          "offset": 6,
+          "seconds": 45
+        },
+        {
+          "offset": 7,
+          "seconds": 45.1
+        },
+        {
+          "offset": 8,
+          "seconds": 45.2
+        }
+      ]
+    },
+    {
+      "id": "38",
+      "hash": "28a7c0b6",
+      "quota": 46,
+      "timeSeconds": 145,
+      "routes": [
+        {
+          "name": "early",
+          "seconds": 49.5,
+          "points": 49,
+          "remainingGems": 0,
+          "excavated": 0,
+          "fusions": 0,
+          "pushes": 0,
+          "switches": [
+            [
+              6,
+              5
+            ],
+            [
+              38,
+              24
+            ]
+          ],
+          "spawned": 0,
+          "maxLocalChunkMs": 1.26
+        },
+        {
+          "name": "late",
+          "seconds": 55.1,
+          "points": 49,
+          "remainingGems": 0,
+          "excavated": 21,
+          "fusions": 0,
+          "pushes": 0,
+          "switches": [
+            [
+              6,
+              5
+            ],
+            [
+              25,
+              8
+            ],
+            [
+              38,
+              24
+            ]
+          ],
+          "spawned": 2,
+          "maxLocalChunkMs": 1.64
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "seconds": 49.5
+        },
+        {
+          "offset": 1,
+          "seconds": 49.6
+        },
+        {
+          "offset": 2,
+          "seconds": 49.7
+        },
+        {
+          "offset": 3,
+          "seconds": 49.8
+        },
+        {
+          "offset": 4,
+          "seconds": 49.9
+        },
+        {
+          "offset": 5,
+          "seconds": 50
+        },
+        {
+          "offset": 6,
+          "seconds": 50.1
+        },
+        {
+          "offset": 7,
+          "seconds": 50.2
+        },
+        {
+          "offset": 8,
+          "seconds": 50.3
+        }
+      ]
+    },
+    {
+      "id": "39",
+      "hash": "dbbae607",
+      "quota": 46,
+      "timeSeconds": 115,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 39.7,
+          "points": 46,
+          "remainingGems": 0,
+          "excavated": 0,
+          "fusions": 0,
+          "pushes": 2,
+          "switches": [
+            [
+              7,
+              19
+            ]
+          ],
+          "spawned": 0,
+          "maxLocalChunkMs": 0.99
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "seconds": 39.7
+        },
+        {
+          "offset": 1,
+          "seconds": 39.8
+        },
+        {
+          "offset": 2,
+          "seconds": 39.9
+        },
+        {
+          "offset": 3,
+          "seconds": 40
+        },
+        {
+          "offset": 4,
+          "seconds": 40.1
+        },
+        {
+          "offset": 5,
+          "seconds": 40.2
+        },
+        {
+          "offset": 6,
+          "seconds": 40.3
+        },
+        {
+          "offset": 7,
+          "seconds": 40.4
+        },
+        {
+          "offset": 8,
+          "seconds": 40.5
+        }
+      ]
+    },
+    {
+      "id": "40",
+      "hash": "a5c8d8b1",
+      "quota": 53,
+      "timeSeconds": 185,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 62.8,
+          "points": 53,
+          "remainingGems": 0,
+          "excavated": 10,
+          "fusions": 1,
+          "pushes": 0,
+          "switches": [
+            [
+              17,
+              10
+            ],
+            [
+              35,
+              12
+            ],
+            [
+              32,
+              17
+            ],
+            [
+              25,
+              25
+            ]
+          ],
+          "spawned": 1,
+          "maxLocalChunkMs": 1.26
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "seconds": 62.8
+        },
+        {
+          "offset": 1,
+          "seconds": 62.8
+        },
+        {
+          "offset": 2,
+          "seconds": 63.1
+        },
+        {
+          "offset": 3,
+          "seconds": 63.1
+        },
+        {
+          "offset": 4,
+          "seconds": 63.1
+        },
+        {
+          "offset": 5,
+          "seconds": 63.4
+        },
+        {
+          "offset": 6,
+          "seconds": 63.4
+        },
+        {
+          "offset": 7,
+          "seconds": 63.4
+        },
+        {
+          "offset": 8,
+          "seconds": 63.7
+        }
+      ]
+    }
+  ],
+  "scree": [
+    {
+      "rows": [
+        8,
+        16,
+        24,
+        32,
+        28,
+        12,
+        4,
+        20
+      ],
+      "reverse": true,
+      "seconds": 110.2,
+      "points": 460
+    },
+    {
+      "rows": [
+        4,
+        28,
+        12,
+        20,
+        32,
+        24,
+        16,
+        8
+      ],
+      "reverse": false,
+      "seconds": 110.2,
+      "points": 460
+    },
+    {
+      "rows": [
+        16,
+        4,
+        20,
+        24,
+        8,
+        32,
+        28,
+        12
+      ],
+      "reverse": true,
+      "seconds": 112.6,
+      "points": 460
+    },
+    {
+      "rows": [
+        4,
+        12,
+        20,
+        28,
+        8,
+        16,
+        24,
+        32
+      ],
+      "reverse": false,
+      "seconds": 106.2,
+      "points": 460
+    },
+    {
+      "rows": [
+        20,
+        16,
+        12,
+        28,
+        8,
+        32,
+        24,
+        4
+      ],
+      "reverse": true,
+      "seconds": 113.4,
+      "points": 460
+    },
+    {
+      "rows": [
+        12,
+        16,
+        4,
+        28,
+        20,
+        32,
+        8,
+        24
+      ],
+      "reverse": false,
+      "seconds": 109.4,
+      "points": 460
+    },
+    {
+      "rows": [
+        16,
+        4,
+        20,
+        24,
+        32,
+        12,
+        8,
+        28
+      ],
+      "reverse": true,
+      "seconds": 110.2,
+      "points": 460
+    },
+    {
+      "rows": [
+        4,
+        8,
+        12,
+        20,
+        24,
+        28,
+        32,
+        16
+      ],
+      "reverse": false,
+      "seconds": 105.4,
+      "points": 460
+    },
+    {
+      "rows": [
+        8,
+        16,
+        12,
+        32,
+        24,
+        28,
+        4,
+        20
+      ],
+      "reverse": true,
+      "seconds": 111.8,
+      "points": 460
+    },
+    {
+      "rows": [
+        4,
+        20,
+        12,
+        32,
+        24,
+        16,
+        28,
+        8
+      ],
+      "reverse": false,
+      "seconds": 111,
+      "points": 460
+    },
+    {
+      "rows": [
+        16,
+        24,
+        8,
+        28,
+        32,
+        4,
+        20,
+        12
+      ],
+      "reverse": true,
+      "seconds": 113.4,
+      "points": 460
+    },
+    {
+      "rows": [
+        4,
+        28,
+        24,
+        16,
+        12,
+        8,
+        20,
+        32
+      ],
+      "reverse": false,
+      "seconds": 106.2,
+      "points": 460
+    },
+    {
+      "rows": [
+        8,
+        16,
+        12,
+        32,
+        24,
+        28,
+        20,
+        4
+      ],
+      "reverse": true,
+      "seconds": 111.8,
+      "points": 460
+    },
+    {
+      "rows": [
+        12,
+        16,
+        4,
+        32,
+        20,
+        28,
+        8,
+        24
+      ],
+      "reverse": false,
+      "seconds": 109.4,
+      "points": 460
+    },
+    {
+      "rows": [
+        16,
+        24,
+        8,
+        12,
+        4,
+        32,
+        20,
+        28
+      ],
+      "reverse": true,
+      "seconds": 110.2,
+      "points": 460
+    },
+    {
+      "rows": [
+        4,
+        8,
+        12,
+        32,
+        20,
+        24,
+        28,
+        16
+      ],
+      "reverse": false,
+      "seconds": 107,
+      "points": 460
+    },
+    {
+      "rows": [
+        12,
+        28,
+        8,
+        24,
+        4,
+        32,
+        16,
+        20
+      ],
+      "reverse": true,
+      "seconds": 115,
+      "points": 460
+    },
+    {
+      "rows": [
+        4,
+        12,
+        20,
+        24,
+        28,
+        32,
+        16,
+        8
+      ],
+      "reverse": false,
+      "seconds": 107,
+      "points": 460
+    },
+    {
+      "rows": [
+        8,
+        16,
+        28,
+        32,
+        4,
+        20,
+        24,
+        12
+      ],
+      "reverse": true,
+      "seconds": 112.6,
+      "points": 460
+    },
+    {
+      "rows": [
+        4,
+        28,
+        12,
+        24,
+        8,
+        16,
+        20,
+        32
+      ],
+      "reverse": false,
+      "seconds": 108.6,
+      "points": 460
+    },
+    {
+      "rows": [
+        28,
+        12,
+        16,
+        20,
+        24,
+        32,
+        8,
+        4
+      ],
+      "reverse": true,
+      "seconds": 109.4,
+      "points": 460
+    },
+    {
+      "rows": [
+        20,
+        28,
+        4,
+        8,
+        12,
+        16,
+        32,
+        24
+      ],
+      "reverse": false,
+      "seconds": 106,
+      "points": 460
+    },
+    {
+      "rows": [
+        16,
+        24,
+        8,
+        12,
+        32,
+        4,
+        20,
+        28
+      ],
+      "reverse": true,
+      "seconds": 111.8,
+      "points": 460
+    },
+    {
+      "rows": [
+        20,
+        8,
+        12,
+        32,
+        4,
+        24,
+        28,
+        16
+      ],
+      "reverse": false,
+      "seconds": 110,
+      "points": 460
+    }
+  ]
+}
