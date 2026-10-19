@@ -1,8 +1,9 @@
-import {CHAPTER_TWO,CHAPTER_TWO_ALTERNATIVES} from '../src/chapter-two';
+import {CHAPTER_TWO_ALTERNATIVES} from '../src/chapter-two';
 import {FINALE_CRUSH_ROUTE} from '../src/finale-routes';
 import {scoreBreakdown} from '../src/core/scoring';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { LEVELS } from '../src/levels';
+const CHAPTER_TWO=LEVELS.slice(10,20);
 import { runReplay } from '../src/core/simulation';
 import { solve } from './solution';
 await mkdir('public/replays',{recursive:true});await mkdir('artifacts',{recursive:true});

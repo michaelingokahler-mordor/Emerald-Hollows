@@ -2,6 +2,7 @@ import { Simulation, hash, levelHash } from '../src/core/simulation';
 import { checkedReplay, replayLevel } from '../src/core/replay-validation';
 import { RULES_VERSION, CRAWLER_RULES_VERSION, MECHANISM_RULES_VERSION,PASSAGE_RULES_VERSION, rulesFor, type GameState, type Replay } from '../src/core/types';
 import { LEVELS } from '../src/levels';
+import {compatibleHashes,currentServerRecords,type ServerRecord} from '../src/record-compatibility';
 import { normalizeName, validName } from '../src/storage';
 import {scoreBreakdown,SCORE_VERSION} from '../src/core/scoring';
 interface Statement {bind(...values:unknown[]):Statement;first<T=Record<string,unknown>>():Promise<T|null>;all<T=Record<string,unknown>>():Promise<{results:T[]}>;run():Promise<unknown>}
@@ -65,14 +66,23 @@ async function handle(request:Request,env:Env):Promise<Response>{
   const levelMatch=/^\/leaderboard\/([0-9]{2})$/.exec(path);
   if(request.method==='GET'&&levelMatch){
     const level=LEVELS.find(l=>l.id===levelMatch[1]);if(!level)return json({error:'level'},404);
-    const {results}=await env.DB.prepare('SELECT p.nickname,s.ticks,s.points,COALESCE(s.score,s.points) AS score,RANK() OVER (ORDER BY s.ticks,COALESCE(s.score,s.points) DESC) AS rank FROM scores s JOIN profiles p ON p.id=s.profile_id WHERE s.level_id=? AND s.level_hash=? AND s.rules_version=? ORDER BY s.ticks,COALESCE(s.score,s.points) DESC,s.profile_id LIMIT 100').bind(level.id,levelHash(level),rulesFor(level)).all();
+    const hashes=compatibleHashes(level);
+    const {results}=await env.DB.prepare(`WITH eligible AS (
+      SELECT s.*,COALESCE(s.score,s.points) AS total_score,
+      ROW_NUMBER() OVER (PARTITION BY profile_id ORDER BY ticks,COALESCE(score,points) DESC,level_hash) AS choice
+      FROM scores s WHERE level_id=? AND level_hash IN (${hashes.map(()=>'?').join(',')}) AND rules_version=? AND ticks<=?
+    ) SELECT p.nickname,s.ticks,s.points,s.total_score AS score,
+      RANK() OVER (ORDER BY s.ticks,s.total_score DESC) AS rank
+      FROM eligible s JOIN profiles p ON p.id=s.profile_id WHERE s.choice=1
+      ORDER BY s.ticks,s.total_score DESC,s.profile_id LIMIT 100`).bind(level.id,...hashes,rulesFor(level),level.timeSeconds*10).all();
     return json({entries:results});
   }
   if(path==='/profile'){
     const profile=await identify(request,env);
     if(request.method==='GET'){
       const {results}=await env.DB.prepare('SELECT level_id,level_hash,rules_version,ticks,points,COALESCE(score,points) AS score FROM scores WHERE profile_id=?').bind(profile.id).all<{level_id:string;level_hash:string;rules_version:string;ticks:number;points:number;score:number}>();
-      return json({nickname:profile.nickname,records:results.filter(r=>LEVELS.some(l=>l.id===r.level_id&&r.level_hash===levelHash(l)&&r.rules_version===rulesFor(l))),archivedRecords:results.filter(r=>LEVELS.some(l=>l.id===r.level_id&&(r.level_hash!==levelHash(l)||r.rules_version!==rulesFor(l))))});
+      const records=currentServerRecords(LEVELS,results as ServerRecord[]);
+      return json({nickname:profile.nickname,records,archivedRecords:results.filter(r=>!records.some(c=>c.level_id===r.level_id&&compatibleHashes(LEVELS.find(l=>l.id===r.level_id)!).includes(r.level_hash)&&r.rules_version===c.rules_version&&r.ticks<=LEVELS.find(l=>l.id===r.level_id)!.timeSeconds*10))});
     }
     if(request.method==='POST'){
       const body=await readBody(request);const nickname=normalizeName(String(body.nickname??''));if(!validName(nickname))return json({error:'name'},400);

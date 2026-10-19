@@ -2,7 +2,7 @@
   "version": 1,
   "rulesVersion": "emerald-hollows/3",
   "levelId": "18",
-  "levelHash": "65fbc8cb",
+  "levelHash": "0bf831af",
   "practice": false,
   "inputs": [
     {
@@ -1281,5 +1281,5 @@
       "direction": "down"
     }
   ],
-  "expectedHash": "83888a86"
+  "expectedHash": "88691415"
 }

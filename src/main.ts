@@ -39,7 +39,7 @@ function resize():void{if(ready&&stage.clientWidth&&stage.clientHeight)scene.res
 window.addEventListener('resize',resize);
 function button(action:string,label:string,classes='',extra=''):string{return `<button class="${classes}" data-action="${action}" ${extra}>${label}</button>`;}
 function brand():string{return '<div class="eyebrow"><span class="gem-mark"></span> LATHMAR: EMERALD HOLLOWS <span class="muted">/ KAPITEL I–III</span></div>';}
-function footer():string{return '<footer><div class="footer-campaign"><span>DREISSIG HÖHLEN. DREI KAPITEL.</span><small>Geplante Vollversion: 120 Level · 100 Hauptlevel + 20 Geheimlevel</small></div><span class="footer-production">DEMO 0.9 · GRAFIK & AUDIO MIT RUNWAY · <a href="https://github.com/michaelingokahler-mordor/Emerald-Hollows" target="_blank" rel="noopener">PROJEKT</a></span></footer>';}
+function footer():string{return '<footer><div class="footer-campaign"><span>DREISSIG HÖHLEN. DREI KAPITEL.</span><small>Geplante Vollversion: 120 Level · 100 Hauptlevel + 20 Geheimlevel</small></div><span class="footer-production">DEMO 0.9.1 · GRAFIK & AUDIO MIT RUNWAY</span></footer>';}
 function start(i:number,solution?:Replay):void{
   if(!ready||!LEVELS[i]||!unlocked().has(LEVELS[i].id))return;index=i;replay=solution;replayCursor=0;
   simulation=new Simulation(LEVELS[i],solution?false:save.practice);
@@ -75,7 +75,7 @@ function updateHud():void{
   if(timer){const seconds=Math.ceil(s.remainingTicks/10);timer.textContent=s.practice?'∞':`${Math.floor(seconds/60)}:${String(seconds%60).padStart(2,'0')}`;timer.classList.toggle('urgent',!s.practice&&seconds<30);}
 }
 function modal(kicker:string,title:string,body:string,actions:string):string{return `<div class="veil"><section class="modal${body.includes('guide-message')?' guide-modal':''}" role="dialog" aria-modal="true" aria-label="${escapeHtml(title)}"><div class="eyebrow">${kicker}</div><h2>${title}</h2>${body}<div class="actions">${actions}</div></section></div>`;}
-function guideMessage(text:string):string{return `<div class="guide-message"><img class="guide-portrait" src="${import.meta.env.BASE_URL}assets/pseudodragon-guide.webp" alt="Grün-roter Pseudodrache" width="192" height="192"><div class="guide-speech"><span class="eyebrow gold">DEIN HÖHLENBEGLEITER</span><p>${text}</p></div></div>`;}
+function guideMessage(text:string,hidden=false):string{return `<div class="guide-message"><img class="guide-portrait" src="${import.meta.env.BASE_URL}assets/pseudodragon-guide.webp" alt="Grün-roter Pseudodrache" width="192" height="192"><div class="guide-speech"><span class="eyebrow gold">DEIN HÖHLENBEGLEITER</span>${hidden?`<button class="secondary hint-reveal" data-action="reveal-hint" aria-expanded="false" aria-controls="optional-hint">Hint</button><p id="optional-hint" hidden>${text}</p>`:`<p>${text}</p>`}</div></div>`;}
 function settings():string{return `<label class="field">Language / Sprache <select id="language"><option value="en" ${save.language==='en'?'selected':''}>English</option><option value="de" ${save.language==='de'?'selected':''}>Deutsch</option></select></label><label class="slider">Musik <input type="range" data-volume="music" aria-label="Musiklautstärke" min="0" max="1" step="0.01" value="${save.music}"></label><label class="slider">Geräusche <input type="range" data-volume="sfx" aria-label="Geräuschlautstärke" min="0" max="1" step="0.01" value="${save.sfx}"></label>`;}
 function render():void{
   const inGame=['ready','play','pause','hint','won','dead','error'].includes(screen);
@@ -100,10 +100,10 @@ function render():void{
     ui.innerHTML=`<section class="page">${brand()}${modal('LATHMAR: EMERALD HOLLOWS',screen==='settings'?'Dein Abenteuer, dein Klang':screen==='new'?'Neu beginnen?':'Ein guter erster Schritt',contents,(screen==='new'?button('reset','Fortschritt zurücksetzen','primary'):'')+button('home','Zurück','secondary'))}</section>`;
   }else{
     const l=LEVELS[index],s=simulation!.state;let overlay='';
-    if(screen==='ready')overlay=modal(`HÖHLE ${l.id} / ${LEVELS.length}`,l.name,`<p class="subtitle">${l.subtitle}</p>${guideMessage(l.hint)}<div class="briefing"><span>◆ ${l.quota} Punkte</span><span>${replay?'Aufgezeichnete Lösung':s.practice?'Ohne Zeitlimit':`${l.timeSeconds} Sekunden`}</span></div>`,button('resume',replay?'Lösung starten':'Höhle betreten','primary')+button('levels','Höhlenübersicht','secondary'));
+    if(screen==='ready')overlay=modal(`HÖHLE ${l.id} / ${LEVELS.length}`,l.name,`<p class="subtitle">${l.subtitle}</p>${guideMessage(l.hint,true)}<div class="briefing"><span>◆ ${l.quota} Punkte</span><span>${replay?'Aufgezeichnete Lösung':s.practice?'Ohne Zeitlimit':`${l.timeSeconds} Sekunden`}</span></div>`,button('resume',replay?'Lösung starten':'Höhle betreten','primary')+button('levels','Höhlenübersicht','secondary'));
     if(screen==='pause')overlay=modal('EIN MOMENT ZUM DURCHATMEN','Pause',settings(),button('resume','Weiterspielen','primary')+button('restart','Neu starten','secondary')+button('levels','Höhlenübersicht','text-button'));
     if(screen==='hint')overlay=modal('EIN KLEINER ANSTOSS','Sieh genau hin',guideMessage(l.hint),button('resume','Zurück in die Höhle','primary'));
-    if(screen==='dead')overlay=modal('DER BERG HAT ZEIT','Noch ein Versuch',`<p>${s.deathReason}</p><p class="muted">${l.hint}</p>`,button('restart','Erneut versuchen','primary')+button('practice-restart','Ohne Zeitlimit üben','secondary')+button('levels','Höhlenübersicht','text-button'));
+    if(screen==='dead')overlay=modal('DER BERG HAT ZEIT','Noch ein Versuch',`<p>${s.deathReason}</p>${guideMessage(l.hint,true)}`,button('restart','Erneut versuchen','primary')+button('practice-restart','Ohne Zeitlimit üben','secondary')+button('levels','Höhlenübersicht','text-button'));
     if(screen==='won'){
       const allDone=Object.keys(save.timed).length===LEVELS.length;
       const ending=index===LEVELS.length-1;
@@ -120,6 +120,7 @@ function render():void{
 ui.addEventListener('click',async event=>{
   const el=(event.target as HTMLElement).closest<HTMLButtonElement>('button[data-action]');if(!el)return;
   const action=el.dataset.action;
+  if(action==='reveal-hint'){const hint=document.getElementById('optional-hint');if(hint){hint.hidden=!hint.hidden;el.setAttribute('aria-expanded',String(!hint.hidden));}return;}
   if(action==='language'){save.language=save.language==='de'?'en':'de';persist();render();}
   else if(action==='level')start(Number(el.dataset.level));
   else if(action==='continue'){if(save.suspended){try{const r=save.suspended;index=LEVELS.findIndex(l=>l.id===r.levelId);simulation=runReplay(LEVELS[index],r);replay=undefined;save.practice=r.practice;screen='pause';render();scene.begin();resize();}catch{delete save.suspended;start(save.lastLevel);}}else{const i=unlocked().has(LEVELS[save.lastLevel].id)?save.lastLevel:0;start(i);}}

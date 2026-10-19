@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-19T14:10:44.378Z",
+  "date": "2026-10-19T15:08:33.090Z",
   "target": "local Wrangler/D1",
   "status": "PASS",
   "checks": [
@@ -19,7 +19,10 @@
     "time first and score tiebreaker",
     "equal-score equal-time shared rank",
     "slower score cannot replace faster record",
-    "recovery retains archived unlocks"
+    "recovery retains archived unlocks",
+    "old timer proof accepted but over-limit result remains archived",
+    "eligible old and new timer results merge once per profile",
+    "restored timer-compatible best result uses current hash"
   ],
-  "verificationRequests": 3
+  "verificationRequests": 2
 }

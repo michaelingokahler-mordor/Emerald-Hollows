@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-18T19:51:35.412Z",
+  "at": "2026-10-19T15:07:26.351Z",
   "note": "Deterministic timed solutions, not optimality proofs or human play times. Local chunk timing is not Cloudflare CPU accounting. The sealed dwarf antechamber is not a secret level.",
   "previousReferenceSeconds": 282.5,
   "previousFastestDocumentedSeconds": 271,
@@ -11,7 +11,7 @@
     {
       "id": "21",
       "name": "Der unterbrochene Ring",
-      "hash": "36ca5d5e",
+      "hash": "ab9b09e1",
       "size": [
         44,
         32
@@ -28,7 +28,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 6,
-          "maxLocalChunkMs": 2.17
+          "maxLocalChunkMs": 2.03
         },
         {
           "name": "early-quota",
@@ -39,7 +39,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 5,
-          "maxLocalChunkMs": 1.68
+          "maxLocalChunkMs": 1.83
         },
         {
           "name": "late",
@@ -50,7 +50,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 5,
-          "maxLocalChunkMs": 1.83
+          "maxLocalChunkMs": 0.73
         },
         {
           "name": "late-quota",
@@ -61,7 +61,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 5,
-          "maxLocalChunkMs": 1.71
+          "maxLocalChunkMs": 0.75
         }
       ],
       "phases": [
@@ -106,7 +106,7 @@
     {
       "id": "22",
       "name": "Jenseits des Spalts",
-      "hash": "1073db60",
+      "hash": "090b2db9",
       "size": [
         52,
         36
@@ -123,7 +123,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 6,
-          "maxLocalChunkMs": 2.29
+          "maxLocalChunkMs": 1.93
         },
         {
           "name": "main-quota",
@@ -134,7 +134,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 5,
-          "maxLocalChunkMs": 0.82
+          "maxLocalChunkMs": 1.05
         }
       ],
       "phases": [
@@ -179,7 +179,7 @@
     {
       "id": "23",
       "name": "Freier Empfang",
-      "hash": "623c63ff",
+      "hash": "1cfcf8b9",
       "size": [
         48,
         34
@@ -196,7 +196,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 6,
-          "maxLocalChunkMs": 1.94
+          "maxLocalChunkMs": 2.11
         },
         {
           "name": "main-quota",
@@ -207,7 +207,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 5,
-          "maxLocalChunkMs": 1.37
+          "maxLocalChunkMs": 0.96
         }
       ],
       "phases": [
@@ -252,7 +252,7 @@
     {
       "id": "24",
       "name": "Ein Schlüssel, zwei Türen",
-      "hash": "0c80f306",
+      "hash": "310bf082",
       "size": [
         56,
         38
@@ -269,7 +269,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 4,
-          "maxLocalChunkMs": 3.63
+          "maxLocalChunkMs": 4.5
         },
         {
           "name": "west-quota",
@@ -280,7 +280,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 4,
-          "maxLocalChunkMs": 1.32
+          "maxLocalChunkMs": 1.73
         },
         {
           "name": "east",
@@ -291,7 +291,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 5,
-          "maxLocalChunkMs": 3.62
+          "maxLocalChunkMs": 3.29
         },
         {
           "name": "east-quota",
@@ -302,7 +302,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 5,
-          "maxLocalChunkMs": 1.28
+          "maxLocalChunkMs": 1.3
         }
       ],
       "phases": [
@@ -347,7 +347,7 @@
     {
       "id": "25",
       "name": "Spuren im Mauerwerk",
-      "hash": "c0182d0f",
+      "hash": "af94dd02",
       "size": [
         52,
         38
@@ -364,7 +364,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 6,
-          "maxLocalChunkMs": 1.93
+          "maxLocalChunkMs": 2.52
         },
         {
           "name": "normal-quota",
@@ -375,7 +375,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 6,
-          "maxLocalChunkMs": 0.9
+          "maxLocalChunkMs": 0.85
         },
         {
           "name": "discovery",
@@ -386,7 +386,7 @@
           "pushes": 0,
           "switches": 1,
           "serverChunks": 6,
-          "maxLocalChunkMs": 2.16
+          "maxLocalChunkMs": 2.64
         },
         {
           "name": "discovery-quota",
@@ -397,7 +397,7 @@
           "pushes": 0,
           "switches": 1,
           "serverChunks": 6,
-          "maxLocalChunkMs": 0.91
+          "maxLocalChunkMs": 0.95
         }
       ],
       "phases": [
@@ -442,7 +442,7 @@
     {
       "id": "26",
       "name": "Wandernde Adern",
-      "hash": "db9815ba",
+      "hash": "3328f421",
       "size": [
         50,
         40
@@ -459,7 +459,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 7,
-          "maxLocalChunkMs": 0.99
+          "maxLocalChunkMs": 1.08
         },
         {
           "name": "lowerFirst-quota",
@@ -470,7 +470,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 6,
-          "maxLocalChunkMs": 1.09
+          "maxLocalChunkMs": 0.97
         },
         {
           "name": "upperFirst",
@@ -481,7 +481,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 6,
-          "maxLocalChunkMs": 1.18
+          "maxLocalChunkMs": 0.99
         },
         {
           "name": "upperFirst-quota",
@@ -492,7 +492,7 @@
           "pushes": 0,
           "switches": 0,
           "serverChunks": 6,
-          "maxLocalChunkMs": 0.99
+          "maxLocalChunkMs": 1.17
         }
       ],
       "phases": [
@@ -537,7 +537,7 @@
     {
       "id": "27",
       "name": "Die geöffnete Jagd",
-      "hash": "c372d54c",
+      "hash": "10a10f44",
       "size": [
         52,
         38
@@ -554,7 +554,7 @@
           "pushes": 0,
           "switches": 1,
           "serverChunks": 5,
-          "maxLocalChunkMs": 1.79
+          "maxLocalChunkMs": 1.55
         },
         {
           "name": "main-quota",
@@ -565,7 +565,7 @@
           "pushes": 0,
           "switches": 1,
           "serverChunks": 5,
-          "maxLocalChunkMs": 0.71
+          "maxLocalChunkMs": 0.76
         }
       ],
       "phases": [
@@ -610,7 +610,7 @@
     {
       "id": "28",
       "name": "Schichtwechsel",
-      "hash": "5d4bb1b3",
+      "hash": "612b4dda",
       "size": [
         56,
         40
@@ -627,7 +627,7 @@
           "pushes": 0,
           "switches": 2,
           "serverChunks": 6,
-          "maxLocalChunkMs": 1.26
+          "maxLocalChunkMs": 1.41
         },
         {
           "name": "batched-quota",
@@ -638,7 +638,7 @@
           "pushes": 0,
           "switches": 2,
           "serverChunks": 6,
-          "maxLocalChunkMs": 1.18
+          "maxLocalChunkMs": 1.35
         }
       ],
       "phases": [
@@ -683,7 +683,7 @@
     {
       "id": "29",
       "name": "Die andere Seite des Felsens",
-      "hash": "3d1b2e4e",
+      "hash": "fe6892bc",
       "size": [
         52,
         40
@@ -700,7 +700,7 @@
           "pushes": 3,
           "switches": 0,
           "serverChunks": 6,
-          "maxLocalChunkMs": 1.76
+          "maxLocalChunkMs": 1.69
         },
         {
           "name": "main-quota",
@@ -711,7 +711,7 @@
           "pushes": 3,
           "switches": 0,
           "serverChunks": 6,
-          "maxLocalChunkMs": 0.84
+          "maxLocalChunkMs": 0.79
         }
       ],
       "phases": [
@@ -756,7 +756,7 @@
     {
       "id": "30",
       "name": "Das gebrochene Siegel",
-      "hash": "b7242756",
+      "hash": "f4b8654b",
       "size": [
         58,
         44
@@ -773,7 +773,7 @@
           "pushes": 0,
           "switches": 1,
           "serverChunks": 10,
-          "maxLocalChunkMs": 1.7
+          "maxLocalChunkMs": 1.29
         },
         {
           "name": "main-quota",
@@ -784,7 +784,7 @@
           "pushes": 0,
           "switches": 1,
           "serverChunks": 8,
-          "maxLocalChunkMs": 1.93
+          "maxLocalChunkMs": 1.09
         }
       ],
       "phases": [

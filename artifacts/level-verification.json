@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-19T14:10:35.041Z",
+  "verifiedAt": "2026-10-19T15:07:28.637Z",
   "levels": [
     {
       "id": "01",
@@ -8,7 +8,7 @@
       "ticks": 36,
       "points": 8,
       "score": 8,
-      "hash": "04f772c3"
+      "hash": "2af3fb7a"
     },
     {
       "id": "02",
@@ -17,7 +17,7 @@
       "ticks": 28,
       "points": 10,
       "score": 10,
-      "hash": "2db1a950"
+      "hash": "36a7ba69"
     },
     {
       "id": "03",
@@ -26,7 +26,7 @@
       "ticks": 31,
       "points": 12,
       "score": 12,
-      "hash": "6778af01"
+      "hash": "e9ea4364"
     },
     {
       "id": "04",
@@ -35,7 +35,7 @@
       "ticks": 42,
       "points": 15,
       "score": 15,
-      "hash": "719f30ae"
+      "hash": "bb08d49a"
     },
     {
       "id": "05",
@@ -44,7 +44,7 @@
       "ticks": 46,
       "points": 12,
       "score": 17,
-      "hash": "c971618a"
+      "hash": "e8a4f57d"
     },
     {
       "id": "06",
@@ -53,7 +53,7 @@
       "ticks": 46,
       "points": 9,
       "score": 14,
-      "hash": "4559151a"
+      "hash": "3cea6041"
     },
     {
       "id": "07",
@@ -62,7 +62,7 @@
       "ticks": 66,
       "points": 9,
       "score": 14,
-      "hash": "e124184c"
+      "hash": "31f30c16"
     },
     {
       "id": "08",
@@ -71,7 +71,7 @@
       "ticks": 46,
       "points": 12,
       "score": 12,
-      "hash": "5dad0cdf"
+      "hash": "5d9e546a"
     },
     {
       "id": "09",
@@ -80,7 +80,7 @@
       "ticks": 42,
       "points": 5,
       "score": 15,
-      "hash": "b209d137"
+      "hash": "096acf4a"
     },
     {
       "id": "10",
@@ -89,7 +89,7 @@
       "ticks": 89,
       "points": 30,
       "score": 35,
-      "hash": "c2a964f7"
+      "hash": "892f12ee"
     },
     {
       "id": "11",
@@ -98,7 +98,7 @@
       "ticks": 191,
       "points": 38,
       "score": 38,
-      "hash": "6b466433"
+      "hash": "0e4804b2"
     },
     {
       "id": "12",
@@ -107,7 +107,7 @@
       "ticks": 215,
       "points": 31,
       "score": 31,
-      "hash": "d484e0c5"
+      "hash": "3bdef201"
     },
     {
       "id": "13",
@@ -116,7 +116,7 @@
       "ticks": 272,
       "points": 36,
       "score": 46,
-      "hash": "f4bbdf7c"
+      "hash": "3f2b21d6"
     },
     {
       "id": "14",
@@ -125,7 +125,7 @@
       "ticks": 280,
       "points": 40,
       "score": 40,
-      "hash": "bfcece5e"
+      "hash": "c6ba3068"
     },
     {
       "id": "15",
@@ -134,7 +134,7 @@
       "ticks": 540,
       "points": 37,
       "score": 42,
-      "hash": "b941b2b4"
+      "hash": "017fad86"
     },
     {
       "id": "16",
@@ -143,7 +143,7 @@
       "ticks": 477,
       "points": 40,
       "score": 40,
-      "hash": "2e5d43be"
+      "hash": "96c61097"
     },
     {
       "id": "17",
@@ -152,7 +152,7 @@
       "ticks": 255,
       "points": 39,
       "score": 39,
-      "hash": "7dc81223"
+      "hash": "41563fc7"
     },
     {
       "id": "18",
@@ -161,7 +161,7 @@
       "ticks": 418,
       "points": 52,
       "score": 52,
-      "hash": "83888a86"
+      "hash": "88691415"
     },
     {
       "id": "19",
@@ -170,7 +170,7 @@
       "ticks": 470,
       "points": 41,
       "score": 51,
-      "hash": "2ae91154"
+      "hash": "5bf22695"
     },
     {
       "id": "20",
@@ -179,7 +179,7 @@
       "ticks": 350,
       "points": 47,
       "score": 52,
-      "hash": "964a09c7"
+      "hash": "65473f79"
     },
     {
       "id": "21",
@@ -188,7 +188,7 @@
       "ticks": 539,
       "points": 60,
       "score": 60,
-      "hash": "2e5563b0"
+      "hash": "4f84f171"
     },
     {
       "id": "22",
@@ -197,7 +197,7 @@
       "ticks": 524,
       "points": 69,
       "score": 69,
-      "hash": "276a5e50"
+      "hash": "da1f0b95"
     },
     {
       "id": "23",
@@ -206,7 +206,7 @@
       "ticks": 513,
       "points": 59,
       "score": 59,
-      "hash": "1cf20cf2"
+      "hash": "b9f88468"
     },
     {
       "id": "24",
@@ -215,7 +215,7 @@
       "ticks": 331,
       "points": 106,
       "score": 106,
-      "hash": "352e9089"
+      "hash": "17cf9ca1"
     },
     {
       "id": "25",
@@ -224,7 +224,7 @@
       "ticks": 583,
       "points": 69,
       "score": 69,
-      "hash": "aab9dbb5"
+      "hash": "94313ca5"
     },
     {
       "id": "26",
@@ -233,7 +233,7 @@
       "ticks": 620,
       "points": 71,
       "score": 71,
-      "hash": "aa83f7fe"
+      "hash": "be63a47f"
     },
     {
       "id": "27",
@@ -242,7 +242,7 @@
       "ticks": 431,
       "points": 58,
       "score": 58,
-      "hash": "6856a004"
+      "hash": "1a0eb3ba"
     },
     {
       "id": "28",
@@ -251,7 +251,7 @@
       "ticks": 594,
       "points": 82,
       "score": 82,
-      "hash": "03b0d426"
+      "hash": "e61cb65a"
     },
     {
       "id": "29",
@@ -260,7 +260,7 @@
       "ticks": 542,
       "points": 70,
       "score": 70,
-      "hash": "ab46dc12"
+      "hash": "5bc2977a"
     },
     {
       "id": "30",
@@ -269,7 +269,7 @@
       "ticks": 910,
       "points": 101,
       "score": 101,
-      "hash": "5199e301"
+      "hash": "0718a67e"
     }
   ],
   "chapterAlternatives": [

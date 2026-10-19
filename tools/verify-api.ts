@@ -6,6 +6,9 @@ import {LEVELS} from '../src/levels';
 import {CHAPTER_TWO as V07} from '../src/chapter-two-v07';
 import {REVISED_CAVES as V08} from '../src/chapter-two-v08';
 import {LEGACY_LEVELS} from '../src/legacy-levels';
+import previousTimers from '../src/levels-v09.json';
+import {levelHash} from '../src/core/simulation';
+import type {LevelDefinition} from '../src/core/types';
 import {solve} from './solution';
 const base=process.env.TEST_API??'http://127.0.0.1:8787';
 if(!/^http:\/\/(127\.0\.0\.1|localhost):/.test(base))throw new Error('This test creates fixture users; use a local API.');
@@ -16,7 +19,7 @@ async function call(path:string,body?:unknown,auth?:string,expected=200){
 const nameA='MinerA '+Date.now().toString(36),nameB='MinerB '+Date.now().toString(36);
 const a=await call('/profiles',{nickname:nameA},undefined,201),b=await call('/profiles',{nickname:nameB},undefined,201);
 const auth=a.id+'.'+a.token,other=b.id+'.'+b.token;
-const r=solve(LEVELS[0],210).exportReplay(),id=crypto.randomUUID();
+const r=solve(LEVELS[0],80).exportReplay(),id=crypto.randomUUID();
 await call('/runs',{id,replay:r},auth,201);await call('/runs',{id,replay:r},auth);
 await call('/runs/'+id+'/verify',{},other,404);
 let status='pending',requests=0;while(status==='pending'){status=(await call('/runs/'+id+'/verify',{},auth)).status;requests++;assert.ok(requests<10);}
@@ -68,4 +71,15 @@ await submit(solve(highLevel).exportReplay(),auth);scored=(await call('/leaderbo
 await submit(solve(highLevel,1).exportReplay(),auth);const best=(await call('/profile',undefined,auth)).records.find((r:any)=>r.level_id==='08');assert.equal(best.ticks,66);assert.equal(best.score,18);assert.equal(best.points,18);
 
 const report={date:new Date().toISOString(),target:'local Wrangler/D1',status:'PASS',checks:['profile creation','auth ownership','recovery','bounded verification','idempotent upload','leaderboard','practice rejection','invalid inputs','wrong final hash','CORS','archived 0.2, 0.6, 0.7 and four revised 0.8 runs accepted and excluded from current boards','four revised caves confirmed with score','all twenty chapter 2 and 3 levels verified with scores and checkpoint continuation','time first and score tiebreaker','equal-score equal-time shared rank','slower score cannot replace faster record','recovery retains archived unlocks'],verificationRequests:requests};
+const oldTimer=(previousTimers as LevelDefinition[])[0];
+await submit(solve(oldTimer,140).exportReplay(),third);
+assert.ok(!(await call('/leaderboard/01')).entries.some((e:any)=>e.nickname===nameC));
+assert.ok((await call('/profile',undefined,third)).archivedRecords.some((r:any)=>r.level_id==='01'));
+await submit(solve(oldTimer,40).exportReplay(),third);
+await submit(solve(LEVELS[0],41).exportReplay(),third);
+const compatible=(await call('/leaderboard/01')).entries.filter((e:any)=>e.nickname===nameC);
+assert.equal(compatible.length,1);assert.equal(compatible[0].ticks,76);
+const recoveredTimer=(await call('/profile',undefined,third)).records.filter((r:any)=>r.level_id==='01');
+assert.equal(recoveredTimer.length,1);assert.equal(recoveredTimer[0].ticks,76);assert.equal(recoveredTimer[0].level_hash,levelHash(LEVELS[0]));
+report.checks.push('old timer proof accepted but over-limit result remains archived','eligible old and new timer results merge once per profile','restored timer-compatible best result uses current hash');
 await writeFile('artifacts/api-verification.json',JSON.stringify(report,null,2)+'\n');console.log(report);

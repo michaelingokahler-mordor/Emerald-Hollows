@@ -2,7 +2,7 @@
   "version": 1,
   "rulesVersion": "crystal-delve/1",
   "levelId": "01",
-  "levelHash": "29fef008",
+  "levelHash": "db2858e9",
   "practice": false,
   "inputs": [
     {
@@ -115,5 +115,5 @@
       "direction": "up"
     }
   ],
-  "expectedHash": "04f772c3"
+  "expectedHash": "2af3fb7a"
 }

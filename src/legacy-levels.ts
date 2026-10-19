@@ -1,4 +1,5 @@
 import type { LevelDefinition } from './core/types';
+import previousTimers from './levels-v09.json';
 import {CHAPTER_TWO as CHAPTER_TWO_V06} from './chapter-two-v06';
 // Retained only to verify outstanding older runs and keep historical records. Not selectable.
 export const LEGACY_LEVELS:LevelDefinition[]=[
@@ -164,3 +165,5 @@ LEGACY_LEVELS.push(...CHAPTER_TWO_V07.filter(l=>Number(l.id)>=14));
 
 import {REVISED_CAVES as CHAPTER_TWO_V08} from './chapter-two-v08';
 LEGACY_LEVELS.push(...CHAPTER_TWO_V08.filter(l=>['15','16','18','19'].includes(l.id)));
+// Exact pre-timing-release definitions for queued offline replays.
+LEGACY_LEVELS.push(...previousTimers as LevelDefinition[]);

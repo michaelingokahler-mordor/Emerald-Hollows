@@ -1,3 +1,16 @@
+# Update 0.9.1 — Hinweise, Zeitlimits und Kamera
+
+Stand: 19. Oktober 2026. Keine Karten oder Spielregeln verändert. Alle 30 Zeitlimits anhand der bestätigten menschlichen Bestzeiten verkürzt; vollständige Tabelle und Abgrenzung gegenüber automatisierten Zeiten in [TIMING-FEEDBACK-0.9.1.md](TIMING-FEEDBACK-0.9.1.md).
+
+- 260 automatisierte Tests in zehn Dateien bestanden. Alle Hauptlösungen und dokumentierten Alternativen passen in die neuen Limits. Alte Offline-Beweise bleiben prüfbar; kompatible Rekorde werden ohne Datenlöschung zusammengeführt.
+- Lokale Wrangler/D1-HTTP-Prüfung bestanden, einschließlich alter Timer-Beweise oberhalb und innerhalb der neuen Frist, Deduplizierung und Profilwiederherstellung. Keine Datenbankmigration.
+- Chrome 1280×720/DPR 1, Edge 1920×1080/DPR 2 sowie Chrome-Mobil-Emulation 390×844/DPR 3: vollständige Replays 27 und 30 bei dreifacher Wiedergabegeschwindigkeit. Konstanter Zoom, keine automatischen Raumwechsel; Endstände 431 und 910 Takte. Portalreisen versetzen die Kamera weiterhin ausdrücklich zum Ziel.
+- Chrome Desktop und Mobil-Emulation: Hint anfangs verborgen, per Tastatur bzw. Touch geöffnet und wieder geschlossen. Echter Ablauf des 13-Sekunden-Limits in 01 geprüft; Übung übersteht dieselbe Frist. Auch nach Tod und Neustart bleibt der Hinweis verborgen.
+- Sichtprüfung der Hint-Karten und mobilen Spielfläche. Diese Tests ersetzen keinen menschlichen Durchlauf auf einem echten Telefon. Das neue Zeitgefühl ist noch nicht vom Nutzer abgenommen.
+- Kein neues Tracking und keine Monster-Pits implementiert. Die Generator-Idee ist als Vorschlag dokumentiert. Keine neuen Medienkosten.
+
+---
+
 # Lathmar: Emerald Hollows 0.9.0 — Torhallen und Spielerfeedback
 
 Stand: 19. Oktober 2026. Zehn neue Hauptkarten 21–30 mit Schlüsseln und Portalen. Zusätzlich 15, 16 und 18 nach menschlichem Feedback neu gebaut; 19 erhält Quote 41. Die übrigen vorhandenen Karten und Rekorde bleiben unverändert. Die 0.8-Definitionen der vier geänderten Karten bleiben zur Verifikation ausstehender Offline-Durchläufe erhalten. Richtungs-Pfeile an Käfern sind entfernt. Keine neuen Runway-Kosten.

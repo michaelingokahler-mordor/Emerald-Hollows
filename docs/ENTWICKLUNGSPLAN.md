@@ -91,3 +91,8 @@ Die Besprechung ergänzt [blaue/lila Käfer, Verschmelzung und einen dosierenden
 Neue Vorgabe: Die ersten drei Level eines Kapitels führen Mechaniken ein; ab dem vierten Level dienen sie einer umfangreicheren Sammelaufgabe. Mehrere Fundgebiete und alternative Wege sollen Zeitrekorde interessant machen. Die aktuellen 11–20 sind dafür zu kurz. [Recherche mit Bestzeiten, klassischen Karten und konkretem Ausbauvorschlag](LEVEL-DESIGN-RECHERCHE-2026-10-18.md). Die größeren Karten und neuen Zeitziele sind noch nicht umgesetzt oder spielerisch bestätigt.
 
 Für passendere Hebel-/Torgrafik liegen Runway-Entwürfe vor. Diese zusätzliche Runde kostet 56 Credits netto; Projektstand jetzt **236 / 1.000 Credits** (einschließlich verworfener Bilder). Ohne Anrechnung einer aus der Kontobilanz erschlossenen Rückerstattung von 8 Credits beträgt der konservative Stand 244. Die Entwürfe sind noch nicht in den Spielatlas integriert; Protokoll: `artifacts/mechanism-production-01.json`.
+
+
+## Rückmeldung nach Kapitel III (0.9.1)
+
+Level 29 erhält positives menschliches Feedback zur Komplexität. Die aktuellen Bestzeiten und engeren Limits stehen in [TIMING-FEEDBACK-0.9.1.md](TIMING-FEEDBACK-0.9.1.md). Dort ist auch der Vorschlag für Monster-Pits festgehalten: zunächst ein angekündigter Einzelspawn mit Abschalthebel, später wiederkehrende Ausgänge. Der Grabe-Käfer und harter Fels bleiben eine zukünftige Mechanik. Pits sind noch nicht implementiert.

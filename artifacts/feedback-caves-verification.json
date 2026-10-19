@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-19T14:10:37.231Z",
+  "date": "2026-10-19T15:07:22.036Z",
   "note": "Actual deterministic solution routes, not optimality proofs or human play times. Local CPU timing is not Cloudflare CPU accounting.",
   "levels": [
     {
@@ -10,9 +10,9 @@
       ],
       "nonWallCells": 200,
       "quota": 22,
-      "timeLimit": 360,
+      "timeLimit": 80,
       "oldHash": "d6c32c97",
-      "newHash": "d6c32c97",
+      "newHash": "2aaaf6fc",
       "routes": [
         {
           "name": "main",
@@ -22,7 +22,7 @@
           "finds": 26,
           "moves": 163,
           "apiChunks": 2,
-          "maxLocalChunkMs": 2.08
+          "maxLocalChunkMs": 1.03
         }
       ]
     },
@@ -34,9 +34,9 @@
       ],
       "nonWallCells": 348,
       "quota": 22,
-      "timeLimit": 420,
+      "timeLimit": 70,
       "oldHash": "35032cee",
-      "newHash": "35032cee",
+      "newHash": "7aa5608b",
       "routes": [
         {
           "name": "main",
@@ -46,7 +46,7 @@
           "finds": 25,
           "moves": 170,
           "apiChunks": 3,
-          "maxLocalChunkMs": 1.1
+          "maxLocalChunkMs": 1.11
         }
       ]
     },
@@ -58,9 +58,9 @@
       ],
       "nonWallCells": 414,
       "quota": 28,
-      "timeLimit": 480,
+      "timeLimit": 80,
       "oldHash": "f4d68568",
-      "newHash": "f4d68568",
+      "newHash": "4ff6215c",
       "routes": [
         {
           "name": "main",
@@ -70,7 +70,7 @@
           "finds": 28,
           "moves": 216,
           "apiChunks": 3,
-          "maxLocalChunkMs": 1.15
+          "maxLocalChunkMs": 1.24
         }
       ]
     },
@@ -82,9 +82,9 @@
       ],
       "nonWallCells": 257,
       "quota": 36,
-      "timeLimit": 600,
+      "timeLimit": 65,
       "oldHash": "1492a97a",
-      "newHash": "f594abf0",
+      "newHash": "123dc615",
       "routes": [
         {
           "name": "west",
@@ -94,7 +94,7 @@
           "finds": 34,
           "moves": 242,
           "apiChunks": 3,
-          "maxLocalChunkMs": 2.54
+          "maxLocalChunkMs": 1.46
         },
         {
           "name": "east",
@@ -114,7 +114,7 @@
           "finds": 35,
           "moves": 252,
           "apiChunks": 3,
-          "maxLocalChunkMs": 1.27
+          "maxLocalChunkMs": 1.16
         },
         {
           "name": "workshop",
@@ -124,7 +124,7 @@
           "finds": 31,
           "moves": 252,
           "apiChunks": 3,
-          "maxLocalChunkMs": 0.65
+          "maxLocalChunkMs": 0.62
         }
       ]
     },
@@ -136,9 +136,9 @@
       ],
       "nonWallCells": 242,
       "quota": 36,
-      "timeLimit": 720,
+      "timeLimit": 155,
       "oldHash": "e0714f9d",
-      "newHash": "d8824183",
+      "newHash": "e1e80ae9",
       "routes": [
         {
           "name": "main",
@@ -148,7 +148,7 @@
           "finds": 29,
           "moves": 485,
           "apiChunks": 6,
-          "maxLocalChunkMs": 1.89
+          "maxLocalChunkMs": 1.22
         }
       ]
     },
@@ -160,9 +160,9 @@
       ],
       "nonWallCells": 314,
       "quota": 36,
-      "timeLimit": 720,
+      "timeLimit": 175,
       "oldHash": "09ea0506",
-      "newHash": "ffb702f2",
+      "newHash": "79da148a",
       "routes": [
         {
           "name": "main",
@@ -172,7 +172,7 @@
           "finds": 22,
           "moves": 323,
           "apiChunks": 5,
-          "maxLocalChunkMs": 1.04
+          "maxLocalChunkMs": 0.83
         }
       ]
     },
@@ -184,9 +184,9 @@
       ],
       "nonWallCells": 165,
       "quota": 38,
-      "timeLimit": 600,
+      "timeLimit": 65,
       "oldHash": "4e75a86b",
-      "newHash": "624f8374",
+      "newHash": "5bf842bb",
       "routes": [
         {
           "name": "main",
@@ -196,7 +196,7 @@
           "finds": 31,
           "moves": 223,
           "apiChunks": 3,
-          "maxLocalChunkMs": 0.66
+          "maxLocalChunkMs": 0.65
         }
       ]
     },
@@ -208,9 +208,9 @@
       ],
       "nonWallCells": 255,
       "quota": 38,
-      "timeLimit": 720,
+      "timeLimit": 135,
       "oldHash": "c816808e",
-      "newHash": "65fbc8cb",
+      "newHash": "0bf831af",
       "routes": [
         {
           "name": "safe",
@@ -220,7 +220,7 @@
           "finds": 36,
           "moves": 381,
           "apiChunks": 5,
-          "maxLocalChunkMs": 0.85
+          "maxLocalChunkMs": 0.76
         },
         {
           "name": "fast",
@@ -230,7 +230,7 @@
           "finds": 32,
           "moves": 353,
           "apiChunks": 4,
-          "maxLocalChunkMs": 0.68
+          "maxLocalChunkMs": 0.7
         }
       ]
     },
@@ -242,9 +242,9 @@
       ],
       "nonWallCells": 200,
       "quota": 41,
-      "timeLimit": 600,
+      "timeLimit": 115,
       "oldHash": "8161cd7a",
-      "newHash": "ae77fd02",
+      "newHash": "d7198f3b",
       "routes": [
         {
           "name": "main",
@@ -254,7 +254,7 @@
           "finds": 31,
           "moves": 391,
           "apiChunks": 5,
-          "maxLocalChunkMs": 0.89
+          "maxLocalChunkMs": 0.86
         }
       ]
     },
@@ -266,9 +266,9 @@
       ],
       "nonWallCells": 209,
       "quota": 44,
-      "timeLimit": 600,
+      "timeLimit": 95,
       "oldHash": "7242a4d6",
-      "newHash": "fdf6d284",
+      "newHash": "a9c52c3c",
       "routes": [
         {
           "name": "main",
@@ -278,7 +278,7 @@
           "finds": 35,
           "moves": 274,
           "apiChunks": 4,
-          "maxLocalChunkMs": 1.22
+          "maxLocalChunkMs": 1.07
         }
       ]
     }

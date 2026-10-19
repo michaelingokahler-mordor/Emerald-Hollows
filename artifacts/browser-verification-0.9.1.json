@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-19",
+  "target": "local Vite, actual Phaser rendering, isolated browser profiles",
+  "status": "PASS",
+  "replaySpeed": 3,
+  "cameraChecks": [
+    {"browser":"Chrome","viewport":[1280,720],"dpr":1,"levels":[27,30],"ticks":[431,910],"zoomMinMax":[0.875,0.875],"frames":[862,1820],"automaticRoomFrames":0},
+    {"browser":"Edge","viewport":[1920,1080],"dpr":2,"levels":[27,30],"ticks":[431,910],"zoomMinMax":[2,2],"frames":[845,1803],"automaticRoomFrames":0},
+    {"browser":"Chrome mobile emulation","viewport":[390,844],"dpr":3,"levels":[27,30],"ticks":[431,910],"zoomMinMax":[1.95,1.95],"frames":[840,1804],"automaticRoomFrames":0}
+  ],
+  "additionalChecks": ["English and German cave selection", "hint initially hidden", "keyboard and touch reveal/hide", "13-second timeout in cave 01", "death/restart do not expose hint", "practice continues past deadline", "project link absent"],
+  "limits": "Browser automation and mobile emulation, not human playtest or physical mobile device validation. Teleporter destination changes remain intentional. First instrumentation attempt recorded no camera samples; corrected poststep instrumentation and reran all three configurations."
+}

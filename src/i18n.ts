@@ -1,6 +1,7 @@
 import { LEVELS } from './levels';
 export type Language='de'|'en';
 const english:Record<string,string>={
+ 'DEMO 0.9.1 · GRAFIK & AUDIO MIT RUNWAY':'DEMO 0.9.1 · ART & AUDIO WITH RUNWAY',
  'Ein geschobener Fels fällt in diesem Takt nicht. Halte die Richtung, um ihn über einen offenen Schacht weiterzuschieben. Sobald du den Schub unterbrichst, wirkt die Schwerkraft wieder.':'A pushed rock does not fall during that tick. Hold the direction to keep pushing it across an open shaft. Gravity resumes as soon as you stop pushing.',
  'Felsfalle ansehen':'Watch rock trap','Punkte':'Score','Kristallpunkte:':'Crystal points:','Gegnerbonus:':'Enemy bonus:',
  'Wertung: Smaragd 1, Diamant 3 Punkte. Schieferkrabbler: 5 Punkte für Zerquetschen oder sicheres Einsperren am Ende. Kristallkrabbler: 10 Punkte für die Umwandlung; sein Diamant zählt beim Einsammeln weitere 3. Gegnerpunkte öffnen keinen Ausgang. Die Zeit entscheidet zuerst, bei Gleichstand die Punktzahl.':'Scoring: emerald 1, diamond 3 points. Slate crawler: 5 points for crushing it or leaving it safely trapped at the end. Crystal crawler: 10 points for transmutation, plus 3 when you collect its diamond. Enemy points do not open exits. Time ranks first, then score breaks a tie.',

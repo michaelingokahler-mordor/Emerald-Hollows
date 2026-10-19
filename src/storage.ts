@@ -1,5 +1,6 @@
 import { LEVELS } from './levels';
-import { hash, runReplay, levelHash } from './core/simulation';
+import {compatibleRecord} from './record-compatibility';
+import { Simulation, hash, runReplay, levelHash } from './core/simulation';
 import type { Replay } from './core/types';
 import { checkedReplay, replayLevel } from './core/replay-validation';
 import {scoreBreakdown,betterResult} from './core/scoring';
@@ -53,7 +54,14 @@ export function parseSave(raw:string|null,strict=false):SaveData {
         try{const replay=checkedReplay(p.replay,false,true);if(typeof p.id==='string'&&/^[0-9a-f-]{36}$/.test(p.id)&&['pending','confirmed','rejected'].includes(p.status))base.pending.push({id:p.id,replay,status:p.status,...(typeof p.serverId==='string'?{serverId:p.serverId}:{})});}catch{/* Invalid queue items never prevent loading. */}
       }
       base.pending=compactRuns(base.pending);
-      if(x.suspended){try{const r=checkedReplay(x.suspended,true);const l=LEVELS.find(l=>l.id===r.levelId)!;if(runReplay(l,r).state.status==='playing')base.suspended=r;}catch{/* Outdated attempt: retain records. */}}
+      if(x.suspended){try{
+        const r=checkedReplay(x.suspended,true,true),l=LEVELS.find(l=>l.id===r.levelId)!;
+        const original=runReplay(replayLevel(r,true)!,r);
+        if(original.state.status==='playing'&&compatibleRecord(l,{levelHash:r.levelHash,ticks:r.inputs.length},r.practice)){
+          if(r.levelHash===levelHash(l))base.suspended=r;
+          else{const resumed=new Simulation(l,r.practice);for(const input of r.inputs)resumed.step(input);if(resumed.state.status==='playing')base.suspended=resumed.exportReplay();}
+        }
+      }catch{/* Outdated attempt: retain records. */}}
       if(x.branchProgress&&typeof x.branchProgress==='object')for(const [k,v]of Object.entries(x.branchProgress))if(/^[a-z-]+$/.test(k)&&typeof v==='string'&&/^[A-Z0-9]{1,5}$/.test(v))base.branchProgress[k]=v;
     }
     return base;
@@ -81,7 +89,7 @@ export function recordWin(save:SaveData,id:string,ticks:number,points:number,pra
   const bucket=practice?save.training:save.timed;
   const revision=levelHash(LEVELS.find(l=>l.id===id)!);
   const previous=bucket[id];
-  if(!previous||previous.levelHash!==revision||betterResult(ticks,score,{ticks:previous.ticks,score:previous.score??previous.points})||ticks===previous.ticks&&previous.score===undefined&&score===previous.points)bucket[id]={ticks,points,score,levelHash:revision};
+  if(!previous||!compatibleRecord(LEVELS.find(l=>l.id===id)!,previous,practice)||betterResult(ticks,score,{ticks:previous.ticks,score:previous.score??previous.points})||ticks===previous.ticks&&previous.score===undefined&&score===previous.points)bucket[id]={ticks,points,score,levelHash:revision};
 }
 
-export function currentRecord(save:SaveData,id:string):RecordEntry|undefined {const r=(save.practice?save.training:save.timed)[id];return r?.levelHash===levelHash(LEVELS.find(l=>l.id===id)!)?r:undefined;}
+export function currentRecord(save:SaveData,id:string):RecordEntry|undefined {const r=(save.practice?save.training:save.timed)[id];return r&&compatibleRecord(LEVELS.find(l=>l.id===id)!,r,save.practice)?r:undefined;}

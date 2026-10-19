@@ -6,7 +6,7 @@ Legende: X Außenwand, # Mauer, . Erde, Leerzeichen Gang, P Spieler, E Ausgang, 
 
 ## 01 – Die erste Schicht
 
-Ein Licht im Dunkeln. 18 × 12 Felder, Quote 8, 180 Sekunden, Schwierigkeit 1/3.
+Ein Licht im Dunkeln. 18 × 12 Felder, Quote 8, 13 Sekunden, Schwierigkeit 1/3.
 
 Den ersten Smaragd nebenan aufnehmen. Die westliche Kammer absuchen, durch den unteren Durchgang wechseln und den Diamanten holen. Dann zum Ausgang im Nordosten.
 
@@ -52,7 +52,7 @@ walk 15 2
 
 ## 02 – Unter Last
 
-Erst denken. Dann graben.. 22 × 14 Felder, Quote 10, 210 Sekunden, Schwierigkeit 1/3.
+Erst denken. Dann graben.. 22 × 14 Felder, Quote 10, 9 Sekunden, Schwierigkeit 1/3.
 
 Bis zum Seitengang gehen, von (9,5) nach rechts untergraben und den Stein in den Schacht fallen lassen. Danach die Kristalle im rechten Gang sammeln.
 
@@ -98,7 +98,7 @@ walk 19 4
 
 ## 03 – Platz zum Schieben
 
-Ein freier Platz verändert alles. 24 × 16 Felder, Quote 12, 240 Sekunden, Schwierigkeit 2/3.
+Ein freier Platz verändert alles. 24 × 16 Felder, Quote 12, 10 Sekunden, Schwierigkeit 2/3.
 
 Zur rechten Nische (13,8), Erde oberhalb entfernen. Über den unteren Gang zurück nach (11,7), den Stein rechts schieben und durch den frei gewordenen Aufstieg in die obere Kammer.
 
@@ -148,7 +148,7 @@ walk 20 2
 
 ## 04 – Die rollende Galerie
 
-Stein auf Stein. 28 × 18 Felder, Quote 15, 300 Sekunden, Schwierigkeit 2/3.
+Stein auf Stein. 28 × 18 Felder, Quote 15, 9 Sekunden, Schwierigkeit 2/3.
 
 Vor dem Stapel anhalten und das linke Seitenfeld nebenan freigraben. Nach dem Abrollen und Fallen den Gang zur Diamantgalerie durchqueren und oben zum Ausgang zurückgehen.
 
@@ -199,7 +199,7 @@ walk 18 2
 
 ## 05 – Der Schieferkrabbler
 
-Ein berechenbarer Gegner. 28 × 18 Felder, Quote 12, 300 Sekunden, Schwierigkeit 3/3.
+Ein berechenbarer Gegner. 28 × 18 Felder, Quote 12, 10 Sekunden, Schwierigkeit 3/3.
 
 Von (12,6) geschützt beobachten. Die Stütze so entfernen, dass der fallende Stein den Krabbler in der unteren Kammer trifft. Danach die obere Galerie ausräumen.
 
@@ -248,7 +248,7 @@ walk 24 3
 
 ## 06 – Hinter Stein und Riegel
 
-Einsperren statt erschlagen. 26 × 18 Felder, Quote 9, 300 Sekunden, Schwierigkeit 2/3.
+Einsperren statt erschlagen. 26 × 18 Felder, Quote 9, 21 Sekunden, Schwierigkeit 2/3.
 
 Den linken Diamanten holen, zum Fels gehen und den Krabbler beobachten. Den Stein nach rechts in den Zugang schieben, wenn der Krabbler in der oberen Nische ist. Unter dem Riegel hindurch in die rechte Kammer gehen, zwei Diamanten sammeln und zum Ausgang aufsteigen.
 
@@ -297,7 +297,7 @@ walk 20 5
 
 ## 07 – Der richtige Augenblick
 
-Ein Abwurf aus sicherer Entfernung. 28 × 18 Felder, Quote 9, 300 Sekunden, Schwierigkeit 3/3.
+Ein Abwurf aus sicherer Entfernung. 28 × 18 Felder, Quote 9, 22 Sekunden, Schwierigkeit 3/3.
 
 Bei (16,5) stehen bleiben. Den Abwurf vorhalten: Stütze bei Takt 25 entfernen, damit der Fels den Krabbler bei Takt 28 trifft. Danach rechts absteigen, die drei Diamanten der unteren Galerie holen und zum westlichen Ausgang gehen.
 
@@ -347,7 +347,7 @@ walk 5 11
 
 ## 08 – Der lange Bogen
 
-Es gibt mehr als einen Weg. 30 × 20 Felder, Quote 12, 360 Sekunden, Schwierigkeit 2/3.
+Es gibt mehr als einen Weg. 30 × 20 Felder, Quote 12, 16 Sekunden, Schwierigkeit 2/3.
 
 Links nach unten graben, die vier Diamanten entlang der unteren Galerie einsammeln und rechts zum Ausgang aufsteigen. Die Kammer in der Mitte ist optional.
 
@@ -395,7 +395,7 @@ walk 25 3
 
 ## 09 – Ein kostbarer Gegner
 
-Der Kristallkrabbler. 28 × 19 Felder, Quote 5, 300 Sekunden, Schwierigkeit 3/3.
+Der Kristallkrabbler. 28 × 19 Felder, Quote 5, 17 Sekunden, Schwierigkeit 3/3.
 
 Links der Stütze bei (14,8) warten. Bei Takt 14 rechts nebenan graben. Der Stein trifft bei Takt 16. Rechts in die Laufbahn steigen, den entstandenen Diamanten einsammeln und im östlichen Schacht beide Smaragde auf dem Weg zum Ausgang holen.
 
@@ -446,7 +446,7 @@ walk 20 16
 
 ## 10 – Ein Tor nach Lathmar
 
-Am Ende der alten Mine. 40 × 26 Felder, Quote 30, 480 Sekunden, Schwierigkeit 3/3.
+Am Ende der alten Mine. 40 × 26 Felder, Quote 30, 120 Sekunden, Schwierigkeit 3/3.
 
 Zuerst den unteren Schiebestein lösen und den Galeriestein seitlich untergraben. Sieben Diamanten sammeln. Am bewachten Riegel warten, bis der Krabbler in der oberen Nische ist, und den Riegel nach rechts schieben. Die Stützerde nicht freigraben. Unten herum zum letzten Aufstieg gehen und die drei übrigen Diamanten holen. Alternative: den Krabbler rechts lassen, den oberen Abwurf vorbereiten, treffen und den gelandeten Stein nach rechts wegschieben.
 
@@ -527,7 +527,7 @@ walk 37 3
 
 ## 11 – Das erste Tor
 
-Ein Hebel, ein neuer Weg. 32 × 22 Felder, Quote 22, 360 Sekunden, Schwierigkeit 2/3.
+Ein Hebel, ein neuer Weg. 32 × 22 Felder, Quote 22, 80 Sekunden, Schwierigkeit 2/3.
 
 A öffnen, den Schiebestein lösen und die obere Galerie sammeln. In der Ostkammer weiter sammeln. Zum Hebel zurückkehren und B öffnen; im Westen die Quote ergänzen und nach Süden zum Ausgang.
 
@@ -621,7 +621,7 @@ walk 3 19
 
 ## 12 – Die zweite Runde
 
-Beobachten, verbinden, sammeln. 36 × 26 Felder, Quote 22, 420 Sekunden, Schwierigkeit 2/3.
+Beobachten, verbinden, sammeln. 36 × 26 Felder, Quote 22, 70 Sekunden, Schwierigkeit 2/3.
 
 Die Westkammer sammeln. Am oberen Beobachtungsweg Hebel F betätigen und das Treffen ansehen. In der Ostkammer die Quote ergänzen und rechts zum Ausgang gehen.
 
@@ -715,7 +715,7 @@ walk 34 24
 
 ## 13 – Ein kostbares Treffen
 
-Ein Zug, ein Stein. 40 × 27 Felder, Quote 28, 480 Sekunden, Schwierigkeit 3/3.
+Ein Zug, ein Stein. 40 × 27 Felder, Quote 28, 80 Sekunden, Schwierigkeit 3/3.
 
 Westliche Lagerstätte sammeln. A schalten, zu S wechseln und den Abwurf vorhalten. Nach dem Treffer den Diamanten holen. Den großen Ostabbau durchsuchen und zum Ausgang zurückkehren.
 
@@ -835,7 +835,7 @@ walk 20 10
 
 ## 14 – Die vier Reviere
 
-Jeder Weg verändert die Mine. 48 × 30 Felder, Quote 36, 600 Sekunden, Schwierigkeit 3/3.
+Jeder Weg verändert die Mine. 48 × 30 Felder, Quote 36, 65 Sekunden, Schwierigkeit 3/3.
 
 Westen: verzweigte Erzadern. Norden: kurze Diamantstollen. Osten: Rundgang mit Abzweig. Süden: Werkstatt mit Sackgasse. Drei Reviere reichen für 36 Punkte. A/B wechselt die inneren Zugänge; außen sind benachbarte Reviere verbunden.
 
@@ -945,7 +945,7 @@ walk 24 16
 
 ## 15 – Drei Reviere, ein Rückweg
 
-Verändere den Weg zurück. 50 × 38 Felder, Quote 36, 720 Sekunden, Schwierigkeit 3/3.
+Verändere den Weg zurück. 50 × 38 Felder, Quote 36, 155 Sekunden, Schwierigkeit 3/3.
 
 S hält Blau lebend in seiner Bucht. In A die Felsablage von unten freigraben und den Stein hineinschieben. Hebel A öffnet B hinter deinem Start: Dort die Stütze seitlich entfernen und den Fall abwarten. Hebel B öffnet C jenseits von A. C öffnet schließlich den Ausgang im Südwesten. Sammle auf Hin- und Rückwegen.
 
@@ -1119,7 +1119,7 @@ walk 13 35
 
 ## 16 – Die umgegrabene Patrouille
 
-Verändere den Weg zurück. 46 × 34 Felder, Quote 36, 720 Sekunden, Schwierigkeit 3/3.
+Verändere den Weg zurück. 46 × 34 Felder, Quote 36, 175 Sekunden, Schwierigkeit 3/3.
 
 Zwei blaue Käfer patrouillieren frei um den Erdkern. Warte, bis der erste weit unten rechts ist. Grabe hinter P einen Umweg in den Kern und ziehe dich zurück. Sobald beide darin stehen, schließt P/E die Kammer und öffnet den Ausgang. Schalte zu früh? Öffne erneut. In der Ostader gibt ein kontrollierter Felsfall den Weg zu W frei; W öffnet das Diamantlager hinter dem Start.
 
@@ -1256,7 +1256,7 @@ walk 3 5
 
 ## 17 – Der vorbereitete Rückweg
 
-Jeder Weg verändert die Mine. 44 × 32 Felder, Quote 38, 600 Sekunden, Schwierigkeit 3/3.
+Jeder Weg verändert die Mine. 44 × 32 Felder, Quote 38, 65 Sekunden, Schwierigkeit 3/3.
 
 Lege vor dem Hinweg die obere Öffnung des Entsorgungsschachts links neben dem Felsen frei. Sammle im Osten. Der letzte Hebel schließt A und öffnet B am Ausgang. Auf dem Rückweg musst du den Felsen von rechts in den vorbereiteten Schacht schieben. Ohne Vorbereitung bleibt nur Zurückschalten und Nacharbeiten.
 
@@ -1356,7 +1356,7 @@ walk 3 5
 
 ## 18 – Fracht über dem Schacht
 
-Verändere den Weg zurück. 48 × 38 Felder, Quote 38, 720 Sekunden, Schwierigkeit 3/3.
+Verändere den Weg zurück. 48 × 38 Felder, Quote 38, 135 Sekunden, Schwierigkeit 3/3.
 
 Ein geschobener Fels fällt erst in einem Takt ohne weiteren Schub. Halte Rechts, um ihn über den ersten Schacht bis in den zweiten zu schieben: Der kurze Rückweg bleibt frei. Fällt er in den ersten Schacht, bleibt der längere Diamantweg außen offen. Am östlichen Fels zuerst die Ablage von unten freigraben. Hinter ihm öffnet A/B/E den Rückweg und schließt den oberen Zugang.
 
@@ -1478,7 +1478,7 @@ walk 3 21
 
 ## 19 – Zwei getrennte Wege
 
-Jeder Weg verändert die Mine. 44 × 30 Felder, Quote 41, 600 Sekunden, Schwierigkeit 3/3.
+Jeder Weg verändert die Mine. 44 × 30 Felder, Quote 41, 115 Sekunden, Schwierigkeit 3/3.
 
 L und R geben zwei getrennte Patrouillen frei. Erst wenn beide Zugänge offen sind, können Blau und Lila in der mittleren Galerie zusammentreffen. Beobachte den neuen Kristallkäfer im natürlichen Fallschacht und grabe die Stütze von links weg, sobald er zwei Felder unter der Stütze steht. Danach erschließt du die gebogenen Erzadern.
 
@@ -1611,7 +1611,7 @@ walk 39 4
 
 ## 20 – Der letzte Abtransport
 
-Jeder Weg verändert die Mine. 48 × 34 Felder, Quote 44, 600 Sekunden, Schwierigkeit 3/3.
+Jeder Weg verändert die Mine. 48 × 34 Felder, Quote 44, 95 Sekunden, Schwierigkeit 3/3.
 
 Sammle zuerst in den westlichen Stollen. T/A öffnet die Falltür und den Zugang zur bewachten Engstelle. Warte, bis Lila ganz oben im Schacht steht. Nach dem Treffer liegt der Fels im Durchgang: Schiebe ihn nach rechts, um zur oberen Abzweigung zu gelangen. Hebel B liegt am Ende der östlichen Erzschleife und öffnet den Ausgang.
 
@@ -1739,7 +1739,7 @@ walk 40 4
 
 ## 21 – Der unterbrochene Ring
 
-Die Torhallen. 44 × 32 Felder, Quote 48, 720 Sekunden, Schwierigkeit 2/3.
+Die Torhallen. 44 × 32 Felder, Quote 48, 110 Sekunden, Schwierigkeit 2/3.
 
 Sonne und Mond passen nur zum gleichen Schloss. Ein Schlüssel wird beim Öffnen verbraucht. Hole den dritten Sonnenschlüssel im unteren Seitenstollen: Er öffnet die Querverbindung im Ring. Entscheide, welche Adern du davor und danach sammelst.
 
@@ -1854,7 +1854,7 @@ walk 3 2
 
 ## 22 – Jenseits des Spalts
 
-Die Torhallen. 52 × 36 Felder, Quote 62, 720 Sekunden, Schwierigkeit 2/3.
+Die Torhallen. 52 × 36 Felder, Quote 62, 150 Sekunden, Schwierigkeit 2/3.
 
 Gleiche Buchstaben verbinden zwei Türen. Nur du reist hindurch; Steine und Käfer bleiben auf ihrer Seite. Verlasse die Ankunftstür vor der nächsten Reise. Hole den Sonnenschlüssel auf der anderen Seite und verbinde die Erzwege beider Ufer.
 
@@ -1972,7 +1972,7 @@ walk 3 3
 
 ## 23 – Freier Empfang
 
-Die Torhallen. 48 × 34 Felder, Quote 52, 720 Sekunden, Schwierigkeit 2/3.
+Die Torhallen. 48 × 34 Felder, Quote 52, 155 Sekunden, Schwierigkeit 2/3.
 
 Eine belegte Ankunft verhindert die Reise. Sammle zuerst den Diamanten neben der D-Tür. Bei A versperrt ein Fels das Ziel: Entferne seine Stütze von links, damit er in den Fangschacht sinkt. Die freie Tür wird zum kurzen Rückweg.
 
@@ -2101,7 +2101,7 @@ walk 4 3
 
 ## 24 – Ein Schlüssel, zwei Türen
 
-Die Torhallen. 56 × 38 Felder, Quote 90, 720 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 56 × 38 Felder, Quote 90, 100 Sekunden, Schwierigkeit 3/3.
 
 Ein Sonnenschlüssel, zwei Türen: Wähle die westliche Diamantader oder das östliche Smaragdfeld. Beide reichen für den Abschluss. Der Mondschlüssel gehört zum Ausgang. Im Osten musst du den Platz neben dem Schiebefelsen von der Gegenseite freigraben.
 
@@ -2214,7 +2214,7 @@ walk 27 3
 
 ## 25 – Spuren im Mauerwerk
 
-Die Torhallen. 52 × 38 Felder, Quote 62, 720 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 52 × 38 Felder, Quote 62, 190 Sekunden, Schwierigkeit 3/3.
 
 Sieh zuerst nach den Zugängen: Sichtbare Schätze liegen oft in der Nachbargalerie. A und B verbinden die drei Reviere. Der Mondschlüssel liegt im Osten. DW weist auf den späteren Zwergen-Geheimzweig: Du kannst sein Vorzimmer finden, aber sein Eingang bleibt in dieser Fassung versiegelt. Der normale Ausgang führt zu 26.
 
@@ -2362,7 +2362,7 @@ walk 3 3
 
 ## 26 – Wandernde Adern
 
-Die Torhallen. 50 × 40 Felder, Quote 66, 720 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 50 × 40 Felder, Quote 66, 130 Sekunden, Schwierigkeit 3/3.
 
 Die mittlere Ader und der untere Quergang teilen sich einen Fallschacht. Gräbst du die mittlere Stütze frei, sinkt der Fels in den unteren Zugang. Entscheide, welche Funde du vorher holst. A erschließt die Gegenseite; der Sonnenschlüssel liegt in der Nische hinter dem Felsen.
 
@@ -2483,7 +2483,7 @@ walk 4 2
 
 ## 27 – Die geöffnete Jagd
 
-Die Torhallen. 52 × 38 Felder, Quote 56, 720 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 52 × 38 Felder, Quote 56, 175 Sekunden, Schwierigkeit 3/3.
 
 Die Sonnentür verbindet die Patrouille mit deinen Sammelwegen und bleibt offen. Schalte A/B von innen frei. Über die Portale kannst nur du abkürzen; der Käfer muss laufen. Nutze Nischen, sammle in Abschnitten und hole den Mondschlüssel im südöstlichen Ast.
 
@@ -2667,7 +2667,7 @@ walk 4 3
 
 ## 28 – Schichtwechsel
 
-Die Torhallen. 56 × 40 Felder, Quote 78, 720 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 56 × 40 Felder, Quote 78, 165 Sekunden, Schwierigkeit 3/3.
 
 U und L schalten gegenläufig. Hole oben den Sonnenschlüssel und sammle die oberen Äste, bevor du auf L wechselst. Unten liegt der Mondschlüssel für den oberen Ausgang. Bündele deine Wege: Zwei Schaltungen reichen. Der Hebel bleibt immer erreichbar.
 
@@ -2831,7 +2831,7 @@ walk 15 1
 
 ## 29 – Die andere Seite des Felsens
 
-Die Torhallen. 52 × 40 Felder, Quote 68, 720 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 52 × 40 Felder, Quote 68, 155 Sekunden, Schwierigkeit 3/3.
 
 Schiebe den gemeinsamen Felsen zuerst zweimal nach rechts. Oben findest du den Sonnenschlüssel für A. Reise auf die andere Seite und schiebe denselben Felsen von rechts zurück: So wird der untere Erzweg frei. Der Mondschlüssel öffnet den direkten Heimweg.
 
@@ -2964,7 +2964,7 @@ walk 4 28
 
 ## 30 – Das gebrochene Siegel
 
-Die Torhallen. 58 × 44 Felder, Quote 86, 900 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 58 × 44 Felder, Quote 86, 260 Sekunden, Schwierigkeit 3/3.
 
 Bereite R vor dem Abbau der Kernader vor: Der Sonnenschlüssel öffnet die Hebelnische, der Mondschlüssel den Ausgang. Beim Betreten der Kernader untergräbst du den Fels über der A-Ankunft. Er versperrt danach den Portalrückweg. Für die Quote brauchst du Diamanten aus der Kernader; heimwärts geht es durch R und die bewachten unteren Gänge.
 

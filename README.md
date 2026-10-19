@@ -10,6 +10,10 @@ The full game is planned to contain **120 levels: 100 main caves and 20 hidden l
 - [Development roadmap (German)](docs/ENTWICKLUNGSPLAN.md)
 - [Chapter 3 implementation and verification (German)](docs/KAPITEL-3-UMSETZUNG.md)
 
+## Update 0.9.1
+
+Hints on cave cards are now optional. Timed play uses shorter deadlines based on the recorded human best times; practice remains untimed. Compatible existing records are preserved. Chapter III no longer changes camera framing automatically near levers and portal rooms. [Timing comparison and release details](docs/TIMING-FEEDBACK-0.9.1.md).
+
 ## Run locally
 
 Install Node.js 24 LTS, then run these commands in the project folder:

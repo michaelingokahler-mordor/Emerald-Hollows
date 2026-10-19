@@ -1,4 +1,5 @@
 import {describe,it,expect} from 'vitest';
+import {compatibleHashes} from '../src/record-compatibility';
 import {Simulation,levelHash,runReplay} from '../src/core/simulation';
 import {CRAWLER_RULES_VERSION,isCrawler,type LevelDefinition} from '../src/core/types';
 import {LEVELS} from '../src/levels';
@@ -25,7 +26,7 @@ describe('crawler lessons',()=>{
 describe('compatible records and language',()=>{
  it('still verifies queued old runs but cannot resume them as revised caves',()=>{for(const level of LEGACY_LEVELS){const replay=solve(level).exportReplay();expect(()=>checkedReplay(replay,true)).toThrow();expect(checkedReplay(replay,false,true)).toEqual(replay);let run={id:'legacy',profile_id:'p',replay:JSON.stringify(replay),state:null as string|null,cursor:0,status:'pending'};while(run.status==='pending'){const result=verifyChunk(run);run={...run,state:JSON.stringify(result.state),cursor:result.cursor,status:result.status};}expect(run.status).toBe('confirmed');}});
  it('retains old unlocks but starts a new record for rebuilt caves',()=>{const s=parseSave(JSON.stringify({version:2,timed:{'01':{ticks:36,points:8},'06':{ticks:64,points:24}}}));expect(currentRecord(s,'01')?.ticks).toBe(36);expect(currentRecord(s,'06')).toBeUndefined();expect(s.timed['06'].ticks).toBe(64);expect(unlockedLevels(Object.keys(s.timed)).has('07')).toBe(true);recordWin(s,'06',200,9,false);expect(currentRecord(s,'06')?.ticks).toBe(200);});
- it('keeps the checksum of every unchanged cave',()=>{const hashes:Record<string,string>={'01':'29fef008','02':'2159bbe9','03':'e120b85c','04':'40ed9567','05':'e7a38645','08':'41597140'};for(const [id,h]of Object.entries(hashes))expect(levelHash(LEVELS.find(l=>l.id===id)!)).toBe(h);});
+ it('recognizes the historical checksum of each unchanged cave',()=>{const hashes:Record<string,string>={'01':'29fef008','02':'2159bbe9','03':'e120b85c','04':'40ed9567','05':'e7a38645','08':'41597140'};for(const [id,h]of Object.entries(hashes))expect(compatibleHashes(LEVELS.find(l=>l.id===id)!)).toContain(h);});
  it('stores the language and translates every cave name, subtitle and hint',()=>{expect(parseSave('{"version":2,"language":"de"}').language).toBe('de');expect(parseSave('{"version":2,"language":"en"}').language).toBe('en');for(const l of LEVELS)for(const key of ['name','subtitle','hint'] as const){expect(translate(l[key],'en')).not.toBe(l[key]);expect(translate(l[key],'de')).toBe(l[key]);}});
  it('translates dynamic progress, counters and ranking options',()=>{expect(translate('3 / 10 Höhlen im Normalspiel geschafft','en')).toBe('3 / 10 caves completed in timed mode');expect(translate('2 wartend · 4 zuletzt bestätigt','en')).toBe('2 pending · 4 recently verified');expect(translate('06 – Hinter Stein und Riegel','en')).toBe('06 – Behind stone and bar');});
 });

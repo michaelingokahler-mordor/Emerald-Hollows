@@ -1,5 +1,7 @@
 import {writeFile} from 'node:fs/promises';
-import {CHAPTER_TWO,CHAPTER_TWO_ROUTES} from '../src/chapter-two';
+import {CHAPTER_TWO_ROUTES} from '../src/chapter-two';
+import {LEVELS} from '../src/levels';
+const CHAPTER_TWO=LEVELS.slice(10,20);
 import {CHAPTER_TWO as OLD} from '../src/chapter-two-v07';
 import {levelHash,runReplay,Simulation} from '../src/core/simulation';
 import {solve} from './solution';

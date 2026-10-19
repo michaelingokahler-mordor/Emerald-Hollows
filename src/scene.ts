@@ -91,7 +91,10 @@ export class CaveScene extends Phaser.Scene {
     this.renderState(sim.state,alpha);
     const cam=this.cameras.main;
     // Phaser scroll is expressed relative to the unzoomed viewport center.
-    const near=sim.level.mechanisms?.levers.find(l=>l.view&&Math.abs(l.x-sim.state.player.x)+Math.abs(l.y-sim.state.player.y)<=1)?.view??sim.level.passages?.views?.find(v=>sim.state.player.x>=v.x&&sim.state.player.y>=v.y&&sim.state.player.x<v.x+v.width&&sim.state.player.y<v.y+v.height);
+    // Chapter III follows the miner continuously. Entering a portal/lever room
+    // must not change magnification or snap to a competing camera target.
+    // Earlier dispenser puzzles retain their authored, fully visible apparatus.
+    const near=sim.level.passages?undefined:sim.level.mechanisms?.levers.find(l=>l.view&&Math.abs(l.x-sim.state.player.x)+Math.abs(l.y-sim.state.player.y)<=1)?.view;
     if(near)this.activeView=near;
     const v=this.activeView,p=sim.state.player;
     if(v&&(p.x<v.x||p.y<v.y||p.x>=v.x+v.width||p.y>=v.y+v.height))this.activeView=undefined;
