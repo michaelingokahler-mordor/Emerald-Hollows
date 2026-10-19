@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-18T18:30:59.866Z",
+  "verifiedAt": "2026-10-19T14:10:35.041Z",
   "levels": [
     {
       "id": "01",
@@ -129,21 +129,21 @@
     },
     {
       "id": "15",
-      "name": "Der steinerne Riegel",
+      "name": "Drei Reviere, ein Rückweg",
       "status": "won",
-      "ticks": 195,
-      "points": 35,
-      "score": 40,
-      "hash": "7d88905a"
+      "ticks": 540,
+      "points": 37,
+      "score": 42,
+      "hash": "b941b2b4"
     },
     {
       "id": "16",
-      "name": "Der bewachte Knoten",
+      "name": "Die umgegrabene Patrouille",
       "status": "won",
-      "ticks": 366,
-      "points": 47,
-      "score": 52,
-      "hash": "0c4e3816"
+      "ticks": 477,
+      "points": 40,
+      "score": 40,
+      "hash": "2e5d43be"
     },
     {
       "id": "17",
@@ -156,12 +156,12 @@
     },
     {
       "id": "18",
-      "name": "Die Abkürzung",
+      "name": "Fracht über dem Schacht",
       "status": "won",
-      "ticks": 231,
-      "points": 45,
-      "score": 45,
-      "hash": "20a4dfba"
+      "ticks": 418,
+      "points": 52,
+      "score": 52,
+      "hash": "83888a86"
     },
     {
       "id": "19",
@@ -180,14 +180,104 @@
       "points": 47,
       "score": 52,
       "hash": "964a09c7"
+    },
+    {
+      "id": "21",
+      "name": "Der unterbrochene Ring",
+      "status": "won",
+      "ticks": 539,
+      "points": 60,
+      "score": 60,
+      "hash": "2e5563b0"
+    },
+    {
+      "id": "22",
+      "name": "Jenseits des Spalts",
+      "status": "won",
+      "ticks": 524,
+      "points": 69,
+      "score": 69,
+      "hash": "276a5e50"
+    },
+    {
+      "id": "23",
+      "name": "Freier Empfang",
+      "status": "won",
+      "ticks": 513,
+      "points": 59,
+      "score": 59,
+      "hash": "1cf20cf2"
+    },
+    {
+      "id": "24",
+      "name": "Ein Schlüssel, zwei Türen",
+      "status": "won",
+      "ticks": 331,
+      "points": 106,
+      "score": 106,
+      "hash": "352e9089"
+    },
+    {
+      "id": "25",
+      "name": "Spuren im Mauerwerk",
+      "status": "won",
+      "ticks": 583,
+      "points": 69,
+      "score": 69,
+      "hash": "aab9dbb5"
+    },
+    {
+      "id": "26",
+      "name": "Wandernde Adern",
+      "status": "won",
+      "ticks": 620,
+      "points": 71,
+      "score": 71,
+      "hash": "aa83f7fe"
+    },
+    {
+      "id": "27",
+      "name": "Die geöffnete Jagd",
+      "status": "won",
+      "ticks": 431,
+      "points": 58,
+      "score": 58,
+      "hash": "6856a004"
+    },
+    {
+      "id": "28",
+      "name": "Schichtwechsel",
+      "status": "won",
+      "ticks": 594,
+      "points": 82,
+      "score": 82,
+      "hash": "03b0d426"
+    },
+    {
+      "id": "29",
+      "name": "Die andere Seite des Felsens",
+      "status": "won",
+      "ticks": 542,
+      "points": 70,
+      "score": 70,
+      "hash": "ab46dc12"
+    },
+    {
+      "id": "30",
+      "name": "Das gebrochene Siegel",
+      "status": "won",
+      "ticks": 910,
+      "points": 101,
+      "score": 101,
+      "hash": "5199e301"
     }
   ],
   "chapterAlternatives": [
     {
       "id": "18",
       "method": "shortcut",
-      "ticks": 169,
-      "points": 41
+      "ticks": 388,
+      "points": 38
     }
   ],
   "alternativeSolutions": [

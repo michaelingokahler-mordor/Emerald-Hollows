@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import {PassageView} from './passage-view';
 import {MechanismView} from './mechanism-view';
 import type {ViewRoom} from './core/types';
 import { Simulation } from './core/simulation';
@@ -21,7 +22,8 @@ export class CaveScene extends Phaser.Scene {
   lastSfx=new Map<string,number>();
   track=0;lastBeat=-1;dangerUntil=0;dangerMix=0;musicStarted=false;
   heroAnimationMs=0;
-  rig?:MechanismView; crawlerMarks=new Map<number,Phaser.GameObjects.Text>();
+  passages?:PassageView;
+  rig?:MechanismView;
   activeView?:ViewRoom; viewport={width:1280,height:720,dpr:1};
   constructor(bridge:SceneBridge){super('cave');this.bridge=bridge;}
   preload():void{
@@ -43,8 +45,8 @@ export class CaveScene extends Phaser.Scene {
   begin():void{
     if(!this.loaded)return;
     const sim=this.bridge.simulation();if(!sim)return;
+    this.passages?.destroy();this.passages=new PassageView(this,sim.level);
     this.rig?.destroy();this.rig=new MechanismView(this,sim.level);this.activeView=undefined;
-    for(const mark of this.crawlerMarks.values())mark.destroy();this.crawlerMarks.clear();
     for(const rows of this.grounds)for(const tile of rows)tile.destroy();
     for(const obj of this.entities.values())obj.destroy();this.entities.clear();for(const badge of this.badges.values())badge.destroy();this.badges.clear();
     // Floor sprites share the same lifetime as terrain through a dedicated container.
@@ -77,6 +79,7 @@ export class CaveScene extends Phaser.Scene {
         if(!this.bridge.active()||sim.state.status!=='playing')return;
         this.prevPlayer={...sim.state.player};this.previous=new Map(sim.state.entities.map(e=>[e.id,{x:e.x,y:e.y}]));
         this.lastInput=this.bridge.input();const events=sim.step(this.lastInput);
+        if(events.some(e=>e.type==='teleport')){this.prevPlayer={...sim.state.player};this.cameras.main.centerOn((sim.state.player.x+.5)*CELL,(sim.state.player.y+.5)*CELL);}
         this.effects(events);this.bridge.changed(events);
       });
     }else alpha=1;
@@ -88,7 +91,7 @@ export class CaveScene extends Phaser.Scene {
     this.renderState(sim.state,alpha);
     const cam=this.cameras.main;
     // Phaser scroll is expressed relative to the unzoomed viewport center.
-    const near=sim.level.mechanisms?.levers.find(l=>l.view&&Math.abs(l.x-sim.state.player.x)+Math.abs(l.y-sim.state.player.y)<=1)?.view;
+    const near=sim.level.mechanisms?.levers.find(l=>l.view&&Math.abs(l.x-sim.state.player.x)+Math.abs(l.y-sim.state.player.y)<=1)?.view??sim.level.passages?.views?.find(v=>sim.state.player.x>=v.x&&sim.state.player.y>=v.y&&sim.state.player.x<v.x+v.width&&sim.state.player.y<v.y+v.height);
     if(near)this.activeView=near;
     const v=this.activeView,p=sim.state.player;
     if(v&&(p.x<v.x||p.y<v.y||p.x>=v.x+v.width||p.y>=v.y+v.height))this.activeView=undefined;
@@ -113,7 +116,7 @@ export class CaveScene extends Phaser.Scene {
     }
   }
   renderState(s:GameState,alpha:number):void{
-    this.rig?.update(s);
+    this.rig?.update(s);this.passages?.update(s);
     for(let y=0;y<s.terrain.length;y++)for(let x=0;x<s.terrain[y].length;x++){
       const t=s.terrain[y][x],img=this.grounds[y]?.[x];if(!img)continue;
       if(t==='empty')img.setVisible(false);
@@ -131,13 +134,9 @@ export class CaveScene extends Phaser.Scene {
       if(isCrawler(e.kind)){
         if(e.kind!=='crystal-crawler')img.setTint(e.kind==='purple-crawler'?0xc78beb:0x8abbe9);
         img.setFlipX(e.direction==='left');img.setAngle(e.direction==='up'?-90:e.direction==='down'?90:0);
-        if(e.kind!=='crystal-crawler'){
-          let mark=this.crawlerMarks.get(e.id);if(!mark){mark=this.add.text(0,0,e.kind==='purple-crawler'?'↰':'↱',{fontFamily:'Arial',fontSize:'20px',fontStyle:'bold',color:'#ffffff',stroke:'#14202b',strokeThickness:4}).setOrigin(.5).setDepth(6);this.crawlerMarks.set(e.id,mark);}mark.setPosition(img.x+15,img.y-16);
-        }
       }
     }
     for(const [id,badge]of this.badges)if(!s.entities.some(e=>e.id===id&&e.kind==='crystal-crawler')){badge.destroy();this.badges.delete(id);}
-    for(const[id,mark]of this.crawlerMarks)if(!s.entities.some(e=>e.id===id&&(e.kind==='crawler'||e.kind==='purple-crawler'))){mark.destroy();this.crawlerMarks.delete(id);}
     const moving=this.prevPlayer.x!==s.player.x||this.prevPlayer.y!==s.player.y;
     const digging=this.lastInput.snap&&this.bridge.active();
     // Visual cadence is independent of the 100 ms rule clock and freezes on pause.
@@ -147,7 +146,7 @@ export class CaveScene extends Phaser.Scene {
   }
   effects(events:GameEvent[]):void{
     for(const event of events){
-      const key=event.type==='crush'||event.type==='release'?'impact':event.type==='transmute'||event.type==='fusion'?'diamond':event.type==='switch'?'push':event.type;
+      const key=event.type==='key'?'emerald':event.type==='unlock'||event.type==='teleport'?'open':event.type==='crush'||event.type==='release'?'impact':event.type==='transmute'||event.type==='fusion'?'diamond':event.type==='switch'?'push':event.type;
       const now=performance.now();
       if(this.cache.audio.exists(key)&&now-(this.lastSfx.get(key)??-1000)>70){this.sound.play(key,{volume:this.bridge.volume().sfx*(key==='dig'?0.5:key==='impact'?0.7:1)});this.lastSfx.set(key,now);}
       if(['dig','emerald','diamond','crush','transmute','fusion'].includes(event.type)){

@@ -23,6 +23,6 @@ describe('expanded caves and fresh rankings',()=>{
   for(const omitted of supply)expect(total-omitted).toBeGreaterThanOrEqual(l.quota);
  });
  it('extra ore cannot bypass mandatory containment or transmutation',()=>{
-  for(const id of ['13','15','16','19','20']){const l=CHAPTER_TWO.find(l=>l.id===id)!,sim=new Simulation(l);sim.state.points=l.quota;sim.step();expect(sim.state.open).toBe(false);expect(solve(l).state.objectiveDone).toBe(true);}
+  for(const id of ['13','15','19','20']){const l=CHAPTER_TWO.find(l=>l.id===id)!,sim=new Simulation(l);sim.state.points=l.quota;sim.step();expect(sim.state.open).toBe(false);expect(solve(l).state.objectiveDone).toBe(true);}
  });
 });

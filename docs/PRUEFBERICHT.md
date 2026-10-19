@@ -1,3 +1,41 @@
+# Lathmar: Emerald Hollows 0.9.0 — Torhallen und Spielerfeedback
+
+Stand: 19. Oktober 2026. Zehn neue Hauptkarten 21–30 mit Schlüsseln und Portalen. Zusätzlich 15, 16 und 18 nach menschlichem Feedback neu gebaut; 19 erhält Quote 41. Die übrigen vorhandenen Karten und Rekorde bleiben unverändert. Die 0.8-Definitionen der vier geänderten Karten bleiben zur Verifikation ausstehender Offline-Durchläufe erhalten. Richtungs-Pfeile an Käfern sind entfernt. Keine neuen Runway-Kosten.
+
+## Automatisierte Prüfung
+
+- **225 Tests in neun Dateien bestanden.** Regeln, Fall-/Schubverhalten, Schlüsselverbrauch, Portalbelegung, Ankunftsgefahren, Gerätezustände, speicherbare Zustände, Neustart und Replays.
+- Alle 30 Hauptlösungen sowie die dokumentierten Alternativen sind erfolgreich zeitgebunden abgespielt. Kapitel 2 und 3 sind zusätzlich bei neun Anfangsphasen geprüft. Die Simulation liefert bei 30/60/144 Render-FPS dieselben Endzustände.
+- Umgehungsprüfungen kombinieren ausgelassene Aktionen mit großzügiger Erreichbarkeit und Quotenberechnung. Ein erfolgreicher Replay allein gilt nicht als Beweis einer notwendigen Aktion. Gefundene Bypässe wurden in 15, 28 und 29 geschlossen. Keine vollständige Suche über sämtliche dynamischen Spielzustände.
+- Die lokale HTTP-API mit Wrangler/D1 bestätigt sämtliche 20 Karten aus Kapitel 2/3 einschließlich Gesamtpunkten. Sie akzeptiert alle vier archivierten 0.8-Lösungen, hält sie aus aktuellen Ranglisten heraus und stellt historische Rekorde weiterhin wieder her. Auch ältere Regelversionen bleiben geprüft. Keine Testprofile auf dem öffentlichen Server angelegt.
+- Strenge TypeScript-Prüfung, Produktionsbuild und Worker-Dry-Run bestanden. Keine Datenbankmigration erforderlich.
+
+## Zeiten und menschliches Feedback
+
+Kapitel 3: **9:18,7** automatische Referenzen, schnellste dokumentierte Varianten **8:28,2**. Vergleich zum genehmigten Kapitel-2-Stand 0.8: **4:42,5**, Faktor **1,978**. Die anschließend angefragte Erweiterung von 15/16/18 erhöht Kapitel 2 auf **5:46,8**; dazu beträgt der Faktor nur noch **1,61**. Keine künstliche Verlängerung durch Leerwege oder langsamere Bewegung.
+
+Die öffentlich abgerufene menschliche Serie von Mufti999 dauerte auf 0.8 **7:17,6**. Die einzelnen Rekorde und alten/neuen Automatenzeiten stehen in [KAPITEL-2-FEEDBACK-2026-10-19.md](KAPITEL-2-FEEDBACK-2026-10-19.md). Für die neue Fassung und Kapitel 3 fehlen noch menschliche Durchläufe. Es gibt weder einen gemessenen Erstspielzeitfaktor noch eine menschliche Spielspaß-Abnahme.
+
+## Browserprüfung
+
+Chrome 1280 × 720 / DPR 1, Edge 1920 × 1080 / DPR 2 und Chrome mit Touch-Emulation 390 × 844 / DPR 3: alle 14 neuen oder geänderten Karten erfolgreich über die Spieloberfläche abgespielt. Der Prüfablauf beschleunigt nur den Browser-Zeitgeber um Faktor sechs; Eingaben und Endtakte bleiben unverändert. Alle 30 Auswahlkarten und EN/DE-Umschaltung geprüft. Die Kontrollansichten in 16, 23, 26, 27 und 30 werden auf vollständige Sichtbarkeit ihrer definierten Räume geprüft.
+
+In Edge löste die hochauflösende Aufnahme eine automatische Pause aus. Der Prüfablauf setzt erkannte Pausen fort; der vollständige erfolgreiche Matrixlauf enthielt eine solche Fortsetzung. Zwei vorherige Prüfversuche liefen wegen dieser unberücksichtigten Pause in einen Prüfzeitablauf.
+
+Die abschließende Zweikäfer-Fassung von 16 wurde in allen drei Browserkonfigurationen erneut geprüft, mobil bei normalem Tempo. Level 27 zusätzlich bei normalem Tempo in der mobilen Ansicht erfolgreich. Ein eigener normaler Eingabetest prüft Tastaturbewegung, gleichzeitiges Touch-Graben mit Richtung, Schlüsselaufnahme ohne Bewegung, Pause, Neuladen mit erhaltenem Inventar und Neustart. Hoch- und Querformat wurden aufgenommen. Emulation ersetzt keinen Test auf einem physischen Mobilgerät.
+
+Der paketierte Produktionsbuild wurde zusätzlich nach einem echten Offline-Neuladen über den Service Worker geprüft. Alle 30 Karten waren vorhanden; Level 30 gewann bei normalem Tempo nach 91,0 Sekunden mit 101 Punkten.
+
+Nach dem Offline-Test wurde ausschließlich der zweite Käfer in 16 ergänzt; dessen finale Karte wurde separat erneut geprüft. Der Offline-Test gilt für den unveränderten Ablauf von Level 30.
+
+Screenshots liegen lokal unter `output/playwright/`. Geprüfte Grafiken sind vorhandene Runway-Medien plus programmatische Schlüssel-/Portalzeichen. Es gab keine neuen Audioänderungen; eine neue menschliche Hörabnahme wurde nicht durchgeführt.
+
+Der Geheimzweig in 25 ist ausschließlich ein auffindbarer, versiegelter Vorraum. G1–G10 sind nicht implementiert, kein geheimer Fortschritt wird vorgetäuscht. Der reguläre Ausgang führt nach 26.
+
+Die folgenden Abschnitte dokumentieren ältere Veröffentlichungen und ihre damaligen Prüfstände.
+
+---
+
 # Lathmar: Emerald Hollows 0.8.0 – unterschiedliche Aufgaben
 
 Stand: 18. Oktober 2026. Geändert wurden ausschließlich die Kartenrevisionen 14–20. 01–13, Simulationstakt, Laufanimation, Spielregeln und Runway-Medien bleiben erhalten. Die Varianten von 0.7 sind für ausstehende Offline-Replays archiviert.
@@ -122,7 +160,11 @@ Stand: 18. Oktober 2026. Zwanzig spielbare Höhlen; Level 11–20 ergänzen Hebe
 | Chrome mit Touch-Emulation, 844 × 390, DPR 3 | Dieselben drei Level erfolgreich; etwa 40,7 CSS-Pixel pro Kachel |
 | Zwei gleichzeitige Touchpunkte sowie Tastatur | Gehaltene Kombination gibt einen Stein aus; Loslassen und neuer Druck geben einen weiteren aus. Pausieren/Neuladen erhält den Vorrat, Neustart stellt ihn wieder her |
 
-Sichtprüfung der zehn Chrome-Spielansichten und der mobilen Apparatur erfolgt. Browsernachweis: `artifacts/chapter-two-verification.json`; Skripte unter `tools/browser-chapter-two*.js` und `tools/browser-mechanism-controls.js`. Screenshots liegen lokal unter `output/playwright/chapter2-*`.
+Sichtprüfung der zehn Chrome-Spielansichten und der mobilen Apparatur erfolgt. Browsernachweis: `artifacts/chapter-two-verification.json`; Skripte unter `tools/browser-chapter-two*.js` und `tools/browser-mechanism-controls.js`. Der paketierte Produktionsbuild wurde zusätzlich nach einem echten Offline-Neuladen über den Service Worker geprüft. Alle 30 Karten waren vorhanden; Level 30 gewann bei normalem Tempo nach 91,0 Sekunden mit 101 Punkten.
+
+Nach dem Offline-Test wurde ausschließlich der zweite Käfer in 16 ergänzt; dessen finale Karte wurde separat erneut geprüft. Der Offline-Test gilt für den unveränderten Ablauf von Level 30.
+
+Screenshots liegen lokal unter `output/playwright/chapter2-*`.
 
 Die Touch-Prüfung verwendet Browseremulation, kein physisches Handy. Eine neue menschliche Spiel- oder Hörabnahme ist nicht erfolgt. Insbesondere das subjektive Verhältnis von Level 12 (vorübergehend umlenken) und 16 (dauerhaft einsperren) bleibt für den Nutzer zu beurteilen. Die kurzen Lösungszeiten sind automatisierte bekannte Routen, keine erwarteten Erstspielzeiten.
 

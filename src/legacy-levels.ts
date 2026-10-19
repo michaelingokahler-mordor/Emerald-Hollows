@@ -161,3 +161,6 @@ export const LEGACY_LEVELS:LevelDefinition[]=[
 ];
 import {CHAPTER_TWO as CHAPTER_TWO_V07} from './chapter-two-v07';
 LEGACY_LEVELS.push(...CHAPTER_TWO_V07.filter(l=>Number(l.id)>=14));
+
+import {REVISED_CAVES as CHAPTER_TWO_V08} from './chapter-two-v08';
+LEGACY_LEVELS.push(...CHAPTER_TWO_V08.filter(l=>['15','16','18','19'].includes(l.id)));

@@ -1,3 +1,5 @@
+> Neuer Vorschlag für 21–30: [Die Torhallen – Entwurf nach den Designregeln von 0.8](KAPITEL-3-PLAN-21-30.md). Inzwischen umgesetzt: [Kapitel 3 in Version 0.9](KAPITEL-3-UMSETZUNG.md).
+>
 > Aktueller Stand 0.8: [Kapitelrollen](KAPITEL-2-ROLLEN-0.8.md) und [verbindliche Entwurfsregeln](LEVELDESIGN-REGELN.md). Die folgenden älteren Kartenvorschläge sind Entwurfshistorie.
 
 > Aktualisierung 0.7: Die größere Fassung von 11–20 ist implementiert. Verbindliche aktuelle Karten und Lösungen stehen in [LEVELS-UND-LOESUNGEN.md](LEVELS-UND-LOESUNGEN.md), gemessene Zeiten und Prüfgrenzen im [Prüfbericht](PRUEFBERICHT.md). Frühere Kartenbeschreibungen und Zeitprognosen unten bleiben als Entwurfshistorie erhalten.

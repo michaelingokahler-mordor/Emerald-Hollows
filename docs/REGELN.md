@@ -64,3 +64,16 @@ Die Karten 11–20 verwenden die in [KAPITEL-2-MECHANIKEN.md](KAPITEL-2-MECHANIK
 Graben plus Richtung zum benachbarten Hebel löst genau eine Betätigung aus. Zum erneuten Schalten muss mindestens ein Simulationstakt ohne diese Tastenkombination dazwischenliegen. Ein blockiertes schließendes Tor, ein belegtes Ausgabefeld, leerer Vorrat oder ein laufender Ausgabezyklus verhindert die gesamte gekoppelte Aktion. Es gibt keine Warteschlange. Die Sperrzeit eines erfolgreichen Steinspenders beträgt drei Takte (300 ms). Der ausgegebene Stein folgt noch im selben Takt der normalen Fallphase.
 
 Torstellungen, Magazinbestand, Sperrzeiten, Eingabelatch, erzeugte Entitätskennungen und Ereigniszähler gehören zum deterministischen Spielzustand. Fortsetzen und Serverprüfung rekonstruieren ihn aus dem Replay. Neustart setzt alles zurück. Karten und Replay-Endzustände der Level 01–10 bleiben unverändert.
+
+
+## Kapitel III: Schlüssel und Teleporter (Regelversion 4)
+
+Sonnen- und Mondschlüssel öffnen jeweils ein passendes Schloss und werden dabei verbraucht. Das Schloss bleibt offen. Schlüssel können beim Betreten oder durch benachbartes Sammeln aufgenommen werden und zählen nicht zur Kristallquote. Das HUD zeigt den Bestand getrennt.
+
+Gleiche Buchstaben kennzeichnen feste Portalpaare. Nur die Spielfigur wird beim Betreten versetzt. Bei belegtem Ziel bleibt sie vor dem Eingang; auch ein Kristall blockiert die Ankunft. Nach einer Reise muss die Ankunft verlassen und neu betreten werden, bevor eine Rückreise möglich ist. Fallobjekte und Gegner werden anschließend im selben Takt normal verarbeitet. Neustart setzt Schlüssel, Türen und Portale zurück.
+
+Das DW-Tor in Level 25 ist für den späteren Zwergen-Geheimzweig vorgesehen und bleibt in 0.9 versiegelt. Der normale Ausgang führt nach 26. G1–G10 sind nicht enthalten.
+
+## Kontinuierlicher Schub über Schächte
+
+Ein bereits geschobener Fels wird in demselben 100-ms-Takt nicht erneut bewegt. Da die Spielereingabe vor der Schwerkraft ausgewertet wird, kann durchgehendes Schieben ihn über eine freie Schachtöffnung tragen. Ohne nächsten Schub fällt er. Das ist bestehendes Regelverhalten; Version 0.9 erklärt und verwendet es in Level 18, ohne alte Physik oder Replays zu ändern.

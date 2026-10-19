@@ -1,0 +1,17 @@
+async(page)=>{
+ const raw=await page.evaluate(async()=>{const {defaultSave,writeSave}=await import('/src/storage.ts'),{LEVELS}=await import('/src/levels.ts'),{levelHash}=await import('/src/core/simulation.ts');const s=defaultSave();s.music=0;s.sfx=0;s.lastLevel=20;for(const l of LEVELS.slice(0,20))s.training[l.id]={ticks:100,points:l.quota,levelHash:levelHash(l)};writeSave(localStorage,s);return localStorage.getItem('emerald-hollows.save.v2');});
+ await page.addInitScript(raw=>{if(!sessionStorage.getItem('controls-seeded')){localStorage.setItem('emerald-hollows.save.v2',raw);sessionStorage.setItem('controls-seeded','yes');}},raw);
+ const hook=async()=>{await page.locator('[data-action="continue"]:not(:disabled)').waitFor();await page.evaluate(async()=>{const {CaveScene}=await import(performance.getEntriesByType('resource').map(e=>e.name).find(n=>n.includes('/src/scene.ts')));const render=CaveScene.prototype.renderState;CaveScene.prototype.renderState=function(...a){render.apply(this,a);window.__scene=this;};});};
+ await page.reload();await hook();await page.getByRole('button',{name:'The thirty caves',exact:true}).click();await page.locator('[data-action="level"][data-level="20"]').click();await page.getByRole('button',{name:'Enter cave',exact:true}).click();
+ await page.waitForFunction(()=>window.__scene?.bridge.simulation().level.id==='21');
+ await page.keyboard.press('ArrowRight');await page.waitForFunction(()=>window.__scene.bridge.simulation().state.player.x===4);
+ const client=await page.context().newCDPSession(page),buttons=[];for(const key of ['Space','ArrowRight']){const b=await page.locator(`[data-key="${key}"]`).boundingBox();buttons.push({id:buttons.length+1,x:b.x+b.width/2,y:b.y+b.height/2});}
+ await client.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:buttons});await page.waitForFunction(()=>window.__scene.bridge.simulation().state.passages.inventory.sun===1);await client.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+ await page.getByRole('button',{name:'Pause',exact:true}).click();const collected=await page.evaluate(()=>{const s=window.__scene.bridge.simulation().state;return{tick:s.tick,x:s.player.x,sun:s.passages.inventory.sun};});if(collected.x!==4)throw Error('Snap moved miner');
+ await page.screenshot({path:'output/playwright/touch-key-pause.png'});await page.reload();await hook();await page.getByRole('button',{name:/Continue adventure/}).click();
+ await page.waitForFunction(()=>window.__scene?.bridge.simulation().state.passages?.inventory.sun===1);
+ const restored=await page.evaluate(()=>{const s=window.__scene.bridge.simulation().state;return{x:s.player.x,sun:s.passages.inventory.sun};});if(restored.x!==4)throw Error('Checkpoint mismatch');
+ await page.keyboard.press('r');await page.getByRole('button',{name:'Enter cave',exact:true}).click();await page.waitForFunction(()=>window.__scene.bridge.simulation().state.passages?.inventory.sun===0&&window.__scene.bridge.simulation().state.player.x===3);
+ await page.screenshot({path:'output/playwright/touch-restart.png'});await page.setViewportSize({width:844,height:390});await page.screenshot({path:'output/playwright/touch-landscape.png'});
+ return{status:'PASS',checks:['keyboard buffered step','simultaneous touch dig and direction','key collected without moving','pause','reload checkpoint inventory','restart clears inventory','portrait and landscape'],collected,restored};
+}

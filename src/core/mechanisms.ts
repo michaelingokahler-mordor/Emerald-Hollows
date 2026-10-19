@@ -1,8 +1,8 @@
-import {MECHANISM_RULES_VERSION,rulesFor,type LevelDefinition,type Entity,type GameState,type GameEvent} from './types';
+import {hasMechanismRules,type LevelDefinition,type Entity,type GameState,type GameEvent} from './types';
 
 export function validateMechanisms(l:LevelDefinition):void{
  const m=l.mechanisms;if(!m)return;
- if(rulesFor(l)!==MECHANISM_RULES_VERSION)throw Error('Mechanisms require rules v3');
+ if(!hasMechanismRules(l))throw Error('Mechanisms require rules v3');
  const ids=new Set<string>(),cells=new Set<string>();
  for(const d of [...m.gates,...m.levers,...m.dispensers]){
   const cell=`${d.x},${d.y}`;
@@ -18,7 +18,7 @@ export function validateMechanisms(l:LevelDefinition):void{
  }
 }
 export function initializeMechanisms(level:LevelDefinition,s:GameState):void{
- if(rulesFor(level)!==MECHANISM_RULES_VERSION)return;
+ if(!hasMechanismRules(level))return;
  const defs=level.mechanisms??{gates:[],levers:[],dispensers:[]};
  s.mechanisms={gates:{},levers:{},stocks:{},cooldowns:{},held:false,nextId:Math.max(0,...s.entities.map(e=>e.id))+1,crushed:0,transmuted:0,fusions:0,released:0};
  for(const g of defs.gates){s.mechanisms.gates[g.id]=g.open;s.terrain[g.y][g.x]=g.open?'empty':'wall';}

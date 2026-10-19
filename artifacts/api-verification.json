@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-18T18:31:52.319Z",
+  "date": "2026-10-19T14:10:44.378Z",
   "target": "local Wrangler/D1",
   "status": "PASS",
   "checks": [
@@ -13,9 +13,9 @@
     "invalid inputs",
     "wrong final hash",
     "CORS",
-    "archived 0.2, 0.6 and 0.7 runs accepted and excluded from current boards",
+    "archived 0.2, 0.6, 0.7 and four revised 0.8 runs accepted and excluded from current boards",
     "four revised caves confirmed with score",
-    "all ten chapter 2 levels verified with scores and checkpoint continuation",
+    "all twenty chapter 2 and 3 levels verified with scores and checkpoint continuation",
     "time first and score tiebreaker",
     "equal-score equal-time shared rank",
     "slower score cannot replace faster record",

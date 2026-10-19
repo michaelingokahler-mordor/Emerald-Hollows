@@ -1,0 +1,325 @@
+{
+  "date": "2026-10-19",
+  "status": "PASS",
+  "method": "Playwright CLI, isolated headless profiles; render clock accelerated 6x for matrix, ordinary recorded inputs",
+  "matrix": [
+    {
+      "browser": "Chrome",
+      "viewport": [
+        1280,
+        720
+      ],
+      "dpr": 1,
+      "levels": [
+        {
+          "id": "15",
+          "ticks": 540,
+          "points": 37,
+          "status": "won"
+        },
+        {
+          "id": "16",
+          "ticks": 477,
+          "points": 40,
+          "status": "won"
+        },
+        {
+          "id": "18",
+          "ticks": 418,
+          "points": 52,
+          "status": "won"
+        },
+        {
+          "id": "19",
+          "ticks": 470,
+          "points": 41,
+          "status": "won"
+        },
+        {
+          "id": "21",
+          "ticks": 539,
+          "points": 60,
+          "status": "won"
+        },
+        {
+          "id": "22",
+          "ticks": 524,
+          "points": 69,
+          "status": "won"
+        },
+        {
+          "id": "23",
+          "ticks": 513,
+          "points": 59,
+          "status": "won"
+        },
+        {
+          "id": "24",
+          "ticks": 331,
+          "points": 106,
+          "status": "won"
+        },
+        {
+          "id": "25",
+          "ticks": 583,
+          "points": 69,
+          "status": "won"
+        },
+        {
+          "id": "26",
+          "ticks": 620,
+          "points": 71,
+          "status": "won"
+        },
+        {
+          "id": "27",
+          "ticks": 431,
+          "points": 58,
+          "status": "won"
+        },
+        {
+          "id": "28",
+          "ticks": 594,
+          "points": 82,
+          "status": "won"
+        },
+        {
+          "id": "29",
+          "ticks": 542,
+          "points": 70,
+          "status": "won"
+        },
+        {
+          "id": "30",
+          "ticks": 910,
+          "points": 101,
+          "status": "won"
+        }
+      ]
+    },
+    {
+      "browser": "Edge",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "dpr": 2,
+      "resumedPauses": 1,
+      "levels": [
+        {
+          "id": "15",
+          "ticks": 540,
+          "points": 37,
+          "status": "won"
+        },
+        {
+          "id": "16",
+          "ticks": 477,
+          "points": 40,
+          "status": "won"
+        },
+        {
+          "id": "18",
+          "ticks": 418,
+          "points": 52,
+          "status": "won"
+        },
+        {
+          "id": "19",
+          "ticks": 470,
+          "points": 41,
+          "status": "won"
+        },
+        {
+          "id": "21",
+          "ticks": 539,
+          "points": 60,
+          "status": "won"
+        },
+        {
+          "id": "22",
+          "ticks": 524,
+          "points": 69,
+          "status": "won"
+        },
+        {
+          "id": "23",
+          "ticks": 513,
+          "points": 59,
+          "status": "won"
+        },
+        {
+          "id": "24",
+          "ticks": 331,
+          "points": 106,
+          "status": "won"
+        },
+        {
+          "id": "25",
+          "ticks": 583,
+          "points": 69,
+          "status": "won"
+        },
+        {
+          "id": "26",
+          "ticks": 620,
+          "points": 71,
+          "status": "won"
+        },
+        {
+          "id": "27",
+          "ticks": 431,
+          "points": 58,
+          "status": "won"
+        },
+        {
+          "id": "28",
+          "ticks": 594,
+          "points": 82,
+          "status": "won"
+        },
+        {
+          "id": "29",
+          "ticks": 542,
+          "points": 70,
+          "status": "won"
+        },
+        {
+          "id": "30",
+          "ticks": 910,
+          "points": 101,
+          "status": "won"
+        }
+      ]
+    },
+    {
+      "browser": "Chrome touch emulation",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 3,
+      "levels": [
+        {
+          "id": "15",
+          "ticks": 540,
+          "points": 37,
+          "status": "won"
+        },
+        {
+          "id": "16",
+          "ticks": 477,
+          "points": 40,
+          "status": "won"
+        },
+        {
+          "id": "18",
+          "ticks": 418,
+          "points": 52,
+          "status": "won"
+        },
+        {
+          "id": "19",
+          "ticks": 470,
+          "points": 41,
+          "status": "won"
+        },
+        {
+          "id": "21",
+          "ticks": 539,
+          "points": 60,
+          "status": "won"
+        },
+        {
+          "id": "22",
+          "ticks": 524,
+          "points": 69,
+          "status": "won"
+        },
+        {
+          "id": "23",
+          "ticks": 513,
+          "points": 59,
+          "status": "won"
+        },
+        {
+          "id": "24",
+          "ticks": 331,
+          "points": 106,
+          "status": "won"
+        },
+        {
+          "id": "25",
+          "ticks": 583,
+          "points": 69,
+          "status": "won"
+        },
+        {
+          "id": "26",
+          "ticks": 620,
+          "points": 71,
+          "status": "won"
+        },
+        {
+          "id": "27",
+          "ticks": 431,
+          "points": 58,
+          "status": "won"
+        },
+        {
+          "id": "28",
+          "ticks": 594,
+          "points": 82,
+          "status": "won"
+        },
+        {
+          "id": "29",
+          "ticks": 542,
+          "points": 70,
+          "status": "won"
+        },
+        {
+          "id": "30",
+          "ticks": 910,
+          "points": 101,
+          "status": "won"
+        }
+      ]
+    }
+  ],
+  "normalSpeed": [
+    {
+      "level": "16",
+      "seconds": 47.7,
+      "platform": "Chrome touch emulation, final two-crawler map"
+    },
+    {
+      "level": "27",
+      "seconds": 43.1,
+      "platform": "Chrome touch emulation"
+    },
+    {
+      "level": "30",
+      "seconds": 91,
+      "platform": "production build offline reload via service worker",
+      "score": 101
+    }
+  ],
+  "controls": [
+    "keyboard buffered step",
+    "simultaneous multi-touch dig/direction",
+    "sun key collected without moving",
+    "pause",
+    "reload checkpoint preserves key",
+    "restart clears key",
+    "portrait and landscape"
+  ],
+  "localApi": "artifacts/api-verification.json",
+  "limitations": [
+    "No physical mobile device tested",
+    "No new human playtest of revised caves or chapter 3",
+    "Two earlier Edge attempts timed out while the game was automatically paused; the final matrix resumes detected pauses",
+    "Offline test preceded the final second crawler in cave 16; final cave 16 rechecked in all three browsers, including normal-speed mobile"
+  ],
+  "newRunwayCredits": 0
+}

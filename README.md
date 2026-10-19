@@ -1,6 +1,6 @@
 # Lathmar: Emerald Hollows
 
-A cave action-puzzle game set in Lathmar, with warm Amiga-inspired artwork and Runway music. The playable browser demo contains **twenty handcrafted caves across two chapters**, English and German menus, keyboard and touch controls, a practice mode, automatic saves, offline installation, and optional public best times.
+A cave action-puzzle game set in Lathmar, with warm Amiga-inspired artwork and Runway music. The playable browser demo contains **thirty handcrafted caves across three chapters**, English and German menus, keyboard and touch controls, a practice mode, automatic saves, offline installation, and optional public best times.
 
 The full game is planned to contain **120 levels: 100 main caves and 20 hidden levels**. These additional levels are not included in the current demo.
 
@@ -8,7 +8,7 @@ The full game is planned to contain **120 levels: 100 main caves and 20 hidden l
 - [SabnockWorks — More Projects](https://sabnockworks.com/games/more-projects/#emerald-hollows)
 - [Download the web and source packages](https://github.com/michaelingokahler-mordor/Emerald-Hollows/releases)
 - [Development roadmap (German)](docs/ENTWICKLUNGSPLAN.md)
-- [Chapter 2 implementation and chapter 3 draft (German)](docs/LEVELS-11-30-ENTWURF.md)
+- [Chapter 3 implementation and verification (German)](docs/KAPITEL-3-UMSETZUNG.md)
 
 ## Run locally
 
@@ -32,17 +32,23 @@ Emeralds contribute one quota point; diamonds contribute three. Meet the crystal
 
 Choose English or German in the main menu or Settings. English is the default. Credits are available from the main menu and completion screen; asset provenance and license notices are documented in [Credits](docs/CREDITS.md).
 
-### The twenty caves
+### The thirty caves
 
 The opening caves introduce collecting, falling rocks, pushing, and rolling. Cave 06 teaches containment, 07 teaches a timed rock drop, and 09 introduces a crystal crawler that becomes a diamond when crushed. Cave 08 deliberately offers more crystal points than required, allowing different collection routes.
 
 Cave 10 is the first substantial combined challenge. Three required diamonds lie beyond a guarded passage. Both containment and a rock trap are supported solutions; the layout makes dealing with the passage necessary without an extra mandatory crawler objective.
 
-Chapter 2, **The Abandoned Workings (11–20)**, introduces linked gates, opposite crawler directions, fusion and finite rock magazines in 11–13. Version 0.8 rebuilds 14–20 around different decisions: choosing three ore districts, trapping a living crawler with a dropped rock, securing a mining junction, preparing a disposal shaft for the return journey, choosing a guarded shortcut, joining two separately released patrols, and using the same rock first against a guard and then moving it out of the passage.
+Chapter 2, **The Abandoned Workings (11–20)**, introduces linked gates, opposite crawler directions, fusion and finite rock magazines in 11–13. Version 0.8 rebuilt 14–20 around different decisions: choosing three ore districts, trapping a living crawler with a dropped rock, securing a mining junction, preparing a disposal shaft for the return journey, choosing a guarded shortcut, joining two separately released patrols, and using the same rock first against a guard and then moving it out of the passage.
 
-Only maps 14–20 start fresh best times in 0.8. Caves 01–13 and their records remain unchanged; existing unlocks survive. The collecting-only bypass in 17 is closed and tested. Verified routes in the revised caves take about 17–47 seconds. They are known automated solutions, not human first-play estimates, and some are shorter than in 0.7. Distinct decisions take priority over adding floor area. Human playtesting is still required.
+The historical 0.8 release reset maps 14–20. Caves 01–13 and their records remain unchanged; existing unlocks survive. The collecting-only bypass in 17 is closed and tested. Verified routes in the revised caves take about 17–47 seconds. They are known automated solutions, not human first-play estimates, and some are shorter than in 0.7. Distinct decisions take priority over adding floor area. Human playtesting is still required.
 
-[Current chapter roles](docs/KAPITEL-2-ROLLEN-0.8.md) and [level design rules for future chapters](docs/LEVELDESIGN-REGELN.md) document the implementation and acceptance checks (German).
+[Latest player-feedback revisions](docs/KAPITEL-2-FEEDBACK-2026-10-19.md) and [level design rules for future chapters](docs/LEVELDESIGN-REGELN.md) document the implementation and acceptance checks (German).
+
+Chapter 3, **The Gate Halls (21–30)**, adds consumable sun/moon keys and fixed, player-only portals. It teaches these in 21–23, then uses exclusive district choices, spatial clues, changing mine passages, live patrols, two switch states, opposite work positions and an irreversible return journey. Cave 25 includes a discoverable dwarf antechamber. Its marked entrance stays sealed; G1–G10 will be designed separately. The normal exit leads to 26.
+
+Version 0.9 revises caves 15, 16 and 18 after player feedback and raises cave 19 to 41 crystal points. Only these four maps start new rankings; previous definitions still verify pending runs. Caves 01–14, 17 and 20 retain their records. Chapter 3 reference replays total **9:18.7**, compared with **4:42.5** for the approved chapter 2 v0.8 baseline. After the additional player-requested revisions, chapter 2 now totals **5:46.8**; the new ratio is 1.61, not two. Faster tested alternatives total **8:28.2**; these are not optimality proofs or human play times. [Measurements](artifacts/chapter-three-verification.json) and [acceptance report](docs/PRUEFBERICHT.md) separate automated evidence from outstanding human feedback.
+
+Sun/moon keys count separately from score and open one matching permanent lock. Identical letters identify portal pairs. A blocked arrival prevents entry; leave the arrival tile before travelling back. Normal falling-object and crawler rules still apply at the destination.
 
 Completing a cave in timed or practice mode unlocks the next one. Their results remain separate. Best times are compared only within the same map revision. Existing unlocks are preserved when a cave changes; pending results from older revisions are still checked and archived.
 
@@ -51,6 +57,8 @@ Completing a cave in timed or practice mode unlocks the next one. Their results 
 **The fastest time wins; higher points break a tie.** Emeralds score 1 and diamonds score 3. A crushed slate crawler, or one safely enclosed at the end of a successful run, adds 5 points. Transforming a crystal crawler adds 10 points; collecting its diamond adds another 3. Purple crawlers use the same 5-point bonus. Fusion itself awards no points or double kill bonus. Enemy bonuses do not count toward the crystal quota.
 
 Older local records marked with † contain crystal points only. Online scores are calculated from verified runs.
+
+Continuous pushing carries a rock across an empty shaft. On the first tick without another push, gravity resumes. Cave 18 now teaches this transport choice: dropping the rock early blocks the short return, while an outer diamond route remains available. Crawler direction arrows have been removed; blue and purple retain their distinct colours.
 
 ## Saves, online profiles, and backups
 
@@ -67,6 +75,7 @@ Daily encrypted server backups are kept in a separate private repository. See th
 ```sh
 npm test
 npm run verify:levels
+npx tsx tools/verify-chapter-three.ts
 npm run build
 npm run server:migrate
 npm run server:dev
@@ -77,12 +86,12 @@ npm run package
 node tools/verify-package.mjs
 ```
 
-The project uses strict TypeScript, Phaser 4.2.1, Vite, and Vitest with pinned dependencies. The simulation is independent of Phaser and runs on a fixed 100 ms tick with deterministic replays. Unchanged maps retain `crystal-delve/1`; revised crawler caves and the finale use `emerald-hollows/2`. Chapter 2 uses `emerald-hollows/3`; maps and replays 01–10 are unchanged. Existing `crystal-delve.save.v1` saves migrate automatically.
+The project uses strict TypeScript, Phaser 4.2.1, Vite, and Vitest with pinned dependencies. The simulation is independent of Phaser and runs on a fixed 100 ms tick with deterministic replays. Unchanged maps retain `crystal-delve/1`; revised crawler caves and the finale use `emerald-hollows/2`. Chapter 2 uses `emerald-hollows/3`; chapter 3 uses `emerald-hollows/4`. Rules for previous maps remain compatible. Only caves 15, 16, 18 and 19 receive revised map hashes in 0.9. Existing `crystal-delve.save.v1` saves migrate automatically.
 
 | Path | Contents |
 |---|---|
 | `src/core` | Simulation rules and replay validation |
-| `src/levels.ts`, `src/chapter-two.ts` | Handcrafted cave definitions |
+| `src/levels.ts`, `src/chapter-two.ts`, `src/chapter-three.ts` | Handcrafted cave definitions |
 | `src/campaign.ts` | Campaign structure and planned branches |
 | `src/main.ts` | Menus and interface |
 | `server` | API and database migrations |

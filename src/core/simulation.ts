@@ -1,5 +1,6 @@
 import { DELTAS, DIRECTIONS, rulesFor, isCrawler, type Direction, type Entity, type GameEvent, type GameState, type InputFrame, type LevelDefinition, type Replay, type Terrain } from './types';
-import {MECHANISM_RULES_VERSION} from './types';
+import {hasMechanismRules} from './types';
+import {validatePassages,initializePassages,collectKey,unlockDoor,portalTarget,arrivalFree} from './passages';
 import {activateLever,fuseCrawlers,initializeMechanisms,validateMechanisms} from './mechanisms';
 
 export function hash(value: unknown): string {
@@ -20,19 +21,19 @@ export function crawlerIsTrapped(state:GameState,crawler:Entity):boolean {
   return seen.size<=2;
 }
 export function levelHash(level: LevelDefinition): string {
-  return hash({ map: level.map, quota: level.quota, time: level.timeSeconds, rules: rulesFor(level), ...(level.objective?{objective:level.objective}:{}),...(level.mechanisms?{mechanisms:level.mechanisms}:{}) });
+  return hash({ map: level.map, quota: level.quota, time: level.timeSeconds, rules: rulesFor(level), ...(level.objective?{objective:level.objective}:{}),...(level.mechanisms?{mechanisms:level.mechanisms}:{}),...(level.passages?{passages:level.passages}:{}) });
 }
 export function validateLevel(level: LevelDefinition): void {
   if (level.map.length !== level.height || level.map.some(r => r.length !== level.width)) throw new Error(`${level.id}: invalid dimensions`);
   const cells = level.map.join('');
-  if ((rulesFor(level)===MECHANISM_RULES_VERSION?/[^#X. PERMDC^v<>urdl]/:/[^#X. PERMDC^v<>]/).test(cells)) throw new Error(`${level.id}: unknown tile`);
+  if ((hasMechanismRules(level)?/[^#X. PERMDC^v<>urdl]/:/[^#X. PERMDC^v<>]/).test(cells)) throw new Error(`${level.id}: unknown tile`);
   if ([...cells].filter(c => c === 'P').length !== 1 || [...cells].filter(c => c === 'E').length !== 1) throw new Error(`${level.id}: exactly one player and exit required`);
   if (level.quota <= 0 || level.timeSeconds <= 0) throw new Error(`${level.id}: invalid quota/time`);
   if (level.map.some((r,y) => [...r].some((c,x) => (x===0 || y===0 || x===level.width-1 || y===level.height-1) && !'#X'.includes(c)))) throw new Error(`${level.id}: open boundary`);
   const available = [...cells].reduce((n,c) => n+(c==='M'?1:c==='D'||c==='C'?3:0),0);
-  const fusionPotential=rulesFor(level)===MECHANISM_RULES_VERSION?3*Math.min([...cells].filter(c=>'^v<>'.includes(c)).length,[...cells].filter(c=>'urdl'.includes(c)).length):0;
+  const fusionPotential=hasMechanismRules(level)?3*Math.min([...cells].filter(c=>'^v<>'.includes(c)).length,[...cells].filter(c=>'urdl'.includes(c)).length):0;
   if (available+fusionPotential < level.quota) throw new Error(`${level.id}: insufficient gems`);
-  validateMechanisms(level);
+  validateMechanisms(level); validatePassages(level);
 }
 
 export class Simulation {
@@ -55,7 +56,7 @@ export class Simulation {
       }
     }
     this.state = { terrain, entities, player, tick:0, points:0, status:'playing', remainingTicks:this.level.timeSeconds*10,open:false,practice,deathReason:'',...(this.level.objective?{objectiveDone:false}:{}) };
-    initializeMechanisms(this.level,this.state);
+    initializeMechanisms(this.level,this.state); initializePassages(this.level,this.state);
   }
   entityAt(x:number,y:number): Entity | undefined { return this.state.entities.find(e => e.x===x && e.y===y); }
   terrainAt(x:number,y:number): Terrain { return this.state.terrain[y]?.[x] ?? 'steel'; }
@@ -90,21 +91,32 @@ export class Simulation {
     if (input.direction) {
       s.player.direction=input.direction;
       const d=DELTAS[input.direction]; const x=s.player.x+d.x,y=s.player.y+d.y;
+      if(!input.snap)unlockDoor(this.level,s,x,y,this.events);
+      const secret=this.level.passages?.secret;
+      if(secret&&secret.x===x&&secret.y===y)this.emit('sealed',x,y);
       const terrain=this.terrainAt(x,y); const occupant=this.entityAt(x,y);
       if (input.snap) {
         if(freshAction&&activateLever(this.level,s,x,y,this.events)){/* One complete switch per fresh chord. */}
         else if (terrain==='earth') { s.terrain[y][x]='empty'; this.emit('dig',x,y); }
         else if (occupant?.kind==='emerald' || occupant?.kind==='diamond') this.collect(occupant);
+        if(!this.entityAt(x,y)&&this.terrainAt(x,y)==='empty')collectKey(this.level,s,x,y,this.events);
       } else if (terrain==='exit') {
         if (s.open) { s.player.x=x; s.player.y=y; s.status='won'; this.emit('win',x,y); return this.events; }
       } else if (terrain==='empty' || terrain==='earth') {
-        let canMove=!occupant;
-        if (occupant?.kind==='emerald' || occupant?.kind==='diamond') { this.collect(occupant); canMove=true; }
-        else if (occupant && isCrawler(occupant.kind)) { s.player.x=x; s.player.y=y; this.die(occupant.kind==='crystal-crawler'?'Du bist mit einem Kristallkrabbler zusammengestoßen.':'Du bist mit einem Schieferkrabbler zusammengestoßen.'); return this.events; }
-        else if (occupant?.kind==='rock' && !occupant.falling && d.y===0 && this.empty(x+d.x,y)) {
+        const target=portalTarget(this.level,x,y);
+        const blockedArrival=target&&!arrivalFree(s,target.x,target.y);
+        if(blockedArrival)this.emit('blocked',x,y);
+        let canMove=!occupant&&!blockedArrival;
+        if (!blockedArrival&&(occupant?.kind==='emerald' || occupant?.kind==='diamond')) { this.collect(occupant); canMove=true; }
+        else if (!blockedArrival && occupant && isCrawler(occupant.kind)) { s.player.x=x; s.player.y=y; this.die(occupant.kind==='crystal-crawler'?'Du bist mit einem Kristallkrabbler zusammengestoßen.':'Du bist mit einem Schieferkrabbler zusammengestoßen.'); return this.events; }
+        else if (!blockedArrival && occupant?.kind==='rock' && !occupant.falling && d.y===0 && this.empty(x+d.x,y)) {
           occupant.x+=d.x; moved.add(occupant.id); canMove=true; this.emit('push',x,y);
         }
-        if (canMove) { s.player.x=x; s.player.y=y; if (terrain==='earth') { s.terrain[y][x]='empty'; this.emit('dig',x,y); } }
+        if (canMove) {
+          s.player.x=x; s.player.y=y; if (terrain==='earth') { s.terrain[y][x]='empty'; this.emit('dig',x,y); }
+          collectKey(this.level,s,x,y,this.events);
+          if(target){s.player.x=target.x;s.player.y=target.y;s.passages!.transfers++;this.emit('teleport',target.x,target.y);}
+        }
       }
     }
     const falling = s.entities.filter(e=>!isCrawler(e.kind)).sort((a,b)=>b.y-a.y || a.x-b.x || a.id-b.id);

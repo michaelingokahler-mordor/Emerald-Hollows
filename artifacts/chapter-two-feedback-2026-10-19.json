@@ -1,0 +1,127 @@
+{
+  "fetchedAt": "2026-10-19",
+  "source": "https://emerald-hollows-api.emerald-hollows.workers.dev",
+  "mapRelease": "0.8",
+  "boards": [
+    {
+      "level": "11",
+      "entries": [
+        {
+          "nickname": "Mufti999",
+          "ticks": 410,
+          "points": 32,
+          "score": 32,
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "level": "12",
+      "entries": [
+        {
+          "nickname": "Mufti999",
+          "ticks": 357,
+          "points": 23,
+          "score": 23,
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "level": "13",
+      "entries": [
+        {
+          "nickname": "Mufti999",
+          "ticks": 421,
+          "points": 28,
+          "score": 38,
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "level": "14",
+      "entries": [
+        {
+          "nickname": "Mufti999",
+          "ticks": 344,
+          "points": 37,
+          "score": 37,
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "level": "15",
+      "entries": [
+        {
+          "nickname": "Mufti999",
+          "ticks": 248,
+          "points": 35,
+          "score": 40,
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "level": "16",
+      "entries": [
+        {
+          "nickname": "Mufti999",
+          "ticks": 664,
+          "points": 47,
+          "score": 52,
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "level": "17",
+      "entries": [
+        {
+          "nickname": "Mufti999",
+          "ticks": 335,
+          "points": 39,
+          "score": 39,
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "level": "18",
+      "entries": [
+        {
+          "nickname": "Mufti999",
+          "ticks": 278,
+          "points": 40,
+          "score": 45,
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "level": "19",
+      "entries": [
+        {
+          "nickname": "Mufti999",
+          "ticks": 745,
+          "points": 41,
+          "score": 51,
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "level": "20",
+      "entries": [
+        {
+          "nickname": "Mufti999",
+          "ticks": 574,
+          "points": 47,
+          "score": 52,
+          "rank": 1
+        }
+      ]
+    }
+  ]
+}

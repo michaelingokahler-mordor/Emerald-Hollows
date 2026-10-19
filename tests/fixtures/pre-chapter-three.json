@@ -1,0 +1,122 @@
+[
+  {
+    "levelId": "01",
+    "levelHash": "29fef008",
+    "expectedHash": "04f772c3",
+    "rulesVersion": "crystal-delve/1"
+  },
+  {
+    "levelId": "02",
+    "levelHash": "2159bbe9",
+    "expectedHash": "2db1a950",
+    "rulesVersion": "crystal-delve/1"
+  },
+  {
+    "levelId": "03",
+    "levelHash": "e120b85c",
+    "expectedHash": "6778af01",
+    "rulesVersion": "crystal-delve/1"
+  },
+  {
+    "levelId": "04",
+    "levelHash": "40ed9567",
+    "expectedHash": "719f30ae",
+    "rulesVersion": "crystal-delve/1"
+  },
+  {
+    "levelId": "05",
+    "levelHash": "e7a38645",
+    "expectedHash": "c971618a",
+    "rulesVersion": "crystal-delve/1"
+  },
+  {
+    "levelId": "06",
+    "levelHash": "0e6e04d9",
+    "expectedHash": "4559151a",
+    "rulesVersion": "emerald-hollows/2"
+  },
+  {
+    "levelId": "07",
+    "levelHash": "b48c48d4",
+    "expectedHash": "e124184c",
+    "rulesVersion": "emerald-hollows/2"
+  },
+  {
+    "levelId": "08",
+    "levelHash": "41597140",
+    "expectedHash": "5dad0cdf",
+    "rulesVersion": "crystal-delve/1"
+  },
+  {
+    "levelId": "09",
+    "levelHash": "92317197",
+    "expectedHash": "b209d137",
+    "rulesVersion": "emerald-hollows/2"
+  },
+  {
+    "levelId": "10",
+    "levelHash": "20426033",
+    "expectedHash": "c2a964f7",
+    "rulesVersion": "emerald-hollows/2"
+  },
+  {
+    "levelId": "11",
+    "levelHash": "d6c32c97",
+    "expectedHash": "6b466433",
+    "rulesVersion": "emerald-hollows/3"
+  },
+  {
+    "levelId": "12",
+    "levelHash": "35032cee",
+    "expectedHash": "d484e0c5",
+    "rulesVersion": "emerald-hollows/3"
+  },
+  {
+    "levelId": "13",
+    "levelHash": "f4d68568",
+    "expectedHash": "f4bbdf7c",
+    "rulesVersion": "emerald-hollows/3"
+  },
+  {
+    "levelId": "14",
+    "levelHash": "f594abf0",
+    "expectedHash": "bfcece5e",
+    "rulesVersion": "emerald-hollows/3"
+  },
+  {
+    "levelId": "15",
+    "levelHash": "4a5d23d9",
+    "expectedHash": "7d88905a",
+    "rulesVersion": "emerald-hollows/3"
+  },
+  {
+    "levelId": "16",
+    "levelHash": "5c8c3864",
+    "expectedHash": "0c4e3816",
+    "rulesVersion": "emerald-hollows/3"
+  },
+  {
+    "levelId": "17",
+    "levelHash": "624f8374",
+    "expectedHash": "7dc81223",
+    "rulesVersion": "emerald-hollows/3"
+  },
+  {
+    "levelId": "18",
+    "levelHash": "6f09f8ba",
+    "expectedHash": "20a4dfba",
+    "rulesVersion": "emerald-hollows/3"
+  },
+  {
+    "levelId": "19",
+    "levelHash": "0fa3e74e",
+    "expectedHash": "2ae91154",
+    "rulesVersion": "emerald-hollows/3"
+  },
+  {
+    "levelId": "20",
+    "levelHash": "fdf6d284",
+    "expectedHash": "964a09c7",
+    "rulesVersion": "emerald-hollows/3"
+  }
+]

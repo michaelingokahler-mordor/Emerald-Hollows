@@ -1,0 +1,830 @@
+{
+  "at": "2026-10-18T19:51:35.412Z",
+  "note": "Deterministic timed solutions, not optimality proofs or human play times. Local chunk timing is not Cloudflare CPU accounting. The sealed dwarf antechamber is not a secret level.",
+  "previousReferenceSeconds": 282.5,
+  "previousFastestDocumentedSeconds": 271,
+  "referenceSeconds": 558.7,
+  "referenceRatio": 1.977699115044248,
+  "fastestTestedSeconds": 508.19999999999993,
+  "fastestDocumentedRatio": 1.8752767527675274,
+  "levels": [
+    {
+      "id": "21",
+      "name": "Der unterbrochene Ring",
+      "hash": "36ca5d5e",
+      "size": [
+        44,
+        32
+      ],
+      "quota": 48,
+      "referenceSeconds": 53.9,
+      "routes": [
+        {
+          "name": "early",
+          "seconds": 53.9,
+          "points": 60,
+          "score": 60,
+          "transfers": 0,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 2.17
+        },
+        {
+          "name": "early-quota",
+          "seconds": 40.5,
+          "points": 48,
+          "score": 48,
+          "transfers": 0,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 5,
+          "maxLocalChunkMs": 1.68
+        },
+        {
+          "name": "late",
+          "seconds": 46.4,
+          "points": 60,
+          "score": 60,
+          "transfers": 0,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 5,
+          "maxLocalChunkMs": 1.83
+        },
+        {
+          "name": "late-quota",
+          "seconds": 42,
+          "points": 51,
+          "score": 51,
+          "transfers": 0,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 5,
+          "maxLocalChunkMs": 1.71
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "ticks": 539
+        },
+        {
+          "offset": 1,
+          "ticks": 540
+        },
+        {
+          "offset": 2,
+          "ticks": 541
+        },
+        {
+          "offset": 3,
+          "ticks": 542
+        },
+        {
+          "offset": 4,
+          "ticks": 543
+        },
+        {
+          "offset": 5,
+          "ticks": 544
+        },
+        {
+          "offset": 6,
+          "ticks": 545
+        },
+        {
+          "offset": 7,
+          "ticks": 546
+        },
+        {
+          "offset": 8,
+          "ticks": 547
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "name": "Jenseits des Spalts",
+      "hash": "1073db60",
+      "size": [
+        52,
+        36
+      ],
+      "quota": 62,
+      "referenceSeconds": 52.4,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 52.4,
+          "points": 69,
+          "score": 69,
+          "transfers": 8,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 2.29
+        },
+        {
+          "name": "main-quota",
+          "seconds": 48.1,
+          "points": 62,
+          "score": 62,
+          "transfers": 8,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 5,
+          "maxLocalChunkMs": 0.82
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "ticks": 524
+        },
+        {
+          "offset": 1,
+          "ticks": 525
+        },
+        {
+          "offset": 2,
+          "ticks": 526
+        },
+        {
+          "offset": 3,
+          "ticks": 527
+        },
+        {
+          "offset": 4,
+          "ticks": 528
+        },
+        {
+          "offset": 5,
+          "ticks": 529
+        },
+        {
+          "offset": 6,
+          "ticks": 530
+        },
+        {
+          "offset": 7,
+          "ticks": 531
+        },
+        {
+          "offset": 8,
+          "ticks": 532
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "name": "Freier Empfang",
+      "hash": "623c63ff",
+      "size": [
+        48,
+        34
+      ],
+      "quota": 52,
+      "referenceSeconds": 51.3,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 51.3,
+          "points": 59,
+          "score": 59,
+          "transfers": 5,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 1.94
+        },
+        {
+          "name": "main-quota",
+          "seconds": 46.6,
+          "points": 52,
+          "score": 52,
+          "transfers": 5,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 5,
+          "maxLocalChunkMs": 1.37
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "ticks": 513
+        },
+        {
+          "offset": 1,
+          "ticks": 514
+        },
+        {
+          "offset": 2,
+          "ticks": 515
+        },
+        {
+          "offset": 3,
+          "ticks": 516
+        },
+        {
+          "offset": 4,
+          "ticks": 517
+        },
+        {
+          "offset": 5,
+          "ticks": 518
+        },
+        {
+          "offset": 6,
+          "ticks": 519
+        },
+        {
+          "offset": 7,
+          "ticks": 520
+        },
+        {
+          "offset": 8,
+          "ticks": 521
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "name": "Ein Schlüssel, zwei Türen",
+      "hash": "0c80f306",
+      "size": [
+        56,
+        38
+      ],
+      "quota": 90,
+      "referenceSeconds": 33.1,
+      "routes": [
+        {
+          "name": "west",
+          "seconds": 33.1,
+          "points": 106,
+          "score": 106,
+          "transfers": 0,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 4,
+          "maxLocalChunkMs": 3.63
+        },
+        {
+          "name": "west-quota",
+          "seconds": 30.5,
+          "points": 90,
+          "score": 90,
+          "transfers": 0,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 4,
+          "maxLocalChunkMs": 1.32
+        },
+        {
+          "name": "east",
+          "seconds": 45.3,
+          "points": 96,
+          "score": 96,
+          "transfers": 0,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 5,
+          "maxLocalChunkMs": 3.62
+        },
+        {
+          "name": "east-quota",
+          "seconds": 43.1,
+          "points": 93,
+          "score": 93,
+          "transfers": 0,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 5,
+          "maxLocalChunkMs": 1.28
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "ticks": 331
+        },
+        {
+          "offset": 1,
+          "ticks": 332
+        },
+        {
+          "offset": 2,
+          "ticks": 333
+        },
+        {
+          "offset": 3,
+          "ticks": 334
+        },
+        {
+          "offset": 4,
+          "ticks": 335
+        },
+        {
+          "offset": 5,
+          "ticks": 336
+        },
+        {
+          "offset": 6,
+          "ticks": 337
+        },
+        {
+          "offset": 7,
+          "ticks": 338
+        },
+        {
+          "offset": 8,
+          "ticks": 339
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "name": "Spuren im Mauerwerk",
+      "hash": "c0182d0f",
+      "size": [
+        52,
+        38
+      ],
+      "quota": 62,
+      "referenceSeconds": 58.3,
+      "routes": [
+        {
+          "name": "normal",
+          "seconds": 58.3,
+          "points": 69,
+          "score": 69,
+          "transfers": 10,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 1.93
+        },
+        {
+          "name": "normal-quota",
+          "seconds": 56.6,
+          "points": 64,
+          "score": 64,
+          "transfers": 10,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 0.9
+        },
+        {
+          "name": "discovery",
+          "seconds": 59.6,
+          "points": 69,
+          "score": 69,
+          "transfers": 10,
+          "pushes": 0,
+          "switches": 1,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 2.16
+        },
+        {
+          "name": "discovery-quota",
+          "seconds": 57.9,
+          "points": 64,
+          "score": 64,
+          "transfers": 10,
+          "pushes": 0,
+          "switches": 1,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 0.91
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "ticks": 583
+        },
+        {
+          "offset": 1,
+          "ticks": 584
+        },
+        {
+          "offset": 2,
+          "ticks": 585
+        },
+        {
+          "offset": 3,
+          "ticks": 586
+        },
+        {
+          "offset": 4,
+          "ticks": 587
+        },
+        {
+          "offset": 5,
+          "ticks": 588
+        },
+        {
+          "offset": 6,
+          "ticks": 589
+        },
+        {
+          "offset": 7,
+          "ticks": 590
+        },
+        {
+          "offset": 8,
+          "ticks": 591
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "name": "Wandernde Adern",
+      "hash": "db9815ba",
+      "size": [
+        50,
+        40
+      ],
+      "quota": 66,
+      "referenceSeconds": 62,
+      "routes": [
+        {
+          "name": "lowerFirst",
+          "seconds": 62,
+          "points": 71,
+          "score": 71,
+          "transfers": 1,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 7,
+          "maxLocalChunkMs": 0.99
+        },
+        {
+          "name": "lowerFirst-quota",
+          "seconds": 57.7,
+          "points": 66,
+          "score": 66,
+          "transfers": 1,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 1.09
+        },
+        {
+          "name": "upperFirst",
+          "seconds": 57.2,
+          "points": 71,
+          "score": 71,
+          "transfers": 1,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 1.18
+        },
+        {
+          "name": "upperFirst-quota",
+          "seconds": 54.1,
+          "points": 66,
+          "score": 66,
+          "transfers": 1,
+          "pushes": 0,
+          "switches": 0,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 0.99
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "ticks": 620
+        },
+        {
+          "offset": 1,
+          "ticks": 621
+        },
+        {
+          "offset": 2,
+          "ticks": 622
+        },
+        {
+          "offset": 3,
+          "ticks": 623
+        },
+        {
+          "offset": 4,
+          "ticks": 624
+        },
+        {
+          "offset": 5,
+          "ticks": 625
+        },
+        {
+          "offset": 6,
+          "ticks": 626
+        },
+        {
+          "offset": 7,
+          "ticks": 627
+        },
+        {
+          "offset": 8,
+          "ticks": 628
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "name": "Die geöffnete Jagd",
+      "hash": "c372d54c",
+      "size": [
+        52,
+        38
+      ],
+      "quota": 56,
+      "referenceSeconds": 43.1,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 43.1,
+          "points": 58,
+          "score": 58,
+          "transfers": 5,
+          "pushes": 0,
+          "switches": 1,
+          "serverChunks": 5,
+          "maxLocalChunkMs": 1.79
+        },
+        {
+          "name": "main-quota",
+          "seconds": 43.1,
+          "points": 58,
+          "score": 58,
+          "transfers": 5,
+          "pushes": 0,
+          "switches": 1,
+          "serverChunks": 5,
+          "maxLocalChunkMs": 0.71
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "ticks": 431
+        },
+        {
+          "offset": 1,
+          "ticks": 431
+        },
+        {
+          "offset": 2,
+          "ticks": 431
+        },
+        {
+          "offset": 3,
+          "ticks": 431
+        },
+        {
+          "offset": 4,
+          "ticks": 431
+        },
+        {
+          "offset": 5,
+          "ticks": 431
+        },
+        {
+          "offset": 6,
+          "ticks": 431
+        },
+        {
+          "offset": 7,
+          "ticks": 431
+        },
+        {
+          "offset": 8,
+          "ticks": 431
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "name": "Schichtwechsel",
+      "hash": "5d4bb1b3",
+      "size": [
+        56,
+        40
+      ],
+      "quota": 78,
+      "referenceSeconds": 59.4,
+      "routes": [
+        {
+          "name": "batched",
+          "seconds": 59.4,
+          "points": 82,
+          "score": 82,
+          "transfers": 8,
+          "pushes": 0,
+          "switches": 2,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 1.26
+        },
+        {
+          "name": "batched-quota",
+          "seconds": 58.4,
+          "points": 78,
+          "score": 78,
+          "transfers": 8,
+          "pushes": 0,
+          "switches": 2,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 1.18
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "ticks": 594
+        },
+        {
+          "offset": 1,
+          "ticks": 595
+        },
+        {
+          "offset": 2,
+          "ticks": 596
+        },
+        {
+          "offset": 3,
+          "ticks": 597
+        },
+        {
+          "offset": 4,
+          "ticks": 598
+        },
+        {
+          "offset": 5,
+          "ticks": 599
+        },
+        {
+          "offset": 6,
+          "ticks": 600
+        },
+        {
+          "offset": 7,
+          "ticks": 601
+        },
+        {
+          "offset": 8,
+          "ticks": 602
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "name": "Die andere Seite des Felsens",
+      "hash": "3d1b2e4e",
+      "size": [
+        52,
+        40
+      ],
+      "quota": 68,
+      "referenceSeconds": 54.2,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 54.2,
+          "points": 70,
+          "score": 70,
+          "transfers": 1,
+          "pushes": 3,
+          "switches": 0,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 1.76
+        },
+        {
+          "name": "main-quota",
+          "seconds": 54.2,
+          "points": 70,
+          "score": 70,
+          "transfers": 1,
+          "pushes": 3,
+          "switches": 0,
+          "serverChunks": 6,
+          "maxLocalChunkMs": 0.84
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "ticks": 542
+        },
+        {
+          "offset": 1,
+          "ticks": 543
+        },
+        {
+          "offset": 2,
+          "ticks": 544
+        },
+        {
+          "offset": 3,
+          "ticks": 545
+        },
+        {
+          "offset": 4,
+          "ticks": 546
+        },
+        {
+          "offset": 5,
+          "ticks": 547
+        },
+        {
+          "offset": 6,
+          "ticks": 548
+        },
+        {
+          "offset": 7,
+          "ticks": 549
+        },
+        {
+          "offset": 8,
+          "ticks": 550
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "name": "Das gebrochene Siegel",
+      "hash": "b7242756",
+      "size": [
+        58,
+        44
+      ],
+      "quota": 86,
+      "referenceSeconds": 91,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 91,
+          "points": 101,
+          "score": 101,
+          "transfers": 5,
+          "pushes": 0,
+          "switches": 1,
+          "serverChunks": 10,
+          "maxLocalChunkMs": 1.7
+        },
+        {
+          "name": "main-quota",
+          "seconds": 76.1,
+          "points": 94,
+          "score": 94,
+          "transfers": 5,
+          "pushes": 0,
+          "switches": 1,
+          "serverChunks": 8,
+          "maxLocalChunkMs": 1.93
+        }
+      ],
+      "phases": [
+        {
+          "offset": 0,
+          "ticks": 910
+        },
+        {
+          "offset": 1,
+          "ticks": 909
+        },
+        {
+          "offset": 2,
+          "ticks": 910
+        },
+        {
+          "offset": 3,
+          "ticks": 911
+        },
+        {
+          "offset": 4,
+          "ticks": 912
+        },
+        {
+          "offset": 5,
+          "ticks": 913
+        },
+        {
+          "offset": 6,
+          "ticks": 913
+        },
+        {
+          "offset": 7,
+          "ticks": 913
+        },
+        {
+          "offset": 8,
+          "ticks": 913
+        }
+      ]
+    }
+  ]
+}

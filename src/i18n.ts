@@ -1,6 +1,7 @@
 import { LEVELS } from './levels';
 export type Language='de'|'en';
 const english:Record<string,string>={
+ 'Ein geschobener Fels fällt in diesem Takt nicht. Halte die Richtung, um ihn über einen offenen Schacht weiterzuschieben. Sobald du den Schub unterbrichst, wirkt die Schwerkraft wieder.':'A pushed rock does not fall during that tick. Hold the direction to keep pushing it across an open shaft. Gravity resumes as soon as you stop pushing.',
  'Felsfalle ansehen':'Watch rock trap','Punkte':'Score','Kristallpunkte:':'Crystal points:','Gegnerbonus:':'Enemy bonus:',
  'Wertung: Smaragd 1, Diamant 3 Punkte. Schieferkrabbler: 5 Punkte für Zerquetschen oder sicheres Einsperren am Ende. Kristallkrabbler: 10 Punkte für die Umwandlung; sein Diamant zählt beim Einsammeln weitere 3. Gegnerpunkte öffnen keinen Ausgang. Die Zeit entscheidet zuerst, bei Gleichstand die Punktzahl.':'Scoring: emerald 1, diamond 3 points. Slate crawler: 5 points for crushing it or leaving it safely trapped at the end. Crystal crawler: 10 points for transmutation, plus 3 when you collect its diamond. Enemy points do not open exits. Time ranks first, then score breaks a tie.',
  '† Ältere lokale Werte enthalten nur Kristallpunkte. Neue Durchläufe und die Online-Wiederherstellung ergänzen die Gegnerwertung.':'† Older local records contain crystal points only. New runs and online profile recovery include enemy points.',
@@ -43,6 +44,18 @@ Object.assign(english,{
   "Ein Steinspender gibt pro Hebelzug genau einen Stein ab. Sein Vorrat ist begrenzt. Bei belegter Ausgabe, leerem Vorrat oder während des Nachladens wird kein Stein verbraucht.": "A magazine releases exactly one rock per lever pull. Its stock is limited. A blocked outlet, empty supply or reloading mechanism consumes no rock.",
   "Blaue Krabbler bevorzugen rechts, lila Krabbler links. Halte Abstand oder zerquetsche sie mit einem fallenden Stein. Mit": "Blue crawlers prefer right turns; purple crawlers prefer left turns. Keep your distance or crush them with a falling rock. With",
   "Nach der ersten vollständigen Installation sind alle zwanzig Höhlen offline spielbar. Bestzeiten werden beim nächsten Online-Start abgeglichen. Updates werden nach dem Schließen aller Spielfenster übernommen.": "After the first complete installation, all twenty caves are playable offline. Best times sync on the next online start. Updates take effect after closing all game windows."
+});
+Object.assign(english,{
+ 'DREISSIG HÖHLEN. DREI KAPITEL.':'THIRTY CAVES. THREE CHAPTERS.',
+ 'Die dreißig Höhlen':'The thirty caves','DREI KAPITEL':'THREE CHAPTERS','/ KAPITEL I–III':'/ CHAPTERS I–III',
+ 'III · Die Torhallen':'III · The Gate Halls','DIE TORHALLEN':'THE GATE HALLS',
+ 'Der Zwergen-Geheimzweig wird später geöffnet. Der normale Ausgang führt zu 26.':'The dwarf secret branch will open later. The normal exit leads to 26.',
+ 'Schlüssel öffnen passende Schlösser':'Keys open matching locks','Ostrevier ansehen':'Watch eastern district','Zwergenvorraum ansehen':'Watch dwarf antechamber',
+ 'Schlüssel':'Keys','Blockiert: Schloss, Ankunft oder Tor prüfen.':'Blocked: check lock, arrival or gate.',
+ 'Alle dreißig Höhlen im Normalspiel geschafft!':'All thirty caves completed in timed mode!',
+ 'DEMO 0.9 · GRAFIK & AUDIO MIT RUNWAY ·':'DEMO 0.9 · ART & AUDIO WITH RUNWAY ·',
+ 'Nach der ersten vollständigen Installation sind alle dreißig Höhlen offline spielbar. Bestzeiten werden beim nächsten Online-Start abgeglichen. Updates werden nach dem Schließen aller Spielfenster übernommen.':'After the first complete installation, all thirty caves are playable offline. Best times sync on the next online start. Updates take effect after closing all game windows.',
+ 'Kapitel III: Sonnenschlüssel und Mondschlüssel öffnen jeweils ein passendes Schloss und werden verbraucht. Gleiche Buchstaben verbinden Teleporter. Nur der Miner reist; belegte Ankünfte verhindern den Transfer. Verlasse eine Ankunft vor der Rückreise. DW in 25 bleibt bis zum Ausbau des Geheimzweigs versiegelt.':'Chapter III: sun and moon keys each open one matching lock and are consumed. Matching letters link portals. Only the miner travels; an occupied arrival prevents transfer. Leave an arrival before travelling back. DW in 25 stays sealed until the secret branch is released.'
 });
 const levelEnglish:Record<string,{name:string;subtitle:string;hint:string}>={
  '01':{name:'The first layer',subtitle:'A light in the dark',hint:'Space + direction collects beside you without moving. Emeralds count as 1 point, diamonds as 3. You can also dig upwards.'},

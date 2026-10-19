@@ -1,3 +1,11 @@
+## Ergänzung 19. Oktober 2026
+
+Kapitel 3 enthält 21–30; DW in 25 bleibt versiegelt. Zusätzlich werden 15/16/18 umgebaut und 19 auf Quote 41 gesetzt. Nur diese vier bestehenden Ranglisten wechseln die Kartenrevision.
+
+**Vorschlag für ein späteres Kapitel:** Grabekäfer und hartes Muttergestein, das der Miner nicht abbauen kann. Die Aufgabe soll Freilassen, Streckenführung, neu freigelegte Edelsteine und gefährdete Rundsteine sowie Ausweichen oder gezieltes Zerquetschen verbinden. Geschwindigkeit, Grabpriorität und Verhalten beim Treffen auf Hebel/Tore müssen vor Umsetzung festgelegt werden. Der Gegner ist noch nicht implementiert.
+
+> Stand 0.9: Kapitel 3 (21–30) ist umgesetzt. [Kartenrollen und Prüfung](KAPITEL-3-UMSETZUNG.md). Der DW-Vorraum in 25 ist auffindbar, sein Geheimtor bleibt versiegelt; G1–G10 werden separat entworfen. Die nachträglichen Feedback-Revisionen betreffen ausschließlich 15, 16, 18 und 19.
+
 # Lathmar: Emerald Hollows — freigegebener Ausbau
 
 ## Lieferung 0.4: Die alte Mine

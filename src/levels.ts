@@ -1,3 +1,4 @@
+import {CHAPTER_THREE} from './chapter-three';
 import { CRAWLER_RULES_VERSION, type LevelDefinition } from './core/types';
 import {CHAPTER_TWO} from './chapter-two';
 
@@ -65,4 +66,4 @@ export const LEVELS: LevelDefinition[] = [
   "parTicks": 0,
   "rulesVersion": "emerald-hollows/2"
 }
-,...CHAPTER_TWO];
+,...CHAPTER_TWO,...CHAPTER_THREE];

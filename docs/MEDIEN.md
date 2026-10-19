@@ -91,3 +91,8 @@ Der Hebel dreht sich um sein Zahnrad. Das geöffnete Tor zeigt ausgeschnittene R
 ## Eigenständige Aufgaben (0.8)
 
 Keine neuen Generierungen. Runway-Hebel, Tore, Miner und übrige Medien bleiben unverändert. Projektstand weiterhin 262 / 1.000 Credits netto (271 konservativ ohne Erstattungen).
+
+
+## Kapitel 3, Version 0.9
+
+Keine neuen Runway-Generierungen und keine zusätzlichen Credits. Schlösser, Portale und das DW-Tor verwenden die vorhandene Runway-Torgrafik. Die Schlüsselzeichen, Sonnen-/Mondsiegel und Portallichter sind programmatische UI-Overlays in `src/passage-view.ts`; sie sind keine neuen Runway-Bilder. Audio und Mineranimation bleiben unverändert.

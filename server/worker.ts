@@ -1,6 +1,6 @@
 import { Simulation, hash, levelHash } from '../src/core/simulation';
 import { checkedReplay, replayLevel } from '../src/core/replay-validation';
-import { RULES_VERSION, CRAWLER_RULES_VERSION, MECHANISM_RULES_VERSION, rulesFor, type GameState, type Replay } from '../src/core/types';
+import { RULES_VERSION, CRAWLER_RULES_VERSION, MECHANISM_RULES_VERSION,PASSAGE_RULES_VERSION, rulesFor, type GameState, type Replay } from '../src/core/types';
 import { LEVELS } from '../src/levels';
 import { normalizeName, validName } from '../src/storage';
 import {scoreBreakdown,SCORE_VERSION} from '../src/core/scoring';
@@ -54,7 +54,7 @@ async function handle(request:Request,env:Env):Promise<Response>{
     const {results}=await env.DB.prepare(`SELECT rowid AS backup_rowid,* FROM ${table} WHERE rowid>? ORDER BY rowid LIMIT ${pageSize}`).bind(Number(after)).all();
     return json({rows:results,next:results.length===pageSize?String(results.at(-1)!.backup_rowid):null});
   }
-  if(request.method==='GET'&&path==='/health')return json({ok:true,rulesVersion:RULES_VERSION,supportedRules:[RULES_VERSION,CRAWLER_RULES_VERSION,MECHANISM_RULES_VERSION],scoreVersion:SCORE_VERSION,levels:LEVELS.length});
+  if(request.method==='GET'&&path==='/health')return json({ok:true,rulesVersion:RULES_VERSION,supportedRules:[RULES_VERSION,CRAWLER_RULES_VERSION,MECHANISM_RULES_VERSION,PASSAGE_RULES_VERSION],scoreVersion:SCORE_VERSION,levels:LEVELS.length});
   if(request.method==='POST'&&path==='/profiles'){
     const body=await readBody(request);const nickname=normalizeName(String(body.nickname??''));if(!validName(nickname))return json({error:'name'},400);
     await quota(env,'profiles',30);

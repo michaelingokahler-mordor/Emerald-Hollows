@@ -1,0 +1,69 @@
+{
+  "at": "2026-10-18T18:43:06.328Z",
+  "boards": [
+    {
+      "id": "11",
+      "entries": [
+        {
+          "nickname": "Mufti999",
+          "ticks": 410,
+          "points": 32,
+          "score": 32,
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "entries": [
+        {
+          "nickname": "Mufti999",
+          "ticks": 357,
+          "points": 23,
+          "score": 23,
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "entries": [
+        {
+          "nickname": "Mufti999",
+          "ticks": 421,
+          "points": 28,
+          "score": 38,
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "entries": []
+    },
+    {
+      "id": "15",
+      "entries": []
+    },
+    {
+      "id": "16",
+      "entries": []
+    },
+    {
+      "id": "17",
+      "entries": []
+    },
+    {
+      "id": "18",
+      "entries": []
+    },
+    {
+      "id": "19",
+      "entries": []
+    },
+    {
+      "id": "20",
+      "entries": []
+    }
+  ]
+}
