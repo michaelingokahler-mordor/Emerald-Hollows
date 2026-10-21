@@ -1,10 +1,14 @@
-import {writeFile} from 'node:fs/promises';
-import {LEVELS} from '../src/levels';
+// Historical verifier: never overwrite the current playable solution replays.
+import {mkdir,writeFile} from 'node:fs/promises';
+import definitions from '../src/levels-v010.json';
+import type {LevelDefinition} from '../src/core/types';
+const LEVELS=definitions as LevelDefinition[];
 import {CHAPTER_FOUR_ROUTES,SCREE_ROWS,screeRoute} from '../src/chapter-four';
 import {solve} from './solution';
 import {Simulation,hash,levelHash,runReplay} from '../src/core/simulation';
 import {FixedClock} from '../src/core/clock';
 import {verifyChunk} from '../server/worker';
+await mkdir('artifacts/historical-replays/v010',{recursive:true});
 const levels=[];
 for(const l of LEVELS.slice(30)){
  const routes=[];
@@ -16,8 +20,8 @@ for(const l of LEVELS.slice(30)){
   while(run.status==='pending'){const at=performance.now(),v=verifyChunk(run);maxChunkMs=Math.max(maxChunkMs,performance.now()-at);run={...run,state:JSON.stringify(v.state),cursor:v.cursor,status:v.status};}if(run.status!=='confirmed')throw Error('Server rejected '+l.id);
   const copy=new Simulation(l),events=[];for(const f of r.inputs)events.push(...copy.step(f));
   const out={name,seconds:sim.state.tick/10,points:sim.state.points,remainingGems:sim.state.entities.filter(e=>['emerald','diamond'].includes(e.kind)).length,excavated:sim.state.mining!.excavated,fusions:sim.state.mechanisms!.fusions,pushes:events.filter(e=>e.type==='push').length,switches:events.filter(e=>e.type==='switch').map(e=>[e.x,e.y]),spawned:Object.values(sim.state.mining!.pits).reduce((n,p)=>n+p.spawned,0),maxLocalChunkMs:Math.round(maxChunkMs*100)/100};
-  routes.push(out);await writeFile(`public/replays/${l.id}-${name}.json`,JSON.stringify(r,null,2)+'\n');
-  if(routes.length===1)await writeFile(`public/replays/${l.id}.json`,JSON.stringify(r,null,2)+'\n');else await writeFile(`public/replays/${l.id}-alternative.json`,JSON.stringify(r,null,2)+'\n');
+  routes.push(out);await writeFile(`artifacts/historical-replays/v010/${l.id}-${name}.json`,JSON.stringify(r,null,2)+'\n');
+  if(routes.length===1)await writeFile(`artifacts/historical-replays/v010/${l.id}.json`,JSON.stringify(r,null,2)+'\n');else await writeFile(`artifacts/historical-replays/v010/${l.id}-alternative.json`,JSON.stringify(r,null,2)+'\n');
  }
  const phases=[];for(let offset=0;offset<9;offset++){try{phases.push({offset,seconds:solve(l,offset).state.tick/10});}catch(e){throw Error(`${l.id} offset ${offset}: ${e}`);}}
  if(l.timeSeconds>3*Math.min(...routes.map(r=>r.seconds)))throw Error('Limit too generous '+l.id);

@@ -1,3 +1,9 @@
+# Aktueller Stand: 0.11 — Käfer-Revision
+
+Der [Prüfbericht 0.11](PRUEFBERICHT-0.11.md) beschreibt die aktuellen Regeln, Karten, automatischen Zeiten und Browserkontrollen. Die folgenden Berichte dokumentieren frühere Veröffentlichungen und deren damalige Karten.
+
+---
+
 # Update 0.10.0 — Die hungrigen Adern, Level 31–40
 
 Stand: 19. Oktober 2026. Zehn neue Karten; neue Regeln nur in Version 5. Bestehende Karten 01–30, Zeitlimits, Freischaltungen und Rekorde bleiben erhalten. Keine Datenbankmigration und keine Ranglistenlöschung.

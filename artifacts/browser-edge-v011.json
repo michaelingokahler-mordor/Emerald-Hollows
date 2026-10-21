@@ -1,0 +1,252 @@
+{
+  "status": "PASS",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "dpr": 2,
+  "results": [
+    {
+      "id": "01",
+      "ticks": 36,
+      "points": 8,
+      "status": "won"
+    },
+    {
+      "id": "02",
+      "ticks": 28,
+      "points": 10,
+      "status": "won"
+    },
+    {
+      "id": "03",
+      "ticks": 31,
+      "points": 12,
+      "status": "won"
+    },
+    {
+      "id": "04",
+      "ticks": 42,
+      "points": 15,
+      "status": "won"
+    },
+    {
+      "id": "05",
+      "ticks": 40,
+      "points": 12,
+      "status": "won"
+    },
+    {
+      "id": "06",
+      "ticks": 106,
+      "points": 9,
+      "status": "won"
+    },
+    {
+      "id": "07",
+      "ticks": 80,
+      "points": 9,
+      "status": "won"
+    },
+    {
+      "id": "08",
+      "ticks": 46,
+      "points": 12,
+      "status": "won"
+    },
+    {
+      "id": "09",
+      "ticks": 57,
+      "points": 5,
+      "status": "won"
+    },
+    {
+      "id": "10",
+      "ticks": 157,
+      "points": 30,
+      "status": "won"
+    },
+    {
+      "id": "11",
+      "ticks": 191,
+      "points": 38,
+      "status": "won"
+    },
+    {
+      "id": "12",
+      "ticks": 215,
+      "points": 31,
+      "status": "won"
+    },
+    {
+      "id": "13",
+      "ticks": 271,
+      "points": 36,
+      "status": "won"
+    },
+    {
+      "id": "14",
+      "ticks": 280,
+      "points": 40,
+      "status": "won"
+    },
+    {
+      "id": "15",
+      "ticks": 530,
+      "points": 37,
+      "status": "won"
+    },
+    {
+      "id": "16",
+      "ticks": 486,
+      "points": 40,
+      "status": "won"
+    },
+    {
+      "id": "17",
+      "ticks": 255,
+      "points": 39,
+      "status": "won"
+    },
+    {
+      "id": "18",
+      "ticks": 418,
+      "points": 52,
+      "status": "won"
+    },
+    {
+      "id": "19",
+      "ticks": 535,
+      "points": 41,
+      "status": "won"
+    },
+    {
+      "id": "20",
+      "ticks": 334,
+      "points": 47,
+      "status": "won"
+    },
+    {
+      "id": "21",
+      "ticks": 620,
+      "points": 60,
+      "status": "won"
+    },
+    {
+      "id": "22",
+      "ticks": 540,
+      "points": 69,
+      "status": "won"
+    },
+    {
+      "id": "23",
+      "ticks": 530,
+      "points": 59,
+      "status": "won"
+    },
+    {
+      "id": "24",
+      "ticks": 381,
+      "points": 106,
+      "status": "won"
+    },
+    {
+      "id": "25",
+      "ticks": 604,
+      "points": 69,
+      "status": "won"
+    },
+    {
+      "id": "26",
+      "ticks": 598,
+      "points": 71,
+      "status": "won"
+    },
+    {
+      "id": "27",
+      "ticks": 536,
+      "points": 58,
+      "status": "won"
+    },
+    {
+      "id": "28",
+      "ticks": 585,
+      "points": 82,
+      "status": "won"
+    },
+    {
+      "id": "29",
+      "ticks": 534,
+      "points": 70,
+      "status": "won"
+    },
+    {
+      "id": "30",
+      "ticks": 914,
+      "points": 101,
+      "status": "won"
+    },
+    {
+      "id": "31",
+      "ticks": 277,
+      "points": 26,
+      "status": "won"
+    },
+    {
+      "id": "32",
+      "ticks": 359,
+      "points": 25,
+      "status": "won"
+    },
+    {
+      "id": "33",
+      "ticks": 290,
+      "points": 29,
+      "status": "won"
+    },
+    {
+      "id": "34",
+      "ticks": 1046,
+      "points": 45,
+      "status": "won"
+    },
+    {
+      "id": "35",
+      "ticks": 426,
+      "points": 33,
+      "status": "won"
+    },
+    {
+      "id": "36",
+      "ticks": 533,
+      "points": 92,
+      "status": "won"
+    },
+    {
+      "id": "37",
+      "ticks": 453,
+      "points": 37,
+      "status": "won"
+    },
+    {
+      "id": "38",
+      "ticks": 505,
+      "points": 54,
+      "status": "won"
+    },
+    {
+      "id": "39",
+      "ticks": 397,
+      "points": 46,
+      "status": "won"
+    },
+    {
+      "id": "40",
+      "ticks": 756,
+      "points": 54,
+      "status": "won"
+    }
+  ],
+  "errors": [],
+  "note": "Accelerated renderer replay checks. Not human play feel or a physical touch-device test. Full pass before final level 26 choke correction; final targeted rerun recorded separately."
+}

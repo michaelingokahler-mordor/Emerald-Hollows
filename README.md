@@ -10,13 +10,23 @@ The full game is planned to contain **120 levels: 100 main caves and 20 hidden l
 - [Development roadmap (German)](docs/ENTWICKLUNGSPLAN.md)
 - [Chapter 3 implementation and verification (German)](docs/KAPITEL-3-UMSETZUNG.md)
 
-## Update 0.10.0 — The Hungry Veins
+## Update 0.11.0 — Changing beetles
+
+Thirty caves now use rule version 6. Blue and purple beetles change their wall-following direction after repeated loops; amber diggers and white diamond beetles change into one another. A shimmering warning precedes each change. White armour replaces the old diamond badge.
+
+A beetle confined to one or two reachable tiles pulses red and explodes after six seconds. Larger marked enclosures remain suitable for live capture. Golden sun/moon beetles carry the keys; crushing or exploding them releases their key. Reinforced machinery, steel, bedrock, gems and released keys withstand explosions.
+
+Caves 34, 35, 36, 38 and 40 have new dependency chains. The open Scree Sea contains **74 emeralds, 6 diamonds and 107 rocks**, with all **92 gem points** required. Cave 40 provides exactly one worker and requires both intended diamond yields. Caves **01–04, 08, 11, 14, 17, 18 and 39** retain their definitions and records. Changed revisions receive separate rankings; old results, unlocks and pending offline submissions remain supported. Spiders are reserved for the future 41–50 chapter. The secret branch in 25 stays sealed.
+
+[Design briefs](docs/KAEFER-REVISION-0.11.md) · [Current rules](docs/RULES.md) · [Verification report](docs/PRUEFBERICHT-0.11.md) · [Measured solutions](artifacts/beetle-revision-verification.json).
+
+## Historical update 0.10.0 — The Hungry Veins
 
 Chapter IV adds caves **31–40**, amber diggers, hard bedrock and timed monster pits. Existing switches can stop future spawns; enemies already released stay in the cave. Diggers are useful for excavation but remain dangerous. Their enemy bonus does not count toward gem quotas.
 
-The chapter combines route choices, two fusion sites, continuous rock transport, limited magazines and vertical ore extraction. The **Open Scree Sea (36)** has no internal dividing walls: all **460 gem points** are required. Two reference routes and 24 shuffled extraction orders collect every gem. This is finite test coverage, not a guarantee against every fatal move or player-created obstruction.
+That release introduced route choices, fusion sites, continuous rock transport, limited magazines and vertical ore extraction. Its original Scree Sea had 460 gem points; version 0.11 replaces that regular layout with the scattered field described above. Reference routes provide finite test coverage, not a guarantee against every fatal move or player-created obstruction.
 
-All existing 01–30 map hashes, records and unlocks are retained. Complete 30 in either mode to unlock 31. New deadlines are rounded to at most three times the measured automated reference, pending human records. [Design and timings](docs/KAPITEL-4-UMSETZUNG.md) · [Verification data](artifacts/chapter-four-verification.json).
+Version 0.10 retained the then-current 01–30 maps. Complete 30 in either mode to unlock 31. New deadlines are rounded down to five seconds at no more than three times the fastest verified automated route, pending human records of the same revision. [Historical design and timings](docs/KAPITEL-4-UMSETZUNG.md).
 
 ## Update 0.9.1
 
@@ -40,25 +50,25 @@ Alternatively, extract the complete web ZIP and open `Start-Emerald-Hollows.cmd`
 - **R:** restart the cave. **Escape:** pause.
 - **Touch:** use the direction buttons on the left. Hold **Dig** on the right while touching a direction to act on an adjacent tile.
 
-Emeralds contribute one quota point; diamonds contribute three. Meet the crystal quota to open the exit. Caves 06, 07, and 09 also require their displayed crawler objective. Falling objects and crawlers remain dangerous in practice mode.
+Emeralds contribute one quota point; diamonds contribute three. Meet the crystal quota and any displayed live-capture or crushing objective to open the exit. Falling objects, explosions and crawlers remain dangerous in practice mode.
 
 Choose English or German in the main menu or Settings. English is the default. Credits are available from the main menu and completion screen; asset provenance and license notices are documented in [Credits](docs/CREDITS.md).
 
 ### The forty caves
 
-The opening caves introduce collecting, falling rocks, pushing, and rolling. Cave 06 teaches containment, 07 teaches a timed rock drop, and 09 introduces a crystal crawler that becomes a diamond when crushed. Cave 08 deliberately offers more crystal points than required, allowing different collection routes.
+The opening caves introduce collecting, falling rocks, pushing, and rolling. Cave 05 introduces changing patrols, 06 uses a containment explosion to open a gallery, 07 teaches a timed rock drop, and 09 requires a hit during the white beetle phase. Its single-shot dispenser provides a safe observation arena. Cave 08 deliberately offers surplus crystals and different collection routes.
 
-Cave 10 is the first substantial combined challenge. Three required diamonds lie beyond a guarded passage. Both containment and a rock trap are supported solutions; the layout makes dealing with the passage necessary without an extra mandatory crawler objective.
+Cave 10 is the first substantial combined challenge. Three required diamonds lie beyond a guarded passage. A containment explosion and a rock trap provide different supported solutions.
 
 Chapter 2, **The Abandoned Workings (11–20)**, introduces linked gates, opposite crawler directions, fusion and finite rock magazines in 11–13. Version 0.8 rebuilt 14–20 around different decisions: choosing three ore districts, trapping a living crawler with a dropped rock, securing a mining junction, preparing a disposal shaft for the return journey, choosing a guarded shortcut, joining two separately released patrols, and using the same rock first against a guard and then moving it out of the passage.
 
-The historical 0.8 release reset maps 14–20. Caves 01–13 and their records remain unchanged; existing unlocks survive. The collecting-only bypass in 17 is closed and tested. Verified routes in the revised caves take about 17–47 seconds. They are known automated solutions, not human first-play estimates, and some are shorter than in 0.7. Distinct decisions take priority over adding floor area. Human playtesting is still required.
+The collecting-only bypass in 17 remains closed and tested. Version 0.11 adapts the enemy tasks to changing patrols and larger live enclosures. Known automated routes are not human first-play estimates or optimality proofs. Distinct decisions take priority over adding floor area; human playtesting remains a separate acceptance step.
 
 [Latest player-feedback revisions](docs/KAPITEL-2-FEEDBACK-2026-10-19.md) and [level design rules for future chapters](docs/LEVELDESIGN-REGELN.md) document the implementation and acceptance checks (German).
 
 Chapter 3, **The Gate Halls (21–30)**, adds consumable sun/moon keys and fixed, player-only portals. It teaches these in 21–23, then uses exclusive district choices, spatial clues, changing mine passages, live patrols, two switch states, opposite work positions and an irreversible return journey. Cave 25 includes a discoverable dwarf antechamber. Its marked entrance stays sealed; G1–G10 will be designed separately. The normal exit leads to 26.
 
-Version 0.9 revises caves 15, 16 and 18 after player feedback and raises cave 19 to 41 crystal points. Only these four maps start new rankings; previous definitions still verify pending runs. Caves 01–14, 17 and 20 retain their records. Chapter 3 reference replays total **9:18.7**, compared with **4:42.5** for the approved chapter 2 v0.8 baseline. After the additional player-requested revisions, chapter 2 now totals **5:46.8**; the new ratio is 1.61, not two. Faster tested alternatives total **8:28.2**; these are not optimality proofs or human play times. [Measurements](artifacts/chapter-three-verification.json) and [acceptance report](docs/PRUEFBERICHT.md) separate automated evidence from outstanding human feedback.
+Chapter III now integrates golden carriers into its route tasks. The key in 26 remains beyond the shared falling-boulder choke, and 29 still uses opposite working positions around the same rock. The current [measurements](artifacts/beetle-revision-verification.json) supersede earlier release timings.
 
 Sun/moon keys count separately from score and open one matching permanent lock. Identical letters identify portal pairs. A blocked arrival prevents entry; leave the arrival tile before travelling back. Normal falling-object and crawler rules still apply at the destination.
 
@@ -66,7 +76,7 @@ Completing a cave in timed or practice mode unlocks the next one. Their results 
 
 ### Best times and points
 
-**The fastest time wins; higher points break a tie.** Emeralds score 1 and diamonds score 3. A crushed slate crawler, or one safely enclosed at the end of a successful run, adds 5 points. Transforming a crystal crawler adds 10 points; collecting its diamond adds another 3. Purple crawlers use the same 5-point bonus. Fusion itself awards no points or double kill bonus. Enemy bonuses do not count toward the crystal quota.
+**The fastest time wins; higher points break a tie.** Emeralds score 1 and diamonds score 3. Crushing or exploding a beetle adds 5 points. Crushing a white beetle into a diamond adds 10; collecting that diamond adds 3. A living beetle secured in a marked enclosure at completion adds 5. Each defeat is counted once. Changing colour or fusing awards no points. Enemy bonuses and keys do not count toward the crystal quota. Historical rules retain their historical scoring.
 
 Older local records marked with † contain crystal points only. Online scores are calculated from verified runs.
 
@@ -87,7 +97,8 @@ Daily encrypted server backups are kept in a separate private repository. See th
 ```sh
 npm test
 npm run verify:levels
-npx tsx tools/verify-chapter-three.ts
+npx tsx tools/audit-beetle-phases.ts
+npx tsx tools/audit-scree-v011.ts
 npm run build
 npm run server:migrate
 npm run server:dev
@@ -98,7 +109,7 @@ npm run package
 node tools/verify-package.mjs
 ```
 
-The project uses strict TypeScript, Phaser 4.2.1, Vite, and Vitest with pinned dependencies. The simulation is independent of Phaser and runs on a fixed 100 ms tick with deterministic replays. Unchanged maps retain `crystal-delve/1`; revised crawler caves and the finale use `emerald-hollows/2`. Chapter 2 uses `emerald-hollows/3`; chapter 3 uses `emerald-hollows/4`. Rules for previous maps remain compatible. Only caves 15, 16, 18 and 19 receive revised map hashes in 0.9. Existing `crystal-delve.save.v1` saves migrate automatically.
+The project uses strict TypeScript, Phaser 4.2.1, Vite, and Vitest with pinned dependencies. Its independent simulation runs on a fixed 100 ms tick. Thirty revised caves use `emerald-hollows/6`; unchanged caves retain their previous rules and hashes. Versions 1–5 and historical map snapshots remain available for queued offline runs. Existing `crystal-delve.save.v1` saves migrate automatically. Server support must be deployed before a new client build.
 
 | Path | Contents |
 |---|---|

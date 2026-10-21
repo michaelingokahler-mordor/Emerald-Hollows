@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "rulesVersion": "emerald-hollows/4",
+  "rulesVersion": "emerald-hollows/6",
   "levelId": "25",
-  "levelHash": "af94dd02",
+  "levelHash": "0797ebaf",
   "practice": false,
   "inputs": [
     {
@@ -593,7 +593,10 @@
       "direction": "up"
     },
     {
-      "direction": "right"
+      "direction": "up"
+    },
+    {
+      "direction": "up"
     },
     {
       "direction": "right"
@@ -603,6 +606,71 @@
     },
     {
       "direction": "right"
+    },
+    {},
+    {},
+    {
+      "direction": "right",
+      "snap": true
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down",
+      "snap": true
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "right",
+      "snap": true
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right",
+      "snap": true
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
     },
     {
       "direction": "left"
@@ -710,19 +778,19 @@
       "direction": "up"
     },
     {
-      "direction": "right"
+      "direction": "up"
     },
     {
-      "direction": "right"
+      "direction": "up"
     },
     {
-      "direction": "right"
+      "direction": "up"
     },
     {
-      "direction": "right"
+      "direction": "up"
     },
     {
-      "direction": "right"
+      "direction": "up"
     },
     {
       "direction": "right"
@@ -740,43 +808,7 @@
       "direction": "up"
     },
     {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left",
-      "snap": true
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left",
-      "snap": true
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left",
-      "snap": true
+      "direction": "right"
     },
     {
       "direction": "right"
@@ -1788,5 +1820,5 @@
       "direction": "up"
     }
   ],
-  "expectedHash": "94313ca5"
+  "expectedHash": "a47b316b"
 }

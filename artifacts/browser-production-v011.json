@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "url": "http://127.0.0.1:4173/",
+  "checks": [
+    "production bundle 0.11.0",
+    "hidden Hint",
+    "simultaneous touch dig",
+    "controls outside cave",
+    "pause and unchanged reload",
+    "service-worker offline reload",
+    "landscape without horizontal overflow"
+  ],
+  "physicalPhone": false,
+  "errors": []
+}

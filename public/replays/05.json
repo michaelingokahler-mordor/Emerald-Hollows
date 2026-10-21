@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "rulesVersion": "crystal-delve/1",
+  "rulesVersion": "emerald-hollows/6",
   "levelId": "05",
-  "levelHash": "6e08edfb",
+  "levelHash": "ef31b71f",
   "practice": false,
   "inputs": [
     {
@@ -42,18 +42,19 @@
     {},
     {},
     {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
     {
       "direction": "right",
       "snap": true
     },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
     {},
     {},
     {},
@@ -105,5 +106,5 @@
       "direction": "up"
     }
   ],
-  "expectedHash": "e8a4f57d"
+  "expectedHash": "6eb2d5b8"
 }

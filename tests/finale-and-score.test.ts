@@ -1,5 +1,7 @@
 import {describe,it,expect} from 'vitest';
-import {LEVELS} from '../src/levels';
+import archivedV010 from '../src/levels-v010.json';
+import type {LevelDefinition} from '../src/core/types';
+const LEVELS=archivedV010 as LevelDefinition[];
 import {LEGACY_LEVELS} from '../src/legacy-levels';
 import {FINALE_CRUSH_ROUTE} from '../src/finale-routes';
 import {Simulation,runReplay,hash} from '../src/core/simulation';
@@ -9,7 +11,7 @@ import {DELTAS,isCrawler} from '../src/core/types';
 import {defaultSave,recordWin,currentRecord,compactRuns,parseSave,serializeSave} from '../src/storage';
 import {solve} from '../tools/solution';
 const fullRoute='walk 8 3; walk 8 8; walk 11 8; walk 14 8; walk 17 8; walk 17 15; walk 7 15; walk 12 15; walk 18 15; walk 23 15; walk 25 15; walk 25 3';
-describe('a guarded finale',()=>{
+describe('archived v0.10 guarded finale',()=>{
  it('has two normal-rule solutions with a meaningful living trap or a successful rock trap',()=>{
   const trap=solve(LEVELS[9]),crush=solve({...LEVELS[9],route:FINALE_CRUSH_ROUTE});expect(LEVELS[9].objective).toBeUndefined();
   expect(trap.state.entities.some(e=>isCrawler(e.kind)&&trap.isTrapped(e))).toBe(true);expect(crush.state.entities.some(e=>isCrawler(e.kind))).toBe(false);

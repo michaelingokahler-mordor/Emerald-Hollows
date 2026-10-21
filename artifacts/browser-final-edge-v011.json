@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "dpr": 2,
+  "results": [
+    {
+      "id": "26",
+      "ticks": 715,
+      "points": 71,
+      "status": "won"
+    },
+    {
+      "id": "34",
+      "ticks": 1046,
+      "points": 45,
+      "status": "won"
+    },
+    {
+      "id": "35",
+      "ticks": 426,
+      "points": 33,
+      "status": "won"
+    },
+    {
+      "id": "38",
+      "ticks": 505,
+      "points": 54,
+      "status": "won"
+    },
+    {
+      "id": "40",
+      "ticks": 756,
+      "points": 54,
+      "status": "won"
+    }
+  ],
+  "errors": [],
+  "note": "Accelerated renderer replay checks. Not human play feel or a physical touch-device test."
+}

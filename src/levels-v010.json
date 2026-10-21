@@ -1,0 +1,3956 @@
+[
+  {
+    "id": "01",
+    "name": "Die erste Schicht",
+    "subtitle": "Ein Licht im Dunkeln",
+    "width": 18,
+    "height": 12,
+    "map": [
+      "XXXXXXXXXXXXXXXXXX",
+      "X   .....#.......X",
+      "X P M.M..#.....E.X",
+      "X........#.###...X",
+      "X.###..M.#.###...X",
+      "X........#.###...X",
+      "X....M...#.......X",
+      "X................X",
+      "X..M..###....D...X",
+      "X........#.......X",
+      "X........#.......X",
+      "XXXXXXXXXXXXXXXXXX"
+    ],
+    "quota": 8,
+    "timeSeconds": 13,
+    "difficulty": 1,
+    "hint": "Leertaste + Richtung sammelt nebenan, ohne dass du dich bewegst. Smaragde zählen 1, Diamanten 3. Du kannst auch nach oben graben.",
+    "solution": "Den ersten Smaragd nebenan aufnehmen. Die westliche Kammer absuchen, durch den unteren Durchgang wechseln und den Diamanten holen. Dann zum Ausgang im Nordosten.",
+    "route": "walk 3 2; snap right; walk 6 2; walk 7 4; walk 5 6; walk 3 8; walk 5 7; walk 10 7; walk 12 7; walk 12 8; walk 13 8; walk 15 8; walk 15 2",
+    "parTicks": 0
+  },
+  {
+    "id": "02",
+    "name": "Unter Last",
+    "subtitle": "Erst denken. Dann graben.",
+    "width": 22,
+    "height": 14,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXX",
+      "X####################X",
+      "X####################X",
+      "X###R################X",
+      "X#P.......RM.D.D.D.E#X",
+      "X#.....#  .#######.##X",
+      "X#.....### #######.##X",
+      "X#.....### #.......##X",
+      "X#.###.### #.......##X",
+      "X#.....### #.......##X",
+      "X#.....### #.......##X",
+      "X#.....### #.......##X",
+      "X####################X",
+      "XXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "quota": 10,
+    "timeSeconds": 9,
+    "difficulty": 1,
+    "hint": "Der Stein versperrt den Gang. Geh links unter ihn, grabe von der Seite seine Stütze weg und warte in Sicherheit.",
+    "solution": "Bis zum Seitengang gehen, von (9,5) nach rechts untergraben und den Stein in den Schacht fallen lassen. Danach die Kristalle im rechten Gang sammeln.",
+    "route": "walk 8 4; walk 8 5; walk 9 5; snap right; wait 8; walk 9 4; walk 11 4; walk 13 4; walk 15 4; walk 17 4; walk 19 4",
+    "parTicks": 0
+  },
+  {
+    "id": "03",
+    "name": "Platz zum Schieben",
+    "subtitle": "Ein freier Platz verändert alles",
+    "width": 24,
+    "height": 16,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXX",
+      "X######################X",
+      "X########...........E.#X",
+      "X########.............#X",
+      "X########.....D.D.D.D.#X",
+      "X###########.##########X",
+      "X###########.##########X",
+      "X##########.R.#########X",
+      "X##########.#.#########X",
+      "X#.P...........########X",
+      "X#...#.R###############X",
+      "X#...#..###############X",
+      "X####...###############X",
+      "X#......###############X",
+      "X#......###############X",
+      "XXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "quota": 12,
+    "timeSeconds": 10,
+    "difficulty": 2,
+    "hint": "Rechts vom Felsen steckt noch Erde. Räume sie von unten frei. Schiebe den Stein dann von links zur Seite; darüber liegt die Kristallkammer.",
+    "solution": "Zur rechten Nische (13,8), Erde oberhalb entfernen. Über den unteren Gang zurück nach (11,7), den Stein rechts schieben und durch den frei gewordenen Aufstieg in die obere Kammer.",
+    "route": "walk 13 9; walk 13 8; snap up; walk 13 9; walk 11 9; walk 11 7; move right; walk 12 4; walk 14 4; walk 16 4; walk 18 4; walk 20 4; walk 20 2",
+    "parTicks": 0
+  },
+  {
+    "id": "04",
+    "name": "Die rollende Galerie",
+    "subtitle": "Stein auf Stein",
+    "width": 28,
+    "height": 18,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##########################X",
+      "X#......##########E......##X",
+      "X#......##########.......##X",
+      "X#....R.################.##X",
+      "X#......################.##X",
+      "X#.P.........R.D.D.D.D.D.##X",
+      "X###.####### R#############X",
+      "X##......### ##############X",
+      "X##......### ##############X",
+      "X##.###..### ##############X",
+      "X##......### ##############X",
+      "X##....#.### ##############X",
+      "X##....#.### ##############X",
+      "X##....#.### ##############X",
+      "X##########################X",
+      "X##########################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "quota": 15,
+    "timeSeconds": 9,
+    "difficulty": 2,
+    "hint": "Felsen rollen von runden Unterlagen ab. Seitenfeld und Feld darunter müssen frei sein. Sind beide Seiten frei, rollt der Stein nach links.",
+    "solution": "Vor dem Stapel anhalten und das linke Seitenfeld nebenan freigraben. Nach dem Abrollen und Fallen den Gang zur Diamantgalerie durchqueren und oben zum Ausgang zurückgehen.",
+    "route": "walk 11 6; snap right; wait 10; walk 15 6; walk 17 6; walk 19 6; walk 21 6; walk 23 6; walk 24 6; walk 24 3; walk 18 3; walk 18 2",
+    "parTicks": 0
+  },
+  {
+    "id": "05",
+    "name": "Der Schieferkrabbler",
+    "subtitle": "Ein berechenbarer Gegner",
+    "width": 28,
+    "height": 18,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##########################X",
+      "X##########################X",
+      "X###################....E##X",
+      "X###################.....##X",
+      "X############R######.....##X",
+      "X#P.............D.D.D.D..##X",
+      "X#.....R##### ##########.##X",
+      "X#......##>      #######.##X",
+      "X#......################.##X",
+      "X#.###..#############.....#X",
+      "X#.###..#############.....#X",
+      "X#......#############.....#X",
+      "X#......#############.....#X",
+      "X#......#############.....#X",
+      "X####################.....#X",
+      "X##########################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "quota": 12,
+    "timeSeconds": 10,
+    "difficulty": 3,
+    "hint": "Der Krabbler folgt der Wand rechts und bewegt sich alle drei Takte. Beobachte ihn geschützt. Untergrabe den Stein, wenn der Krabbler von rechts zur Schachtmitte zurückkommt.",
+    "solution": "Von (12,6) geschützt beobachten. Die Stütze so entfernen, dass der fallende Stein den Krabbler in der unteren Kammer trifft. Danach die obere Galerie ausräumen.",
+    "route": "walk 12 6; wait 15; snap right; wait 5; walk 16 6; walk 18 6; walk 20 6; walk 22 6; walk 24 6; walk 24 3",
+    "parTicks": 0
+  },
+  {
+    "id": "06",
+    "name": "Hinter Stein und Riegel",
+    "subtitle": "Einsperren statt erschlagen",
+    "width": 26,
+    "height": 18,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X########################X",
+      "X########################X",
+      "X########################X",
+      "X########################X",
+      "X###################E...#X",
+      "X############# ########.#X",
+      "X#############^########.#X",
+      "X#...........R  #######.#X",
+      "X#............#########.#X",
+      "X#...###................#X",
+      "X#...###.....####.......#X",
+      "X#.P......D..####...D.D.#X",
+      "X#...........####.###...#X",
+      "X#...........####.......#X",
+      "X########################X",
+      "X########################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "quota": 9,
+    "timeSeconds": 21,
+    "difficulty": 2,
+    "rulesVersion": "emerald-hollows/2",
+    "objective": "trap",
+    "hint": "Der Krabbler muss lebend in höchstens zwei freien Feldern eingeschlossen bleiben. Schiebe den Fels in den Zugang, wenn er in einer Nische ist. Sammle danach drei Diamanten. Quote und Aufgabe öffnen gemeinsam den Ausgang.",
+    "solution": "Den linken Diamanten holen, zum Fels gehen und den Krabbler beobachten. Den Stein nach rechts in den Zugang schieben, wenn der Krabbler in der oberen Nische ist. Unter dem Riegel hindurch in die rechte Kammer gehen, zwei Diamanten sammeln und zum Ausgang aufsteigen.",
+    "route": "walk 10 12; walk 12 8; wait 8; move right; walk 13 10; walk 20 12; walk 22 12; walk 23 12; walk 23 5; walk 20 5",
+    "parTicks": 0
+  },
+  {
+    "id": "07",
+    "name": "Der richtige Augenblick",
+    "subtitle": "Ein Abwurf aus sicherer Entfernung",
+    "width": 28,
+    "height": 18,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##########################X",
+      "X##########################X",
+      "X##########################X",
+      "X################R#########X",
+      "X#.P.....................##X",
+      "X################ ######.##X",
+      "X################ ######.##X",
+      "X###### >               .##X",
+      "X#######################.##X",
+      "X#######################.##X",
+      "X####E...###############.##X",
+      "X####....###############.##X",
+      "X####...........D.D.D....##X",
+      "X##########################X",
+      "X##########################X",
+      "X##########################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "quota": 9,
+    "timeSeconds": 22,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/2",
+    "objective": "crush",
+    "hint": "Der Fels braucht mehrere Takte bis zur Laufbahn. Warte links neben seiner Stütze, bis der Krabbler von links an das Feld vor dem Fallschacht herankommt. Grabe die Stütze nebenan weg. Du musst ihn treffen, bevor der Ausgang öffnet.",
+    "solution": "Bei (16,5) stehen bleiben. Den Abwurf vorhalten: Stütze bei Takt 25 entfernen, damit der Fels den Krabbler bei Takt 28 trifft. Danach rechts absteigen, die drei Diamanten der unteren Galerie holen und zum westlichen Ausgang gehen.",
+    "route": "walk 16 5; wait 11; snap right; wait 4; walk 24 5; walk 24 13; walk 20 13; walk 18 13; walk 16 13; walk 5 13; walk 5 11",
+    "parTicks": 0
+  },
+  {
+    "id": "08",
+    "name": "Der lange Bogen",
+    "subtitle": "Es gibt mehr als einen Weg",
+    "width": 30,
+    "height": 20,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X############################X",
+      "X############################X",
+      "X##P................R....E###X",
+      "X##.####.###########.####.###X",
+      "X##.####.###########.####.###X",
+      "X##.####.###########.####.###X",
+      "X##.####.################.###X",
+      "X##.####...D..D...#######.###X",
+      "X##.#############.#######.###X",
+      "X##.#############.#######.###X",
+      "X##.#############.#######.###X",
+      "X##.#############.#######.###X",
+      "X##.#############.#######.###X",
+      "X##.#############.#######.###X",
+      "X##....D....D.....D....D..###X",
+      "X############################X",
+      "X############################X",
+      "X############################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "quota": 12,
+    "timeSeconds": 16,
+    "difficulty": 2,
+    "hint": "Wähle deine Route: Sechs Diamanten bieten 18 Punkte, aber vier Diamanten (12 Punkte) reichen. Vier liegen im unteren Rundgang, zwei im mittleren Abzweig. Du kannst Schätze aus beiden Wegen kombinieren; ein vollständiges Ausräumen ist nicht nötig.",
+    "solution": "Links nach unten graben, die vier Diamanten entlang der unteren Galerie einsammeln und rechts zum Ausgang aufsteigen. Die Kammer in der Mitte ist optional.",
+    "route": "walk 3 15; walk 7 15; walk 12 15; walk 18 15; walk 23 15; walk 25 15; walk 25 3",
+    "parTicks": 0
+  },
+  {
+    "id": "09",
+    "name": "Ein kostbarer Gegner",
+    "subtitle": "Der Kristallkrabbler",
+    "width": 28,
+    "height": 19,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##########################X",
+      "X##########################X",
+      "X##########################X",
+      "X##......##################X",
+      "X##.###..##################X",
+      "X##......##################X",
+      "X##......######R###########X",
+      "X##P.................######X",
+      "X############## ####.######X",
+      "X#########C         .######X",
+      "X###################.######X",
+      "X###################M#...##X",
+      "X###################.#...##X",
+      "X###################M#...##X",
+      "X###################.#...##X",
+      "X###################E....##X",
+      "X##########################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "quota": 5,
+    "timeSeconds": 17,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/2",
+    "objective": "crystal-crush",
+    "hint": "Der blaue Krabbler mit Diamantzeichen verwandelt sich beim Zerquetschen in einen Diamanten (3 Punkte). Auch der fallende Stein verschwindet dabei. Zwei Smaragde ergänzen die Quote: Du brauchst den Diamanten des Krabblers.",
+    "solution": "Links der Stütze bei (14,8) warten. Bei Takt 14 rechts nebenan graben. Der Stein trifft bei Takt 16. Rechts in die Laufbahn steigen, den entstandenen Diamanten einsammeln und im östlichen Schacht beide Smaragde auf dem Weg zum Ausgang holen.",
+    "route": "walk 14 8; wait 2; snap right; wait 4; walk 20 8; walk 20 10; walk 15 10; walk 20 10; walk 20 12; walk 20 14; walk 20 16",
+    "parTicks": 0
+  },
+  {
+    "id": "10",
+    "name": "Ein Tor nach Lathmar",
+    "subtitle": "Am Ende der alten Mine",
+    "width": 40,
+    "height": 26,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X######################################X",
+      "X######################################X",
+      "X########################......###..DE#X",
+      "X#......#################.####.###D####X",
+      "X#....R.#################.####.R##.####X",
+      "X#......#################.## #..##D####X",
+      "X#......#################.## ## ##.####X",
+      "X#......################...R  <     ###X",
+      "X#......################.##...#########X",
+      "X###.###################.##...#########X",
+      "X###.###################.### ##########X",
+      "X###.######.D.D.D.D.RD.D.D## ##########X",
+      "X###.######.####### .##.#### ##########X",
+      "X###.######.######## ##.#### ##########X",
+      "X###.######.######## ##.#### ##########X",
+      "X###.######.######## ##.###############X",
+      "X###.######.######## ##.###############X",
+      "X###.#####.R.####### ##....############X",
+      "X###.#####.#.####### ##.M..############X",
+      "X#.P..........###### ##....############X",
+      "X################### ##...M############X",
+      "X################### ##################X",
+      "X################### ##################X",
+      "X######################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "quota": 30,
+    "timeSeconds": 120,
+    "difficulty": 3,
+    "hint": "Der letzte Durchgang wird bewacht. Schiebe den Riegelstein nach rechts, wenn der Krabbler in der oberen Nische ist. Lass die Erde unter dem Riegel stehen und gehe durch den unteren Bogen. Alternativ erreichst du links oben die Felsfalle; nach dem Treffer musst du ihren Stein im Gang nach rechts wegschieben. Drei Diamanten liegen erst hinter der Wache.",
+    "solution": "Zuerst den unteren Schiebestein lösen und den Galeriestein seitlich untergraben. Sieben Diamanten sammeln. Am bewachten Riegel warten, bis der Krabbler in der oberen Nische ist, und den Riegel nach rechts schieben. Die Stützerde nicht freigraben. Unten herum zum letzten Aufstieg gehen und die drei übrigen Diamanten holen. Alternative: den Krabbler rechts lassen, den oberen Abwurf vorbereiten, treffen und den gelandeten Stein nach rechts wegschieben.",
+    "route": "walk 12 20; walk 12 19; snap up; walk 12 20; walk 10 20; walk 10 18; move right; walk 11 12; walk 12 12; walk 14 12; walk 16 12; walk 18 12; walk 19 12; walk 19 13; snap right; wait 12; walk 19 12; walk 21 12; walk 23 12; walk 25 12; walk 24 12; walk 24 8; walk 26 8; wait 10; move right; walk 27 9; walk 27 10; walk 29 10; walk 29 8; walk 30 8; walk 34 6; walk 34 4; walk 36 3; walk 37 3",
+    "parTicks": 0,
+    "rulesVersion": "emerald-hollows/2"
+  },
+  {
+    "id": "11",
+    "name": "Das erste Tor",
+    "subtitle": "Ein Hebel, ein neuer Weg",
+    "width": 32,
+    "height": 22,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##############################X",
+      "X##############################X",
+      "X###############..D..D..D.#####X",
+      "X###############.########.#####X",
+      "X###############.########.#####X",
+      "X##############.R.#######.#####X",
+      "X##############.#.#######.#####X",
+      "X#.P.....#.............##.#####X",
+      "X##.#####################.#####X",
+      "X##.#####################.#####X",
+      "X#.M........M#####............#X",
+      "X#D....M....######M.........M.#X",
+      "X##..M.#...M.######.D...M...#.#X",
+      "X#M..#.M...#M#####.M#...#.M...#X",
+      "X##..M.#..M.######.#......#...#X",
+      "X#...#....#..#####M.....M....M#X",
+      "X##################.....#....##X",
+      "X##.##############...M....M..D#X",
+      "X##E##############...#....#..##X",
+      "X##############################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "A",
+          "x": 9,
+          "y": 8,
+          "open": false,
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B",
+          "x": 3,
+          "y": 17,
+          "open": true
+        }
+      ],
+      "levers": [
+        {
+          "id": "A-lever",
+          "x": 5,
+          "y": 7,
+          "gates": [
+            "A",
+            "B"
+          ],
+          "dispensers": [],
+          "label": "A/B"
+        }
+      ],
+      "dispensers": []
+    },
+    "quota": 22,
+    "timeSeconds": 80,
+    "difficulty": 2,
+    "hint": "A öffnet die östliche Mine, B den Ausgang im Westen. Beide Tore wechseln gegensinnig. Hole genügend Schätze hinter A, kehre zum Hebel zurück und öffne B. Die untere Westkammer bietet weitere Smaragde.",
+    "solution": "A öffnen, den Schiebestein lösen und die obere Galerie sammeln. In der Ostkammer weiter sammeln. Zum Hebel zurückkehren und B öffnen; im Westen die Quote ergänzen und nach Süden zum Ausgang.",
+    "route": "walk 5 8; use up; walk 17 8; walk 17 7; snap up; walk 17 8; walk 15 8; walk 15 6; move right; walk 16 3; walk 24 3; harvest 18 11 12 9; walk 5 8; use up; harvest 2 11 11 6; walk 3 19",
+    "parTicks": 0,
+    "rulesVersion": "emerald-hollows/3",
+    "english": {
+      "name": "The first gate",
+      "subtitle": "Outward through A, home through B",
+      "hint": "A opens the eastern mine; B opens the western exit. They switch in opposite directions. Gather ore beyond A, return to the lever and open B. The lower western chamber offers more emeralds."
+    }
+  },
+  {
+    "id": "12",
+    "name": "Die zweite Runde",
+    "subtitle": "Beobachten, verbinden, sammeln",
+    "width": 36,
+    "height": 26,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##################################X",
+      "X###     ###     ##################X",
+      "X###  # <###  # l#####  >#l  ######X",
+      "X###     ###     ##################X",
+      "X##################################X",
+      "X##################################X",
+      "X##P...........................####X",
+      "X##.##########################.####X",
+      "X##.##########################.####X",
+      "X##.##########################.####X",
+      "X#R...........#######.....D......R#X",
+      "X#.M.........M#######M....#.....M.#X",
+      "X#.#....M....#########.....M....#.#X",
+      "X#......#.....#######......#......#X",
+      "X#..#######..D#######M.########...#X",
+      "X#...M......M#########.M......M...#X",
+      "X#...#......#.#######..#D..........X",
+      "X#M.....M.....#######...#..M.....M.X",
+      "X##..#######..#######...########.#.X",
+      "X#...........M#######M............#X",
+      "X#...........#########.............X",
+      "X#...M....M...#######...M.....M..M.X",
+      "X#...#....#...#######...#.....#..#.X",
+      "X#################################EX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "F",
+          "label": "F",
+          "x": 25,
+          "y": 3,
+          "open": false
+        },
+        {
+          "id": "G",
+          "label": "F",
+          "x": 34,
+          "y": 20,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "F-lever",
+          "label": "F",
+          "x": 20,
+          "y": 6,
+          "gates": [
+            "F",
+            "G"
+          ],
+          "dispensers": [],
+          "view": {
+            "x": 18,
+            "y": 1,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "dispensers": []
+    },
+    "quota": 22,
+    "timeSeconds": 70,
+    "difficulty": 2,
+    "rulesVersion": "emerald-hollows/3",
+    "parTicks": 0,
+    "route": "harvest 2 11 12 13; walk 20 7; use up; wait 18; harvest 21 11 13 13; walk 34 24",
+    "hint": "Oben kannst du die Richtungen geschützt beobachten: Blau bevorzugt rechts, Lila links. Hebel F verbindet das getrennte Paar rechts und öffnet den Ausgang. Beim Treffen entsteht ein Kristallkäfer. Sammle danach die Quote in den beiden unteren Kammern.",
+    "solution": "Die Westkammer sammeln. Am oberen Beobachtungsweg Hebel F betätigen und das Treffen ansehen. In der Ostkammer die Quote ergänzen und rechts zum Ausgang gehen.",
+    "english": {
+      "name": "The second circuit",
+      "subtitle": "Observe, connect, collect",
+      "hint": "Watch safely above: blue prefers right turns, purple left. Lever F connects the separate pair on the right and opens the exit. Their meeting creates a crystal crawler. Gather your quota in the two lower chambers."
+    }
+  },
+  {
+    "id": "13",
+    "name": "Ein kostbares Treffen",
+    "subtitle": "Ein Zug, ein Stein",
+    "width": 40,
+    "height": 27,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X######################################X",
+      "X######################################X",
+      "X######################################X",
+      "X#######...................############X",
+      "X#######.#########.#####R....D.......R#X",
+      "X#######.##### ###.#####.....#........#X",
+      "X#.P.M.M....## ###.#####M..........M..#X",
+      "X##.########## ###.######..........#..#X",
+      "X##.#########>#l #.#####.......M......#X",
+      "X##.########## .....E###.......#......#X",
+      "X##.####################M.#########...#X",
+      "X##.#####################.............#X",
+      "X##.####################..M.......M...#X",
+      "X#R..........###########..#.......#...#X",
+      "X#.M........M###########...D..........#X",
+      "X#.#...M....############...#..........#X",
+      "X#.....#....D###########.......M.....M#X",
+      "X#...M.....M############...#########.##X",
+      "X#...#.....#.###########M.............#X",
+      "X#M....M.....############.............#X",
+      "X##....#....M###########..............#X",
+      "X#..........############..............#X",
+      "X#...M....M..###########...M......M..M#X",
+      "X#...#....#..###########...#......#..##X",
+      "X######################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "A",
+          "x": 14,
+          "y": 9,
+          "open": false,
+          "label": "A"
+        }
+      ],
+      "levers": [
+        {
+          "id": "A-lever",
+          "x": 10,
+          "y": 6,
+          "gates": [
+            "A"
+          ],
+          "dispensers": [],
+          "label": "A",
+          "view": {
+            "x": 9,
+            "y": 5,
+            "width": 9,
+            "height": 7
+          }
+        },
+        {
+          "id": "S-lever",
+          "x": 11,
+          "y": 6,
+          "gates": [],
+          "dispensers": [
+            "S"
+          ],
+          "label": "S",
+          "view": {
+            "x": 9,
+            "y": 5,
+            "width": 9,
+            "height": 7
+          }
+        }
+      ],
+      "dispensers": [
+        {
+          "id": "S",
+          "x": 14,
+          "y": 5,
+          "stock": 3,
+          "label": "S"
+        }
+      ]
+    },
+    "quota": 28,
+    "timeSeconds": 80,
+    "difficulty": 3,
+    "hint": "Jetzt kommt der Steinspender: Jeder neue Zug an S gibt genau einen Stein frei. A führt Blau und Lila zusammen. Löse S aus, wenn der Kristallkäfer im Schacht zwei Felder unter der Ausgabe steht. Der Treffer und 28 Kristallpunkte öffnen den Ausgang. Drei Steine erlauben einen zweiten Versuch.",
+    "solution": "Westliche Lagerstätte sammeln. A schalten, zu S wechseln und den Abwurf vorhalten. Nach dem Treffer den Diamanten holen. Den großen Ostabbau durchsuchen und zum Ausgang zurückkehren.",
+    "route": "harvest 2 14 11 11; walk 10 7; use up; walk 11 7; until 14 8 crystal-crawler; use up; wait 7; walk 8 7; walk 8 4; walk 18 4; walk 18 9; walk 17 10; walk 14 10; harvest 24 5 14 20; walk 20 10",
+    "parTicks": 0,
+    "rulesVersion": "emerald-hollows/3",
+    "english": {
+      "name": "A precious meeting",
+      "subtitle": "One pull, one rock",
+      "hint": "The magazine is new: each fresh pull of S releases one rock. A brings blue and purple together. Pull S when the crystal crawler is two cells below the outlet. A hit and 28 gem points open the exit. Three rocks allow another attempt."
+    },
+    "objective": "crystal-crush"
+  },
+  {
+    "id": "14",
+    "name": "Die vier Reviere",
+    "subtitle": "Jeder Weg verändert die Mine",
+    "width": 48,
+    "height": 30,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##############################################X",
+      "X##############################################X",
+      "X######################.MMM.MD#################X",
+      "X###..M.M.M..M..........#########..M..M..M.D.##X",
+      "X###.##################.#########.##########.##X",
+      "X###.##################.MM.MM.###.##########.##X",
+      "X###.##################.#########.##########.##X",
+      "X###.##################.#########..M..M.D###.##X",
+      "X###..M..M..M.M...#####....MMD###.##########.##X",
+      "X###.###########.########.#######.##########.##X",
+      "X###.###########.################...M...M....##X",
+      "X###.###########.########.#######.##########.##X",
+      "X###.###########.####......######.##########.##X",
+      "X###.###########.####......######.##########.##X",
+      "X###..M...M...M.....#........#....##########.##X",
+      "X###.###########.####.P.E..#################.##X",
+      "X###.###########.####......#################.##X",
+      "X###.###########.#########.#################.##X",
+      "X###.###########.#########.#################.##X",
+      "X###.###########.#########.#################.##X",
+      "X###....M..M..M...########.###..M..M..M...M..##X",
+      "X###.#####################.#...#############.##X",
+      "X###.#########################.......D######.##X",
+      "X#############################.#############.##X",
+      "X#############################..M...M...M....##X",
+      "X##############################################X",
+      "X##############################################X",
+      "X##############################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "A",
+          "label": "A",
+          "x": 20,
+          "y": 15,
+          "open": false
+        },
+        {
+          "id": "A2",
+          "label": "A",
+          "x": 25,
+          "y": 11,
+          "open": false
+        },
+        {
+          "id": "B",
+          "label": "B",
+          "x": 29,
+          "y": 15,
+          "open": true
+        },
+        {
+          "id": "B2",
+          "label": "B",
+          "x": 27,
+          "y": 22,
+          "open": true
+        }
+      ],
+      "levers": [
+        {
+          "id": "AB",
+          "label": "A/B",
+          "x": 23,
+          "y": 12,
+          "gates": [
+            "A",
+            "A2",
+            "B",
+            "B2"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": []
+    },
+    "quota": 36,
+    "timeSeconds": 65,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/3",
+    "parTicks": 0,
+    "route": "walk 23 13; use up; harvest 2 2 18 25; harvest 22 2 8 9; walk 23 13; use up; harvest 29 20 17 8; walk 24 16",
+    "hint": "Westen: verzweigte Erzadern. Norden: kurze Diamantstollen. Osten: Rundgang mit Abzweig. Süden: Werkstatt mit Sackgasse. Drei Reviere reichen für 36 Punkte. A/B wechselt die inneren Zugänge; außen sind benachbarte Reviere verbunden.",
+    "solution": "Westen: verzweigte Erzadern. Norden: kurze Diamantstollen. Osten: Rundgang mit Abzweig. Süden: Werkstatt mit Sackgasse. Drei Reviere reichen für 36 Punkte. A/B wechselt die inneren Zugänge; außen sind benachbarte Reviere verbunden.",
+    "english": {
+      "name": "The four districts",
+      "subtitle": "Every route changes the mine",
+      "hint": "West: branching ore seams. North: short diamond galleries. East: a circuit with a spur. South: a workshop with a dead end. Any three districts meet the 36-point quota. A/B switches the inner entrances; outer links join neighbouring districts."
+    }
+  },
+  {
+    "id": "15",
+    "name": "Drei Reviere, ein Rückweg",
+    "subtitle": "Verändere den Weg zurück",
+    "width": 50,
+    "height": 38,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X################################################X",
+      "X################################################X",
+      "X##...M..M..#..M..M.....####D####################X",
+      "X##.#################.#.####.####################X",
+      "X##.#################.#.####.######..M..M...D####X",
+      "X##.#################.#.####.######.#############X",
+      "X##.###### ##########.#.####.######.#############X",
+      "X##P.....# ##########.#R.M...######.#############X",
+      "X##.###### ##########...###########.#############X",
+      "X##.######  <########## ###########.#############X",
+      "X##.################### ##########.R.############X",
+      "X##.################### ##########.#.############X",
+      "X##.################### ##########.........######X",
+      "X##.################### ##########.#######.######X",
+      "X##.##############################.#######M######X",
+      "X##.##############################.#######.######X",
+      "X##.##############################.#######M######X",
+      "X##..M..M..M..M....#########..M..M..M..M.......##X",
+      "X##.##############.#########.#################.##X",
+      "X##.##############.#########.#################.##X",
+      "X##.##############.#########.#################.##X",
+      "X##.##############.#########.#################.##X",
+      "X##.##############.#########.####################X",
+      "X##.##############.#########.#################.##X",
+      "X##.##############.#########.#################.##X",
+      "X##.##############.M..M..M...#################.##X",
+      "X##.##########################################.##X",
+      "X##.##########################################.##X",
+      "X##.#########################..M..M..D########.##X",
+      "X##.#########################.#######.########.##X",
+      "X##.#########################.#######.########.##X",
+      "X##.....#....D###############.#######.########.##X",
+      "X############.###############...M..M...M...M...##X",
+      "X############.###################################X",
+      "X############E###################################X",
+      "X################################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "A",
+          "label": "A",
+          "x": 12,
+          "y": 3,
+          "open": false
+        },
+        {
+          "id": "B",
+          "label": "B",
+          "x": 46,
+          "y": 23,
+          "open": false
+        },
+        {
+          "id": "C",
+          "label": "C",
+          "x": 8,
+          "y": 32,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "S-lever",
+          "label": "S",
+          "x": 8,
+          "y": 7,
+          "gates": [],
+          "dispensers": [
+            "S"
+          ],
+          "view": {
+            "x": 7,
+            "y": 5,
+            "width": 8,
+            "height": 7
+          }
+        },
+        {
+          "id": "A-control",
+          "label": "A",
+          "x": 44,
+          "y": 4,
+          "gates": [
+            "A"
+          ],
+          "dispensers": []
+        },
+        {
+          "id": "B-control",
+          "label": "B",
+          "x": 28,
+          "y": 2,
+          "gates": [
+            "B"
+          ],
+          "dispensers": []
+        },
+        {
+          "id": "C-control",
+          "label": "C",
+          "x": 29,
+          "y": 28,
+          "gates": [
+            "C"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": [
+        {
+          "id": "S",
+          "label": "S",
+          "x": 10,
+          "y": 6,
+          "stock": 3
+        }
+      ]
+    },
+    "quota": 36,
+    "timeSeconds": 155,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/3",
+    "parTicks": 0,
+    "route": "walk 8 8; until 12 10 crawler; use up; wait 8; walk 36 13; walk 36 12; snap up; walk 34 13; walk 34 11; move right; walk 35 5; walk 44 5; use up; walk 21 3; walk 21 9; walk 22 9; snap right; wait 8; walk 23 8; walk 28 8; walk 28 3; use up; walk 46 18; walk 46 33; walk 37 33; walk 37 29; walk 29 29; use up; harvest 2 17 45 18; walk 13 35",
+    "hint": "S hält Blau lebend in seiner Bucht. In A die Felsablage von unten freigraben und den Stein hineinschieben. Hebel A öffnet B hinter deinem Start: Dort die Stütze seitlich entfernen und den Fall abwarten. Hebel B öffnet C jenseits von A. C öffnet schließlich den Ausgang im Südwesten. Sammle auf Hin- und Rückwegen.",
+    "solution": "S hält Blau lebend in seiner Bucht. In A die Felsablage von unten freigraben und den Stein hineinschieben. Hebel A öffnet B hinter deinem Start: Dort die Stütze seitlich entfernen und den Fall abwarten. Hebel B öffnet C jenseits von A. C öffnet schließlich den Ausgang im Südwesten. Sammle auf Hin- und Rückwegen.",
+    "english": {
+      "name": "Three districts, one way home",
+      "subtitle": "Change the way back",
+      "hint": "S keeps blue alive in its bay. In A, clear the parking bay from below and push the rock into it. Lever A opens B behind your start: dig the support from the side and wait for the fall. Lever B opens C beyond A. C finally opens the southwest exit. Collect on your outward and return journeys."
+    },
+    "objective": "trap"
+  },
+  {
+    "id": "16",
+    "name": "Die umgegrabene Patrouille",
+    "subtitle": "Verändere den Weg zurück",
+    "width": 46,
+    "height": 34,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X############################################X",
+      "X############################################X",
+      "X############################################X",
+      "X############################################X",
+      "X##E#########################################X",
+      "X############################################X",
+      "X##.#########################################X",
+      "X##P.................##############...M...###X",
+      "X##.################.####################.###X",
+      "X##.##########           >  >  ##########.###X",
+      "X##.########## ....#####...... ##########.###X",
+      "X##.########## ....#...#...... ##########M###X",
+      "X##.########## M...#...#M..... ##########.###X",
+      "X##.########## ....#...#...... ##########.###X",
+      "X##.########## ..M.#...#..M... ##########.###X",
+      "X##.########## ....#...#...... ##########.###X",
+      "X##.########## ....#...#...... ##########.###X",
+      "X##.########## .M..#...#....M. .M.M..R.M..###X",
+      "X##.########## ....#####...... #####..#######X",
+      "X##.########## ...M......M.... ###### #######X",
+      "X##.########## ............... ###### #######X",
+      "X##.##########                 ###### #######X",
+      "X##.################################# #######X",
+      "X##.################################# #######X",
+      "X##.#########################################X",
+      "X##..#.........D..D..D....###################X",
+      "X###########.############.###################X",
+      "X###########.############.###################X",
+      "X###########.############.###################X",
+      "X####D..D..D.####D..D..D..###################X",
+      "X############################################X",
+      "X############################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "P",
+          "label": "P",
+          "x": 20,
+          "y": 11,
+          "open": true
+        },
+        {
+          "id": "E",
+          "label": "E",
+          "x": 3,
+          "y": 6,
+          "open": false
+        },
+        {
+          "id": "W",
+          "label": "W",
+          "x": 5,
+          "y": 26,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "PE",
+          "label": "P/E",
+          "x": 18,
+          "y": 7,
+          "gates": [
+            "P",
+            "E"
+          ],
+          "dispensers": [],
+          "view": {
+            "x": 17,
+            "y": 7,
+            "width": 8,
+            "height": 14
+          }
+        },
+        {
+          "id": "W-control",
+          "label": "W",
+          "x": 35,
+          "y": 7,
+          "gates": [
+            "W"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": []
+    },
+    "quota": 36,
+    "timeSeconds": 175,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/3",
+    "parTicks": 0,
+    "route": "walk 20 9; until 30 20 crawler; walk 20 11; walk 20 17; walk 22 17; walk 22 14; walk 20 14; walk 20 9; walk 18 8; until 20 14 crawler; wait 9; use up; harvest 14 12 15 10; walk 36 19; snap right; wait 8; walk 37 18; walk 41 18; walk 41 8; walk 35 8; use up; harvest 31 7 12 13; harvest 4 25 23 7; walk 3 5",
+    "hint": "Zwei blaue Käfer patrouillieren frei um den Erdkern. Warte, bis der erste weit unten rechts ist. Grabe hinter P einen Umweg in den Kern und ziehe dich zurück. Sobald beide darin stehen, schließt P/E die Kammer und öffnet den Ausgang. Schalte zu früh? Öffne erneut. In der Ostader gibt ein kontrollierter Felsfall den Weg zu W frei; W öffnet das Diamantlager hinter dem Start.",
+    "solution": "Zwei blaue Käfer patrouillieren frei um den Erdkern. Warte, bis der erste weit unten rechts ist. Grabe hinter P einen Umweg in den Kern und ziehe dich zurück. Sobald beide darin stehen, schließt P/E die Kammer und öffnet den Ausgang. Schalte zu früh? Öffne erneut. In der Ostader gibt ein kontrollierter Felsfall den Weg zu W frei; W öffnet das Diamantlager hinter dem Start.",
+    "english": {
+      "name": "Excavate the patrol",
+      "subtitle": "Change the way back",
+      "hint": "Two blue crawlers patrol freely around the earth core. Wait until the first is far down the right side. Dig a diversion beyond P and retreat. Once both enter, P/E seals the chamber and opens the exit. Too early? Reopen it. A controlled rock fall in the eastern seam clears the way to W; W opens the diamond reserve behind your start."
+    }
+  },
+  {
+    "id": "17",
+    "name": "Der vorbereitete Rückweg",
+    "subtitle": "Jeder Weg verändert die Mine",
+    "width": 44,
+    "height": 32,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##########################################X",
+      "X##########################################X",
+      "X##########################################X",
+      "X##########################################X",
+      "X##E####################.M.M.M.M.M..#######X",
+      "X##.####################.##########.#######X",
+      "X##.####################.##########..M.MD##X",
+      "X##.####################.##########.#######X",
+      "X##.####################.M.M.M.D###.#######X",
+      "X##.###############################.#######X",
+      "X##.###############################.#######X",
+      "X##.....#.........R.................#######X",
+      "X################.################..#######X",
+      "X################.################..#######X",
+      "X################.################..#######X",
+      "X################.################..#######X",
+      "X################.################.########X",
+      "X##P.M.M..M.M.M.......#.............#######X",
+      "X###########################.##############X",
+      "X###########################.##############X",
+      "X###########################..M.M.M.M.M..##X",
+      "X###########################.###########.##X",
+      "X###########################.###########.##X",
+      "X###########################..M.M.M.D###.##X",
+      "X###########################.###########.##X",
+      "X###########################.###########.##X",
+      "X###########################..M..M..M.M.D##X",
+      "X##########################################X",
+      "X##########################################X",
+      "X##########################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "A",
+          "label": "A",
+          "x": 22,
+          "y": 18,
+          "open": true
+        },
+        {
+          "id": "B",
+          "label": "B",
+          "x": 8,
+          "y": 12,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "AB",
+          "label": "A/B",
+          "x": 35,
+          "y": 17,
+          "gates": [
+            "A",
+            "B"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": []
+    },
+    "quota": 38,
+    "timeSeconds": 65,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/3",
+    "parTicks": 0,
+    "route": "walk 17 13; snap up; walk 17 18; harvest 23 4 19 25; walk 35 18; use up; walk 35 12; walk 19 12; move left; wait 3; walk 3 12; walk 3 5",
+    "hint": "Lege vor dem Hinweg die obere Öffnung des Entsorgungsschachts links neben dem Felsen frei. Sammle im Osten. Der letzte Hebel schließt A und öffnet B am Ausgang. Auf dem Rückweg musst du den Felsen von rechts in den vorbereiteten Schacht schieben. Ohne Vorbereitung bleibt nur Zurückschalten und Nacharbeiten.",
+    "solution": "Lege vor dem Hinweg die obere Öffnung des Entsorgungsschachts links neben dem Felsen frei. Sammle im Osten. Der letzte Hebel schließt A und öffnet B am Ausgang. Auf dem Rückweg musst du den Felsen von rechts in den vorbereiteten Schacht schieben. Ohne Vorbereitung bleibt nur Zurückschalten und Nacharbeiten.",
+    "english": {
+      "name": "Prepare the way home",
+      "subtitle": "Every route changes the mine",
+      "hint": "Before heading east, clear the top of the disposal shaft, just left of the rock. Gather ore in the eastern branches. The final lever closes A and opens B near the exit. Returning from the right, push the rock into the prepared shaft. If you forgot, switch back and prepare it."
+    }
+  },
+  {
+    "id": "18",
+    "name": "Fracht über dem Schacht",
+    "subtitle": "Verändere den Weg zurück",
+    "width": 48,
+    "height": 38,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##############################################X",
+      "X##############################################X",
+      "X##############################################X",
+      "X####################...M...M..M....M..M...####X",
+      "X####################.####.#######.#######.####X",
+      "X####################.####M#######.#######.####X",
+      "X#########################.#######M#######.####X",
+      "X####################.####.#######.#######.####X",
+      "X####################.####..M.D###.#######.####X",
+      "X##P........R          ###########M#######.####X",
+      "X############ ######## ###########.#######.####X",
+      "X############ ######## ###########.#######.####X",
+      "X############ ######## ###########D#######.####X",
+      "X#######..M.. ...M..M. .M.#....###.#######.####X",
+      "X#######.#####.####### #######.###..M..M##.####X",
+      "X#######.#####.####### #######.###########.####X",
+      "X#######.#####.####### #######M###########.####X",
+      "X#######.#####.####### #######.###########M####X",
+      "X#######.#####.###############.###########.####X",
+      "X###.....#####.###############M#######.###.####X",
+      "X##E####.#####.###############.#######.###M####X",
+      "X#######.#####.###############.#######.###.####X",
+      "X#######.#####.###############M#######.###.####X",
+      "X#######D#####D###############.#######.###...##X",
+      "X#######.#####.###############.#######.###.#.##X",
+      "X#######.#####.###############........R.##.#M##X",
+      "X#######.#####.###############.########....#.##X",
+      "X#######D#####.###############.###########.#.##X",
+      "X#######.#####D###############.###########.#M##X",
+      "X#######.#####.###############.###########.#.##X",
+      "X#######.#####.###############.###########.#.##X",
+      "X#######.#####.###############..M..M..M....#M##X",
+      "X#######.#####.###############.#############.##X",
+      "X#######...D...###############..M...M...M...D##X",
+      "X##############################################X",
+      "X##############################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "A",
+          "label": "A",
+          "x": 21,
+          "y": 7,
+          "open": true
+        },
+        {
+          "id": "B",
+          "label": "B",
+          "x": 26,
+          "y": 14,
+          "open": false
+        },
+        {
+          "id": "E",
+          "label": "E",
+          "x": 3,
+          "y": 20,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "return",
+          "label": "A/B/E",
+          "x": 38,
+          "y": 19,
+          "gates": [
+            "A",
+            "B",
+            "E"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": []
+    },
+    "quota": 38,
+    "timeSeconds": 135,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/3",
+    "parTicks": 0,
+    "route": "walk 11 10; move right; wait 5; walk 21 4; harvest 23 3 18 13; walk 42 27; walk 39 27; snap up; walk 42 32; walk 30 32; walk 37 26; move right; walk 38 20; use up; harvest 29 16 17 20; walk 30 14; walk 14 14; harvest 7 23 9 13; walk 8 20; walk 3 21",
+    "hint": "Ein geschobener Fels fällt erst in einem Takt ohne weiteren Schub. Halte Rechts, um ihn über den ersten Schacht bis in den zweiten zu schieben: Der kurze Rückweg bleibt frei. Fällt er in den ersten Schacht, bleibt der längere Diamantweg außen offen. Am östlichen Fels zuerst die Ablage von unten freigraben. Hinter ihm öffnet A/B/E den Rückweg und schließt den oberen Zugang.",
+    "solution": "Ein geschobener Fels fällt erst in einem Takt ohne weiteren Schub. Halte Rechts, um ihn über den ersten Schacht bis in den zweiten zu schieben: Der kurze Rückweg bleibt frei. Fällt er in den ersten Schacht, bleibt der längere Diamantweg außen offen. Am östlichen Fels zuerst die Ablage von unten freigraben. Hinter ihm öffnet A/B/E den Rückweg und schließt den oberen Zugang.",
+    "english": {
+      "name": "Cargo over the shaft",
+      "subtitle": "Change the way back",
+      "hint": "A pushed rock falls on a tick without another push. Hold Right to carry it across the first shaft into the second, leaving the short return clear. If it falls into the first shaft, the longer outer diamond route remains open. At the eastern rock, clear the parking bay from below first. Behind it, A/B/E opens the return and closes the upper entrance."
+    }
+  },
+  {
+    "id": "19",
+    "name": "Zwei getrennte Wege",
+    "subtitle": "Jeder Weg verändert die Mine",
+    "width": 44,
+    "height": 30,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##########################################X",
+      "X##########################################X",
+      "X####..M..M..M..M..M.M..###################X",
+      "X####.#################.###############E###X",
+      "X####.#################.####..M..M..M...###X",
+      "X####.########R########.####.##########.###X",
+      "X##P...........#######..####.##########.###X",
+      "X############# #######.#####.##########.###X",
+      "X############# #######..####..M..M.D###.###X",
+      "X######  >  #   #  l  ..###########.###.###X",
+      "X######################.###########.###.###X",
+      "X######################.###########.###.###X",
+      "X######################.###########.###.###X",
+      "X######################.####.M..M.......###X",
+      "X######################.####.##########.###X",
+      "X#################......####.##########.###X",
+      "X####..M.D########.####.####.##########.###X",
+      "X####.############.####.####.##########.###X",
+      "X####.############.####.####..M..M.D###.###X",
+      "X####.############.####.###############.###X",
+      "X####.######..M.M..####.###############.###X",
+      "X####.######.##########.###############.###X",
+      "X####.######.##########.###############.###X",
+      "X####.######.##########..M..M..M..M..M..###X",
+      "X####.######.##############################X",
+      "X####..M.M.MD##############################X",
+      "X##########################################X",
+      "X##########################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "L",
+          "label": "L",
+          "x": 12,
+          "y": 10,
+          "open": false
+        },
+        {
+          "id": "R",
+          "label": "R",
+          "x": 16,
+          "y": 10,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "left",
+          "label": "L",
+          "x": 10,
+          "y": 6,
+          "gates": [
+            "L"
+          ],
+          "dispensers": [],
+          "view": {
+            "x": 7,
+            "y": 5,
+            "width": 10,
+            "height": 7
+          }
+        },
+        {
+          "id": "right",
+          "label": "R",
+          "x": 23,
+          "y": 8,
+          "gates": [
+            "R"
+          ],
+          "dispensers": [],
+          "view": {
+            "x": 14,
+            "y": 5,
+            "width": 11,
+            "height": 7
+          }
+        }
+      ],
+      "dispensers": []
+    },
+    "quota": 41,
+    "timeSeconds": 115,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/3",
+    "parTicks": 0,
+    "route": "walk 10 7; use up; walk 5 7; walk 5 3; walk 23 3; walk 23 7; use down; walk 23 3; walk 5 3; walk 5 7; walk 10 7; walk 13 7; until 14 9 crystal-crawler; snap right; wait 8; walk 5 7; walk 5 3; walk 23 3; walk 23 7; walk 22 7; walk 22 10; walk 14 10; walk 23 10; harvest 4 15 36 13; harvest 24 4 17 16; walk 39 4",
+    "hint": "L und R geben zwei getrennte Patrouillen frei. Erst wenn beide Zugänge offen sind, können Blau und Lila in der mittleren Galerie zusammentreffen. Beobachte den neuen Kristallkäfer im natürlichen Fallschacht und grabe die Stütze von links weg, sobald er zwei Felder unter der Stütze steht. Danach erschließt du die gebogenen Erzadern. Die Mine enthält 38 Punkte; die fehlenden drei liefert nur sein Diamant.",
+    "solution": "L und R geben zwei getrennte Patrouillen frei. Erst wenn beide Zugänge offen sind, können Blau und Lila in der mittleren Galerie zusammentreffen. Beobachte den neuen Kristallkäfer im natürlichen Fallschacht und grabe die Stütze von links weg, sobald er zwei Felder unter der Stütze steht. Danach erschließt du die gebogenen Erzadern.",
+    "english": {
+      "name": "Two separate paths",
+      "subtitle": "Every route changes the mine",
+      "hint": "L and R release two separate patrols. Blue and purple can meet in the middle gallery only after both entrances open. Watch the crystal crawler in the natural shaft. Dig the rock support from the left when it stands two cells below the support. Then explore the curved ore seams. The mine contains 38 points; only its diamond supplies the remaining three."
+    },
+    "objective": "crystal-crush"
+  },
+  {
+    "id": "20",
+    "name": "Der letzte Abtransport",
+    "subtitle": "Jeder Weg verändert die Mine",
+    "width": 48,
+    "height": 34,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##############################################X",
+      "X##############################################X",
+      "X##############################################X",
+      "X#######################################E######X",
+      "X#########################R#############.######X",
+      "X#######################################.######X",
+      "X#################......## #############.######X",
+      "X#################.####.## #############.######X",
+      "X#################.####.## ...........#..######X",
+      "X#################.####.#l   #.################X",
+      "X#################.###########.################X",
+      "X#######..M.M.D###.###########.....M..M.M..####X",
+      "X#######.#########.##############.########.####X",
+      "X#######.#########.##############.########.####X",
+      "X#######.#########.##############.########.####X",
+      "X#######.#########.##############..M.M.D##.####X",
+      "X#######.M.M...###.##############.########.####X",
+      "X#############.###.##############.########.####X",
+      "X#############.###.####.#########.########.####X",
+      "X#######..M.M..###.####.#########.########.####X",
+      "X#############.###.####.#########..M.MD###.####X",
+      "X#############.###.####.#########.########.####X",
+      "X##P.M..M..M..M....####.#########.########.####X",
+      "X##.##########.########.#########.########.####X",
+      "X##.##########.########..M.M.MD##.########.####X",
+      "X##.##########.########.#########.########.####X",
+      "X##.##########.########.#########.#############X",
+      "X##..M..M..M..D########.#########.########.####X",
+      "X######################..M..M..M..M..M..M.D####X",
+      "X##############################################X",
+      "X##############################################X",
+      "X##############################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "T",
+          "label": "T",
+          "x": 26,
+          "y": 6,
+          "open": false
+        },
+        {
+          "id": "A",
+          "label": "A",
+          "x": 24,
+          "y": 10,
+          "open": false
+        },
+        {
+          "id": "B",
+          "label": "B",
+          "x": 38,
+          "y": 9,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "drop",
+          "label": "T/A",
+          "x": 23,
+          "y": 6,
+          "gates": [
+            "T",
+            "A"
+          ],
+          "dispensers": [],
+          "view": {
+            "x": 22,
+            "y": 4,
+            "width": 9,
+            "height": 8
+          }
+        },
+        {
+          "id": "return",
+          "label": "B",
+          "x": 42,
+          "y": 27,
+          "gates": [
+            "B"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": []
+    },
+    "quota": 44,
+    "timeSeconds": 95,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/3",
+    "parTicks": 0,
+    "route": "harvest 2 11 14 19; walk 23 7; until 26 7 purple-crawler; use up; wait 8; walk 23 10; walk 25 10; move right; walk 26 9; walk 27 9; harvest 19 11 25 20; walk 42 28; use up; walk 40 9; walk 40 4",
+    "hint": "Sammle zuerst in den westlichen Stollen. T/A öffnet die Falltür und den Zugang zur bewachten Engstelle. Warte, bis Lila ganz oben im Schacht steht. Nach dem Treffer liegt der Fels im Durchgang: Schiebe ihn nach rechts, um zur oberen Abzweigung zu gelangen. Hebel B liegt am Ende der östlichen Erzschleife und öffnet den Ausgang.",
+    "solution": "Sammle zuerst in den westlichen Stollen. T/A öffnet die Falltür und den Zugang zur bewachten Engstelle. Warte, bis Lila ganz oben im Schacht steht. Nach dem Treffer liegt der Fels im Durchgang: Schiebe ihn nach rechts, um zur oberen Abzweigung zu gelangen. Hebel B liegt am Ende der östlichen Erzschleife und öffnet den Ausgang.",
+    "english": {
+      "name": "The final haul",
+      "subtitle": "Every route changes the mine",
+      "hint": "Collect ore in the western tunnels first. T/A opens the trapdoor and the guarded entrance. Wait for purple at the very top of the shaft. After the hit, the rock blocks the passage: push it right to reach the upper branch. Lever B at the end of the eastern ore circuit opens the exit."
+    },
+    "objective": "crush"
+  },
+  {
+    "id": "21",
+    "name": "Der unterbrochene Ring",
+    "subtitle": "Die Torhallen",
+    "english": {
+      "name": "The Broken Ring",
+      "subtitle": "The Gate Halls",
+      "hint": "Sun and moon keys fit matching locks and are consumed when opening them. A third sun key in the lower spur opens the cross-link through the ring. Decide which seams to collect before and after opening it."
+    },
+    "width": 44,
+    "height": 32,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##########################################X",
+      "X##E#######################################X",
+      "X##P..................#####################X",
+      "X####################.#####################X",
+      "X####################.#####################X",
+      "X###..M..M..M...M........M...M...M...######X",
+      "X###.################.##############.######X",
+      "X###.################.##############.######X",
+      "X###...M..M..M..#####.###..M..M..M...######X",
+      "X###.##########.#####D###.##########.######X",
+      "X###.##########.#########.##########.######X",
+      "X###.###M..M..M.#########..M..M.D###.######X",
+      "X###.###############################.######X",
+      "X###.###############################.######X",
+      "X###..M...M...M.........M...M...M....######X",
+      "X###.################.##############.######X",
+      "X###.################.##############.######X",
+      "X###.################.##############.######X",
+      "X###...M..M..M.######.###..M..M..M...######X",
+      "X###.#########.######.###.##########.######X",
+      "X###.#########.######D###.##########.######X",
+      "X###.###DM..M..##########..M..M.D###.######X",
+      "X###.###############################.######X",
+      "X###.###############################.######X",
+      "X###..M...M...M....M....M....M...M.......##X",
+      "X#######################################.##X",
+      "X#######################################.##X",
+      "X#######################################.##X",
+      "X######################..M...M...M...M...##X",
+      "X##########################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "passages": {
+      "keys": [
+        {
+          "id": "key-first",
+          "seal": "sun",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "id": "key-second",
+          "seal": "moon",
+          "x": 11,
+          "y": 3
+        },
+        {
+          "id": "key-link",
+          "seal": "sun",
+          "x": 23,
+          "y": 29
+        }
+      ],
+      "doors": [
+        {
+          "id": "door-first",
+          "seal": "sun",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "id": "door-second",
+          "seal": "moon",
+          "x": 15,
+          "y": 3
+        },
+        {
+          "id": "door-link",
+          "seal": "sun",
+          "x": 20,
+          "y": 15
+        }
+      ],
+      "portals": []
+    },
+    "mechanisms": {
+      "gates": [],
+      "levers": [],
+      "dispensers": []
+    },
+    "quota": 48,
+    "timeSeconds": 110,
+    "difficulty": 2,
+    "rulesVersion": "emerald-hollows/4",
+    "route": "walk 5 3; walk 11 3; walk 21 6; walk 23 29; walk 21 15; move left; harvest 4 6 37 24; walk 3 2",
+    "parTicks": 0,
+    "hint": "Sonne und Mond passen nur zum gleichen Schloss. Ein Schlüssel wird beim Öffnen verbraucht. Hole den dritten Sonnenschlüssel im unteren Seitenstollen: Er öffnet die Querverbindung im Ring. Entscheide, welche Adern du davor und danach sammelst.",
+    "solution": "Sonne und Mond passen nur zum gleichen Schloss. Ein Schlüssel wird beim Öffnen verbraucht. Hole den dritten Sonnenschlüssel im unteren Seitenstollen: Er öffnet die Querverbindung im Ring. Entscheide, welche Adern du davor und danach sammelst."
+  },
+  {
+    "id": "22",
+    "name": "Jenseits des Spalts",
+    "subtitle": "Die Torhallen",
+    "english": {
+      "name": "Across the Rift",
+      "subtitle": "The Gate Halls",
+      "hint": "Matching letters link two doors. Only you travel through them; rocks and crawlers stay on their side. Leave the arrival tile before entering again. Find the sun key on the far shore and connect the ore routes on both banks."
+    },
+    "width": 52,
+    "height": 36,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##################################################X",
+      "X##################################################X",
+      "X##E######################### ..M..M..M..M..M..M.##X",
+      "X##.############################################.##X",
+      "X##P..M..M..M..M.. ..###########################.##X",
+      "X##.################.###########################.##X",
+      "X##.################.###########################.##X",
+      "X##.################.#######..M..M..M..M.#######.##X",
+      "X##.################.#######.###########.#######.##X",
+      "X##..M..M..M.M.#####.#######.###########.#######.##X",
+      "X##.##########.#####.#######.###########.#######.##X",
+      "X##.##########.#####.#######.####DM..M...#######.##X",
+      "X##.##########.#####.#######.###################.##X",
+      "X##.####DM..M..#####.#######.###################.##X",
+      "X##.################.#######.###################.##X",
+      "X##.################.#######.###################.##X",
+      "X##.################.#######.#####.M..M..M..M..M.##X",
+      "X##.####.M..M..M..M..#######.#####.#############.##X",
+      "X##.####.###########.#######.#####.#############.##X",
+      "X##.####.###########.#######.#####.#############.##X",
+      "X##.####.###########.#######.#####.#############.##X",
+      "X##.####.###########.#######.#####..M..M..M#####.##X",
+      "X##.####..M..M.D####.#######.###################.##X",
+      "X##.################.#######.###################.##X",
+      "X##.################.#######.###################.##X",
+      "X##.################.#######..M..M..M..MD#######.##X",
+      "X##..M..M..M..MD####.#######.###################.##X",
+      "X##.################.#######.###################.##X",
+      "X##.################.#######.###################.##X",
+      "X##.################.#######..M..M..M..M..M..M. .##X",
+      "X##.################.##############################X",
+      "X##..M..M..M..M... ..##############################X",
+      "X##################################################X",
+      "X##################################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "passages": {
+      "keys": [
+        {
+          "id": "key-return",
+          "seal": "sun",
+          "x": 34,
+          "y": 22
+        }
+      ],
+      "doors": [
+        {
+          "id": "door-exit",
+          "seal": "sun",
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "portals": [
+        {
+          "id": "A1",
+          "pair": "A",
+          "x": 18,
+          "y": 5
+        },
+        {
+          "id": "A2",
+          "pair": "A",
+          "x": 29,
+          "y": 3
+        },
+        {
+          "id": "B1",
+          "pair": "B",
+          "x": 18,
+          "y": 32
+        },
+        {
+          "id": "B2",
+          "pair": "B",
+          "x": 47,
+          "y": 30
+        }
+      ]
+    },
+    "mechanisms": {
+      "gates": [],
+      "levers": [],
+      "dispensers": []
+    },
+    "quota": 62,
+    "timeSeconds": 150,
+    "difficulty": 2,
+    "rulesVersion": "emerald-hollows/4",
+    "route": "walk 17 5; move right; walk 34 22; harvest 27 2 23 30; harvest 3 5 18 28; walk 3 3",
+    "parTicks": 0,
+    "hint": "Gleiche Buchstaben verbinden zwei Türen. Nur du reist hindurch; Steine und Käfer bleiben auf ihrer Seite. Verlasse die Ankunftstür vor der nächsten Reise. Hole den Sonnenschlüssel auf der anderen Seite und verbinde die Erzwege beider Ufer.",
+    "solution": "Gleiche Buchstaben verbinden zwei Türen. Nur du reist hindurch; Steine und Käfer bleiben auf ihrer Seite. Verlasse die Ankunftstür vor der nächsten Reise. Hole den Sonnenschlüssel auf der anderen Seite und verbinde die Erzwege beider Ufer."
+  },
+  {
+    "id": "23",
+    "name": "Freier Empfang",
+    "subtitle": "Die Torhallen",
+    "english": {
+      "name": "Clear Arrival",
+      "subtitle": "The Gate Halls",
+      "hint": "An occupied arrival prevents travel. First collect the diamond beside door D. At A, a rock blocks the destination: dig its support from the left so it drops into the catch shaft. The cleared portal becomes a short way back."
+    },
+    "width": 48,
+    "height": 34,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##############################################X",
+      "X##############################################X",
+      "X###E###############..M..M..M..M..M..M..M...###X",
+      "X###.###############.######################.###X",
+      "X###P ##############.######################.###X",
+      "X###.###############.######################.###X",
+      "X###.####.D.... .....#####..M..M..M..M..###.###X",
+      "X###......####.#####.##################.###.###X",
+      "X#############.......##################.###.###X",
+      "X###################.###########R######.###.###X",
+      "X###################.#####..M.M...M..M..###.###X",
+      "X###################.#####.##### ##########.###X",
+      "X###..M..M..M..#####.#####.##### ##########.###X",
+      "X###.#########.#####.#####.##### ##########.###X",
+      "X###.#########.#####.#####.################.###X",
+      "X###.#########.#####.#####.######DM.M.M.###.###X",
+      "X###.#########.#####.#####.######.#####.###.###X",
+      "X###.#########.#####.#####.######.#####.###.###X",
+      "X###.#########.#####.#####.######.#####.###.###X",
+      "X###.###DM..M..#####.#####.######.#####.....###X",
+      "X###.###############.#####.######.#########.###X",
+      "X###.###############..M.M..######.#########.###X",
+      "X###.#####################.######.#########.###X",
+      "X###..M..M..M..MD#########.######..M..M.###.###X",
+      "X###.#####################.################.###X",
+      "X###.#####################.################.###X",
+      "X###.#####################.################.###X",
+      "X###..M...M...M...M...M....M...M...M...M....###X",
+      "X#########################.####################X",
+      "X#########################..M..M..M..MD########X",
+      "X##############################################X",
+      "X##############################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "passages": {
+      "keys": [
+        {
+          "id": "key-exit",
+          "seal": "moon",
+          "x": 33,
+          "y": 24
+        }
+      ],
+      "doors": [
+        {
+          "id": "door-exit",
+          "seal": "moon",
+          "x": 4,
+          "y": 4
+        }
+      ],
+      "portals": [
+        {
+          "id": "D1",
+          "pair": "D",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "id": "D2",
+          "pair": "D",
+          "x": 10,
+          "y": 7
+        },
+        {
+          "id": "A1",
+          "pair": "A",
+          "x": 15,
+          "y": 7
+        },
+        {
+          "id": "A2",
+          "pair": "A",
+          "x": 32,
+          "y": 10
+        }
+      ],
+      "views": [
+        {
+          "x": 29,
+          "y": 8,
+          "width": 7,
+          "height": 8
+        }
+      ]
+    },
+    "mechanisms": {
+      "gates": [],
+      "levers": [],
+      "dispensers": []
+    },
+    "quota": 52,
+    "timeSeconds": 155,
+    "difficulty": 2,
+    "rulesVersion": "emerald-hollows/4",
+    "route": "walk 9 7; snap right; walk 4 5; move right; walk 31 11; snap right; wait 5; walk 33 24; harvest 20 2 24 30; harvest 4 12 14 18; walk 4 3",
+    "parTicks": 0,
+    "hint": "Eine belegte Ankunft verhindert die Reise. Sammle zuerst den Diamanten neben der D-Tür. Bei A versperrt ein Fels das Ziel: Entferne seine Stütze von links, damit er in den Fangschacht sinkt. Die freie Tür wird zum kurzen Rückweg.",
+    "solution": "Eine belegte Ankunft verhindert die Reise. Sammle zuerst den Diamanten neben der D-Tür. Bei A versperrt ein Fels das Ziel: Entferne seine Stütze von links, damit er in den Fangschacht sinkt. Die freie Tür wird zum kurzen Rückweg."
+  },
+  {
+    "id": "24",
+    "name": "Ein Schlüssel, zwei Türen",
+    "subtitle": "Die Torhallen",
+    "english": {
+      "name": "One Key, Two Doors",
+      "subtitle": "The Gate Halls",
+      "hint": "One sun key, two doors: choose the western diamond seam or the eastern emerald field. Either can complete the cave. The moon key opens the exit. In the east, clear the parking cell beside the boulder from the opposite side."
+    },
+    "width": 56,
+    "height": 38,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X######################################################X",
+      "X######################################################X",
+      "X##########################E###########################X",
+      "X##########################.##########D.M..M..M..M.D###X",
+      "X###..D..D..D..D..#########.##########.############.###X",
+      "X###.############.#########.##########.############.###X",
+      "X###.############.#####.M.M..M.D######.############.###X",
+      "X###.####.D..D..D.#########.###.######.############.###X",
+      "X###.############.#########.###.######..M..M..MD###.###X",
+      "X###..D..D..D####.#########.###.######.########.###.###X",
+      "X###.#######.####.#########.###.######.########.###.###X",
+      "X###.#######.####.#####.M.M..M.D######.########.###.###X",
+      "X###.#######.####.#####.###.##########.###DM..M.###.###X",
+      "X###.##D..D..####.#####.###.##########.############.###X",
+      "X###.############.#####.###.##########.############.###X",
+      "X###.############.#####.###.##########.############.###X",
+      "X###.############.#####.###.##########.#####..M..M..###X",
+      "X###.############.......................M.##.######.###X",
+      "X###.############.#####.###.##########.##.##.######.###X",
+      "X###.############.#####.###.##########.##.##.######.###X",
+      "X###..D..D..D####.#####.M.M..M.D######.##.##DM..M.#.###X",
+      "X###.#######.####.#####.###.##########.M.D#########.###X",
+      "X###.#######.####.#####.###.#############.#########.###X",
+      "X###.#######.####.#####.###.#########..R..#########.###X",
+      "X###.#######.####.#####.M.M..M.D#####D.M..M..M.####.###X",
+      "X###.##D..D..####.#####.###.###.#####.########.####.###X",
+      "X###.############.#####.###.###.#####.########.####.###X",
+      "X###.############.#####DM.MD###.#####.########.####.###X",
+      "X###.#####.D..D...#########.###.#####.########D####.###X",
+      "X###.############.####..M....MDD#####.#############.###X",
+      "X###.############.#########.#########.#############.###X",
+      "X###..D...D...D...#########.#########.#############.###X",
+      "X##########################.#########..M..M..M..M..D###X",
+      "X##########################P#########.#################X",
+      "X####################################..M..M..M..MD#####X",
+      "X######################################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "passages": {
+      "keys": [
+        {
+          "id": "key-choice",
+          "seal": "sun",
+          "x": 27,
+          "y": 31
+        },
+        {
+          "id": "key-exit",
+          "seal": "moon",
+          "x": 22,
+          "y": 30
+        }
+      ],
+      "doors": [
+        {
+          "id": "door-exit",
+          "seal": "moon",
+          "x": 27,
+          "y": 4
+        },
+        {
+          "id": "door-west",
+          "seal": "sun",
+          "x": 21,
+          "y": 18
+        },
+        {
+          "id": "door-east",
+          "seal": "sun",
+          "x": 33,
+          "y": 18
+        }
+      ],
+      "portals": []
+    },
+    "mechanisms": {
+      "gates": [],
+      "levers": [],
+      "dispensers": []
+    },
+    "quota": 90,
+    "timeSeconds": 100,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/4",
+    "route": "walk 27 31; walk 22 30; walk 20 18; harvest 3 4 15 29; harvest 23 5 9 26; walk 27 3",
+    "parTicks": 0,
+    "hint": "Ein Sonnenschlüssel, zwei Türen: Wähle die westliche Diamantader oder das östliche Smaragdfeld. Beide reichen für den Abschluss. Der Mondschlüssel gehört zum Ausgang. Im Osten musst du den Platz neben dem Schiebefelsen von der Gegenseite freigraben.",
+    "solution": "Ein Sonnenschlüssel, zwei Türen: Wähle die westliche Diamantader oder das östliche Smaragdfeld. Beide reichen für den Abschluss. Der Mondschlüssel gehört zum Ausgang. Im Osten musst du den Platz neben dem Schiebefelsen von der Gegenseite freigraben."
+  },
+  {
+    "id": "25",
+    "name": "Spuren im Mauerwerk",
+    "subtitle": "Die Torhallen",
+    "english": {
+      "name": "Marks in the Masonry",
+      "subtitle": "The Gate Halls",
+      "hint": "Look for entrances first: visible treasure often belongs to the neighbouring gallery. A and B link three districts. The moon key is in the east. DW marks the future dwarf branch: its antechamber can be found, but the entrance is sealed in this release. The normal exit leads to 26."
+    },
+    "width": 52,
+    "height": 38,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##################################################X",
+      "X##################################################X",
+      "X##E###############################################X",
+      "X##.################### .M..M..M..M.##### .M.M.M.##X",
+      "X##P##M..M..M.M. .#####.###########.#####.######.##X",
+      "X##.#############.#####.###########.#####.######.##X",
+      "X##.#############.#####.###########.#####.######.##X",
+      "X##.#############.#####.###########.#####.######.##X",
+      "X##.#############.#####..M..M..####.#####.######.##X",
+      "X##..M..M..D#####.#####.######.####.#####.######.##X",
+      "X##.#############.#####.######.####.#####.######.##X",
+      "X##.#############.#####.######.####.#####.######.##X",
+      "X##.#############.#####.##DM.M.####.#####.######.##X",
+      "X##.#############.#####.###########.#####.######.##X",
+      "X##.###..M..M..M..#####.###########.#####.M.MD##.##X",
+      "X##.###.###############.###########.############.##X",
+      "X##.###.###############..M..M..M..M.############.##X",
+      "X##.###.###########################.############.##X",
+      "X##.###.###########################.############.##X",
+      "X##.###.###########################.#######DM.M..##X",
+      "X##.###..M..M..M..#################.############.##X",
+      "X##.###.#########.#################.############.##X",
+      "X##.###.#########.#####..M..M..M..M.###.....####.##X",
+      "X##.###.#########.#####.###############.########.##X",
+      "X##.###.#########.#####.###############.########.##X",
+      "X##.###.#########.#####.###############.M..M..M..##X",
+      "X##.###.M..M.D###.#####.###############.###########X",
+      "X##.#############.#####..M..MD#########.###########X",
+      "X##.#############.#####.###############..#..#######X",
+      "X##.#############.#####.###############.###.#######X",
+      "X##.#############.#####.###############.###########X",
+      "X##..M..M..M..M...#####.###############.M..M..M####X",
+      "X######################..M..M.. ###################X",
+      "X##################################################X",
+      "X##################################################X",
+      "X##################################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "passages": {
+      "keys": [
+        {
+          "id": "key-exit",
+          "seal": "moon",
+          "x": 43,
+          "y": 23
+        }
+      ],
+      "doors": [
+        {
+          "id": "door-exit",
+          "seal": "moon",
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "portals": [
+        {
+          "id": "A1",
+          "pair": "A",
+          "x": 16,
+          "y": 5
+        },
+        {
+          "id": "A2",
+          "pair": "A",
+          "x": 23,
+          "y": 4
+        },
+        {
+          "id": "B1",
+          "pair": "B",
+          "x": 31,
+          "y": 33
+        },
+        {
+          "id": "B2",
+          "pair": "B",
+          "x": 41,
+          "y": 4
+        }
+      ],
+      "secret": {
+        "x": 43,
+        "y": 31,
+        "branch": "twisted-dwarves",
+        "available": false
+      }
+    },
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "DW",
+          "label": "DW",
+          "x": 41,
+          "y": 29,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "DW-switch",
+          "label": "DW",
+          "x": 38,
+          "y": 26,
+          "gates": [
+            "DW"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": []
+    },
+    "quota": 62,
+    "timeSeconds": 190,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/4",
+    "route": "walk 15 5; move right; walk 30 33; move right; walk 43 23; harvest 39 4 10 29; harvest 23 4 13 30; harvest 3 5 15 28; walk 3 3",
+    "parTicks": 0,
+    "hint": "Sieh zuerst nach den Zugängen: Sichtbare Schätze liegen oft in der Nachbargalerie. A und B verbinden die drei Reviere. Der Mondschlüssel liegt im Osten. DW weist auf den späteren Zwergen-Geheimzweig: Du kannst sein Vorzimmer finden, aber sein Eingang bleibt in dieser Fassung versiegelt. Der normale Ausgang führt zu 26.",
+    "solution": "Sieh zuerst nach den Zugängen: Sichtbare Schätze liegen oft in der Nachbargalerie. A und B verbinden die drei Reviere. Der Mondschlüssel liegt im Osten. DW weist auf den späteren Zwergen-Geheimzweig: Du kannst sein Vorzimmer finden, aber sein Eingang bleibt in dieser Fassung versiegelt. Der normale Ausgang führt zu 26."
+  },
+  {
+    "id": "26",
+    "name": "Wandernde Adern",
+    "subtitle": "Die Torhallen",
+    "english": {
+      "name": "Shifting Veins",
+      "subtitle": "The Gate Halls",
+      "hint": "The middle seam and lower cross-passage share a fall shaft. Digging out the middle support drops a boulder into the lower approach. Decide which ore to take first. A reaches the other side; the sun key lies in the alcove behind the boulder."
+    },
+    "width": 50,
+    "height": 40,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X################################################X",
+      "X###E############################################X",
+      "X###.############################################X",
+      "X###P..M...M...M...M...M...M...M...M...M..M..####X",
+      "X###.#######################################.####X",
+      "X###.#######################################.####X",
+      "X###.#######################################.####X",
+      "X###.##########################..M..M..M..M..####X",
+      "X###..M..M..M..M........#######.############.####X",
+      "X###.#############.#####R.#####.############.####X",
+      "X###.#############.####..#...##.############.####X",
+      "X###.#############.####. ###.##..M..M.M. ###.####X",
+      "X###.#####.M..M..D.####. ###.###############.####X",
+      "X###.#####.############. ###.###############.####X",
+      "X###.#####.############. ###.###############.####X",
+      "X###.#### .....M..M..M...M..M..M.....#######.####X",
+      "X###.#####.###.#################.###.#######.####X",
+      "X###.#####.###.#################.###.#######.####X",
+      "X###.#####.###.#################.###.#######.####X",
+      "X###.......###.#############D....###D........####X",
+      "X###.#########.#############################.####X",
+      "X###.#########.#############################.####X",
+      "X###.#########..M..M..M..###################.####X",
+      "X###.###################.###################.####X",
+      "X###.###################.########..M..M..M...####X",
+      "X###.###################.########.##########.####X",
+      "X###..M..M..M..M.#######.########.##########.####X",
+      "X###.###########.#######..M.MD###.##########.####X",
+      "X###.###########.################.##########.####X",
+      "X###.###########.################..M..M..M##.####X",
+      "X###.####DM..M...###########################.####X",
+      "X###.#######################################.####X",
+      "X###.#######################################.####X",
+      "X###..M...M...M...M...M...M...M...M...M...M..####X",
+      "X################################################X",
+      "X################################################X",
+      "X################################################X",
+      "X################################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "passages": {
+      "keys": [
+        {
+          "id": "key-exit",
+          "seal": "sun",
+          "x": 25,
+          "y": 10
+        }
+      ],
+      "doors": [
+        {
+          "id": "door-exit",
+          "seal": "sun",
+          "x": 4,
+          "y": 3
+        }
+      ],
+      "portals": [
+        {
+          "id": "A1",
+          "pair": "A",
+          "x": 9,
+          "y": 16
+        },
+        {
+          "id": "A2",
+          "pair": "A",
+          "x": 40,
+          "y": 12
+        }
+      ],
+      "views": [
+        {
+          "x": 21,
+          "y": 8,
+          "width": 9,
+          "height": 10
+        }
+      ]
+    },
+    "mechanisms": {
+      "gates": [],
+      "levers": [],
+      "dispensers": []
+    },
+    "quota": 66,
+    "timeSeconds": 130,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/4",
+    "route": "walk 14 16; walk 28 16; walk 23 11; snap right; wait 6; walk 25 10; harvest 9 15 28 15; harvest 4 4 41 31; walk 4 2",
+    "parTicks": 0,
+    "hint": "Die mittlere Ader und der untere Quergang teilen sich einen Fallschacht. Gräbst du die mittlere Stütze frei, sinkt der Fels in den unteren Zugang. Entscheide, welche Funde du vorher holst. A erschließt die Gegenseite; der Sonnenschlüssel liegt in der Nische hinter dem Felsen.",
+    "solution": "Die mittlere Ader und der untere Quergang teilen sich einen Fallschacht. Gräbst du die mittlere Stütze frei, sinkt der Fels in den unteren Zugang. Entscheide, welche Funde du vorher holst. A erschließt die Gegenseite; der Sonnenschlüssel liegt in der Nische hinter dem Felsen."
+  },
+  {
+    "id": "27",
+    "name": "Die geöffnete Jagd",
+    "subtitle": "Die Torhallen",
+    "english": {
+      "name": "The Open Hunt",
+      "subtitle": "The Gate Halls",
+      "hint": "The sun door joins the patrol to your collecting routes and stays open. Enable A/B from inside. Only you can use the portal shortcuts; the crawler must walk. Use alcoves, collect in stages and find the moon key in the southeastern branch."
+    },
+    "width": 52,
+    "height": 38,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##################################################X",
+      "X##################################################X",
+      "X###E##############################################X",
+      "X###.##############################################X",
+      "X###P##############################################X",
+      "X###.##############################################X",
+      "X###.##############################################X",
+      "X###..M..M..M..# #######> M  M  M  M      M  M ####X",
+      "X###.###.############### ##################### ####X",
+      "X###.###.############### ##################### ####X",
+      "X###.###......########## ##################### ####X",
+      "X###.########.########## ##################### ####X",
+      "X###.########.########## ########..M..M..M..M. ####X",
+      "X###..M..M..MD########## ########.############ ####X",
+      "X###.################### ########.############ ####X",
+      "X###.################### ########.############ ####X",
+      "X###.################### ########D.M..M..M#### ####X",
+      "X###.################### .....################ ####X",
+      "X###.################### ####.################ ####X",
+      "X###.#####.............. ####.################ ####X",
+      "X###.#####.############# ####.################ ####X",
+      "X###.#####.############# #...D################ ####X",
+      "X###.#####.## ########## ##################### ####X",
+      "X###.#####.############# #########..M..M..M..M ####X",
+      "X###.#####.........##### #########.########### ####X",
+      "X###.#############.##### #########.########### ####X",
+      "X###.#############.##### #########D.M..M.##### ####X",
+      "X###.#############.##### ##################### ####X",
+      "X###..M..M...#####.##### ##################### ####X",
+      "X###.#############.#####  M     M  M  M  M  M  ####X",
+      "X###.#############.#####.###################.######X",
+      "X###.#############.#####.###################.######X",
+      "X###..M..M..M..M..D#####.###################.######X",
+      "X#######################.###################.######X",
+      "X#######################..M..M..M..M..M..M..D######X",
+      "X##################################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "passages": {
+      "keys": [
+        {
+          "id": "key-hunt",
+          "seal": "sun",
+          "x": 12,
+          "y": 29
+        },
+        {
+          "id": "key-exit",
+          "seal": "moon",
+          "x": 40,
+          "y": 27
+        }
+      ],
+      "doors": [
+        {
+          "id": "door-hunt",
+          "seal": "sun",
+          "x": 23,
+          "y": 20
+        },
+        {
+          "id": "door-exit",
+          "seal": "moon",
+          "x": 4,
+          "y": 4
+        }
+      ],
+      "portals": [
+        {
+          "id": "A1",
+          "pair": "A",
+          "x": 16,
+          "y": 8
+        },
+        {
+          "id": "A2",
+          "pair": "A",
+          "x": 39,
+          "y": 8
+        },
+        {
+          "id": "B1",
+          "pair": "B",
+          "x": 13,
+          "y": 23
+        },
+        {
+          "id": "B2",
+          "pair": "B",
+          "x": 29,
+          "y": 30
+        }
+      ],
+      "views": [
+        {
+          "x": 20,
+          "y": 13,
+          "width": 10,
+          "height": 15
+        }
+      ]
+    },
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "A",
+          "label": "A/B",
+          "x": 15,
+          "y": 8,
+          "open": false
+        },
+        {
+          "id": "B",
+          "label": "A/B",
+          "x": 13,
+          "y": 24,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "ports",
+          "label": "A/B",
+          "x": 25,
+          "y": 20,
+          "gates": [
+            "A",
+            "B"
+          ],
+          "dispensers": [],
+          "view": {
+            "x": 22,
+            "y": 17,
+            "width": 9,
+            "height": 8
+          }
+        }
+      ],
+      "dispensers": []
+    },
+    "quota": 56,
+    "timeSeconds": 175,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/4",
+    "route": "walk 12 29; walk 22 20; until 24 15 crawler; move right; move right; use right; walk 24 30; walk 24 35; walk 44 35; walk 46 30; walk 46 24; walk 40 27; harvest 33 12 13 16; harvest 24 30 22 6; harvest 24 8 23 1; harvest 4 8 15 26; walk 4 3",
+    "parTicks": 0,
+    "hint": "Die Sonnentür verbindet die Patrouille mit deinen Sammelwegen und bleibt offen. Schalte A/B von innen frei. Über die Portale kannst nur du abkürzen; der Käfer muss laufen. Nutze Nischen, sammle in Abschnitten und hole den Mondschlüssel im südöstlichen Ast.",
+    "solution": "Die Sonnentür verbindet die Patrouille mit deinen Sammelwegen und bleibt offen. Schalte A/B von innen frei. Über die Portale kannst nur du abkürzen; der Käfer muss laufen. Nutze Nischen, sammle in Abschnitten und hole den Mondschlüssel im südöstlichen Ast."
+  },
+  {
+    "id": "28",
+    "name": "Schichtwechsel",
+    "subtitle": "Die Torhallen",
+    "english": {
+      "name": "Changing Shifts",
+      "subtitle": "The Gate Halls",
+      "hint": "U and L switch in opposite states. Collect the upper branches and sun key before switching to L. The lower mine holds the moon key for the upper exit. Batch your errands: two switches are enough. The lever always remains reachable."
+    },
+    "width": 56,
+    "height": 40,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##############E#######################################X",
+      "X##############.#######################################X",
+      "X###. .M..M..M..M..M..D################################X",
+      "X###.##########.######.#################..M..M..M.D####X",
+      "X###.##########.######.#################.#########.####X",
+      "X###..M..M..M.....M..M..M...############.#########.####X",
+      "X###.######################.############.#########.####X",
+      "X###.######################.############.#########.####X",
+      "X###.######################.############.#########.####X",
+      "X###.#####.M..M..M..M######..M..M..M..M..#########.####X",
+      "X###.###############.######.######.###############.####X",
+      "X###.###############.######.######.###############.####X",
+      "X###.###############.######.######.###############.####X",
+      "X###.###############.#############.###############.####X",
+      "X###..M..M..M..M..M..######.######..M..M..M..M.M. .####X",
+      "X##########################.###########################X",
+      "X##########################.###########################X",
+      "X##########################.###########################X",
+      "X#######################..#P...########################X",
+      "X##########################.###########################X",
+      "X##########################.###########################X",
+      "X##########################.#######D.M..M..M..M...#####X",
+      "X####..M..M..M..M.D########.#######.#############.#####X",
+      "X####.############.################.#############.#####X",
+      "X####.############.########.#######.#############....##X",
+      "X####.############.########.#######.#############.##.##X",
+      "X####.############.########.#######.#############.##.##X",
+      "X####.####DM..M..M.########.#######.M..M..M.#####.##.##X",
+      "X####.#####################.#####################.##.##X",
+      "X####.#####################.#####################.##.##X",
+      "X####.#####################.#####################.##.##X",
+      "X####.#####################.#####################.##.##X",
+      "X####.#####################.#####################.##.##X",
+      "X####. ..M..M..M..M..M..M.....M..M..M..M..M..M..M.##.##X",
+      "X################################.##################.##X",
+      "X################################.##################.##X",
+      "X################################D.M..M..M..M..M... .##X",
+      "X######################################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "passages": {
+      "keys": [
+        {
+          "id": "key-lower",
+          "seal": "sun",
+          "x": 10,
+          "y": 10
+        },
+        {
+          "id": "key-exit",
+          "seal": "moon",
+          "x": 43,
+          "y": 28
+        }
+      ],
+      "doors": [
+        {
+          "id": "door-lower",
+          "seal": "sun",
+          "x": 27,
+          "y": 26
+        },
+        {
+          "id": "door-exit",
+          "seal": "moon",
+          "x": 15,
+          "y": 2
+        }
+      ],
+      "portals": [
+        {
+          "id": "A1",
+          "pair": "A",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "id": "A2",
+          "pair": "A",
+          "x": 49,
+          "y": 15
+        },
+        {
+          "id": "B1",
+          "pair": "B",
+          "x": 6,
+          "y": 34
+        },
+        {
+          "id": "B2",
+          "pair": "B",
+          "x": 51,
+          "y": 37
+        }
+      ]
+    },
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "U",
+          "label": "U",
+          "x": 27,
+          "y": 14,
+          "open": true
+        },
+        {
+          "id": "L",
+          "label": "L",
+          "x": 27,
+          "y": 24,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "UL",
+          "label": "U/L",
+          "x": 26,
+          "y": 19,
+          "gates": [
+            "U",
+            "L"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": []
+    },
+    "quota": 78,
+    "timeSeconds": 165,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/4",
+    "route": "walk 10 10; harvest 4 3 47 13; walk 27 19; use left; walk 43 28; harvest 4 22 49 16; walk 27 19; use left; walk 15 1",
+    "parTicks": 0,
+    "hint": "U und L schalten gegenläufig. Hole oben den Sonnenschlüssel und sammle die oberen Äste, bevor du auf L wechselst. Unten liegt der Mondschlüssel für den oberen Ausgang. Bündele deine Wege: Zwei Schaltungen reichen. Der Hebel bleibt immer erreichbar.",
+    "solution": "U und L schalten gegenläufig. Hole oben den Sonnenschlüssel und sammle die oberen Äste, bevor du auf L wechselst. Unten liegt der Mondschlüssel für den oberen Ausgang. Bündele deine Wege: Zwei Schaltungen reichen. Der Hebel bleibt immer erreichbar."
+  },
+  {
+    "id": "29",
+    "name": "Die andere Seite des Felsens",
+    "subtitle": "Die Torhallen",
+    "english": {
+      "name": "The Other Side of the Boulder",
+      "subtitle": "The Gate Halls",
+      "hint": "First push the shared boulder right twice. The upper branch holds the sun key for A. Travel to the other side and push that same rock back from the right: this opens the lower ore route. The moon key opens the direct way home."
+    },
+    "width": 52,
+    "height": 40,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##################################################X",
+      "X##################################################X",
+      "X###############################..M..M..M..D#######X",
+      "X###############################.##################X",
+      "X###############################..M..M..M..M...####X",
+      "X###############################.#############.####X",
+      "X###..M..M..M..M..M.M..#########.#############.####X",
+      "X###.#################.#########.#############.####X",
+      "X###.#################.#########.####DM..M..M..####X",
+      "X###.#################.#########.#############.####X",
+      "X###.###.M..M...##D....#########.#############.####X",
+      "X###.##########.######.#########.#############.####X",
+      "X###.##########.######.#########..M..M..M#####.####X",
+      "X###.##########.######.#################.#####.####X",
+      "X###.##########.######...###############.#####.####X",
+      "X###D.M..M..M..M######.#.###############.#####.####X",
+      "X#####################.# ### ###########.#####.####X",
+      "X#####################.#####.#####.M..M..#####.####X",
+      "X#####################.#####.#################.####X",
+      "X#################.  R  .....#################.####X",
+      "X#################.####.######################.####X",
+      "X#################.####.######################.####X",
+      "X#################.####.######################.####X",
+      "X#################.####..M..M..M..M..M..M..M...####X",
+      "X#################.####.######################.####X",
+      "X#################.####.######################.####X",
+      "X#################.####.######################.####X",
+      "X###E#############.####.######################.####X",
+      "X###.#############.####.######..M..M..M..D####.####X",
+      "X###.#############......######.###############.####X",
+      "X###.#############.###########.###############.####X",
+      "X###.#############.###########.#######DM..M..M.####X",
+      "X###.#############.###########.###############.####X",
+      "X###.#############.###########.###############.####X",
+      "X###P.M..M..M..M...###########D.M..M..M..M..M..####X",
+      "X##################################################X",
+      "X##################################################X",
+      "X##################################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "passages": {
+      "keys": [
+        {
+          "id": "key-work",
+          "seal": "sun",
+          "x": 8,
+          "y": 11
+        },
+        {
+          "id": "key-home",
+          "seal": "moon",
+          "x": 34,
+          "y": 18
+        }
+      ],
+      "doors": [
+        {
+          "id": "door-work",
+          "seal": "sun",
+          "x": 24,
+          "y": 16
+        },
+        {
+          "id": "door-home",
+          "seal": "moon",
+          "x": 21,
+          "y": 30
+        }
+      ],
+      "portals": [
+        {
+          "id": "A1",
+          "pair": "A",
+          "x": 24,
+          "y": 17
+        },
+        {
+          "id": "A2",
+          "pair": "A",
+          "x": 28,
+          "y": 17
+        }
+      ]
+    },
+    "mechanisms": {
+      "gates": [],
+      "levers": [],
+      "dispensers": []
+    },
+    "quota": 68,
+    "timeSeconds": 155,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/4",
+    "route": "walk 20 20; move right; move right; walk 8 11; harvest 4 7 19 10; walk 24 15; move down; move down; walk 24 20; move left; walk 23 24; walk 34 18; harvest 30 3 17 33; walk 22 30; move left; harvest 4 35 15 1; walk 4 28",
+    "parTicks": 0,
+    "hint": "Schiebe den gemeinsamen Felsen zuerst zweimal nach rechts. Oben findest du den Sonnenschlüssel für A. Reise auf die andere Seite und schiebe denselben Felsen von rechts zurück: So wird der untere Erzweg frei. Der Mondschlüssel öffnet den direkten Heimweg.",
+    "solution": "Schiebe den gemeinsamen Felsen zuerst zweimal nach rechts. Oben findest du den Sonnenschlüssel für A. Reise auf die andere Seite und schiebe denselben Felsen von rechts zurück: So wird der untere Erzweg frei. Der Mondschlüssel öffnet den direkten Heimweg."
+  },
+  {
+    "id": "30",
+    "name": "Das gebrochene Siegel",
+    "subtitle": "Die Torhallen",
+    "english": {
+      "name": "The Broken Seal",
+      "subtitle": "The Gate Halls",
+      "hint": "Prepare R before mining the core seam: the sun key opens the lever alcove; the moon key opens the exit. Entering the core seam undercuts the boulder above arrival A, blocking the portal back. The quota needs core diamonds. Return through R and the guarded lower passages."
+    },
+    "width": 58,
+    "height": 44,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X########################################################X",
+      "X########################################################X",
+      "X###E####################################################X",
+      "X###.####################################################X",
+      "X###.##########################.D.D.D#######.M..M..M.####X",
+      "X###P..M...M...M...M... .######.####################.####X",
+      "X###.###################.######.####################.####X",
+      "X###.###################.######.D.D.################.####X",
+      "X###.###################.######.####################.####X",
+      "X###.###################.....##.######R#############.####X",
+      "X###.###################.###.##.D.D.D.......M..M..M..####X",
+      "X###..M..M..M..M..######.###.##.###### ###.#########.####X",
+      "X###.############.######.###.##.###### ###.#########.####X",
+      "X###.############.######.###.##.#D.D.# ###.#########.####X",
+      "X###.############.######.###.##.####.# ###.####.M..M.####X",
+      "X###.####..M..M...######.###.##.####.# ....#########.####X",
+      "X###.###################.###.##.D.D#.#####.#########.####X",
+      "X###.################........##.####.#####.#########.####X",
+      "X###.###################.######.####.#####.#########.####X",
+      "X###.###################.######.D.D.D#####..M..M..M..####X",
+      "X###.#####...............#################.##############X",
+      "X###.#####.#############......############.##############X",
+      "X###.#####..M..M..M.#########.############.##############X",
+      "X###.#####.##################.###########################X",
+      "X###.#####.##################.############.##############X",
+      "X###.#####.##################.############.##############X",
+      "X###.#####..M...M...M....####..M..M.######.##############X",
+      "X###.###################.##########.######.##############X",
+      "X###.#############.......##########.######  M  M <M..####X",
+      "X###.#############.#####.##########.###### ###### ##.####X",
+      "X###.#############.#####.##########.###### ###### ##.####X",
+      "X###..M..M..M..M...#####.####..M..M.######        ...####X",
+      "X###.###################.####.#############.########.####X",
+      "X###.###################.####.#############.M..M..M..####X",
+      "X###.###################.####..M..M..M.#############.####X",
+      "X###.###################.####.######################.####X",
+      "X###.###################.####.######################.####X",
+      "X###..M...M...M...M...M..####..M..M..M..M..M..M..M...####X",
+      "X########################################################X",
+      "X########################################################X",
+      "X########################################################X",
+      "X########################################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "passages": {
+      "keys": [
+        {
+          "id": "key-prepare",
+          "seal": "sun",
+          "x": 17,
+          "y": 32
+        },
+        {
+          "id": "key-exit",
+          "seal": "moon",
+          "x": 9,
+          "y": 16
+        }
+      ],
+      "doors": [
+        {
+          "id": "door-prepare",
+          "seal": "sun",
+          "x": 23,
+          "y": 18
+        },
+        {
+          "id": "door-exit",
+          "seal": "moon",
+          "x": 4,
+          "y": 4
+        }
+      ],
+      "portals": [
+        {
+          "id": "A1",
+          "pair": "A",
+          "x": 23,
+          "y": 6
+        },
+        {
+          "id": "A2",
+          "pair": "A",
+          "x": 38,
+          "y": 16
+        }
+      ],
+      "views": [
+        {
+          "x": 35,
+          "y": 8,
+          "width": 10,
+          "height": 11
+        }
+      ]
+    },
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "R",
+          "label": "R",
+          "x": 42,
+          "y": 24,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "return",
+          "label": "R",
+          "x": 20,
+          "y": 18,
+          "gates": [
+            "R"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": []
+    },
+    "quota": 86,
+    "timeSeconds": 260,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/4",
+    "route": "walk 17 32; walk 9 16; harvest 4 6 21 33; walk 21 18; use left; walk 22 6; move right; walk 42 16; walk 42 11; walk 37 11; harvest 31 5 6 16; harvest 42 5 11 16; walk 42 25; walk 42 32; walk 52 32; walk 52 38; harvest 29 27 24 12; walk 4 3",
+    "parTicks": 0,
+    "hint": "Bereite R vor dem Abbau der Kernader vor: Der Sonnenschlüssel öffnet die Hebelnische, der Mondschlüssel den Ausgang. Beim Betreten der Kernader untergräbst du den Fels über der A-Ankunft. Er versperrt danach den Portalrückweg. Für die Quote brauchst du Diamanten aus der Kernader; heimwärts geht es durch R und die bewachten unteren Gänge.",
+    "solution": "Bereite R vor dem Abbau der Kernader vor: Der Sonnenschlüssel öffnet die Hebelnische, der Mondschlüssel den Ausgang. Beim Betreten der Kernader untergräbst du den Fels über der A-Ankunft. Er versperrt danach den Portalrückweg. Für die Quote brauchst du Diamanten aus der Kernader; heimwärts geht es durch R und die bewachten unteren Gänge."
+  },
+  {
+    "id": "31",
+    "name": "Ein ungewöhnlicher Bergmann",
+    "subtitle": "Die hungrigen Adern",
+    "english": {
+      "name": "An Unusual Miner",
+      "subtitle": "The Hungry Veins",
+      "hint": "Amber diggers open hard bedrock. They dig straight ahead; obstacles turn them right, left or back. Open A and collect on the left while it works. The sun key is beyond the seam. Do not kill your helper before it opens the route."
+    },
+    "width": 38,
+    "height": 26,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X####################################X",
+      "X##E#################################X",
+      "X##.#################################X",
+      "X##..M.M############..M...M...M...###X",
+      "X##.###.############.############.###X",
+      "X##.###.############.############.###X",
+      "X##.################.############.###X",
+      "X##P...#2#HHHHHHHHHH      #######M###X",
+      "X##.################.##.#.#######.###X",
+      "X##.################.##.#.###M....###X",
+      "X##.################.##.#.###.###.###X",
+      "X##M################.##...###.###.###X",
+      "X##.################.########.###.###X",
+      "X##.################.########M###.###X",
+      "X##.#M...####....M...####M....###.###X",
+      "X##.####.####.######.############.###X",
+      "X##.####.####.######.############.###X",
+      "X##.####.####D######......D######D###X",
+      "X##.####.####.###################.###X",
+      "X##....M.####.###################.###X",
+      "X############..M...M....M....M....###X",
+      "X####################################X",
+      "X####################################X",
+      "X####################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "A",
+          "label": "A",
+          "x": 9,
+          "y": 8,
+          "open": false
+        },
+        {
+          "id": "BACK",
+          "label": "A",
+          "x": 7,
+          "y": 8,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "release",
+          "label": "A",
+          "x": 7,
+          "y": 7,
+          "gates": [
+            "A",
+            "BACK"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": []
+    },
+    "passages": {
+      "keys": [
+        {
+          "id": "sun",
+          "seal": "sun",
+          "x": 20,
+          "y": 8
+        }
+      ],
+      "doors": [
+        {
+          "id": "exit",
+          "seal": "sun",
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "portals": []
+    },
+    "mining": {
+      "pits": []
+    },
+    "quota": 24,
+    "timeSeconds": 70,
+    "difficulty": 2,
+    "rulesVersion": "emerald-hollows/5",
+    "hint": "Bernsteinfarbene Grabe-Käfer öffnen das harte Muttergestein. Sie graben geradeaus; Hindernisse lenken sie rechts, links oder zurück. Lass A offen und sammle links, während er arbeitet. Der Sonnenschlüssel liegt hinter der Ader. Töte deinen Helfer nicht vorher.",
+    "solution": "Bernsteinfarbene Grabe-Käfer öffnen das harte Muttergestein. Sie graben geradeaus; Hindernisse lenken sie rechts, links oder zurück. Lass A offen und sammle links, während er arbeitet. Der Sonnenschlüssel liegt hinter der Ader. Töte deinen Helfer nicht vorher.",
+    "route": "walk 7 6; use down; harvest 2 4 7 17; until 25 8 digger; walk 20 8; harvest 12 4 23 19; walk 3 2",
+    "parTicks": 0
+  },
+  {
+    "id": "32",
+    "name": "Was aus der Tiefe kommt",
+    "subtitle": "Die hungrigen Adern",
+    "english": {
+      "name": "From the Depths",
+      "subtitle": "The Hungry Veins",
+      "hint": "P announces one digger. Collect the side route while it opens the seam. Operate the rock trap from the left of its support. Switching a pit off never removes an enemy already spawned. The key is in the eastern loop."
+    },
+    "width": 42,
+    "height": 26,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X########################################X",
+      "X########################################X",
+      "X##E#####################################X",
+      "X##.###########################D.......##X",
+      "X##..M..M######################.######.##X",
+      "X##.####.######################.######.##X",
+      "X##.####.######################.######M##X",
+      "X##.#################.....R####M######.##X",
+      "X##.#####....########.###..####.######.##X",
+      "X##P#####..# HHHHHHHH        ##.######.##X",
+      "X##.#####.###########.## ### ##.######M##X",
+      "X##.#####.###########.## ### ##M######.##X",
+      "X##.#####.###########.## ### ##.######.##X",
+      "X##.#####.###########.##     ##.######.##X",
+      "X##..M.M#.###########.#########.######.##X",
+      "X##.#####.###########..M..M####.######D##X",
+      "X##.#####.###########.####.####...D.##.##X",
+      "X##.#####.###########.####.###########.##X",
+      "X##.#####.###########.####.###########.##X",
+      "X##.#####.###########...M...M....M...M.##X",
+      "X##..M..M.###############################X",
+      "X########################################X",
+      "X########################################X",
+      "X########################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [],
+      "levers": [
+        {
+          "id": "wake",
+          "label": "P",
+          "x": 8,
+          "y": 8,
+          "gates": [],
+          "dispensers": [],
+          "pits": [
+            "P"
+          ]
+        }
+      ],
+      "dispensers": []
+    },
+    "passages": {
+      "keys": [
+        {
+          "id": "sun",
+          "seal": "sun",
+          "x": 35,
+          "y": 17
+        }
+      ],
+      "doors": [
+        {
+          "id": "exit",
+          "seal": "sun",
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "portals": []
+    },
+    "mining": {
+      "pits": [
+        {
+          "id": "P",
+          "label": "P",
+          "x": 11,
+          "y": 10,
+          "direction": "right",
+          "delay": 30,
+          "interval": 0,
+          "maxAlive": 1,
+          "active": false
+        }
+      ]
+    },
+    "quota": 24,
+    "timeSeconds": 95,
+    "difficulty": 2,
+    "rulesVersion": "emerald-hollows/5",
+    "hint": "P kündigt einen einzigen Grabe-Käfer an. Sammle den Seitenweg, während er die Ader öffnet. Die Felsfalle bedienst du von links neben der Stütze. Ein Abschalten löscht keinen bereits erschienenen Gegner. Der Schlüssel liegt im östlichen Bogen.",
+    "solution": "P kündigt einen einzigen Grabe-Käfer an. Sammle den Seitenweg, während er die Ader öffnet. Die Felsfalle bedienst du von links neben der Stütze. Ein Abschalten löscht keinen bereits erschienenen Gegner. Der Schlüssel liegt im östlichen Bogen.",
+    "route": "walk 8 7; use down; harvest 3 5 7 17; until 28 10 digger; walk 25 9; until 26 10 digger; snap right; wait 5; walk 35 17; harvest 20 4 19 18; walk 3 3",
+    "parTicks": 0
+  },
+  {
+    "id": "33",
+    "name": "Den Nachschub stoppen",
+    "subtitle": "Die hungrigen Adern",
+    "english": {
+      "name": "Stop the Supply",
+      "subtitle": "The Hungry Veins",
+      "hint": "P releases a digger every 24 seconds, at most two alive at once. The switch beyond the seam stops supply, closes IN and opens OUT. Existing diggers remain. Find the moon key and return through OUT."
+    },
+    "width": 44,
+    "height": 28,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##########################################X",
+      "X##########################################X",
+      "X##E#######################################X",
+      "X##.#######################################X",
+      "X#######################...M...M...########X",
+      "X##..M..M....###########.#########.########X",
+      "X##.#####.##..##########.#########.########X",
+      "X##P#####.### #HHHHHHHHH       ###.########X",
+      "X##.#####.##.############## ## ###M########X",
+      "X##.#####M##.############## ## ###...M...##X",
+      "X##.#####.##.############## ## ###.#####.##X",
+      "X##.#M....##.##############    ###.#####.##X",
+      "X##.########.#####################.#####.##X",
+      "X##.########.#####################D#####M##X",
+      "X##.########.#####################.#####.##X",
+      "X##.########.###########.M..M..###.#####.##X",
+      "X##M########.###########.#####.###.#####.##X",
+      "X##.########.###########.#####.###.#####.##X",
+      "X##.########.###########.#####M###D#####.##X",
+      "X##.########.###########D.M....###...M...##X",
+      "X##.########.###########.#########.########X",
+      "X##.########.###########.#########.########X",
+      "X##....M...M......#...M....M....M..########X",
+      "X##########################################X",
+      "X##########################################X",
+      "X##########################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "IN",
+          "label": "IN",
+          "x": 14,
+          "y": 8,
+          "open": true
+        },
+        {
+          "id": "OUT",
+          "label": "OUT",
+          "x": 18,
+          "y": 23,
+          "open": false
+        },
+        {
+          "id": "EXIT",
+          "label": "OUT",
+          "x": 3,
+          "y": 5,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "stop",
+          "label": "P / OUT",
+          "x": 23,
+          "y": 5,
+          "gates": [
+            "IN",
+            "OUT",
+            "EXIT"
+          ],
+          "dispensers": [],
+          "pits": [
+            "P"
+          ]
+        }
+      ],
+      "dispensers": []
+    },
+    "passages": {
+      "keys": [
+        {
+          "id": "moon",
+          "seal": "moon",
+          "x": 40,
+          "y": 20
+        }
+      ],
+      "doors": [
+        {
+          "id": "exit",
+          "seal": "moon",
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "portals": []
+    },
+    "mining": {
+      "pits": [
+        {
+          "id": "P",
+          "label": "P",
+          "x": 12,
+          "y": 8,
+          "direction": "right",
+          "delay": 10,
+          "interval": 240,
+          "maxAlive": 2,
+          "active": true
+        }
+      ]
+    },
+    "quota": 25,
+    "timeSeconds": 95,
+    "difficulty": 2,
+    "rulesVersion": "emerald-hollows/5",
+    "hint": "P liefert alle 24 Sekunden einen Grabe-Käfer, höchstens zwei gleichzeitig. Der Hebel hinter der Ader stoppt den Nachschub, schließt IN und öffnet OUT. Bereits erschienene Käfer bleiben. Hole den Mondschlüssel und kehre durch OUT zurück.",
+    "solution": "P liefert alle 24 Sekunden einen Grabe-Käfer, höchstens zwei gleichzeitig. Der Hebel hinter der Ader stoppt den Nachschub, schließt IN und öffnet OUT. Bereits erschienene Käfer bleiben. Hole den Mondschlüssel und kehre durch OUT zurück.",
+    "route": "harvest 3 6 9 18; until 30 8 digger; walk 24 5; use left; walk 40 20; harvest 20 5 22 20; walk 3 3",
+    "parTicks": 0
+  },
+  {
+    "id": "34",
+    "name": "Die große Rundfahrt",
+    "subtitle": "Die hungrigen Adern",
+    "english": {
+      "name": "The Grand Circuit",
+      "subtitle": "The Hungry Veins",
+      "hint": "The sun and moon keys fit the two exit seals. Plan your ore circuit using A and B. CUT opens a short bedrock cross-link but releases a digger. The longer outer route works without it."
+    },
+    "width": 52,
+    "height": 34,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##################################################X",
+      "X##################################################X",
+      "X##E###############################################X",
+      "X##.############..M.D..M....M....M....M..... ..####X",
+      "X##.############.#############################.####X",
+      "X##.############.#############################.####X",
+      "X##.############.########D.M...M...M.#########.####X",
+      "X##.############.########.##########.#########M####X",
+      "X##...M..M.#####.########.##########.#########.####X",
+      "X##.######.#####.########.##########.#########.####X",
+      "X##.######.#####..M...M...##########M#####.....####X",
+      "X##P######.#####.###################.#####.###.####X",
+      "X##.######.#####.###################.#####.###.####X",
+      "X##.######.#####.##################.....M..###.####X",
+      "X##.##.M.. ###...##################.##.#.D.###.####X",
+      "X##.##########.##2#HHHHHHHHHHHHHHHH     ##.###.####X",
+      "X##.##########...#################### # ##.###M####X",
+      "X##.############.####################   ##.###.####X",
+      "X##.############.###################....M..###.####X",
+      "X##.############.###################.#########.####X",
+      "X##.############....M...M.##########.#########.####X",
+      "X##..M..M..#####.########.##########M#########.####X",
+      "X##.######.#####.########.##########.#########M####X",
+      "X##.######.#####.########.##########.#########.####X",
+      "X##.######.#####.########D..M...M... #########.####X",
+      "X##.##.DM..#####.#############################.####X",
+      "X##.############.#############################.####X",
+      "X##.############.#############################.####X",
+      "X##.. ...M...M.....M.....M.....M.....M....M...D####X",
+      "X##################################################X",
+      "X##################################################X",
+      "X##################################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "CUT",
+          "label": "CUT",
+          "x": 18,
+          "y": 16,
+          "open": false
+        },
+        {
+          "id": "BACK",
+          "label": "CUT",
+          "x": 16,
+          "y": 16,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "cut",
+          "label": "CUT",
+          "x": 15,
+          "y": 16,
+          "gates": [
+            "CUT",
+            "BACK"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": []
+    },
+    "passages": {
+      "keys": [
+        {
+          "id": "sun",
+          "seal": "sun",
+          "x": 42,
+          "y": 15
+        },
+        {
+          "id": "moon",
+          "seal": "moon",
+          "x": 6,
+          "y": 26
+        }
+      ],
+      "doors": [
+        {
+          "id": "sun-lock",
+          "seal": "sun",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "id": "moon-lock",
+          "seal": "moon",
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "portals": [
+        {
+          "id": "Aa",
+          "pair": "A",
+          "x": 5,
+          "y": 29
+        },
+        {
+          "id": "Ab",
+          "pair": "A",
+          "x": 44,
+          "y": 4
+        },
+        {
+          "id": "Ba",
+          "pair": "B",
+          "x": 10,
+          "y": 15
+        },
+        {
+          "id": "Bb",
+          "pair": "B",
+          "x": 36,
+          "y": 25
+        }
+      ]
+    },
+    "mining": {
+      "pits": []
+    },
+    "quota": 48,
+    "timeSeconds": 120,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/5",
+    "hint": "Sonnen- und Mondschlüssel gehören zu den beiden Ausgangsschlössern. Plane die Erzrunde mit A und B. CUT öffnet eine kurze Querverbindung durch Muttergestein, lässt aber einen Grabe-Käfer frei. Der längere Außenweg funktioniert ohne ihn.",
+    "solution": "Sonnen- und Mondschlüssel gehören zu den beiden Ausgangsschlössern. Plane die Erzrunde mit A und B. CUT öffnet eine kurze Querverbindung durch Muttergestein, lässt aber einen Grabe-Käfer frei. Der längere Außenweg funktioniert ohne ihn.",
+    "route": "walk 6 26; walk 42 15; harvest 3 7 44 23; harvest 16 4 31 4; walk 3 3",
+    "parTicks": 0
+  },
+  {
+    "id": "35",
+    "name": "Der Treffpunkt",
+    "subtitle": "Die hungrigen Adern",
+    "english": {
+      "name": "The Meeting Point",
+      "subtitle": "The Hungry Veins",
+      "hint": "Choose U or D as the meeting point for blue and purple. The matching magazine sits above that track. Collect the crystal crawler’s diamond: the other 25 points are insufficient. Both meeting places work; avoid opening both feeds without a plan."
+    },
+    "width": 40,
+    "height": 30,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X######################################X",
+      "X######################################X",
+      "X##E######################..M......####X",
+      "X##.######################.#######.####X",
+      "X##.######################.#######D####X",
+      "X##.######################....D###.####X",
+      "X##.##############################.####X",
+      "X##P.M...M...M..# ################.####X",
+      "X##.###########.# ################M####X",
+      "X##.####### >#       #l ##########.####X",
+      "X##.##############################.####X",
+      "X##.######## ######### ###########.####X",
+      "X##..M.M#### ######### ######M.....####X",
+      "X##.######## ######### ######.####.####X",
+      "X##.######## ######### ######.####.####X",
+      "X##.######## ######### ######M####.####X",
+      "X##.######## ######### ######......####X",
+      "X##..M...M.. M..# #### ###########.####X",
+      "X##.######## ##.# #### ###########.####X",
+      "X##.########           ###########.####X",
+      "X##.##############################M####X",
+      "X##.##############################.####X",
+      "X##.##############################.####X",
+      "X##.##############################.####X",
+      "X##...M....M....M....M....M....M...####X",
+      "X######################################X",
+      "X######################################X",
+      "X######################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "U1",
+          "label": "U",
+          "x": 13,
+          "y": 10,
+          "open": false
+        },
+        {
+          "id": "U2",
+          "label": "U",
+          "x": 21,
+          "y": 10,
+          "open": false
+        },
+        {
+          "id": "D1",
+          "label": "D",
+          "x": 12,
+          "y": 11,
+          "open": false
+        },
+        {
+          "id": "D2",
+          "label": "D",
+          "x": 22,
+          "y": 11,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "upper",
+          "label": "U",
+          "x": 6,
+          "y": 7,
+          "gates": [
+            "U1",
+            "U2"
+          ],
+          "dispensers": []
+        },
+        {
+          "id": "lower",
+          "label": "D",
+          "x": 6,
+          "y": 17,
+          "gates": [
+            "D1",
+            "D2"
+          ],
+          "dispensers": []
+        },
+        {
+          "id": "upper-drop",
+          "label": "U",
+          "x": 16,
+          "y": 8,
+          "gates": [],
+          "dispensers": [
+            "upper-rock"
+          ],
+          "view": {
+            "x": 13,
+            "y": 6,
+            "width": 8,
+            "height": 7
+          }
+        },
+        {
+          "id": "lower-drop",
+          "label": "D",
+          "x": 16,
+          "y": 18,
+          "gates": [],
+          "dispensers": [
+            "lower-rock"
+          ],
+          "view": {
+            "x": 13,
+            "y": 16,
+            "width": 8,
+            "height": 7
+          }
+        }
+      ],
+      "dispensers": [
+        {
+          "id": "upper-rock",
+          "label": "U",
+          "x": 17,
+          "y": 7,
+          "stock": 2
+        },
+        {
+          "id": "lower-rock",
+          "label": "D",
+          "x": 17,
+          "y": 17,
+          "stock": 2
+        }
+      ]
+    },
+    "passages": {
+      "keys": [],
+      "doors": [],
+      "portals": []
+    },
+    "mining": {
+      "pits": []
+    },
+    "quota": 28,
+    "timeSeconds": 80,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/5",
+    "hint": "Wähle U oder D als Treffpunkt für Blau und Lila. Der passende Spender liegt zwei Felder über der Spur. Sammle auch den Diamanten des Kristallkäfers: Die übrigen 25 Punkte reichen nicht. Beide Treffpunkte funktionieren; öffne nicht gedankenlos beide Zuführungen.",
+    "solution": "Wähle U oder D als Treffpunkt für Blau und Lila. Der passende Spender liegt zwei Felder über der Spur. Sammle auch den Diamanten des Kristallkäfers: Die übrigen 25 Punkte reichen nicht. Beide Treffpunkte funktionieren; öffne nicht gedankenlos beide Zuführungen.",
+    "route": "walk 6 8; use up; walk 15 8; until 17 10 crystal-crawler; use right; wait 4; walk 17 10; harvest 3 3 32 23; walk 3 3",
+    "parTicks": 0
+  },
+  {
+    "id": "36",
+    "name": "Das offene Geröllmeer",
+    "subtitle": "Die hungrigen Adern",
+    "english": {
+      "name": "The Open Scree Sea",
+      "subtitle": "The Hungry Veins",
+      "hint": "Collect every gem. The exit is across the field, behind EXIT; its switch stands in the middle. Work seams from the side or snap from below, then step away from falling rocks. The outer edges still connect the rows after excavation. There are no internal dividing walls or enemies."
+    },
+    "width": 56,
+    "height": 36,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X....................................................#EX",
+      "X....................................................##X",
+      "X..RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR..X",
+      "X..MMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMM..X",
+      "X......................................................X",
+      "X......................................................X",
+      "X..R.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR...X",
+      "X..MMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMM..X",
+      "X......................................................X",
+      "X......................................................X",
+      "X...RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.R..X",
+      "X..MMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMM..X",
+      "X......................................................X",
+      "X......................................................X",
+      "X..RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR..X",
+      "X..MMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMM..X",
+      "X......................................................X",
+      "X...........................#..........................X",
+      "X..R.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR...X",
+      "X..MMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDM..X",
+      "X......................................................X",
+      "X......................................................X",
+      "X...RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.R..X",
+      "X..MDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMM..X",
+      "X......................................................X",
+      "X......................................................X",
+      "X..RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR..X",
+      "X..MMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMM..X",
+      "X......................................................X",
+      "X......................................................X",
+      "X..R.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR...X",
+      "X..MMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMM..X",
+      "X......................................................X",
+      "XP.....................................................X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "EXIT",
+          "label": "EXIT",
+          "x": 54,
+          "y": 2,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "exit",
+          "label": "EXIT",
+          "x": 28,
+          "y": 18,
+          "gates": [
+            "EXIT"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": []
+    },
+    "passages": {
+      "keys": [],
+      "doors": [],
+      "portals": []
+    },
+    "mining": {
+      "pits": []
+    },
+    "quota": 460,
+    "timeSeconds": 305,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/5",
+    "hint": "Sammle wirklich jeden Edelstein. Der Ausgang liegt gegenüber, hinter EXIT; sein Hebel steht im Feld. Räume Adern von der Seite oder von unten mit der Greiffunktion, und weiche fallenden Steinen aus. Die freien Außenränder verbinden die Reihen auch nach dem Abbau. Es gibt keine inneren Trennmauern und keine Gegner.",
+    "solution": "Sammle wirklich jeden Edelstein. Der Ausgang liegt gegenüber, hinter EXIT; sein Hebel steht im Feld. Räume Adern von der Seite oder von unten mit der Greiffunktion, und weiche fallenden Steinen aus. Die freien Außenränder verbinden die Reihen auch nach dem Abbau. Es gibt keine inneren Trennmauern und keine Gegner.",
+    "route": "walk 1 18; walk 27 18; use right; walk 1 18; walk 1 33; walk 3 33; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; walk 54 33; walk 54 29; walk 52 29; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; walk 1 29; walk 1 25; walk 3 25; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; walk 54 25; walk 54 21; walk 52 21; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; walk 1 21; walk 1 17; walk 3 17; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; walk 54 17; walk 54 13; walk 52 13; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; walk 1 13; walk 1 9; walk 3 9; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; snap up; move right; walk 54 9; walk 54 5; walk 52 5; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; snap up; move left; walk 1 5; walk 1 34; walk 54 34; walk 54 1",
+    "parTicks": 0
+  },
+  {
+    "id": "37",
+    "name": "Fracht über der Tiefe",
+    "subtitle": "Die hungrigen Adern",
+    "english": {
+      "name": "Freight Across the Deep",
+      "subtitle": "The Hungry Veins",
+      "hint": "Prepare the right landing through A. Push the boulder right four times without a pause across the shaft. A pushed rock does not fall during that tick. Then open PEN/ORE: the freight keeps the crawler alive in its pen. Find the moon key in the ore district."
+    },
+    "width": 44,
+    "height": 30,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X##########################################X",
+      "X##########################################X",
+      "X##E#######################################X",
+      "X##.############........ ##################X",
+      "X##.####..M. ###.#############..M...M...###X",
+      "X##.####.#######.#############.########.###X",
+      "X##.####.#######.#############.########.###X",
+      "X##P.M.M.#######.########D.....########.###X",
+      "X##.####.#######.########.####.########.###X",
+      "X##.####... R   .#>######.####M########.###X",
+      "X##.#########   #########.####.########.###X",
+      "X##.#########   #########.####...M..M.#.###X",
+      "X##.#########   #######################.###X",
+      "X##.#########   #######################.###X",
+      "X##..M...####   #######################.###X",
+      "X##.####.####   #######################M###X",
+      "X##.####M####################.......###.###X",
+      "X##.####.####################.#####.###.###X",
+      "X##.####...M.D###############M#####.###.###X",
+      "X##.#########################.#####.#.M.###X",
+      "X##.###################D.M....#####.###.###X",
+      "X##.###############################.###.###X",
+      "X##.###############################.###.###X",
+      "X##.###############################.###D###X",
+      "X##....M....M....M....M....M....M...###.###X",
+      "X##.###################################.###X",
+      "X##.....M......M.......M......M......#..###X",
+      "X##########################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "PEN",
+          "label": "PEN",
+          "x": 17,
+          "y": 10,
+          "open": false
+        },
+        {
+          "id": "ORE",
+          "label": "ORE",
+          "x": 37,
+          "y": 27,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "pen",
+          "label": "PEN / ORE",
+          "x": 10,
+          "y": 9,
+          "gates": [
+            "PEN",
+            "ORE"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": []
+    },
+    "passages": {
+      "keys": [
+        {
+          "id": "moon",
+          "seal": "moon",
+          "x": 25,
+          "y": 12
+        }
+      ],
+      "doors": [
+        {
+          "id": "exit",
+          "seal": "moon",
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "portals": [
+        {
+          "id": "Aa",
+          "pair": "A",
+          "x": 12,
+          "y": 5
+        },
+        {
+          "id": "Ab",
+          "pair": "A",
+          "x": 24,
+          "y": 4
+        }
+      ]
+    },
+    "mining": {
+      "pits": []
+    },
+    "quota": 34,
+    "timeSeconds": 130,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/5",
+    "hint": "Bereite die Landestelle rechts über A vor. Schiebe den Felsen ohne Pause viermal nach rechts über den Schacht. Ein geschobener Fels fällt in diesem Takt nicht. Öffne dann PEN/ORE: Der transportierte Fels hält den Käfer lebendig fest. Hole den Mondschlüssel im Erzbezirk.",
+    "solution": "Bereite die Landestelle rechts über A vor. Schiebe den Felsen ohne Pause viermal nach rechts über den Schacht. Ein geschobener Fels fällt in diesem Takt nicht. Öffne dann PEN/ORE: Der transportierte Fels hält den Käfer lebendig fest. Hole den Mondschlüssel im Erzbezirk.",
+    "route": "walk 11 5; move right; walk 16 10; walk 23 4; move right; walk 11 10; move right; move right; move right; move right; walk 10 10; use up; walk 25 12; harvest 3 5 37 23; walk 3 3",
+    "parTicks": 0,
+    "objective": "trap"
+  },
+  {
+    "id": "38",
+    "name": "Eine letzte Schicht",
+    "subtitle": "Die hungrigen Adern",
+    "english": {
+      "name": "One Last Shift",
+      "subtitle": "The Hungry Veins",
+      "hint": "P and Q open cross-links. Stop both early and collect around the outside, or let them work longer and use the shortcuts. R holds only two rocks. Switching off a pit does not remove its diggers. The two keys lie in different ore branches."
+    },
+    "width": 54,
+    "height": 38,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X####################################################X",
+      "X####################################################X",
+      "X##E...M.....M.....M.....M.....M.....M..D..M...######X",
+      "X##.##########################################.######X",
+      "X##.##########################################.######X",
+      "X##P....##############...M...M....M....M...M...######X",
+      "X##.##################.#.#####################.######X",
+      "X##.##################.#.# ###################.######X",
+      "X##.#####...##########.### ###################.######X",
+      "X##.......# HHHHHHHHHH       #################.######X",
+      "X##.#################### ### #################.######X",
+      "X##.#################### ### ######D..M...M....######X",
+      "X##.#################### ### ######.##########.######X",
+      "X##.####################     ######M##########.######X",
+      "X##.###############################.##########.######X",
+      "X##..M...##########################....M...###.######X",
+      "X##.####.#####################################.######X",
+      "X##.####.############     ####################.######X",
+      "X##.####M############ ### ####################.######X",
+      "X##.####.############ ### ####################M######X",
+      "X##.#M...############ ### ####################.######X",
+      "X##.#################       HHHHHHHHHHH ######.######X",
+      "X##.#######################.###########.######.######X",
+      "X##.#######################.###########.######M######X",
+      "X##.#######################.###########.######.######X",
+      "X##..M...##################.###########.######.######X",
+      "X#######.##################.###########.######.....##X",
+      "X#######M##################.###########.######.###.##X",
+      "X#######.##################.###########.######.###.##X",
+      "X#######.##################.###########.######.###M##X",
+      "X#######....M....M....M........M....M......M...###.##X",
+      "X#######.########################.################.##X",
+      "X#######.########################.################M##X",
+      "X#######..M...DM....M..##########..M....M....M....D##X",
+      "X####################################################X",
+      "X####################################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [],
+      "levers": [
+        {
+          "id": "P",
+          "label": "P",
+          "x": 6,
+          "y": 5,
+          "gates": [],
+          "dispensers": [],
+          "pits": [
+            "P"
+          ]
+        },
+        {
+          "id": "Q",
+          "label": "Q",
+          "x": 38,
+          "y": 24,
+          "gates": [],
+          "dispensers": [],
+          "pits": [
+            "Q"
+          ]
+        },
+        {
+          "id": "drop-R",
+          "label": "R",
+          "x": 25,
+          "y": 8,
+          "gates": [],
+          "dispensers": [
+            "R"
+          ],
+          "view": {
+            "x": 22,
+            "y": 6,
+            "width": 8,
+            "height": 8
+          }
+        }
+      ],
+      "dispensers": [
+        {
+          "id": "R",
+          "label": "R",
+          "x": 26,
+          "y": 7,
+          "stock": 2
+        }
+      ]
+    },
+    "passages": {
+      "keys": [
+        {
+          "id": "sun",
+          "seal": "sun",
+          "x": 42,
+          "y": 16
+        },
+        {
+          "id": "moon",
+          "seal": "moon",
+          "x": 22,
+          "y": 34
+        }
+      ],
+      "doors": [
+        {
+          "id": "sun-lock",
+          "seal": "sun",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "id": "moon-lock",
+          "seal": "moon",
+          "x": 3,
+          "y": 5
+        }
+      ],
+      "portals": []
+    },
+    "mining": {
+      "pits": [
+        {
+          "id": "P",
+          "label": "P",
+          "x": 10,
+          "y": 10,
+          "direction": "right",
+          "delay": 60,
+          "interval": 180,
+          "maxAlive": 1,
+          "active": true
+        },
+        {
+          "id": "Q",
+          "label": "Q",
+          "x": 40,
+          "y": 22,
+          "direction": "left",
+          "delay": 120,
+          "interval": 180,
+          "maxAlive": 1,
+          "active": true
+        }
+      ]
+    },
+    "quota": 46,
+    "timeSeconds": 145,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/5",
+    "hint": "P und Q öffnen Querverbindungen. Du kannst beide früh stoppen und außen sammeln oder länger arbeiten lassen und die Abkürzungen nutzen. R enthält nur zwei Steine. Ein ausgeschalteter Pit entfernt seine Käfer nicht. Sonnen- und Mondschlüssel liegen in verschiedenen Erzarmen.",
+    "solution": "P und Q öffnen Querverbindungen. Du kannst beide früh stoppen und außen sammeln oder länger arbeiten lassen und die Abkürzungen nutzen. R enthält nur zwei Steine. Ein ausgeschalteter Pit entfernt seine Käfer nicht. Sonnen- und Mondschlüssel liegen in verschiedenen Erzarmen.",
+    "route": "walk 6 6; use up; walk 39 24; use left; walk 42 16; walk 22 34; harvest 3 3 48 32; walk 3 3",
+    "parTicks": 0
+  },
+  {
+    "id": "39",
+    "name": "Die Ernte fällt nach unten",
+    "subtitle": "Die hungrigen Adern",
+    "english": {
+      "name": "Harvest Falls Down",
+      "subtitle": "The Hungry Veins",
+      "hint": "Park both upper boulders sideways. Open ORE from the lower gallery and let the four seams fall down to you. A connects the working passage and collection floor. Plan the route below the shafts; you need the entire harvest."
+    },
+    "width": 42,
+    "height": 34,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X########################################X",
+      "X########################################X",
+      "X##E#####################################X",
+      "X##.#####################################X",
+      "X##.###.........................M...#####X",
+      "X##.###.###.R #########.R #########.#####X",
+      "X##.###.####.#####D#####.#####D####.#####X",
+      "X##P.. .#### ##### ##### ##### ####M#####X",
+      "X##.########M#####M#####M#####M####.#####X",
+      "X##.########D##### #####D##### .....#####X",
+      "X##.########D#####D#####D#####D##########X",
+      "X##.######## ##### ##### ##### ##########X",
+      "X##.########M#####M#####M#####M##########X",
+      "X##.######## ##### ##### ##### ##########X",
+      "X##..M.M#################################X",
+      "X##.######## ##### ##### ##### ##########X",
+      "X##.######## ##### ##### ##### ##########X",
+      "X##.######## ##### ##### ##### ##########X",
+      "X##.####.... ##### ##### ##### ##########X",
+      "X##.####.### ##### ##### ##### ##########X",
+      "X##.####.### ##### ##### ##### ##########X",
+      "X##.####.### ##### ##### ##### ##########X",
+      "X##.####.### ##### ##### ##### ##########X",
+      "X##.####.............................####X",
+      "X##.################################.####X",
+      "X##.################################.####X",
+      "X##.####..M....M....M....M....######.####X",
+      "X##.#########################.######.####X",
+      "X##..M....M....M....M....M....M.... .####X",
+      "X########################################X",
+      "X########################################X",
+      "X########################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "DROP12",
+          "label": "ORE",
+          "x": 12,
+          "y": 15,
+          "open": false
+        },
+        {
+          "id": "DROP18",
+          "label": "ORE",
+          "x": 18,
+          "y": 15,
+          "open": false
+        },
+        {
+          "id": "DROP24",
+          "label": "ORE",
+          "x": 24,
+          "y": 15,
+          "open": false
+        },
+        {
+          "id": "DROP30",
+          "label": "ORE",
+          "x": 30,
+          "y": 15,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "harvest",
+          "label": "ORE",
+          "x": 7,
+          "y": 19,
+          "gates": [
+            "DROP12",
+            "DROP18",
+            "DROP24",
+            "DROP30"
+          ],
+          "dispensers": []
+        }
+      ],
+      "dispensers": []
+    },
+    "passages": {
+      "keys": [],
+      "doors": [],
+      "portals": [
+        {
+          "id": "Aa",
+          "pair": "A",
+          "x": 6,
+          "y": 8
+        },
+        {
+          "id": "Ab",
+          "pair": "A",
+          "x": 35,
+          "y": 29
+        }
+      ]
+    },
+    "mining": {
+      "pits": []
+    },
+    "quota": 46,
+    "timeSeconds": 115,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/5",
+    "hint": "Stelle die beiden Felsen oben seitlich ab. Öffne ORE an der unteren Galerie und lass die vier Adern zu dir fallen. A verbindet Arbeitsgang und Sammelboden. Plane die Sammelrunde unter den Schächten; du brauchst die gesamte Ernte.",
+    "solution": "Stelle die beiden Felsen oben seitlich ab. Öffne ORE an der unteren Galerie und lass die vier Adern zu dir fallen. A verbindet Arbeitsgang und Sammelboden. Plane die Sammelrunde unter den Schächten; du brauchst die gesamte Ernte.",
+    "route": "walk 11 6; move right; walk 23 6; move right; walk 8 19; use left; wait 12; harvest 8 20 29 10; harvest 3 5 33 25; walk 3 3",
+    "parTicks": 0
+  },
+  {
+    "id": "40",
+    "name": "Der Preis des Durchbruchs",
+    "subtitle": "Die hungrigen Adern",
+    "english": {
+      "name": "Price of the Breakthrough",
+      "subtitle": "The Hungry Veins",
+      "hint": "Find the sun key and start P. Let the helper open the seam before deciding its fate. F beyond the seam releases the fusion pair. LAST has only one rock: keep it for the crystal crawler. Collect all 50 ordinary points and its diamond. The moon key and P/R secure the way home."
+    },
+    "width": 56,
+    "height": 40,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X######################################################X",
+      "X######################################################X",
+      "X##E###################################################X",
+      "X##.###################################################X",
+      "X##.#####..M..M..######################################X",
+      "X########.######.######################################X",
+      "X##.#####.######.######################################X",
+      "X##P.M..M.######.###############..M...M...M...M...#####X",
+      "X##.############.###############.################.#####X",
+      "X##.############.###############...##############.#####X",
+      "X##.############.###############.#.##############.#####X",
+      "X##.#M...#######.###############.#.#########D.....#####X",
+      "X##.####.#######.....###########.###########.####.#####X",
+      "X##.####M########### #HHHHHHHHHH        ####M####.#####X",
+      "X##.####.########################.## ## ####.####.#####X",
+      "X##..M...########################. # ## ####...M..#####X",
+      "X##.#############################.## ## #########.#####X",
+      "X##.#############################. #    #########.#####X",
+      "X##.#############################. ##############.#####X",
+      "X##.#########################>#       #l#########M#####X",
+      "X##.#############################################.#####X",
+      "X##.####..M..M.##################################.#####X",
+      "X##.####.########################################.#####X",
+      "X##.####.########################################.#####X",
+      "X##.####.###############.#.M..M.############..M...#####X",
+      "X##.####.###############.######.############.####.#####X",
+      "X##.####.###############.######.############M####.#####X",
+      "X##.####..M...M.D#######.######.#######DM....####.#####X",
+      "X##.############.#######.######.#################.#####X",
+      "X##..M.M########.#######.######.#################.#####X",
+      "X##.############.#######...M....M....M....M....M..#####X",
+      "X##.############.#######.#####################.########X",
+      "X##.############.#######.#####################M########X",
+      "X##...M...M...M.....#....#####################.########X",
+      "X#######################...M....M....M....M...D########X",
+      "X######################################################X",
+      "X######################################################X",
+      "X######################################################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "F1",
+          "label": "F",
+          "x": 30,
+          "y": 20,
+          "open": false
+        },
+        {
+          "id": "F2",
+          "label": "F",
+          "x": 38,
+          "y": 20,
+          "open": false
+        },
+        {
+          "id": "RETURN",
+          "label": "R",
+          "x": 20,
+          "y": 34,
+          "open": false
+        },
+        {
+          "id": "IN",
+          "label": "P",
+          "x": 21,
+          "y": 14,
+          "open": true
+        },
+        {
+          "id": "EXIT",
+          "label": "R",
+          "x": 3,
+          "y": 6,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "wake",
+          "label": "P",
+          "x": 17,
+          "y": 10,
+          "gates": [],
+          "dispensers": [],
+          "pits": [
+            "P"
+          ]
+        },
+        {
+          "id": "fusion",
+          "label": "F",
+          "x": 35,
+          "y": 12,
+          "gates": [
+            "F1",
+            "F2"
+          ],
+          "dispensers": []
+        },
+        {
+          "id": "last",
+          "label": "LAST",
+          "x": 32,
+          "y": 17,
+          "gates": [],
+          "dispensers": [
+            "LAST"
+          ],
+          "view": {
+            "x": 29,
+            "y": 14,
+            "width": 9,
+            "height": 9
+          }
+        },
+        {
+          "id": "return",
+          "label": "P / R",
+          "x": 25,
+          "y": 25,
+          "gates": [
+            "RETURN",
+            "IN",
+            "EXIT"
+          ],
+          "dispensers": [],
+          "pits": [
+            "P"
+          ]
+        }
+      ],
+      "dispensers": [
+        {
+          "id": "LAST",
+          "label": "LAST",
+          "x": 34,
+          "y": 17,
+          "stock": 1
+        }
+      ]
+    },
+    "passages": {
+      "keys": [
+        {
+          "id": "wake-key",
+          "seal": "sun",
+          "x": 14,
+          "y": 22
+        },
+        {
+          "id": "home-key",
+          "seal": "moon",
+          "x": 31,
+          "y": 25
+        }
+      ],
+      "doors": [
+        {
+          "id": "wake-lock",
+          "seal": "sun",
+          "x": 15,
+          "y": 5
+        },
+        {
+          "id": "home-lock",
+          "seal": "moon",
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "portals": []
+    },
+    "mining": {
+      "pits": [
+        {
+          "id": "P",
+          "label": "P",
+          "x": 19,
+          "y": 14,
+          "direction": "right",
+          "delay": 20,
+          "interval": 180,
+          "maxAlive": 1,
+          "active": false
+        }
+      ]
+    },
+    "quota": 53,
+    "timeSeconds": 185,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/5",
+    "hint": "Hole den Sonnenschlüssel und starte P. Lass den Helfer die Ader öffnen, bevor du über seine Zukunft entscheidest. Hinter der Ader liegt F für die Verschmelzung. LAST enthält nur einen Stein: Bewahre ihn für den Kristallkäfer auf. Sammle alle 50 normalen Punkte und seinen Diamanten. Der Mondschlüssel und P/R sichern den Heimweg.",
+    "solution": "Hole den Sonnenschlüssel und starte P. Lass den Helfer die Ader öffnen, bevor du über seine Zukunft entscheidest. Hinter der Ader liegt F für die Verschmelzung. LAST enthält nur einen Stein: Bewahre ihn für den Kristallkäfer auf. Sammle alle 50 normalen Punkte und seinen Diamanten. Der Mondschlüssel und P/R sichern den Heimweg.",
+    "route": "walk 14 22; walk 16 10; use right; harvest 3 8 14 27; until 39 14 digger; walk 34 12; use right; walk 33 17; until 34 20 crystal-crawler; use left; wait 6; walk 34 20; walk 31 25; walk 26 25; use left; harvest 24 8 26 28; walk 3 3",
+    "parTicks": 0
+  }
+]

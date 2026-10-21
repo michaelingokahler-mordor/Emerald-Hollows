@@ -1,6 +1,7 @@
+import {BEETLE_HELP} from './beetle-help';
 import { LEVELS } from './levels';
 export type Language='de'|'en';
-const english:Record<string,string>={
+const english:Record<string,string>={...BEETLE_HELP,
  'DIE HUNGRIGEN ADERN':'THE HUNGRY VEINS',
  'Kapitel IV: Bernsteinfarbene Grabe-Käfer öffnen Erde und hartes Muttergestein. Sie bevorzugen geradeaus, rechts, links, zurück. Pits erzeugen Gegner nach ihrem Countdown; belegte Ausgänge warten. Hebel stoppen den Nachschub, aber vorhandene Käfer bleiben. Grabe-Käfer geben 5 Gegnerpunkte für Zerquetschen oder sicheres Einsperren, keine Edelsteine.':'Chapter IV: Amber diggers excavate earth and hard bedrock. They prefer straight, right, left, back. Pits spawn enemies after a countdown; blocked outlets wait. Switches stop future spawning, but existing diggers remain. Crushing or securely trapping a digger gives 5 enemy points and no gems.',
  'IV · Die hungrigen Adern':'IV · The Hungry Veins',
@@ -8,7 +9,7 @@ const english:Record<string,string>={
  'Du bist mit einem Grabe-Käfer zusammengestoßen.':'You collided with a digger.',
  'Ein Grabe-Käfer hat dich erwischt.':'A digger caught you.',
  'Andere Route ansehen':'Watch another route',
- 'DEMO 0.10.0 · GRAFIK & AUDIO MIT RUNWAY':'DEMO 0.10.0 · ART & AUDIO WITH RUNWAY',
+ 'DEMO 0.11.0 · GRAFIK & AUDIO MIT RUNWAY':'DEMO 0.11.0 · ART & AUDIO WITH RUNWAY',
  'Ein geschobener Fels fällt in diesem Takt nicht. Halte die Richtung, um ihn über einen offenen Schacht weiterzuschieben. Sobald du den Schub unterbrichst, wirkt die Schwerkraft wieder.':'A pushed rock does not fall during that tick. Hold the direction to keep pushing it across an open shaft. Gravity resumes as soon as you stop pushing.',
  'Felsfalle ansehen':'Watch rock trap','Punkte':'Score','Kristallpunkte:':'Crystal points:','Gegnerbonus:':'Enemy bonus:',
  'Wertung: Smaragd 1, Diamant 3 Punkte. Schieferkrabbler: 5 Punkte für Zerquetschen oder sicheres Einsperren am Ende. Kristallkrabbler: 10 Punkte für die Umwandlung; sein Diamant zählt beim Einsammeln weitere 3. Gegnerpunkte öffnen keinen Ausgang. Die Zeit entscheidet zuerst, bei Gleichstand die Punktzahl.':'Scoring: emerald 1, diamond 3 points. Slate crawler: 5 points for crushing it or leaving it safely trapped at the end. Crystal crawler: 10 points for transmutation, plus 3 when you collect its diamond. Enemy points do not open exits. Time ranks first, then score breaks a tie.',

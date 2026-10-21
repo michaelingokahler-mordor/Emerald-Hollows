@@ -1,8 +1,9 @@
-import {MINING_RULES_VERSION,PASSAGE_RULES_VERSION,rulesFor,type LevelDefinition,type GameState,type GameEvent} from './types';
+import {collectDroppedKeys} from './beetles';
+import {BEETLE_RULES_VERSION,MINING_RULES_VERSION,PASSAGE_RULES_VERSION,rulesFor,type LevelDefinition,type GameState,type GameEvent} from './types';
 
 export function validatePassages(l:LevelDefinition):void {
  const p=l.passages;if(!p)return;
- if(![PASSAGE_RULES_VERSION,MINING_RULES_VERSION].includes(rulesFor(l)))throw Error('Passages require rules v4');
+ if(![PASSAGE_RULES_VERSION,MINING_RULES_VERSION,BEETLE_RULES_VERSION].includes(rulesFor(l)))throw Error('Passages require rules v4');
  const ids=new Set<string>(),cells=new Set((l.mechanisms?[...l.mechanisms.gates,...l.mechanisms.levers,...l.mechanisms.dispensers]:[]).map(d=>`${d.x},${d.y}`));
  for(const d of [...p.keys,...p.doors,...p.portals]){
   const cell=`${d.x},${d.y}`;
@@ -21,6 +22,7 @@ export function initializePassages(l:LevelDefinition,s:GameState):void {
  if(l.passages.secret)s.terrain[l.passages.secret.y][l.passages.secret.x]='wall';
 }
 export function collectKey(l:LevelDefinition,s:GameState,x:number,y:number,events:GameEvent[]):void {
+ if(s.beetles){collectDroppedKeys(s,x,y,events);return;}
  const p=s.passages,k=l.passages?.keys.find(k=>k.x===x&&k.y===y&&!p?.collected.includes(k.id));
  if(!p||!k)return;p.collected.push(k.id);p.inventory[k.seal]++;events.push({type:'key',x,y});
 }

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "rulesVersion": "emerald-hollows/3",
+  "rulesVersion": "emerald-hollows/6",
   "levelId": "16",
-  "levelHash": "79da148a",
+  "levelHash": "f78212a1",
   "practice": false,
   "inputs": [
     {
@@ -146,13 +146,10 @@
     {
       "direction": "left"
     },
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
+    {
+      "direction": "down",
+      "snap": true
+    },
     {},
     {},
     {},
@@ -254,6 +251,24 @@
     {},
     {
       "direction": "up",
+      "snap": true
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "direction": "down",
       "snap": true
     },
     {},
@@ -1189,5 +1204,5 @@
       "direction": "up"
     }
   ],
-  "expectedHash": "96c61097"
+  "expectedHash": "fe38e3ff"
 }

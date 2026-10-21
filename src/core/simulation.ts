@@ -1,6 +1,7 @@
+import {initializeBeetles,validateBeetles,moveBeetles,explodeTrapped,fallKeys,releaseKey,recordDefeat,containmentDone,containedBeetles} from './beetles';
 import {validateMining,initializeMining,spawnPits} from './mining';
 import { DELTAS, DIRECTIONS, rulesFor, isCrawler, type Direction, type Entity, type GameEvent, type GameState, type InputFrame, type LevelDefinition, type Replay, type Terrain } from './types';
-import {hasMechanismRules} from './types';
+import {hasMechanismRules,hasBeetleRules} from './types';
 import {validatePassages,initializePassages,collectKey,unlockDoor,portalTarget,arrivalFree} from './passages';
 import {activateLever,fuseCrawlers,initializeMechanisms,validateMechanisms} from './mechanisms';
 
@@ -22,7 +23,7 @@ export function crawlerIsTrapped(state:GameState,crawler:Entity):boolean {
   return seen.size<=2;
 }
 export function levelHash(level: LevelDefinition): string {
-  return hash({ map: level.map, quota: level.quota, time: level.timeSeconds, rules: rulesFor(level), ...(level.objective?{objective:level.objective}:{}),...(level.mechanisms?{mechanisms:level.mechanisms}:{}),...(level.passages?{passages:level.passages}:{}),...(level.mining?{mining:level.mining}:{}) });
+  return hash({ map: level.map, quota: level.quota, time: level.timeSeconds, rules: rulesFor(level), ...(level.objective?{objective:level.objective}:{}),...(level.mechanisms?{mechanisms:level.mechanisms}:{}),...(level.passages?{passages:level.passages}:{}),...(level.mining?{mining:level.mining}:{}),...(level.keyCarriers?{keyCarriers:level.keyCarriers}:{}),...(level.containment?{containment:level.containment}:{}) });
 }
 export function validateLevel(level: LevelDefinition): void {
   if (level.map.length !== level.height || level.map.some(r => r.length !== level.width)) throw new Error(`${level.id}: invalid dimensions`);
@@ -33,8 +34,8 @@ export function validateLevel(level: LevelDefinition): void {
   if (level.map.some((r,y) => [...r].some((c,x) => (x===0 || y===0 || x===level.width-1 || y===level.height-1) && !'#X'.includes(c)))) throw new Error(`${level.id}: open boundary`);
   const available = [...cells].reduce((n,c) => n+(c==='M'?1:c==='D'||c==='C'?3:0),0);
   const fusionPotential=hasMechanismRules(level)?3*Math.min([...cells].filter(c=>'^v<>'.includes(c)).length,[...cells].filter(c=>'urdl'.includes(c)).length):0;
-  if (available+fusionPotential < level.quota) throw new Error(`${level.id}: insufficient gems`);
-  validateMechanisms(level); validatePassages(level); validateMining(level);
+  if (available+fusionPotential+(hasBeetleRules(level)?3*([...cells].filter(c=>'1234'.includes(c)).length+(level.mining?.pits.reduce((n,p)=>n+(p.stock??1),0)??0)):0) < level.quota) throw new Error(`${level.id}: insufficient gems`);
+  validateMechanisms(level); validatePassages(level); validateMining(level); validateBeetles(level);
 }
 
 export class Simulation {
@@ -58,7 +59,7 @@ export class Simulation {
       }
     }
     this.state = { terrain, entities, player, tick:0, points:0, status:'playing', remainingTicks:this.level.timeSeconds*10,open:false,practice,deathReason:'',...(this.level.objective?{objectiveDone:false}:{}) };
-    initializeMechanisms(this.level,this.state); initializePassages(this.level,this.state); initializeMining(this.level,this.state);
+    initializeMechanisms(this.level,this.state); initializePassages(this.level,this.state); initializeMining(this.level,this.state); initializeBeetles(this.level,this.state);
   }
   entityAt(x:number,y:number): Entity | undefined { return this.fallingIndex?this.fallingIndex.get(`${x},${y}`):this.state.entities.find(e => e.x===x && e.y===y); }
   terrainAt(x:number,y:number): Terrain { return this.state.terrain[y]?.[x] ?? 'steel'; }
@@ -80,7 +81,7 @@ export class Simulation {
   isTrapped(crawler:Entity):boolean {
     // A live crawler must be confined to at most two empty cells, with the player outside.
     // Ignore other crawlers as barriers: moving enemies cannot permanently seal a pen.
-    return crawlerIsTrapped(this.state,crawler);
+    return hasBeetleRules(this.level)?containedBeetles(this.level,this.state).includes(crawler):crawlerIsTrapped(this.state,crawler);
   }
   step(input:InputFrame = {}): GameEvent[] {
     this.events = [];
@@ -133,14 +134,21 @@ export class Simulation {
       const playerBelow=this.playerAt(e.x,e.y+1);
       if (e.falling && (playerBelow || below && isCrawler(below.kind))) {
         if (playerBelow) { e.y++; this.die('Ein fallender Stein oder Kristall hat dich getroffen.'); return this.events; }
-        if(below!.kind==='crystal-crawler'){
+        if(below!.kind==='crystal-crawler'||below!.kind==='key-crawler'){
+          if(below!.kind==='key-crawler'){
+            releaseKey(s,below!,this.events);recordDefeat(s,below!,'crushed');
+            this.fallingIndex?.delete(`${below!.x},${below!.y}`);
+            s.entities=s.entities.filter(item=>item.id!==e.id&&item.id!==below!.id);removed=true;s.mechanisms!.crushed++;this.emit('crush',below!.x,below!.y);
+            if(this.level.objective==='crush')s.objectiveDone=true;continue;
+          }
+          recordDefeat(s,below!,'transmuted');
           s.entities=s.entities.filter(item=>item.id!==e.id);removed=true;
           below!.kind='diamond';below!.falling=false;moved.add(below!.id);
           this.emit('transmute',below!.x,below!.y);
           if(s.mechanisms)s.mechanisms.transmuted++;
           if(this.level.objective==='crystal-crush')s.objectiveDone=true;
         }else{
-          s.entities=s.entities.filter(item=>item.id!==below!.id);this.emit('crush',e.x,e.y+1);e.y++;moved.add(e.id);
+          recordDefeat(s,below!,'crushed');s.entities=s.entities.filter(item=>item.id!==below!.id);this.emit('crush',e.x,e.y+1);e.y++;moved.add(e.id);
           if(s.mechanisms)s.mechanisms.crushed++;
           if(this.level.objective==='crush')s.objectiveDone=true;
         }
@@ -156,7 +164,13 @@ export class Simulation {
       }
       } finally {if(this.fallingIndex){this.fallingIndex.delete(oldCell);if(!removed)this.fallingIndex.set(`${e.x},${e.y}`,e);}}
     } } finally {this.fallingIndex=undefined;}
-    if (s.tick%3===0) {
+    fallKeys(s,this.events);
+    if (hasBeetleRules(this.level)) {
+      if(s.tick%3===0)moveBeetles(this.level,s,this.events);
+      if(String(s.status)==='dead')return this.events;
+      explodeTrapped(this.level,s,this.events);
+      if(String(s.status)==='dead')return this.events;
+    } else if (s.tick%3===0) {
       const newborn=new Set<number>();fuseCrawlers(s,this.events,newborn);
       for (const e of [...s.entities].filter(e=>isCrawler(e.kind)).sort((a,b)=>a.id-b.id)) {
         if(newborn.has(e.id)||!s.entities.includes(e))continue;
@@ -173,7 +187,7 @@ export class Simulation {
       }
     }
     spawnPits(this.level,s,this.events);
-    if(this.level.objective==='trap')s.objectiveDone=s.entities.some(e=>isCrawler(e.kind)&&this.isTrapped(e));
+    if(this.level.objective==='trap')s.objectiveDone=hasBeetleRules(this.level)?containmentDone(this.level,s):s.entities.some(e=>isCrawler(e.kind)&&this.isTrapped(e));
     this.refreshExit();
     if (!s.practice && --s.remainingTicks<=0) this.die('Die Zeit ist abgelaufen. Im Übungsmodus kannst du ohne Countdown weiterspielen.');
     return this.events;

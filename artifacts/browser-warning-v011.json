@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "fixture": {
+    "id": 27,
+    "tick": 69,
+    "fuseTicks": 45,
+    "player": {
+      "x": 13,
+      "y": 8,
+      "direction": "right"
+    }
+  },
+  "checks": [
+    "late red warning pulses while the miner is stationary",
+    "same animation cadence with frozen prepared simulation",
+    "gold seal remains visible"
+  ],
+  "note": "Prepared state reached with real replay inputs. Screenshot inspection complements the animation property check."
+}

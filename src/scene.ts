@@ -16,13 +16,14 @@ const HERO_POSE_MS=240;
 const row={right:0,left:1,down:2,up:3};
 export class CaveScene extends Phaser.Scene {
   clock=new FixedClock(); bridge:SceneBridge;
-  badges=new Map<number,Phaser.GameObjects.Image>();
+  badges=new Map<number,Phaser.GameObjects.Text>();
   grounds:Phaser.GameObjects.Image[][]=[]; entities=new Map<number,Phaser.GameObjects.Image>();
   player!:Phaser.GameObjects.Image; previous=new Map<number,Point>(); prevPlayer:Point={x:0,y:0};
   drawnLevel?:string; lastInput:InputFrame={}; loaded=false; music?:Phaser.Sound.BaseSound;
   lastSfx=new Map<string,number>();
   track=0;lastBeat=-1;dangerUntil=0;dangerMix=0;musicStarted=false;
   heroAnimationMs=0;
+  warningAnimationMs=0;
   passages?:PassageView;
   mining?:MiningView;
   rig?:MechanismView;
@@ -60,6 +61,9 @@ export class CaveScene extends Phaser.Scene {
       const frame=terrain==='earth'?((x+y)%3===0?'earth-alt':'earth'):terrain==='exit'?'exit-closed':terrain==='empty'?'floor':terrain==='bedrock'?'wall':terrain;
       return this.add.image(x*CELL+CELL/2,y*CELL+CELL/2,'tiles',frame).setDisplaySize(CELL,CELL).setDepth(terrain==='exit'?2:0).setTint(terrain==='bedrock'?0xc3a47c:0xffffff);
     }));
+    this.children.getByName('enclosures')?.destroy();
+    const pens=this.add.container(0,0).setName('enclosures').setDepth(1);
+    for(const z of sim.level.containment??[]){pens.add(this.add.rectangle((z.x+z.width/2)*CELL,(z.y+z.height/2)*CELL,z.width*CELL-10,z.height*CELL-10,0x83c9aa,.05).setStrokeStyle(2,0xa0d3ba,.8));pens.add(this.add.text(z.x*CELL+8,z.y*CELL+6,z.id,{fontSize:'13px',color:'#c9f2df',stroke:'#101820',strokeThickness:3}));}
     this.player.setVisible(true).clearTint().setAlpha(1);
     this.previous.clear();this.prevPlayer={...sim.state.player};this.clock.reset();this.heroAnimationMs=0;this.drawnLevel=sim.level.id;
     this.cameras.main.setBounds(0,0,sim.level.width*CELL,sim.level.height*CELL);
@@ -88,6 +92,7 @@ export class CaveScene extends Phaser.Scene {
     }else alpha=1;
     const moving=this.prevPlayer.x!==sim.state.player.x||this.prevPlayer.y!==sim.state.player.y;
     if(this.bridge.active()&&sim.state.status==='playing'){
+      this.warningAnimationMs+=Math.min(delta,100);
       if(moving||this.lastInput.snap)this.heroAnimationMs+=Math.min(delta,100);
       else this.heroAnimationMs=0;
     }
@@ -134,15 +139,33 @@ export class CaveScene extends Phaser.Scene {
       let img=this.entities.get(e.id);
       const frame=isCrawler(e.kind)?`crawler-${Math.floor(s.tick/2)%4}`:e.kind;
       if(!img){img=this.add.image(0,0,'tiles',frame).setDisplaySize(CELL,CELL).setDepth(3);this.entities.set(e.id,img);}
-      const p=this.previous.get(e.id)??e;img.clearTint().setAngle(0).setFlipX(false);
+      const p=this.previous.get(e.id)??e;img.clearTint().setAlpha(1).setAngle(0).setFlipX(false);
+      let shell=img.getData('shell-colour') as Phaser.Filters.ColorMatrix|undefined;
+      if(shell)shell.active=false;
       img.setPosition((Phaser.Math.Linear(p.x,e.x,alpha)+0.5)*CELL,(Phaser.Math.Linear(p.y,e.y,alpha)+0.5)*CELL).setFrame(frame);
-      if(e.kind==='crystal-crawler'){img.setTint(0x8edfff);let badge=this.badges.get(e.id);if(!badge){badge=this.add.image(0,0,'tiles','diamond').setDisplaySize(25,25).setDepth(4);this.badges.set(e.id,badge);}badge.setPosition(img.x,img.y-12);}
       if(isCrawler(e.kind)){
-        if(e.kind!=='crystal-crawler')img.setTint(e.kind==='digger'?0xffb353:e.kind==='purple-crawler'?0xc78beb:0x8abbe9);
+        const base=e.kind==='crystal-crawler'?0xf3f4ff:e.kind==='key-crawler'?0xffd45d:e.kind==='digger'?0xffb353:e.kind==='purple-crawler'?0xc78beb:0x8abbe9;
+        img.setTint(base);
+        const b=s.beetles?.brains[e.id];
+        let colour=base;
+        if(b?.trapTicks){
+          const progress=b.trapTicks/60,pulse=(1+Math.sin(this.warningAnimationMs/(progress>2/3?55:145)))/2;
+          const c=Phaser.Display.Color.Interpolate.ColorWithColor(Phaser.Display.Color.ValueToColor(base),Phaser.Display.Color.ValueToColor(0xff5342),100,Math.round(35+65*progress*pulse));colour=Phaser.Display.Color.GetColor(c.r,c.g,c.b);img.setTint(colour);
+        }else if(b?.warningDue!==undefined){img.setAlpha(.65+.35*(1+Math.sin(this.warningAnimationMs/95))/2);}
+        else img.setAlpha(1);
+        // Recolour luminance, rather than multiplying the painted blue shell:
+        // multiplication made gold olive and the red warning too dark on phones.
+        if(e.kind==='crystal-crawler'||e.kind==='key-crawler'||b?.trapTicks){
+          if(!shell){img.enableFilters();shell=img.filters!.internal.addColorMatrix();img.setData('shell-colour',shell);}
+          const c=Phaser.Display.Color.ValueToColor(colour),light=e.kind==='crystal-crawler'&&!b?.trapTicks?2:2.4;
+          const values=[c.red,c.green,c.blue].flatMap(v=>[.2126*v/255*light,.7152*v/255*light,.0722*v/255*light,0,0]);
+          shell.colorMatrix.set([...values,0,0,0,1,0]);shell.active=true;img.clearTint();
+        }
         img.setFlipX(e.direction==='left');img.setAngle(e.direction==='up'?-90:e.direction==='down'?90:0);
+        if(e.key){let mark=this.badges.get(e.id);if(!mark){mark=this.add.text(0,0,e.key.seal==='sun'?'☀':'☾',{fontFamily:'Arial',fontSize:'23px',color:'#fff4bc',stroke:'#302211',strokeThickness:4}).setOrigin(.5).setDepth(4);this.badges.set(e.id,mark);}mark.setPosition(img.x,img.y-13);}
       }
     }
-    for(const [id,badge]of this.badges)if(!s.entities.some(e=>e.id===id&&e.kind==='crystal-crawler')){badge.destroy();this.badges.delete(id);}
+    for(const [id,badge]of this.badges)if(!s.entities.some(e=>e.id===id&&e.key)){badge.destroy();this.badges.delete(id);}
     const moving=this.prevPlayer.x!==s.player.x||this.prevPlayer.y!==s.player.y;
     const digging=this.lastInput.snap&&this.bridge.active();
     // Visual cadence is independent of the 100 ms rule clock and freezes on pause.
@@ -152,9 +175,13 @@ export class CaveScene extends Phaser.Scene {
   }
   effects(events:GameEvent[]):void{
     for(const event of events){
-      const key=event.type==='bore'?'dig':event.type==='spawn'?'impact':event.type==='key'?'emerald':event.type==='unlock'||event.type==='teleport'?'open':event.type==='crush'||event.type==='release'?'impact':event.type==='transmute'||event.type==='fusion'?'diamond':event.type==='switch'?'push':event.type;
+      const key=event.type==='explode'?'impact':event.type==='morph'?'diamond':event.type==='key-drop'?'emerald':event.type==='bore'?'dig':event.type==='spawn'?'impact':event.type==='key'?'emerald':event.type==='unlock'||event.type==='teleport'?'open':event.type==='crush'||event.type==='release'?'impact':event.type==='transmute'||event.type==='fusion'?'diamond':event.type==='switch'?'push':event.type;
       const now=performance.now();
       if(this.cache.audio.exists(key)&&now-(this.lastSfx.get(key)??-1000)>70){this.sound.play(key,{volume:this.bridge.volume().sfx*(key==='dig'?0.5:key==='impact'?0.7:1)});this.lastSfx.set(key,now);}
+      if(event.type==='explode'){
+        const flash=this.add.rectangle((event.x+.5)*CELL,(event.y+.5)*CELL,CELL*3,CELL*3,0xffb46c,.45).setDepth(6);
+        this.tweens.add({targets:flash,alpha:0,duration:420,onComplete:()=>flash.destroy()});
+      }
       if(['bore','dig','emerald','diamond','crush','transmute','fusion'].includes(event.type)){
         const color=event.type==='dig'?0xcaa16b:event.type==='diamond'?0xc9ecff:0x8df0bb;
         for(let i=0;i<5;i++){

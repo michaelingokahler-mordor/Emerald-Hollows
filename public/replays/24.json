@@ -1,11 +1,17 @@
 {
   "version": 1,
-  "rulesVersion": "emerald-hollows/4",
+  "rulesVersion": "emerald-hollows/6",
   "levelId": "24",
-  "levelHash": "310bf082",
+  "levelHash": "ee98b655",
   "practice": false,
   "inputs": [
     {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
       "direction": "up"
     },
     {
@@ -18,7 +24,46 @@
       "direction": "up"
     },
     {
-      "direction": "left"
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "direction": "right",
+      "snap": true
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down",
+      "snap": true
+    },
+    {
+      "direction": "up"
     },
     {
       "direction": "left"
@@ -31,6 +76,49 @@
     },
     {
       "direction": "left"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left",
+      "snap": true
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down",
+      "snap": true
+    },
+    {
+      "direction": "up"
     },
     {
       "direction": "right"
@@ -39,15 +127,6 @@
       "direction": "right"
     },
     {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
       "direction": "up"
     },
     {
@@ -76,24 +155,6 @@
     },
     {
       "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left"
     },
     {
       "direction": "left"
@@ -851,7 +912,79 @@
       "direction": "left"
     },
     {
+      "direction": "up"
+    },
+    {
       "direction": "left"
+    },
+    {
+      "direction": "up",
+      "snap": true
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "left",
+      "snap": true
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left",
+      "snap": true
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
     },
     {
       "direction": "up"
@@ -862,98 +995,6 @@
     {
       "direction": "left",
       "snap": true
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left",
-      "snap": true
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left",
-      "snap": true
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "right",
-      "snap": true
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "right",
-      "snap": true
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right",
-      "snap": true
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
     },
     {
       "direction": "right"
@@ -1031,6 +1072,52 @@
       "direction": "right"
     },
     {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left",
+      "snap": true
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
       "direction": "up"
     },
     {
@@ -1043,5 +1130,5 @@
       "direction": "up"
     }
   ],
-  "expectedHash": "17cf9ca1"
+  "expectedHash": "9208ae33"
 }

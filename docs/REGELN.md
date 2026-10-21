@@ -1,4 +1,23 @@
-# Verbindliche Regeln – Lathmar: Emerald Hollows 0.6
+# Aktuelle Regeln – Lathmar: Emerald Hollows 0.11
+
+Regelversion 6 gilt in 05–07, 09–10, 12–13, 15–16, 19–38 und 40. Unverändert bleiben 01–04, 08, 11, 14, 17, 18 und 39. Die folgenden Ergänzungen ersetzen dort die historischen Käferregeln. Vollständige englische Fassung: [RULES.md](RULES.md).
+
+- **Verwandlung:** Der dritte Besuch derselben Position mit derselben Blickrichtung startet eine 1,2 Sekunden lange Schimmerwarnung. Blau/Rechtswand und Lila/Linkswand wechseln ineinander. Bernstein/Graben und Weiß/Diamant wechseln ebenfalls. Weiß folgt links; Bernstein bevorzugt geradeaus, rechts, links, zurück. Erfolgreiches Graben löscht Schleifengedächtnis und Verwandlungswarnung. Nach dem Wechsel wird einmal der bisher seltenste begehbare Ausgang bevorzugt; Gleichstand entscheidet die neue Bewegungsregel. Ein einzelnes Hindernis löst keinen sofortigen Wechsel aus.
+- **Enge Falle:** Ein oder zwei erreichbare Felder starten sechs Sekunden Zündzeit. Zunehmendes rotes Pulsieren, besonders in den letzten zwei Sekunden, zeigt sie ohne Zahl. Ab drei erreichbaren Feldern wird vollständig zurückgesetzt. Bewegliche Figuren zählen nicht als Käfigwand; für Grabe-Käfer zählen Erde und Muttergestein als möglicher Fluchtraum. Die rote Warnung unterbricht die Verwandlungswarnung. Die Laufgeschwindigkeit bleibt gleich.
+- **Explosion:** 3 × 3 Felder; Spieler und Käfer sterben, Erde, gewöhnliche Mauern und runde Felsen verschwinden. Stahl, Muttergestein, verstärkte Geräte, Edelsteine und Schlüssel bleiben. Helle Eckmarkierungen kennzeichnen verstärkte Apparate. Keine zusätzlichen Kettenexplosionen; Weiß liefert nur beim Zerquetschen einen Diamanten. Neue Fallbewegungen nach der Explosion beginnen im Folgetakt.
+- **Lebendiges Einsperren:** Markierte Gehege haben mindestens vier nutzbare Felder. Der Käfer muss tatsächlich darin eingeschlossen und der Spieler außerhalb sein. Tod erfüllt die Aufgabe nicht. Erde eignet sich nicht zur Sicherung einer möglichen Grabform.
+- **Goldene Schlüsselträger:** Alle Schlüssel der revidierten Karten beginnen in goldenen Sonnen-/Mondkäfern. Diese wechseln nur ihre Wandregel und verschmelzen nicht. Zerquetschen zerstört auch das Geschoss und gibt den Schlüssel frei; Explosion gibt ihn ebenfalls frei. Schlüssel fallen ohne Schaden und ohne Abrollen, überstehen Sprengungen und zählen nicht zur Quote.
+- **Generatorvorrat:** Ein ausdrücklich begrenzter Gesamtvorrat füllt sich beim Wiedereinschalten nicht auf. In 40 gibt es genau einen Helfer. Abschalten entfernt keine bereits ausgegebenen Käfer. R1/R2 bezeichnen Felsausgaben, G1/G2 Torgruppen, P1/P2 Generatoren.
+- **Taktfolge:** Eingabe → Fallobjekte und freigesetzte Schlüssel → Käferbewegung → Explosionen → Generatorausgabe → Levelzeit. Käfer bewegen sich weiterhin alle drei 100-ms-Takte. Offenen Ausgang betreten beendet sofort. Pause hält alle Simulationstimer an; Übung setzt nur die Levelzeit außer Kraft.
+- **Wertung:** Smaragd 1, Diamant 3; normaler Abschuss/Sprengung 5; Weiß zerquetschen 10, dessen Diamant zusätzlich 3; gültiges lebendiges Gehege am Ende 5 pro Käfer. Tatsächliche Niederlagen werden genau einmal gewertet. Verwandlung/Fusion allein geben nichts. Zeit bleibt vorrangig, Gegnerpunkte und Schlüssel zählen nicht zur Edelsteinquote.
+- **Bestandsschutz:** Historische Karten und Regeln 1–5 prüfen ausstehende Offline-Läufe weiter. Neue Prüfsummen trennen die Ranglisten der 30 geänderten Karten; alte Ergebnisse und Freischaltungen bleiben erhalten. Ein laufender lokaler Versuch auf einer ersetzten Karte startet neu. Neustart setzt sämtliche Timer, Schlüssel und Vorräte zurück.
+- **Zeiten:** Höchstens dreifache schnellste geprüfte automatische Lösung, auf fünf Sekunden abgerundet. Spätere menschliche Rekorde derselben Revision begrenzen zusätzlich auf deren doppelte Zeit. Alte Kartenrekorde sind keine Vergleichsbasis.
+
+Der DW-Abzweig in 25 bleibt versiegelt. Spinnen, Netze und Vermehrung gehören nicht zu 0.11. Das Geröllmeer enthält 74 Smaragde, 6 Diamanten und 107 Felsen; alle 92 Quotenpunkte sind erforderlich.
+
+---
+
+# Historische Regeln bis 0.10 — für archivierte Karten
 
 Ein Takt dauert 100 ms. Die Figur bewegt sich in vier Richtungen und fällt nicht. Erde verschwindet beim Betreten oder beim benachbarten Graben. Ein Tick verarbeitet maximal eine Spielereingabe. Der kurze Eingabepuffer gilt 150 ms; die zuletzt gedrückte Richtung hat Vorrang. Tabwechsel pausiert und verwirft gepufferte Eingaben.
 

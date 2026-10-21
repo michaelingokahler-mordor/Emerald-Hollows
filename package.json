@@ -1,6 +1,6 @@
 {
   "name": "emerald-hollows",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "node tools/build-offline.mjs --icons-only && tsc --noEmit && vite build && node tools/build-offline.mjs",
     "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",
-    "verify:levels": "tsx tools/verify-levels.ts",
+    "verify:levels": "tsx tools/verify-beetles.ts",
     "assets": "node tools/prepare-assets.mjs",
     "package": "npm run build && node tools/package.mjs",
     "server:dev": "wrangler dev --config server/wrangler.jsonc",

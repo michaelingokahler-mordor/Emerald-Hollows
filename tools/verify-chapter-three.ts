@@ -1,11 +1,15 @@
-import {writeFile,readFile} from 'node:fs/promises';
+// Historical verifier: never overwrite the current playable solution replays.
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {CHAPTER_THREE_ROUTES} from '../src/chapter-three';
-import {LEVELS} from '../src/levels';
+import definitions from '../src/levels-v010.json';
+import type {LevelDefinition} from '../src/core/types';
+const LEVELS=definitions as LevelDefinition[];
 const CHAPTER_THREE=LEVELS.slice(20,30);
 import {solve} from './solution';
 import {Simulation,runReplay,levelHash} from '../src/core/simulation';
 import {verifyChunk} from '../server/worker';
 import {scoreBreakdown} from '../src/core/scoring';
+await mkdir('artifacts/historical-replays/v09',{recursive:true});
 const levels=[];
 for(const l of CHAPTER_THREE){
  const routes=[];
@@ -18,7 +22,7 @@ for(const l of CHAPTER_THREE){
    while(run.status==='pending'){const at=performance.now(),result=verifyChunk(run);maxChunkMs=Math.max(maxChunkMs,performance.now()-at);chunks++;run={...run,state:JSON.stringify(result.state),cursor:result.cursor,status:result.status};}
    if(run.status!=='confirmed')throw Error('Server verification rejected replay');
    const suffix=`${name}${minimal?'-quota':''}`;
-   await writeFile(`public/replays/${l.id}-${suffix}.json`,JSON.stringify(replay,null,2)+'\n');
+   await writeFile(`artifacts/historical-replays/v09/${l.id}-${suffix}.json`,JSON.stringify(replay,null,2)+'\n');
    routes.push({name:suffix,seconds:sim.state.tick/10,points:sim.state.points,score:scoreBreakdown(l,sim.state).total,transfers:sim.state.passages!.transfers,pushes:events.filter(e=>e.type==='push').length,switches:events.filter(e=>e.type==='switch').length,serverChunks:chunks,maxLocalChunkMs:Math.round(maxChunkMs*100)/100});
   }catch(e){if(!minimal)throw e;routes.push({name:`${name}-quota`,rejected:String(e)});}
  }

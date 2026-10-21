@@ -1,11 +1,20 @@
 {
   "version": 1,
-  "rulesVersion": "emerald-hollows/4",
+  "rulesVersion": "emerald-hollows/6",
   "levelId": "24",
-  "levelHash": "310bf082",
+  "levelHash": "ee98b655",
   "practice": false,
   "inputs": [
     {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "up"
+    },
+    {
       "direction": "up"
     },
     {
@@ -13,6 +22,45 @@
     },
     {
       "direction": "up"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "direction": "right",
+      "snap": true
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down",
+      "snap": true
     },
     {
       "direction": "up"
@@ -30,9 +78,85 @@
       "direction": "left"
     },
     {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
       "direction": "left"
     },
     {
+      "direction": "left"
+    },
+    {
+      "direction": "left",
+      "snap": true
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down",
+      "snap": true
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
       "direction": "right"
     },
     {
@@ -43,45 +167,6 @@
     },
     {
       "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
-    },
-    {
-      "direction": "up"
     },
     {
       "direction": "right"
@@ -1072,10 +1157,10 @@
       "direction": "down"
     },
     {
-      "direction": "down"
+      "direction": "right"
     },
     {
-      "direction": "right"
+      "direction": "down"
     },
     {
       "direction": "right",
@@ -1148,10 +1233,10 @@
       "snap": true
     },
     {
-      "direction": "left"
+      "direction": "right"
     },
     {
-      "direction": "left"
+      "direction": "right"
     },
     {
       "direction": "down"
@@ -1160,31 +1245,11 @@
       "direction": "down"
     },
     {
-      "direction": "down",
-      "snap": true
-    },
-    {
       "direction": "down"
     },
     {
-      "direction": "right",
+      "direction": "left",
       "snap": true
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right",
-      "snap": true
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
     },
     {
       "direction": "up"
@@ -1418,5 +1483,5 @@
       "direction": "up"
     }
   ],
-  "expectedHash": "c7519729"
+  "expectedHash": "87014bb2"
 }

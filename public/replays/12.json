@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "rulesVersion": "emerald-hollows/3",
+  "rulesVersion": "emerald-hollows/6",
   "levelId": "12",
-  "levelHash": "7aa5608b",
+  "levelHash": "e0194e10",
   "practice": false,
   "inputs": [
     {
@@ -639,5 +639,5 @@
       "direction": "down"
     }
   ],
-  "expectedHash": "3bdef201"
+  "expectedHash": "d2bf4f69"
 }

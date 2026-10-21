@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "rulesVersion": "emerald-hollows/2",
+  "rulesVersion": "emerald-hollows/6",
   "levelId": "10",
-  "levelHash": "47ad0b30",
+  "levelHash": "58f81010",
   "practice": false,
   "inputs": [
     {
@@ -171,9 +171,85 @@
     {},
     {},
     {},
+    {},
+    {},
+    {},
     {
       "direction": "right",
       "snap": false
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
     },
     {
       "direction": "down"
@@ -233,5 +309,5 @@
       "direction": "right"
     }
   ],
-  "expectedHash": "892f12ee"
+  "expectedHash": "090ce2a9"
 }

@@ -1,3 +1,4 @@
+import {readFileSync} from 'node:fs';
 import {describe,it,expect}from'vitest';
 import {Simulation,hash,runReplay,validateLevel}from'../src/core/simulation';
 import type {LevelDefinition}from'../src/core/types';
@@ -37,7 +38,7 @@ describe('campaign and determinism',()=>{
   it('closed exit blocks movement',()=>{const s=new Simulation({...LEVELS[0],id:'closed',width:7,height:3,map:['XXXXXXX','XPEM  X','XXXXXXX'],quota:1});s.step({direction:'right'});expect(s.state.player.x).toBe(1);});
   it('practice keeps hazards active while disabling countdown',()=>{const s=new Simulation(LEVELS[4],true);const initial=s.state.entities.find(e=>e.kind==='crawler')!.x;for(let i=0;i<10;i++)s.step();expect(s.state.remainingTicks).toBe(LEVELS[4].timeSeconds*10);expect(s.state.entities.find(e=>e.kind==='crawler')!.x).not.toBe(initial);});
   it('time expires exactly at zero',()=>{const s=new Simulation({...LEVELS[0],timeSeconds:1});for(let i=0;i<9;i++)s.step();expect(s.state.status).toBe('playing');s.step();expect(s.state.status).toBe('dead');});
-  it.each([30,60,144])('identical inputs produce identical state at %i render FPS',fps=>{for(const level of LEVELS){const expected=solve(level);const s=new Simulation(level);const clock=new FixedClock();let i=0;for(let frame=0;frame<fps*(expected.inputs.length/10+2)&&i<expected.inputs.length;frame++)clock.advance(1000/fps,()=>{if(i<expected.inputs.length)s.step(expected.inputs[i++]);});expect(hash(s.state)).toBe(hash(expected.state));}});
+  it.each([30,60,144])('identical inputs produce identical state at %i render FPS',fps=>{for(const level of LEVELS){const expected=runReplay(level,JSON.parse(readFileSync(`public/replays/${level.id}.json`,'utf8')));const s=new Simulation(level);const clock=new FixedClock();let i=0;for(let frame=0;frame<fps*(expected.inputs.length/10+2)&&i<expected.inputs.length;frame++)clock.advance(1000/fps,()=>{if(i<expected.inputs.length)s.step(expected.inputs[i++]);});expect(hash(s.state)).toBe(hash(expected.state));}});
   it('rejects mismatched replay version and level checksum',()=>{const r=solve(LEVELS[0]).exportReplay();expect(()=>runReplay(LEVELS[1],r)).toThrow();expect(()=>runReplay(LEVELS[0],{...r,rulesVersion:'wrong'})).toThrow();});
 });
 describe('input and local progress',()=>{

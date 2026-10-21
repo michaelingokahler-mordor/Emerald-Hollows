@@ -2,7 +2,7 @@
 
 Alle Lösungen wurden im Normalspiel mit aktiven Gegnern, Schwerkraft und Countdown ausgeführt und als Replay erneut geprüft. Ein Lösungsreplay beweist Lösbarkeit; es ersetzt kein menschliches Urteil über Spielspaß.
 
-Legende: X Außenwand, # Mauer, . Erde, Leerzeichen Gang, P Spieler, E Ausgang, R Fels, M Smaragd, D Diamant, C Kristallkrabbler, >/< /^/v blaue Krabbler mit Startausrichtung; u/r/d/l lila Krabbler; H hartes Muttergestein; 1/2/3/4 Grabe-Käfer (oben/rechts/unten/links). Geräte werden unter jeder Karte gesondert angegeben. use = frische Hebelbetätigung mit anschließendem Loslassen; until = auf Käfer an der angegebenen Koordinate warten; harvest = alle erreichbaren Edelsteine im bezeichneten Bereich mit regulären Bewegungseingaben sammeln.
+Legende: X Außenwand, # Mauer, . Erde, Leerzeichen Gang, P Spieler, E Ausgang, R Fels, M Smaragd, D Diamant, C weißer Diamantkäfer, >/< /^/v blaue Krabbler mit Startausrichtung; u/r/d/l lila Krabbler; H hartes Muttergestein; 1/2/3/4 Grabe-Käfer (oben/rechts/unten/links). Goldene Schlüsselträger, Gehege und Geräte werden unter jeder Karte gesondert angegeben. strike = reguläre benachbarte Aktion zeitlich auf einen Treffer abstimmen; trap/capture = erst bei tatsächlicher Gefangenschaft schließen; clear = auf freien Durchgang warten; key = freigesetzten Schlüssel regulär sammeln. use = frische Hebelbetätigung mit anschließendem Loslassen; until = auf Käfer an der angegebenen Koordinate warten; harvest = alle erreichbaren Edelsteine im bezeichneten Bereich mit regulären Bewegungseingaben sammeln.
 
 ## 01 – Die erste Schicht
 
@@ -201,43 +201,55 @@ walk 18 2
 
 Ein berechenbarer Gegner. 28 × 18 Felder, Quote 12, 10 Sekunden, Schwierigkeit 3/3.
 
-Von (12,6) geschützt beobachten. Die Stütze so entfernen, dass der fallende Stein den Krabbler in der unteren Kammer trifft. Danach die obere Galerie ausräumen.
+Beobachte die Verzweigung aus der sicheren oberen Galerie. Blau folgt rechts, Lila links. Nach wiederholten gleichen Runden kündigt ein Schimmer den Wechsel an. Der Felsabwurf bleibt eine Möglichkeit, den Weg zu sichern.
 
-Hinweis: Der Krabbler folgt der Wand rechts und bewegt sich alle drei Takte. Beobachte ihn geschützt. Untergrabe den Stein, wenn der Krabbler von rechts zur Schachtmitte zurückkommt.
+Hinweis: Beobachte die Verzweigung aus der sicheren oberen Galerie. Blau folgt rechts, Lila links. Nach wiederholten gleichen Runden kündigt ein Schimmer den Wechsel an. Der Felsabwurf bleibt eine Möglichkeit, den Weg zu sichern.
 
-Geprüfter Durchlauf: 46 Takte / 4.6 Sekunden, 12 Kristallpunkte, 17 Wertungspunkte. Replay: public/replays/05.json.
+Geprüfter Durchlauf: 47 Takte / 4.7 Sekunden, 12 Kristallpunkte, 17 Wertungspunkte. Replay: public/replays/05.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##########################X
-X##########################X
-X###################....E##X
-X###################.....##X
-X############R######.....##X
-X#P.............D.D.D.D..##X
-X#.....R#####·##########.##X
-X#......##>······#######.##X
-X#......################.##X
-X#.###..#############.....#X
-X#.###..#############.....#X
-X#......#############.....#X
-X#......#############.....#X
-X#......#############.....#X
-X####################.....#X
-X##########################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX....EXXX
+XXXXXXXXXXXXXXXXXXXX.....XXX
+XXXXXXXXXXXXXRXXXXXX.....XXX
+XXP.............D.D.D.D..XXX
+XX.....RXXXXX·XXXXXXXXXX.XXX
+XX......XXXXX···XXXXXXXX.XXX
+XX......XX···^X·XXXXXXXX.XXX
+XX.XXX..XXXXX···XXXXX.....XX
+XX.XXX..XXXXXXXXXXXXX.....XX
+XX......XXXXXXXXXXXXX.....XX
+XX......XXXXXXXXXXXXX.....XX
+XX......XXXXXXXXXXXXX.....XX
+XXXXXXXXXXXXXXXXXXXXX.....XX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "gates": [],
+  "levers": [],
+  "dispensers": []
+}
+```
 
 
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
 walk 12 6
-wait 15
-snap right
-wait 5
+strike crawler right
 walk 16 6
 walk 18 6
 walk 20 6
@@ -246,95 +258,134 @@ walk 24 6
 walk 24 3
 ```
 
-## 06 – Hinter Stein und Riegel
+## 06 – Sechs Sekunden bis zum Durchbruch
 
-Einsperren statt erschlagen. 26 × 18 Felder, Quote 9, 21 Sekunden, Schwierigkeit 2/3.
+Die wandelbare Mine. 28 × 18 Felder, Quote 9, 30 Sekunden, Schwierigkeit 2/3.
 
-Den linken Diamanten holen, zum Fels gehen und den Krabbler beobachten. Den Stein nach rechts in den Zugang schieben, wenn der Krabbler in der oberen Nische ist. Unter dem Riegel hindurch in die rechte Kammer gehen, zwei Diamanten sammeln und zum Ausgang aufsteigen.
+Schiebe den Fels nach rechts, wenn der Käfer oben in der kleinen Bucht ist. Zwei freie Felder starten sechs Sekunden bis zur Explosion. Geh zwei Schritte zurück. Die gewöhnliche Mauer öffnet sich; Stahl bleibt stehen. Sammle danach die drei Diamanten.
 
-Hinweis: Der Krabbler muss lebend in höchstens zwei freien Feldern eingeschlossen bleiben. Schiebe den Fels in den Zugang, wenn er in einer Nische ist. Sammle danach drei Diamanten. Quote und Aufgabe öffnen gemeinsam den Ausgang.
+Hinweis: Schiebe den Fels nach rechts, wenn der Käfer oben in der kleinen Bucht ist. Zwei freie Felder starten sechs Sekunden bis zur Explosion. Geh zwei Schritte zurück. Die gewöhnliche Mauer öffnet sich; Stahl bleibt stehen. Sammle danach die drei Diamanten.
 
-Geprüfter Durchlauf: 46 Takte / 4.6 Sekunden, 9 Kristallpunkte, 14 Wertungspunkte. Replay: public/replays/06.json.
+Geprüfter Durchlauf: 106 Takte / 10.6 Sekunden, 9 Kristallpunkte, 14 Wertungspunkte. Replay: public/replays/06.json.
 
 ```text
-XXXXXXXXXXXXXXXXXXXXXXXXXX
-X########################X
-X########################X
-X########################X
-X########################X
-X###################E...#X
-X#############·########.#X
-X#############^########.#X
-X#...........R··#######.#X
-X#............#########.#X
-X#...###................#X
-X#...###.....####.......#X
-X#.P......D..####...D.D.#X
-X#...........####.###...#X
-X#...........####.......#X
-X########################X
-X########################X
-XXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXEXXX
+XXX.......XXXXXXXXXXXXXX.XXX
+XXX.XXXXX.XXXXXXXXXXXXXX.XXX
+XXX.XXXXX.XXXXXXXXXXXXXX.XXX
+XXX.X.....XXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXX·#.D......DXXX
+XXX.XXXXXX..R·^#XXXX.XXXXXXX
+XXXP.......XXXXXXXXX.XXXXXXX
+XXX.XXXXXX.XXXXXXXXXDXXXXXXX
+XXX.XXXXXX.XXXXXXXXX.XXXXXXX
+XXX.XXXXXX.XXXXXXXXX......XX
+XXX........XXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[]
+```
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [],
+  "levers": [],
+  "dispensers": []
+}
+```
 
 
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 10 12
-walk 12 8
-wait 8
+walk 11 9
+until 14 8 beetle
 move right
-walk 13 10
-walk 20 12
-walk 22 12
-walk 23 12
-walk 23 5
-walk 20 5
+walk 10 9
+wait 62
+walk 17 8
+walk 20 11
+walk 24 8
+walk 24 3
 ```
 
 ## 07 – Der richtige Augenblick
 
-Ein Abwurf aus sicherer Entfernung. 28 × 18 Felder, Quote 9, 22 Sekunden, Schwierigkeit 3/3.
+Ein Abwurf aus sicherer Entfernung. 28 × 18 Felder, Quote 9, 20 Sekunden, Schwierigkeit 3/3.
 
-Bei (16,5) stehen bleiben. Den Abwurf vorhalten: Stütze bei Takt 25 entfernen, damit der Fels den Krabbler bei Takt 28 trifft. Danach rechts absteigen, die drei Diamanten der unteren Galerie holen und zum westlichen Ausgang gehen.
+Beobachte die aktuelle Laufrichtung. Entferne die Stütze von der Seite so, dass der fallende Fels den Käfer erreicht. Nach dem Treffer führt die untere Sammlung zurück zum Ausgang.
 
-Hinweis: Der Fels braucht mehrere Takte bis zur Laufbahn. Warte links neben seiner Stütze, bis der Krabbler von links an das Feld vor dem Fallschacht herankommt. Grabe die Stütze nebenan weg. Du musst ihn treffen, bevor der Ausgang öffnet.
+Hinweis: Beobachte die aktuelle Laufrichtung. Entferne die Stütze von der Seite so, dass der fallende Fels den Käfer erreicht. Nach dem Treffer führt die untere Sammlung zurück zum Ausgang.
 
-Geprüfter Durchlauf: 66 Takte / 6.6 Sekunden, 9 Kristallpunkte, 14 Wertungspunkte. Replay: public/replays/07.json.
+Geprüfter Durchlauf: 80 Takte / 8.0 Sekunden, 9 Kristallpunkte, 14 Wertungspunkte. Replay: public/replays/07.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##########################X
-X##########################X
-X##########################X
-X################R#########X
-X#.P.....................##X
-X################·######.##X
-X################·######.##X
-X######·>···············.##X
-X#######################.##X
-X#######################.##X
-X####E...###############.##X
-X####....###############.##X
-X####...........D.D.D....##X
-X##########################X
-X##########################X
-X##########################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXRXXXXXXXXXX
+XX.P.....................XXX
+XXXXXXXXXXXXXXXXX·XXXXXX.XXX
+XXXXXXXXXXXXXXXXX·XXXXXX.XXX
+XXXXXXX·>···············.XXX
+XXXXXXXXXXXXXXXXXXXXXXXX.XXX
+XXXXXXXXXXXXXXXXXXXXXXXX.XXX
+XXXXXE...XXXXXXXXXXXXXXX.XXX
+XXXXX....XXXXXXXXXXXXXXX.XXX
+XXXXX...........D.D.D....XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "gates": [],
+  "levers": [],
+  "dispensers": []
+}
+```
 
 
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
 walk 16 5
-wait 11
-snap right
+strike crawler right
 wait 4
 walk 24 5
 walk 24 13
@@ -395,49 +446,91 @@ walk 25 3
 
 ## 09 – Ein kostbarer Gegner
 
-Der Kristallkrabbler. 28 × 19 Felder, Quote 5, 17 Sekunden, Schwierigkeit 3/3.
+Der Kristallkrabbler. 28 × 19 Felder, Quote 5, 15 Sekunden, Schwierigkeit 3/3.
 
-Links der Stütze bei (14,8) warten. Bei Takt 14 rechts nebenan graben. Der Stein trifft bei Takt 16. Rechts in die Laufbahn steigen, den entstandenen Diamanten einsammeln und im östlichen Schacht beide Smaragde auf dem Weg zum Ausgang holen.
+Weiß hinterlässt nur beim Zerquetschen einen Diamanten. Nach wiederholten Runden wird Weiß zu einem bernsteinfarbenen Grabe-Käfer und später zurück. R1 liefert einen Fels: Graben plus Richtung betätigt den Hebel. Triff die weiße Form, schiebe anschließend den Eingangsstein nach links und sammle den Diamanten im unteren Arenaweg. Zwei Smaragde ergänzen die Quote.
 
-Hinweis: Der blaue Krabbler mit Diamantzeichen verwandelt sich beim Zerquetschen in einen Diamanten (3 Punkte). Auch der fallende Stein verschwindet dabei. Zwei Smaragde ergänzen die Quote: Du brauchst den Diamanten des Krabblers.
+Hinweis: Weiß hinterlässt nur beim Zerquetschen einen Diamanten. Nach wiederholten Runden wird Weiß zu einem bernsteinfarbenen Grabe-Käfer und später zurück. R1 liefert einen Fels: Graben plus Richtung betätigt den Hebel. Triff die weiße Form, schiebe anschließend den Eingangsstein nach links und sammle den Diamanten im unteren Arenaweg. Zwei Smaragde ergänzen die Quote.
 
-Geprüfter Durchlauf: 42 Takte / 4.2 Sekunden, 5 Kristallpunkte, 15 Wertungspunkte. Replay: public/replays/09.json.
+Geprüfter Durchlauf: 57 Takte / 5.7 Sekunden, 5 Kristallpunkte, 15 Wertungspunkte. Replay: public/replays/09.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##########################X
-X##########################X
-X##########################X
-X##......##################X
-X##.###..##################X
-X##......##################X
-X##......######R###########X
-X##P.................######X
-X##############·####.######X
-X#########C·········.######X
-X###################.######X
-X###################M#...##X
-X###################.#...##X
-X###################M#...##X
-X###################.#...##X
-X###################E....##X
-X##########################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX......XXXXXXXXXXXXXXXXXXX
+XXX.XXX..XXXXXXXXXXXXXXXXXXX
+XXX......XXXX........XXXXXXX
+XXX......XXXX.X#XXXX.XXXXXXX
+XXXP..........#·XXX..XXXXXXX
+XXXXXXXXXXXXXXX·XXXX.XXXXXXX
+XXXXXXXXXXXXXC····R..XXXXXXX
+XXXXXXXXXXXXX·····XX.XXXXXXX
+XXXXXXXXXXXXXXXXXXXXMX...XXX
+XXXXXXXXXXXXXXXXXXXX.X...XXX
+XXXXXXXXXXXXXXXXXXXXMX...XXX
+XXXXXXXXXXXXXXXXXXXX.X...XXX
+XXXXXXXXXXXXXXXXXXXXE....XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
 
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "gates": [],
+  "levers": [
+    {
+      "id": "drop",
+      "label": "R1",
+      "x": 14,
+      "y": 8,
+      "gates": [],
+      "dispensers": [
+        "R1"
+      ],
+      "view": {
+        "x": 12,
+        "y": 6,
+        "width": 9,
+        "height": 7
+      }
+    }
+  ],
+  "dispensers": [
+    {
+      "id": "R1",
+      "label": "R1",
+      "x": 15,
+      "y": 7,
+      "stock": 1
+    }
+  ]
+}
+```
+
 
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 14 8
-wait 2
-snap right
-wait 4
+walk 13 8
+strike crystal-crawler right
 walk 20 8
 walk 20 10
+walk 19 10
+move left
+wait 2
+move left
 walk 15 10
+snap down
 walk 20 10
 walk 20 12
 walk 20 14
@@ -446,44 +539,58 @@ walk 20 16
 
 ## 10 – Ein Tor nach Lathmar
 
-Am Ende der alten Mine. 40 × 26 Felder, Quote 30, 120 Sekunden, Schwierigkeit 3/3.
+Am Ende der alten Mine. 40 × 26 Felder, Quote 30, 40 Sekunden, Schwierigkeit 3/3.
 
-Zuerst den unteren Schiebestein lösen und den Galeriestein seitlich untergraben. Sieben Diamanten sammeln. Am bewachten Riegel warten, bis der Krabbler in der oberen Nische ist, und den Riegel nach rechts schieben. Die Stützerde nicht freigraben. Unten herum zum letzten Aufstieg gehen und die drei übrigen Diamanten holen. Alternative: den Krabbler rechts lassen, den oberen Abwurf vorbereiten, treffen und den gelandeten Stein nach rechts wegschieben.
+Die enge Bucht wird zur Sprengfalle: Schiebe den Riegel, wenn der Käfer oben ist, und ziehe dich vor dem roten Pulsieren zurück. Alternativ nutze den oberen Felsabwurf. Hinter der Wache liegen drei notwendige Diamanten.
 
-Hinweis: Der letzte Durchgang wird bewacht. Schiebe den Riegelstein nach rechts, wenn der Krabbler in der oberen Nische ist. Lass die Erde unter dem Riegel stehen und gehe durch den unteren Bogen. Alternativ erreichst du links oben die Felsfalle; nach dem Treffer musst du ihren Stein im Gang nach rechts wegschieben. Drei Diamanten liegen erst hinter der Wache.
+Hinweis: Die enge Bucht wird zur Sprengfalle: Schiebe den Riegel, wenn der Käfer oben ist, und ziehe dich vor dem roten Pulsieren zurück. Alternativ nutze den oberen Felsabwurf. Hinter der Wache liegen drei notwendige Diamanten.
 
-Geprüfter Durchlauf: 89 Takte / 8.9 Sekunden, 30 Kristallpunkte, 35 Wertungspunkte. Replay: public/replays/10.json.
+Geprüfter Durchlauf: 157 Takte / 15.7 Sekunden, 30 Kristallpunkte, 35 Wertungspunkte. Replay: public/replays/10.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X######################################X
-X######################################X
-X########################......###..DE#X
-X#......#################.####.###D####X
-X#....R.#################.####.R##.####X
-X#......#################.##·#..##D####X
-X#......#################.##·##·##.####X
-X#......################...R··<·····###X
-X#......################.##...#########X
-X###.###################.##...#########X
-X###.###################.###·##########X
-X###.######.D.D.D.D.RD.D.D##·##########X
-X###.######.#######·.##.####·##########X
-X###.######.########·##.####·##########X
-X###.######.########·##.####·##########X
-X###.######.########·##.###############X
-X###.######.########·##.###############X
-X###.#####.R.#######·##....############X
-X###.#####.#.#######·##.M..############X
-X#.P..........######·##....############X
-X###################·##...M############X
-X###################·##################X
-X###################·##################X
-X######################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXX......XXX..DEXX
+XX......XXXXXXXXXXXXXXXXX.XXXX.XXXDXXXXX
+XX....R.XXXXXXXXXXXXXXXXX.XXXX.RXX.XXXXX
+XX......XXXXXXXXXXXXXXXXX.XX·X..XXDXXXXX
+XX......XXXXXXXXXXXXXXXXX.XX·XX·XX.XXXXX
+XX......XXXXXXXXXXXXXXXX...R··<·····XXXX
+XX......XXXXXXXXXXXXXXXX.XX...XXXXXXXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XX...XXXXXXXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXX·XXXXXXXXXXX
+XXXX.XXXXXX.D.D.D.D.RD.D.DXX·XXXXXXXXXXX
+XXXX.XXXXXX.XXXXXXX·.XX.XXXX·XXXXXXXXXXX
+XXXX.XXXXXX.XXXXXXXX·XX.XXXX·XXXXXXXXXXX
+XXXX.XXXXXX.XXXXXXXX·XX.XXXX·XXXXXXXXXXX
+XXXX.XXXXXX.XXXXXXXX·XX.XXXXXXXXXXXXXXXX
+XXXX.XXXXXX.XXXXXXXX·XX.XXXXXXXXXXXXXXXX
+XXXX.XXXXX.R.XXXXXXX·XX....XXXXXXXXXXXXX
+XXXX.XXXXX.X.XXXXXXX·XX.M..XXXXXXXXXXXXX
+XX.P..........XXXXXX·XX....XXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX·XX...MXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX·XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX·XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "gates": [],
+  "levers": [],
+  "dispensers": []
+}
+```
 
 
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
@@ -512,8 +619,11 @@ walk 25 12
 walk 24 12
 walk 24 8
 walk 26 8
-wait 10
+until 28 6 crawler
 move right
+walk 25 8
+wait 61
+walk 27 9
 walk 27 9
 walk 27 10
 walk 29 10
@@ -621,44 +731,50 @@ walk 3 19
 
 ## 12 – Die zweite Runde
 
-Beobachten, verbinden, sammeln. 36 × 26 Felder, Quote 22, 70 Sekunden, Schwierigkeit 2/3.
+Beobachten, verbinden, sammeln. 36 × 26 Felder, Quote 22, 60 Sekunden, Schwierigkeit 2/3.
 
-Die Westkammer sammeln. Am oberen Beobachtungsweg Hebel F betätigen und das Treffen ansehen. In der Ostkammer die Quote ergänzen und rechts zum Ausgang gehen.
+Beobachte die aktuellen Farben: Blau folgt rechts, Lila links; wiederholte Runden ändern die Richtung. Bereite F vor und nutze die Querung, wenn die Patrouille entfernt ist. Verbinde danach die beiden Sammelbezirke.
 
-Hinweis: Oben kannst du die Richtungen geschützt beobachten: Blau bevorzugt rechts, Lila links. Hebel F verbindet das getrennte Paar rechts und öffnet den Ausgang. Beim Treffen entsteht ein Kristallkäfer. Sammle danach die Quote in den beiden unteren Kammern.
+Hinweis: Beobachte die aktuellen Farben: Blau folgt rechts, Lila links; wiederholte Runden ändern die Richtung. Bereite F vor und nutze die Querung, wenn die Patrouille entfernt ist. Verbinde danach die beiden Sammelbezirke.
 
 Geprüfter Durchlauf: 215 Takte / 21.5 Sekunden, 31 Kristallpunkte, 31 Wertungspunkte. Replay: public/replays/12.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##################################X
-X###·····###·····##################X
-X###··#·<###··#·l#####··>#l··######X
-X###·····###·····##################X
-X##################################X
-X##################################X
-X##P...........................####X
-X##.##########################.####X
-X##.##########################.####X
-X##.##########################.####X
-X#R...........#######.....D......R#X
-X#.M.........M#######M....#.....M.#X
-X#.#....M....#########.....M....#.#X
-X#......#.....#######......#......#X
-X#..#######..D#######M.########...#X
-X#...M......M#########.M......M...#X
-X#...#......#.#######..#D..........X
-X#M.....M.....#######...#..M.....M.X
-X##..#######..#######...########.#.X
-X#...........M#######M............#X
-X#...........#########.............X
-X#...M....M...#######...M.....M..M.X
-X#...#....#...#######...#.....#..#.X
-X#################################EX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXX·····XXX·····XXXXXXXXXXXXXXXXXXX
+XXXX··X·<XXX··X·lXXXXX··>#l··XXXXXXX
+XXXX·····XXX·····XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX#XXXXXXXXXXXXXXX
+XXXP...........................XXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXR...........XXXXXXX.....D......RXX
+XX.M.........MXXXXXXXM....X.....M.XX
+XX.X....M....XXXXXXXXX.....M....X.XX
+XX......X.....XXXXXXX......X......XX
+XX..XXXXXXX..DXXXXXXXM.XXXXXXXX...XX
+XX...M......MXXXXXXXXX.M......M...XX
+XX...X......X.XXXXXXX..XD..........X
+XXM.....M.....XXXXXXX...X..M.....M.X
+XXX..XXXXXXX..XXXXXXX...XXXXXXXX.X.X
+XX...........MXXXXXXXM............#X
+XX...........XXXXXXXXX.............X
+XX...M....M...XXXXXXX...M.....M..M.X
+XX...X....X...XXXXXXX...X.....X..X.X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXEX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": []
+}
+```
 
 ```json
 {
@@ -717,43 +833,49 @@ walk 34 24
 
 Ein Zug, ein Stein. 40 × 27 Felder, Quote 28, 80 Sekunden, Schwierigkeit 3/3.
 
-Westliche Lagerstätte sammeln. A schalten, zu S wechseln und den Abwurf vorhalten. Nach dem Treffer den Diamanten holen. Den großen Ostabbau durchsuchen und zum Ausgang zurückkehren.
+Die längeren Wartegänge halten die Käfer zunächst sicher. A verbindet die Zuführungen. Beobachte ihre aktuellen Farben und betätige S, sobald der weiße Käfer im Abwurf steht. S liefert pro Zug einen Fels.
 
-Hinweis: Jetzt kommt der Steinspender: Jeder neue Zug an S gibt genau einen Stein frei. A führt Blau und Lila zusammen. Löse S aus, wenn der Kristallkäfer im Schacht zwei Felder unter der Ausgabe steht. Der Treffer und 28 Kristallpunkte öffnen den Ausgang. Drei Steine erlauben einen zweiten Versuch.
+Hinweis: Die längeren Wartegänge halten die Käfer zunächst sicher. A verbindet die Zuführungen. Beobachte ihre aktuellen Farben und betätige S, sobald der weiße Käfer im Abwurf steht. S liefert pro Zug einen Fels.
 
-Geprüfter Durchlauf: 272 Takte / 27.2 Sekunden, 36 Kristallpunkte, 46 Wertungspunkte. Replay: public/replays/13.json.
+Geprüfter Durchlauf: 271 Takte / 27.1 Sekunden, 36 Kristallpunkte, 46 Wertungspunkte. Replay: public/replays/13.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X######################################X
-X######################################X
-X######################################X
-X#######...................############X
-X#######.#########.#####R....D.......R#X
-X#######.#####·###.#####.....#........#X
-X#.P.M.M....##·###.#####M..........M..#X
-X##.##########·###.######..........#..#X
-X##.#########>#l·#.#####.......M......#X
-X##.##########·.....E###.......#......#X
-X##.####################M.#########...#X
-X##.#####################.............#X
-X##.####################..M.......M...#X
-X#R..........###########..#.......#...#X
-X#.M........M###########...D..........#X
-X#.#...M....############...#..........#X
-X#.....#....D###########.......M.....M#X
-X#...M.....M############...#########.##X
-X#...#.....#.###########M.............#X
-X#M....M.....############.............#X
-X##....#....M###########..............#X
-X#..........############..............#X
-X#...M....M..###########...M......M..M#X
-X#...#....#..###########...#......#..##X
-X######################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXX...................XXXXXXXXXXXXX
+XXXXXXXX.XXXXX#XXX.XXXXXR....D.......RXX
+XXXXXXXX.X##XX·XXX.XXXXX.....X........XX
+XX.P.M.M....XX·XXX.XXXXXM..........M..XX
+XXX.XXXXXXXXXX·XXX.XXXXXX..........X..XX
+XXX.XXXXXXXXX>#l·X.XXXXX.......M......XX
+XXX.XXXXXXXXX···....EXXX.......X......XX
+XXX.XXXXXXXXX·X·XXXXXXXXM.XXXXXXXXX...XX
+XXX.XXXXXXXXX·X·XXXXXXXXX.............XX
+XXX.XXXXXXXXX·X·XXXXXXXX..M.......M...XX
+XXR..........XXXXXXXXXXX..X.......X...XX
+XX.M........MXXXXXXXXXXX...D..........XX
+XX.X...M....XXXXXXXXXXXX...X..........XX
+XX.....X....DXXXXXXXXXXX.......M.....MXX
+XX...M.....MXXXXXXXXXXXX...XXXXXXXXX.XXX
+XX...X.....X.XXXXXXXXXXXM.............XX
+XXM....M.....XXXXXXXXXXXX.............XX
+XXX....X....MXXXXXXXXXXX..............XX
+XX..........XXXXXXXXXXXX..............XX
+XX...M....M..XXXXXXXXXXX...M......M..MXX
+XX...X....X..XXXXXXXXXXX...X......X..XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": []
+}
+```
 
 ```json
 {
@@ -820,8 +942,7 @@ harvest 2 14 11 11
 walk 10 7
 use up
 walk 11 7
-until 14 8 crystal-crawler
-use up
+strike crystal-crawler up
 wait 7
 walk 8 7
 walk 8 4
@@ -947,54 +1068,74 @@ walk 24 16
 
 Verändere den Weg zurück. 50 × 38 Felder, Quote 36, 155 Sekunden, Schwierigkeit 3/3.
 
-S hält Blau lebend in seiner Bucht. In A die Felsablage von unten freigraben und den Stein hineinschieben. Hebel A öffnet B hinter deinem Start: Dort die Stütze seitlich entfernen und den Fall abwarten. Hebel B öffnet C jenseits von A. C öffnet schließlich den Ausgang im Südwesten. Sammle auf Hin- und Rückwegen.
+S verschließt das markierte größere Gehege; der Käfer muss darin lebendig bleiben. A öffnet den Bezirk hinter dem Start, B den Weg hinter A und C den Ausgang. Erledige die Felsarbeiten und sammle auf Hin- und Rückwegen.
 
-Hinweis: S hält Blau lebend in seiner Bucht. In A die Felsablage von unten freigraben und den Stein hineinschieben. Hebel A öffnet B hinter deinem Start: Dort die Stütze seitlich entfernen und den Fall abwarten. Hebel B öffnet C jenseits von A. C öffnet schließlich den Ausgang im Südwesten. Sammle auf Hin- und Rückwegen.
+Hinweis: S verschließt das markierte größere Gehege; der Käfer muss darin lebendig bleiben. A öffnet den Bezirk hinter dem Start, B den Weg hinter A und C den Ausgang. Erledige die Felsarbeiten und sammle auf Hin- und Rückwegen.
 
-Geprüfter Durchlauf: 540 Takte / 54.0 Sekunden, 37 Kristallpunkte, 42 Wertungspunkte. Replay: public/replays/15.json.
+Geprüfter Durchlauf: 530 Takte / 53.0 Sekunden, 37 Kristallpunkte, 42 Wertungspunkte. Replay: public/replays/15.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X################################################X
-X################################################X
-X##...M..M..#..M..M.....####D####################X
-X##.#################.#.####.####################X
-X##.#################.#.####.######..M..M...D####X
-X##.#################.#.####.######.#############X
-X##.######·##########.#.####.######.#############X
-X##P.....#·##########.#R.M...######.#############X
-X##.######·##########...###########.#############X
-X##.######··<##########·###########.#############X
-X##.###################·##########.R.############X
-X##.###################·##########.#.############X
-X##.###################·##########.........######X
-X##.###################·##########.#######.######X
-X##.##############################.#######M######X
-X##.##############################.#######.######X
-X##.##############################.#######M######X
-X##..M..M..M..M....#########..M..M..M..M.......##X
-X##.##############.#########.#################.##X
-X##.##############.#########.#################.##X
-X##.##############.#########.#################.##X
-X##.##############.#########.#################.##X
-X##.##############.#########.####################X
-X##.##############.#########.#################.##X
-X##.##############.#########.#################.##X
-X##.##############.M..M..M...#################.##X
-X##.##########################################.##X
-X##.##########################################.##X
-X##.#########################..M..M..D########.##X
-X##.#########################.#######.########.##X
-X##.#########################.#######.########.##X
-X##.....#....D###############.#######.########.##X
-X############.###############...M..M...M...M...##X
-X############.###################################X
-X############E###################################X
-X################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX#XXXXXXXXXXXXXXXXXXXXX
+XXX...M..M..#..M..M.....XXXXDXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXX.X.XXXX.XXXXXXXXXXXXXXX#XXXXX
+XXX.XXXXXXXXXXXXXXXXX.X.XXXX.XXXXXX..M..M...DXXXXX
+XXX.XXXXXX#XXXXXXXXXX.X.XXXX.XXXXXX.XXXXXXXXXXXXXX
+XXX.XXXX#X·XXXXXXXXXX.X.XXXX.XXXXXX.XXXXXXXXXXXXXX
+XXXP.....X·XXXXXXXXXX.XR.M...XXXXXX.XXXXXXXXXXXXXX
+XXX.XXXXXX·XXXXXXXXXX...XXXXXXXXXXX.XXXXXXXXXXXXXX
+XXX.XXXXXX··<··XXXXXXXX·XXXXXXXXXXX.XXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXX·XXXXXXXXXX.R.XXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXX·XXXXXXXXXX.X.XXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXX·XXXXXXXXXX.........XXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXX·XXXXXXXXXX.XXXXXXX.XXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXMXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXX.XXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXMXXXXXXX
+XXX..M..M..M..M....XXXXXXXXX..M..M..M..M.......XXX
+XXX.XXXXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXXXXXXXXX#XXX
+XXX.XXXXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXX.M..M..M...XXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXX#XXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXX..M..M..DXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXX.XXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXX.XXXXXXXX.XXX
+XXX.....#....DXXXXXXXXXXXXXXX.XXXXXXX.XXXXXXXX.XXX
+XXXXXXXXXXXXX.XXXXXXXXXXXXXXX...M..M...M...M...XXX
+XXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+Markierte Gehege:
+```json
+[
+  {
+    "id": "PEN",
+    "x": 11,
+    "y": 10,
+    "width": 4,
+    "height": 1,
+    "required": 1
+  }
+]
+```
+
+```json
+{
+  "pits": []
+}
+```
 
 ```json
 {
@@ -1086,8 +1227,7 @@ Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
 walk 8 8
-until 12 10 crawler
-use up
+trap PEN up
 wait 8
 walk 36 13
 walk 36 12
@@ -1119,52 +1259,72 @@ walk 13 35
 
 ## 16 – Die umgegrabene Patrouille
 
-Verändere den Weg zurück. 46 × 34 Felder, Quote 36, 175 Sekunden, Schwierigkeit 3/3.
+Verändere den Weg zurück. 46 × 34 Felder, Quote 36, 145 Sekunden, Schwierigkeit 3/3.
 
-Zwei blaue Käfer patrouillieren frei um den Erdkern. Warte, bis der erste weit unten rechts ist. Grabe hinter P einen Umweg in den Kern und ziehe dich zurück. Sobald beide darin stehen, schließt P/E die Kammer und öffnet den Ausgang. Schalte zu früh? Öffne erneut. In der Ostader gibt ein kontrollierter Felsfall den Weg zu W frei; W öffnet das Diamantlager hinter dem Start.
+Grabe hinter P eine Umlenkung und ziehe dich zurück. Schließe OUT nach dem Graben vom sicheren Vorraum aus. Warte dort, bis die Käfer im inneren Gehege stehen, und schließe P/E. Öffne danach OUT zur Sammlung wieder. Seine verstärkten Wände halten auch eine spätere Grabform. Der kontrollierte Felsfall im Osten erschließt W und das Diamantlager hinter dem Start.
 
-Hinweis: Zwei blaue Käfer patrouillieren frei um den Erdkern. Warte, bis der erste weit unten rechts ist. Grabe hinter P einen Umweg in den Kern und ziehe dich zurück. Sobald beide darin stehen, schließt P/E die Kammer und öffnet den Ausgang. Schalte zu früh? Öffne erneut. In der Ostader gibt ein kontrollierter Felsfall den Weg zu W frei; W öffnet das Diamantlager hinter dem Start.
+Hinweis: Grabe hinter P eine Umlenkung und ziehe dich zurück. Schließe OUT nach dem Graben vom sicheren Vorraum aus. Warte dort, bis die Käfer im inneren Gehege stehen, und schließe P/E. Öffne danach OUT zur Sammlung wieder. Seine verstärkten Wände halten auch eine spätere Grabform. Der kontrollierte Felsfall im Osten erschließt W und das Diamantlager hinter dem Start.
 
-Geprüfter Durchlauf: 477 Takte / 47.7 Sekunden, 40 Kristallpunkte, 40 Wertungspunkte. Replay: public/replays/16.json.
+Geprüfter Durchlauf: 486 Takte / 48.6 Sekunden, 40 Kristallpunkte, 45 Wertungspunkte. Replay: public/replays/16.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X############################################X
-X############################################X
-X############################################X
-X############################################X
-X##E#########################################X
-X############################################X
-X##.#########################################X
-X##P.................##############...M...###X
-X##.################.####################.###X
-X##.##########···········>··>··##########.###X
-X##.##########·....#####......·##########.###X
-X##.##########·....#...#......·##########M###X
-X##.##########·M...#...#M.....·##########.###X
-X##.##########·....#...#......·##########.###X
-X##.##########·..M.#...#..M...·##########.###X
-X##.##########·....#...#......·##########.###X
-X##.##########·....#...#......·##########.###X
-X##.##########·.M..#...#....M.·.M.M..R.M..###X
-X##.##########·....#####......·#####..#######X
-X##.##########·...M......M....·######·#######X
-X##.##########·...............·######·#######X
-X##.##########·················######·#######X
-X##.#################################·#######X
-X##.#################################·#######X
-X##.#########################################X
-X##..#.........D..D..D....###################X
-X###########.############.###################X
-X###########.############.###################X
-X###########.############.###################X
-X####D..D..D.####D..D..D..###################X
-X############################################X
-X############################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXX#XXXXXXXXXXXXXXXX#XXXXXXXXXX
+XXXP.................XXXXXXXXXXXXXX...M...XXXX
+XXX.XXXXXXXXXXXXXX#X#XXXXXXXXXXXXXXXXXXXX.XXXX
+XXX.XXXXXXXXXX···········>··>··XXXXXXXXXX.XXXX
+XXX.XXXXXXXXXX·....X#XXX......·XXXXXXXXXX.XXXX
+XXX.XXXXXXXXXX·....X...X......·XXXXXXXXXXMXXXX
+XXX.XXXXXXXXXX·M...X...XM.....·XXXXXXXXXX.XXXX
+XXX.XXXXXXXXXX·....X...X......·XXXXXXXXXX.XXXX
+XXX.XXXXXXXXXX·..M.X...X..M...·XXXXXXXXXX.XXXX
+XXX.XXXXXXXXXX·....X...X......·XXXXXXXXXX.XXXX
+XXX.XXXXXXXXXX·....X...X......·XXXXXXXXXX.XXXX
+XXX.XXXXXXXXXX·.M..X...X....M.·.M.M..R.M..XXXX
+XXX.XXXXXXXXXX·....XXXXX......·XXXXX..XXXXXXXX
+XXX.XXXXXXXXXX·...M......M....·XXXXXX·XXXXXXXX
+XXX.XXXXXXXXXX·...............·XXXXXX·XXXXXXXX
+XXX.XXXXXXXXXX·················XXXXXX·XXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX·XXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX·XXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX..#.........D..D..D....XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXX.XXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXX.XXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXX.XXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXX
+XXXXXD..D..D.XXXXD..D..D..XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+Markierte Gehege:
+```json
+[
+  {
+    "id": "P",
+    "x": 20,
+    "y": 12,
+    "width": 3,
+    "height": 7,
+    "required": 1
+  }
+]
+```
+
+```json
+{
+  "pits": []
+}
+```
 
 ```json
 {
@@ -1189,6 +1349,13 @@ In der Karte steht · für einen leeren Gang.
       "x": 5,
       "y": 26,
       "open": false
+    },
+    {
+      "id": "SAFE",
+      "label": "OUT",
+      "x": 20,
+      "y": 9,
+      "open": true
     }
   ],
   "levers": [
@@ -1218,6 +1385,16 @@ In der Karte steht · für einen leeren Gang.
         "W"
       ],
       "dispensers": []
+    },
+    {
+      "id": "outer",
+      "label": "OUT",
+      "x": 18,
+      "y": 9,
+      "gates": [
+        "SAFE"
+      ],
+      "dispensers": []
     }
   ],
   "dispensers": []
@@ -1229,17 +1406,17 @@ Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
 walk 20 9
-until 30 20 crawler
+until 30 20 beetle
 walk 20 11
 walk 20 17
 walk 22 17
 walk 22 14
 walk 20 14
-walk 20 9
+walk 20 8
 walk 18 8
-until 20 14 crawler
-wait 9
-use up
+use down
+capture P up
+use down
 harvest 14 12 15 10
 walk 36 19
 snap right
@@ -1478,48 +1655,54 @@ walk 3 21
 
 ## 19 – Zwei getrennte Wege
 
-Jeder Weg verändert die Mine. 44 × 30 Felder, Quote 41, 115 Sekunden, Schwierigkeit 3/3.
+Jeder Weg verändert die Mine. 44 × 30 Felder, Quote 41, 160 Sekunden, Schwierigkeit 3/3.
 
 L und R geben zwei getrennte Patrouillen frei. Erst wenn beide Zugänge offen sind, können Blau und Lila in der mittleren Galerie zusammentreffen. Beobachte den neuen Kristallkäfer im natürlichen Fallschacht und grabe die Stütze von links weg, sobald er zwei Felder unter der Stütze steht. Danach erschließt du die gebogenen Erzadern.
 
 Hinweis: L und R geben zwei getrennte Patrouillen frei. Erst wenn beide Zugänge offen sind, können Blau und Lila in der mittleren Galerie zusammentreffen. Beobachte den neuen Kristallkäfer im natürlichen Fallschacht und grabe die Stütze von links weg, sobald er zwei Felder unter der Stütze steht. Danach erschließt du die gebogenen Erzadern. Die Mine enthält 38 Punkte; die fehlenden drei liefert nur sein Diamant.
 
-Geprüfter Durchlauf: 470 Takte / 47.0 Sekunden, 41 Kristallpunkte, 51 Wertungspunkte. Replay: public/replays/19.json.
+Geprüfter Durchlauf: 535 Takte / 53.5 Sekunden, 41 Kristallpunkte, 51 Wertungspunkte. Replay: public/replays/19.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##########################################X
-X##########################################X
-X####..M..M..M..M..M.M..###################X
-X####.#################.###############E###X
-X####.#################.####..M..M..M...###X
-X####.########R########.####.##########.###X
-X##P...........#######..####.##########.###X
-X#############·#######.#####.##########.###X
-X#############·#######..####..M..M.D###.###X
-X######··>··#···#··l··..###########.###.###X
-X######################.###########.###.###X
-X######################.###########.###.###X
-X######################.###########.###.###X
-X######################.####.M..M.......###X
-X######################.####.##########.###X
-X#################......####.##########.###X
-X####..M.D########.####.####.##########.###X
-X####.############.####.####.##########.###X
-X####.############.####.####..M..M.D###.###X
-X####.############.####.###############.###X
-X####.######..M.M..####.###############.###X
-X####.######.##########.###############.###X
-X####.######.##########.###############.###X
-X####.######.##########..M..M..M..M..M..###X
-X####.######.##############################X
-X####..M.M.MD##############################X
-X##########################################X
-X##########################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXX..M..M..M..M..M.M..XXXXXXXXXXXXXXXXXXXX
+XXXXX.XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXEXXXX
+XXXXX.XXXXXXXXXXXXXXXXX.XXXX..M..M..M...XXXX
+XXXXX.XXXX#XXXRXXXXXXXX.XXXX.XXXXXXXXXX.XXXX
+XXXP...........XXXXXXX..XXXX.XXXXXXXXXX.XXXX
+XXXXXXXXXXXXXX·XXXXXXX.#XXXX.XXXXXXXXXX.XXXX
+XXXXXXXXXXXXXX·XXXXXXX..XXXX..M..M.DXXX.XXXX
+XXXXXXX··>··#···#··l··..XXXXXXXXXXX.XXX.XXXX
+XXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXX.XXX.XXXX
+XXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXX.XXX.XXXX
+XXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXX.XXX.XXXX
+XXXXXXXXXXXXXXXXXXXXXXX.XXXX.M..M.......XXXX
+XXXXXXXXXXXXXXXXXXXXXXX.XXXX.XXXXXXXXXX.XXXX
+XXXXXXXXXXXXXXXXXX......XXXX.XXXXXXXXXX.XXXX
+XXXXX..M.DXXXXXXXX.XXXX.XXXX.XXXXXXXXXX.XXXX
+XXXXX.XXXXXXXXXXXX.XXXX.XXXX.XXXXXXXXXX.XXXX
+XXXXX.XXXXXXXXXXXX.XXXX.XXXX..M..M.DXXX.XXXX
+XXXXX.XXXXXXXXXXXX.XXXX.XXXXXXXXXXXXXXX.XXXX
+XXXXX.XXXXXX..M.M..XXXX.XXXXXXXXXXXXXXX.XXXX
+XXXXX.XXXXXX.XXXXXXXXXX.XXXXXXXXXXXXXXX.XXXX
+XXXXX.XXXXXX.XXXXXXXXXX.XXXXXXXXXXXXXXX.XXXX
+XXXXX.XXXXXX.XXXXXXXXXX..M..M..M..M..M..XXXX
+XXXXX.XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXX..M.M.MDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": []
+}
+```
 
 ```json
 {
@@ -1593,8 +1776,7 @@ walk 5 3
 walk 5 7
 walk 10 7
 walk 13 7
-until 14 9 crystal-crawler
-snap right
+strike crystal-crawler right
 wait 8
 walk 5 7
 walk 5 3
@@ -1611,52 +1793,58 @@ walk 39 4
 
 ## 20 – Der letzte Abtransport
 
-Jeder Weg verändert die Mine. 48 × 34 Felder, Quote 44, 95 Sekunden, Schwierigkeit 3/3.
+Jeder Weg verändert die Mine. 48 × 34 Felder, Quote 44, 100 Sekunden, Schwierigkeit 3/3.
 
 Sammle zuerst in den westlichen Stollen. T/A öffnet die Falltür und den Zugang zur bewachten Engstelle. Warte, bis Lila ganz oben im Schacht steht. Nach dem Treffer liegt der Fels im Durchgang: Schiebe ihn nach rechts, um zur oberen Abzweigung zu gelangen. Hebel B liegt am Ende der östlichen Erzschleife und öffnet den Ausgang.
 
 Hinweis: Sammle zuerst in den westlichen Stollen. T/A öffnet die Falltür und den Zugang zur bewachten Engstelle. Warte, bis Lila ganz oben im Schacht steht. Nach dem Treffer liegt der Fels im Durchgang: Schiebe ihn nach rechts, um zur oberen Abzweigung zu gelangen. Hebel B liegt am Ende der östlichen Erzschleife und öffnet den Ausgang.
 
-Geprüfter Durchlauf: 350 Takte / 35.0 Sekunden, 47 Kristallpunkte, 52 Wertungspunkte. Replay: public/replays/20.json.
+Geprüfter Durchlauf: 334 Takte / 33.4 Sekunden, 47 Kristallpunkte, 52 Wertungspunkte. Replay: public/replays/20.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##############################################X
-X##############################################X
-X##############################################X
-X#######################################E######X
-X#########################R#############.######X
-X#######################################.######X
-X#################......##·#############.######X
-X#################.####.##·#############.######X
-X#################.####.##·...........#..######X
-X#################.####.#l···#.################X
-X#################.###########.################X
-X#######..M.M.D###.###########.....M..M.M..####X
-X#######.#########.##############.########.####X
-X#######.#########.##############.########.####X
-X#######.#########.##############.########.####X
-X#######.#########.##############..M.M.D##.####X
-X#######.M.M...###.##############.########.####X
-X#############.###.##############.########.####X
-X#############.###.####.#########.########.####X
-X#######..M.M..###.####.#########.########.####X
-X#############.###.####.#########..M.MD###.####X
-X#############.###.####.#########.########.####X
-X##P.M..M..M..M....####.#########.########.####X
-X##.##########.########.#########.########.####X
-X##.##########.########..M.M.MD##.########.####X
-X##.##########.########.#########.########.####X
-X##.##########.########.#########.#############X
-X##..M..M..M..D########.#########.########.####X
-X######################..M..M..M..M..M..M.D####X
-X##############################################X
-X##############################################X
-X##############################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXEXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXRXXXXXXXXXXXXX.XXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX#XX#XXXXXXXXXXXXX.XXXXXXX
+XXXXXXXXXXXXXXXXXX......XX·XXXXXXXXXXXXX.XXXXXXX
+XXXXXXXXXXXXXXXXXX.XXXX.XX·XXXXXXXXXXXXX.XXXXXXX
+XXXXXXXXXXXXXXXXXX.XXXX.XX·...........#..XXXXXXX
+XXXXXXXXXXXXXXXXXX.XXXX.#l···X.XXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXX.XXXXXXXXXXX.XXXXXXXXXXXXXXXXX
+XXXXXXXX..M.M.DXXX.XXXXXXXXXXX.....M..M.M..XXXXX
+XXXXXXXX.XXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXXX.XXXXX
+XXXXXXXX.XXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXXX.XXXXX
+XXXXXXXX.XXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXXX.XXXXX
+XXXXXXXX.XXXXXXXXX.XXXXXXXXXXXXXX..M.M.DXX.XXXXX
+XXXXXXXX.M.M...XXX.XXXXXXXXXXXXXX.XXXXXXXX.XXXXX
+XXXXXXXXXXXXXX.XXX.XXXXXXXXXXXXXX.XXXXXXXX.XXXXX
+XXXXXXXXXXXXXX.XXX.XXXX.XXXXXXXXX.XXXXXXXX.XXXXX
+XXXXXXXX..M.M..XXX.XXXX.XXXXXXXXX.XXXXXXXX.XXXXX
+XXXXXXXXXXXXXX.XXX.XXXX.XXXXXXXXX..M.MDXXX.XXXXX
+XXXXXXXXXXXXXX.XXX.XXXX.XXXXXXXXX.XXXXXXXX.XXXXX
+XXXP.M..M..M..M....XXXX.XXXXXXXXX.XXXXXXXX.XXXXX
+XXX.XXXXXXXXXX.XXXXXXXX.XXXXXXXXX.XXXXXXXX.XXXXX
+XXX.XXXXXXXXXX.XXXXXXXX..M.M.MDXX.XXXXXXXX.XXXXX
+XXX.XXXXXXXXXX.XXXXXXXX.XXXXXXXXX.XXXXXXXX.XXXXX
+XXX.XXXXXXXXXX.XXXXXXXX.XXXXXXXXX.XXXXXXXX#XXXXX
+XXX..M..M..M..DXXXXXXXX.XXXXXXXXX.XXXXXXXX.XXXXX
+XXXXXXXXXXXXXXXXXXXXXXX..M..M..M..M..M..M.DXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+```json
+{
+  "pits": []
+}
+```
 
 ```json
 {
@@ -1722,8 +1910,7 @@ Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 ```text
 harvest 2 11 14 19
 walk 23 7
-until 26 7 purple-crawler
-use up
+strike beetle up
 wait 8
 walk 23 10
 walk 25 10
@@ -1739,73 +1926,87 @@ walk 40 4
 
 ## 21 – Der unterbrochene Ring
 
-Die Torhallen. 44 × 32 Felder, Quote 48, 110 Sekunden, Schwierigkeit 2/3.
+Die Torhallen. 44 × 32 Felder, Quote 48, 185 Sekunden, Schwierigkeit 2/3.
 
-Sonne und Mond passen nur zum gleichen Schloss. Ein Schlüssel wird beim Öffnen verbraucht. Hole den dritten Sonnenschlüssel im unteren Seitenstollen: Er öffnet die Querverbindung im Ring. Entscheide, welche Adern du davor und danach sammelst.
+Sonne und Mond passen nur zum gleichen Schloss. Ein Schlüssel wird beim Öffnen verbraucht. Hole den dritten Sonnenschlüssel im unteren Seitenstollen: Er öffnet die Querverbindung im Ring. Entscheide, welche Adern du davor und danach sammelst. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: Sonne und Mond passen nur zum gleichen Schloss. Ein Schlüssel wird beim Öffnen verbraucht. Hole den dritten Sonnenschlüssel im unteren Seitenstollen: Er öffnet die Querverbindung im Ring. Entscheide, welche Adern du davor und danach sammelst.
+Hinweis: Sonne und Mond passen nur zum gleichen Schloss. Ein Schlüssel wird beim Öffnen verbraucht. Hole den dritten Sonnenschlüssel im unteren Seitenstollen: Er öffnet die Querverbindung im Ring. Entscheide, welche Adern du davor und danach sammelst. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 539 Takte / 53.9 Sekunden, 60 Kristallpunkte, 60 Wertungspunkte. Replay: public/replays/21.json.
+Geprüfter Durchlauf: 620 Takte / 62.0 Sekunden, 60 Kristallpunkte, 75 Wertungspunkte. Replay: public/replays/21.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##########################################X
-X##E#######################################X
-X##P..................#####################X
-X####################.#####################X
-X####################.#####################X
-X###..M..M..M...M........M...M...M...######X
-X###.################.##############.######X
-X###.################.##############.######X
-X###...M..M..M..#####.###..M..M..M...######X
-X###.##########.#####D###.##########.######X
-X###.##########.#########.##########.######X
-X###.###M..M..M.#########..M..M.D###.######X
-X###.###############################.######X
-X###.###############################.######X
-X###..M...M...M.........M...M...M....######X
-X###.################.##############.######X
-X###.################.##############.######X
-X###.################.##############.######X
-X###...M..M..M.######.###..M..M..M...######X
-X###.#########.######.###.##########.######X
-X###.#########.######D###.##########.######X
-X###.###DM..M..##########..M..M.D###.######X
-X###.###############################.######X
-X###.###############################.######X
-X###..M...M...M....M....M....M...M.......##X
-X#######################################.##X
-X#######################################.##X
-X#######################################.##X
-X######################..M...M...M...M...##X
-X##########################################X
+XXXXXRXXXXXRXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX.E....X......XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX.P.·X....·XX........XXXXXXXXXXXXXXXXXXXXXX
+XXXXX···XXX···XXXXXXX.XXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXX
+XXXX..M..M..M...M........M...M...M...XXXXXXX
+XXXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXX
+XXXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXX
+XXXX...M..M..M..XXXXX.XXX..M..M..M...XXXXXXX
+XXXX.XXXXXXXXXX.XXXXXDXXX.XXXXXXXXXX.XXXXXXX
+XXXX.XXXXXXXXXX.XXXXXXXXX.XXXXXXXXXX.XXXXXXX
+XXXX.XXXM..M..M.XXXXXXXXX..M..M.DXXX.XXXXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXX
+XXXX..M...M...M.........M...M...M....XXXXXXX
+XXXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXX
+XXXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXX
+XXXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXX
+XXXX...M..M..M.XXXXXX.XXX..M..M..M...XXXXXXX
+XXXX.XXXXXXXXX.XXXXXX.XXX.XXXXXXXXXX.XXXXXXX
+XXXX.XXXXXXXXX.XXXXXXDXXX.XXXXXXXXXX.XXXXXXX
+XXXX.XXXDM..M..XXXXXXXXXX..M..M.DXXX.XXXXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXX
+XXXX..M...M...M....M....M....M...M.......XXX
+XXXXXXXXXXXXXXXXXXXXXXRXXXXXXXXXXXXXXXXX.XXX
+XXXXXXXXXXXXXXXXXXXXXX.....XXXXXXXXXXXXX.XXX
+XXXXXXXXXXXXXXXXXXXXXX·XXX.XXXXXXXXXXXXX.XXX
+XXXXXXXXXXXXXXXXXXXXX····M...M...M...M...XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
 
+Schlüsselträger:
+```json
+[
+  {
+    "id": "key-first",
+    "seal": "sun",
+    "x": 5,
+    "y": 4,
+    "direction": "right"
+  },
+  {
+    "id": "key-second",
+    "seal": "moon",
+    "x": 11,
+    "y": 4,
+    "direction": "right"
+  },
+  {
+    "id": "key-link",
+    "seal": "sun",
+    "x": 21,
+    "y": 29,
+    "direction": "right"
+  }
+]
+```
+
 ```json
 {
-  "keys": [
-    {
-      "id": "key-first",
-      "seal": "sun",
-      "x": 5,
-      "y": 3
-    },
-    {
-      "id": "key-second",
-      "seal": "moon",
-      "x": 11,
-      "y": 3
-    },
-    {
-      "id": "key-link",
-      "seal": "sun",
-      "x": 23,
-      "y": 29
-    }
-  ],
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
   "doors": [
     {
       "id": "door-first",
@@ -1842,10 +2043,23 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 5 3
-walk 11 3
+walk 3 3
+walk 2 3
+walk 2 2
+walk 4 2
+strike key-first right
+key key-first
+walk 9 3
+walk 9 2
+walk 10 2
+strike key-second right
+key key-second
 walk 21 6
-walk 23 29
+walk 26 29
+walk 26 27
+walk 23 27
+strike key-link left
+key key-link
 walk 21 15
 move left
 harvest 4 6 37 24
@@ -1854,65 +2068,77 @@ walk 3 2
 
 ## 22 – Jenseits des Spalts
 
-Die Torhallen. 52 × 36 Felder, Quote 62, 150 Sekunden, Schwierigkeit 2/3.
+Die Torhallen. 52 × 36 Felder, Quote 62, 160 Sekunden, Schwierigkeit 2/3.
 
-Gleiche Buchstaben verbinden zwei Türen. Nur du reist hindurch; Steine und Käfer bleiben auf ihrer Seite. Verlasse die Ankunftstür vor der nächsten Reise. Hole den Sonnenschlüssel auf der anderen Seite und verbinde die Erzwege beider Ufer.
+Gleiche Buchstaben verbinden zwei Türen. Nur du reist hindurch; Steine und Käfer bleiben auf ihrer Seite. Verlasse die Ankunftstür vor der nächsten Reise. Hole den Sonnenschlüssel auf der anderen Seite und verbinde die Erzwege beider Ufer. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: Gleiche Buchstaben verbinden zwei Türen. Nur du reist hindurch; Steine und Käfer bleiben auf ihrer Seite. Verlasse die Ankunftstür vor der nächsten Reise. Hole den Sonnenschlüssel auf der anderen Seite und verbinde die Erzwege beider Ufer.
+Hinweis: Gleiche Buchstaben verbinden zwei Türen. Nur du reist hindurch; Steine und Käfer bleiben auf ihrer Seite. Verlasse die Ankunftstür vor der nächsten Reise. Hole den Sonnenschlüssel auf der anderen Seite und verbinde die Erzwege beider Ufer. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 524 Takte / 52.4 Sekunden, 69 Kristallpunkte, 69 Wertungspunkte. Replay: public/replays/22.json.
+Geprüfter Durchlauf: 540 Takte / 54.0 Sekunden, 69 Kristallpunkte, 74 Wertungspunkte. Replay: public/replays/22.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##################################################X
-X##################################################X
-X##E#########################·..M..M..M..M..M..M.##X
-X##.############################################.##X
-X##P..M..M..M..M..·..###########################.##X
-X##.################.###########################.##X
-X##.################.###########################.##X
-X##.################.#######..M..M..M..M.#######.##X
-X##.################.#######.###########.#######.##X
-X##..M..M..M.M.#####.#######.###########.#######.##X
-X##.##########.#####.#######.###########.#######.##X
-X##.##########.#####.#######.####DM..M...#######.##X
-X##.##########.#####.#######.###################.##X
-X##.####DM..M..#####.#######.###################.##X
-X##.################.#######.###################.##X
-X##.################.#######.###################.##X
-X##.################.#######.#####.M..M..M..M..M.##X
-X##.####.M..M..M..M..#######.#####.#############.##X
-X##.####.###########.#######.#####.#############.##X
-X##.####.###########.#######.#####.#############.##X
-X##.####.###########.#######.#####.#############.##X
-X##.####.###########.#######.#####..M..M..M#####.##X
-X##.####..M..M.D####.#######.###################.##X
-X##.################.#######.###################.##X
-X##.################.#######.###################.##X
-X##.################.#######..M..M..M..MD#######.##X
-X##..M..M..M..MD####.#######.###################.##X
-X##.################.#######.###################.##X
-X##.################.#######.###################.##X
-X##.################.#######..M..M..M..M..M..M.·.##X
-X##.################.##############################X
-X##..M..M..M..M...·..##############################X
-X##################################################X
-X##################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXEXXXXXXXXXXXXXXXXXXXXXXXXX·..M..M..M..M..M..M.XXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXX
+XXXP..M..M..M..M..·..XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXX..M..M..M..M.XXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXX.XXXXXXXXXXX.XXXXXXX.XXX
+XXX..M..M..M.M.XXXXX.XXXXXXX.XXXXXXXXXXX.XXXXXXX.XXX
+XXX.XXXXXXXXXX.XXXXX.XXXXXXX.XXXXXXXXXXX.XXXXXXX.XXX
+XXX.XXXXXXXXXX.XXXXX.XXXXXXX.XXXXDM..M...XXXXXXX.XXX
+XXX.XXXXXXXXXX.XXXXX.XXXXXXX.XXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXDM..M..XXXXX.XXXXXXX.XXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXX.XXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXX.XXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXX.XXXXX.M..M..M..M..M.XXX
+XXX.XXXX.M..M..M..M..XXXXXXX.XXXXX.XXXXXXXXXXXXX.XXX
+XXX.XXXX.XXXXXXXXXXX.XXXXXXX.XXXXX..RXXXXXXXXXXX.XXX
+XXX.XXXX.XXXXXXXXXXX.XXXXXXX.XXXXX...XXXXXXXXXXX.XXX
+XXX.XXXX.XXXXXXXXXXX.XXXXXXX.XXXXXXX·XXXXXXXXXXX.XXX
+XXX.XXXX.XXXXXXXXXXX.XXXXXXX.XXXXX·····M..MXXXXX.XXX
+XXX.XXXX..M..M.DXXXX.XXXXXXX.XXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXX.XXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXX.XXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXX..M..MM.M..MDXXXXXXX.XXX
+XXX..M..M..M..MDXXXX.XXXXXXX.XXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXX.XXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXX.XXXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXX..M..M..M..M..M..M.·.XXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX..M..M..M..M...·..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
 
+Schlüsselträger:
+```json
+[
+  {
+    "id": "key-return",
+    "seal": "sun",
+    "x": 34,
+    "y": 22,
+    "direction": "right"
+  }
+]
+```
+
 ```json
 {
-  "keys": [
-    {
-      "id": "key-return",
-      "seal": "sun",
-      "x": 34,
-      "y": 22
-    }
-  ],
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
   "doors": [
     {
       "id": "door-exit",
@@ -1964,7 +2190,11 @@ Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 ```text
 walk 17 5
 move right
-walk 34 22
+walk 34 19
+walk 35 19
+walk 35 20
+strike key-return right
+key key-return
 harvest 27 2 23 30
 harvest 3 5 18 28
 walk 3 3
@@ -1974,61 +2204,73 @@ walk 3 3
 
 Die Torhallen. 48 × 34 Felder, Quote 52, 155 Sekunden, Schwierigkeit 2/3.
 
-Eine belegte Ankunft verhindert die Reise. Sammle zuerst den Diamanten neben der D-Tür. Bei A versperrt ein Fels das Ziel: Entferne seine Stütze von links, damit er in den Fangschacht sinkt. Die freie Tür wird zum kurzen Rückweg.
+Eine belegte Ankunft verhindert die Reise. Sammle zuerst den Diamanten neben der D-Tür. Bei A versperrt ein Fels das Ziel: Entferne seine Stütze von links, damit er in den Fangschacht sinkt. Die freie Tür wird zum kurzen Rückweg. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: Eine belegte Ankunft verhindert die Reise. Sammle zuerst den Diamanten neben der D-Tür. Bei A versperrt ein Fels das Ziel: Entferne seine Stütze von links, damit er in den Fangschacht sinkt. Die freie Tür wird zum kurzen Rückweg.
+Hinweis: Eine belegte Ankunft verhindert die Reise. Sammle zuerst den Diamanten neben der D-Tür. Bei A versperrt ein Fels das Ziel: Entferne seine Stütze von links, damit er in den Fangschacht sinkt. Die freie Tür wird zum kurzen Rückweg. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 513 Takte / 51.3 Sekunden, 59 Kristallpunkte, 59 Wertungspunkte. Replay: public/replays/23.json.
+Geprüfter Durchlauf: 530 Takte / 53.0 Sekunden, 59 Kristallpunkte, 64 Wertungspunkte. Replay: public/replays/23.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##############################################X
-X##############################################X
-X###E###############..M..M..M..M..M..M..M...###X
-X###.###############.######################.###X
-X###P·##############.######################.###X
-X###.###############.######################.###X
-X###.####.D....·.....#####..M..M..M..M..###.###X
-X###......####.#####.##################.###.###X
-X#############.......##################.###.###X
-X###################.###########R######.###.###X
-X###################.#####..M.M...M..M..###.###X
-X###################.#####.#####·##########.###X
-X###..M..M..M..#####.#####.#####·##########.###X
-X###.#########.#####.#####.#####·##########.###X
-X###.#########.#####.#####.################.###X
-X###.#########.#####.#####.######DM.M.M.###.###X
-X###.#########.#####.#####.######.#####.###.###X
-X###.#########.#####.#####.######.#####.###.###X
-X###.#########.#####.#####.######.#####.###.###X
-X###.###DM..M..#####.#####.######.#####.....###X
-X###.###############.#####.######.#########.###X
-X###.###############..M.M..######.#########.###X
-X###.#####################.######.#########.###X
-X###..M..M..M..MD#########.######..M..M.###.###X
-X###.#####################.################.###X
-X###.#####################.################.###X
-X###.#####################.################.###X
-X###..M...M...M...M...M....M...M...M...M....###X
-X#########################.####################X
-X#########################..M..M..M..MD########X
-X##############################################X
-X##############################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXEXXXXXXXXXXXXXXX..M..M..M..M..M..M..M...XXXX
+XXXX.XXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXX
+XXXXP·XXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXX
+XXXX.XXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXX
+XXXX.XXXX.D....·.....XXXXX..M..M..M..M..XXX.XXXX
+XXXX......XXXX.XXXXX.XXXXXXXXXXXXXXXXXX.XXX.XXXX
+XXXXXXXXXXXXXX.......XXXXXXXXXXXXXXXXXX.XXX.XXXX
+XXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXRXXXXXX.XXX.XXXX
+XXXXXXXXXXXXXXXXXXXX.XXXXX..M.M...M..M..XXX.XXXX
+XXXXXXXXXXXXXXXXXXXX.XXXXX.XXXXX·XXXXXXXXXX.XXXX
+XXXX..M..M..M..XXXXX.XXXXX.XXXXX·XXXXXXXXXX.XXXX
+XXXX.XXXXXXXXX.XXXXX.XXXXX.XXXXX·XXXXXXXXXX.XXXX
+XXXX.XXXXXXXXX.XXXXX.XXXXX.XXXXXXXXXXXXXXXX.XXXX
+XXXX.XXXXXXXXX.XXXXX.XXXXX.XXXXXXDM.M.M.XXX.XXXX
+XXXX.XXXXXXXXX.XXXXX.XXXXX.XXXXXX.XXXXX.XXX.XXXX
+XXXX.XXXXXXXXX.XXXXX.XXXXX.XXXXXX.XXXXX.XXX.XXXX
+XXXX.XXXXXXXXX.XXXXX.XXXXX.XXXXXX.XXXXX.XXX.XXXX
+XXXX.XXXDM..M..XXXXX.XXXXX.XXXXXX.XXXXX.....XXXX
+XXXX.XXXXXXXXXXXXXXX.XXXXX.XXXXXX..RXXXXXXX.XXXX
+XXXX.XXXXXXXXXXXXXXX..M.M..XXXXXX...XXXXXXX.XXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXX·XXXXXXX.XXXX
+XXXX..M..M..M..MDXXXXXXXXX.XXXXXX·····M.XXX.XXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXX.XXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXX.XXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXX.XXXX
+XXXX..M...M...M...M...M....M...MM..M...M....XXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXX..M..M..M..MDXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
 
+Schlüsselträger:
+```json
+[
+  {
+    "id": "key-exit",
+    "seal": "moon",
+    "x": 33,
+    "y": 24,
+    "direction": "right"
+  }
+]
+```
+
 ```json
 {
-  "keys": [
-    {
-      "id": "key-exit",
-      "seal": "moon",
-      "x": 33,
-      "y": 24
-    }
-  ],
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
   "doors": [
     {
       "id": "door-exit",
@@ -2093,7 +2335,11 @@ move right
 walk 31 11
 snap right
 wait 5
-walk 33 24
+walk 33 21
+walk 34 21
+walk 34 22
+strike key-exit right
+key key-exit
 harvest 20 2 24 30
 harvest 4 12 14 18
 walk 4 3
@@ -2101,73 +2347,86 @@ walk 4 3
 
 ## 24 – Ein Schlüssel, zwei Türen
 
-Die Torhallen. 56 × 38 Felder, Quote 90, 100 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 56 × 38 Felder, Quote 90, 110 Sekunden, Schwierigkeit 3/3.
 
-Ein Sonnenschlüssel, zwei Türen: Wähle die westliche Diamantader oder das östliche Smaragdfeld. Beide reichen für den Abschluss. Der Mondschlüssel gehört zum Ausgang. Im Osten musst du den Platz neben dem Schiebefelsen von der Gegenseite freigraben.
+Ein Sonnenschlüssel, zwei Türen: Wähle die westliche Diamantader oder das östliche Smaragdfeld. Beide reichen für den Abschluss. Der Mondschlüssel gehört zum Ausgang. Im Osten musst du den Platz neben dem Schiebefelsen von der Gegenseite freigraben. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: Ein Sonnenschlüssel, zwei Türen: Wähle die westliche Diamantader oder das östliche Smaragdfeld. Beide reichen für den Abschluss. Der Mondschlüssel gehört zum Ausgang. Im Osten musst du den Platz neben dem Schiebefelsen von der Gegenseite freigraben.
+Hinweis: Ein Sonnenschlüssel, zwei Türen: Wähle die westliche Diamantader oder das östliche Smaragdfeld. Beide reichen für den Abschluss. Der Mondschlüssel gehört zum Ausgang. Im Osten musst du den Platz neben dem Schiebefelsen von der Gegenseite freigraben. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 331 Takte / 33.1 Sekunden, 106 Kristallpunkte, 106 Wertungspunkte. Replay: public/replays/24.json.
+Geprüfter Durchlauf: 381 Takte / 38.1 Sekunden, 106 Kristallpunkte, 116 Wertungspunkte. Replay: public/replays/24.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X######################################################X
-X######################################################X
-X##########################E###########################X
-X##########################.##########D.M..M..M..M.D###X
-X###..D..D..D..D..#########.##########.############.###X
-X###.############.#########.##########.############.###X
-X###.############.#####.M.M..M.D######.############.###X
-X###.####.D..D..D.#########.###.######.############.###X
-X###.############.#########.###.######..M..M..MD###.###X
-X###..D..D..D####.#########.###.######.########.###.###X
-X###.#######.####.#########.###.######.########.###.###X
-X###.#######.####.#####.M.M..M.D######.########.###.###X
-X###.#######.####.#####.###.##########.###DM..M.###.###X
-X###.##D..D..####.#####.###.##########.############.###X
-X###.############.#####.###.##########.############.###X
-X###.############.#####.###.##########.############.###X
-X###.############.#####.###.##########.#####..M..M..###X
-X###.############.......................M.##.######.###X
-X###.############.#####.###.##########.##.##.######.###X
-X###.############.#####.###.##########.##.##.######.###X
-X###..D..D..D####.#####.M.M..M.D######.##.##DM..M.#.###X
-X###.#######.####.#####.###.##########.M.D#########.###X
-X###.#######.####.#####.###.#############.#########.###X
-X###.#######.####.#####.###.#########..R..#########.###X
-X###.#######.####.#####.M.M..M.D#####D.M..M..M.####.###X
-X###.##D..D..####.#####.###.###.#####.########.####.###X
-X###.############.#####.###.###.#####.########.####.###X
-X###.############.#####DM.MD###.#####.########.####.###X
-X###.#####.D..D...#########.###.#####.########D####.###X
-X###.############.####..M....MDD#####.#############.###X
-X###.############.#########.#########.#############.###X
-X###..D...D...D...#########.#########.#############.###X
-X##########################.#########..M..M..M..M..D###X
-X##########################P#########.#################X
-X####################################..M..M..M..MD#####X
-X######################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXD.M..M..M..M.DXXXX
+XXXX..D..D..D..D..XXXXXXXXX.XXXXXXXXXX.XXXXXXXXXXXX.XXXX
+XXXX.XXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXX.XXXXXXXXXXXX.XXXX
+XXXX.XXXXXXXXXXXX.XXXXX.M.M..M.DXXXXXX.XXXXXXXXXXXX.XXXX
+XXXX.XXXX.D..D..D.XXXXXXXXX.XXX.XXXXXX.XXXXXXXXXXXX.XXXX
+XXXX.XXXXXXXXXXXX.XXXXXXXXX.XXX.XXXXXX..M..M..MDXXX.XXXX
+XXXX..D..D..DXXXX.XXXXXXXXX.XXX.XXXXXX.XXXXXXXX.XXX.XXXX
+XXXX.XXXXXXX.XXXX.XXXXXXXXX.XXX.XXXXXX.XXXXXXXX.XXX.XXXX
+XXXX.XXXXXXX.XXXX.XXXXX.M.M..M.DXXXXXX.XXXXXXXX.XXX.XXXX
+XXXX.XXXXXXX.XXXX.XXXXX.XXX.XXXXXXXXXX.XXXDM..M.XXX.XXXX
+XXXX.XXD..D..XXXX.XXXXX.XXX.XXXXXXXXXX.XXXXXXXXXXXX.XXXX
+XXXX.XXXXXXXXXXXX.XXXXX.XXX.XXXXXXXXXX.XXXXXXXXXXXX.XXXX
+XXXX.XXXXXXXXXXXX.XXXXX.XXX.XXXXXXXXXX.XXXXXXXXXXXX.XXXX
+XXXX.XXXXXXXXXXXX.XXXXX.XXX.XXXXXXXXXX.XXXXX..M..M..XXXX
+XXXX.XXXXXXXXXXXX.......................M.XX.XXXXXX.XXXX
+XXXX.XXXXXXXXXXXX.XXXXX.XXX.XXXXXXXXXX.XX.XX.XXXXXX.XXXX
+XXXX.XXXXXXXXXXXX.XXXXX.XXX.XXXXXXXXXX.XX.XX.XXXXXX.XXXX
+XXXX..D..D..DXXXX.XXXXX.M.M..M.DXXXXXX.XX.XXDM..M.X.XXXX
+XXXX.XXXXXXX.XXXX.XXXXX.XXX.XXXXXXXXXX.M.DXXXXXXXXX.XXXX
+XXXX.XXXXXXX.XXXX.XXXXX.XXX.XXXXXXXXXXXXX.XXXXXXXXX.XXXX
+XXXX.XXXXXXX.XXXX.XXXXX.XXX.XXXXXXXXX..R..XXXXXXXXX.XXXX
+XXXX.XXXXXXX.XXXX.XXXXX.M.M..M.DXXXXXD.M..M..M.XXXX.XXXX
+XXXX.XXD..D..XXXX.XXXXX.XXX.XXX.XXXXX.XXXXXXXX.XXXX.XXXX
+XXXX.XXXXXXXXXXXX.XXXRX.XXX.XXX.XXXXX.XXXXXXXX.XXXX.XXXX
+XXXX.XXXXXXXXXXXX.XXX..DM.MDXXX.XXXXX.XXXXXXXX.XXXX.XXXX
+XXXX.XXXXX.D..D...XXX·XX.XX.RXX.XXXXX.XXXXXXXXDXXXX.XXXX
+XXXX.XXXXXXXXXXXX.X····.M....MDDXXXXX.XXXXXXXXXXXXX.XXXX
+XXXX.XXXXXXXXXXXX.XXXXXXX.XX·XXXXXXXX.XXXXXXXXXXXXX.XXXX
+XXXX..D...D...D...XXXXXXX.X····XXXXXX.XXXXXXXXXXXXX.XXXX
+XXXXXXXXXXXXXXXXXXXXXXXXX.X.XXXXXXXXX..M..M..M..M..DXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXX..PXXXXXXXXX.XXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..M..M..M..MDXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
 
+Schlüsselträger:
+```json
+[
+  {
+    "id": "key-choice",
+    "seal": "sun",
+    "x": 27,
+    "y": 32,
+    "direction": "right"
+  },
+  {
+    "id": "key-exit",
+    "seal": "moon",
+    "x": 19,
+    "y": 30,
+    "direction": "right"
+  }
+]
+```
+
 ```json
 {
-  "keys": [
-    {
-      "id": "key-choice",
-      "seal": "sun",
-      "x": 27,
-      "y": 31
-    },
-    {
-      "id": "key-exit",
-      "seal": "moon",
-      "x": 22,
-      "y": 30
-    }
-  ],
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
   "doors": [
     {
       "id": "door-exit",
@@ -2204,8 +2463,17 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 27 31
-walk 22 30
+walk 27 34
+walk 25 34
+walk 25 30
+walk 27 30
+strike key-choice right
+key key-choice
+walk 24 30
+walk 24 28
+walk 22 28
+strike key-exit left
+key key-exit
 walk 20 18
 harvest 3 4 15 29
 harvest 23 5 9 26
@@ -2214,67 +2482,79 @@ walk 27 3
 
 ## 25 – Spuren im Mauerwerk
 
-Die Torhallen. 52 × 38 Felder, Quote 62, 190 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 52 × 38 Felder, Quote 62, 180 Sekunden, Schwierigkeit 3/3.
 
-Sieh zuerst nach den Zugängen: Sichtbare Schätze liegen oft in der Nachbargalerie. A und B verbinden die drei Reviere. Der Mondschlüssel liegt im Osten. DW weist auf den späteren Zwergen-Geheimzweig: Du kannst sein Vorzimmer finden, aber sein Eingang bleibt in dieser Fassung versiegelt. Der normale Ausgang führt zu 26.
+Sieh zuerst nach den Zugängen: Sichtbare Schätze liegen oft in der Nachbargalerie. A und B verbinden die drei Reviere. Der goldene Mondträger wartet im Osten. DW weist auf den späteren Zwergen-Geheimzweig: Du kannst sein Vorzimmer finden, aber sein Eingang bleibt in dieser Fassung versiegelt. Der normale Ausgang führt zu 26. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: Sieh zuerst nach den Zugängen: Sichtbare Schätze liegen oft in der Nachbargalerie. A und B verbinden die drei Reviere. Der Mondschlüssel liegt im Osten. DW weist auf den späteren Zwergen-Geheimzweig: Du kannst sein Vorzimmer finden, aber sein Eingang bleibt in dieser Fassung versiegelt. Der normale Ausgang führt zu 26.
+Hinweis: Sieh zuerst nach den Zugängen: Sichtbare Schätze liegen oft in der Nachbargalerie. A und B verbinden die drei Reviere. Der goldene Mondträger wartet im Osten. DW weist auf den späteren Zwergen-Geheimzweig: Du kannst sein Vorzimmer finden, aber sein Eingang bleibt in dieser Fassung versiegelt. Der normale Ausgang führt zu 26. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 583 Takte / 58.3 Sekunden, 69 Kristallpunkte, 69 Wertungspunkte. Replay: public/replays/25.json.
+Geprüfter Durchlauf: 604 Takte / 60.4 Sekunden, 69 Kristallpunkte, 74 Wertungspunkte. Replay: public/replays/25.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##################################################X
-X##################################################X
-X##E###############################################X
-X##.###################·.M..M..M..M.#####·.M.M.M.##X
-X##P##M..M..M.M.·.#####.###########.#####.######.##X
-X##.#############.#####.###########.#####.######.##X
-X##.#############.#####.###########.#####.######.##X
-X##.#############.#####.###########.#####.######.##X
-X##.#############.#####..M..M..####.#####.######.##X
-X##..M..M..D#####.#####.######.####.#####.######.##X
-X##.#############.#####.######.####.#####.######.##X
-X##.#############.#####.######.####.#####.######.##X
-X##.#############.#####.##DM.M.####.#####.######.##X
-X##.#############.#####.###########.#####.######.##X
-X##.###..M..M..M..#####.###########.#####.M.MD##.##X
-X##.###.###############.###########.############.##X
-X##.###.###############..M..M..M..M.############.##X
-X##.###.###########################.############.##X
-X##.###.###########################.############.##X
-X##.###.###########################.#######DM.M..##X
-X##.###..M..M..M..#################.############.##X
-X##.###.#########.#################.############.##X
-X##.###.#########.#####..M..M..M..M.###.....####.##X
-X##.###.#########.#####.###############.########.##X
-X##.###.#########.#####.###############.########.##X
-X##.###.#########.#####.###############.M..M..M..##X
-X##.###.M..M.D###.#####.###############.###########X
-X##.#############.#####..M..MD#########.###########X
-X##.#############.#####.###############..#..#######X
-X##.#############.#####.###############.###.#######X
-X##.#############.#####.###############.###########X
-X##..M..M..M..M...#####.###############.M..M..M####X
-X######################..M..M..·###################X
-X##################################################X
-X##################################################X
-X##################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXX·.M..M..M..M.XXXXX·.M.M.M.XXX
+XXXPXXM..M..M.M.·.XXXXX.XXXXXXXXXXX.XXXXX.XXXXXX.XXX
+XXX.XXXXXXXXXXXXX.XXXXX.XXXXXXXXXXX.XXXXX.XXXXXX.XXX
+XXX.XXXXXXXXXXXXX.XXXXX.XXXXXXXXXXX.XXXXX.XXXXXX.XXX
+XXX.XXXXXXXXXXXXX.XXXXX.XXXXXXXXXXX.XXXXX.XXXXXX.XXX
+XXX.XXXXXXXXXXXXX.XXXXX..M..M..XXXX.XXXXX.XXXXXX.XXX
+XXX..M..M..DXXXXX.XXXXX.XXXXXX.XXXX.XXXXX.XXXXXX.XXX
+XXX.XXXXXXXXXXXXX.XXXXX.XXXXXX.XXXX.XXXXX.XXXXXX.XXX
+XXX.XXXXXXXXXXXXX.XXXXX.XXXXXX.XXXX.XXXXX.XXXXXX.XXX
+XXX.XXXXXXXXXXXXX.XXXXX.XXDM.M.XXXX.XXXXX.XXXXXX.XXX
+XXX.XXXXXXXXXXXXX.XXXXX.XXXXXXXXXXX.XXXXX.XXXXXX.XXX
+XXX.XXX..M..M..M..XXXXX.XXXXXXXXXXX.XXXXX.M.MDXX.XXX
+XXX.XXX.XXXXXXXXXXXXXXX.XXXXXXXXXXX.XXXXXXXXXXXX.XXX
+XXX.XXX.XXXXXXXXXXXXXXX..M..M..M..M.XXXXXXXXXXXX.XXX
+XXX.XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXX.XXX
+XXX.XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXX.XXX
+XXX.XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXRM.M..XXX
+XXX.XXX..M..M..M..XXXXXXXXXXXXXXXXX.XXX.....XXXX.XXX
+XXX.XXX.XXXXXXXXX.XXXXXXXXXXXXXXXXX.XXX.XXX·XXXX.XXX
+XXX.XXX.XXXXXXXXX.XXXXX..M..M..M..M.XXX..····XXX.XXX
+XXX.XXX.XXXXXXXXX.XXXXX.XXXXXXXXXXXXXXX.XXXXXXXX.XXX
+XXX.XXX.XXXXXXXXX.XXXXX.XXXXXXXXXXXXXXX.XXXXXXXX.XXX
+XXX.XXX.XXXXXXXXX.XXXXX.XXXXXXXXXXXXXX#.MD.M..M..XXX
+XXX.XXX.M..M.DXXX.XXXXX.XXXXXXXXXXXXXXX.XXXXXXXXXXXX
+XXX.XXXXXXXXXXXXX.XXXXX..M..MDXXXXXXXXX.XXXXXXXXXXXX
+XXX.XXXXXXXXXXXXX.XXXXX.XXXXXXXXXXXXXXX..#..XXXXXXXX
+XXX.XXXXXXXXXXXXX.XXXXX.XXXXXXXXXXXXXXX.XXX.XXXXXXXX
+XXX.XXXXXXXXXXXXX.XXXXX.XXXXXXXXXXXXXXX.XXX#XXXXXXXX
+XXX..M..M..M..M...XXXXX.XXXXXXXXXXXXXXX.M..M..MXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX..M..M..·XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
 
+Schlüsselträger:
+```json
+[
+  {
+    "id": "key-exit",
+    "seal": "moon",
+    "x": 41,
+    "y": 23,
+    "direction": "right"
+  }
+]
+```
+
 ```json
 {
-  "keys": [
-    {
-      "id": "key-exit",
-      "seal": "moon",
-      "x": 43,
-      "y": 23
-    }
-  ],
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
   "doors": [
     {
       "id": "door-exit",
@@ -2353,7 +2633,11 @@ walk 15 5
 move right
 walk 30 33
 move right
-walk 43 23
+walk 39 26
+walk 39 21
+walk 42 21
+strike key-exit right
+key key-exit
 harvest 39 4 10 29
 harvest 23 4 13 30
 harvest 3 5 15 28
@@ -2362,69 +2646,81 @@ walk 3 3
 
 ## 26 – Wandernde Adern
 
-Die Torhallen. 50 × 40 Felder, Quote 66, 130 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 50 × 40 Felder, Quote 66, 210 Sekunden, Schwierigkeit 3/3.
 
-Die mittlere Ader und der untere Quergang teilen sich einen Fallschacht. Gräbst du die mittlere Stütze frei, sinkt der Fels in den unteren Zugang. Entscheide, welche Funde du vorher holst. A erschließt die Gegenseite; der Sonnenschlüssel liegt in der Nische hinter dem Felsen.
+Die mittlere Ader und der untere Quergang teilen sich einen Fallschacht. Gräbst du die mittlere Stütze frei, sinkt der Fels in den unteren Zugang. Entscheide, welche Funde du vorher holst. A erschließt die Gegenseite; der goldene Sonnenträger wartet in der Nische hinter dem Felsen. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: Die mittlere Ader und der untere Quergang teilen sich einen Fallschacht. Gräbst du die mittlere Stütze frei, sinkt der Fels in den unteren Zugang. Entscheide, welche Funde du vorher holst. A erschließt die Gegenseite; der Sonnenschlüssel liegt in der Nische hinter dem Felsen.
+Hinweis: Die mittlere Ader und der untere Quergang teilen sich einen Fallschacht. Gräbst du die mittlere Stütze frei, sinkt der Fels in den unteren Zugang. Entscheide, welche Funde du vorher holst. A erschließt die Gegenseite; der goldene Sonnenträger wartet in der Nische hinter dem Felsen. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 620 Takte / 62.0 Sekunden, 71 Kristallpunkte, 71 Wertungspunkte. Replay: public/replays/26.json.
+Geprüfter Durchlauf: 715 Takte / 71.5 Sekunden, 71 Kristallpunkte, 76 Wertungspunkte. Replay: public/replays/26.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X################################################X
-X###E############################################X
-X###.############################################X
-X###P..M...M...M...M...M...M...M...M...M..M..####X
-X###.#######################################.####X
-X###.#######################################.####X
-X###.#######################################.####X
-X###.##########################..M..M..M..M..####X
-X###..M..M..M..M........#######.############.####X
-X###.#############.#####R.#####.############.####X
-X###.#############.####..#...##.############.####X
-X###.#############.####.·###.##..M..M.M.·###.####X
-X###.#####.M..M..D.####.·###.###############.####X
-X###.#####.############.·###.###############.####X
-X###.#####.############.·###.###############.####X
-X###.####·.....M..M..M...M..M..M.....#######.####X
-X###.#####.###.#################.###.#######.####X
-X###.#####.###.#################.###.#######.####X
-X###.#####.###.#################.###.#######.####X
-X###.......###.#############D....###D........####X
-X###.#########.#############################.####X
-X###.#########.#############################.####X
-X###.#########..M..M..M..###################.####X
-X###.###################.###################.####X
-X###.###################.########..M..M..M...####X
-X###.###################.########.##########.####X
-X###..M..M..M..M.#######.########.##########.####X
-X###.###########.#######..M.MD###.##########.####X
-X###.###########.################.##########.####X
-X###.###########.################..M..M..M##.####X
-X###.####DM..M...###########################.####X
-X###.#######################################.####X
-X###.#######################################.####X
-X###..M...M...M...M...M...M...M...M...M...M..####X
-X################################################X
-X################################################X
-X################################################X
-X################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXP..M...M...M...M...M...M...M...M...M..M..XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXRXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXX...XXX..M..M..M..M..XXXXX
+XXXX..M..M..M..M........X.X·XXX.XXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXX.XXXXXR..····XXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXX.XXXX..XXXXXX.XXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXX.XXXX.·XXX.XX..M..M.M.·XXX.XXXXX
+XXXX.XXXXX.M..M..D.XXXX.·XXX.XXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXX.XXXXXXXXXXXX.·XXX.XXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXX.XXXXXXXXXXXX.·XXX.XXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXX·.....M..M..M...M..M..M.....XXXXXXX.XXXXX
+XXXX.XXXXX.XXX.XXXXXXXXXXXXXXXXX.XXX.XXXXXXX.XXXXX
+XXXX.XXXXX.XXX.XXXXXXXXXXXXXXXXX.XXX.XXXXXXX.XXXXX
+XXXX.XXXXX.XXX.XXXXXXXXXXXXXXXXX.XXX.XXXXXXX.XXXXX
+XXXX.......XXX.XXXXXXXXXXXXXD....XXXD........XXXXX
+XXXX.XXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXX..M..M..M..XXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXXXXXX..M..M..M...XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXXXXXX.XXXXXXXXXX.XXXXX
+XXXX..M..M..M..M.XXXXXXX.XXXXXXXX.XXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXX.XXXXXXX..M.MDXXX.XXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXX.XXXXXXXXXXXXXXXX.XXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXX.XXXXXXXXXXXXXXXX..M..M..MXX.XXXXX
+XXXX.XXXXDM..M...XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX..M...M...M...M...M...M...M...M...M...M..XXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
 
+Schlüsselträger:
+```json
+[
+  {
+    "id": "key-exit",
+    "seal": "sun",
+    "x": 27,
+    "y": 10,
+    "direction": "right"
+  }
+]
+```
+
 ```json
 {
-  "keys": [
-    {
-      "id": "key-exit",
-      "seal": "sun",
-      "x": 25,
-      "y": 10
-    }
-  ],
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
   "doors": [
     {
       "id": "door-exit",
@@ -2476,6 +2772,10 @@ walk 23 11
 snap right
 wait 6
 walk 25 10
+walk 25 8
+walk 26 8
+strike key-exit right
+key key-exit
 harvest 9 15 28 15
 harvest 4 4 41 31
 walk 4 2
@@ -2483,73 +2783,86 @@ walk 4 2
 
 ## 27 – Die geöffnete Jagd
 
-Die Torhallen. 52 × 38 Felder, Quote 56, 175 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 52 × 38 Felder, Quote 56, 160 Sekunden, Schwierigkeit 3/3.
 
-Die Sonnentür verbindet die Patrouille mit deinen Sammelwegen und bleibt offen. Schalte A/B von innen frei. Über die Portale kannst nur du abkürzen; der Käfer muss laufen. Nutze Nischen, sammle in Abschnitten und hole den Mondschlüssel im südöstlichen Ast.
+Die Sonnentür verbindet die Patrouille mit deinen Sammelwegen und bleibt offen. Schalte A/B von innen frei. Über die Portale kannst nur du abkürzen; der Käfer muss laufen. Nutze Nischen, sammle in Abschnitten und hole den Mondschlüssel im südöstlichen Ast. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: Die Sonnentür verbindet die Patrouille mit deinen Sammelwegen und bleibt offen. Schalte A/B von innen frei. Über die Portale kannst nur du abkürzen; der Käfer muss laufen. Nutze Nischen, sammle in Abschnitten und hole den Mondschlüssel im südöstlichen Ast.
+Hinweis: Die Sonnentür verbindet die Patrouille mit deinen Sammelwegen und bleibt offen. Schalte A/B von innen frei. Über die Portale kannst nur du abkürzen; der Käfer muss laufen. Nutze Nischen, sammle in Abschnitten und hole den Mondschlüssel im südöstlichen Ast. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 431 Takte / 43.1 Sekunden, 58 Kristallpunkte, 58 Wertungspunkte. Replay: public/replays/27.json.
+Geprüfter Durchlauf: 536 Takte / 53.6 Sekunden, 58 Kristallpunkte, 68 Wertungspunkte. Replay: public/replays/27.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##################################################X
-X##################################################X
-X###E##############################################X
-X###.##############################################X
-X###P##############################################X
-X###.##############################################X
-X###.##############################################X
-X###..M..M..M..#·#######>·M··M··M··M······M··M·####X
-X###.###.###############·#####################·####X
-X###.###.###############·#####################·####X
-X###.###......##########·#####################·####X
-X###.########.##########·#####################·####X
-X###.########.##########·########..M..M..M..M.·####X
-X###..M..M..MD##########·########.############·####X
-X###.###################·########.############·####X
-X###.###################·########.############·####X
-X###.###################·########D.M..M..M####·####X
-X###.###################·.....################·####X
-X###.###################·####.################·####X
-X###.#####..............·####.################·####X
-X###.#####.#############·####.################·####X
-X###.#####.#############·#...D################·####X
-X###.#####.##·##########·#####################·####X
-X###.#####.#############·#########..M..M..M..M·####X
-X###.#####.........#####·#########.###########·####X
-X###.#############.#####·#########.###########·####X
-X###.#############.#####·#########D.M..M.#####·####X
-X###.#############.#####·#####################·####X
-X###..M..M...#####.#####·#####################·####X
-X###.#############.#####··M·····M··M··M··M··M··####X
-X###.#############.#####.###################.######X
-X###.#############.#####.###################.######X
-X###..M..M..M..M..D#####.###################.######X
-X#######################.###################.######X
-X#######################..M..M..M..M..M..M..D######X
-X##################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXPXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXX..M..M..M..#·XXXXXXX>·M··M··M··M······M··M·XXXXX
+XXXX.XXX.XXXXXXXXXXXXXXX·XXXXXXXXXXXXXXXXXXXXX·XXXXX
+XXXX.XXX.XXXXXXXXXXXXXXX·XXXXXXXXXXXXXXXXXXXXX·XXXXX
+XXXX.XXX......XXXXXXXXXX·XXXXXXXXXXXXXXXXXXXXX·XXXXX
+XXXX.XXXXXXXX.XXXXXXXXXX·XXXXXXXXXXXXXXXXXXXXX·XXXXX
+XXXX.XXXXXXXX.XXXXXXXXXX·XXXXXXXX..M..M..M..M.·XXXXX
+XXXX..M..M..MDXXXXXXXXXX·XXXXXXXX.XXXXXXXXXXXX·XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX·XXXXXXXX.XXXXXXXXXXXX·XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX·XXXXXXXX.XXXXXXXXXXXX·XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX·XXXXXXXXD.M..M..MXXXX·XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX·.....XXXXXXXXXXXXXXXX·XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX·XXXX.XXXXXXXXXXXXXXXX·XXXXX
+XXXX.XXXXX..............·#XXX.XXXXXXXXXXXXXXXX·XXXXX
+XXXX.XXXXX.XXXXXXXXXXXXX·XXXX.XXXXXXXXXXXXXXXX·XXXXX
+XXXX.XXXXX.XXXXXXXXXXXXX·X...DXXXXXXXXXXXXXXXX·XXXXX
+XXXX.XXXXX.XX·XXXXXXXXXX·XXXXXXXXXXXXX....XXXX·XXXXX
+XXXX.XXXXX.XX#XXXXXXXXXX·XXXXXXXXX..M..MR.M..M·XXXXX
+XXXX.XXXXX.........XXXXX·XXXXXXXXX.XXX...XXXXX·XXXXX
+XXXX.XXXXXXRXXXXXX.XXXXX·XXXXXXXXX.XXXXX·XXXXX·XXXXX
+XXXX.XXX....XXXXXX.XXXXX·XXXXXXXXXD.M.·····XXX·XXXXX
+XXXX.XXX.XX·XXXXXX.XXXXX·XXXXXXXXXXXXXXXXXXXXX·XXXXX
+XXXX..M..M····XXXX.XXXXX·XXXXXXXXXXXXXXXXXXXXX·XXXXX
+XXXX.XXXXXXXXXXXXX.XXXXX··M·····M··M··M··M··M··XXXXX
+XXXX.XXXXXXXXXXXXX.XXXXX.XXXXXXXXXXXXXXXXXXX.XXXXXXX
+XXXX.XXXXXXXXXXXXX.XXXXX.XXXXXXXXXXXXXXXXXXX.XXXXXXX
+XXXX..M..M..M..M..DXXXXX.XXXXXXXXXXXXXXXXXXX.XXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXX.XXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXX..M..M..M..M.MM..M..DXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
 
+Schlüsselträger:
+```json
+[
+  {
+    "id": "key-hunt",
+    "seal": "sun",
+    "x": 10,
+    "y": 29,
+    "direction": "right"
+  },
+  {
+    "id": "key-exit",
+    "seal": "moon",
+    "x": 38,
+    "y": 27,
+    "direction": "right"
+  }
+]
+```
+
 ```json
 {
-  "keys": [
-    {
-      "id": "key-hunt",
-      "seal": "sun",
-      "x": 12,
-      "y": 29
-    },
-    {
-      "id": "key-exit",
-      "seal": "moon",
-      "x": 40,
-      "y": 27
-    }
-  ],
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
   "doors": [
     {
       "id": "door-hunt",
@@ -2646,7 +2959,11 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 12 29
+walk 8 29
+walk 8 27
+walk 10 27
+strike key-hunt right
+key key-hunt
 walk 22 20
 until 24 15 crawler
 move right
@@ -2657,7 +2974,13 @@ walk 24 35
 walk 44 35
 walk 46 30
 walk 46 24
-walk 40 27
+walk 41 24
+walk 41 23
+walk 38 23
+walk 38 25
+walk 39 25
+strike key-exit right
+key key-exit
 harvest 33 12 13 16
 harvest 24 30 22 6
 harvest 24 8 23 1
@@ -2667,75 +2990,88 @@ walk 4 3
 
 ## 28 – Schichtwechsel
 
-Die Torhallen. 56 × 40 Felder, Quote 78, 165 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 56 × 40 Felder, Quote 78, 175 Sekunden, Schwierigkeit 3/3.
 
-U und L schalten gegenläufig. Hole oben den Sonnenschlüssel und sammle die oberen Äste, bevor du auf L wechselst. Unten liegt der Mondschlüssel für den oberen Ausgang. Bündele deine Wege: Zwei Schaltungen reichen. Der Hebel bleibt immer erreichbar.
+U und L schalten gegenläufig. Hole oben den Sonnenschlüssel und sammle die oberen Äste, bevor du auf L wechselst. Unten liegt der Mondschlüssel für den oberen Ausgang. Bündele deine Wege: Zwei Schaltungen reichen. Der Hebel bleibt immer erreichbar. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: U und L schalten gegenläufig. Hole oben den Sonnenschlüssel und sammle die oberen Äste, bevor du auf L wechselst. Unten liegt der Mondschlüssel für den oberen Ausgang. Bündele deine Wege: Zwei Schaltungen reichen. Der Hebel bleibt immer erreichbar.
+Hinweis: U und L schalten gegenläufig. Hole oben den Sonnenschlüssel und sammle die oberen Äste, bevor du auf L wechselst. Unten liegt der Mondschlüssel für den oberen Ausgang. Bündele deine Wege: Zwei Schaltungen reichen. Der Hebel bleibt immer erreichbar. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 594 Takte / 59.4 Sekunden, 82 Kristallpunkte, 82 Wertungspunkte. Replay: public/replays/28.json.
+Geprüfter Durchlauf: 585 Takte / 58.5 Sekunden, 82 Kristallpunkte, 92 Wertungspunkte. Replay: public/replays/28.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##############E#######################################X
-X##############.#######################################X
-X###.·.M..M..M..M..M..D################################X
-X###.##########.######.#################..M..M..M.D####X
-X###.##########.######.#################.#########.####X
-X###..M..M..M.....M..M..M...############.#########.####X
-X###.######################.############.#########.####X
-X###.######################.############.#########.####X
-X###.######################.############.#########.####X
-X###.#####.M..M..M..M######..M..M..M..M..#########.####X
-X###.###############.######.######.###############.####X
-X###.###############.######.######.###############.####X
-X###.###############.######.######.###############.####X
-X###.###############.#############.###############.####X
-X###..M..M..M..M..M..######.######..M..M..M..M.M.·.####X
-X##########################.###########################X
-X##########################.###########################X
-X##########################.###########################X
-X#######################..#P...########################X
-X##########################.###########################X
-X##########################.###########################X
-X##########################.#######D.M..M..M..M...#####X
-X####..M..M..M..M.D########.#######.#############.#####X
-X####.############.################.#############.#####X
-X####.############.########.#######.#############....##X
-X####.############.########.#######.#############.##.##X
-X####.############.########.#######.#############.##.##X
-X####.####DM..M..M.########.#######.M..M..M.#####.##.##X
-X####.#####################.#####################.##.##X
-X####.#####################.#####################.##.##X
-X####.#####################.#####################.##.##X
-X####.#####################.#####################.##.##X
-X####.#####################.#####################.##.##X
-X####.·..M..M..M..M..M..M.....M..M..M..M..M..M..M.##.##X
-X################################.##################.##X
-X################################.##################.##X
-X################################D.M..M..M..M..M...·.##X
-X######################################################X
+XXXXXXXXXXXXXXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXX.·.M..M..M..M..M..DXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXX.XXXXXXXXXX.XXXXXX.XXXXXXXXXXXXXXXXX..M..M..M.DXXXXX
+XXXX.XXXXXXXXXX.XXXXXX.XXXXXXXXXXXXXXXXX.XXXXXXXXX.XXXXX
+XXXX..M..M..M.....M..M..M...XXXXXXXXXXXX.XXXXXXXXX.XXXXX
+XXXX.XXXXXXXRXXXXXXXXXXXXXX.XXXXXXXXXXXX.XXXXXXXXX.XXXXX
+XXXX.XXXXXXX.....XXXXXXXXXX.XXXXXXXXXXXX.XXXXXXXXX.XXXXX
+XXXX.XXXXXXX·XXX.XXXXXXXXXX.XXXXXXXXXXXX.XXXXXXXXX.XXXXX
+XXXX.XXXXX·····..M..MXXXXXX..M..M..M..M..XXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXX.XXXXXX.XXXXXX.XXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXX.XXXXXX.XXXXXX.XXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXX.XXXXXX.XXXXXX.XXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXX.XXXXXX#XXXXXX.XXXXXXXXXXXXXXX.XXXXX
+XXXX..M..MMMM..M..M..XXXXXX.XXXXXX..M..M..M..M.M.·.XXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXX..#P...XXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXD.M..M..M..M...XXXXXX
+XXXXX..M..M..M..M.DXXXXXXXX.XXXXXXX.XXXXXXXXXXXXX.XXXXXX
+XXXXX.XXXXXXXXXXXX.XXXXXXXX#XXXXXXX.XXXXXXXXXXXXX.XXXXXX
+XXXXX.XXXXXXXXXXXX.XXXXXXXX.XXXXXXX.XXXXXRXXXXXXX....XXX
+XXXXX.XXXXXXXXXXXX.XXXXXXXX.XXXXXXX.......XXXXXXX.XX.XXX
+XXXXX.XXXXXXXXXXXX.XXXXXXXX.XXXXXXX..XXXX·XXXXXXX.XX.XXX
+XXXXX.XXXXDM..M..M.XXXXXXXX.XXXXXXX.M..·····XXXXX.XX.XXX
+XXXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXX.XX.XXX
+XXXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXX.XX.XXX
+XXXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXX.XX.XXX
+XXXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXX.XX.XXX
+XXXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXX.XX.XXX
+XXXXX.·..M..M..M..M..M..M.....M..M..M.MMM.M..M..M.XX.XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXX.XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXX.XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXD.M..M..M..M..M...·.XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
 
+Schlüsselträger:
+```json
+[
+  {
+    "id": "key-lower",
+    "seal": "sun",
+    "x": 10,
+    "y": 10,
+    "direction": "right"
+  },
+  {
+    "id": "key-exit",
+    "seal": "moon",
+    "x": 39,
+    "y": 28,
+    "direction": "right"
+  }
+]
+```
+
 ```json
 {
-  "keys": [
-    {
-      "id": "key-lower",
-      "seal": "sun",
-      "x": 10,
-      "y": 10
-    },
-    {
-      "id": "key-exit",
-      "seal": "moon",
-      "x": 43,
-      "y": 28
-    }
-  ],
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
   "doors": [
     {
       "id": "door-lower",
@@ -2818,11 +3154,19 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 10 10
+walk 16 10
+walk 16 8
+walk 13 8
+strike key-lower left
+key key-lower
 harvest 4 3 47 13
 walk 27 19
 use left
-walk 43 28
+walk 36 28
+walk 36 26
+walk 40 26
+strike key-exit right
+key key-exit
 harvest 4 22 49 16
 walk 27 19
 use left
@@ -2831,75 +3175,88 @@ walk 15 1
 
 ## 29 – Die andere Seite des Felsens
 
-Die Torhallen. 52 × 40 Felder, Quote 68, 155 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 52 × 40 Felder, Quote 68, 160 Sekunden, Schwierigkeit 3/3.
 
-Schiebe den gemeinsamen Felsen zuerst zweimal nach rechts. Oben findest du den Sonnenschlüssel für A. Reise auf die andere Seite und schiebe denselben Felsen von rechts zurück: So wird der untere Erzweg frei. Der Mondschlüssel öffnet den direkten Heimweg.
+Schiebe den gemeinsamen Felsen zuerst zweimal nach rechts. Oben findest du den Sonnenschlüssel für A. Reise auf die andere Seite und schiebe denselben Felsen von rechts zurück: So wird der untere Erzweg frei. Der Mondschlüssel öffnet den direkten Heimweg. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: Schiebe den gemeinsamen Felsen zuerst zweimal nach rechts. Oben findest du den Sonnenschlüssel für A. Reise auf die andere Seite und schiebe denselben Felsen von rechts zurück: So wird der untere Erzweg frei. Der Mondschlüssel öffnet den direkten Heimweg.
+Hinweis: Schiebe den gemeinsamen Felsen zuerst zweimal nach rechts. Oben findest du den Sonnenschlüssel für A. Reise auf die andere Seite und schiebe denselben Felsen von rechts zurück: So wird der untere Erzweg frei. Der Mondschlüssel öffnet den direkten Heimweg. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 542 Takte / 54.2 Sekunden, 70 Kristallpunkte, 70 Wertungspunkte. Replay: public/replays/29.json.
+Geprüfter Durchlauf: 534 Takte / 53.4 Sekunden, 70 Kristallpunkte, 80 Wertungspunkte. Replay: public/replays/29.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##################################################X
-X##################################################X
-X###############################..M..M..M..D#######X
-X###############################.##################X
-X###############################..M..M..M..M...####X
-X###############################.#############.####X
-X###..M..M..M..M..M.M..#########.#############.####X
-X###.#################.#########.#############.####X
-X###.#################.#########.####DM..M..M..####X
-X###.#################.#########.#############.####X
-X###.###.M..M...##D....#########.#############.####X
-X###.##########.######.#########.#############.####X
-X###.##########.######.#########..M..M..M#####.####X
-X###.##########.######.#################.#####.####X
-X###.##########.######...###############.#####.####X
-X###D.M..M..M..M######.#.###############.#####.####X
-X#####################.#·###·###########.#####.####X
-X#####################.#####.#####.M..M..#####.####X
-X#####################.#####.#################.####X
-X#################.··R··.....#################.####X
-X#################.####.######################.####X
-X#################.####.######################.####X
-X#################.####.######################.####X
-X#################.####..M..M..M..M..M..M..M...####X
-X#################.####.######################.####X
-X#################.####.######################.####X
-X#################.####.######################.####X
-X###E#############.####.######################.####X
-X###.#############.####.######..M..M..M..D####.####X
-X###.#############......######.###############.####X
-X###.#############.###########.###############.####X
-X###.#############.###########.#######DM..M..M.####X
-X###.#############.###########.###############.####X
-X###.#############.###########.###############.####X
-X###P.M..M..M..M...###########D.M..M..M..M..M..####X
-X##################################################X
-X##################################################X
-X##################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..M..M..M..DXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..M..M..M..M...XXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXX.XXXXX
+XXXX..M..M..M..M..M.M..XXXXXXXXX.XXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXRXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXXXXX.XXXXX
+XXXX.XXXXX......XXXXXX.XXXXXXXXX.XXXXDM..M..M..XXXXX
+XXXX.XXXXX·XXXX.XXXXXX.XXXXXXXXX.XXXXXXXXXXXXX.XXXXX
+XXXX.XXX·····...XXD....XXXXXXXXX.XXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXX.XXXXXX.XXXXXXXXX.XXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXX.XXXXXX.XXXXXXXXX..M..M..MXXXXX.XXXXX
+XXXX.XXXXXXXXXX.XXXXXX.XXXXXXXXXXXXXXXXX.XXXXX.XXXXX
+XXXX.XXXXXXXXXX.XXXXXX...XXXXXXXXXXXRXXX.XXXXX.XXXXX
+XXXXD.MMMM..M..MXXXXXX.X.XXXXXXXXXXX.....XXXXX.XXXXX
+XXXXXXXXXXXXXXXXXXXXXX.X·XXX·XXXXXXX·XXX.XXXXX.XXXXX
+XXXXXXXXXXXXXXXXXXXXXX.XXXXX.XXXXX·····..XXXXX.XXXXX
+XXXXXXXXXXXXXXXXXXXXXX.XXXXX.XXXXXXXXXXXXXXXXX.XXXXX
+XXXXXXXXXXXXXXXXXX.··R··.....XXXXXXXXXXXXXXXXX.XXXXX
+XXXXXXXXXXXXXXXXXX.XXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXXXXXXXXXXXXXXXX.XXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXXXXXXXXXXXXXXXX.XXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXXXXXXXXXXXXXXXX.XXXX..M..M..M.MMM.M..M..M...XXXXX
+XXXXXXXXXXXXXXXXXX.XXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXXXXXXXXXXXXXXXX.XXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXXXXXXXXXXXXXXXX.XXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXXEXXXXXXXXXXXXX.XXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXX.XXXX.XXXXXX..M..M..M..DXXXX.XXXXX
+XXXX.XXXXXXXXXXXXX......XXXXXX.XXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXX.XXXXXXXXXXX.XXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXX.XXXXXXXXXXX.XXXXXXXDM..M..M.XXXXX
+XXXX.XXXXXXXXXXXXX.XXXXXXXXXXX.XXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXX.XXXXXXXXXXX.XXXXXXXXXXXXXXX.XXXXX
+XXXXP.M..M..M..M...XXXXXXXXXXXD.M..M..M..M..M..XXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
 
+Schlüsselträger:
+```json
+[
+  {
+    "id": "key-work",
+    "seal": "sun",
+    "x": 8,
+    "y": 11,
+    "direction": "right"
+  },
+  {
+    "id": "key-home",
+    "seal": "moon",
+    "x": 34,
+    "y": 18,
+    "direction": "right"
+  }
+]
+```
+
 ```json
 {
-  "keys": [
-    {
-      "id": "key-work",
-      "seal": "sun",
-      "x": 8,
-      "y": 11
-    },
-    {
-      "id": "key-home",
-      "seal": "moon",
-      "x": 34,
-      "y": 18
-    }
-  ],
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
   "doors": [
     {
       "id": "door-work",
@@ -2946,7 +3303,11 @@ Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 walk 20 20
 move right
 move right
-walk 8 11
+walk 15 11
+walk 15 9
+walk 11 9
+strike key-work left
+key key-work
 harvest 4 7 19 10
 walk 24 15
 move down
@@ -2954,7 +3315,11 @@ move down
 walk 24 20
 move left
 walk 23 24
-walk 34 18
+walk 40 16
+walk 39 16
+walk 37 16
+strike key-home left
+key key-home
 harvest 30 3 17 33
 walk 22 30
 move left
@@ -2964,79 +3329,92 @@ walk 4 28
 
 ## 30 – Das gebrochene Siegel
 
-Die Torhallen. 58 × 44 Felder, Quote 86, 260 Sekunden, Schwierigkeit 3/3.
+Die Torhallen. 58 × 44 Felder, Quote 86, 270 Sekunden, Schwierigkeit 3/3.
 
-Bereite R vor dem Abbau der Kernader vor: Der Sonnenschlüssel öffnet die Hebelnische, der Mondschlüssel den Ausgang. Beim Betreten der Kernader untergräbst du den Fels über der A-Ankunft. Er versperrt danach den Portalrückweg. Für die Quote brauchst du Diamanten aus der Kernader; heimwärts geht es durch R und die bewachten unteren Gänge.
+Bereite R vor dem Abbau der Kernader vor: Der Sonnenschlüssel öffnet die Hebelnische, der Mondschlüssel den Ausgang. Beim Betreten der Kernader untergräbst du den Fels über der A-Ankunft. Er versperrt danach den Portalrückweg. Für die Quote brauchst du Diamanten aus der Kernader; heimwärts geht es durch R und die bewachten unteren Gänge. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: Bereite R vor dem Abbau der Kernader vor: Der Sonnenschlüssel öffnet die Hebelnische, der Mondschlüssel den Ausgang. Beim Betreten der Kernader untergräbst du den Fels über der A-Ankunft. Er versperrt danach den Portalrückweg. Für die Quote brauchst du Diamanten aus der Kernader; heimwärts geht es durch R und die bewachten unteren Gänge.
+Hinweis: Bereite R vor dem Abbau der Kernader vor: Der Sonnenschlüssel öffnet die Hebelnische, der Mondschlüssel den Ausgang. Beim Betreten der Kernader untergräbst du den Fels über der A-Ankunft. Er versperrt danach den Portalrückweg. Für die Quote brauchst du Diamanten aus der Kernader; heimwärts geht es durch R und die bewachten unteren Gänge. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 910 Takte / 91.0 Sekunden, 101 Kristallpunkte, 101 Wertungspunkte. Replay: public/replays/30.json.
+Geprüfter Durchlauf: 914 Takte / 91.4 Sekunden, 101 Kristallpunkte, 111 Wertungspunkte. Replay: public/replays/30.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X########################################################X
-X########################################################X
-X###E####################################################X
-X###.####################################################X
-X###.##########################.D.D.D#######.M..M..M.####X
-X###P..M...M...M...M...·.######.####################.####X
-X###.###################.######.####################.####X
-X###.###################.######.D.D.################.####X
-X###.###################.######.####################.####X
-X###.###################.....##.######R#############.####X
-X###.###################.###.##.D.D.D.......M..M..M..####X
-X###..M..M..M..M..######.###.##.######·###.#########.####X
-X###.############.######.###.##.######·###.#########.####X
-X###.############.######.###.##.#D.D.#·###.#########.####X
-X###.############.######.###.##.####.#·###.####.M..M.####X
-X###.####..M..M...######.###.##.####.#·....#########.####X
-X###.###################.###.##.D.D#.#####.#########.####X
-X###.################........##.####.#####.#########.####X
-X###.###################.######.####.#####.#########.####X
-X###.###################.######.D.D.D#####..M..M..M..####X
-X###.#####...............#################.##############X
-X###.#####.#############......############.##############X
-X###.#####..M..M..M.#########.############.##############X
-X###.#####.##################.###########################X
-X###.#####.##################.############.##############X
-X###.#####.##################.############.##############X
-X###.#####..M...M...M....####..M..M.######.##############X
-X###.###################.##########.######.##############X
-X###.#############.......##########.######··M··M·<M..####X
-X###.#############.#####.##########.######·######·##.####X
-X###.#############.#####.##########.######·######·##.####X
-X###..M..M..M..M...#####.####..M..M.######········...####X
-X###.###################.####.#############.########.####X
-X###.###################.####.#############.M..M..M..####X
-X###.###################.####..M..M..M.#############.####X
-X###.###################.####.######################.####X
-X###.###################.####.######################.####X
-X###..M...M...M...M...M..####..M..M..M..M..M..M..M...####X
-X########################################################X
-X########################################################X
-X########################################################X
-X########################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXX.D.D.DXXXXXXX.M..M..M.XXXXX
+XXXXP..M...M...M...M...·.XXXXXX.XXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXXXX.XXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXXXX.D.D.XXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXXXX.XXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.....XX.XXXXXXRXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXX.XX.D.D.D.......M..M..M..XXXXX
+XXXX..M..M..M..M..XXXXXX.XXX.XX.XXXXXX·XXX.XXXXXXXXX.XXXXX
+XXXX.XXXXXXRXXXXX.XXXXXX.XXX.XX.XXXXXX·XXX.XXXXXXXXX.XXXXX
+XXXX.XXXXXX.......XXXXXX.XXX.XX.XD.D.X·XXX.XXXXXXXXX.XXXXX
+XXXX.XXXXXX·XXXXX.XXXXXX.XXX.XX.XXXX.X·XXX.XXXX.M..M.XXXXX
+XXXX.XXXX·····M...XXXXXX.XXX.XX.XXXX.X·....XXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXX.XX.D.DX.XXXXX.XXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXX#........XX.XXXX.XXXXX.XXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXXXX.XXXX.XXXXX.XXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXXXX.D.D.DXXXXX..M..M..M..XXXXX
+XXXX.XXXXX.M.............XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXX
+XXXX.XXXXX.XXXXXXXXXXXXX......XXXXXXXXXXXX.XXXXXXXXXXXXXXX
+XXXX.XXXXX..M..M..M.XXXXXXXXX.XXXXXXXXXXXX.XXXXXXXXXXXXXXX
+XXXX.XXXXX.XXXXXXXXXXXXXXXXXX.XXXXXXXXXXXX#XXXXXXXXXXXXXXX
+XXXX.XXXXX.XXXXXXXXXXXXXXXXXX.XXXXXXXXXXXX.XXXXXXXXXXXXXXX
+XXXX.XXXXX.XXXXXXXXXXXXXXXXXX.XXXXXXXXXXXX.XXXXXXXXXXXXXXX
+XXXX.XXXXX..M...M...M....XXXX..M..M.XXXXXX.XXXXXXXXXXXXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXXXXXXXX.XXXXXX.XXXXXXXXXXXXXXX
+XXXX.XXXXXXXXXXRXX.......XXXXXXXXXX.XXXXXX··M··M·<M..XXXXX
+XXXX.XXXXX......XX.XXXXX.XXXXXXXXXX...XXXX·XXXXXX·XX.XXXXX
+XXXX.XXXXX.XXXX·XX.XXXXX.XXXXXXXXXX.X.XXXX·XXXXXX·XX.XXXXX
+XXXX..M..M..M·····.XXXXX.XXXX..M..M...XXXX········...XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXX.XXXXXXXXXXXXX.XXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXX.XXXXXXXXXXXXX.M..M..M..XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXX..M..M..M.XXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX.XXXXXXXXXXXXXXXXXXX.XXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXX..M...M.M.M...M...M..XXXX..M..M..M..M..M..M..M...XXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
 
+Schlüsselträger:
+```json
+[
+  {
+    "id": "key-prepare",
+    "seal": "sun",
+    "x": 13,
+    "y": 32,
+    "direction": "right"
+  },
+  {
+    "id": "key-exit",
+    "seal": "moon",
+    "x": 9,
+    "y": 16,
+    "direction": "right"
+  }
+]
+```
+
 ```json
 {
-  "keys": [
-    {
-      "id": "key-prepare",
-      "seal": "sun",
-      "x": 17,
-      "y": 32
-    },
-    {
-      "id": "key-exit",
-      "seal": "moon",
-      "x": 9,
-      "y": 16
-    }
-  ],
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
   "doors": [
     {
       "id": "door-prepare",
@@ -3107,8 +3485,16 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 17 32
-walk 9 16
+walk 10 32
+walk 10 30
+walk 14 30
+strike key-prepare right
+key key-prepare
+walk 17 14
+walk 15 14
+walk 12 14
+strike key-exit left
+key key-exit
 harvest 4 6 21 33
 walk 21 18
 use left
@@ -3120,8 +3506,7 @@ walk 37 11
 harvest 31 5 6 16
 harvest 42 5 11 16
 walk 42 25
-walk 42 32
-walk 52 32
+harvest 42 29 11 4
 walk 52 38
 harvest 29 27 24 12
 walk 4 3
@@ -3129,44 +3514,57 @@ walk 4 3
 
 ## 31 – Ein ungewöhnlicher Bergmann
 
-Die hungrigen Adern. 38 × 26 Felder, Quote 24, 70 Sekunden, Schwierigkeit 2/3.
+Die hungrigen Adern. 38 × 26 Felder, Quote 24, 80 Sekunden, Schwierigkeit 2/3.
 
-Bernsteinfarbene Grabe-Käfer öffnen das harte Muttergestein. Sie graben geradeaus; Hindernisse lenken sie rechts, links oder zurück. Lass A offen und sammle links, während er arbeitet. Der Sonnenschlüssel liegt hinter der Ader. Töte deinen Helfer nicht vorher.
+Bernsteinfarbene Grabe-Käfer öffnen das harte Muttergestein. Sie graben geradeaus; Hindernisse lenken sie rechts, links oder zurück. Lass A offen und sammle links, während er arbeitet. Der goldene Sonnenträger wartet hinter der Ader. Töte deinen Helfer nicht vorher. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: Bernsteinfarbene Grabe-Käfer öffnen das harte Muttergestein. Sie graben geradeaus; Hindernisse lenken sie rechts, links oder zurück. Lass A offen und sammle links, während er arbeitet. Der Sonnenschlüssel liegt hinter der Ader. Töte deinen Helfer nicht vorher.
+Hinweis: Bernsteinfarbene Grabe-Käfer öffnen das harte Muttergestein. Sie graben geradeaus; Hindernisse lenken sie rechts, links oder zurück. Lass A offen und sammle links, während er arbeitet. Der goldene Sonnenträger wartet hinter der Ader. Töte deinen Helfer nicht vorher. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 253 Takte / 25.3 Sekunden, 26 Kristallpunkte, 26 Wertungspunkte. Replay: public/replays/31.json.
+Geprüfter Durchlauf: 277 Takte / 27.7 Sekunden, 26 Kristallpunkte, 31 Wertungspunkte. Replay: public/replays/31.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X####################################X
-X##E#################################X
-X##.#################################X
-X##..M.M############..M...M...M...###X
-X##.###.############.############.###X
-X##.###.############.############.###X
-X##.################.############.###X
-X##P...#2#HHHHHHHHHH······#######M###X
-X##.################.##.#.#######.###X
-X##.################.##.#.###M....###X
-X##.################.##.#.###.###.###X
-X##M################.##...###.###.###X
-X##.################.########.###.###X
-X##.################.########M###.###X
-X##.#M...####....M...####M....###.###X
-X##.####.####.######.############.###X
-X##.####.####.######.############.###X
-X##.####.####D######......D######D###X
-X##.####.####.###################.###X
-X##....M.####.###################.###X
-X############..M...M....M....M....###X
-X####################################X
-X####################################X
-X####################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX..M.MXXXXXXXXXXXX..M...M...M...XXXX
+XXX.XXX.XXXXXXXXXXXX.XXXXXXXXXXXX.XXXX
+XXX.XXX.XXXXXXXXXXXX.XXXXXXXXXXXX.XXXX
+XXX.XXX#XXXXXXXXXXXX.XXXXXXXXXRXX.XXXX
+XXXP...#2#HHHHHHHHHH······XXXX...MXXXX
+XXX.XXXX·XXXXXXXXXXX.XX.X.XXXX·XX.XXXX
+XXX.XXXX·XXXXXXXXXXX.XX.X.XX·····.XXXX
+XXX.XXXX·XXXXXXXXXXX.XX.X.XXX.XXX.XXXX
+XXXMXXXXXXXXXXXXXXXX.XX...XXX.XXX.XXXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXXX.XXX.XXXX
+XXX.XXXXXXXXXXXXXXXX.XXXXXXXXMXXX.XXXX
+XXX.XM...XXXX....M...XXXXM.M..XXX.XXXX
+XXX.XXXX.XXXX.XXXXXX.XXXXXXXXXXXX.XXXX
+XXX.XXXX.XXXX.XXXXXX.XXXXXXXXXXXX.XXXX
+XXX.XXXX.XXXXDXXXXXX......DXXXXXXDXXXX
+XXX.XXXX.XXXX.XXXXXXXXXXXXXXXXXXX.XXXX
+XXX....M.XXXX.XXXXXXXXXXXXXXXXXXX.XXXX
+XXXXXXXXXXXXX..M...M....M....M....XXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[
+  {
+    "id": "sun",
+    "seal": "sun",
+    "x": 28,
+    "y": 10,
+    "direction": "right"
+  }
+]
+```
 
 ```json
 {
@@ -3176,14 +3574,7 @@ In der Karte steht · für einen leeren Gang.
 
 ```json
 {
-  "keys": [
-    {
-      "id": "sun",
-      "seal": "sun",
-      "x": 20,
-      "y": 8
-    }
-  ],
+  "keys": [],
   "doors": [
     {
       "id": "exit",
@@ -3239,51 +3630,68 @@ walk 7 6
 use down
 harvest 2 4 7 17
 until 25 8 digger
-walk 20 8
+walk 33 4
+walk 33 8
+walk 31 8
+strike sun left
+key sun
 harvest 12 4 23 19
 walk 3 2
 ```
 
 ## 32 – Was aus der Tiefe kommt
 
-Die hungrigen Adern. 42 × 26 Felder, Quote 24, 95 Sekunden, Schwierigkeit 2/3.
+Die hungrigen Adern. 42 × 26 Felder, Quote 24, 105 Sekunden, Schwierigkeit 2/3.
 
-P kündigt einen einzigen Grabe-Käfer an. Sammle den Seitenweg, während er die Ader öffnet. Die Felsfalle bedienst du von links neben der Stütze. Ein Abschalten löscht keinen bereits erschienenen Gegner. Der Schlüssel liegt im östlichen Bogen.
+P kündigt einen einzigen Grabe-Käfer an. Sammle den Seitenweg, während er die Ader öffnet. Die Felsfalle bedienst du von links neben der Stütze. Ein Abschalten löscht keinen bereits erschienenen Gegner. Der Schlüssel liegt im östlichen Bogen. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: P kündigt einen einzigen Grabe-Käfer an. Sammle den Seitenweg, während er die Ader öffnet. Die Felsfalle bedienst du von links neben der Stütze. Ein Abschalten löscht keinen bereits erschienenen Gegner. Der Schlüssel liegt im östlichen Bogen.
+Hinweis: P kündigt einen einzigen Grabe-Käfer an. Sammle den Seitenweg, während er die Ader öffnet. Die Felsfalle bedienst du von links neben der Stütze. Ein Abschalten löscht keinen bereits erschienenen Gegner. Der Schlüssel liegt im östlichen Bogen. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 327 Takte / 32.7 Sekunden, 25 Kristallpunkte, 30 Wertungspunkte. Replay: public/replays/32.json.
+Geprüfter Durchlauf: 359 Takte / 35.9 Sekunden, 25 Kristallpunkte, 35 Wertungspunkte. Replay: public/replays/32.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X########################################X
-X########################################X
-X##E#####################################X
-X##.###########################D.......##X
-X##..M..M######################.######.##X
-X##.####.######################.######.##X
-X##.####.######################.######M##X
-X##.#################.....R####M######.##X
-X##.#####....########.###..####.######.##X
-X##P#####..#·HHHHHHHH········##.######.##X
-X##.#####.###########.##·###·##.######M##X
-X##.#####.###########.##·###·##M######.##X
-X##.#####.###########.##·###·##.######.##X
-X##.#####.###########.##·····##.######.##X
-X##..M.M#.###########.#########.######.##X
-X##.#####.###########..M..M####.######D##X
-X##.#####.###########.####.####...D.##.##X
-X##.#####.###########.####.###########.##X
-X##.#####.###########.####.###########.##X
-X##.#####.###########...M...M....M...M.##X
-X##..M..M.###############################X
-X########################################X
-X########################################X
-X########################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXD.......XXX
+XXX..M..MXXXXXXXXXXXXXXXXXXXXXX.XXXXXX.XXX
+XXX.XXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXXXX.XXX
+XXX.XXXX.XXXXXXXXXXXXXXXXXXXXXX.XXXXXXMXXX
+XXX.XXXX#XXXXXXXXXXXX.....RXXXXMXXXXXX.XXX
+XXX.XXXXX....XXXXXXXX.XXX..XXXX.XXXXXX.XXX
+XXXPXXXXX..#·HHHHHHHH········XX.XXXXXX.XXX
+XXX.XXXXX.XXXXXXXXXXX.XX·XXX·XX.XXXXXXMXXX
+XXX.XXXXX.XXXXXXXXXXX.XX·XXX·XXMXXXXXX.XXX
+XXX.XXXXX.XXXXXXXXXXX.XX·XXX·XX.XXXXXX.XXX
+XXX.XXXXX.XXXXXXXXXXX.XX·····XX.XXXRXX.XXX
+XXX..M.MX.XXXXXXXXXXX.XXXXXXXXX.....XX.XXX
+XXX.XXXXX.XXXXXXXXXXX..M..MXXXX.XXX·XXDXXX
+XXX.XXXXX.XXXXXXXXXXX.XXXX.XXXX..·····.XXX
+XXX.XXXXX.XXXXXXXXXXX.XXXX.XXXX.XXXXXX.XXX
+XXX.XXXXX.XXXXXXXXXXX.XXXX.XXXX.XXXXXX.XXX
+XXX.XXXXX.XXXXXXXXXXX...M...M...DM...M.XXX
+XXX..M..M.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[
+  {
+    "id": "sun",
+    "seal": "sun",
+    "x": 33,
+    "y": 17,
+    "direction": "right"
+  }
+]
+```
 
 ```json
 {
@@ -3305,14 +3713,7 @@ In der Karte steht · für einen leeren Gang.
 
 ```json
 {
-  "keys": [
-    {
-      "id": "sun",
-      "seal": "sun",
-      "x": 35,
-      "y": 17
-    }
-  ],
+  "keys": [],
   "doors": [
     {
       "id": "exit",
@@ -3352,58 +3753,74 @@ Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 walk 8 7
 use down
 harvest 3 5 7 17
-until 28 10 digger
+clear 20 10
 walk 25 9
-until 26 10 digger
-snap right
+strike worker:P right
 wait 5
-walk 35 17
+walk 31 20
+walk 31 15
+walk 34 15
+strike sun right
+key sun
 harvest 20 4 19 18
 walk 3 3
 ```
 
 ## 33 – Den Nachschub stoppen
 
-Die hungrigen Adern. 44 × 28 Felder, Quote 25, 95 Sekunden, Schwierigkeit 2/3.
+Die hungrigen Adern. 44 × 28 Felder, Quote 25, 85 Sekunden, Schwierigkeit 2/3.
 
-P liefert alle 24 Sekunden einen Grabe-Käfer, höchstens zwei gleichzeitig. Der Hebel hinter der Ader stoppt den Nachschub, schließt IN und öffnet OUT. Bereits erschienene Käfer bleiben. Hole den Mondschlüssel und kehre durch OUT zurück.
+P liefert alle 24 Sekunden einen Grabe-Käfer, höchstens zwei gleichzeitig. Der Hebel hinter der Ader stoppt den Nachschub, schließt IN und öffnet OUT. Bereits erschienene Käfer bleiben. Hole den Mondschlüssel und kehre durch OUT zurück. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: P liefert alle 24 Sekunden einen Grabe-Käfer, höchstens zwei gleichzeitig. Der Hebel hinter der Ader stoppt den Nachschub, schließt IN und öffnet OUT. Bereits erschienene Käfer bleiben. Hole den Mondschlüssel und kehre durch OUT zurück.
+Hinweis: P liefert alle 24 Sekunden einen Grabe-Käfer, höchstens zwei gleichzeitig. Der Hebel hinter der Ader stoppt den Nachschub, schließt IN und öffnet OUT. Bereits erschienene Käfer bleiben. Hole den Mondschlüssel und kehre durch OUT zurück. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 320 Takte / 32.0 Sekunden, 29 Kristallpunkte, 29 Wertungspunkte. Replay: public/replays/33.json.
+Geprüfter Durchlauf: 290 Takte / 29.0 Sekunden, 29 Kristallpunkte, 34 Wertungspunkte. Replay: public/replays/33.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##########################################X
-X##########################################X
-X##E#######################################X
-X##.#######################################X
-X#######################...M...M...########X
-X##..M..M....###########.#########.########X
-X##.#####.##..##########.#########.########X
-X##P#####.###·#HHHHHHHHH·······###.########X
-X##.#####.##.##############·##·###M########X
-X##.#####M##.##############·##·###...M...##X
-X##.#####.##.##############·##·###.#####.##X
-X##.#M....##.##############····###.#####.##X
-X##.########.#####################.#####.##X
-X##.########.#####################D#####M##X
-X##.########.#####################.#####.##X
-X##.########.###########.M..M..###.#####.##X
-X##M########.###########.#####.###.#####.##X
-X##.########.###########.#####.###.#####.##X
-X##.########.###########.#####M###D#####.##X
-X##.########.###########D.M....###...M...##X
-X##.########.###########.#########.########X
-X##.########.###########.#########.########X
-X##....M...M......#...M....M....M..########X
-X##########################################X
-X##########################################X
-X##########################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX#XXXXXXXXXXXXXXXXXXX#...M...M...XXXXXXXXX
+XXX..M..M....XXXX.XXX.XX.XXXXXXXXX.XXXXXXXXX
+XXX.XXXXX.XX..XXX.XXX.XX.XXXXXXXXX.XXXXXXXXX
+XXXPXXXXX.XX#·#HHHHHHHHH·······XXX.XXXXXXXXX
+XXX.XXXXX.XX.XXXXXXXXXXXXXX·XX·XXXMXXXXXXXXX
+XXX.XXXXXMXX.XXXXXXXXXXXXXX·XX·XXX...M...XXX
+XXX.XXXXX.XX.XXXXXXXXXXXXXX·XX·XXX.XXXXX.XXX
+XXX.XM....XX.XXXXXXXXXXXXXX····XXX.XXXXX.XXX
+XXX.XXXXXXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXX.XXX
+XXX.XXXXXXXX.XXXXXXXXXXXXXXXXXXXXXDXXXXXMXXX
+XXX.XXXXXXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXX.XXX
+XXX.XXXXXXXX.XXXXXXXXXXX.M..M..XXX.XXXXX.XXX
+XXXMXXXXXXXX.XXXXXXXXXXX.XXXXX.XXX.XXXXXRXXX
+XXX.XXXXXXXX.XXXXXXXXXXX.XXXXX.XXX.X.....XXX
+XXX.XXXXXXXX.XXXXXXXXXXX.XXXXXMXXXDX.XXX·XXX
+XXX.XXXXXXXX.XXXXXXXXXXXD.M....XXX...M·····X
+XXX.XXXXXXXX.XXXXXXXXXXX.XXXXXXXXX.XXXXXXXXX
+XXX.XXXXXXXX.XXXXXXXXXXX.XXXXXXXXX.XXXXXXXXX
+XXX....M...M......#...M....M....M..XXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[
+  {
+    "id": "moon",
+    "seal": "moon",
+    "x": 38,
+    "y": 20,
+    "direction": "right"
+  }
+]
+```
 
 ```json
 {
@@ -3425,14 +3842,7 @@ In der Karte steht · für einen leeren Gang.
 
 ```json
 {
-  "keys": [
-    {
-      "id": "moon",
-      "seal": "moon",
-      "x": 40,
-      "y": 20
-    }
-  ],
+  "keys": [],
   "doors": [
     {
       "id": "exit",
@@ -3496,62 +3906,86 @@ Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
 harvest 3 6 9 18
-until 30 8 digger
+clear 23 8
 walk 24 5
 use left
-walk 40 20
+walk 36 20
+walk 36 18
+walk 39 18
+strike moon right
+key moon
 harvest 20 5 22 20
 walk 3 3
 ```
 
-## 34 – Die große Rundfahrt
+## 34 – Zwei Aufträge für einen Bergmann
 
-Die hungrigen Adern. 52 × 34 Felder, Quote 48, 120 Sekunden, Schwierigkeit 3/3.
+Die wandelbare Mine. 52 × 34 Felder, Quote 42, 265 Sekunden, Schwierigkeit 3/3.
 
-Sonnen- und Mondschlüssel gehören zu den beiden Ausgangsschlössern. Plane die Erzrunde mit A und B. CUT öffnet eine kurze Querverbindung durch Muttergestein, lässt aber einen Grabe-Käfer frei. Der längere Außenweg funktioniert ohne ihn.
+G1 lässt den Helfer die erste Ader öffnen. Hinter ihr erreichst du G2: Es sperrt seine Runde und öffnet den zweiten Arbeitsweg nach Süden. Gewinne die beiden Schlüssel in unterschiedlichen Bezirken. G3 öffnet den Rückweg. Töte den Helfer nicht vor seinem zweiten Auftrag.
 
-Hinweis: Sonnen- und Mondschlüssel gehören zu den beiden Ausgangsschlössern. Plane die Erzrunde mit A und B. CUT öffnet eine kurze Querverbindung durch Muttergestein, lässt aber einen Grabe-Käfer frei. Der längere Außenweg funktioniert ohne ihn.
+Hinweis: G1 lässt den Helfer die erste Ader öffnen. Hinter ihr erreichst du G2: Es sperrt seine Runde und öffnet den zweiten Arbeitsweg nach Süden. Gewinne die beiden Schlüssel in unterschiedlichen Bezirken. G3 öffnet den Rückweg. Töte den Helfer nicht vor seinem zweiten Auftrag.
 
-Geprüfter Durchlauf: 416 Takte / 41.6 Sekunden, 52 Kristallpunkte, 57 Wertungspunkte. Replay: public/replays/34.json.
+Geprüfter Durchlauf: 1046 Takte / 104.6 Sekunden, 45 Kristallpunkte, 55 Wertungspunkte. Replay: public/replays/34.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##################################################X
-X##################################################X
-X##E###############################################X
-X##.############..M.D..M....M....M....M.....·..####X
-X##.############.#############################.####X
-X##.############.#############################.####X
-X##.############.########D.M...M...M.#########.####X
-X##.############.########.##########.#########M####X
-X##...M..M.#####.########.##########.#########.####X
-X##.######.#####.########.##########.#########.####X
-X##.######.#####..M...M...##########M#####.....####X
-X##P######.#####.###################.#####.###.####X
-X##.######.#####.###################.#####.###.####X
-X##.######.#####.##################.....M..###.####X
-X##.##.M..·###...##################.##.#.D.###.####X
-X##.##########.##2#HHHHHHHHHHHHHHHH·····##.###.####X
-X##.##########...####################·#·##.###M####X
-X##.############.####################···##.###.####X
-X##.############.###################....M..###.####X
-X##.############.###################.#########.####X
-X##.############....M...M.##########.#########.####X
-X##..M..M..#####.########.##########M#########.####X
-X##.######.#####.########.##########.#########M####X
-X##.######.#####.########.##########.#########.####X
-X##.######.#####.########D..M...M...·#########.####X
-X##.##.DM..#####.#############################.####X
-X##.############.#############################.####X
-X##.############.#############################.####X
-X##..·...M...M.....M.....M.....M.....M....M...D####X
-X##################################################X
-X##################################################X
-X##################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXX..M...M......M.......M...XXXXX
+XXX.XXXXXX..M...M.DXXX.XXXXXXXXX.XXX.XXRXXXXXX.XXXXX
+XXX.XXXXXXXXXXXXXX.XXX.XXXXXXXXX.XXX....XXXXXX.XXXXX
+XXX.XXXXXXXXXXXXXX.XXX.XXXXXXXXX.XXXXXX·XXX....XXXXX
+XXXP.M..M..M..XXXXMXXX.XXXXXXXXXD....·····X.XXMXXXXX
+XXX.XXXXXXXXX.XXXX.XXX.XXXXXXXXXXXXXXXXXXXX.XX.XXXXX
+XXX.XXXXXXXX·..M...XXX.XXXXXXXXXXXXXXXXXXXX.XX.XXXXX
+XXX.XXXXXXXXX.XXXXXXXX.XXXXXXXXXXXXXXXXX...DXX.XXXXX
+XXX..M.M.XXXXMXXXXXXXX.........M...M......M....XXXXX
+XXX.XXXX.XXXX.XXXXXXXX.XXXXXXXX.XXXXXXXXXXXXXXXXXXXX
+XXX.XXXX#X....XXXXXXXX.XXXXXXX#.XXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXX.XX.XXXXXXXX.XXXXXXXX.XXXXXXXXXXXXXXXXXXXX
+XXX.XX··2·#HHHHHHHHHHHH#···XXXX.XXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXX.XXXXXXXXXX·X·.....XXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXMXXXXXXXXXX·X·XXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXX.XXXXXXXXXX·#·XXXXXXXXXXXXXXXXXXXXXXXXX
+XXX..M..M.XXX.XXXXXXXXXXXX#XXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXX.XXX.XXXXXXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXX.XXX.XXXXXXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.X·....XXXMXXXXXXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXX.XXXXXXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXX.XXXXXXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX...M...M...XXXRXXXXXXXXHXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXX...XXXXXXXXHX·····XXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXX.X·XXXXXXXXHX·XXX·XXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXX.····D....X·#·····#..M........XXXXXXX
+XXX...........#..XXXXXXX.XXXXXXXXXX#XXXXXXXXMXXXXXXX
+XXXXXXXXXXXXXXX..XXXXXXX.XXXXXXXXXXXXXXXXXXX.XXXXXXX
+XXXXXXXXXXXXXXX.........M...M.....M....MD....XXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[
+  {
+    "id": "sun",
+    "seal": "sun",
+    "x": 37,
+    "y": 8,
+    "direction": "right"
+  },
+  {
+    "id": "moon",
+    "seal": "moon",
+    "x": 16,
+    "y": 29,
+    "direction": "right"
+  }
+]
+```
 
 ```json
 {
@@ -3561,32 +3995,19 @@ In der Karte steht · für einen leeren Gang.
 
 ```json
 {
-  "keys": [
-    {
-      "id": "sun",
-      "seal": "sun",
-      "x": 42,
-      "y": 15
-    },
-    {
-      "id": "moon",
-      "seal": "moon",
-      "x": 6,
-      "y": 26
-    }
-  ],
+  "keys": [],
   "doors": [
     {
       "id": "sun-lock",
       "seal": "sun",
       "x": 3,
-      "y": 5
+      "y": 4
     },
     {
       "id": "moon-lock",
       "seal": "moon",
       "x": 3,
-      "y": 4
+      "y": 5
     }
   ],
   "portals": [
@@ -3594,25 +4015,13 @@ In der Karte steht · für einen leeren Gang.
       "id": "Aa",
       "pair": "A",
       "x": 5,
-      "y": 29
+      "y": 23
     },
     {
       "id": "Ab",
       "pair": "A",
-      "x": 44,
-      "y": 4
-    },
-    {
-      "id": "Ba",
-      "pair": "B",
-      "x": 10,
-      "y": 15
-    },
-    {
-      "id": "Bb",
-      "pair": "B",
-      "x": 36,
-      "y": 25
+      "x": 12,
+      "y": 10
     }
   ]
 }
@@ -3622,29 +4031,87 @@ In der Karte steht · für einen leeren Gang.
 {
   "gates": [
     {
-      "id": "CUT",
-      "label": "CUT",
-      "x": 18,
+      "id": "G1",
+      "label": "G1",
+      "x": 10,
       "y": 16,
       "open": false
     },
     {
-      "id": "BACK",
-      "label": "CUT",
-      "x": 16,
-      "y": 16,
+      "id": "G2",
+      "label": "G2",
+      "x": 26,
+      "y": 20,
       "open": false
+    },
+    {
+      "id": "LOOP",
+      "label": "G2",
+      "x": 25,
+      "y": 19,
+      "open": true
+    },
+    {
+      "id": "RETURN",
+      "label": "G3",
+      "x": 14,
+      "y": 30,
+      "open": false
+    },
+    {
+      "id": "SEAL",
+      "label": "G2",
+      "x": 23,
+      "y": 16,
+      "open": true
+    },
+    {
+      "id": "WORK-L",
+      "label": "G3",
+      "x": 27,
+      "y": 29,
+      "open": true
+    },
+    {
+      "id": "WORK-R",
+      "label": "G3",
+      "x": 33,
+      "y": 29,
+      "open": true
     }
   ],
   "levers": [
     {
-      "id": "cut",
-      "label": "CUT",
-      "x": 15,
-      "y": 16,
+      "id": "release",
+      "label": "G1",
+      "x": 8,
+      "y": 14,
       "gates": [
-        "CUT",
-        "BACK"
+        "G1"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "redirect",
+      "label": "G2",
+      "x": 30,
+      "y": 14,
+      "gates": [
+        "G2",
+        "LOOP",
+        "SEAL"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "return",
+      "label": "G3",
+      "x": 35,
+      "y": 30,
+      "gates": [
+        "RETURN",
+        "WORK-L",
+        "WORK-R"
       ],
       "dispensers": []
     }
@@ -3657,57 +4124,92 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 6 26
-walk 42 15
-harvest 3 7 44 23
-harvest 16 4 31 4
+walk 8 13
+use down
+harvest 3 5 16 22
+until 26 17 beetle
+walk 31 14
+until 26 17 beetle
+use left
+until 32 27 beetle
+walk 35 29
+until 32 29 beetle
+use down
+walk 15 32
+walk 15 31
+walk 15 27
+walk 16 27
+strike moon right
+key moon
+walk 36 4
+walk 36 6
+walk 38 6
+strike sun right
+key sun
+harvest 22 4 25 9
+harvest 16 27 29 6
 walk 3 3
 ```
 
-## 35 – Der Treffpunkt
+## 35 – Die Werkstattkette
 
-Die hungrigen Adern. 40 × 30 Felder, Quote 28, 80 Sekunden, Schwierigkeit 3/3.
+Die wandelbare Mine. 44 × 32 Felder, Quote 33, 125 Sekunden, Schwierigkeit 3/3.
 
-Wähle U oder D als Treffpunkt für Blau und Lila. Der passende Spender liegt zwei Felder über der Spur. Sammle auch den Diamanten des Kristallkäfers: Die übrigen 25 Punkte reichen nicht. Beide Treffpunkte funktionieren; öffne nicht gedankenlos beide Zuführungen.
+G1 erschließt R1. Lass seinen Fels den goldenen Käfer in der engen Bucht einschließen, statt ihn zu treffen. Zieh dich zurück: Die Explosion öffnet die Wand und setzt den Sonnenschlüssel frei. Danach verbindet G2 Blau und Lila; R2 liefert ihren notwendigen Diamanten.
 
-Hinweis: Wähle U oder D als Treffpunkt für Blau und Lila. Der passende Spender liegt zwei Felder über der Spur. Sammle auch den Diamanten des Kristallkäfers: Die übrigen 25 Punkte reichen nicht. Beide Treffpunkte funktionieren; öffne nicht gedankenlos beide Zuführungen.
+Hinweis: G1 erschließt R1. Lass seinen Fels den goldenen Käfer in der engen Bucht einschließen, statt ihn zu treffen. Zieh dich zurück: Die Explosion öffnet die Wand und setzt den Sonnenschlüssel frei. Danach verbindet G2 Blau und Lila; R2 liefert ihren notwendigen Diamanten.
 
-Geprüfter Durchlauf: 272 Takte / 27.2 Sekunden, 28 Kristallpunkte, 38 Wertungspunkte. Replay: public/replays/35.json.
+Geprüfter Durchlauf: 426 Takte / 42.6 Sekunden, 33 Kristallpunkte, 48 Wertungspunkte. Replay: public/replays/35.json.
 
 ```text
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X######################################X
-X######################################X
-X##E######################..M......####X
-X##.######################.#######.####X
-X##.######################.#######D####X
-X##.######################....D###.####X
-X##.##############################.####X
-X##P.M...M...M..#·################.####X
-X##.###########.#·################M####X
-X##.#######·>#·······#l·##########.####X
-X##.##############################.####X
-X##.########·#########·###########.####X
-X##..M.M####·#########·######M.....####X
-X##.########·#########·######.####.####X
-X##.########·#########·######.####.####X
-X##.########·#########·######M####.####X
-X##.########·#########·######......####X
-X##..M...M..·M..#·####·###########.####X
-X##.########·##.#·####·###########.####X
-X##.########···········###########.####X
-X##.##############################M####X
-X##.##############################.####X
-X##.##############################.####X
-X##.##############################.####X
-X##...M....M....M....M....M....M...####X
-X######################################X
-X######################################X
-X######################################X
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXX..M...M...M...M..XXXXXX
+XXXP.M.M.XXXXXXXXXXXX.XXXXXXXXXXXXXXX.XXXXXX
+XXX.XXX.#XXXXXX#XXXXX.XXXXXXXXXXXXXXX.XXXXXX
+XXX.XXX....#..#·XXXXX.XXXXXXXXXXXXXXXMXXXXXX
+XXX.XXXXXXXXX.X·XXXXX.XXXXXXXXXXXXXXX.XXXXXX
+XXX.XXXXXXXXX.X·XXXXX.#XXXXXXXXXXXXXX....XXX
+XXX.XXXXXXXXX..··#...........XXXXXXXX.XX.XXX
+XXX..M..MDXXXXXX·#XXXXXXXXXX.XXXXXXXX.XXMXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXX.X#XXXXXX.XX.XXX
+XXX.XXXXXXXXXXXXXXXXXXXXXX·X.#·XXXdXX.XX.XXX
+XXX.XXXXXXXXXXXXXXXXXXXXXX·X.X·XXX·XX.XX.XXX
+XXX.XM..M...XXXXXXXXXXXXXX·X.X·XXX·XX.XX.XXX
+XXX.XXXXXXX.XXXXXXXXXXXX..^#·····#·XX.XXMXXX
+XXX.XXXXXXX.XXXXXXXX.....XXXXXXXXXXXX.XX.XXX
+XXX.XXXXXXX.XXXXXXXX.XXXXXXXXXXXXXXXX.XX.XXX
+XXX.XXXXXXXMXXXXXXXX.XXXXXXXXXXXXXXXX.XX.XXX
+XXX.XXXXXXX.XXXXXXXX.XXXXXXXXXXXXXXXX...DXXX
+XXX.XXXXXXX.XXXXXXXX.XXXXXXXXXXXXXXXX.XXXXXX
+XXX.XXXXXXX.XXXXXXXX.XXXXXXXXXXXXXXXXMXXXXXX
+XXX.XXXXXXX.XXXXXXXX.XXXXXXXXXXXXXXXX.XXXXXX
+XXX...M...M.XXXXXXXX........M...M.....XXXXXX
+XXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXX.XXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXX.XXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX...M...M....DXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[
+  {
+    "id": "sun",
+    "seal": "sun",
+    "x": 16,
+    "y": 11,
+    "direction": "up"
+  }
+]
+```
 
 ```json
 {
@@ -3718,7 +4220,14 @@ In der Karte steht · für einen leeren Gang.
 ```json
 {
   "keys": [],
-  "doors": [],
+  "doors": [
+    {
+      "id": "sun-lock",
+      "seal": "sun",
+      "x": 19,
+      "y": 11
+    }
+  ],
   "portals": []
 }
 ```
@@ -3727,103 +4236,103 @@ In der Karte steht · für einen leeren Gang.
 {
   "gates": [
     {
-      "id": "U1",
-      "label": "U",
-      "x": 13,
-      "y": 10,
+      "id": "G1",
+      "label": "G1",
+      "x": 11,
+      "y": 8,
       "open": false
     },
     {
-      "id": "U2",
-      "label": "U",
-      "x": 21,
-      "y": 10,
+      "id": "G2a",
+      "label": "G2",
+      "x": 27,
+      "y": 17,
       "open": false
     },
     {
-      "id": "D1",
-      "label": "D",
-      "x": 12,
-      "y": 11,
+      "id": "G2b",
+      "label": "G2",
+      "x": 33,
+      "y": 17,
       "open": false
     },
     {
-      "id": "D2",
-      "label": "D",
-      "x": 22,
-      "y": 11,
+      "id": "EXIT",
+      "label": "G2",
+      "x": 3,
+      "y": 4,
       "open": false
     }
   ],
   "levers": [
     {
-      "id": "upper",
-      "label": "U",
-      "x": 6,
+      "id": "G1-control",
+      "label": "G1",
+      "x": 8,
       "y": 7,
       "gates": [
-        "U1",
-        "U2"
+        "G1"
       ],
       "dispensers": []
     },
     {
-      "id": "lower",
-      "label": "D",
-      "x": 6,
-      "y": 17,
-      "gates": [
-        "D1",
-        "D2"
-      ],
-      "dispensers": []
-    },
-    {
-      "id": "upper-drop",
-      "label": "U",
-      "x": 16,
+      "id": "R1-control",
+      "label": "R1",
+      "x": 14,
       "y": 8,
       "gates": [],
       "dispensers": [
-        "upper-rock"
+        "R1"
       ],
       "view": {
-        "x": 13,
+        "x": 12,
         "y": 6,
         "width": 8,
         "height": 7
       }
     },
     {
-      "id": "lower-drop",
-      "label": "D",
-      "x": 16,
-      "y": 18,
+      "id": "G2-control",
+      "label": "G2",
+      "x": 22,
+      "y": 10,
+      "gates": [
+        "G2a",
+        "G2b",
+        "EXIT"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "R2-control",
+      "label": "R2",
+      "x": 29,
+      "y": 14,
       "gates": [],
       "dispensers": [
-        "lower-rock"
+        "R2"
       ],
       "view": {
-        "x": 13,
-        "y": 16,
-        "width": 8,
+        "x": 25,
+        "y": 12,
+        "width": 11,
         "height": 7
       }
     }
   ],
   "dispensers": [
     {
-      "id": "upper-rock",
-      "label": "U",
-      "x": 17,
+      "id": "R1",
+      "label": "R1",
+      "x": 15,
       "y": 7,
-      "stock": 2
+      "stock": 1
     },
     {
-      "id": "lower-rock",
-      "label": "D",
-      "x": 17,
-      "y": 17,
+      "id": "R2",
+      "label": "R2",
+      "x": 30,
+      "y": 13,
       "stock": 2
     }
   ]
@@ -3834,67 +4343,78 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 6 8
+walk 8 8
 use up
-walk 15 8
-until 17 10 crystal-crawler
-use right
-wait 4
-walk 17 10
-harvest 3 3 32 23
+walk 13 8
+blast sun right
+walk 10 8
+wait 62
+key sun
+walk 22 11
+use up
+walk 28 14
+strike crystal-crawler right
+wait 5
+walk 30 17
+harvest 3 5 38 24
 walk 3 3
 ```
 
 ## 36 – Das offene Geröllmeer
 
-Die hungrigen Adern. 56 × 36 Felder, Quote 460, 305 Sekunden, Schwierigkeit 3/3.
+Die wandelbare Mine. 56 × 36 Felder, Quote 92, 140 Sekunden, Schwierigkeit 3/3.
 
-Sammle wirklich jeden Edelstein. Der Ausgang liegt gegenüber, hinter EXIT; sein Hebel steht im Feld. Räume Adern von der Seite oder von unten mit der Greiffunktion, und weiche fallenden Steinen aus. Die freien Außenränder verbinden die Reihen auch nach dem Abbau. Es gibt keine inneren Trennmauern und keine Gegner.
+80 verstreute Edelsteine, 107 Felsen, keine inneren Trennwände. Du brauchst alle 92 Kristallpunkte. Plane die Sammlung und den Besuch beim EXIT-Hebel so, dass die veränderte Felslage deinen Rückweg nicht unnötig verlängert.
 
-Hinweis: Sammle wirklich jeden Edelstein. Der Ausgang liegt gegenüber, hinter EXIT; sein Hebel steht im Feld. Räume Adern von der Seite oder von unten mit der Greiffunktion, und weiche fallenden Steinen aus. Die freien Außenränder verbinden die Reihen auch nach dem Abbau. Es gibt keine inneren Trennmauern und keine Gegner.
+Hinweis: 80 verstreute Edelsteine, 107 Felsen, keine inneren Trennwände. Du brauchst alle 92 Kristallpunkte. Plane die Sammlung und den Besuch beim EXIT-Hebel so, dass die veränderte Felslage deinen Rückweg nicht unnötig verlängert.
 
-Geprüfter Durchlauf: 1052 Takte / 105.2 Sekunden, 460 Kristallpunkte, 460 Wertungspunkte. Replay: public/replays/36.json.
+Geprüfter Durchlauf: 533 Takte / 53.3 Sekunden, 92 Kristallpunkte, 92 Wertungspunkte. Replay: public/replays/36.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X....................................................#EX
-X....................................................##X
-X..RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR..X
-X..MMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMM..X
-X......................................................X
-X......................................................X
-X..R.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR...X
-X..MMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMM..X
-X......................................................X
-X......................................................X
-X...RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.R..X
-X..MMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMM..X
-X......................................................X
-X......................................................X
-X..RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR..X
-X..MMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMM..X
-X......................................................X
-X...........................#..........................X
-X..R.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR...X
-X..MMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDM..X
-X......................................................X
-X......................................................X
-X...RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.R..X
-X..MDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMM..X
-X......................................................X
-X......................................................X
-X..RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR..X
-X..MMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMM..X
-X......................................................X
-X......................................................X
-X..R.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR.RR...X
-X..MMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMMDMMMMMMMMMMMM..X
+X....................................................XEX
+X................R...........R......................RX#X
+X.R...M....M.......M...D..M............M........DRR....X
+X....R........................R....R.R........R........X
+X................D...M.R....M.....................R....X
+X.........M...............R.....R.....R........R...M...X
+X.............R.....M....R.................R.R..R...R..X
+X.............R....................................R...X
+X............R.....................M..M....R...........X
+X.R....M..........M.....................R..R...M.......X
+X..........M.............M..M....R...M...M.............X
+X.R....R.R...R.M.............R..........R..............X
+X....M....R...R..R.M..M...M....R..............R..R.....X
+X........M..MR..M............M...R.....R....M..........X
+X......M............M....R.........M...............D...X
+X..M..........R.............M............RM...RR.......X
+X.......M..M.......R...R.............R.............R...X
+X..R.............RM...R.....#...............RM.........X
+X....MR......M.........D...M..M................R.......X
+X.....R.......R......M.........R...........R...........X
+X..R...M........R.......M..........M...................X
+X..RM..............R......M..RR.MR..............MR..R..X
+X..............MR.....R....................M......R....X
+X..M.............M..MRR....R.....R..............RR.....X
+X..............................M....M....M.RM..........X
+X....R............M...M....M...................M.......X
+X......................................R...............X
+X.....R..........................R........R............X
+X....M..R...R..M.....RM...R.....R..............RR..R...X
+X..M.....M...R..........R..R...R.....M....M...R........X
+X......R...M....................MR.....D.......R.......X
+X..............R...................................R...X
 X......................................................X
 XP.....................................................X
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[]
+```
 
 ```json
 {
@@ -3941,883 +4461,83 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 1 18
 walk 27 18
 use right
-walk 1 18
-walk 1 33
-walk 3 33
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-walk 54 33
-walk 54 29
-walk 52 29
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-walk 1 29
-walk 1 25
-walk 3 25
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-walk 54 25
-walk 54 21
-walk 52 21
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-walk 1 21
-walk 1 17
-walk 3 17
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-walk 54 17
-walk 54 13
-walk 52 13
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-walk 1 13
-walk 1 9
-walk 3 9
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-snap up
-move right
-walk 54 9
-walk 54 5
-walk 52 5
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-snap up
-move left
-walk 1 5
-walk 1 34
-walk 54 34
+harvest 1 1 54 34
 walk 54 1
 ```
 
 ## 37 – Fracht über der Tiefe
 
-Die hungrigen Adern. 44 × 30 Felder, Quote 34, 130 Sekunden, Schwierigkeit 3/3.
+Die hungrigen Adern. 44 × 30 Felder, Quote 34, 135 Sekunden, Schwierigkeit 3/3.
 
-Bereite die Landestelle rechts über A vor. Schiebe den Felsen ohne Pause viermal nach rechts über den Schacht. Ein geschobener Fels fällt in diesem Takt nicht. Öffne dann PEN/ORE: Der transportierte Fels hält den Käfer lebendig fest. Hole den Mondschlüssel im Erzbezirk.
+Bereite die Landestelle über A vor und schiebe den Fels ohne Pause über den Schacht. Nach PEN/ORE hält er den Käfer im größeren Gehege lebendig fest. Gewinne den Mondschlüssel im Erzbezirk und plane den Rückweg. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Hinweis: Bereite die Landestelle rechts über A vor. Schiebe den Felsen ohne Pause viermal nach rechts über den Schacht. Ein geschobener Fels fällt in diesem Takt nicht. Öffne dann PEN/ORE: Der transportierte Fels hält den Käfer lebendig fest. Hole den Mondschlüssel im Erzbezirk.
+Hinweis: Bereite die Landestelle über A vor und schiebe den Fels ohne Pause über den Schacht. Nach PEN/ORE hält er den Käfer im größeren Gehege lebendig fest. Gewinne den Mondschlüssel im Erzbezirk und plane den Rückweg. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
 
-Geprüfter Durchlauf: 444 Takte / 44.4 Sekunden, 37 Kristallpunkte, 42 Wertungspunkte. Replay: public/replays/37.json.
+Geprüfter Durchlauf: 453 Takte / 45.3 Sekunden, 37 Kristallpunkte, 47 Wertungspunkte. Replay: public/replays/37.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X##########################################X
-X##########################################X
-X##E#######################################X
-X##.############........·##################X
-X##.####..M.·###.#############..M...M...###X
-X##.####.#######.#############.########.###X
-X##.####.#######.#############.########.###X
-X##P.M.M.#######.########D.....########.###X
-X##.####.#######.########.####.########.###X
-X##.####...·R···.#>######.####M########.###X
-X##.#########···#########.####.########.###X
-X##.#########···#########.####...M..M.#.###X
-X##.#########···#######################.###X
-X##.#########···#######################.###X
-X##..M...####···#######################.###X
-X##.####.####···#######################M###X
-X##.####M####################.......###.###X
-X##.####.####################.#####.###.###X
-X##.####...M.D###############M#####.###.###X
-X##.#########################.#####.#.M.###X
-X##.###################D.M....#####.###.###X
-X##.###############################.###.###X
-X##.###############################.###.###X
-X##.###############################.###D###X
-X##....M....M....M....M....M....M...###.###X
-X##.###################################.###X
-X##.....M......M.......M......M......#..###X
-X##########################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXX........·XXXXXXXXXXXXXXXXXXX
+XXX.XXXX..M.·XXX.XXXXXXXXXXXXX..M...M...XXXX
+XXX.XXXX.XXXXXXX.XXXXXXXXXXXXX.XXXXXXXX.XXXX
+XXX.XXXX.XXXXXXX.XXXXXXXXXXXXX.XXXXXXXX.XXXX
+XXXP.M.M.XXXXXXX.XXXXXXXXD.....XXXXXXXX.XXXX
+XXX.XXXX.X#XXXXX.XXXXXXXXRXXXX.XXXXXXXX.XXXX
+XXX.XXXX...·R···.#>···XXX.....MXXXXXXXX.XXXX
+XXX.XXXXXXXXX···XXXXXXXXX·XXXX.XXXXXXXX.XXXX
+XXX.XXXXXXXXX···XXXXXXX·····XX...M..M.X.XXXX
+XXX.XXXXXXXXX···XXXXXXXXXXXXXXXXXXXXXXX.XXXX
+XXX.XXXXXXXXX···XXXXXXXXXXXXXXXXXXXXXXX.XXXX
+XXX..M...XXXX···XXXXXXXXXXXXXXXXXXXXXXX.XXXX
+XXX.XXXX.XXXX···XXXXXXXXXXXXXXXXXXXXXXXMXXXX
+XXX.XXXXMXXXXXXXXXXXXXXXXXXXX.......XXX.XXXX
+XXX.XXXX.XXXXXXXXXXXXXXXXXXXX.XXXXX.XXX.XXXX
+XXX.XXXX...M.DXXXXXXXXXXXXXXXMXXXXX.XXX.XXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX.X.M.XXXX
+XXX.XXXXXXXXXXXXXXXXXXXD.M....XXXXX.XXX.XXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXX.XXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXX.XXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXDXXXX
+XXX....M....M....M....M....M....M...XXX.XXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXX
+XXX.....M......M.......M......M......#..XXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[
+  {
+    "id": "moon",
+    "seal": "moon",
+    "x": 23,
+    "y": 12,
+    "direction": "right"
+  }
+]
+```
+
+Markierte Gehege:
+```json
+[
+  {
+    "id": "PEN",
+    "x": 17,
+    "y": 10,
+    "width": 5,
+    "height": 1,
+    "required": 1
+  }
+]
+```
 
 ```json
 {
@@ -4827,14 +4547,7 @@ In der Karte steht · für einen leeren Gang.
 
 ```json
 {
-  "keys": [
-    {
-      "id": "moon",
-      "seal": "moon",
-      "x": 25,
-      "y": 12
-    }
-  ],
+  "keys": [],
   "doors": [
     {
       "id": "exit",
@@ -4911,88 +4624,126 @@ move right
 move right
 walk 10 10
 use up
-walk 25 12
+walk 30 10
+walk 29 10
+walk 26 10
+strike moon left
+key moon
 harvest 3 5 37 23
 walk 3 3
 ```
 
-## 38 – Eine letzte Schicht
+## 38 – Zwei Arbeitsfronten
 
-Die hungrigen Adern. 54 × 38 Felder, Quote 46, 145 Sekunden, Schwierigkeit 3/3.
+Die wandelbare Mine. 54 × 38 Felder, Quote 46, 150 Sekunden, Schwierigkeit 3/3.
 
-P und Q öffnen Querverbindungen. Du kannst beide früh stoppen und außen sammeln oder länger arbeiten lassen und die Abkürzungen nutzen. R enthält nur zwei Steine. Ein ausgeschalteter Pit entfernt seine Käfer nicht. Sonnen- und Mondschlüssel liegen in verschiedenen Erzarmen.
+P1 erschließt den Sonnenbezirk. Seine Abschaltung startet P2 für den Mondbezirk. Ihre Abschaltungen liegen jeweils hinter der Arbeit und öffnen getrennte Rückwege sowie die Ausgangsriegel. Abschalten entfernt vorhandene Käfer nicht. Gewinne beide Schlüssel; alle vier Ausgangssperren liegen in derselben geschützten Passage.
 
-Hinweis: P und Q öffnen Querverbindungen. Du kannst beide früh stoppen und außen sammeln oder länger arbeiten lassen und die Abkürzungen nutzen. R enthält nur zwei Steine. Ein ausgeschalteter Pit entfernt seine Käfer nicht. Sonnen- und Mondschlüssel liegen in verschiedenen Erzarmen.
+Hinweis: P1 erschließt den Sonnenbezirk. Seine Abschaltung startet P2 für den Mondbezirk. Ihre Abschaltungen liegen jeweils hinter der Arbeit und öffnen getrennte Rückwege sowie die Ausgangsriegel. Abschalten entfernt vorhandene Käfer nicht. Gewinne beide Schlüssel; alle vier Ausgangssperren liegen in derselben geschützten Passage.
 
-Geprüfter Durchlauf: 495 Takte / 49.5 Sekunden, 49 Kristallpunkte, 49 Wertungspunkte. Replay: public/replays/38.json.
+Geprüfter Durchlauf: 505 Takte / 50.5 Sekunden, 54 Kristallpunkte, 69 Wertungspunkte. Replay: public/replays/38.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X####################################################X
-X####################################################X
-X##E...M.....M.....M.....M.....M.....M..D..M...######X
-X##.##########################################.######X
-X##.##########################################.######X
-X##P....##############...M...M....M....M...M...######X
-X##.##################.#.#####################.######X
-X##.##################.#.#·###################.######X
-X##.#####...##########.###·###################.######X
-X##.......#·HHHHHHHHHH·······#################.######X
-X##.####################·###·#################.######X
-X##.####################·###·######D..M...M....######X
-X##.####################·###·######.##########.######X
-X##.####################·····######M##########.######X
-X##.###############################.##########.######X
-X##..M...##########################....M...###.######X
-X##.####.#####################################.######X
-X##.####.############·····####################.######X
-X##.####M############·###·####################.######X
-X##.####.############·###·####################M######X
-X##.#M...############·###·####################.######X
-X##.#################·······HHHHHHHHHHH·######.######X
-X##.#######################.###########.######.######X
-X##.#######################.###########.######M######X
-X##.#######################.###########.######.######X
-X##..M...##################.###########.######.######X
-X#######.##################.###########.######.....##X
-X#######M##################.###########.######.###.##X
-X#######.##################.###########.######.###.##X
-X#######.##################.###########.######.###M##X
-X#######....M....M....M........M....M......M...###.##X
-X#######.########################.################.##X
-X#######.########################.################M##X
-X#######..M...DM....M..##########..M....M....M....D##X
-X####################################################X
-X####################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXX..M...M...M...M...M.DXXXXXXX
+XXX#XXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXX.XXXXXXX
+XXX#XXXXXXXXXXXXXXXXXXXXXXMXXXXXXXXXXXXXXXXXXX.XXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXX.XXXXX#XXXXXXXXXXXXX.XXXXXXX
+XXX..M..M....XXXXXXXXXXXXX..M..M..M....RXXXXXXMXXXXXXX
+XXXPXXXXXXXX.XXXXXXXXXXXXX.XXXXXXXXX....XXXXXX.XXXXXXX
+XXX.XXXXXXXXMXXXXX.XXX.XXX.XXXXXXXXXXXX·XXXXXX.XXXXXXX
+XXX.XXXXXXXX...XXX.XXX.XXX.XXXXXXXXXX·····XXXX.XXXXXXX
+XXX.XXXXXXXX.#·#HHHHHHHHHH·····XXXXXXXXXXXXXXX.XXXXXXX
+XXX.XXXXXXXX.XXXXXXXXXXXXXX·XX·XXXXXXXXXXXXXXX.XXXXXXX
+XXX.XXXXXXXX.XXXXXXXXXXXXXX·XX·XXXDXXXXXXXXXXXMXXXXXXX
+XXX.XXXXXXXX.XXXXXXXXXXXXXX·XX·XXX.XXXXXXXXXXX.XXXXXXX
+XXX..M.M.XXX.XXXXXXXXXXXXXX····XXXMXXXXXXXXXXX.XXXXXXX
+XXX.XXXX.XXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXX.XXXXXXX
+XXX.XXXX.XXX.XXXXXXXXXXXXXXXXX........M...M.....DXXXXX
+XXX.XXXXMXXX.XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXX.XXXXX
+XXX.XXXX.XXX.XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXMXXXXX
+XXX.XM..DXXX.XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXX.XXXXX
+XXX.XXXXXXXX.XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX#XX.XXXXX
+XXX.XXXXXXXX.XXXXXXXXXXXXXXXXXMXXXXXXXXXXXXXX·...XXXXX
+XXXMXXXXXXXXMXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX#XXXXXXXX
+XXX.XXXXXXXX.XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXHXXXXXXXX
+XXX.XXXXXXXX.XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXHXXXXXXXX
+XXX.XXXXXXXX..M..M..M..#..M.M..XXXXXXXXXXXXXXHXXXXXXXX
+XXX.XXXXXXXX.XXXXXXXXXXXXXXXXXXXRXXXXX#.XXXXXHXXXXXXXX
+XXX.XXXXXXXX.XXXXXXXXXXXXXXX.....XXX.........HXXXXXXXX
+XXX...M...M.DXXXXXXXXXXXXXXX.XXX·XXX.XXXXXXXX#XXXXXXXX
+XXXXXXXXXXXX.XXXXXXXXXXXXXXX.X·····X.XXXX·····XXXXXXXX
+XXXXXXXXXXXX.XXXXXXXXXXXXXXX.XXXXXXX.XXXX·XXX·XXXXXXXX
+XXXXXXXXXXXX....M...M..M.#............XXX·XXX·XXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXMXXX·XXX·XXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXM..M...M.DXXX·····XXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
 
+Schlüsselträger:
+```json
+[
+  {
+    "id": "sun",
+    "seal": "sun",
+    "x": 37,
+    "y": 11,
+    "direction": "right"
+  },
+  {
+    "id": "moon",
+    "seal": "moon",
+    "x": 30,
+    "y": 31,
+    "direction": "right"
+  }
+]
+```
+
+Markierte Gehege:
+```json
+[
+  {
+    "id": "P2",
+    "x": 41,
+    "y": 31,
+    "width": 5,
+    "height": 5,
+    "required": 1
+  }
+]
+```
+
 ```json
 {
   "pits": [
     {
-      "id": "P",
-      "label": "P",
-      "x": 10,
-      "y": 10,
+      "id": "P1",
+      "label": "P1",
+      "x": 13,
+      "y": 12,
       "direction": "right",
-      "delay": 60,
+      "delay": 40,
       "interval": 180,
       "maxAlive": 1,
       "active": true
     },
     {
-      "id": "Q",
-      "label": "Q",
-      "x": 40,
+      "id": "P2",
+      "label": "P2",
+      "x": 45,
       "y": 22,
-      "direction": "left",
+      "direction": "down",
       "delay": 120,
       "interval": 180,
       "maxAlive": 1,
-      "active": true
+      "active": false
     }
   ]
 }
@@ -5000,32 +4751,19 @@ In der Karte steht · für einen leeren Gang.
 
 ```json
 {
-  "keys": [
-    {
-      "id": "sun",
-      "seal": "sun",
-      "x": 42,
-      "y": 16
-    },
-    {
-      "id": "moon",
-      "seal": "moon",
-      "x": 22,
-      "y": 34
-    }
-  ],
+  "keys": [],
   "doors": [
     {
       "id": "sun-lock",
       "seal": "sun",
       "x": 3,
-      "y": 4
+      "y": 3
     },
     {
       "id": "moon-lock",
       "seal": "moon",
       "x": 3,
-      "y": 5
+      "y": 4
     }
   ],
   "portals": []
@@ -5034,56 +4772,92 @@ In der Karte steht · für einen leeren Gang.
 
 ```json
 {
-  "gates": [],
-  "levers": [
+  "gates": [
     {
-      "id": "P",
-      "label": "P",
-      "x": 6,
-      "y": 5,
-      "gates": [],
-      "dispensers": [],
-      "pits": [
-        "P"
-      ]
+      "id": "IN1",
+      "label": "P1",
+      "x": 15,
+      "y": 12,
+      "open": true
     },
     {
-      "id": "Q",
-      "label": "Q",
-      "x": 38,
+      "id": "IN2",
+      "label": "P2",
+      "x": 45,
       "y": 24,
-      "gates": [],
-      "dispensers": [],
-      "pits": [
-        "Q"
-      ]
+      "open": true
     },
     {
-      "id": "drop-R",
-      "label": "R",
+      "id": "RET1",
+      "label": "P1",
+      "x": 23,
+      "y": 27,
+      "open": false
+    },
+    {
+      "id": "RET2",
+      "label": "P2",
       "x": 25,
-      "y": 8,
-      "gates": [],
-      "dispensers": [
-        "R"
-      ],
-      "view": {
-        "x": 22,
-        "y": 6,
-        "width": 8,
-        "height": 8
-      }
+      "y": 33,
+      "open": false
+    },
+    {
+      "id": "E1",
+      "label": "P1",
+      "x": 3,
+      "y": 5,
+      "open": false
+    },
+    {
+      "id": "E2",
+      "label": "P2",
+      "x": 3,
+      "y": 6,
+      "open": false
+    },
+    {
+      "id": "WORK2",
+      "label": "P2",
+      "x": 45,
+      "y": 30,
+      "open": true
     }
   ],
-  "dispensers": [
+  "levers": [
     {
-      "id": "R",
-      "label": "R",
-      "x": 26,
+      "id": "stop1",
+      "label": "P1→P2",
+      "x": 32,
       "y": 7,
-      "stock": 2
+      "gates": [
+        "IN1",
+        "RET1",
+        "E1"
+      ],
+      "dispensers": [],
+      "pits": [
+        "P1",
+        "P2"
+      ]
+    },
+    {
+      "id": "stop2",
+      "label": "P2",
+      "x": 38,
+      "y": 28,
+      "gates": [
+        "IN2",
+        "RET2",
+        "E2",
+        "WORK2"
+      ],
+      "dispensers": [],
+      "pits": [
+        "P2"
+      ]
     }
-  ]
+  ],
+  "dispensers": []
 }
 ```
 
@@ -5091,14 +4865,27 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 6 6
+harvest 3 8 10 23
+clear 25 12
+walk 32 8
 use up
-walk 39 24
+walk 36 8
+walk 38 8
+walk 38 9
+strike sun right
+key sun
+harvest 26 4 23 24
+walk 48 23
+until 43 35 beetle
+walk 39 28
 use left
-walk 42 16
-walk 22 34
-harvest 3 3 48 32
-walk 3 3
+walk 28 33
+walk 28 29
+walk 31 29
+strike moon right
+key moon
+harvest 12 29 26 7
+walk 3 2
 ```
 
 ## 39 – Die Ernte fällt nach unten
@@ -5246,58 +5033,78 @@ walk 3 3
 
 ## 40 – Der Preis des Durchbruchs
 
-Die hungrigen Adern. 56 × 40 Felder, Quote 53, 185 Sekunden, Schwierigkeit 3/3.
+Die hungrigen Adern. 56 × 40 Felder, Quote 54, 225 Sekunden, Schwierigkeit 3/3.
 
-Hole den Sonnenschlüssel und starte P. Lass den Helfer die Ader öffnen, bevor du über seine Zukunft entscheidest. Hinter der Ader liegt F für die Verschmelzung. LAST enthält nur einen Stein: Bewahre ihn für den Kristallkäfer auf. Sammle alle 50 normalen Punkte und seinen Diamanten. Der Mondschlüssel und P/R sichern den Heimweg.
+P liefert genau einen Helfer. Lass ihn den Durchbruch vollenden, schließe G3 hinter ihm und verwandle ihn mit R1 in seiner weißen Phase in einen Diamanten. Öffne G3 zur Bergung. Ein zweiter Diamant entsteht aus Blau/Lila und R2. Beide sind für die Quote nötig. P/R bereitet den Rückweg vor; der Pit lässt sich nicht nachfüllen.
 
-Hinweis: Hole den Sonnenschlüssel und starte P. Lass den Helfer die Ader öffnen, bevor du über seine Zukunft entscheidest. Hinter der Ader liegt F für die Verschmelzung. LAST enthält nur einen Stein: Bewahre ihn für den Kristallkäfer auf. Sammle alle 50 normalen Punkte und seinen Diamanten. Der Mondschlüssel und P/R sichern den Heimweg.
+Hinweis: P liefert genau einen Helfer. Lass ihn den Durchbruch vollenden, schließe G3 hinter ihm und verwandle ihn mit R1 in seiner weißen Phase in einen Diamanten. Öffne G3 zur Bergung. Ein zweiter Diamant entsteht aus Blau/Lila und R2. Beide sind für die Quote nötig. P/R bereitet den Rückweg vor; der Pit lässt sich nicht nachfüllen.
 
-Geprüfter Durchlauf: 628 Takte / 62.8 Sekunden, 53 Kristallpunkte, 63 Wertungspunkte. Replay: public/replays/40.json.
+Geprüfter Durchlauf: 756 Takte / 75.6 Sekunden, 54 Kristallpunkte, 84 Wertungspunkte. Replay: public/replays/40.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X######################################################X
-X######################################################X
-X##E###################################################X
-X##.###################################################X
-X##.#####..M..M..######################################X
-X########.######.######################################X
-X##.#####.######.######################################X
-X##P.M..M.######.###############..M...M...M...M...#####X
-X##.############.###############.################.#####X
-X##.############.###############...##############.#####X
-X##.############.###############.#.##############.#####X
-X##.#M...#######.###############.#.#########D.....#####X
-X##.####.#######.....###########.###########.####.#####X
-X##.####M###########·#HHHHHHHHHH········####M####.#####X
-X##.####.########################.##·##·####.####.#####X
-X##..M...########################.·#·##·####...M..#####X
-X##.#############################.##·##·#########.#####X
-X##.#############################.·#····#########.#####X
-X##.#############################.·##############.#####X
-X##.#########################>#·······#l#########M#####X
-X##.#############################################.#####X
-X##.####..M..M.##################################.#####X
-X##.####.########################################.#####X
-X##.####.########################################.#####X
-X##.####.###############.#.M..M.############..M...#####X
-X##.####.###############.######.############.####.#####X
-X##.####.###############.######.############M####.#####X
-X##.####..M...M.D#######.######.#######DM....####.#####X
-X##.############.#######.######.#################.#####X
-X##..M.M########.#######.######.#################.#####X
-X##.############.#######...M....M....M....M....M..#####X
-X##.############.#######.#####################.########X
-X##.############.#######.#####################M########X
-X##...M...M...M.....#....#####################.########X
-X#######################...M....M....M....M...D########X
-X######################################################X
-X######################################################X
-X######################################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXX..M..M..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX#XXXXX.XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXX.XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXP.M..M.XXXXXX.XXXXXXXXXXXXXXX..M...M...M...M...XXXXXX
+XXX.XXXXXXXXXXXX.XXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXX.XXXXXX
+XXX.XXXXXXXXXXXX.#XXXXXXXXXXXXXX.....XXXXXXXXXXXX.XXXXXX
+XXX.XXXXXXXXXXXX.XXXXXXXXXXXXXXX.X.#.X#XXXXXXXXXX.XXXXXX
+XXX.XM...XXXXXXX.XXXXXXXXXXXXXXX.X.#.#·XXXXXD.....XXXXXX
+XXX.XXXX.XXXXXXX.....XXXXXXXXXXX.XXXXX·XXXXX.XXXX.XXXXXX
+XXX.XXXXMXXXXXXXXXX#·#HHHHHHHHHH····#···XXXXMXXXX.XXXXXX
+XXX.XXXX.XXXXXXXXXXXXXXXXXXXXXXXX.XX·XX·XXXX.XXXX.XXXXXX
+XXX..M...XXXXXXXXXXXXXXXXXXXXXXXX.·X·XX·XXXX...M..XXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX#.#X·XX·XXXXXXXXX.XXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.·X····XXXXXXXXX.XXXXXX
+XXX.XXXXXXXXXXRXXXXXXXXXXXXXXXXXX.·XXXXXXXXXXXXXX.XXXXXX
+XXX.XXXXXX.....XXXXXXXXXXX···>#·······#l···XXXXXXMXXXXXX
+XXX.XXXXXX.XXX·XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXX
+XXX.XXXX..M.·····XXXXXXXXXXXXXXRXXXXXXXXXXXXXXXXX.XXXXXX
+XXX.XXXX.XXXXXXXXXXXXXXXXXX.....XXXXXXXXXXXXXXXXX.XXXXXX
+XXX.XXXX.XXXXXXXXXXXXXXXXXX.XXX·XXXXXXXXXXXXXXXXX.XXXXXX
+XXX.XXXX.XXXXXXXXXXXXXXX.#.M.·····XXXXXXXXXX..M...XXXXXX
+XXX.XXXX.XXXXXXXXXXXXXXX.XX.XXX.XXXXXXXXXXXX.XXXX.XXXXXX
+XXX.XXXX.XXXXXXXXXXXXXXX.XX.XXX.XXXXXXXXXXXXMXXXX.XXXXXX
+XXX.XXXX..M...M.DXXXXXXX.XX.XXX.XXXXXXXDM....XXXX.XXXXXX
+XXX.XXXXXXXXXXXX.XXXXXXX.XX.XXX.XXXXXXXXXXXXXXXXX.XXXXXX
+XXX..M.MXXXXXXXX.XXXXXXX.XX.XXX.XXXXXXXXXXXXXXXXX.XXXXXX
+XXX.XXXXXXXXXXXX.XXXXXXX...M....M....M....M....M..XXXXXX
+XXX.XXXXXXXXXXXX.XXXXXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXX
+XXX.XXXXXXXXXXXX.XXXXXXX.XXXXXXXXXXXXXXXXXXXXXMXXXXXXXXX
+XXX...M...M...M.....#....XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXX...M....M....M....M...DXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[
+  {
+    "id": "wake-key",
+    "seal": "sun",
+    "x": 12,
+    "y": 22,
+    "direction": "right"
+  },
+  {
+    "id": "home-key",
+    "seal": "moon",
+    "x": 29,
+    "y": 25,
+    "direction": "right"
+  }
+]
+```
 
 ```json
 {
@@ -5309,9 +5116,10 @@ In der Karte steht · für einen leeren Gang.
       "y": 14,
       "direction": "right",
       "delay": 20,
-      "interval": 180,
+      "interval": 0,
       "maxAlive": 1,
-      "active": false
+      "active": false,
+      "stock": 1
     }
   ]
 }
@@ -5319,20 +5127,7 @@ In der Karte steht · für einen leeren Gang.
 
 ```json
 {
-  "keys": [
-    {
-      "id": "wake-key",
-      "seal": "sun",
-      "x": 14,
-      "y": 22
-    },
-    {
-      "id": "home-key",
-      "seal": "moon",
-      "x": 31,
-      "y": 25
-    }
-  ],
+  "keys": [],
   "doors": [
     {
       "id": "wake-lock",
@@ -5388,6 +5183,13 @@ In der Karte steht · für einen leeren Gang.
       "x": 3,
       "y": 6,
       "open": false
+    },
+    {
+      "id": "HOLD",
+      "label": "G3",
+      "x": 36,
+      "y": 14,
+      "open": true
     }
   ],
   "levers": [
@@ -5415,7 +5217,7 @@ In der Karte steht · für einen leeren Gang.
     },
     {
       "id": "last",
-      "label": "LAST",
+      "label": "R2",
       "x": 32,
       "y": 17,
       "gates": [],
@@ -5443,14 +5245,47 @@ In der Karte steht · für einen leeren Gang.
       "pits": [
         "P"
       ]
+    },
+    {
+      "id": "hold",
+      "label": "G3",
+      "x": 35,
+      "y": 11,
+      "gates": [
+        "HOLD"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "worker-drop",
+      "label": "R1",
+      "x": 37,
+      "y": 12,
+      "gates": [],
+      "dispensers": [
+        "WORK"
+      ],
+      "view": {
+        "x": 34,
+        "y": 9,
+        "width": 8,
+        "height": 11
+      }
     }
   ],
   "dispensers": [
     {
       "id": "LAST",
-      "label": "LAST",
+      "label": "R2",
       "x": 34,
       "y": 17,
+      "stock": 1
+    },
+    {
+      "id": "WORK",
+      "label": "R1",
+      "x": 38,
+      "y": 11,
       "stock": 1
     }
   ]
@@ -5461,19 +5296,36 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 14 22
+walk 8 22
+walk 10 22
+walk 10 20
+walk 13 20
+strike wake-key right
+key wake-key
 walk 16 10
 use right
 harvest 3 8 14 27
 until 39 14 digger
+walk 34 11
+until 37 14 beetle
+use right
+walk 36 12
+strike pit:P right
+wait 5
+walk 34 11
+use right
+walk 38 14
 walk 34 12
 use right
 walk 33 17
-until 34 20 crystal-crawler
-use left
+strike crystal-crawler left
 wait 6
 walk 34 20
-walk 31 25
+walk 27 31
+walk 27 23
+walk 30 23
+strike home-key right
+key home-key
 walk 26 25
 use left
 harvest 24 8 26 28
@@ -5515,8 +5367,7 @@ walk 25 8
 walk 25 3
 walk 30 3
 walk 30 6
-wait 16
-snap right
+strike beetle right
 wait 5
 walk 30 3
 walk 25 3

@@ -1,5 +1,6 @@
 import {describe,it,expect} from 'vitest';
 import {LEVELS} from '../src/levels';
+import {UNCHANGED_V011} from '../src/revision-v011';
 import archived from '../src/levels-v09.json';
 import feedback from '../artifacts/timing-feedback-2026-10-19.json';
 import {compatibleHashes,compatibleRecord,currentServerRecords} from '../src/record-compatibility';
@@ -10,7 +11,7 @@ import {defaultSave,parseSave,currentRecord,recordWin} from '../src/storage';
 import {solve} from '../tools/solution';
 
 describe('shorter deadlines without deleting valid records',()=>{
- for(const level of LEVELS.filter(l=>Number(l.id)<=30))it(`${level.id}: unchanged puzzle, human ceiling, successful timed route and old offline proof`,()=>{
+ for(const level of LEVELS.filter(l=>Number(l.id)<=30&&UNCHANGED_V011.includes(l.id)))it(`${level.id}: unchanged puzzle, human ceiling, successful timed route and old offline proof`,()=>{
   const old=(archived as LevelDefinition[]).find(l=>l.id===level.id)!;
   expect(levelHash({...old,timeSeconds:level.timeSeconds})).toBe(levelHash(level));
   const human=feedback.boards.find(b=>b.level===level.id)!.data.entries.find(e=>e.nickname==='Mufti999')!;

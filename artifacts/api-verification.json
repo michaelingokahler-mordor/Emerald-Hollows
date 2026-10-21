@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-19T17:57:26.983Z",
+  "date": "2026-10-21T15:14:30.302Z",
   "target": "local Wrangler/D1",
   "status": "PASS",
   "checks": [
@@ -20,6 +20,8 @@
     "equal-score equal-time shared rank",
     "slower score cannot replace faster record",
     "recovery retains archived unlocks",
+    "all forty exact published 0.10 offline proofs accepted: ten current, thirty archived",
+    "v6 support and current revised scores confirmed",
     "old timer proof accepted but over-limit result remains archived",
     "eligible old and new timer results merge once per profile",
     "restored timer-compatible best result uses current hash"

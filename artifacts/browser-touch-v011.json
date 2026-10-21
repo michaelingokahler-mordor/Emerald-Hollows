@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "checks": [
+    "real simultaneous touch pit activation",
+    "snap preserves miner position",
+    "pause freezes pit countdown",
+    "serialized checkpoint retains pit state",
+    "actual page reload resumes identical paused checkpoint",
+    "restart restores initial pit",
+    "visible control, outlet and target on 390px display"
+  ],
+  "checkpoint": {
+    "tick": 13,
+    "pit": {
+      "active": true,
+      "due": 43,
+      "spawned": 0
+    },
+    "player": {
+      "x": 8,
+      "y": 7,
+      "direction": "down"
+    }
+  },
+  "apparatus": [
+    {
+      "id": "09",
+      "left": 756,
+      "top": 150.10526315789474,
+      "w": 600,
+      "h": 915.7894736842105,
+      "allVisible": true
+    },
+    {
+      "id": "35",
+      "left": 571.6923076923077,
+      "top": 97.84615384615387,
+      "w": 584.6153846153845,
+      "h": 892.3076923076923,
+      "allVisible": true
+    },
+    {
+      "id": "35",
+      "left": 1531.6923076923076,
+      "top": 481.84615384615387,
+      "w": 584.6153846153845,
+      "h": 892.3076923076923,
+      "allVisible": true
+    },
+    {
+      "id": "40",
+      "left": 2043.6923076923076,
+      "top": 353.84615384615387,
+      "w": 584.6153846153845,
+      "h": 892.3076923076923,
+      "allVisible": true
+    },
+    {
+      "id": "40",
+      "left": 1851.6923076923076,
+      "top": 673.8461538461538,
+      "w": 584.6153846153845,
+      "h": 892.3076923076923,
+      "allVisible": true
+    }
+  ]
+}

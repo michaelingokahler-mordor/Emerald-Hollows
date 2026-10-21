@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "dpr": 3,
+  "results": [
+    {
+      "id": "06",
+      "ticks": 106,
+      "points": 9,
+      "status": "won"
+    },
+    {
+      "id": "09",
+      "ticks": 57,
+      "points": 5,
+      "status": "won"
+    },
+    {
+      "id": "13",
+      "ticks": 271,
+      "points": 36,
+      "status": "won"
+    },
+    {
+      "id": "15",
+      "ticks": 530,
+      "points": 37,
+      "status": "won"
+    },
+    {
+      "id": "16",
+      "ticks": 486,
+      "points": 40,
+      "status": "won"
+    },
+    {
+      "id": "26",
+      "ticks": 715,
+      "points": 71,
+      "status": "won"
+    },
+    {
+      "id": "34",
+      "ticks": 1046,
+      "points": 45,
+      "status": "won"
+    },
+    {
+      "id": "35",
+      "ticks": 426,
+      "points": 33,
+      "status": "won"
+    },
+    {
+      "id": "36",
+      "ticks": 533,
+      "points": 92,
+      "status": "won"
+    },
+    {
+      "id": "38",
+      "ticks": 505,
+      "points": 54,
+      "status": "won"
+    },
+    {
+      "id": "40",
+      "ticks": 756,
+      "points": 54,
+      "status": "won"
+    }
+  ],
+  "errors": [],
+  "note": "Accelerated renderer replay checks. Not human play feel or a physical touch-device test."
+}

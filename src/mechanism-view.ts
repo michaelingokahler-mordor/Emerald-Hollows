@@ -1,8 +1,9 @@
 import Phaser from 'phaser';
+import {reinforcedRim} from './reinforcement-view';
 import type {GameState,LevelDefinition} from './core/types';
 const CELL=64;
 export class MechanismView{
- private nodes: Array<{id:string;kind:'gate'|'lever'|'stock';container:Phaser.GameObjects.Container;graphic:Phaser.GameObjects.Graphics;label:Phaser.GameObjects.Text;stones:Phaser.GameObjects.Image[];art?:Phaser.GameObjects.Image;parts:Phaser.GameObjects.Image[];last:string}>=[];
+ private nodes: Array<{id:string;name:string;kind:'gate'|'lever'|'stock';container:Phaser.GameObjects.Container;graphic:Phaser.GameObjects.Graphics;label:Phaser.GameObjects.Text;stones:Phaser.GameObjects.Image[];art?:Phaser.GameObjects.Image;parts:Phaser.GameObjects.Image[];last:string}>=[];
  constructor(private scene:Phaser.Scene,private level:LevelDefinition){
   const m=level.mechanisms;if(!m)return;
   for(const [kind,list]of [['gate',m.gates],['lever',m.levers],['stock',m.dispensers]] as const)for(const d of list){
@@ -18,7 +19,7 @@ export class MechanismView{
    const label=scene.add.text(0,18,d.label,{fontFamily:'Arial',fontSize:'14px',fontStyle:'bold',color:'#fff1bd',stroke:'#101b20',strokeThickness:3}).setOrigin(.5);container.add(label);
    const stones:Phaser.GameObjects.Image[]=[];
    if(kind==='stock')for(let i=0;i<6;i++){const img=scene.add.image(-16+(i%3)*16,-17+Math.floor(i/3)*15,'tiles','rock').setDisplaySize(15,15);container.add(img);stones.push(img);}
-   this.nodes.push({id:d.id,kind,container,graphic,label,stones,art,parts,last:''});
+   this.nodes.push({id:d.id,name:d.label,kind,container,graphic,label,stones,art,parts,last:''});
   }
  }
  update(state:GameState){
@@ -27,7 +28,7 @@ export class MechanismView{
    const active=node.kind==='gate'?m.gates[node.id]:node.kind==='lever'?m.levers[node.id]:m.stocks[node.id];
    const busy=node.kind==='stock'&&m.cooldowns[node.id]>state.tick;
    const key=String(active)+busy;if(key===node.last)continue;const initial=node.last==='';node.last=key;
-   const g=node.graphic;g.clear();
+   const g=node.graphic;g.clear();if(state.beetles)reinforcedRim(g);
    if(node.kind==='gate'){
     node.art?.setVisible(!active);node.parts.forEach(p=>p.setVisible(!!active));
     node.label.setY(active?24:10).setColor(active?'#b3f2c9':'#fff1bd');
@@ -38,7 +39,7 @@ export class MechanismView{
    }else{
     g.lineStyle(3,0x9eb3b8).lineBetween(-20,9,20,9);
     g.fillStyle(busy?0xf3d68b:active?0x91c6a0:0x8a6c68).fillRect(-13,26,26,5);
-    node.label.setText(`${node.id} · ${active}`);
+    node.label.setText(`${node.name} · ${active}`);
     node.stones.forEach((stone,i)=>stone.setVisible(i<Number(active)));
    }
   }

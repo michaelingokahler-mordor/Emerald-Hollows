@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "dpr": 1,
+  "results": [
+    {
+      "id": "05",
+      "ticks": 47,
+      "points": 12,
+      "status": "won"
+    },
+    {
+      "id": "26",
+      "ticks": 715,
+      "points": 71,
+      "status": "won"
+    },
+    {
+      "id": "35",
+      "ticks": 426,
+      "points": 33,
+      "status": "won"
+    }
+  ],
+  "errors": [],
+  "note": "Accelerated renderer replay checks. Not human play feel or a physical touch-device test."
+}

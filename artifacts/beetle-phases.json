@@ -1,0 +1,876 @@
+{
+  "at": "2026-10-21T15:21:45.730Z",
+  "note": "Phase perturbations with a laboratory deadline of 1800 seconds. Not published timed records. Inputs are chosen using the same movement rules.",
+  "results": [
+    {
+      "id": "05",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 4.7,
+          "changes": 0
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 16.5,
+          "changes": 2
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 23.5,
+          "changes": 2
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 40.9,
+          "changes": 4
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 10.6,
+          "changes": 0
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 19,
+          "changes": 2
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 28.6,
+          "changes": 5
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 46.6,
+          "changes": 10
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 8,
+          "changes": 0
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 18.8,
+          "changes": 0
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 54.8,
+          "changes": 2
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 54.8,
+          "changes": 2
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 5.7,
+          "changes": 0
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 22.8,
+          "changes": 2
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 24,
+          "changes": 2
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 55.6,
+          "changes": 8
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 15.7,
+          "changes": 0
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 39.7,
+          "changes": 2
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 39.7,
+          "changes": 2
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 63.7,
+          "changes": 4
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 21.5,
+          "changes": 9
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 30.5,
+          "changes": 19
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 39.5,
+          "changes": 27
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 57.5,
+          "changes": 41
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 27.1,
+          "changes": 0
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 47.5,
+          "changes": 2
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 47.7,
+          "changes": 2
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 77.5,
+          "changes": 6
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 53,
+          "changes": 10
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 63.2,
+          "changes": 11
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 71.6,
+          "changes": 12
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 88.8,
+          "changes": 14
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 48.6,
+          "changes": 3
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 65.1,
+          "changes": 3
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 65.1,
+          "changes": 3
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 153.5,
+          "changes": 5
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 53.5,
+          "changes": 2
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 53.2,
+          "changes": 4
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 63.7,
+          "changes": 6
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 89.5,
+          "changes": 14
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 33.4,
+          "changes": 1
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 42.4,
+          "changes": 2
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 51.8,
+          "changes": 3
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 69.4,
+          "changes": 5
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 62,
+          "changes": 2
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 70.2,
+          "changes": 7
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 79.2,
+          "changes": 12
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 97.4,
+          "changes": 23
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 54,
+          "changes": 0
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 63.4,
+          "changes": 2
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 72.4,
+          "changes": 3
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 90,
+          "changes": 5
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 53,
+          "changes": 1
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 62.6,
+          "changes": 3
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 71.6,
+          "changes": 4
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 89,
+          "changes": 6
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 38.1,
+          "changes": 0
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 46.6,
+          "changes": 3
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 55.6,
+          "changes": 6
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 73.6,
+          "changes": 12
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 60.4,
+          "changes": 3
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 69.4,
+          "changes": 4
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 78.4,
+          "changes": 6
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 96.4,
+          "changes": 9
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 71.5,
+          "changes": 1
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 80.7,
+          "changes": 2
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 90.3,
+          "changes": 4
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 107.5,
+          "changes": 7
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 53.6,
+          "changes": 2
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 57.8,
+          "changes": 5
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 65,
+          "changes": 8
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 111.2,
+          "changes": 18
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 58.5,
+          "changes": 5
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 68.1,
+          "changes": 7
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 77.1,
+          "changes": 9
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 94.5,
+          "changes": 15
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 53.4,
+          "changes": 4
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 63.1,
+          "changes": 6
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 72.1,
+          "changes": 8
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 89.4,
+          "changes": 14
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 91.4,
+          "changes": 6
+        },
+        {
+          "delay": 114,
+          "success": true,
+          "seconds": 103,
+          "changes": 9
+        },
+        {
+          "delay": 204,
+          "success": true,
+          "seconds": 112,
+          "changes": 13
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 127.4,
+          "changes": 18
+        }
+      ]
+    },
+    {
+      "id": "31",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 27.7,
+          "changes": 3
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 37.3,
+          "changes": 7
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 46.3,
+          "changes": 10
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 64.9,
+          "changes": 17
+        }
+      ]
+    },
+    {
+      "id": "32",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 35.9,
+          "changes": 2
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 44.9,
+          "changes": 3
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 53.3,
+          "changes": 5
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 71.9,
+          "changes": 7
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 29,
+          "changes": 4
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 37.9,
+          "changes": 5
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 74.9,
+          "changes": 8
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 65,
+          "changes": 13
+        }
+      ]
+    },
+    {
+      "id": "34",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 104.6,
+          "changes": 31
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 113.6,
+          "changes": 35
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 123.2,
+          "changes": 41
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 140.6,
+          "changes": 50
+        }
+      ]
+    },
+    {
+      "id": "35",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 42.6,
+          "changes": 4
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 51.6,
+          "changes": 9
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 60.6,
+          "changes": 14
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 78.6,
+          "changes": 25
+        }
+      ]
+    },
+    {
+      "id": "36",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 53.3,
+          "changes": 0
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 62.3,
+          "changes": 0
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 71.3,
+          "changes": 0
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 89.3,
+          "changes": 0
+        }
+      ]
+    },
+    {
+      "id": "37",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 45.3,
+          "changes": 9
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 54.8,
+          "changes": 12
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 63.8,
+          "changes": 15
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 81.3,
+          "changes": 22
+        }
+      ]
+    },
+    {
+      "id": "38",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 50.5,
+          "changes": 12
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 59,
+          "changes": 14
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 76.5,
+          "changes": 17
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 86.5,
+          "changes": 25
+        }
+      ]
+    },
+    {
+      "id": "40",
+      "phases": [
+        {
+          "delay": 0,
+          "success": true,
+          "seconds": 75.6,
+          "changes": 24
+        },
+        {
+          "delay": 90,
+          "success": true,
+          "seconds": 85.4,
+          "changes": 31
+        },
+        {
+          "delay": 180,
+          "success": true,
+          "seconds": 94.4,
+          "changes": 37
+        },
+        {
+          "delay": 360,
+          "success": true,
+          "seconds": 111.7,
+          "changes": 48
+        }
+      ]
+    }
+  ]
+}

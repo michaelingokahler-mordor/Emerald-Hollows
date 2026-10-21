@@ -1,0 +1,911 @@
+{
+  "at": "2026-10-21T15:33:53.773Z",
+  "note": "Automated solutions, checkpoints, 30/60/144 FPS and local server verifier. Not optimal times or human play feedback.",
+  "levels": [
+    {
+      "id": "01",
+      "hash": "db2858e9",
+      "quota": 8,
+      "timeSeconds": 13,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 3.6,
+          "points": 8,
+          "score": 8,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "hash": "3832cdd9",
+      "quota": 10,
+      "timeSeconds": 9,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 2.8,
+          "points": 10,
+          "score": 10,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "hash": "fe35c747",
+      "quota": 12,
+      "timeSeconds": 10,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 3.1,
+          "points": 12,
+          "score": 12,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "hash": "5ebdf75d",
+      "quota": 15,
+      "timeSeconds": 9,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 4.2,
+          "points": 15,
+          "score": 15,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "hash": "ef31b71f",
+      "quota": 12,
+      "timeSeconds": 10,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 4.7,
+          "points": 12,
+          "score": 17,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "7": "crushed"
+          }
+        },
+        {
+          "name": "observe",
+          "seconds": 7.9,
+          "points": 12,
+          "score": 12,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "hash": "bd8205c0",
+      "quota": 9,
+      "timeSeconds": 30,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 10.6,
+          "points": 9,
+          "score": 14,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "4": "exploded"
+          }
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "hash": "8582274e",
+      "quota": 9,
+      "timeSeconds": 20,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 8,
+          "points": 9,
+          "score": 14,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "2": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "hash": "f557c3d8",
+      "quota": 12,
+      "timeSeconds": 16,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 4.6,
+          "points": 12,
+          "score": 12,
+          "remainingGems": 2,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "hash": "65c060c6",
+      "quota": 5,
+      "timeSeconds": 15,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 5.7,
+          "points": 5,
+          "score": 15,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "1": "transmuted"
+          }
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "hash": "58f81010",
+      "quota": 30,
+      "timeSeconds": 40,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 15.7,
+          "points": 30,
+          "score": 35,
+          "remainingGems": 2,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "7": "exploded"
+          }
+        },
+        {
+          "name": "crush",
+          "seconds": 14.5,
+          "points": 30,
+          "score": 35,
+          "remainingGems": 2,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "7": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "hash": "2aaaf6fc",
+      "quota": 22,
+      "timeSeconds": 80,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 19.1,
+          "points": 38,
+          "score": 38,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "hash": "e0194e10",
+      "quota": 22,
+      "timeSeconds": 60,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 21.5,
+          "points": 31,
+          "score": 31,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "hash": "511189b9",
+      "quota": 28,
+      "timeSeconds": 80,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 27.1,
+          "points": 36,
+          "score": 46,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "33": "transmuted"
+          }
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "hash": "123dc615",
+      "quota": 36,
+      "timeSeconds": 65,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 28,
+          "points": 40,
+          "score": 40,
+          "remainingGems": 9,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "hash": "7465d2a2",
+      "quota": 36,
+      "timeSeconds": 155,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 53,
+          "points": 37,
+          "score": 42,
+          "remainingGems": 1,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "hash": "f78212a1",
+      "quota": 36,
+      "timeSeconds": 145,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 48.6,
+          "points": 40,
+          "score": 45,
+          "remainingGems": 0,
+          "excavated": 7,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "hash": "5bf842bb",
+      "quota": 38,
+      "timeSeconds": 65,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 25.5,
+          "points": 39,
+          "score": 39,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "hash": "0bf831af",
+      "quota": 38,
+      "timeSeconds": 135,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 41.8,
+          "points": 52,
+          "score": 52,
+          "remainingGems": 1,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        },
+        {
+          "name": "shortcut",
+          "seconds": 38.8,
+          "points": 38,
+          "score": 38,
+          "remainingGems": 5,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "hash": "245e3f80",
+      "quota": 41,
+      "timeSeconds": 160,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 53.5,
+          "points": 41,
+          "score": 51,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "34": "transmuted"
+          }
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "hash": "8326d7bc",
+      "quota": 44,
+      "timeSeconds": 100,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 33.4,
+          "points": 47,
+          "score": 52,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "2": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "hash": "b31bc3e2",
+      "quota": 48,
+      "timeSeconds": 185,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 62,
+          "points": 60,
+          "score": 75,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "54": "crushed",
+            "55": "crushed",
+            "56": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "hash": "9e758541",
+      "quota": 62,
+      "timeSeconds": 160,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 54,
+          "points": 69,
+          "score": 74,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "61": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "hash": "af775f71",
+      "quota": 52,
+      "timeSeconds": 155,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 53,
+          "points": 59,
+          "score": 64,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "52": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "hash": "ee98b655",
+      "quota": 90,
+      "timeSeconds": 110,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 38.1,
+          "points": 106,
+          "score": 116,
+          "remainingGems": 36,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "86": "crushed",
+            "87": "crushed"
+          }
+        },
+        {
+          "name": "east",
+          "seconds": 49.6,
+          "points": 96,
+          "score": 106,
+          "remainingGems": 22,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "86": "crushed",
+            "87": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "hash": "0797ebaf",
+      "quota": 62,
+      "timeSeconds": 180,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 60.4,
+          "points": 69,
+          "score": 74,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "59": "crushed"
+          }
+        },
+        {
+          "name": "discovery",
+          "seconds": 60.9,
+          "points": 69,
+          "score": 74,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "59": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "hash": "db7c66d9",
+      "quota": 66,
+      "timeSeconds": 210,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 71.5,
+          "points": 71,
+          "score": 76,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "64": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "hash": "ad860bd9",
+      "quota": 56,
+      "timeSeconds": 160,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 53.6,
+          "points": 58,
+          "score": 68,
+          "remainingGems": 1,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "53": "crushed",
+            "54": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "hash": "36e4b6da",
+      "quota": 78,
+      "timeSeconds": 175,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 58.5,
+          "points": 82,
+          "score": 92,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "73": "crushed",
+            "74": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "hash": "9d50a280",
+      "quota": 68,
+      "timeSeconds": 160,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 53.4,
+          "points": 70,
+          "score": 80,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "60": "crushed",
+            "61": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "hash": "b524536b",
+      "quota": 86,
+      "timeSeconds": 270,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 91.4,
+          "points": 101,
+          "score": 111,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "76": "crushed",
+            "77": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "31",
+      "hash": "c9233f28",
+      "quota": 24,
+      "timeSeconds": 80,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 27.7,
+          "points": 26,
+          "score": 31,
+          "remainingGems": 0,
+          "excavated": 19,
+          "spawned": {},
+          "defeated": {
+            "23": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "32",
+      "hash": "ddee077a",
+      "quota": 24,
+      "timeSeconds": 105,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 35.9,
+          "points": 25,
+          "score": 35,
+          "remainingGems": 0,
+          "excavated": 8,
+          "spawned": {
+            "P": {
+              "active": false,
+              "due": 43,
+              "spawned": 1
+            }
+          },
+          "defeated": {
+            "22": "crushed",
+            "23": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "hash": "45b6d718",
+      "quota": 25,
+      "timeSeconds": 85,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 29,
+          "points": 29,
+          "score": 34,
+          "remainingGems": 0,
+          "excavated": 9,
+          "spawned": {
+            "P": {
+              "active": false,
+              "due": 250,
+              "spawned": 1
+            }
+          },
+          "defeated": {
+            "25": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "34",
+      "hash": "28cc0673",
+      "quota": 42,
+      "timeSeconds": 265,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 104.6,
+          "points": 45,
+          "score": 55,
+          "remainingGems": 0,
+          "excavated": 22,
+          "spawned": {},
+          "defeated": {
+            "39": "crushed",
+            "40": "crushed"
+          }
+        },
+        {
+          "name": "alternative",
+          "seconds": 89.1,
+          "points": 45,
+          "score": 55,
+          "remainingGems": 0,
+          "excavated": 22,
+          "spawned": {},
+          "defeated": {
+            "39": "crushed",
+            "40": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "35",
+      "hash": "67d6d303",
+      "quota": 33,
+      "timeSeconds": 125,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 42.6,
+          "points": 33,
+          "score": 48,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "27": "exploded",
+            "29": "transmuted"
+          }
+        }
+      ]
+    },
+    {
+      "id": "36",
+      "hash": "1467341f",
+      "quota": 92,
+      "timeSeconds": 140,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 53.3,
+          "points": 92,
+          "score": 92,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        },
+        {
+          "name": "alternative",
+          "seconds": 47.6,
+          "points": 92,
+          "score": 92,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        },
+        {
+          "name": "north",
+          "seconds": 53.9,
+          "points": 92,
+          "score": 92,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "37",
+      "hash": "f4be625b",
+      "quota": 34,
+      "timeSeconds": 135,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 45.3,
+          "points": 37,
+          "score": 47,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "33": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "38",
+      "hash": "28f6a7b7",
+      "quota": 46,
+      "timeSeconds": 150,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 50.5,
+          "points": 54,
+          "score": 69,
+          "remainingGems": 3,
+          "excavated": 15,
+          "spawned": {
+            "P1": {
+              "active": false,
+              "due": 220,
+              "spawned": 1
+            },
+            "P2": {
+              "active": false,
+              "due": 438,
+              "spawned": 1
+            }
+          },
+          "defeated": {
+            "48": "crushed",
+            "49": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "39",
+      "hash": "dbbae607",
+      "quota": 46,
+      "timeSeconds": 115,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 39.7,
+          "points": 46,
+          "score": 46,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "40",
+      "hash": "64516a60",
+      "quota": 54,
+      "timeSeconds": 225,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 75.6,
+          "points": 54,
+          "score": 84,
+          "remainingGems": 0,
+          "excavated": 10,
+          "spawned": {
+            "P": {
+              "active": false,
+              "due": 192,
+              "spawned": 1
+            }
+          },
+          "defeated": {
+            "45": "crushed",
+            "46": "crushed",
+            "47": "transmuted",
+            "49": "transmuted"
+          }
+        }
+      ]
+    }
+  ]
+}

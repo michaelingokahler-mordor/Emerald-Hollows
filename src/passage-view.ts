@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import {reinforcedRim} from './reinforcement-view';
 import {arrivalFree} from './core/passages';
 import type {GameState,LevelDefinition,Seal} from './core/types';
 const CELL=64;
@@ -8,7 +9,7 @@ export class PassageView {
  private nodes:Array<{kind:'key'|'door'|'portal'|'secret';id:string;x:number;y:number;node:Phaser.GameObjects.Container;art?:Phaser.GameObjects.Image;light?:Phaser.GameObjects.Ellipse;label?:Phaser.GameObjects.Text}>=[];
  constructor(private scene:Phaser.Scene,private level:LevelDefinition){
   const p=level.passages;if(!p)return;
-  for(const [kind,defs]of [['key',p.keys],['door',p.doors],['portal',p.portals]]as const)for(const d of defs){
+  for(const [kind,defs]of [['key',[...p.keys,...level.keyCarriers??[]]],['door',p.doors],['portal',p.portals]]as const)for(const d of defs){
    const node=scene.add.container((d.x+.5)*CELL,(d.y+.5)*CELL).setDepth(kind==='key'?4:2);
    const seal='seal'in d?d.seal:undefined,color=seal==='moon'?0xc2ddff:0xf6ce7b;
    let art:Phaser.GameObjects.Image|undefined,light:Phaser.GameObjects.Ellipse|undefined;
@@ -24,6 +25,7 @@ export class PassageView {
      node.add(scene.add.ellipse(0,2,21,32,0x101b20,.95));
     }else node.add(scene.add.circle(0,0,16,0x172128,.95).setStrokeStyle(2,color));
    }
+   if(level.rulesVersion==='emerald-hollows/6'&&kind!=='key'){const rim=scene.add.graphics();reinforcedRim(rim);node.add(rim);}
    const label=scene.add.text(0,kind==='key'?24:kind==='door'?0:23,seal?sealSymbol(seal):'pair'in d?d.pair:'',{fontFamily:'Arial',fontSize:kind==='door'?'23px':'16px',fontStyle:'bold',color:'#fff0c1',stroke:'#101820',strokeThickness:4}).setOrigin(.5);node.add(label);
    this.nodes.push({kind,id:d.id,x:d.x,y:d.y,node,art,light,label});
   }
@@ -32,7 +34,7 @@ export class PassageView {
  update(s:GameState):void {
   const p=s.passages;if(!p)return;
   for(const n of this.nodes){
-   if(n.kind==='key')n.node.setVisible(!p.collected.includes(n.id));
+   if(n.kind==='key'){const drop=s.beetles?.drops.find(k=>k.id===n.id);n.node.setVisible(s.beetles?!!drop:!p.collected.includes(n.id));if(drop)n.node.setPosition((drop.x+.5)*CELL,(drop.y+.5)*CELL);}
    if(n.kind==='door'){const open=p.doors.includes(n.id);n.node.setAlpha(open?.22:1);n.label?.setText(open?'✓':n.label.text);}
    if(n.kind==='portal'){
     const def=this.level.passages!.portals.find(d=>d.id===n.id)!,target=this.level.passages!.portals.find(d=>d.pair===def.pair&&d.id!==def.id)!;

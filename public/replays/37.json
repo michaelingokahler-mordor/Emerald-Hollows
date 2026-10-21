@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "rulesVersion": "emerald-hollows/5",
+  "rulesVersion": "emerald-hollows/6",
   "levelId": "37",
-  "levelHash": "28604dfd",
+  "levelHash": "f4be625b",
   "practice": false,
   "inputs": [
     {
@@ -494,58 +494,43 @@
       "direction": "down"
     },
     {
-      "direction": "left"
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left"
-    },
-    {
-      "direction": "left"
-    },
-    {
       "direction": "down"
     },
     {
       "direction": "down"
     },
     {
-      "direction": "down"
+      "direction": "left"
     },
     {
-      "direction": "down"
+      "direction": "left"
     },
     {
-      "direction": "up"
+      "direction": "left"
     },
     {
-      "direction": "up"
+      "direction": "left"
     },
     {
-      "direction": "up"
+      "direction": "left",
+      "snap": true
     },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
     {
-      "direction": "up"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
+      "direction": "left"
     },
     {
       "direction": "down"
@@ -555,7 +540,22 @@
       "snap": true
     },
     {
-      "direction": "down"
+      "direction": "up"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
     },
     {
       "direction": "down"
@@ -1360,5 +1360,5 @@
       "direction": "up"
     }
   ],
-  "expectedHash": "a4c3e618"
+  "expectedHash": "b6838206"
 }

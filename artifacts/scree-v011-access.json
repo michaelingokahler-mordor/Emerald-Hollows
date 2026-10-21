@@ -1,0 +1,366 @@
+{
+  "at": "2026-10-21T15:00:15.635Z",
+  "note": "24 spatial harvesting orders. Reach checks every ten ticks treat rocks as immovable barriers; every temporarily blocked gem must still be collected by that same continuation. Finite sampling, not a guarantee against deliberate fatal moves.",
+  "results": [
+    {
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "success": true,
+      "seconds": 56.3,
+      "collected": 80,
+      "collectionOrderHash": "cd32c484",
+      "samples": 56,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "success": true,
+      "seconds": 55.3,
+      "collected": 80,
+      "collectionOrderHash": "21e0c8cc",
+      "samples": 55,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "success": true,
+      "seconds": 50.5,
+      "collected": 80,
+      "collectionOrderHash": "a9dd040c",
+      "samples": 50,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "success": true,
+      "seconds": 49.7,
+      "collected": 80,
+      "collectionOrderHash": "591ace04",
+      "samples": 49,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "success": true,
+      "seconds": 59.6,
+      "collected": 80,
+      "collectionOrderHash": "63a9d5a8",
+      "samples": 59,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "success": true,
+      "seconds": 56.2,
+      "collected": 80,
+      "collectionOrderHash": "537f1f58",
+      "samples": 56,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "success": true,
+      "seconds": 52.9,
+      "collected": 80,
+      "collectionOrderHash": "38afa11c",
+      "samples": 52,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "success": true,
+      "seconds": 58,
+      "collected": 80,
+      "collectionOrderHash": "7a13a928",
+      "samples": 58,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "success": true,
+      "seconds": 58.8,
+      "collected": 80,
+      "collectionOrderHash": "96b387c2",
+      "samples": 58,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "success": true,
+      "seconds": 55.8,
+      "collected": 80,
+      "collectionOrderHash": "a3109d06",
+      "samples": 55,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "success": true,
+      "seconds": 54.1,
+      "collected": 80,
+      "collectionOrderHash": "599b2df4",
+      "samples": 54,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        1,
+        3,
+        2,
+        0
+      ],
+      "success": true,
+      "seconds": 55.5,
+      "collected": 80,
+      "collectionOrderHash": "910892aa",
+      "samples": 55,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "success": true,
+      "seconds": 54.5,
+      "collected": 80,
+      "collectionOrderHash": "14bd622e",
+      "samples": 54,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "success": true,
+      "seconds": 54,
+      "collected": 80,
+      "collectionOrderHash": "42a19f2e",
+      "samples": 54,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "success": true,
+      "seconds": 57.4,
+      "collected": 80,
+      "collectionOrderHash": "fadf0276",
+      "samples": 57,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "success": true,
+      "seconds": 55.9,
+      "collected": 80,
+      "collectionOrderHash": "3ec6253e",
+      "samples": 55,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "success": true,
+      "seconds": 52.6,
+      "collected": 80,
+      "collectionOrderHash": "5dd92f4e",
+      "samples": 52,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "success": true,
+      "seconds": 56.7,
+      "collected": 80,
+      "collectionOrderHash": "2782a72a",
+      "samples": 56,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "success": true,
+      "seconds": 58,
+      "collected": 80,
+      "collectionOrderHash": "411bc38e",
+      "samples": 58,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "success": true,
+      "seconds": 51.8,
+      "collected": 80,
+      "collectionOrderHash": "9cb432a6",
+      "samples": 51,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "success": true,
+      "seconds": 52.4,
+      "collected": 80,
+      "collectionOrderHash": "3601dee2",
+      "samples": 52,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "success": true,
+      "seconds": 56.8,
+      "collected": 80,
+      "collectionOrderHash": "1d2d77de",
+      "samples": 56,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "success": true,
+      "seconds": 55.5,
+      "collected": 80,
+      "collectionOrderHash": "d14fc4fc",
+      "samples": 55,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    },
+    {
+      "order": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "success": true,
+      "seconds": 55.2,
+      "collected": 80,
+      "collectionOrderHash": "9d8cb72e",
+      "samples": 55,
+      "maxTemporarilyBlocked": 0,
+      "recoveredTemporarilyBlocked": 0
+    }
+  ]
+}

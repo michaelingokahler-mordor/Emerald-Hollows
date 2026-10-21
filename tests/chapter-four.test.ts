@@ -1,6 +1,7 @@
 import {describe,it,expect} from 'vitest';
 import {readFileSync} from 'node:fs';
-import {LEVELS} from '../src/levels';
+import archivedV010 from '../src/levels-v010.json';
+const LEVELS=archivedV010 as LevelDefinition[];
 import {Simulation,levelHash,hash,runReplay} from '../src/core/simulation';
 import {DELTAS,type Replay,type LevelDefinition} from '../src/core/types';
 import {portalTarget} from '../src/core/passages';
@@ -9,7 +10,7 @@ import {nextLevel,unlockedLevels} from '../src/campaign';
 import {defaultSave,parseSave,recordWin,currentRecord} from '../src/storage';
 import old from '../src/levels-v09.json';
 const level=(id:string)=>LEVELS.find(l=>l.id===id)!;
-const proof=(id:string):Replay=>JSON.parse(readFileSync(`public/replays/${id}.json`,'utf8'));
+const proof=(id:string):Replay=>JSON.parse(readFileSync(`tests/fixtures/replays-v010/${id}.json`,'utf8'));
 // Optimistic static reach: earth, gems, enemies and movable rocks all passable.
 // Closed devices/bedrock stay solid. Grant locks unless specifically blocked.
 function reach(s:Simulation,locked:string[]=[],blocked:string[]=[]){
@@ -17,7 +18,7 @@ function reach(s:Simulation,locked:string[]=[],blocked:string[]=[]){
  const q=[s.state.player],seen=new Set([`${s.state.player.x},${s.state.player.y}`]);for(let i=0;i<q.length;i++)for(const d of Object.values(DELTAS)){let x=q[i].x+d.x,y=q[i].y+d.y;if(!pass(x,y))continue;const p=portalTarget(s.level,x,y);if(p){x=p.x;y=p.y;if(!pass(x,y))continue;}const k=`${x},${y}`;if(!seen.has(k)){seen.add(k);q.push({x,y,direction:'up'});}}return seen;
 }
 const ore=(s:Simulation,cells?:Set<string>)=>s.state.entities.reduce((n,e)=>n+(!cells||cells.has(`${e.x},${e.y}`)?e.kind==='emerald'?1:e.kind==='diamond'?3:0:0),0);
-describe('chapter IV adversarial map checks',()=>{
+describe('archived v0.10 chapter IV adversarial map checks',()=>{
  for(const id of ['31','32','33','40'])it(`${id}: hard seam and release are structural, even granting all keys`,()=>{
   const s=new Simulation(level(id));const target=id==='31'?'20,8':id==='32'?'35,17':id==='33'?'40,20':'31,25';expect(reach(s).has(target)).toBe(false);
   // Also open release gates, but keep bedrock intact: the miner still cannot replace the helper.

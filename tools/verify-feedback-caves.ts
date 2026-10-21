@@ -1,11 +1,15 @@
-import {writeFile} from 'node:fs/promises';
+// Historical verifier: never overwrite the current playable solution replays.
+import {mkdir,writeFile} from 'node:fs/promises';
 import {CHAPTER_TWO_ROUTES} from '../src/chapter-two';
-import {LEVELS} from '../src/levels';
+import definitions from '../src/levels-v010.json';
+import type {LevelDefinition} from '../src/core/types';
+const LEVELS=definitions as LevelDefinition[];
 const CHAPTER_TWO=LEVELS.slice(10,20);
 import {CHAPTER_TWO as OLD} from '../src/chapter-two-v07';
 import {levelHash,runReplay,Simulation} from '../src/core/simulation';
 import {solve} from './solution';
 import {verifyChunk} from '../server/worker';
+await mkdir('artifacts/historical-replays/v09-feedback',{recursive:true});
 const report=[];
 for(const level of CHAPTER_TWO){
  const routes=[];
@@ -16,7 +20,7 @@ for(const level of CHAPTER_TWO){
   while(run.status==='pending'){const start=performance.now(),v=verifyChunk(run);maxChunkMs=Math.max(maxChunkMs,performance.now()-start);chunks++;run={...run,state:JSON.stringify(v.state),cursor:v.cursor,status:v.status};}
   if(run.status!=='confirmed')throw Error('API simulation rejected '+level.id);
   routes.push({name,status:s.state.status,seconds:s.state.tick/10,points:s.state.points,finds,moves,apiChunks:chunks,maxLocalChunkMs:+maxChunkMs.toFixed(2)});
-  await writeFile(`public/replays/${level.id}-${name}.json`,JSON.stringify(r,null,2)+'\n');
+  await writeFile(`artifacts/historical-replays/v09-feedback/${level.id}-${name}.json`,JSON.stringify(r,null,2)+'\n');
  }
  const cells=[...level.map.join('')],previous=OLD.find(l=>l.id===level.id)!;
  report.push({id:level.id,size:[level.width,level.height],nonWallCells:cells.filter(c=>c!=='#'&&c!=='X').length,quota:level.quota,timeLimit:level.timeSeconds,oldHash:levelHash(previous),newHash:levelHash(level),routes});

@@ -1,22 +1,27 @@
 export type Direction = 'up' | 'right' | 'down' | 'left';
 export type Terrain = 'empty' | 'earth' | 'bedrock' | 'wall' | 'steel' | 'exit';
-export type Kind = 'rock' | 'emerald' | 'diamond' | 'crawler' | 'purple-crawler' | 'crystal-crawler' | 'digger';
-export const isCrawler = (kind:Kind):boolean => kind==='crawler'||kind==='purple-crawler'||kind==='crystal-crawler'||kind==='digger';
+export type Kind = 'rock' | 'emerald' | 'diamond' | 'crawler' | 'purple-crawler' | 'crystal-crawler' | 'digger' | 'key-crawler';
+export const isCrawler = (kind:Kind):boolean => kind==='crawler'||kind==='purple-crawler'||kind==='crystal-crawler'||kind==='digger'||kind==='key-crawler';
 export type Status = 'playing' | 'won' | 'dead';
 export interface Point { x: number; y: number }
-export interface Entity extends Point { id: number; kind: Kind; falling: boolean; direction: Direction; originPit?:string }
+export interface Entity extends Point { id: number; kind: Kind; falling: boolean; direction: Direction; originPit?:string; key?:{id:string;seal:Seal} }
 export interface InputFrame { direction?: Direction; snap?: boolean }
 export interface ViewRoom extends Point { width:number; height:number }
 export interface GateDefinition extends Point { id:string; open:boolean; label:string }
 export interface DispenserDefinition extends Point { id:string; stock:number; label:string }
 export interface LeverDefinition extends Point { id:string; label:string; gates:string[]; dispensers:string[]; pits?:string[]; view?:ViewRoom }
-export interface PitDefinition extends Point {id:string;label:string;direction:Direction;delay:number;interval:number;maxAlive:number;active:boolean}
+export interface PitDefinition extends Point {id:string;label:string;direction:Direction;delay:number;interval:number;maxAlive:number;active:boolean;stock?:number}
 export interface MiningDefinition {pits:PitDefinition[]}
 export interface MiningState {pits:Record<string,{active:boolean;due:number;spawned:number}>;excavated:number}
 export interface MechanismDefinition { gates:GateDefinition[]; levers:LeverDefinition[]; dispensers:DispenserDefinition[] }
 export interface MechanismState { gates:Record<string,boolean>; levers:Record<string,boolean>; stocks:Record<string,number>; cooldowns:Record<string,number>; held:boolean; nextId:number; crushed:number; transmuted:number; fusions:number; released:number }
 export type Seal = 'sun' | 'moon';
 export interface KeyDefinition extends Point { id:string; seal:Seal }
+export interface KeyCarrierDefinition extends KeyDefinition {direction:Direction}
+export interface ContainmentDefinition extends ViewRoom {id:string;required:number}
+export interface BeetleBrain {visits:Record<string,number>;exits:Record<string,number>;trapTicks:number;warningDue?:number;hand:'left'|'right'}
+export interface KeyDrop extends KeyDefinition {bornTick:number}
+export interface BeetleState {brains:Record<number,BeetleBrain>;drops:KeyDrop[];defeated:Record<number,'crushed'|'transmuted'|'exploded'>;explosions:number;changes:number}
 export interface DoorDefinition extends Point { id:string; seal:Seal }
 export interface PortalDefinition extends Point { id:string; pair:string }
 export interface PassageDefinition { keys:KeyDefinition[]; doors:DoorDefinition[]; portals:PortalDefinition[]; views?:ViewRoom[]; secret?:Point & {branch:'twisted-dwarves'; available:false} }
@@ -30,9 +35,11 @@ export interface LevelDefinition {
   mechanisms?:MechanismDefinition;
   passages?:PassageDefinition;
   mining?:MiningDefinition;
+  keyCarriers?:KeyCarrierDefinition[];
+  containment?:ContainmentDefinition[];
   english?:{name:string;subtitle:string;hint:string};
 }
-export interface GameEvent extends Point { type: 'dig' | 'bore' | 'spawn' | 'emerald' | 'diamond' | 'push' | 'impact' | 'crush' | 'transmute' | 'death' | 'open' | 'win' | 'switch' | 'blocked' | 'release' | 'fusion' | 'key' | 'unlock' | 'teleport' | 'sealed'; }
+export interface GameEvent extends Point { type: 'dig' | 'bore' | 'spawn' | 'emerald' | 'diamond' | 'push' | 'impact' | 'crush' | 'transmute' | 'death' | 'open' | 'win' | 'switch' | 'blocked' | 'release' | 'fusion' | 'key' | 'unlock' | 'teleport' | 'sealed' | 'morph' | 'explode' | 'key-drop'; }
 export interface GameState {
   terrain: Terrain[][]; entities: Entity[]; player: Point & { direction: Direction };
   tick: number; points: number; status: Status; remainingTicks: number;
@@ -41,6 +48,7 @@ export interface GameState {
   mechanisms?:MechanismState;
   passages?:PassageState;
   mining?:MiningState;
+  beetles?:BeetleState;
 }
 export interface Replay {
   version: 1; rulesVersion: string; levelId: string; levelHash: string;
@@ -54,5 +62,7 @@ export const CRAWLER_RULES_VERSION = 'emerald-hollows/2';
 export const MECHANISM_RULES_VERSION = 'emerald-hollows/3';
 export const PASSAGE_RULES_VERSION = 'emerald-hollows/4';
 export const MINING_RULES_VERSION = 'emerald-hollows/5';
-export const hasMechanismRules = (level:LevelDefinition):boolean => [MECHANISM_RULES_VERSION,PASSAGE_RULES_VERSION,MINING_RULES_VERSION].includes(rulesFor(level));
+export const BEETLE_RULES_VERSION = 'emerald-hollows/6';
+export const hasBeetleRules = (level:LevelDefinition):boolean => rulesFor(level)===BEETLE_RULES_VERSION;
+export const hasMechanismRules = (level:LevelDefinition):boolean => [MECHANISM_RULES_VERSION,PASSAGE_RULES_VERSION,MINING_RULES_VERSION,BEETLE_RULES_VERSION].includes(rulesFor(level));
 export const rulesFor = (level:LevelDefinition):string => level.rulesVersion??RULES_VERSION;

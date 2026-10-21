@@ -1,7 +1,7 @@
 import {scoreBreakdown} from '../src/core/scoring';
-import {MECHANISM_RULES_VERSION,PASSAGE_RULES_VERSION,MINING_RULES_VERSION} from '../src/core/types';
+import {BEETLE_RULES_VERSION,MECHANISM_RULES_VERSION,PASSAGE_RULES_VERSION,MINING_RULES_VERSION} from '../src/core/types';
 import assert from 'node:assert/strict';
-import {writeFile} from 'node:fs/promises';
+import {readFile,writeFile} from 'node:fs/promises';
 import {LEVELS} from '../src/levels';
 import {CHAPTER_TWO as V07} from '../src/chapter-two-v07';
 import {REVISED_CAVES as V08} from '../src/chapter-two-v08';
@@ -48,13 +48,18 @@ for(const id of ['15','16','18','19']){const replay=solve(V08.find(l=>l.id===id)
 for(const level of LEVELS.filter(l=>['06','07','09','10'].includes(l.id))){
  const replay=solve(level).exportReplay(),runId=crypto.randomUUID();
  await call('/runs',{id:runId,replay},auth,201);
- assert.equal((await call('/runs/'+runId+'/verify',{},auth)).status,'confirmed');
- const expectedScore=level.id==='09'?15:level.id==='10'?35:14;
+ let status='pending';while(status==='pending')status=(await call('/runs/'+runId+'/verify',{},auth)).status;assert.equal(status,'confirmed');
+ const expectedScore=scoreBreakdown(level,solve(level).state).total;
  assert.ok((await call('/leaderboard/'+level.id)).entries.some((e:any)=>e.nickname===nameA&&e.ticks===replay.inputs.length&&e.score===expectedScore));
 }
 assert.ok((await call('/health')).supportedRules.includes(MECHANISM_RULES_VERSION));assert.ok((await call('/health')).supportedRules.includes(PASSAGE_RULES_VERSION));assert.ok((await call('/health')).supportedRules.includes(MINING_RULES_VERSION));
+assert.ok((await call('/health')).supportedRules.includes(BEETLE_RULES_VERSION));
 for(const level of LEVELS.slice(10)){const sim=solve(level),replay=sim.exportReplay(),runId=crypto.randomUUID();await call('/runs',{id:runId,replay},auth,201);let status='pending';while(status==='pending')status=(await call('/runs/'+runId+'/verify',{},auth)).status;assert.equal(status,'confirmed');assert.ok((await call('/leaderboard/'+level.id)).entries.some((e:any)=>e.nickname===nameA&&e.score===scoreBreakdown(level,sim.state).total));}
 recovered=await call('/profile',undefined,auth);assert.equal(recovered.records.length,35);assert.equal(recovered.archivedRecords.length,7);
+// Submit the exact published 0.10 inputs, not a newly solved approximation.
+const legacy=await call('/profiles',{nickname:'Archive '+Date.now().toString(36)},undefined,201),legacyAuth=legacy.id+'.'+legacy.token;
+for(let n=1;n<=40;n++){const id=String(n).padStart(2,'0'),replay=JSON.parse(await readFile(`tests/fixtures/replays-v010/${id}.json`,'utf8'));await submit(replay,legacyAuth);}
+const legacyProfile=await call('/profile',undefined,legacyAuth);assert.equal(legacyProfile.records.length,10);assert.equal(legacyProfile.archivedRecords.length,30);
 await call('/runs',{id:crypto.randomUUID(),replay:{...r,practice:true}},auth,400);
 await call('/runs',{id:crypto.randomUUID(),replay:{...r,inputs:[{direction:'cheat'}]}},auth,400);
 const wrong=crypto.randomUUID();await call('/runs',{id:wrong,replay:{...solve(LEVELS[0]).exportReplay(),expectedHash:'aaaaaaaa'}},auth,201);assert.equal((await call('/runs/'+wrong+'/verify',{},auth)).status,'rejected');
@@ -81,5 +86,5 @@ const compatible=(await call('/leaderboard/01')).entries.filter((e:any)=>e.nickn
 assert.equal(compatible.length,1);assert.equal(compatible[0].ticks,76);
 const recoveredTimer=(await call('/profile',undefined,third)).records.filter((r:any)=>r.level_id==='01');
 assert.equal(recoveredTimer.length,1);assert.equal(recoveredTimer[0].ticks,76);assert.equal(recoveredTimer[0].level_hash,levelHash(LEVELS[0]));
-report.checks.push('old timer proof accepted but over-limit result remains archived','eligible old and new timer results merge once per profile','restored timer-compatible best result uses current hash');
+report.checks.push('all forty exact published 0.10 offline proofs accepted: ten current, thirty archived','v6 support and current revised scores confirmed','old timer proof accepted but over-limit result remains archived','eligible old and new timer results merge once per profile','restored timer-compatible best result uses current hash');
 await writeFile('artifacts/api-verification.json',JSON.stringify(report,null,2)+'\n');console.log(report);
