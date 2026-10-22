@@ -12,9 +12,11 @@ The full game is planned to contain **120 levels: 100 main caves and 20 hidden l
 
 ## Cave revisions — 22 October 2026
 
+Cave **21** now requires the middle sun door to reach the western mine. The former upper and lower bypasses are sealed. The east provides only 35 of the required 48 gem points, so the third sun key has a necessary role. The door stays open for the return journey. See the [design and verification notes (German)](docs/HOEHLE-21-SONNENTUER-2026-10-22.md).
+
 Cave **07** now requires clearing the drop shaft, hitting the guard, then pushing the same rock into a disposal pit. Cave **08** has two adjacent rock/gem columns, **20 rocks, 20 gems and two beetles**. Collecting changes the columns' supports; stepping into an active cut can be fatal. Both west-first and east-first routes are verified.
 
-Cave **10** adds a required diamond in the upper left chamber. Cave **12** requires both beetle diamonds and puts the exit behind a walled chamber's gate. Its two rock hatches have protected controls and mobile camera framing. The four previous maps remain available for queued offline runs; their records are archived. Other caves keep their maps and records.
+Cave **10** adds a required diamond in the upper left chamber. Cave **12** requires both beetle diamonds and puts the exit behind a walled chamber's gate. Its two rock hatches have protected controls and mobile camera framing. The five previous maps remain available for queued offline runs; their records are archived. Other caves keep their maps and records.
 
 See the [design and verification notes (German)](docs/HOEHLEN-FEEDBACK-2026-10-22.md). Automated routes establish playability; human feedback on these revisions is still pending.
 

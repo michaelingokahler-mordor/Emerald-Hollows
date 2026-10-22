@@ -1,8 +1,8 @@
 import {CaveDesign} from './cave-design';
 import {BEETLE_RULES_VERSION,type LevelDefinition,type MechanismDefinition} from './core/types';
 
-export const FEEDBACK_CAVE_IDS=['07','08','10','12'];
-export const FEEDBACK_TIMES:Record<string,number>={'07':25,'08':30,'10':50,'12':90};
+export const FEEDBACK_CAVE_IDS=['07','08','10','12','21'];
+export const FEEDBACK_TIMES:Record<string,number>={'07':25,'08':30,'10':50,'12':90,'21':160};
 
 function cave(id:string,name:string,subtitle:string,b:CaveDesign,quota:number,route:string,hint:string,english:NonNullable<LevelDefinition['english']>,extra:Partial<LevelDefinition>={}):LevelDefinition {
  return {id,name,subtitle,width:b.width,height:b.height,map:b.map(extra.mechanisms),quota,timeSeconds:FEEDBACK_TIMES[id],difficulty:3,rulesVersion:BEETLE_RULES_VERSION,parTicks:0,route,hint,solution:hint,english,...extra};
@@ -62,6 +62,15 @@ const rebuilt:Record<string,LevelDefinition>={};
 
 export function reviseFeedbackCave(original:LevelDefinition):LevelDefinition {
  if(rebuilt[original.id])return rebuilt[original.id];
+ if(original.id==='21'){
+  const l=structuredClone(original),b=new CaveDesign(l.width,l.height,l);
+  // The middle sun door is the only link to the west; neither end of the ring bypasses it.
+  b.set(20,6,'X').set(20,25,'X');l.map=b.map(l.mechanisms);l.timeSeconds=FEEDBACK_TIMES['21'];
+  l.hint='Die ersten Sonnen- und Mondschlösser führen in die östliche Mine. Dort reichen die Edelsteine allein nicht für die Quote. Gewinne den dritten Sonnenschlüssel beim goldenen Käfer im südöstlichen Seitenstollen. Die mittlere Sonnentür öffnet als einziger Durchgang die westlichen Lagerstätten. Sie bleibt für deinen Rückweg zum Ausgang offen.';
+  l.solution=l.hint;
+  l.english={...l.english!,hint:'The first sun and moon locks lead into the eastern mine. Its gems alone cannot meet the quota. Win the third sun key from the golden beetle in the southeastern spur. The middle sun door is the only passage to the western deposits. It stays open for your return to the exit.'};
+  return l;
+ }
  if(original.id!=='10')return original;
  const l=structuredClone(original),b=new CaveDesign(l.width,l.height,l);
  b.set(7,5,'D').set(7,6,'X');

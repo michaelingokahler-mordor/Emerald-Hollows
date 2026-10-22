@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-22T11:05:02.564Z",
+  "date": "2026-10-22T13:01:00.851Z",
   "target": "local Wrangler/D1",
   "status": "PASS",
   "checks": [
@@ -21,7 +21,7 @@
     "slower score cannot replace faster record",
     "recovery retains archived unlocks",
     "all forty exact published 0.10 offline proofs accepted: nine current, thirty-one archived",
-    "four exact previous 0.11 feedback cave proofs remain archived and excluded from new boards",
+    "all five exact previous 0.11 feedback cave proofs remain archived and excluded from new boards",
     "v6 support and current revised scores confirmed",
     "old timer proof accepted but over-limit result remains archived",
     "eligible old and new timer results merge once per profile",

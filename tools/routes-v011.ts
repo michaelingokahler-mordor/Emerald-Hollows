@@ -10,6 +10,7 @@ ROUTES_V011['05'].observe=ROUTES_V011['05'].main.replace('strike crawler right',
 ROUTES_V011['10'].crush='walk 7 5; '+FINALE_CRUSH_ROUTE.replace('wait 16; snap right','strike beetle right');
 ROUTES_V011['08'].east='harvest 20 9 11 11; harvest 8 5 11 15; walk 33 21; walk 33 3';
 ROUTES_V011['18'].shortcut=CHAPTER_TWO_ALTERNATIVES['18'];
+ROUTES_V011['21'].quota=ROUTES_V011['21'].main.replace('harvest 4 6 37 24','quota 4 6 37 24');
 for(const [id,name]of [['24','east'],['25','discovery']] as const){
  const original=(old as LevelDefinition[]).find(l=>l.id===id)!;
  ROUTES_V011[id][name]=reviseV011({...original,route:CHAPTER_THREE_ROUTES[id][name]}).route;

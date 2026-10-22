@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-22T11:02:42.973Z",
+  "at": "2026-10-22T13:00:54.655Z",
   "note": "Automated solutions, checkpoints, 30/60/144 FPS and local server verifier. Not optimal times or human play feedback.",
   "levels": [
     {
@@ -427,16 +427,30 @@
     },
     {
       "id": "21",
-      "hash": "b31bc3e2",
+      "hash": "3c18fa89",
       "quota": 48,
-      "timeSeconds": 185,
+      "timeSeconds": 160,
       "routes": [
         {
           "name": "main",
-          "seconds": 62,
+          "seconds": 71,
           "points": 60,
           "score": 75,
           "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "54": "crushed",
+            "55": "crushed",
+            "56": "crushed"
+          }
+        },
+        {
+          "name": "quota",
+          "seconds": 54.8,
+          "points": 48,
+          "score": 63,
+          "remainingGems": 8,
           "excavated": 0,
           "spawned": {},
           "defeated": {

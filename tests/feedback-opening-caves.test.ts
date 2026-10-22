@@ -93,7 +93,7 @@ describe('opening cave feedback: real hazards and necessary actions',()=>{
  });
 });
 
-describe('only the four changed maps retire records; old proofs retain their original rules',()=>{
+describe('only the feedback maps retire records; old proofs retain their original rules',()=>{
  for(const l of previous as LevelDefinition[])it(`${l.id}: archived proof accepted, record retired, unlock and queued proof retained`,()=>{
   const proof=JSON.parse(readFileSync(`tests/fixtures/replays-v011/${l.id}.json`,'utf8')) as Replay;
   expect(levelHash(l)).toBe(proof.levelHash);expect(levelHash(cave(l.id))).not.toBe(proof.levelHash);

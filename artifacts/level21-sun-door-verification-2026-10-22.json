@@ -1,0 +1,142 @@
+{
+  "at": "2026-10-22T13:02:05.667560+00:00",
+  "status": "PASS",
+  "changedMapHashes": [
+    "21"
+  ],
+  "unchangedMapHashes": 39,
+  "tests": {
+    "command": "npm test -- --maxWorkers=2 --testTimeout=60000",
+    "filesPassed": 16,
+    "testsPassed": 533
+  },
+  "build": "npm run build: PASS",
+  "level": {
+    "id": "21",
+    "hash": "3c18fa89",
+    "quota": 48,
+    "timeSeconds": 160,
+    "routes": [
+      {
+        "name": "main",
+        "seconds": 71,
+        "points": 60,
+        "score": 75,
+        "remainingGems": 0,
+        "excavated": 0,
+        "spawned": {},
+        "defeated": {
+          "54": "crushed",
+          "55": "crushed",
+          "56": "crushed"
+        }
+      },
+      {
+        "name": "quota",
+        "seconds": 54.8,
+        "points": 48,
+        "score": 63,
+        "remainingGems": 8,
+        "excavated": 0,
+        "spawned": {},
+        "defeated": {
+          "54": "crushed",
+          "55": "crushed",
+          "56": "crushed"
+        }
+      }
+    ]
+  },
+  "startPhases": {
+    "initialWaitTicks": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "bothRoutesPassed": true
+  },
+  "counterChecks": [
+    "Exactly the upper and lower ring crossings are sealed; other geometry is retained",
+    "All other locks and all removable obstacles granted: middle sun door still seals western mine",
+    "Only 35 natural points without middle door; quota 48",
+    "Third sun carrier and operating position remain accessible from the east",
+    "Collecting all eastern gems and returning without the third key does not complete the cave",
+    "Omitting the middle door opening cannot complete the published route",
+    "Middle door unlocks once, consumes the sun key and remains passable in both directions"
+  ],
+  "browser": {
+    "status": "PASS",
+    "reports": [
+      {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "results": [
+          {
+            "id": "21",
+            "status": "won",
+            "ticks": 710,
+            "points": 60
+          }
+        ],
+        "errors": [],
+        "note": "Accelerated solution replay and touch layout emulation. No human playtest or physical device."
+      },
+      {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "results": [
+          {
+            "id": "21",
+            "status": "won",
+            "ticks": 710,
+            "points": 60
+          }
+        ],
+        "errors": [],
+        "note": "Accelerated solution replay and touch layout emulation. No human playtest or physical device."
+      }
+    ]
+  },
+  "api": {
+    "status": "PASS",
+    "date": "2026-10-22T13:01:00.851Z",
+    "checks": [
+      "profile creation",
+      "auth ownership",
+      "recovery",
+      "bounded verification",
+      "idempotent upload",
+      "leaderboard",
+      "practice rejection",
+      "invalid inputs",
+      "wrong final hash",
+      "CORS",
+      "archived 0.2, 0.6, 0.7 and four revised 0.8 runs accepted and excluded from current boards",
+      "four revised caves confirmed with score",
+      "all thirty chapter 2, 3 and 4 levels verified with scores and checkpoint continuation",
+      "time first and score tiebreaker",
+      "equal-score equal-time shared rank",
+      "slower score cannot replace faster record",
+      "recovery retains archived unlocks",
+      "all forty exact published 0.10 offline proofs accepted: nine current, thirty-one archived",
+      "all five exact previous 0.11 feedback cave proofs remain archived and excluded from new boards",
+      "v6 support and current revised scores confirmed",
+      "old timer proof accepted but over-limit result remains archived",
+      "eligible old and new timer results merge once per profile",
+      "restored timer-compatible best result uses current hash"
+    ]
+  },
+  "historicalProof": "Exact previous public replay and map definition archived; queued proofs accepted, old record archived and unlock retained.",
+  "humanPlaytest": false,
+  "physicalMobileDevice": false
+}

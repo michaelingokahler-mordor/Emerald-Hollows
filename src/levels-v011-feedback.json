@@ -228,5 +228,114 @@
     "mining": {
       "pits": []
     }
+  },
+  {
+    "id": "21",
+    "name": "Der unterbrochene Ring",
+    "subtitle": "Die Torhallen",
+    "english": {
+      "name": "The Broken Ring",
+      "subtitle": "The Gate Halls",
+      "hint": "Sun and moon keys fit matching locks and are consumed when opening them. A third sun key in the lower spur opens the cross-link through the ring. Decide which seams to collect before and after opening it. Golden beetles carry the keys. Prepare the drop from the protected side, then collect the released key."
+    },
+    "width": 44,
+    "height": 32,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXRXXXXXRXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XX.E....X......XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XX.P. X.... XX........XXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXX   XXX   XXXXXXX.XXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXX",
+      "XXXX..M..M..M...M........M...M...M...XXXXXXX",
+      "XXXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXX",
+      "XXXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXX",
+      "XXXX...M..M..M..XXXXX.XXX..M..M..M...XXXXXXX",
+      "XXXX.XXXXXXXXXX.XXXXXDXXX.XXXXXXXXXX.XXXXXXX",
+      "XXXX.XXXXXXXXXX.XXXXXXXXX.XXXXXXXXXX.XXXXXXX",
+      "XXXX.XXXM..M..M.XXXXXXXXX..M..M.DXXX.XXXXXXX",
+      "XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXX",
+      "XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXX",
+      "XXXX..M...M...M.........M...M...M....XXXXXXX",
+      "XXXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXX",
+      "XXXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXX",
+      "XXXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXX",
+      "XXXX...M..M..M.XXXXXX.XXX..M..M..M...XXXXXXX",
+      "XXXX.XXXXXXXXX.XXXXXX.XXX.XXXXXXXXXX.XXXXXXX",
+      "XXXX.XXXXXXXXX.XXXXXXDXXX.XXXXXXXXXX.XXXXXXX",
+      "XXXX.XXXDM..M..XXXXXXXXXX..M..M.DXXX.XXXXXXX",
+      "XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXX",
+      "XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXX",
+      "XXXX..M...M...M....M....M....M...M.......XXX",
+      "XXXXXXXXXXXXXXXXXXXXXXRXXXXXXXXXXXXXXXXX.XXX",
+      "XXXXXXXXXXXXXXXXXXXXXX.....XXXXXXXXXXXXX.XXX",
+      "XXXXXXXXXXXXXXXXXXXXXX XXX.XXXXXXXXXXXXX.XXX",
+      "XXXXXXXXXXXXXXXXXXXXX    M...M...M...M...XXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "passages": {
+      "keys": [],
+      "doors": [
+        {
+          "id": "door-first",
+          "seal": "sun",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "id": "door-second",
+          "seal": "moon",
+          "x": 15,
+          "y": 3
+        },
+        {
+          "id": "door-link",
+          "seal": "sun",
+          "x": 20,
+          "y": 15
+        }
+      ],
+      "portals": []
+    },
+    "mechanisms": {
+      "gates": [],
+      "levers": [],
+      "dispensers": []
+    },
+    "quota": 48,
+    "timeSeconds": 185,
+    "difficulty": 2,
+    "rulesVersion": "emerald-hollows/6",
+    "route": "walk 3 3; walk 2 3; walk 2 2; walk 4 2; strike key-first right; key key-first; walk 9 3; walk 9 2; walk 10 2; strike key-second right; key key-second; walk 21 6; walk 26 29; walk 26 27; walk 23 27; strike key-link left; key key-link; walk 21 15; move left; harvest 4 6 37 24; walk 3 2",
+    "parTicks": 0,
+    "hint": "Sonne und Mond passen nur zum gleichen Schloss. Ein Schlüssel wird beim Öffnen verbraucht. Hole den dritten Sonnenschlüssel im unteren Seitenstollen: Er öffnet die Querverbindung im Ring. Entscheide, welche Adern du davor und danach sammelst. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.",
+    "solution": "Sonne und Mond passen nur zum gleichen Schloss. Ein Schlüssel wird beim Öffnen verbraucht. Hole den dritten Sonnenschlüssel im unteren Seitenstollen: Er öffnet die Querverbindung im Ring. Entscheide, welche Adern du davor und danach sammelst. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.",
+    "mining": {
+      "pits": []
+    },
+    "keyCarriers": [
+      {
+        "id": "key-first",
+        "seal": "sun",
+        "x": 5,
+        "y": 4,
+        "direction": "right"
+      },
+      {
+        "id": "key-second",
+        "seal": "moon",
+        "x": 11,
+        "y": 4,
+        "direction": "right"
+      },
+      {
+        "id": "key-link",
+        "seal": "sun",
+        "x": 21,
+        "y": 29,
+        "direction": "right"
+      }
+    ]
   }
 ]
