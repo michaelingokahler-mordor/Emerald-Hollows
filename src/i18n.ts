@@ -1,7 +1,23 @@
+import {SILK_HELP} from './silk-help';
 import {BEETLE_HELP} from './beetle-help';
 import { LEVELS } from './levels';
 export type Language='de'|'en';
-const english:Record<string,string>={...BEETLE_HELP,
+const english:Record<string,string>={...BEETLE_HELP,...SILK_HELP,
+ 'DIE SEIDENSTOLLEN':'THE SILK TUNNELS','V · Die Seidenstollen':'V · The Silk Tunnels',
+ 'FÜNFZIG HÖHLEN. FÜNF KAPITEL.':'FIFTY CAVES. FIVE CHAPTERS.','Die fünfzig Höhlen':'The fifty caves','FÜNF KAPITEL':'FIVE CHAPTERS','/ KAPITEL I–V':'/ CHAPTERS I–V',
+ 'Alle fünfzig Höhlen im Normalspiel geschafft!':'All fifty caves completed in timed mode!',
+ 'Nach der ersten vollständigen Installation sind alle fünfzig Höhlen offline spielbar. Bestzeiten werden beim nächsten Online-Start abgeglichen. Updates werden nach dem Schließen aller Spielfenster übernommen.':'After the first complete installation, all fifty caves are playable offline. Best times sync on the next online start. Updates take effect after closing all game windows.',
+ 'DEMO 0.12.0 · GRAFIK & AUDIO MIT RUNWAY':'DEMO 0.12.0 · ART & AUDIO WITH RUNWAY',
+ 'Neue Höhlen warten noch auf die Online-Prüfung. Deine Durchläufe bleiben gespeichert.':'New caves are awaiting online verification. Your runs remain saved.',
+ 'Online-Bestzeiten für diese Höhle werden noch vorbereitet. Deine Durchläufe bleiben gespeichert.':'Online leaderboards for this cave are being prepared. Your runs remain saved.',
+ 'Befreiung ansehen':'Watch rescue','Nachwuchs ansehen':'Watch offspring','Explosion ansehen':'Watch explosion','Westpaar ansehen':'Watch western pair','Ostpaar ansehen':'Watch eastern pair','Mehr Nachschub ansehen':'Watch extra workers','Südroute ansehen':'Watch southern route','Pit zuerst ansehen':'Watch pit first',
+ 'Zusätzliche Spielgrafik':'Additional game art','Spinnen, Netze, Kokons, Rubine und Feuer: eigene Vektorgrafik für Emerald Hollows.':'Spiders, webs, cocoons, rubies and fire: original vector art for Emerald Hollows.',
+ '+ Richtung · Werkzeug':'+ direction · tool','Werkzeug + Richtung: Hebel bedienen':'Tool + direction: operate lever',
+ 'Hacke':'Pickaxe','Fackel':'Torch','Ausrüstung':'Equipment','Ausrüstung wechseln':'Switch equipment','Entzünden':'Ignite','Werkzeug':'Tool','Wechsel':'Switch',
+ 'Netz entzünden: halten und Richtung drücken':'Ignite a web: hold and press a direction',
+ 'Fackel gefunden. E oder Ausrüstung wechselt das Werkzeug. Mit Fackel kannst du nicht graben.':'Torch found. Press E or Equipment to switch tools. You cannot dig with a torch.',
+ 'Das brennende Netz hat dich erwischt.':'The burning web caught you.','Eine Spinne hat dich erwischt.':'A spider caught you.','Du bist mit einer Spinne zusammengestoßen.':'You collided with a spider.',
+
  'DIE HUNGRIGEN ADERN':'THE HUNGRY VEINS',
  'Kapitel IV: Bernsteinfarbene Grabe-Käfer öffnen Erde und hartes Muttergestein. Sie bevorzugen geradeaus, rechts, links, zurück. Pits erzeugen Gegner nach ihrem Countdown; belegte Ausgänge warten. Hebel stoppen den Nachschub, aber vorhandene Käfer bleiben. Grabe-Käfer geben 5 Gegnerpunkte für Zerquetschen oder sicheres Einsperren, keine Edelsteine.':'Chapter IV: Amber diggers excavate earth and hard bedrock. They prefer straight, right, left, back. Pits spawn enemies after a countdown; blocked outlets wait. Switches stop future spawning, but existing diggers remain. Crushing or securely trapping a digger gives 5 enemy points and no gems.',
  'IV · Die hungrigen Adern':'IV · The Hungry Veins',

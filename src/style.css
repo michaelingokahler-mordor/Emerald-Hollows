@@ -29,3 +29,8 @@ footer{align-items:center;font:12px/1.6 system-ui,sans-serif;letter-spacing:.6px
 .hint-reveal{display:block;margin-top:12px;min-height:44px}.guide-speech [hidden]{display:none}
 
 .chapter-heading{grid-column:1/-1;margin:28px 0 0;color:var(--mint);font:26px Georgia,serif}.chapter-heading:first-child{margin-top:0}.modal{max-height:100%;overflow-y:auto}
+#touch .equip-button{font-size:18px;padding:8px 12px}#touch .equip-button[hidden]{display:none}#tool-status{color:#ffd19a;min-width:78px}
+@media(pointer:coarse) and (max-width:600px){.in-game #touch{padding-left:8px;padding-right:8px;gap:6px}#touch .dig-button{padding:10px 9px;font-size:15px}#touch .equip-button{padding:8px;font-size:17px}.hud #tool-status{min-width:70px;padding:6px 8px}}
+@media(pointer:coarse) and (orientation:landscape) and (max-height:550px){#touch .equip-button{position:fixed;right:27px;bottom:112px;width:78px;height:62px}}
+
+.card-actions{flex-wrap:wrap}

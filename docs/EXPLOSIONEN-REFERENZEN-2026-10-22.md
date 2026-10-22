@@ -1,6 +1,6 @@
 # Explosionsdarstellung: Emerald Mine und Boulder Dash
 
-Recherche am 22. Oktober 2026. Gemeint ist hier **Emerald Mine**, das Amiga-Spiel. Die Beobachtungen unterscheiden die jeweilige Fassung und eine spätere Nachbildung. Es wurde noch keine neue Animation in Emerald Hollows eingebaut.
+Recherche am 22. Oktober 2026. Gemeint ist hier **Emerald Mine**, das Amiga-Spiel. Die Beobachtungen unterscheiden die jeweilige Fassung und eine spätere Nachbildung. Version 0.12 setzt darauf aufbauend eine eigene Folge mit acht Bildern und 600 Millisekunden Darstellung um.
 
 ## Beobachtungen und Belege
 
@@ -28,7 +28,7 @@ Das ist eine Nachbildung, kein Beleg für die exakte Grafik oder das Timing alle
 
 ## Bisherige Darstellung in Emerald Hollows
 
-[src/scene.ts](../src/scene.ts) erzeugt beim Ereignis explode ein orangefarbenes Rechteck über drei mal drei Feldern. Es blendet innerhalb von 420 Millisekunden aus. Die sonstigen kleinen Partikel betreffen andere Ereignisse. Es fehlt eine eigene gezeichnete Explosionsfolge.
+[src/scene.ts](../src/scene.ts) erzeugt beim Ereignis explode ein orangefarbenes Rechteck über drei mal drei Feldern. Es blendet innerhalb von 420 Millisekunden aus. Die sonstigen kleinen Partikel betreffen andere Ereignisse. Das war der Zustand vor 0.12; die neue Folge wird in `src/silk-view.ts` aus eigener Vektorgrafik erzeugt.
 
 Der Regelkern berechnet die Explosion unabhängig davon. Die vorliegende Aufgabe ist zunächst ein Darstellungsentwurf und die Planung der neuen Netz-/Feuerregeln.
 

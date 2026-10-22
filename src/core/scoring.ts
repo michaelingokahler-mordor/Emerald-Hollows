@@ -6,7 +6,7 @@ export const SCORE_VERSION=1;
 export const ENEMY_POINTS={crawler:5,'crystal-crawler':10} as const;
 export function scoreBreakdown(level:LevelDefinition,state:GameState){
   if(state.beetles){
-    const defeated=Object.values(state.beetles.defeated),crushed=defeated.filter(x=>x==='crushed').length,exploded=defeated.filter(x=>x==='exploded').length,transmuted=defeated.filter(x=>x==='transmuted').length,trapped=containedBeetles(level,state).length;
+    const defeated=Object.values(state.beetles.defeated),crushed=defeated.filter(x=>x==='crushed').length,exploded=defeated.filter(x=>x==='exploded'||x==='burned').length,transmuted=defeated.filter(x=>x==='transmuted').length,trapped=containedBeetles(level,state).length;
     const enemyPoints=(crushed+exploded+trapped)*5+transmuted*10;
     return {gems:state.points,enemyPoints,total:state.points+enemyPoints,crushed,trapped,transmuted};
   }

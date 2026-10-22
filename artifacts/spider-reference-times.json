@@ -1,0 +1,92 @@
+[
+  {
+    "id": "41",
+    "name": "main",
+    "seconds": 8.2
+  },
+  {
+    "id": "42",
+    "name": "main",
+    "seconds": 8.6
+  },
+  {
+    "id": "42",
+    "name": "rescue",
+    "seconds": 17.2
+  },
+  {
+    "id": "42",
+    "name": "hatch",
+    "seconds": 29.4
+  },
+  {
+    "id": "43",
+    "name": "main",
+    "seconds": 34.8
+  },
+  {
+    "id": "43",
+    "name": "blast",
+    "seconds": 43.3
+  },
+  {
+    "id": "44",
+    "name": "main",
+    "seconds": 28.1
+  },
+  {
+    "id": "44",
+    "name": "west",
+    "seconds": 16.5
+  },
+  {
+    "id": "44",
+    "name": "east",
+    "seconds": 35.4
+  },
+  {
+    "id": "45",
+    "name": "main",
+    "seconds": 38
+  },
+  {
+    "id": "46",
+    "name": "main",
+    "seconds": 41.3
+  },
+  {
+    "id": "47",
+    "name": "main",
+    "seconds": 48.2
+  },
+  {
+    "id": "48",
+    "name": "main",
+    "seconds": 39.5
+  },
+  {
+    "id": "48",
+    "name": "expanded",
+    "seconds": 56.8
+  },
+  {
+    "id": "49",
+    "name": "main",
+    "seconds": 55.1
+  },
+  {
+    "id": "49",
+    "name": "south",
+    "seconds": 51.3
+  },
+  {
+    "id": "50",
+    "name": "main",
+    "seconds": 61.3
+  },
+  {
+    "id": "50",
+    "name": "pitFirst",
+    "seconds": 78.7
+  }
+]

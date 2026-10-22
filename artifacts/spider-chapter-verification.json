@@ -1,0 +1,588 @@
+{
+  "at": "2026-10-22T16:53:49.244Z",
+  "note": "Automated timed solutions, checkpoint continuation, 30/60/144 FPS, initial waits of 0/1/2 ticks for main routes, and 10-tick server verification. Local Node timings are not production Workers CPU measurements. Not human play feedback or optimal times.",
+  "levels": [
+    {
+      "id": "41",
+      "name": "main",
+      "hash": "741794c6",
+      "seconds": 8.2,
+      "quota": 8,
+      "points": 12,
+      "score": 12,
+      "silk": {
+        "hasTorch": false,
+        "tool": "pickaxe",
+        "fed": 0,
+        "hatched": 0,
+        "rescued": 0,
+        "killed": 0,
+        "remainingWebs": 64
+      },
+      "excavated": 0,
+      "spawned": {},
+      "phases": [
+        {
+          "wait": 1,
+          "seconds": 8.3
+        },
+        {
+          "wait": 2,
+          "seconds": 8.4
+        }
+      ],
+      "server": {
+        "requests": 9,
+        "maxTicks": 10,
+        "maxLocalMs": 1.805317999999943
+      }
+    },
+    {
+      "id": "42",
+      "name": "main",
+      "hash": "919ce106",
+      "seconds": 8.6,
+      "quota": 9,
+      "points": 12,
+      "score": 12,
+      "silk": {
+        "hasTorch": false,
+        "tool": "pickaxe",
+        "fed": 1,
+        "hatched": 0,
+        "rescued": 0,
+        "killed": 0,
+        "remainingWebs": 40
+      },
+      "excavated": 0,
+      "spawned": {},
+      "phases": [
+        {
+          "wait": 1,
+          "seconds": 8.7
+        },
+        {
+          "wait": 2,
+          "seconds": 8.8
+        }
+      ],
+      "server": {
+        "requests": 9,
+        "maxTicks": 10,
+        "maxLocalMs": 1.3100750000000971
+      }
+    },
+    {
+      "id": "42",
+      "name": "rescue",
+      "hash": "919ce106",
+      "seconds": 17.2,
+      "quota": 9,
+      "points": 12,
+      "score": 12,
+      "silk": {
+        "hasTorch": false,
+        "tool": "pickaxe",
+        "fed": 2,
+        "hatched": 0,
+        "rescued": 1,
+        "killed": 0,
+        "remainingWebs": 40
+      },
+      "excavated": 0,
+      "spawned": {},
+      "phases": [],
+      "server": {
+        "requests": 18,
+        "maxTicks": 10,
+        "maxLocalMs": 2.3985680000000684
+      }
+    },
+    {
+      "id": "42",
+      "name": "hatch",
+      "hash": "919ce106",
+      "seconds": 29.4,
+      "quota": 9,
+      "points": 12,
+      "score": 12,
+      "silk": {
+        "hasTorch": false,
+        "tool": "pickaxe",
+        "fed": 1,
+        "hatched": 1,
+        "rescued": 0,
+        "killed": 0,
+        "remainingWebs": 42
+      },
+      "excavated": 0,
+      "spawned": {},
+      "phases": [],
+      "server": {
+        "requests": 30,
+        "maxTicks": 10,
+        "maxLocalMs": 1.5087730000000192
+      }
+    },
+    {
+      "id": "43",
+      "name": "main",
+      "hash": "7ea331b1",
+      "seconds": 34.8,
+      "quota": 12,
+      "points": 17,
+      "score": 17,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 0,
+        "hatched": 0,
+        "rescued": 0,
+        "killed": 2,
+        "remainingWebs": 0
+      },
+      "excavated": 0,
+      "spawned": {},
+      "phases": [
+        {
+          "wait": 1,
+          "seconds": 34.8
+        },
+        {
+          "wait": 2,
+          "seconds": 35.1
+        }
+      ],
+      "server": {
+        "requests": 35,
+        "maxTicks": 10,
+        "maxLocalMs": 4.442371000000094
+      }
+    },
+    {
+      "id": "43",
+      "name": "blast",
+      "hash": "7ea331b1",
+      "seconds": 43.3,
+      "quota": 12,
+      "points": 14,
+      "score": 19,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 0,
+        "hatched": 0,
+        "rescued": 0,
+        "killed": 2,
+        "remainingWebs": 0
+      },
+      "excavated": 0,
+      "spawned": {},
+      "phases": [],
+      "server": {
+        "requests": 44,
+        "maxTicks": 10,
+        "maxLocalMs": 16.95640900000035
+      }
+    },
+    {
+      "id": "44",
+      "name": "main",
+      "hash": "10639dff",
+      "seconds": 28.1,
+      "quota": 26,
+      "points": 30,
+      "score": 40,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 0,
+        "hatched": 0,
+        "rescued": 0,
+        "killed": 1,
+        "remainingWebs": 1
+      },
+      "excavated": 0,
+      "spawned": {},
+      "phases": [
+        {
+          "wait": 1,
+          "seconds": 28.2
+        },
+        {
+          "wait": 2,
+          "seconds": 28.3
+        }
+      ],
+      "server": {
+        "requests": 29,
+        "maxTicks": 10,
+        "maxLocalMs": 1.7877479999997377
+      }
+    },
+    {
+      "id": "44",
+      "name": "west",
+      "hash": "10639dff",
+      "seconds": 16.5,
+      "quota": 26,
+      "points": 29,
+      "score": 39,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 0,
+        "hatched": 0,
+        "rescued": 0,
+        "killed": 0,
+        "remainingWebs": 37
+      },
+      "excavated": 18,
+      "spawned": {},
+      "phases": [],
+      "server": {
+        "requests": 17,
+        "maxTicks": 10,
+        "maxLocalMs": 1.2289179999997941
+      }
+    },
+    {
+      "id": "44",
+      "name": "east",
+      "hash": "10639dff",
+      "seconds": 35.4,
+      "quota": 26,
+      "points": 30,
+      "score": 45,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 0,
+        "hatched": 0,
+        "rescued": 0,
+        "killed": 1,
+        "remainingWebs": 1
+      },
+      "excavated": 0,
+      "spawned": {},
+      "phases": [],
+      "server": {
+        "requests": 36,
+        "maxTicks": 10,
+        "maxLocalMs": 4.9370890000000145
+      }
+    },
+    {
+      "id": "45",
+      "name": "main",
+      "hash": "ea8b2cb4",
+      "seconds": 38,
+      "quota": 18,
+      "points": 21,
+      "score": 21,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 3,
+        "hatched": 2,
+        "rescued": 0,
+        "killed": 1,
+        "remainingWebs": 50
+      },
+      "excavated": 13,
+      "spawned": {},
+      "phases": [
+        {
+          "wait": 1,
+          "seconds": 38
+        },
+        {
+          "wait": 2,
+          "seconds": 38
+        }
+      ],
+      "server": {
+        "requests": 38,
+        "maxTicks": 10,
+        "maxLocalMs": 5.717367999999624
+      }
+    },
+    {
+      "id": "46",
+      "name": "main",
+      "hash": "387dc06b",
+      "seconds": 41.3,
+      "quota": 18,
+      "points": 25,
+      "score": 35,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 1,
+        "hatched": 0,
+        "rescued": 0,
+        "killed": 1,
+        "remainingWebs": 9
+      },
+      "excavated": 0,
+      "spawned": {},
+      "phases": [
+        {
+          "wait": 1,
+          "seconds": 41.4
+        },
+        {
+          "wait": 2,
+          "seconds": 41.5
+        }
+      ],
+      "server": {
+        "requests": 42,
+        "maxTicks": 10,
+        "maxLocalMs": 1.9151750000000902
+      }
+    },
+    {
+      "id": "47",
+      "name": "main",
+      "hash": "7b0676ea",
+      "seconds": 48.2,
+      "quota": 24,
+      "points": 26,
+      "score": 36,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 2,
+        "hatched": 1,
+        "rescued": 0,
+        "killed": 1,
+        "remainingWebs": 121
+      },
+      "excavated": 0,
+      "spawned": {},
+      "phases": [
+        {
+          "wait": 1,
+          "seconds": 48.3
+        },
+        {
+          "wait": 2,
+          "seconds": 48.4
+        }
+      ],
+      "server": {
+        "requests": 49,
+        "maxTicks": 10,
+        "maxLocalMs": 5.323602000000392
+      }
+    },
+    {
+      "id": "48",
+      "name": "main",
+      "hash": "7550e4cc",
+      "seconds": 39.5,
+      "quota": 25,
+      "points": 33,
+      "score": 38,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 2,
+        "hatched": 2,
+        "rescued": 0,
+        "killed": 1,
+        "remainingWebs": 86
+      },
+      "excavated": 46,
+      "spawned": {
+        "P1": {
+          "active": false,
+          "due": 133,
+          "spawned": 1
+        }
+      },
+      "phases": [
+        {
+          "wait": 1,
+          "seconds": 39.5
+        },
+        {
+          "wait": 2,
+          "seconds": 39.5
+        }
+      ],
+      "server": {
+        "requests": 40,
+        "maxTicks": 10,
+        "maxLocalMs": 4.468238999997993
+      }
+    },
+    {
+      "id": "48",
+      "name": "expanded",
+      "hash": "7550e4cc",
+      "seconds": 56.8,
+      "quota": 25,
+      "points": 33,
+      "score": 43,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 3,
+        "hatched": 3,
+        "rescued": 0,
+        "killed": 1,
+        "remainingWebs": 103
+      },
+      "excavated": 80,
+      "spawned": {
+        "P1": {
+          "active": false,
+          "due": 333,
+          "spawned": 3
+        }
+      },
+      "phases": [],
+      "server": {
+        "requests": 57,
+        "maxTicks": 10,
+        "maxLocalMs": 2.811345000001893
+      }
+    },
+    {
+      "id": "49",
+      "name": "main",
+      "hash": "59b18d9c",
+      "seconds": 55.1,
+      "quota": 29,
+      "points": 29,
+      "score": 54,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 0,
+        "hatched": 0,
+        "rescued": 0,
+        "killed": 2,
+        "remainingWebs": 34
+      },
+      "excavated": 0,
+      "spawned": {},
+      "phases": [
+        {
+          "wait": 1,
+          "seconds": 55.1
+        },
+        {
+          "wait": 2,
+          "seconds": 55.1
+        }
+      ],
+      "server": {
+        "requests": 56,
+        "maxTicks": 10,
+        "maxLocalMs": 2.0162810000001627
+      }
+    },
+    {
+      "id": "49",
+      "name": "south",
+      "hash": "59b18d9c",
+      "seconds": 51.3,
+      "quota": 29,
+      "points": 29,
+      "score": 54,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 0,
+        "hatched": 0,
+        "rescued": 0,
+        "killed": 2,
+        "remainingWebs": 34
+      },
+      "excavated": 0,
+      "spawned": {},
+      "phases": [],
+      "server": {
+        "requests": 52,
+        "maxTicks": 10,
+        "maxLocalMs": 1.6555019999977958
+      }
+    },
+    {
+      "id": "50",
+      "name": "main",
+      "hash": "6c7cb920",
+      "seconds": 61.3,
+      "quota": 32,
+      "points": 34,
+      "score": 54,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 2,
+        "hatched": 1,
+        "rescued": 0,
+        "killed": 4,
+        "remainingWebs": 28
+      },
+      "excavated": 12,
+      "spawned": {
+        "P1": {
+          "active": false,
+          "due": 25,
+          "spawned": 0
+        }
+      },
+      "phases": [
+        {
+          "wait": 1,
+          "seconds": 91.8
+        },
+        {
+          "wait": 2,
+          "seconds": 91.8
+        }
+      ],
+      "server": {
+        "requests": 62,
+        "maxTicks": 10,
+        "maxLocalMs": 2.373327999997855
+      }
+    },
+    {
+      "id": "50",
+      "name": "pitFirst",
+      "hash": "6c7cb920",
+      "seconds": 78.7,
+      "quota": 32,
+      "points": 34,
+      "score": 59,
+      "silk": {
+        "hasTorch": true,
+        "tool": "pickaxe",
+        "fed": 2,
+        "hatched": 1,
+        "rescued": 0,
+        "killed": 4,
+        "remainingWebs": 28
+      },
+      "excavated": 25,
+      "spawned": {
+        "P1": {
+          "active": false,
+          "due": 159,
+          "spawned": 1
+        }
+      },
+      "phases": [],
+      "server": {
+        "requests": 79,
+        "maxTicks": 10,
+        "maxLocalMs": 3.0136810000039986
+      }
+    }
+  ]
+}

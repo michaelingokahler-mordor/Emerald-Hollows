@@ -1,3 +1,4 @@
+import {SilkView,createSilkTextures} from './silk-view';
 import {MiningView} from './mining-view';
 import Phaser from 'phaser';
 import {PassageView} from './passage-view';
@@ -24,6 +25,7 @@ export class CaveScene extends Phaser.Scene {
   track=0;lastBeat=-1;dangerUntil=0;dangerMix=0;musicStarted=false;
   heroAnimationMs=0;
   warningAnimationMs=0;
+  silk?:SilkView;
   passages?:PassageView;
   mining?:MiningView;
   rig?:MechanismView;
@@ -39,7 +41,7 @@ export class CaveScene extends Phaser.Scene {
     for(const key of ['dig','emerald','diamond','push','impact','death','open','win','music-calm','music-brisk'])this.load.audio(key,base+key+'.ogg');
   }
   create():void{
-    this.loaded=true;this.player=this.add.image(0,0,'hero',8).setDisplaySize(CELL,CELL).setDepth(5);
+    createSilkTextures(this);this.loaded=true;this.player=this.add.image(0,0,'hero',8).setDisplaySize(CELL,CELL).setDepth(5);
     this.player.setVisible(false);this.cameras.main.setBackgroundColor('#101b20');
     this.music=this.sound.add('music-calm',{volume:this.bridge.volume().music});
     this.music.on('complete',()=>this.nextMusic());
@@ -48,6 +50,7 @@ export class CaveScene extends Phaser.Scene {
   begin():void{
     if(!this.loaded)return;
     const sim=this.bridge.simulation();if(!sim)return;
+    this.silk?.destroy();this.silk=new SilkView(this,sim.level);
     this.mining?.destroy();this.mining=new MiningView(this,sim.level);
     this.passages?.destroy();this.passages=new PassageView(this,sim.level);
     this.rig?.destroy();this.rig=new MechanismView(this,sim.level);this.activeView=undefined;
@@ -117,7 +120,7 @@ export class CaveScene extends Phaser.Scene {
   }
   updateMusic(s:GameState,delta:number):void{
     const now=performance.now();
-    const danger=this.bridge.active()&&s.status==='playing'&&((!s.practice&&s.remainingTicks<300)||s.entities.some(e=>isCrawler(e.kind)&&Math.abs(e.x-s.player.x)+Math.abs(e.y-s.player.y)<=5));
+    const danger=this.bridge.active()&&s.status==='playing'&&((!s.practice&&s.remainingTicks<300)||s.entities.some(e=>(isCrawler(e.kind)||e.kind==='spider')&&Math.abs(e.x-s.player.x)+Math.abs(e.y-s.player.y)<=5));
     if(danger)this.dangerUntil=now+2500;
     const target=this.bridge.active()&&now<this.dangerUntil?1:0;
     this.dangerMix+=Math.sign(target-this.dangerMix)*Math.min(Math.abs(target-this.dangerMix),delta/1500);
@@ -127,7 +130,7 @@ export class CaveScene extends Phaser.Scene {
     }
   }
   renderState(s:GameState,alpha:number):void{
-    this.rig?.update(s);this.passages?.update(s);this.mining?.update(s);
+    this.silk?.update(s,alpha);this.rig?.update(s);this.passages?.update(s);this.mining?.update(s);
     for(let y=0;y<s.terrain.length;y++)for(let x=0;x<s.terrain[y].length;x++){
       const t=s.terrain[y][x],img=this.grounds[y]?.[x];if(!img)continue;
       if(t==='empty')img.setVisible(false);
@@ -137,12 +140,14 @@ export class CaveScene extends Phaser.Scene {
     for(const[id,img]of this.entities)if(!live.has(id)){img.destroy();this.entities.delete(id);}
     for(const e of s.entities){
       let img=this.entities.get(e.id);
-      const frame=isCrawler(e.kind)?`crawler-${Math.floor(s.tick/2)%4}`:e.kind;
-      if(!img){img=this.add.image(0,0,'tiles',frame).setDisplaySize(CELL,CELL).setDepth(3);this.entities.set(e.id,img);}
+      const silkKind=['spider','cocoon','ruby'].includes(e.kind);
+      const frame=e.kind==='spider'?`spider-${Math.floor(s.tick/2)%4}`:isCrawler(e.kind)?`crawler-${Math.floor(s.tick/2)%4}`:e.kind;
+      if(!img){img=this.add.image(0,0,silkKind?'silk-'+frame:'tiles',silkKind?undefined:frame).setDisplaySize(CELL,CELL).setDepth(3);this.entities.set(e.id,img);}
       const p=this.previous.get(e.id)??e;img.clearTint().setAlpha(1).setAngle(0).setFlipX(false);
       let shell=img.getData('shell-colour') as Phaser.Filters.ColorMatrix|undefined;
       if(shell)shell.active=false;
-      img.setPosition((Phaser.Math.Linear(p.x,e.x,alpha)+0.5)*CELL,(Phaser.Math.Linear(p.y,e.y,alpha)+0.5)*CELL).setFrame(frame);
+      img.setPosition((Phaser.Math.Linear(p.x,e.x,alpha)+0.5)*CELL,(Phaser.Math.Linear(p.y,e.y,alpha)+0.5)*CELL).setTexture(silkKind?'silk-'+frame:'tiles',silkKind?undefined:frame);
+      if(e.kind==='spider')img.setAngle(e.direction==='up'?180:e.direction==='left'?90:e.direction==='right'?-90:0);
       if(isCrawler(e.kind)){
         const base=e.kind==='crystal-crawler'?0xf3f4ff:e.kind==='key-crawler'?0xffd45d:e.kind==='digger'?0xffb353:e.kind==='purple-crawler'?0xc78beb:0x8abbe9;
         img.setTint(base);
@@ -167,7 +172,7 @@ export class CaveScene extends Phaser.Scene {
     }
     for(const [id,badge]of this.badges)if(!s.entities.some(e=>e.id===id&&e.key)){badge.destroy();this.badges.delete(id);}
     const moving=this.prevPlayer.x!==s.player.x||this.prevPlayer.y!==s.player.y;
-    const digging=this.lastInput.snap&&this.bridge.active();
+    const digging=this.lastInput.snap&&this.bridge.active()&&s.silk?.tool!=='torch';
     // Visual cadence is independent of the 100 ms rule clock and freezes on pause.
     this.player.setTexture(digging?'digging':'hero',row[s.player.direction]*4+(moving||digging?Math.floor(this.heroAnimationMs/HERO_POSE_MS)%4:0));
     this.player.setPosition((Phaser.Math.Linear(this.prevPlayer.x,s.player.x,alpha)+0.5)*CELL,(Phaser.Math.Linear(this.prevPlayer.y,s.player.y,alpha)+0.5)*CELL);
@@ -175,15 +180,14 @@ export class CaveScene extends Phaser.Scene {
   }
   effects(events:GameEvent[]):void{
     for(const event of events){
-      const key=event.type==='explode'?'impact':event.type==='morph'?'diamond':event.type==='key-drop'?'emerald':event.type==='bore'?'dig':event.type==='spawn'?'impact':event.type==='key'?'emerald':event.type==='unlock'||event.type==='teleport'?'open':event.type==='crush'||event.type==='release'?'impact':event.type==='transmute'||event.type==='fusion'?'diamond':event.type==='switch'?'push':event.type;
+      const key=event.type==='feed'?'impact':event.type==='hatch'?'impact':event.type==='ruby'?'diamond':event.type==='ignite'?'impact':event.type==='torch'?'open':event.type==='rescue'?'open':event.type==='equip'?'push':event.type==='explode'?'impact':event.type==='morph'?'diamond':event.type==='key-drop'?'emerald':event.type==='bore'?'dig':event.type==='spawn'?'impact':event.type==='key'?'emerald':event.type==='unlock'||event.type==='teleport'?'open':event.type==='crush'||event.type==='release'?'impact':event.type==='transmute'||event.type==='fusion'?'diamond':event.type==='switch'?'push':event.type;
       const now=performance.now();
       if(this.cache.audio.exists(key)&&now-(this.lastSfx.get(key)??-1000)>70){this.sound.play(key,{volume:this.bridge.volume().sfx*(key==='dig'?0.5:key==='impact'?0.7:1)});this.lastSfx.set(key,now);}
       if(event.type==='explode'){
-        const flash=this.add.rectangle((event.x+.5)*CELL,(event.y+.5)*CELL,CELL*3,CELL*3,0xffb46c,.45).setDepth(6);
-        this.tweens.add({targets:flash,alpha:0,duration:420,onComplete:()=>flash.destroy()});
+        this.silk?.explode(event.x,event.y,this.bridge.simulation()!.state.tick);
       }
-      if(['bore','dig','emerald','diamond','crush','transmute','fusion'].includes(event.type)){
-        const color=event.type==='dig'?0xcaa16b:event.type==='diamond'?0xc9ecff:0x8df0bb;
+      if(['bore','dig','emerald','diamond','ruby','crush','transmute','fusion'].includes(event.type)){
+        const color=event.type==='dig'?0xcaa16b:event.type==='ruby'?0xff6d88:event.type==='diamond'?0xc9ecff:0x8df0bb;
         for(let i=0;i<5;i++){
           const dot=this.add.circle((event.x+0.5)*CELL,(event.y+0.5)*CELL,2+i%2,color,0.8).setDepth(6);
           const angle=i*Math.PI*2/5;

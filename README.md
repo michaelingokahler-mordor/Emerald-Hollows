@@ -1,6 +1,6 @@
 # Lathmar: Emerald Hollows
 
-A cave action-puzzle game set in Lathmar, with warm Amiga-inspired artwork and Runway music. The playable browser demo contains **forty handcrafted caves across four chapters**, English and German menus, keyboard and touch controls, a practice mode, automatic saves, offline installation, and optional public best times.
+A cave action-puzzle game set in Lathmar, with warm Amiga-inspired artwork and Runway music. The playable browser demo contains **fifty handcrafted caves across five chapters**, English and German menus, keyboard and touch controls, a practice mode, automatic saves, offline installation, and optional public best times.
 
 The full game is planned to contain **120 levels: 100 main caves and 20 hidden levels**. These additional levels are not included in the current demo.
 
@@ -9,6 +9,16 @@ The full game is planned to contain **120 levels: 100 main caves and 20 hidden l
 - [Download the web and source packages](https://github.com/michaelingokahler-mordor/Emerald-Hollows/releases)
 - [Development roadmap (German)](docs/ENTWICKLUNGSPLAN.md)
 - [Chapter 3 implementation and verification (German)](docs/KAPITEL-3-UMSETZUNG.md)
+
+## Update 0.12.0 — The Silk Tunnels
+
+Chapter V adds caves **41–50**, spiders, connected webs and vibration tracking. Webs slow the miner and all beetles, while spiders move normally. Eaten beetles become cocoons that hatch after 15 seconds. Opening a cocoon with the pickaxe restores its beetle with three seconds of stun and fresh timers. No beetle explosion countdown runs inside a cocoon or during stun.
+
+Find a new torch in each cave from 43 onward. Press **E** or the touch equipment button to switch tools. A torch ignites adjacent webs but cannot dig or prevent contact damage. Each burning tile lasts two seconds and spreads fire after one second. Spiders leave two-point rubies; burning cocoons yield no ruby. Explosions use an original eight-frame animation.
+
+The first three caves teach the rules. Later caves combine ore choices, worker protection, key retrieval, fire bridges, finite pit stock and planned return paths. Cave 49 requires spider rewards in addition to its placed ore. Caves 01–40 retain their hashes, rules, rankings and queued proofs. When an older API is still active, new chapter proofs remain queued until its verifier supports them.
+
+[Chapter design and verification (German)](docs/KAPITEL-5-UMSETZUNG.md) · [Measured routes](artifacts/spider-chapter-verification.json).
 
 ## Cave revisions — 22 October 2026
 
@@ -20,13 +30,13 @@ Cave **10** adds a required diamond in the upper left chamber. Cave **12** requi
 
 See the [design and verification notes (German)](docs/HOEHLEN-FEEDBACK-2026-10-22.md). Automated routes establish playability; human feedback on these revisions is still pending.
 
-## Update 0.11.0 — Changing beetles
+## Historical update 0.11.0 — Changing beetles
 
 Thirty caves now use rule version 6. Blue and purple beetles change their wall-following direction after repeated loops; amber diggers and white diamond beetles change into one another. A shimmering warning precedes each change. White armour replaces the old diamond badge.
 
 A beetle confined to one or two reachable tiles pulses red and explodes after six seconds. Larger marked enclosures remain suitable for live capture. Golden sun/moon beetles carry the keys; crushing or exploding them releases their key. Reinforced machinery, steel, bedrock, gems and released keys withstand explosions.
 
-Caves 34, 35, 36, 38 and 40 have new dependency chains. The open Scree Sea contains **74 emeralds, 6 diamonds and 107 rocks**, with all **92 gem points** required. Cave 40 provides exactly one worker and requires both intended diamond yields. Caves **01–04, 08, 11, 14, 17, 18 and 39** retain their definitions and records. Changed revisions receive separate rankings; old results, unlocks and pending offline submissions remain supported. Spiders are reserved for the future 41–50 chapter. The secret branch in 25 stays sealed.
+Caves 34, 35, 36, 38 and 40 have new dependency chains. The open Scree Sea contains **74 emeralds, 6 diamonds and 107 rocks**, with all **92 gem points** required. Cave 40 provides exactly one worker and requires both intended diamond yields. Caves **01–04, 08, 11, 14, 17, 18 and 39** retain their definitions and records. Changed revisions receive separate rankings; old results, unlocks and pending offline submissions remain supported. At that release, spiders were reserved for chapter V; they are included in version 0.12. The secret branch in 25 stays sealed.
 
 [Design briefs](docs/KAEFER-REVISION-0.11.md) · [Current rules](docs/RULES.md) · [Verification report](docs/PRUEFBERICHT-0.11.md) · [Measured solutions](artifacts/beetle-revision-verification.json).
 
@@ -64,7 +74,7 @@ Emeralds contribute one quota point; diamonds contribute three. Meet the crystal
 
 Choose English or German in the main menu or Settings. English is the default. Credits are available from the main menu and completion screen; asset provenance and license notices are documented in [Credits](docs/CREDITS.md).
 
-### The forty caves
+### The fifty caves
 
 The opening caves introduce collecting, falling rocks, pushing, and rolling. Cave 05 introduces changing patrols, 06 uses a containment explosion to open a gallery, 07 combines a prepared rock drop with clearing the landed projectile, and 09 requires a hit during the white beetle phase. Its single-shot dispenser provides a safe observation arena. Cave 08 tests collecting beside loaded rock columns, with two possible starting districts.
 
@@ -119,7 +129,7 @@ npm run package
 node tools/verify-package.mjs
 ```
 
-The project uses strict TypeScript, Phaser 4.2.1, Vite, and Vitest with pinned dependencies. Its independent simulation runs on a fixed 100 ms tick. Thirty revised caves use `emerald-hollows/6`; unchanged caves retain their previous rules and hashes. Versions 1–5 and historical map snapshots remain available for queued offline runs. Existing `crystal-delve.save.v1` saves migrate automatically. Server support must be deployed before a new client build.
+The project uses strict TypeScript, Phaser 4.2.1, Vite, and Vitest with pinned dependencies. Its independent simulation runs on a fixed 100 ms tick. Caves 41–50 use `emerald-hollows/7`. Thirty previously revised caves use `emerald-hollows/6`; all forty existing caves retain their rules and hashes. Versions 1–5 and historical map snapshots remain available for queued offline runs. Existing `crystal-delve.save.v1` saves migrate automatically. Deploy server support before the client where possible. The client checks capabilities and keeps unsupported chapter proofs queued during a staged rollout.
 
 | Path | Contents |
 |---|---|

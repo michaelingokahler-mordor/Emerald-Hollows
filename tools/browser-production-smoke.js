@@ -1,7 +1,7 @@
 async(page)=>{
  const errors=[];page.on('pageerror',e=>errors.push(String(e)));
  await page.locator('[data-action="continue"]:not(:disabled)').waitFor();
- if(!(await page.locator('#ui').innerText()).includes('0.11.0'))throw Error('Wrong release');
+ if(!(await page.locator('#ui').innerText()).includes('0.12.0'))throw Error('Wrong release');
  await page.locator('[data-action="continue"]').click();
  if(await page.locator('#optional-hint').isVisible())throw Error('Hint is not hidden');
  await page.getByRole('button',{name:'Enter cave',exact:true}).click();
@@ -20,7 +20,7 @@ async(page)=>{
  await page.context().setOffline(true);await page.reload();await page.locator('[data-action="continue"]:not(:disabled)').waitFor();await page.locator('[data-action="continue"]').click();await page.getByRole('dialog',{name:'Pause',exact:true}).waitFor();await page.context().setOffline(false);
  await page.setViewportSize({width:844,height:390});
  if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('Landscape overflow');
- await page.screenshot({path:'output/playwright/v011-production-offline-resume.png'});
+ await page.screenshot({path:'output/playwright/v012-production-offline-resume.png'});
  if(errors.length)throw Error(errors.join('\n'));
- return{status:'PASS',url:page.url(),checks:['production bundle 0.11.0','hidden Hint','simultaneous touch dig','controls outside cave','pause and unchanged reload','service-worker offline reload','landscape without horizontal overflow'],physicalPhone:false,errors};
+ return{status:'PASS',url:page.url(),checks:['production bundle 0.12.0','hidden Hint','simultaneous touch dig','controls outside cave','pause and unchanged reload','service-worker offline reload','landscape without horizontal overflow'],physicalPhone:false,errors};
 }

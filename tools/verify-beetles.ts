@@ -10,7 +10,7 @@ import {scoreBreakdown} from '../src/core/scoring';
 const measure=process.argv.includes('--measure'),report=[];
 await mkdir('artifacts',{recursive:true});await mkdir('public/replays',{recursive:true});
 const limits:Record<string,number>={};
-for(const l of LEVELS){
+for(const l of LEVELS.filter(l=>Number(l.id)<=40)){
  const routes=[];
  for(const [name,route]of Object.entries(ROUTES_V011[l.id])){
   const s=solve({...l,route}),r=s.exportReplay();runReplay(l,r);

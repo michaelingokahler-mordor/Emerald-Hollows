@@ -1,6 +1,7 @@
 import {describe,it,expect} from 'vitest';
 import {readFileSync} from 'node:fs';
-import {LEVELS} from '../src/levels';
+import {LEVELS as CURRENT_LEVELS} from '../src/levels';
+const LEVELS=CURRENT_LEVELS.filter(l=>Number(l.id)<=40);
 import previous from '../src/levels-v010.json';
 import {UNCHANGED_V011} from '../src/revision-v011';
 import {FEEDBACK_CAVE_IDS} from '../src/feedback-caves-v012';

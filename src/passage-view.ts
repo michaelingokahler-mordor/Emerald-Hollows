@@ -1,3 +1,4 @@
+import {hasBeetleRules} from './core/types';
 import Phaser from 'phaser';
 import {reinforcedRim} from './reinforcement-view';
 import {arrivalFree} from './core/passages';
@@ -25,7 +26,7 @@ export class PassageView {
      node.add(scene.add.ellipse(0,2,21,32,0x101b20,.95));
     }else node.add(scene.add.circle(0,0,16,0x172128,.95).setStrokeStyle(2,color));
    }
-   if(level.rulesVersion==='emerald-hollows/6'&&kind!=='key'){const rim=scene.add.graphics();reinforcedRim(rim);node.add(rim);}
+   if(hasBeetleRules(level)&&kind!=='key'){const rim=scene.add.graphics();reinforcedRim(rim);node.add(rim);}
    const label=scene.add.text(0,kind==='key'?24:kind==='door'?0:23,seal?sealSymbol(seal):'pair'in d?d.pair:'',{fontFamily:'Arial',fontSize:kind==='door'?'23px':'16px',fontStyle:'bold',color:'#fff0c1',stroke:'#101820',strokeThickness:4}).setOrigin(.5);node.add(label);
    this.nodes.push({kind,id:d.id,x:d.x,y:d.y,node,art,light,label});
   }

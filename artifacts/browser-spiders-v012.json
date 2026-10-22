@@ -1,0 +1,579 @@
+{
+  "at": "2026-10-22T16:58:23.093Z",
+  "status": "PASS",
+  "results": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "status": "PASS",
+      "results": [
+        {
+          "id": "41",
+          "status": "won",
+          "ticks": 82,
+          "points": 12,
+          "variant": "main",
+          "capture": {
+            "tick": 18,
+            "spiders": 1,
+            "cocoons": 0,
+            "tool": "pickaxe",
+            "kind": "travel"
+          }
+        },
+        {
+          "id": "42",
+          "status": "won",
+          "ticks": 86,
+          "points": 12,
+          "variant": "main",
+          "capture": {
+            "tick": 18,
+            "spiders": 1,
+            "cocoons": 0,
+            "tool": "pickaxe",
+            "kind": "travel"
+          }
+        },
+        {
+          "id": "43",
+          "status": "won",
+          "ticks": 348,
+          "points": 17,
+          "variant": "main",
+          "capture": {
+            "tick": 35,
+            "spiders": 2,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "44",
+          "status": "won",
+          "ticks": 281,
+          "points": 30,
+          "variant": "main",
+          "capture": {
+            "tick": 75,
+            "spiders": 2,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "45",
+          "status": "won",
+          "ticks": 380,
+          "points": 21,
+          "variant": "main",
+          "capture": {
+            "tick": 187,
+            "spiders": 3,
+            "cocoons": 1,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "46",
+          "status": "won",
+          "ticks": 413,
+          "points": 25,
+          "variant": "main",
+          "capture": {
+            "tick": 87,
+            "spiders": 3,
+            "cocoons": 1,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "47",
+          "status": "won",
+          "ticks": 482,
+          "points": 26,
+          "variant": "main",
+          "capture": {
+            "tick": 76,
+            "spiders": 3,
+            "cocoons": 2,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "48",
+          "status": "won",
+          "ticks": 395,
+          "points": 33,
+          "variant": "main",
+          "capture": {
+            "tick": 272,
+            "spiders": 6,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "49",
+          "status": "won",
+          "ticks": 551,
+          "points": 29,
+          "variant": "main",
+          "capture": {
+            "tick": 78,
+            "spiders": 4,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "50",
+          "status": "won",
+          "ticks": 613,
+          "points": 34,
+          "variant": "main",
+          "capture": {
+            "tick": 162,
+            "spiders": 4,
+            "cocoons": 2,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "42",
+          "status": "won",
+          "ticks": 172,
+          "points": 12,
+          "variant": "rescue",
+          "capture": {
+            "tick": 89,
+            "spiders": 1,
+            "cocoons": 1,
+            "tool": "pickaxe",
+            "kind": "cocoon",
+            "stun": {
+              "tick": 94,
+              "spiders": 1,
+              "cocoons": 0,
+              "tool": "pickaxe",
+              "kind": "stun"
+            }
+          }
+        },
+        {
+          "id": "42",
+          "status": "won",
+          "ticks": 294,
+          "points": 12,
+          "variant": "hatch",
+          "capture": {
+            "tick": 172,
+            "spiders": 1,
+            "cocoons": 1,
+            "tool": "pickaxe",
+            "kind": "travel"
+          }
+        },
+        {
+          "id": "43",
+          "status": "won",
+          "ticks": 433,
+          "points": 14,
+          "variant": "blast",
+          "capture": {
+            "tick": 140,
+            "spiders": 2,
+            "cocoons": 0,
+            "tool": "pickaxe",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "44",
+          "status": "won",
+          "ticks": 165,
+          "points": 29,
+          "variant": "west",
+          "capture": {
+            "tick": 18,
+            "spiders": 2,
+            "cocoons": 0,
+            "tool": "pickaxe",
+            "kind": "travel"
+          }
+        },
+        {
+          "id": "44",
+          "status": "won",
+          "ticks": 354,
+          "points": 30,
+          "variant": "east",
+          "capture": {
+            "tick": 36,
+            "spiders": 2,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "48",
+          "status": "won",
+          "ticks": 568,
+          "points": 33,
+          "variant": "expanded",
+          "capture": {
+            "tick": 445,
+            "spiders": 7,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "49",
+          "status": "won",
+          "ticks": 513,
+          "points": 29,
+          "variant": "south",
+          "capture": {
+            "tick": 78,
+            "spiders": 4,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "50",
+          "status": "won",
+          "ticks": 787,
+          "points": 34,
+          "variant": "pitFirst",
+          "capture": {
+            "tick": 336,
+            "spiders": 5,
+            "cocoons": 1,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        }
+      ],
+      "checks": [
+        "all 50 cards",
+        "18 renderer replays with final-state hash",
+        "cocoon/stun/fire captures",
+        "keyboard equipment and digging restriction",
+        "touch equipment and simultaneous ignition when mobile",
+        "pause and restored fire/tool state",
+        "landscape layout"
+      ],
+      "errors": [],
+      "note": "Accelerated renderer and emulated touch checks, not human play feedback or a physical phone test."
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "PASS",
+      "results": [
+        {
+          "id": "41",
+          "status": "won",
+          "ticks": 82,
+          "points": 12,
+          "variant": "main",
+          "capture": {
+            "tick": 18,
+            "spiders": 1,
+            "cocoons": 0,
+            "tool": "pickaxe",
+            "kind": "travel"
+          }
+        },
+        {
+          "id": "42",
+          "status": "won",
+          "ticks": 86,
+          "points": 12,
+          "variant": "main",
+          "capture": {
+            "tick": 18,
+            "spiders": 1,
+            "cocoons": 0,
+            "tool": "pickaxe",
+            "kind": "travel"
+          }
+        },
+        {
+          "id": "43",
+          "status": "won",
+          "ticks": 348,
+          "points": 17,
+          "variant": "main",
+          "capture": {
+            "tick": 35,
+            "spiders": 2,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "44",
+          "status": "won",
+          "ticks": 281,
+          "points": 30,
+          "variant": "main",
+          "capture": {
+            "tick": 75,
+            "spiders": 2,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "45",
+          "status": "won",
+          "ticks": 380,
+          "points": 21,
+          "variant": "main",
+          "capture": {
+            "tick": 187,
+            "spiders": 3,
+            "cocoons": 1,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "46",
+          "status": "won",
+          "ticks": 413,
+          "points": 25,
+          "variant": "main",
+          "capture": {
+            "tick": 87,
+            "spiders": 3,
+            "cocoons": 1,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "47",
+          "status": "won",
+          "ticks": 482,
+          "points": 26,
+          "variant": "main",
+          "capture": {
+            "tick": 76,
+            "spiders": 3,
+            "cocoons": 2,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "48",
+          "status": "won",
+          "ticks": 395,
+          "points": 33,
+          "variant": "main",
+          "capture": {
+            "tick": 272,
+            "spiders": 6,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "49",
+          "status": "won",
+          "ticks": 551,
+          "points": 29,
+          "variant": "main",
+          "capture": {
+            "tick": 78,
+            "spiders": 4,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "50",
+          "status": "won",
+          "ticks": 613,
+          "points": 34,
+          "variant": "main",
+          "capture": {
+            "tick": 162,
+            "spiders": 4,
+            "cocoons": 2,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "42",
+          "status": "won",
+          "ticks": 172,
+          "points": 12,
+          "variant": "rescue",
+          "capture": {
+            "tick": 89,
+            "spiders": 1,
+            "cocoons": 1,
+            "tool": "pickaxe",
+            "kind": "cocoon",
+            "stun": {
+              "tick": 94,
+              "spiders": 1,
+              "cocoons": 0,
+              "tool": "pickaxe",
+              "kind": "stun"
+            }
+          }
+        },
+        {
+          "id": "42",
+          "status": "won",
+          "ticks": 294,
+          "points": 12,
+          "variant": "hatch",
+          "capture": {
+            "tick": 172,
+            "spiders": 1,
+            "cocoons": 1,
+            "tool": "pickaxe",
+            "kind": "travel"
+          }
+        },
+        {
+          "id": "43",
+          "status": "won",
+          "ticks": 433,
+          "points": 14,
+          "variant": "blast",
+          "capture": {
+            "tick": 140,
+            "spiders": 2,
+            "cocoons": 0,
+            "tool": "pickaxe",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "44",
+          "status": "won",
+          "ticks": 165,
+          "points": 29,
+          "variant": "west",
+          "capture": {
+            "tick": 18,
+            "spiders": 2,
+            "cocoons": 0,
+            "tool": "pickaxe",
+            "kind": "travel"
+          }
+        },
+        {
+          "id": "44",
+          "status": "won",
+          "ticks": 354,
+          "points": 30,
+          "variant": "east",
+          "capture": {
+            "tick": 36,
+            "spiders": 2,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "48",
+          "status": "won",
+          "ticks": 568,
+          "points": 33,
+          "variant": "expanded",
+          "capture": {
+            "tick": 445,
+            "spiders": 7,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "49",
+          "status": "won",
+          "ticks": 513,
+          "points": 29,
+          "variant": "south",
+          "capture": {
+            "tick": 78,
+            "spiders": 4,
+            "cocoons": 0,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        },
+        {
+          "id": "50",
+          "status": "won",
+          "ticks": 787,
+          "points": 34,
+          "variant": "pitFirst",
+          "capture": {
+            "tick": 336,
+            "spiders": 5,
+            "cocoons": 1,
+            "tool": "torch",
+            "kind": "fire"
+          }
+        }
+      ],
+      "checks": [
+        "all 50 cards",
+        "18 renderer replays with final-state hash",
+        "cocoon/stun/fire captures",
+        "keyboard equipment and digging restriction",
+        "touch equipment and simultaneous ignition when mobile",
+        "pause and restored fire/tool state",
+        "landscape layout"
+      ],
+      "errors": [],
+      "note": "Accelerated renderer and emulated touch checks, not human play feedback or a physical phone test."
+    },
+    {
+      "status": "PASS",
+      "url": "http://127.0.0.1:4175/",
+      "checks": [
+        "production bundle 0.12.0",
+        "hidden Hint",
+        "simultaneous touch dig",
+        "controls outside cave",
+        "pause and unchanged reload",
+        "service-worker offline reload",
+        "landscape without horizontal overflow"
+      ],
+      "physicalPhone": false,
+      "errors": []
+    }
+  ]
+}

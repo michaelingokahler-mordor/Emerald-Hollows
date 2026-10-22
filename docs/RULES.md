@@ -1,3 +1,21 @@
+# Chapter V — version 0.12 rules for caves 41–50
+
+Rule version `emerald-hollows/7` adds spiders without changing caves 01–40.
+
+Spiders weave open ground and follow the last disturbance in their connected web. Gaps cut tracking. Webs double movement costs for the miner and all beetles, but not spiders. Contact with spiders remains lethal.
+
+Eaten beetles become cocoons and hatch after 15 seconds. Beetle movement, morphing and explosion countdowns never run inside a cocoon. Pickaxe + direction opens one. Its original beetle is stunned for three seconds, cannot attack or fuse, and cannot be eaten again during stun. Normal warning timers start fresh afterward. Other enemies remain dangerous.
+
+Find a new torch in each cave from 43 onward. E or the touch equipment button switches tools. A torch cannot dig, including by walking into earth. Tool + direction ignites an adjacent web. It provides no contact protection and cannot attack animals on clear ground.
+
+A web tile burns for two seconds and ignites its four adjacent web tiles after one second. Gaps, walls and closed gates stop the fire. Flames kill the miner, beetles and spiders. Fire destroys cocoons with their prey, without a ruby or offspring. Golden cocoons retain their key on rescue and release it once on destruction or hatching.
+
+Every killed spider drops one ruby worth two crystal points, with normal gem gravity and rolling. Crushing a spider consumes the projectile. Rubies and keys survive web fires. There is no extra spider kill bonus. White beetles yield diamonds only when crushed. Pit stocks are finite and do not refill.
+
+Pause freezes all timers. Resume retains tools, webs, fire and cocoons. Restart resets them. Replay and server verification use the same 100-ms simulation. [Chapter implementation and checks (German)](KAPITEL-5-UMSETZUNG.md).
+
+---
+
 # Current rules — Lathmar: Emerald Hollows 0.11
 
 Rule version 6 applies to 05–07, 09–10, 12–13, 15–16, 19–38 and 40. Caves 01–04, 08, 11, 14, 17, 18 and 39 retain their earlier rules and records. Historical definitions and versions 1–5 remain executable for pending offline results.

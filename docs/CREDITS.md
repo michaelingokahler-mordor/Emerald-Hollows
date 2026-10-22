@@ -21,3 +21,7 @@ Phaser and EventEmitter3 license texts are included in this directory and served
 Grundlage sind die Credits von War of the Wizards (`scenes/credits.tscn`) und Carrier Ace (`scripts/main.gd`). Übernommen wurden Studioangabe, Michael Kahlers Rolle sowie die Gliederung nach Programmierunterstützung und Medienproduktion. Die Nennungen wurden anhand der tatsächlichen Emerald-Hollows-Produktion angepasst. Credits für dort verwendete Musik, Adobe Firefly, Claude, Chaos oder 1942 wurden nicht in dieses Spiel übernommen.
 
 Die Credits sind im Hauptmenü und nach dem Demoabschluss erreichbar. Rollenbeschreibungen werden mit der Spieloberfläche zwischen Englisch und Deutsch umgeschaltet.
+
+## Eigene Ergänzungen in 0.12
+
+Spinnen, Netze, Kokons, Rubine, Fackelanzeige und die neue Explosionsfolge wurden als eigene Vektorgrafik für dieses Spiel programmiert. Es wurden keine Grafiken aus Emerald Mine oder Boulder Dash übernommen. Die vorhandene gemalte Grafik, Musik und Geräusche stammen weiterhin aus der dokumentierten Runway-Produktion. Diese Erweiterung hat keine neuen bezahlten Medien erzeugt.

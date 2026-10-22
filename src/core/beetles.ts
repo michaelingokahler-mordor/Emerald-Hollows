@@ -1,3 +1,6 @@
+import {releaseKey} from './drops';
+export {releaseKey} from './drops';
+import {isStunned,beetleReady,disturb,igniteNet,destroySilkCreature} from './spiders';
 import {DELTAS,DIRECTIONS,hasBeetleRules,isCrawler,type BeetleBrain,type Entity,type GameEvent,type GameState,type LevelDefinition,type Point} from './types';
 import {fuseCrawlers} from './mechanisms';
 
@@ -10,7 +13,7 @@ export function brain(s:GameState,e:Entity):BeetleBrain {
 }
 /** Other creatures and the player are not permanent cage walls. Stop once the answer is known. */
 export function beetleReach(s:GameState,e:Entity,limit=3):Point[]{
-  const q:Point[]=[{x:e.x,y:e.y}],seen=new Set([cell(e)]),solid=new Set(s.entities.filter(a=>!isCrawler(a.kind)).map(cell));
+  const q:Point[]=[{x:e.x,y:e.y}],seen=new Set([cell(e)]),solid=new Set(s.entities.filter(a=>!isCrawler(a.kind)&&a.kind!=='spider').map(cell));
   for(let i=0;i<q.length&&q.length<limit;i++)for(const d of Object.values(DELTAS)){
     const p={x:q[i].x+d.x,y:q[i].y+d.y},k=cell(p);
     if(!seen.has(k)&&!solid.has(k)&&traversable(s,e,p.x,p.y)){seen.add(k);q.push(p);if(q.length>=limit)break;}
@@ -49,10 +52,6 @@ export function initializeBeetles(l:LevelDefinition,s:GameState):void {
   for(const k of l.keyCarriers??[]){s.terrain[k.y][k.x]='empty';s.entities.push({id:s.mechanisms!.nextId++,kind:'key-crawler',x:k.x,y:k.y,direction:k.direction,falling:false,key:{id:k.id,seal:k.seal}});}
   for(const e of s.entities.filter(e=>isCrawler(e.kind)))brain(s,e);
 }
-export function releaseKey(s:GameState,e:Entity,events:GameEvent[]):void {
-  if(!e.key)return;
-  s.beetles!.drops.push({...e.key,x:e.x,y:e.y,bornTick:s.tick});events.push({type:'key-drop',x:e.x,y:e.y});
-}
 export function collectDroppedKeys(s:GameState,x:number,y:number,events:GameEvent[]):void {
   if(!s.beetles||!s.passages)return;
   for(const k of s.beetles.drops.filter(k=>k.x===x&&k.y===y)){
@@ -73,7 +72,7 @@ export function recordDefeat(s:GameState,e:Entity,how:'crushed'|'transmuted'|'ex
 export function moveBeetles(l:LevelDefinition,s:GameState,events:GameEvent[]):void {
   const newborn=new Set<number>();fuseCrawlers(s,events,newborn);
   for(const e of [...s.entities].filter(e=>isCrawler(e.kind)).sort((a,b)=>a.id-b.id)){
-    if(newborn.has(e.id)||!s.entities.includes(e))continue;
+    if(newborn.has(e.id)||!s.entities.includes(e)||isStunned(s,e)||!beetleReady(s,e))continue;
     const b=brain(s,e),tight=beetleReach(s,e).length<=2;
     if(tight)delete b.warningDue;
     let changing=false;
@@ -90,7 +89,9 @@ export function moveBeetles(l:LevelDefinition,s:GameState,events:GameEvent[]):vo
     b.exits[next.key]=(b.exits[next.key]??0)+1;
     const bore=e.kind==='digger'&&s.terrain[next.y][next.x]!=='empty';
     if(bore){s.terrain[next.y][next.x]='empty';s.mining!.excavated++;events.push({type:'bore',x:next.x,y:next.y});b.visits={};b.exits={};delete b.warningDue;}
+    const oldWeb=!!s.silk?.webs[cell(e)];
     e.x=next.x;e.y=next.y;e.direction=next.direction;
+    if(s.silk){s.silk.nextMove[e.id]=s.tick+(oldWeb||s.silk.webs[cell(e)]?6:3);disturb(s,e,e.id);}
     const visit=`${cell(e)}/${e.direction}`;b.visits[visit]=(b.visits[visit]??0)+1;
     if(!tight&&!bore&&b.visits[visit]>=3&&b.warningDue===undefined)b.warningDue=s.tick+MORPH_TICKS;
     if(e.x===s.player.x&&e.y===s.player.y){s.status='dead';s.deathReason='Ein Käfer hat dich erwischt.';events.push({type:'death',x:e.x,y:e.y});return;}
@@ -101,12 +102,14 @@ export function explodeTrapped(l:LevelDefinition,s:GameState,events:GameEvent[])
   const due:Point[]=[];
   for(const e of s.entities.filter(e=>isCrawler(e.kind))){
     const b=brain(s,e);
+    if(isStunned(s,e)){b.trapTicks=0;delete b.warningDue;continue;}
     if(beetleReach(s,e).length<=2){b.trapTicks++;delete b.warningDue;}else b.trapTicks=0;
     if(b.trapTicks>=FUSE_TICKS)due.push({x:e.x,y:e.y});
   }
   if(due.length){
     const blast=new Set<string>();for(const p of due){s.beetles!.explosions++;events.push({type:'explode',...p});for(let y=p.y-1;y<=p.y+1;y++)for(let x=p.x-1;x<=p.x+1;x++)blast.add(`${x},${y}`);}
     const devices=new Set([...l.mechanisms?.gates??[],...l.mechanisms?.levers??[],...l.mechanisms?.dispensers??[],...l.passages?.doors??[],...l.passages?.portals??[],...l.mining?.pits??[],...(l.passages?.secret?[l.passages.secret]:[])].map(cell));
+    if(s.silk){for(const pos of blast){const[x,y]=pos.split(',').map(Number);igniteNet(s,x,y,events);}for(const e of [...s.entities])if(blast.has(cell(e))&&(e.kind==='spider'||e.kind==='cocoon'))destroySilkCreature(s,e,events);}
     for(const pos of blast){const[x,y]=pos.split(',').map(Number);if(!devices.has(pos)&&['earth','wall'].includes(s.terrain[y]?.[x]))s.terrain[y][x]='empty';}
     s.entities=s.entities.filter(e=>{if(!blast.has(cell(e)))return true;if(isCrawler(e.kind)){releaseKey(s,e,events);recordDefeat(s,e,'exploded');return false;}return e.kind!=='rock';});
     if(blast.has(cell(s.player))){s.status='dead';s.deathReason='Die Explosion hat dich getroffen.';events.push({type:'death',...s.player});}

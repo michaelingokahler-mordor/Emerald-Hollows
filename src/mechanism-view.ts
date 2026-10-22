@@ -1,3 +1,4 @@
+import {hasBeetleRules} from './core/types';
 import Phaser from 'phaser';
 import {reinforcedRim} from './reinforcement-view';
 import type {GameState,LevelDefinition} from './core/types';

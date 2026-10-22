@@ -36,14 +36,14 @@ Level 11–20 sind neu gebaut; ab Kapitelstufe 4 stehen größere Abbaugebiete u
 
 ## Aktueller Stand und weitere Kapitel — 22. Oktober 2026
 
-Die frühere Kapitelzuordnung wurde während der Entwicklung geändert. Der Regelkern und die spielbaren Karten haben Vorrang vor historischen Vorschlägen. Die neuen Spinnenregeln sind noch nicht implementiert. Bestätigt am 22. Oktober: Netze bremsen andere Wesen; Spinnen verfolgen Netzerschütterungen; gefressene Käfer werden Kokons mit 15 Sekunden Reifezeit, danach Spinnen. Im Kokon läuft kein Käfer-Explosionscountdown. Hackenbefreiung setzt den ursprünglichen Käfer zunächst betäubt frei. Explosionen und pro Level neu freigespielte Fackeln entzünden Netze. Mit Fackel kann der Miner nicht graben und bleibt durch Gegnerkontakt verwundbar. Feuer tötet Spinnen und Käfer im Netz; Spinnen hinterlassen Rubine zu zwei Punkten. Der [endgültige Bauplan für 41–50](KAPITEL-5-ENTWURF-41-50.md) enthält alle zehn Levelentwürfe und ergänzt feste Designwerte: drei Sekunden Betäubung sowie zwei Sekunden Brand pro Feld mit Ausbreitung nach einer Sekunde. 41–43 führen ein; 44–50 steigern Umfang und verknüpfte Aufgaben bis zum Finale. [Recherche zur Explosion](EXPLOSIONEN-REFERENZEN-2026-10-22.md).
+Die frühere Kapitelzuordnung wurde während der Entwicklung geändert. Der Regelkern und die spielbaren Karten haben Vorrang vor historischen Vorschlägen. Kapitel V ist in 0.12 implementiert: Netze, Erschütterungsverfolgung, Kokons mit 15 Sekunden Reife, Hackenbefreiung mit drei Sekunden Betäubung, pro Level neu erschlossene Fackeln und Rubine zu zwei Kristallpunkten. Im Kokon und während der Betäubung läuft kein Käfer-Explosionscountdown. Netze brennen zwei Sekunden und entzünden nach einer Sekunde Nachbarfelder. [Umsetzung und gemessene Prüfungen](KAPITEL-5-UMSETZUNG.md), [Bauplan](KAPITEL-5-ENTWURF-41-50.md), [Explosionsrecherche](EXPLOSIONEN-REFERENZEN-2026-10-22.md).
 
 | Level | Einführung und Schwerpunkt |
 |---|---|
 | 11–20 | Implementiert: Hebel, Tore, zwei Käferrichtungen, Fusion und Steinspender |
 | 21–30 | Implementiert: Sonnen-/Mondschlüssel, goldene Schlüsselträger und feste Portalpaare. Zwergen-Geheimzweig weiterhin versiegelt. |
 | 31–40 | Implementiert: Grabekäfer, Muttergestein, verzögerte und wiederkehrende Pits. Die frühere Dynamit-Zuordnung wurde nicht umgesetzt. |
-| 41–50 | Endgültiger Bauplan, noch nicht spielbar: Netzverfolgung, Kokons (15 Sekunden), Hackenbefreiung mit drei Sekunden Betäubung, Rubine (2 Punkte), Fackeln und Werkzeugwechsel. Netzbrand: zwei Sekunden pro Feld, Ausbreitung nach einer Sekunde. Drei Einführungen, danach zunehmend verknüpfte Aufgaben bis 64 × 40. |
+| 41–50 | Implementiert: Spinnen, Netzverfolgung und Bremsen, Kokons (15 Sekunden), Befreiung/Betäubung (3 Sekunden), Fackeln und Ausrüstungswechsel, Rubine (2 Punkte), wandernder Netzbrand. Drei Einführungen, danach gekoppelte Aufgaben bis 64 × 40. |
 | 51–60 | Säure, ablassbare Wasserbecken, Schleusen und Treibsand |
 | 61–70 | Corruption: deterministisches Wachstum und kontrollierte Freiräume |
 | 71–80 | Zeitweise aktive Zauberwände, Fels-zu-Smaragd; Elfen-Abzweig in 75 |

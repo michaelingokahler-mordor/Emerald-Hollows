@@ -8,11 +8,13 @@
 - Datenbank: D1 `emerald-hollows`, ID `981ffcff-002a-47b5-9b3a-3836362f6ba2`.
 - Sicherungen: privates Repository `michaelingokahler-mordor/Emerald-Hollows-Backups`.
 
-Workers Free wurde am 18.10.2026 im angemeldeten Dashboard bestätigt. Es gilt ein kostenloses Tageskontingent, keine automatische Tarifänderung. Die API prüft höchstens 100 Simulationstakte pro Anfrage. Begrenzungen bei Profilanlage und Uploads bremsen ungewollte Last. Beim späteren Ausbau muss die CPU-Zeit auf den größeren Karten neu gemessen werden. Die heutige Prüfung ist keine Lasttest-Zusage.
+Workers Free wurde am 18.10.2026 im angemeldeten Dashboard bestätigt. Es gilt ein kostenloses Tageskontingent, keine automatische Tarifänderung. Die API prüft höchstens 100 Simulationstakte pro Anfrage, bei Netzleveln höchstens 10. Begrenzungen bei Profilanlage und Uploads bremsen ungewollte Last. Beim späteren Ausbau muss die CPU-Zeit auf den größeren Karten neu gemessen werden. Die heutige Prüfung ist keine Lasttest-Zusage.
 
 ## Veröffentlichung
 
 `npm ci`, `npm test`, `npm run verify:levels`, `npm run build` ausführen. Auf dem lokalen API-Testserver zusätzlich `npx tsx tools/verify-api.ts`. Für eine API-Änderung `npx wrangler deploy --dry-run --config server/wrangler.jsonc` und danach `npx wrangler deploy --config server/wrangler.jsonc`. Migrationen ausdrücklich für die richtige Datenbank ausführen; `--local` und `--remote` nicht verwechseln.
+
+Bevorzugt die API vor dem Web-Build veröffentlichen. Ab 0.12 prüft der Client die unterstützten Regeln: Bei einer älteren API bleiben neue Kapitelbeweise gespeichert und werden nach dem Update erneut abgeglichen; bisherige Höhlen synchronisieren weiter. Die öffentliche Aktivierung der neuen Ranglisten benötigt weiterhin den Worker-Deploy.
 
 Den Web-Build nach `games/more-projects/emerald-hollows/` im SabnockWorks-Repository kopieren. Die bestehende Sammlung und deren Gestaltung erhalten. Nur betroffene Pfade veröffentlichen. Website, Service Worker, `online.json` und API anschließend tatsächlich abrufen. `online.json` wird bewusst nicht offline zwischengespeichert, damit der API-Endpunkt geändert werden kann.
 

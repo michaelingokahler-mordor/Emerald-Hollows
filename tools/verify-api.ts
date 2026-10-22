@@ -1,5 +1,5 @@
 import {scoreBreakdown} from '../src/core/scoring';
-import {BEETLE_RULES_VERSION,MECHANISM_RULES_VERSION,PASSAGE_RULES_VERSION,MINING_RULES_VERSION} from '../src/core/types';
+import {SILK_RULES_VERSION,BEETLE_RULES_VERSION,MECHANISM_RULES_VERSION,PASSAGE_RULES_VERSION,MINING_RULES_VERSION} from '../src/core/types';
 import assert from 'node:assert/strict';
 import {readFile,writeFile} from 'node:fs/promises';
 import {LEVELS} from '../src/levels';
@@ -54,9 +54,9 @@ for(const level of LEVELS.filter(l=>['06','07','09','10'].includes(l.id))){
  assert.ok((await call('/leaderboard/'+level.id)).entries.some((e:any)=>e.nickname===nameA&&e.ticks===replay.inputs.length&&e.score===expectedScore));
 }
 assert.ok((await call('/health')).supportedRules.includes(MECHANISM_RULES_VERSION));assert.ok((await call('/health')).supportedRules.includes(PASSAGE_RULES_VERSION));assert.ok((await call('/health')).supportedRules.includes(MINING_RULES_VERSION));
-assert.ok((await call('/health')).supportedRules.includes(BEETLE_RULES_VERSION));
+assert.ok((await call('/health')).supportedRules.includes(BEETLE_RULES_VERSION));assert.ok((await call('/health')).supportedRules.includes(SILK_RULES_VERSION));
 for(const level of LEVELS.slice(10)){const sim=solve(level),replay=sim.exportReplay(),runId=crypto.randomUUID();await call('/runs',{id:runId,replay},auth,201);let status='pending';while(status==='pending')status=(await call('/runs/'+runId+'/verify',{},auth)).status;assert.equal(status,'confirmed');assert.ok((await call('/leaderboard/'+level.id)).entries.some((e:any)=>e.nickname===nameA&&e.score===scoreBreakdown(level,sim.state).total));}
-recovered=await call('/profile',undefined,auth);assert.equal(recovered.records.length,35);assert.equal(recovered.archivedRecords.length,7);
+recovered=await call('/profile',undefined,auth);assert.equal(recovered.records.length,45);assert.equal(recovered.archivedRecords.length,7);
 // Submit the exact published 0.10 inputs, not a newly solved approximation.
 const legacy=await call('/profiles',{nickname:'Archive '+Date.now().toString(36)},undefined,201),legacyAuth=legacy.id+'.'+legacy.token;
 for(let n=1;n<=40;n++){const id=String(n).padStart(2,'0'),replay=JSON.parse(await readFile(`tests/fixtures/replays-v010/${id}.json`,'utf8'));await submit(replay,legacyAuth);}
@@ -82,7 +82,7 @@ assert.ok(rank(nameC)<rank(nameB)&&rank(nameB)<rank(nameA));
 await submit(solve(highLevel).exportReplay(),auth);scored=(await call('/leaderboard/08')).entries;assert.equal(rank(nameA),rank(nameB));
 await submit(solve({...highLevel,route:pad(LEVELS[7].route,21)}).exportReplay(),auth);const best=(await call('/profile',undefined,auth)).records.find((r:any)=>r.level_id==='08');assert.equal(best.ticks,highSim.state.tick);assert.equal(best.score,scoreBreakdown(highLevel,highSim.state).total);assert.equal(best.points,40);
 
-const report={date:new Date().toISOString(),target:'local Wrangler/D1',status:'PASS',checks:['profile creation','auth ownership','recovery','bounded verification','idempotent upload','leaderboard','practice rejection','invalid inputs','wrong final hash','CORS','archived 0.2, 0.6, 0.7 and four revised 0.8 runs accepted and excluded from current boards','four revised caves confirmed with score','all thirty chapter 2, 3 and 4 levels verified with scores and checkpoint continuation','time first and score tiebreaker','equal-score equal-time shared rank','slower score cannot replace faster record','recovery retains archived unlocks'],verificationRequests:requests};
+const report={date:new Date().toISOString(),target:'local Wrangler/D1',status:'PASS',checks:['profile creation','auth ownership','recovery','bounded verification','idempotent upload','leaderboard','practice rejection','invalid inputs','wrong final hash','CORS','archived 0.2, 0.6, 0.7 and four revised 0.8 runs accepted and excluded from current boards','four revised caves confirmed with score','all forty chapter 2–5 levels verified with scores and checkpoint continuation','time first and score tiebreaker','equal-score equal-time shared rank','slower score cannot replace faster record','recovery retains archived unlocks'],verificationRequests:requests};
 const oldTimer=(previousTimers as LevelDefinition[])[0];
 await submit(solve(oldTimer,140).exportReplay(),third);
 assert.ok(!(await call('/leaderboard/01')).entries.some((e:any)=>e.nickname===nameC));

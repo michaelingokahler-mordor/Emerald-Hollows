@@ -1,6 +1,6 @@
 # Kapitel V: Die Seidenstollen — endgültiger Bauplan für 41–50
 
-Stand: 22. Oktober 2026. Dieser Plan legt Regeln, Einführung und Aufgaben der zehn Höhlen fest. Er enthält noch keine spielbaren Karten, gemessenen Lösungen oder menschliche Spielabnahme. Maße, Besatz und Sammelbudgets sind Vorgaben für den Kartenbau; Zeitlimits entstehen erst beim Spielen der Prototypen.
+Stand: 22. Oktober 2026. Dieser Plan legt Regeln, Einführung und Aufgaben der zehn Höhlen fest. Die Umsetzung und gemessenen Lösungen stehen inzwischen in [KAPITEL-5-UMSETZUNG.md](KAPITEL-5-UMSETZUNG.md). Dieser Plan dokumentiert die Entwurfsentscheidungen; eine menschliche Spielabnahme liegt noch nicht vor. Maße, Besatz und Sammelbudgets sind Vorgaben für den Kartenbau; Zeitlimits entstehen erst beim Spielen der Prototypen.
 
 ## 1. Verbindliche Regeln
 
@@ -14,9 +14,9 @@ Für einen vollständigen Bauplan ergänze ich diese Vorgaben um feste Entwurfsw
 - Spinnen ziehen beim Laufen zusammenhängende Netzspuren: Ihr freies Startfeld und neu betretene freie Bodenfelder werden vernetzt. Das Netz bleibt liegen; es wächst nicht selbstständig in entfernte Räume. Wände, Erde, Felsen und Edelsteine können nicht vernetzt werden. Gerätefelder, Portale, Schlüssel, Fackelaufnahme und Ausgang bleiben netzfrei; **offene Torfelder dürfen vernetzt werden**. Vorgegebene alte Netze in der Karte ermöglichen sofort lesbare Einführungssituationen.
 - Spieler und sämtliche Käfertypen brauchen im Netz doppelt so lange zwischen Schritten. Spinnen werden nicht gebremst. Fallende Steine, Kristalle und Schlüssel folgen weiter ihrer bisherigen Schwerkraft.
 - Jeder Schritt eines Spielers oder Käfers im Netz erzeugt einen sichtbaren Erschütterungsimpuls. Eine Spinne empfängt ihn nur im selben, über Seitenkanten verbundenen Netz. Diagonaler Kontakt verbindet keine Netze.
-- Sie verfolgt die letzte empfangene Störstelle auf dem kürzesten Netzweg. Gleichzeitige Impulse: kürzere Entfernung, dann feste Quell-ID. Gleich lange Wege: oben, rechts, unten, links. Ohne neuen Impuls endet die Verfolgung an der letzten Störstelle; danach folgt die Spinne einer deterministischen Rechtshand-Patrouille auf freiem Boden. Sie kennt keine Position außerhalb des Netzes. Wird ihr Netzweg getrennt, verfällt das Ziel.
+- Sie verfolgt die letzte empfangene Störstelle auf dem kürzesten Netzweg. Gleichzeitige Impulse: kürzere Entfernung, dann feste Quell-ID. Gleich lange Wege: oben, rechts, unten, links. Ohne neuen Impuls endet die Verfolgung an der letzten Störstelle; danach folgt die Spinne einer deterministischen Patrouille auf freiem Boden (geradeaus, bei Hindernissen rechts, links, zurück). Sie kennt keine Position außerhalb des Netzes. Wird ihr Netzweg getrennt, verfällt das Ziel.
 - Spinnenbewegungen und das Öffnen eines Kokons erzeugen keine Beuteimpulse. Der Spieler kann eine Spinne durch eine bewusste Bewegung weglocken und auf freiem Boden die Route wechseln.
-- Netze sind Bodenbelag, keine Mauer. Die Hacke räumt gewöhnliche Netze nicht ab; sie öffnet Erde und Kokons. Feuer entfernt Netze. Ein Stein oder Kristall, der ein Netzfeld belegt, entfernt das dortige Netz und unterbricht die Verbindung. Steine fallen weiter durch Netze hindurch.
+- Netze sind Bodenbelag, keine Mauer. Die Hacke räumt gewöhnliche Netze nicht ab; sie öffnet Erde und Kokons. Feuer entfernt Netze. Ein Stein oder Kristall entfernt unentzündete Netze auf seinem Feld. Bereits brennende Fäden laufen bis zum regulären Brandende weiter; feuerfeste Beute löscht keinen Brand vorzeitig. Steine fallen weiter durch Netze hindurch.
 - Direkter Kontakt mit einer Spinne bleibt tödlich, auch mit Fackel. Der Tod des Spielers erzeugt keinen Kokon und keinen Nachwuchs.
 
 ### Fressen, Kokon, Befreiung und Geburt
@@ -133,7 +133,7 @@ Die Maße geben einen wachsenden äußeren Rahmen vor, keine Pflicht zur Vollfü
 
 **Handlung und Folge:** In der Kluft konkurrieren Diamantgewinn durch Zerquetschen und Verlust des weißen Käfers an eine Spinne. Im offenen Feld entscheiden Lockimpuls und Brand darüber, ob die Käferbahn frei wird. In der Galerie verändert das Einsammeln die Unterstützung mehrerer Steine: zuerst Arbeitsseite und Rückgang freilegen, dann unter den Stapeln abbauen.
 
-**Sammlung und Rückweg:** Konstruktionsbudget: je Bezirk mindestens 14 und höchstens 20 erreichbare Kristallpunkte, einschließlich möglicher Rubine und Verwandlungen; Quote 26, keine ungebundene Startbeute. Kein Bezirk reicht, jedes Paar schon. Wandernde Beute muss einem eindeutigen Gesamtbudget zugeordnet werden. Die drei Paarungen erhalten unterschiedliche Rundwege statt gleicher Sammelzimmer.
+**Sammlung und Rückweg:** Umgesetztes Konstruktionsbudget: je Bezirk 14 platzierte Kristallpunkte; Quote 26, keine ungebundene Startbeute. Selbst alle zusätzlichen Gegnerfunde und weißen Umwandlungen zusammen ergänzen höchstens elf Punkte; ein einzelner Bezirk bleibt damit unter der Quote. Kein Bezirk reicht, jedes Paar schon. Wandernde Beute muss einem eindeutigen Gesamtbudget zugeordnet werden. Die drei Paarungen erhalten unterschiedliche Rundwege statt gleicher Sammelzimmer.
 
 **Scheitern und Abgrenzung:** Verlust des weißen Diamanten kann die Wahl des zweiten Bezirks ändern. Ein Steinsturz kann einen Ast versperren. Anders als 43 gibt es keine festgelegte Werkzeugfolge durch die ganze Karte. **Gegenprüfung:** jede Zweierkombination, sämtliche Funde nur eines Bezirks, maximaler Nachwuchs und neu geöffnete Querverbindungen.
 
@@ -193,7 +193,7 @@ Die Maße geben einen wachsenden äußeren Rahmen vor, keine Pflicht zur Vollfü
 
 **Handlung und Folge:** Der Sonnenschlüssel öffnet den Quergang zum zweiten Revier. Dort muss die Netzbremse der lila Patrouille erhalten bleiben, solange der Miner den Mondschlüssel bergt. Ein Brand kann den ersten Bergungsweg sichern und zugleich über eine offene Brücke die Bremse des späteren Rückwegs zerstören: vorher trennen, gezielt zünden, danach die Reviere verbinden. Kokons bieten Rettungs- oder Bergungsgelegenheiten, sind aber keine zwingende Doppel-Stoppuhr.
 
-**Sammlung und Rückweg:** Hauptfunde verteilen sich auf einen weißen Käfer in einer Fallkluft und ein offenes Smaragdfeld mit versetzten Steinsäulen. Nach Sonnenöffnung sind zwei Sammelreihenfolgen möglich, die unterschiedliche Portalrückwege freilegen. Die Mondtür schützt den einzigen Zugang zum ummauerten Ausgang. Beide Schlüssel haben eine physische Aufgabe, unabhängig von der Quote.
+**Sammlung und Rückweg:** Hauptfunde verteilen sich auf einen weißen Käfer in einer Fallkluft und ein offenes Smaragdfeld mit versetzten Steinsäulen. Nach Sonnenöffnung sind zwei Sammelreihenfolgen möglich, die unterschiedliche Portalrückwege freilegen. Die Mondtür schützt den einzigen Zugang zum ummauerten Ausgang. Die umgesetzte Quote beträgt 29 bei 25 platzierten Punkten: Selbst der zusätzliche weiße Diamant ersetzt nicht sämtliche benötigten Spinnenfunde. Beide Schlüssel haben eine physische Aufgabe, unabhängig von der Quote.
 
 **Scheitern und Abgrenzung:** Frühes Abbrennen macht spätere Patrouillen schneller; verlorene Schlüssel oder unsichtbar tödliche Portalankünfte sind ausgeschlossen. Viele Vorbereitungen sind ohne Zeitdruck möglich, die Planung ist trotzdem umfangreicher als in 48. **Gegenprüfung:** beide Sammelreihenfolgen, sofort alles verbrennen, Türen über Portale umgehen, beide Schlüssel über Kokons gewinnen, Rückweg nach Wiedervernetzung.
 
@@ -239,4 +239,4 @@ Die Maße geben einen wachsenden äußeren Rahmen vor, keine Pflicht zur Vollfü
 5. **Pro Karte:** Sammelrechnung mit allen möglichen Rubinen, weißen Formen und Pitvorräten; funktionierende Alternativen; erfolgreiche zeitgebundene Replays bei unterschiedlichen Startphasen; Gegenprüfungen der Steckbriefe und strukturelle Prüfung jeder Pflicht. Stichproben nicht als vollständigen Beweis ausgeben.
 6. **Kapitelabnahme:** Desktop und Touch, menschliche Erstversuche und Fehlversuche getrennt von automatischen Replays erfassen. Erst danach Zeitlimits und gegebenenfalls Bewegungsbalance feinjustieren. Größerer Rahmen und mehr Gegner ersetzen keine Prüfung der Entscheidungen.
 
-Der Plan ist vollständig genug für Mechanikprototypen und Kartenbau. Auslieferung folgt erst nach diesen Prüfungen; diese Dokumentation behauptet keine implementierten Level oder getesteten Lösungszeiten.
+Der Plan ist vollständig genug für Mechanikprototypen und Kartenbau. Auslieferung folgt erst nach diesen Prüfungen; die tatsächlichen Implementierungs- und Prüfstände werden im verlinkten Umsetzungsbericht getrennt dokumentiert.

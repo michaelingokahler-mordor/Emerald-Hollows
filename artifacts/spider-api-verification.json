@@ -1,0 +1,122 @@
+{
+  "at": "2026-10-22T16:54:33.836Z",
+  "target": "http://127.0.0.1:8787",
+  "status": "PASS",
+  "checks": [
+    "all eighteen chapter V proofs accepted",
+    "at most ten ticks per HTTP verification request",
+    "all ten boards contain the confirmed fixture profile",
+    "profile recovery restores ten current chapter records"
+  ],
+  "maximumChunk": 10,
+  "cases": [
+    {
+      "id": "41",
+      "name": "main",
+      "ticks": 82,
+      "requests": 9
+    },
+    {
+      "id": "42",
+      "name": "main",
+      "ticks": 86,
+      "requests": 9
+    },
+    {
+      "id": "42",
+      "name": "rescue",
+      "ticks": 172,
+      "requests": 18
+    },
+    {
+      "id": "42",
+      "name": "hatch",
+      "ticks": 294,
+      "requests": 30
+    },
+    {
+      "id": "43",
+      "name": "main",
+      "ticks": 348,
+      "requests": 35
+    },
+    {
+      "id": "43",
+      "name": "blast",
+      "ticks": 433,
+      "requests": 44
+    },
+    {
+      "id": "44",
+      "name": "main",
+      "ticks": 281,
+      "requests": 29
+    },
+    {
+      "id": "44",
+      "name": "west",
+      "ticks": 165,
+      "requests": 17
+    },
+    {
+      "id": "44",
+      "name": "east",
+      "ticks": 354,
+      "requests": 36
+    },
+    {
+      "id": "45",
+      "name": "main",
+      "ticks": 380,
+      "requests": 38
+    },
+    {
+      "id": "46",
+      "name": "main",
+      "ticks": 413,
+      "requests": 42
+    },
+    {
+      "id": "47",
+      "name": "main",
+      "ticks": 482,
+      "requests": 49
+    },
+    {
+      "id": "48",
+      "name": "main",
+      "ticks": 395,
+      "requests": 40
+    },
+    {
+      "id": "48",
+      "name": "expanded",
+      "ticks": 568,
+      "requests": 57
+    },
+    {
+      "id": "49",
+      "name": "main",
+      "ticks": 551,
+      "requests": 56
+    },
+    {
+      "id": "49",
+      "name": "south",
+      "ticks": 513,
+      "requests": 52
+    },
+    {
+      "id": "50",
+      "name": "main",
+      "ticks": 613,
+      "requests": 62
+    },
+    {
+      "id": "50",
+      "name": "pitFirst",
+      "ticks": 787,
+      "requests": 79
+    }
+  ]
+}

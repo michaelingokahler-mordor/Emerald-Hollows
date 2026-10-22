@@ -1,8 +1,8 @@
-# Die vierzig Höhlen – Entwurf und Lösungen
+# Die fünfzig Höhlen – Entwurf und Lösungen
 
 Alle Lösungen wurden im Normalspiel mit aktiven Gegnern, Schwerkraft und Countdown ausgeführt und als Replay erneut geprüft. Ein Lösungsreplay beweist Lösbarkeit; es ersetzt kein menschliches Urteil über Spielspaß.
 
-Legende: X Außenwand, # Mauer, . Erde, Leerzeichen Gang, P Spieler, E Ausgang, R Fels, M Smaragd, D Diamant, C weißer Diamantkäfer, >/< /^/v blaue Krabbler mit Startausrichtung; u/r/d/l lila Krabbler; H hartes Muttergestein; 1/2/3/4 Grabe-Käfer (oben/rechts/unten/links). Goldene Schlüsselträger, Gehege und Geräte werden unter jeder Karte gesondert angegeben. strike = reguläre benachbarte Aktion zeitlich auf einen Treffer abstimmen; trap/capture = erst bei tatsächlicher Gefangenschaft schließen; clear = auf freien Durchgang warten; key = freigesetzten Schlüssel regulär sammeln. use = frische Hebelbetätigung mit anschließendem Loslassen; until = auf Käfer an der angegebenen Koordinate warten; harvest = alle erreichbaren Edelsteine im bezeichneten Bereich mit regulären Bewegungseingaben sammeln.
+Legende: X Außenwand, # Mauer, . Erde, Leerzeichen Gang, P Spieler, E Ausgang, R Fels, M Smaragd, D Diamant, C weißer Diamantkäfer, >/< /^/v blaue Krabbler mit Startausrichtung; u/r/d/l lila Krabbler; H hartes Muttergestein; 1/2/3/4 Grabe-Käfer (oben/rechts/unten/links). Goldene Schlüsselträger, Gehege und Geräte werden unter jeder Karte gesondert angegeben. strike = reguläre benachbarte Aktion zeitlich auf einen Treffer abstimmen; trap/capture = erst bei tatsächlicher Gefangenschaft schließen; clear = auf freien Durchgang warten; key = freigesetzten Schlüssel regulär sammeln. equip = Werkzeug wechseln; cool = laufende Netzbrände abklingen lassen und bei unmittelbarer Gefahr ausweichen; rescue = einen erreichbaren Kokon mit der Hacke öffnen; use = frische Hebelbetätigung mit anschließendem Loslassen; until = auf Käfer an der angegebenen Koordinate warten; harvest = alle erreichbaren Edelsteine im bezeichneten Bereich mit regulären Bewegungseingaben sammeln.
 
 ## 01 – Die erste Schicht
 
@@ -335,13 +335,13 @@ walk 24 3
 
 ## 07 – Der richtige Augenblick
 
-Ein Abwurf aus sicherer Entfernung. 28 × 18 Felder, Quote 9, 20 Sekunden, Schwierigkeit 3/3.
+Vorbereiten, treffen, Platz schaffen. 28 × 19 Felder, Quote 9, 25 Sekunden, Schwierigkeit 3/3.
 
-Beobachte die aktuelle Laufrichtung. Entferne die Stütze von der Seite so, dass der fallende Fels den Käfer erreicht. Nach dem Treffer führt die untere Sammlung zurück zum Ausgang.
+Grabe zuerst den Zwischenboden im Fallschacht von der linken Nische aus frei. Kehre zum oberen Bedienplatz zurück und ziele auf den Käfer. Der gelandete Fels versperrt danach den Gang: Schiebe ihn nach rechts bis in die Grube. Die drei Diamanten liegen im unteren Rückweg.
 
-Hinweis: Beobachte die aktuelle Laufrichtung. Entferne die Stütze von der Seite so, dass der fallende Fels den Käfer erreicht. Nach dem Treffer führt die untere Sammlung zurück zum Ausgang.
+Hinweis: Grabe zuerst den Zwischenboden im Fallschacht von der linken Nische aus frei. Kehre zum oberen Bedienplatz zurück und ziele auf den Käfer. Der gelandete Fels versperrt danach den Gang: Schiebe ihn nach rechts bis in die Grube. Die drei Diamanten liegen im unteren Rückweg.
 
-Geprüfter Durchlauf: 80 Takte / 8.0 Sekunden, 9 Kristallpunkte, 14 Wertungspunkte. Replay: public/replays/07.json.
+Geprüfter Durchlauf: 86 Takte / 8.6 Sekunden, 9 Kristallpunkte, 14 Wertungspunkte. Replay: public/replays/07.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -349,16 +349,17 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXRXXXXXXXXXX
-XX.P.....................XXX
-XXXXXXXXXXXXXXXXX·XXXXXX.XXX
-XXXXXXXXXXXXXXXXX·XXXXXX.XXX
-XXXXXXX·>···············.XXX
-XXXXXXXXXXXXXXXXXXXXXXXX.XXX
-XXXXXXXXXXXXXXXXXXXXXXXX.XXX
-XXXXXE...XXXXXXXXXXXXXXX.XXX
-XXXXX....XXXXXXXXXXXXXXX.XXX
-XXXXX...........D.D.D....XXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX.P..............XXXXXXXXXX
+XXXXXXXXXX.XXXXX.·XXXXXXXXXX
+XXXXXXXXXX.XXXXX..XXXXXXXXXX
+XXXXXXXXXX.XXXXXX·XXXXXXXXXX
+XXXXXXXXXX.XXXXXX·XXXXXXXXXX
+XXXXXXXXXX.......·····<··XXX
+XXXXXXXXXXXXXXXXXXXXXXX.·XXX
+XXXXXXEXXXXXXXXXXXXXXXX.·XXX
+XXXXXX.XXXXXXXXXXXXXXXX.·XXX
+XXXXXX....D.....D....D..·XXX
+XXXXXXXXXXXXXXXXXXXXXXXX·XXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -366,67 +367,69 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 In der Karte steht · für einen leeren Gang.
 
-```json
-{
-  "pits": []
-}
-```
-
-```json
-{
-  "gates": [],
-  "levers": [],
-  "dispensers": []
-}
-```
-
 
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
+walk 16 7
+snap right
 walk 16 5
-strike crawler right
-wait 4
-walk 24 5
-walk 24 13
-walk 20 13
-walk 18 13
-walk 16 13
-walk 5 13
-walk 5 11
+strike beetle right
+walk 10 5
+walk 10 10
+walk 16 10
+move right
+move right
+move right
+move right
+move right
+move right
+move right
+wait 6
+walk 23 14
+walk 21 14
+walk 16 14
+walk 10 14
+walk 6 14
+walk 6 12
 ```
 
-## 08 – Der lange Bogen
+## 08 – Die schweren Adern
 
-Es gibt mehr als einen Weg. 30 × 20 Felder, Quote 12, 16 Sekunden, Schwierigkeit 2/3.
+Jeder Fund verändert den Hang. 36 × 25 Felder, Quote 40, 30 Sekunden, Schwierigkeit 3/3.
 
-Links nach unten graben, die vier Diamanten entlang der unteren Galerie einsammeln und rechts zum Ausgang aufsteigen. Die Kammer in der Mitte ist optional.
+Links der Edelsteinsäulen stehen schwere Felsstapel; rechts ist Platz zum Ausweichen. Kleine Erdrippen halten die Edelsteine anfangs fest. Baue von der freien Seite aus ab und beobachte nach jedem Fund die Auflagen darüber. Entfernte Edelsteine geben die Rollbahn der Felsen frei. Halte dich nicht unter ihnen auf. Unten patrouillieren zwei Käfer.
 
-Hinweis: Wähle deine Route: Sechs Diamanten bieten 18 Punkte, aber vier Diamanten (12 Punkte) reichen. Vier liegen im unteren Rundgang, zwei im mittleren Abzweig. Du kannst Schätze aus beiden Wegen kombinieren; ein vollständiges Ausräumen ist nicht nötig.
+Hinweis: Links der Edelsteinsäulen stehen schwere Felsstapel; rechts ist Platz zum Ausweichen. Kleine Erdrippen halten die Edelsteine anfangs fest. Baue von der freien Seite aus ab und beobachte nach jedem Fund die Auflagen darüber. Entfernte Edelsteine geben die Rollbahn der Felsen frei. Halte dich nicht unter ihnen auf. Unten patrouillieren zwei Käfer.
 
-Geprüfter Durchlauf: 46 Takte / 4.6 Sekunden, 12 Kristallpunkte, 12 Wertungspunkte. Replay: public/replays/08.json.
+Geprüfter Durchlauf: 109 Takte / 10.9 Sekunden, 40 Kristallpunkte, 45 Wertungspunkte. Replay: public/replays/08.json.
 
 ```text
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X############################X
-X############################X
-X##P................R....E###X
-X##.####.###########.####.###X
-X##.####.###########.####.###X
-X##.####.###########.####.###X
-X##.####.################.###X
-X##.####...D..D...#######.###X
-X##.#############.#######.###X
-X##.#############.#######.###X
-X##.#############.#######.###X
-X##.#############.#######.###X
-X##.#############.#######.###X
-X##.#############.#######.###X
-X##....D....D.....D....D..###X
-X############################X
-X############################X
-X############################X
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXP.............................EXX
+XXX.XXXXXXXXXXXX.XXXXXXXXXXX.XXXX.XX
+XXX.XXXX......··.··XXXXXXXXX.XXXX.XX
+XXX.XXXX....RM·····XXXXXXXXX.XXXX.XX
+XXX.XXXX....RD.····XXXXXXXXX.XXXX.XX
+XXX.XXXX....RM·····XXXXXXXXX.XXXX.XX
+XXX.XXXX....RD.····X.....···.··XX.XX
+XXX.XXXX....RM·····X....RM·····XX.XX
+XXX.XXXX....RD.····X....RD.····XX.XX
+XXX.XXXX....RM·····X....RM·····XX.XX
+XXX.XXXX....RD.····X....RD.····XX.XX
+XXX.XXXX....RM·····X....RM·····XX.XX
+XXX.XXXX....RD.····X....RD.····XX.XX
+XXX.XXXX....RM·····X....RM·····XX.XX
+XXX.XXXX....RD.····X....RD.····XX.XX
+XXX.XXXX......·····X......·····XX.XX
+XXX.XXXX......·····X......·····XX.XX
+XXX.XXXX......····<X......····<XX.XX
+XXX...............................XX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 In der Karte steht · für einen leeren Gang.
@@ -435,13 +438,10 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-walk 3 15
-walk 7 15
-walk 12 15
-walk 18 15
-walk 23 15
-walk 25 15
-walk 25 3
+harvest 8 5 11 15
+harvest 20 9 11 11
+walk 33 21
+walk 33 3
 ```
 
 ## 09 – Ein kostbarer Gegner
@@ -539,13 +539,13 @@ walk 20 16
 
 ## 10 – Ein Tor nach Lathmar
 
-Am Ende der alten Mine. 40 × 26 Felder, Quote 30, 40 Sekunden, Schwierigkeit 3/3.
+Am Ende der alten Mine. 40 × 26 Felder, Quote 33, 50 Sekunden, Schwierigkeit 3/3.
 
-Die enge Bucht wird zur Sprengfalle: Schiebe den Riegel, wenn der Käfer oben ist, und ziehe dich vor dem roten Pulsieren zurück. Alternativ nutze den oberen Felsabwurf. Hinter der Wache liegen drei notwendige Diamanten.
+Die enge Bucht wird zur Sprengfalle: Schiebe den Riegel, wenn der Käfer oben ist, und ziehe dich vor dem roten Pulsieren zurück. Alternativ nutze den oberen Felsabwurf. Hinter der Wache liegen drei notwendige Diamanten. Ein zusätzlicher Diamant liegt in der oberen linken Kammer. Er gehört zur erhöhten Quote; die drei Diamanten hinter der Wache bleiben nötig.
 
-Hinweis: Die enge Bucht wird zur Sprengfalle: Schiebe den Riegel, wenn der Käfer oben ist, und ziehe dich vor dem roten Pulsieren zurück. Alternativ nutze den oberen Felsabwurf. Hinter der Wache liegen drei notwendige Diamanten.
+Hinweis: Die enge Bucht wird zur Sprengfalle: Schiebe den Riegel, wenn der Käfer oben ist, und ziehe dich vor dem roten Pulsieren zurück. Alternativ nutze den oberen Felsabwurf. Hinter der Wache liegen drei notwendige Diamanten. Ein zusätzlicher Diamant liegt in der oberen linken Kammer. Er gehört zur erhöhten Quote; die drei Diamanten hinter der Wache bleiben nötig.
 
-Geprüfter Durchlauf: 157 Takte / 15.7 Sekunden, 30 Kristallpunkte, 35 Wertungspunkte. Replay: public/replays/10.json.
+Geprüfter Durchlauf: 217 Takte / 21.7 Sekunden, 33 Kristallpunkte, 38 Wertungspunkte. Replay: public/replays/10.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -553,8 +553,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXX......XXX..DEXX
 XX......XXXXXXXXXXXXXXXXX.XXXX.XXXDXXXXX
-XX....R.XXXXXXXXXXXXXXXXX.XXXX.RXX.XXXXX
-XX......XXXXXXXXXXXXXXXXX.XX·X..XXDXXXXX
+XX....RDXXXXXXXXXXXXXXXXX.XXXX.RXX.XXXXX
+XX.....XXXXXXXXXXXXXXXXXX.XX·X..XXDXXXXX
 XX......XXXXXXXXXXXXXXXXX.XX·XX·XX.XXXXX
 XX......XXXXXXXXXXXXXXXX...R··<·····XXXX
 XX......XXXXXXXXXXXXXXXX.XX...XXXXXXXXXX
@@ -596,6 +596,7 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
+walk 7 5
 walk 12 20
 walk 12 19
 snap up
@@ -731,40 +732,40 @@ walk 3 19
 
 ## 12 – Die zweite Runde
 
-Beobachten, verbinden, sammeln. 36 × 26 Felder, Quote 22, 60 Sekunden, Schwierigkeit 2/3.
+Zwei Wachen vor dem letzten Tor. 36 × 26 Felder, Quote 18, 90 Sekunden, Schwierigkeit 3/3.
 
-Beobachte die aktuellen Farben: Blau folgt rechts, Lila links; wiederholte Runden ändern die Richtung. Bereite F vor und nutze die Querung, wenn die Patrouille entfernt ist. Verbinde danach die beiden Sammelbezirke.
+Beide weißen Käfer müssen unter einen Fels geraten: Ihre zwei Diamanten ergänzen die zwölf Punkte der Fundgebiete zur Quote von 18. Eine Explosion bringt keinen Diamanten. A und B öffnen jeweils die Felsklappe und den Zugang zur Laufbahn. F öffnet den zweiten Arbeitsbereich und das einzige Tor in die ummauerte Ausgangskammer. Betätige A und B vom geschützten oberen Gang aus, wenn die Käfer weiß sind.
 
-Hinweis: Beobachte die aktuellen Farben: Blau folgt rechts, Lila links; wiederholte Runden ändern die Richtung. Bereite F vor und nutze die Querung, wenn die Patrouille entfernt ist. Verbinde danach die beiden Sammelbezirke.
+Hinweis: Beide weißen Käfer müssen unter einen Fels geraten: Ihre zwei Diamanten ergänzen die zwölf Punkte der Fundgebiete zur Quote von 18. Eine Explosion bringt keinen Diamanten. A und B öffnen jeweils die Felsklappe und den Zugang zur Laufbahn. F öffnet den zweiten Arbeitsbereich und das einzige Tor in die ummauerte Ausgangskammer. Betätige A und B vom geschützten oberen Gang aus, wenn die Käfer weiß sind.
 
-Geprüfter Durchlauf: 215 Takte / 21.5 Sekunden, 31 Kristallpunkte, 31 Wertungspunkte. Replay: public/replays/12.json.
+Geprüfter Durchlauf: 309 Takte / 30.9 Sekunden, 18 Kristallpunkte, 38 Wertungspunkte. Replay: public/replays/12.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXX·····XXX·····XXXXXXXXXXXXXXXXXXX
-XXXX··X·<XXX··X·lXXXXX··>#l··XXXXXXX
-XXXX·····XXX·····XXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXX#XXXXXXXXXXXXXXX
-XXXP...........................XXXXX
-XXX.XXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
-XXX.XXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
-XXX.XXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
-XXR...........XXXXXXX.....D......RXX
-XX.M.........MXXXXXXXM....X.....M.XX
-XX.X....M....XXXXXXXXX.....M....X.XX
-XX......X.....XXXXXXX......X......XX
-XX..XXXXXXX..DXXXXXXXM.XXXXXXXX...XX
-XX...M......MXXXXXXXXX.M......M...XX
-XX...X......X.XXXXXXX..XD..........X
-XXM.....M.....XXXXXXX...X..M.....M.X
-XXX..XXXXXXX..XXXXXXX...XXXXXXXX.X.X
-XX...........MXXXXXXXM............#X
-XX...........XXXXXXXXX.............X
-XX...M....M...XXXXXXX...M.....M..M.X
-XX...X....X...XXXXXXX...X.....X..X.X
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXEX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXX#RXXXXXX#XXXXXX#RXXXXXXX
+XX.P.........#........#.....#.....XX
+XXXXXX.XXXXXX·XXXX.XXXXXXXXX·XXXX.XX
+XXXXXX.XXXXXX·XXXX#XXXXXXXXX·XXXX#XX
+XXXXXX.XXXXC······.XXXXXXXC······.XX
+XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXX.XXX
+XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXX.XXX
+XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXX.XXX
+XX.........XXXXXXXXXXXXX..........XX
+XX.D.......XXXXXXXXXXXXX.D........XX
+XX.X.......XXXXXXXXXXXXX.X........XX
+XX......M..XXXXXXXXXXXXX......M...XX
+XX......X..XXXXXXXXXXXXX......X...XX
+XX..M......XXXXXXXXXXXXX..M.......XX
+XX..X....M.XXXXXXXXXXXXX..X....M..XX
+XX.......X.XXXXXXXXXXXXX.......X..XX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.....XX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.E...XX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
@@ -772,25 +773,47 @@ In der Karte steht · für einen leeren Gang.
 
 ```json
 {
-  "pits": []
-}
-```
-
-```json
-{
   "gates": [
     {
       "id": "F",
       "label": "F",
-      "x": 25,
-      "y": 3,
+      "x": 22,
+      "y": 6,
       "open": false
     },
     {
       "id": "G",
       "label": "F",
-      "x": 34,
-      "y": 20,
+      "x": 32,
+      "y": 21,
+      "open": false
+    },
+    {
+      "id": "A-drop",
+      "label": "A",
+      "x": 13,
+      "y": 6,
+      "open": false
+    },
+    {
+      "id": "A-entry",
+      "label": "A",
+      "x": 18,
+      "y": 8,
+      "open": false
+    },
+    {
+      "id": "B-drop",
+      "label": "B",
+      "x": 28,
+      "y": 6,
+      "open": false
+    },
+    {
+      "id": "B-entry",
+      "label": "B",
+      "x": 33,
+      "y": 8,
       "open": false
     }
   ],
@@ -799,17 +822,45 @@ In der Karte steht · für einen leeren Gang.
       "id": "F-lever",
       "label": "F",
       "x": 20,
-      "y": 6,
+      "y": 5,
       "gates": [
         "F",
         "G"
       ],
+      "dispensers": []
+    },
+    {
+      "id": "A-lever",
+      "label": "A",
+      "x": 12,
+      "y": 5,
+      "gates": [
+        "A-drop",
+        "A-entry"
+      ],
       "dispensers": [],
       "view": {
-        "x": 18,
-        "y": 1,
-        "width": 12,
-        "height": 8
+        "x": 10,
+        "y": 4,
+        "width": 10,
+        "height": 7
+      }
+    },
+    {
+      "id": "B-lever",
+      "label": "B",
+      "x": 27,
+      "y": 5,
+      "gates": [
+        "B-drop",
+        "B-entry"
+      ],
+      "dispensers": [],
+      "view": {
+        "x": 25,
+        "y": 4,
+        "width": 10,
+        "height": 7
       }
     }
   ],
@@ -821,12 +872,23 @@ In der Karte steht · für einen leeren Gang.
 Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
 
 ```text
-harvest 2 11 12 13
-walk 20 7
+walk 12 6
+strike crystal-crawler up
+walk 18 6
+walk 18 9
+harvest 11 7 7 3
+harvest 2 13 9 8
+walk 20 6
 use up
-wait 18
-harvest 21 11 13 13
-walk 34 24
+walk 27 6
+strike crystal-crawler up
+walk 33 6
+walk 33 9
+harvest 26 7 7 3
+harvest 24 13 10 8
+walk 32 20
+walk 32 23
+walk 30 23
 ```
 
 ## 13 – Ein kostbares Treffen
@@ -1926,13 +1988,13 @@ walk 40 4
 
 ## 21 – Der unterbrochene Ring
 
-Die Torhallen. 44 × 32 Felder, Quote 48, 185 Sekunden, Schwierigkeit 2/3.
+Die Torhallen. 44 × 32 Felder, Quote 48, 160 Sekunden, Schwierigkeit 2/3.
 
-Sonne und Mond passen nur zum gleichen Schloss. Ein Schlüssel wird beim Öffnen verbraucht. Hole den dritten Sonnenschlüssel im unteren Seitenstollen: Er öffnet die Querverbindung im Ring. Entscheide, welche Adern du davor und danach sammelst. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
+Die ersten Sonnen- und Mondschlösser führen in die östliche Mine. Dort reichen die Edelsteine allein nicht für die Quote. Gewinne den dritten Sonnenschlüssel beim goldenen Käfer im südöstlichen Seitenstollen. Die mittlere Sonnentür öffnet als einziger Durchgang die westlichen Lagerstätten. Sie bleibt für deinen Rückweg zum Ausgang offen.
 
-Hinweis: Sonne und Mond passen nur zum gleichen Schloss. Ein Schlüssel wird beim Öffnen verbraucht. Hole den dritten Sonnenschlüssel im unteren Seitenstollen: Er öffnet die Querverbindung im Ring. Entscheide, welche Adern du davor und danach sammelst. Goldene Käfer tragen die Schlüssel. Bereite den Abwurf von der geschützten Seite vor und sammle den freigesetzten Schlüssel.
+Hinweis: Die ersten Sonnen- und Mondschlösser führen in die östliche Mine. Dort reichen die Edelsteine allein nicht für die Quote. Gewinne den dritten Sonnenschlüssel beim goldenen Käfer im südöstlichen Seitenstollen. Die mittlere Sonnentür öffnet als einziger Durchgang die westlichen Lagerstätten. Sie bleibt für deinen Rückweg zum Ausgang offen.
 
-Geprüfter Durchlauf: 620 Takte / 62.0 Sekunden, 60 Kristallpunkte, 75 Wertungspunkte. Replay: public/replays/21.json.
+Geprüfter Durchlauf: 710 Takte / 71.0 Sekunden, 60 Kristallpunkte, 75 Wertungspunkte. Replay: public/replays/21.json.
 
 ```text
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -1941,7 +2003,7 @@ XX.E....X......XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XX.P.·X....·XX........XXXXXXXXXXXXXXXXXXXXXX
 XXXXX···XXX···XXXXXXX.XXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXX
-XXXX..M..M..M...M........M...M...M...XXXXXXX
+XXXX..M..M..M...M...X....M...M...M...XXXXXXX
 XXXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXX
 XXXX.XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXX
 XXXX...M..M..M..XXXXX.XXX..M..M..M...XXXXXXX
@@ -1960,7 +2022,7 @@ XXXX.XXXXXXXXX.XXXXXXDXXX.XXXXXXXXXX.XXXXXXX
 XXXX.XXXDM..M..XXXXXXXXXX..M..M.DXXX.XXXXXXX
 XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXX
 XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXX
-XXXX..M...M...M....M....M....M...M.......XXX
+XXXX..M...M...M....MX...M....M...M.......XXX
 XXXXXXXXXXXXXXXXXXXXXXRXXXXXXXXXXXXXXXXX.XXX
 XXXXXXXXXXXXXXXXXXXXXX.....XXXXXXXXXXXXX.XXX
 XXXXXXXXXXXXXXXXXXXXXX·XXX.XXXXXXXXXXXXX.XXX
@@ -5332,11 +5394,4729 @@ harvest 24 8 26 28
 walk 3 3
 ```
 
+## 41 – Die ersten Fäden
+
+Die Seidenstollen. 28 × 20 Felder, Quote 8, 30 Sekunden, Schwierigkeit 2/3.
+
+Schritte im verbundenen Netz verraten ihren Ort. Locke die Spinne nach links, verlasse das Netz über den freien Bogen und sammle rechts. Netze bremsen dich und den blauen Käfer, aber keine Spinnen.
+
+Hinweis: Schritte im verbundenen Netz verraten ihren Ort. Locke die Spinne nach links, verlasse das Netz über den freien Bogen und sammle rechts. Netze bremsen dich und den blauen Käfer, aber keine Spinnen.
+
+Geprüfter Durchlauf: 82 Takte / 8.2 Sekunden, 12 Kristallpunkte, 12 Wertungspunkte. Replay: public/replays/41.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.......XXXXXXXXXXXXXXXXXX
+XXX.XXXX···············XXEXX
+XXX.XXXX···············XX.XX
+XXX.XXXX···············XX.XX
+XXX········XXXXXXX······X.XX
+XXX········XXXXXXX······X.XX
+XXXP·······XXXXXXX······..XX
+XXX········XXXXXXX······XXXX
+XXX········XXXXXXX······XXXX
+XXX.XXXX············....XXXX
+XXX.XXXX·····.M....·M.M.XXXX
+XXX.XXXX·····...M..·....XXXX
+XXX.XXXX·····....DM·.D.MXXXX
+XXX......XXXX......X....XXXX
+XXXX·>·····XXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[]
+```
+
+Spinnen, Netze und Fackel:
+```json
+{
+  "spiders": [
+    {
+      "x": 20,
+      "y": 8,
+      "direction": "left"
+    }
+  ],
+  "webs": [
+    {
+      "x": 5,
+      "y": 8
+    },
+    {
+      "x": 6,
+      "y": 8
+    },
+    {
+      "x": 7,
+      "y": 8
+    },
+    {
+      "x": 8,
+      "y": 8
+    },
+    {
+      "x": 9,
+      "y": 8
+    },
+    {
+      "x": 10,
+      "y": 8
+    },
+    {
+      "x": 18,
+      "y": 8
+    },
+    {
+      "x": 19,
+      "y": 8
+    },
+    {
+      "x": 20,
+      "y": 8
+    },
+    {
+      "x": 21,
+      "y": 8
+    },
+    {
+      "x": 22,
+      "y": 8
+    },
+    {
+      "x": 23,
+      "y": 8
+    },
+    {
+      "x": 5,
+      "y": 9
+    },
+    {
+      "x": 6,
+      "y": 9
+    },
+    {
+      "x": 7,
+      "y": 9
+    },
+    {
+      "x": 8,
+      "y": 9
+    },
+    {
+      "x": 9,
+      "y": 9
+    },
+    {
+      "x": 10,
+      "y": 9
+    },
+    {
+      "x": 18,
+      "y": 9
+    },
+    {
+      "x": 19,
+      "y": 9
+    },
+    {
+      "x": 20,
+      "y": 9
+    },
+    {
+      "x": 21,
+      "y": 9
+    },
+    {
+      "x": 22,
+      "y": 9
+    },
+    {
+      "x": 23,
+      "y": 9
+    },
+    {
+      "x": 5,
+      "y": 10
+    },
+    {
+      "x": 6,
+      "y": 10
+    },
+    {
+      "x": 7,
+      "y": 10
+    },
+    {
+      "x": 8,
+      "y": 10
+    },
+    {
+      "x": 9,
+      "y": 10
+    },
+    {
+      "x": 10,
+      "y": 10
+    },
+    {
+      "x": 18,
+      "y": 10
+    },
+    {
+      "x": 19,
+      "y": 10
+    },
+    {
+      "x": 20,
+      "y": 10
+    },
+    {
+      "x": 21,
+      "y": 10
+    },
+    {
+      "x": 22,
+      "y": 10
+    },
+    {
+      "x": 23,
+      "y": 10
+    },
+    {
+      "x": 8,
+      "y": 6
+    },
+    {
+      "x": 9,
+      "y": 6
+    },
+    {
+      "x": 10,
+      "y": 6
+    },
+    {
+      "x": 11,
+      "y": 6
+    },
+    {
+      "x": 12,
+      "y": 6
+    },
+    {
+      "x": 13,
+      "y": 6
+    },
+    {
+      "x": 14,
+      "y": 6
+    },
+    {
+      "x": 15,
+      "y": 6
+    },
+    {
+      "x": 16,
+      "y": 6
+    },
+    {
+      "x": 17,
+      "y": 6
+    },
+    {
+      "x": 18,
+      "y": 6
+    },
+    {
+      "x": 19,
+      "y": 6
+    },
+    {
+      "x": 20,
+      "y": 6
+    },
+    {
+      "x": 21,
+      "y": 6
+    },
+    {
+      "x": 22,
+      "y": 6
+    },
+    {
+      "x": 8,
+      "y": 7
+    },
+    {
+      "x": 9,
+      "y": 7
+    },
+    {
+      "x": 10,
+      "y": 7
+    },
+    {
+      "x": 18,
+      "y": 7
+    },
+    {
+      "x": 19,
+      "y": 7
+    },
+    {
+      "x": 20,
+      "y": 7
+    },
+    {
+      "x": 21,
+      "y": 7
+    },
+    {
+      "x": 22,
+      "y": 7
+    },
+    {
+      "x": 5,
+      "y": 17
+    },
+    {
+      "x": 6,
+      "y": 17
+    },
+    {
+      "x": 7,
+      "y": 17
+    },
+    {
+      "x": 8,
+      "y": 17
+    },
+    {
+      "x": 9,
+      "y": 17
+    }
+  ]
+}
+```
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [],
+  "levers": [],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 6 9
+walk 3 11
+walk 8 14
+walk 22 14
+harvest 19 12 5 5
+harvest 13 12 6 5
+walk 25 4
+```
+
+## 42 – Fünfzehn Sekunden
+
+Die Seidenstollen. 32 × 22 Felder, Quote 9, 85 Sekunden, Schwierigkeit 2/3.
+
+G1 verbindet Käfer und Spinne und öffnet die äußere Runde. Gefressene Käfer reifen 15 Sekunden im Kokon. Hacke + Richtung befreit sie für drei Sekunden betäubt. Im Kokon läuft kein Explosionscountdown. Du darfst auch sammeln und den Nachwuchs später umgehen.
+
+Hinweis: G1 verbindet Käfer und Spinne und öffnet die äußere Runde. Gefressene Käfer reifen 15 Sekunden im Kokon. Hacke + Richtung befreit sie für drei Sekunden betäubt. Im Kokon läuft kein Explosionscountdown. Du darfst auch sammeln und den Nachwuchs später umgehen.
+
+Geprüfter Durchlauf: 86 Takte / 8.6 Sekunden, 12 Kristallpunkte, 12 Wertungspunkte. Replay: public/replays/42.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXP...........XXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXX.XXXXXXXXXXXXXXXXX
+XXX.XXXXXX......XXXXXXXXXXXXXXXX
+XXX.XXXXXX.XXX#.X········XXXXXXX
+XXX.XXXXXX·····#X········XXXXXXX
+XXX.XXXXXX···>··#········XXXXXXX
+XXX.XXXXXXXXXXXXX········..XXXXX
+XXX.XXXXXXXXXXXXX········X.XXXXX
+XXX.XXXXXXXXXXXXXXXXXX.......XXX
+XXX.XXX.........XXXXXX.M....EXXX
+XXX.XXX.M....M..XXXXXX...M...XXX
+XXX.XXX...M...D.XXXXXX....DM.XXX
+XXX.XXX.........XXXXXX.......XXX
+XXX.....·.........#........XXXXX
+XXXXXXXX·>····XXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[]
+```
+
+Spinnen, Netze und Fackel:
+```json
+{
+  "spiders": [
+    {
+      "x": 18,
+      "y": 9,
+      "direction": "left"
+    }
+  ],
+  "webs": [
+    {
+      "x": 10,
+      "y": 8
+    },
+    {
+      "x": 11,
+      "y": 8
+    },
+    {
+      "x": 12,
+      "y": 8
+    },
+    {
+      "x": 13,
+      "y": 8
+    },
+    {
+      "x": 14,
+      "y": 8
+    },
+    {
+      "x": 17,
+      "y": 8
+    },
+    {
+      "x": 18,
+      "y": 8
+    },
+    {
+      "x": 19,
+      "y": 8
+    },
+    {
+      "x": 20,
+      "y": 8
+    },
+    {
+      "x": 21,
+      "y": 8
+    },
+    {
+      "x": 22,
+      "y": 8
+    },
+    {
+      "x": 23,
+      "y": 8
+    },
+    {
+      "x": 24,
+      "y": 8
+    },
+    {
+      "x": 10,
+      "y": 9
+    },
+    {
+      "x": 11,
+      "y": 9
+    },
+    {
+      "x": 12,
+      "y": 9
+    },
+    {
+      "x": 13,
+      "y": 9
+    },
+    {
+      "x": 14,
+      "y": 9
+    },
+    {
+      "x": 15,
+      "y": 9
+    },
+    {
+      "x": 17,
+      "y": 9
+    },
+    {
+      "x": 18,
+      "y": 9
+    },
+    {
+      "x": 19,
+      "y": 9
+    },
+    {
+      "x": 20,
+      "y": 9
+    },
+    {
+      "x": 21,
+      "y": 9
+    },
+    {
+      "x": 22,
+      "y": 9
+    },
+    {
+      "x": 23,
+      "y": 9
+    },
+    {
+      "x": 24,
+      "y": 9
+    },
+    {
+      "x": 17,
+      "y": 10
+    },
+    {
+      "x": 18,
+      "y": 10
+    },
+    {
+      "x": 19,
+      "y": 10
+    },
+    {
+      "x": 20,
+      "y": 10
+    },
+    {
+      "x": 21,
+      "y": 10
+    },
+    {
+      "x": 22,
+      "y": 10
+    },
+    {
+      "x": 23,
+      "y": 10
+    },
+    {
+      "x": 24,
+      "y": 10
+    }
+  ]
+}
+```
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "RESCUE",
+      "label": "G1",
+      "x": 15,
+      "y": 8,
+      "open": false
+    },
+    {
+      "id": "FEED",
+      "label": "G1",
+      "x": 16,
+      "y": 9,
+      "open": false
+    },
+    {
+      "id": "ROUND",
+      "label": "G1",
+      "x": 18,
+      "y": 17,
+      "open": false
+    }
+  ],
+  "levers": [
+    {
+      "id": "G1",
+      "label": "G1",
+      "x": 14,
+      "y": 7,
+      "gates": [
+        "FEED",
+        "ROUND",
+        "RESCUE"
+      ],
+      "dispensers": []
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 14 6
+use down
+walk 3 17
+harvest 7 13 9 4
+walk 20 17
+harvest 22 12 7 5
+walk 28 13
+```
+
+## 43 – Feuer in den Fäden
+
+Die Seidenstollen. 36 × 24 Felder, Quote 12, 100 Sekunden, Schwierigkeit 2/3.
+
+Grabe die Fackelnische frei. E wechselt das Werkzeug: Mit Fackel kein Graben, mit Hacke keine Zündung. Entzünde vom freien Boden aus ein angrenzendes Netz und weiche zurück. Jedes Feld brennt zwei Sekunden; nach einer Sekunde springt das Feuer über. Auch Flammen und freie Gegner töten dich.
+
+Hinweis: Grabe die Fackelnische frei. E wechselt das Werkzeug: Mit Fackel kein Graben, mit Hacke keine Zündung. Entzünde vom freien Boden aus ein angrenzendes Netz und weiche zurück. Jedes Feld brennt zwei Sekunden; nach einer Sekunde springt das Feuer über. Auch Flammen und freie Gegner töten dich.
+
+Geprüfter Durchlauf: 348 Takte / 34.8 Sekunden, 17 Kristallpunkte, 17 Wertungspunkte. Replay: public/replays/43.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXX....XXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXX.M·.XXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXX....XX···XXXXXXXXXXXXXXXXXXEXXX
+XXXP.......·.·XXXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXX.·#X·#<···XXXXXXXXXXXX.XXX
+XXX.XXXXXX.·XX·XXXXXXXXXXXXXXXXX.XXX
+XXX.XXXXXX.·XXX·······X·······XX.XXX
+XXX.XXXXXX.···········X·······XX.XXX
+XXX.XXXXXXXX..········X·······...XXX
+XXX.XXXXXXXXXXXXXXX.XXX·······XXXXXX
+XXX.XXXXXXXXXXXXX.....XX.XXXXXXXXXXX
+XXX.XXXXXXXX.XXXX.M...XX........XXXX
+XXX.XXXXXXXX.XXXX.....XX.M..D...XXXX
+XXX.XXXXXXXX.XXXX...M.XX........XXXX
+XXX.XXXXXXXX.XXXX..D.......M...DXXXX
+XXX..........XXXX.....XX......M.XXXX
+XXXXXXXXXXXXXXXXXXXXXXXX........XXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX
+XXXXXXXXXXXXXXXXXXXXXXXX······l·XXXX
+XXXXXXXXXXXXXXXXXXXXXXXX·······DXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[]
+```
+
+Spinnen, Netze und Fackel:
+```json
+{
+  "spiders": [
+    {
+      "x": 17,
+      "y": 9,
+      "direction": "left"
+    },
+    {
+      "x": 27,
+      "y": 9,
+      "direction": "left"
+    }
+  ],
+  "webs": [
+    {
+      "x": 15,
+      "y": 8
+    },
+    {
+      "x": 16,
+      "y": 8
+    },
+    {
+      "x": 17,
+      "y": 8
+    },
+    {
+      "x": 18,
+      "y": 8
+    },
+    {
+      "x": 19,
+      "y": 8
+    },
+    {
+      "x": 20,
+      "y": 8
+    },
+    {
+      "x": 21,
+      "y": 8
+    },
+    {
+      "x": 23,
+      "y": 8
+    },
+    {
+      "x": 24,
+      "y": 8
+    },
+    {
+      "x": 25,
+      "y": 8
+    },
+    {
+      "x": 26,
+      "y": 8
+    },
+    {
+      "x": 27,
+      "y": 8
+    },
+    {
+      "x": 28,
+      "y": 8
+    },
+    {
+      "x": 29,
+      "y": 8
+    },
+    {
+      "x": 14,
+      "y": 9
+    },
+    {
+      "x": 15,
+      "y": 9
+    },
+    {
+      "x": 16,
+      "y": 9
+    },
+    {
+      "x": 17,
+      "y": 9
+    },
+    {
+      "x": 18,
+      "y": 9
+    },
+    {
+      "x": 19,
+      "y": 9
+    },
+    {
+      "x": 20,
+      "y": 9
+    },
+    {
+      "x": 21,
+      "y": 9
+    },
+    {
+      "x": 23,
+      "y": 9
+    },
+    {
+      "x": 24,
+      "y": 9
+    },
+    {
+      "x": 25,
+      "y": 9
+    },
+    {
+      "x": 26,
+      "y": 9
+    },
+    {
+      "x": 27,
+      "y": 9
+    },
+    {
+      "x": 28,
+      "y": 9
+    },
+    {
+      "x": 29,
+      "y": 9
+    },
+    {
+      "x": 14,
+      "y": 10
+    },
+    {
+      "x": 15,
+      "y": 10
+    },
+    {
+      "x": 16,
+      "y": 10
+    },
+    {
+      "x": 17,
+      "y": 10
+    },
+    {
+      "x": 18,
+      "y": 10
+    },
+    {
+      "x": 19,
+      "y": 10
+    },
+    {
+      "x": 20,
+      "y": 10
+    },
+    {
+      "x": 21,
+      "y": 10
+    },
+    {
+      "x": 23,
+      "y": 10
+    },
+    {
+      "x": 24,
+      "y": 10
+    },
+    {
+      "x": 25,
+      "y": 10
+    },
+    {
+      "x": 26,
+      "y": 10
+    },
+    {
+      "x": 27,
+      "y": 10
+    },
+    {
+      "x": 28,
+      "y": 10
+    },
+    {
+      "x": 29,
+      "y": 10
+    },
+    {
+      "x": 23,
+      "y": 11
+    },
+    {
+      "x": 24,
+      "y": 11
+    },
+    {
+      "x": 25,
+      "y": 11
+    },
+    {
+      "x": 26,
+      "y": 11
+    },
+    {
+      "x": 27,
+      "y": 11
+    },
+    {
+      "x": 28,
+      "y": 11
+    },
+    {
+      "x": 29,
+      "y": 11
+    },
+    {
+      "x": 11,
+      "y": 4
+    },
+    {
+      "x": 12,
+      "y": 4
+    },
+    {
+      "x": 13,
+      "y": 4
+    },
+    {
+      "x": 13,
+      "y": 5
+    },
+    {
+      "x": 11,
+      "y": 5
+    },
+    {
+      "x": 11,
+      "y": 6
+    },
+    {
+      "x": 11,
+      "y": 7
+    },
+    {
+      "x": 11,
+      "y": 8
+    },
+    {
+      "x": 11,
+      "y": 9
+    },
+    {
+      "x": 12,
+      "y": 9
+    },
+    {
+      "x": 13,
+      "y": 9
+    }
+  ],
+  "torch": {
+    "x": 7,
+    "y": 3
+  }
+}
+```
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "BLAST",
+      "label": "G1",
+      "x": 15,
+      "y": 6,
+      "open": true
+    }
+  ],
+  "levers": [
+    {
+      "id": "G1",
+      "label": "G1",
+      "x": 12,
+      "y": 6,
+      "gates": [
+        "BLAST"
+      ],
+      "dispensers": []
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 7 3
+walk 12 10
+walk 13 10
+equip
+snap right
+walk 12 10
+cool
+equip
+harvest 17 12 5 6
+harvest 24 13 8 6
+walk 24 15
+walk 24 12
+equip
+snap up
+walk 24 15
+cool
+equip
+walk 32 4
+```
+
+## 44 – Drei Adern, drei Gefahren
+
+Die Seidenstollen. 40 × 28 Felder, Quote 26, 80 Sekunden, Schwierigkeit 3/3.
+
+Wähle zwei Bezirke: Diamantkluft, offenes Smaragdfeld oder gestufte Felsgalerie. Kein Bezirk reicht allein. Grabe die Fackelnische von unten frei, ohne unter dem Fels stehen zu bleiben. Erhalte den weißen Käfer für einen Diamanten oder verhindere, dass er zur Spinnenbeute wird. Untergrabe die Steinstapel nur von einer sicheren Arbeitsseite.
+
+Hinweis: Wähle zwei Bezirke: Diamantkluft, offenes Smaragdfeld oder gestufte Felsgalerie. Kein Bezirk reicht allein. Grabe die Fackelnische von unten frei, ohne unter dem Fels stehen zu bleiben. Erhalte den weißen Käfer für einen Diamanten oder verhindere, dass er zur Spinnenbeute wird. Untergrabe die Steinstapel nur von einer sicheren Arbeitsseite.
+
+Geprüfter Durchlauf: 281 Takte / 28.1 Sekunden, 30 Kristallpunkte, 40 Wertungspunkte. Replay: public/replays/44.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX....R...XXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXX.D...D..XXXXXXXXXXEXX
+XXXXXXXXXXXXXXXX......D....XXXXXXXXXX.XX
+XXXXXXXXXXXXXXXX.XX.M.....DXXXXXXXXXX.XX
+XXXXXXXXXXXXXXXX.XX...MC...XXXXXXXXXX.XX
+XXXXX....XXXXXXX.XX........XXXXXXXXXX.XX
+XXXXX..R··XXXXXX.XXXXXXXX.XXXXXXXXXXX.XX
+XXXXX...·XXXXXXX.XXXXXXXX...·········.XX
+XXXXX....XXXXXXX.XXXXXXXXXXX·M·M···M·.XX
+XXXXXX.XXXXXXXXX.XXXXXXXXXXX·····M···.XX
+XXXP........................··D···D··.XX
+XXXXXXXXXXXXXXXX.XXXXXXXXXXX·M···M···XXX
+XXXXXXXXXXXXXXXX.XXXXXXXXXXX···M···M·XXX
+XXXXXXXXXXXXXXXX.XXXXXXXXXXX······>··XXX
+XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXX.XXXXXX
+XXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXX.XXXXXX
+XXXXXXXXXXXXXXXX.XXXXX.........R....XXXX
+XXXXXXXXXXXXXXXX.XXXXX.....R..DR....XXXX
+XXXXXXXXXXXXXXXX.XXXXX....DM...M....XXXX
+XXXXXXXXXXXXXXXX...........M.....D..XXXX
+XXXXXXXXXXXXXXXXXXXXXX..M...M.......XXXX
+XXXXXXXXXXXXXXXXXXXXXX..l....·......XXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[]
+```
+
+Spinnen, Netze und Fackel:
+```json
+{
+  "spiders": [
+    {
+      "x": 34,
+      "y": 10,
+      "direction": "left"
+    },
+    {
+      "x": 29,
+      "y": 24,
+      "direction": "up"
+    }
+  ],
+  "webs": [
+    {
+      "x": 28,
+      "y": 10
+    },
+    {
+      "x": 29,
+      "y": 10
+    },
+    {
+      "x": 30,
+      "y": 10
+    },
+    {
+      "x": 31,
+      "y": 10
+    },
+    {
+      "x": 32,
+      "y": 10
+    },
+    {
+      "x": 33,
+      "y": 10
+    },
+    {
+      "x": 34,
+      "y": 10
+    },
+    {
+      "x": 35,
+      "y": 10
+    },
+    {
+      "x": 36,
+      "y": 10
+    },
+    {
+      "x": 28,
+      "y": 11
+    },
+    {
+      "x": 30,
+      "y": 11
+    },
+    {
+      "x": 32,
+      "y": 11
+    },
+    {
+      "x": 33,
+      "y": 11
+    },
+    {
+      "x": 34,
+      "y": 11
+    },
+    {
+      "x": 36,
+      "y": 11
+    },
+    {
+      "x": 28,
+      "y": 12
+    },
+    {
+      "x": 29,
+      "y": 12
+    },
+    {
+      "x": 30,
+      "y": 12
+    },
+    {
+      "x": 31,
+      "y": 12
+    },
+    {
+      "x": 32,
+      "y": 12
+    },
+    {
+      "x": 34,
+      "y": 12
+    },
+    {
+      "x": 35,
+      "y": 12
+    },
+    {
+      "x": 36,
+      "y": 12
+    },
+    {
+      "x": 28,
+      "y": 13
+    },
+    {
+      "x": 29,
+      "y": 13
+    },
+    {
+      "x": 31,
+      "y": 13
+    },
+    {
+      "x": 32,
+      "y": 13
+    },
+    {
+      "x": 33,
+      "y": 13
+    },
+    {
+      "x": 35,
+      "y": 13
+    },
+    {
+      "x": 36,
+      "y": 13
+    },
+    {
+      "x": 28,
+      "y": 14
+    },
+    {
+      "x": 30,
+      "y": 14
+    },
+    {
+      "x": 31,
+      "y": 14
+    },
+    {
+      "x": 32,
+      "y": 14
+    },
+    {
+      "x": 34,
+      "y": 14
+    },
+    {
+      "x": 35,
+      "y": 14
+    },
+    {
+      "x": 36,
+      "y": 14
+    },
+    {
+      "x": 28,
+      "y": 15
+    },
+    {
+      "x": 29,
+      "y": 15
+    },
+    {
+      "x": 30,
+      "y": 15
+    },
+    {
+      "x": 32,
+      "y": 15
+    },
+    {
+      "x": 33,
+      "y": 15
+    },
+    {
+      "x": 34,
+      "y": 15
+    },
+    {
+      "x": 36,
+      "y": 15
+    },
+    {
+      "x": 28,
+      "y": 16
+    },
+    {
+      "x": 29,
+      "y": 16
+    },
+    {
+      "x": 30,
+      "y": 16
+    },
+    {
+      "x": 31,
+      "y": 16
+    },
+    {
+      "x": 32,
+      "y": 16
+    },
+    {
+      "x": 33,
+      "y": 16
+    },
+    {
+      "x": 34,
+      "y": 16
+    },
+    {
+      "x": 35,
+      "y": 16
+    },
+    {
+      "x": 36,
+      "y": 16
+    },
+    {
+      "x": 29,
+      "y": 24
+    }
+  ],
+  "torch": {
+    "x": 8,
+    "y": 10
+  }
+}
+```
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [],
+  "levers": [],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 8 10
+harvest 19 3 8 6
+walk 26 13
+walk 27 13
+equip
+snap right
+walk 26 13
+cool
+equip
+harvest 28 10 9 7
+walk 37 4
+```
+
+## 45 – Der brauchbare Käfer
+
+Die Seidenstollen. 44 × 30 Felder, Quote 18, 110 Sekunden, Schwierigkeit 3/3.
+
+G1 lässt den Helfer ins Muttergestein. G2 trennt seine Bahn vom Spinnenrevier; öffne es nicht vor dem Durchbruch. Wird der Helfer gefressen, bleiben 15 Sekunden zur Hackenrettung. Verbrenne seinen Kokon nicht, solange die Ader geschlossen ist. Sammle nach dem Durchbruch von der Seite unter den Steinstapeln.
+
+Hinweis: G1 lässt den Helfer ins Muttergestein. G2 trennt seine Bahn vom Spinnenrevier; öffne es nicht vor dem Durchbruch. Wird der Helfer gefressen, bleiben 15 Sekunden zur Hackenrettung. Verbrenne seinen Kokon nicht, solange die Ader geschlossen ist. Sammle nach dem Durchbruch von der Seite unter den Steinstapeln.
+
+Geprüfter Durchlauf: 380 Takte / 38.0 Sekunden, 21 Kristallpunkte, 21 Wertungspunkte. Replay: public/replays/45.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXEXX
+XXXP....MXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XX
+XXX.XXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XX
+XXX.X....XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XX
+XXX.X....XXXXXXXXXXXXXXXXXXXXXX......R..X.XX
+XXX.XM·.XXXXXXXXXXXXXXXXXXXXXXX.M.......X.XX
+XXX.......XXXXXXXXXXXXXXXXXXXXX....M....X.XX
+XXX.XXXXX.XXXXXXXXXXXXXXXXXXXXX.......D.X.XX
+XXX.XXXXX#XXXXXX#XXXXXXXXXXXXXX·········..XX
+XXX.XXXXXXXXXXXX.XXXXXXXX···············XXXX
+XXX...·2···#HHHHHHHHHHHHH······XXXXXXXXXXXXX
+XXXXXX·····XXXXXX·XXXXXXX·····.XXXXXXXXXXXXX
+XXXXXX·····XXXXXX·XXXXXXX·····.XXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXX#XXXXXXX·····.XXXXXXXXXXXXX
+XXXXXXXXXXXX·····>······XXXXX..XXXXXXXXXXXXX
+XXXXXXXXXXXX············XXX......R.......XXX
+XXXXXXXXXXXX··········l·XXX.M....M.....D.XXX
+XXXXXXXXXXXX············XXX....M.M.......XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXX.........D....XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXX.......M......XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXX..D........M..XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXX..............XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[]
+```
+
+Spinnen, Netze und Fackel:
+```json
+{
+  "spiders": [
+    {
+      "x": 16,
+      "y": 19,
+      "direction": "right"
+    },
+    {
+      "x": 36,
+      "y": 13,
+      "direction": "left"
+    }
+  ],
+  "webs": [
+    {
+      "x": 12,
+      "y": 18
+    },
+    {
+      "x": 13,
+      "y": 18
+    },
+    {
+      "x": 14,
+      "y": 18
+    },
+    {
+      "x": 15,
+      "y": 18
+    },
+    {
+      "x": 16,
+      "y": 18
+    },
+    {
+      "x": 17,
+      "y": 18
+    },
+    {
+      "x": 18,
+      "y": 18
+    },
+    {
+      "x": 19,
+      "y": 18
+    },
+    {
+      "x": 20,
+      "y": 18
+    },
+    {
+      "x": 21,
+      "y": 18
+    },
+    {
+      "x": 22,
+      "y": 18
+    },
+    {
+      "x": 23,
+      "y": 18
+    },
+    {
+      "x": 12,
+      "y": 19
+    },
+    {
+      "x": 13,
+      "y": 19
+    },
+    {
+      "x": 14,
+      "y": 19
+    },
+    {
+      "x": 15,
+      "y": 19
+    },
+    {
+      "x": 16,
+      "y": 19
+    },
+    {
+      "x": 17,
+      "y": 19
+    },
+    {
+      "x": 18,
+      "y": 19
+    },
+    {
+      "x": 19,
+      "y": 19
+    },
+    {
+      "x": 20,
+      "y": 19
+    },
+    {
+      "x": 21,
+      "y": 19
+    },
+    {
+      "x": 22,
+      "y": 19
+    },
+    {
+      "x": 23,
+      "y": 19
+    },
+    {
+      "x": 12,
+      "y": 20
+    },
+    {
+      "x": 13,
+      "y": 20
+    },
+    {
+      "x": 14,
+      "y": 20
+    },
+    {
+      "x": 15,
+      "y": 20
+    },
+    {
+      "x": 16,
+      "y": 20
+    },
+    {
+      "x": 17,
+      "y": 20
+    },
+    {
+      "x": 18,
+      "y": 20
+    },
+    {
+      "x": 19,
+      "y": 20
+    },
+    {
+      "x": 20,
+      "y": 20
+    },
+    {
+      "x": 21,
+      "y": 20
+    },
+    {
+      "x": 22,
+      "y": 20
+    },
+    {
+      "x": 23,
+      "y": 20
+    },
+    {
+      "x": 12,
+      "y": 21
+    },
+    {
+      "x": 13,
+      "y": 21
+    },
+    {
+      "x": 14,
+      "y": 21
+    },
+    {
+      "x": 15,
+      "y": 21
+    },
+    {
+      "x": 16,
+      "y": 21
+    },
+    {
+      "x": 17,
+      "y": 21
+    },
+    {
+      "x": 18,
+      "y": 21
+    },
+    {
+      "x": 19,
+      "y": 21
+    },
+    {
+      "x": 20,
+      "y": 21
+    },
+    {
+      "x": 21,
+      "y": 21
+    },
+    {
+      "x": 22,
+      "y": 21
+    },
+    {
+      "x": 23,
+      "y": 21
+    },
+    {
+      "x": 31,
+      "y": 12
+    },
+    {
+      "x": 32,
+      "y": 12
+    },
+    {
+      "x": 33,
+      "y": 12
+    },
+    {
+      "x": 34,
+      "y": 12
+    },
+    {
+      "x": 35,
+      "y": 12
+    },
+    {
+      "x": 36,
+      "y": 12
+    },
+    {
+      "x": 37,
+      "y": 12
+    },
+    {
+      "x": 38,
+      "y": 12
+    },
+    {
+      "x": 39,
+      "y": 12
+    },
+    {
+      "x": 31,
+      "y": 13
+    },
+    {
+      "x": 32,
+      "y": 13
+    },
+    {
+      "x": 33,
+      "y": 13
+    },
+    {
+      "x": 34,
+      "y": 13
+    },
+    {
+      "x": 35,
+      "y": 13
+    },
+    {
+      "x": 36,
+      "y": 13
+    },
+    {
+      "x": 37,
+      "y": 13
+    },
+    {
+      "x": 38,
+      "y": 13
+    },
+    {
+      "x": 39,
+      "y": 13
+    }
+  ],
+  "torch": {
+    "x": 6,
+    "y": 9
+  }
+}
+```
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "WORK",
+      "label": "G1",
+      "x": 11,
+      "y": 14,
+      "open": false
+    },
+    {
+      "id": "FOOD",
+      "label": "G2",
+      "x": 17,
+      "y": 17,
+      "open": false
+    }
+  ],
+  "levers": [
+    {
+      "id": "G1",
+      "label": "G1",
+      "x": 9,
+      "y": 12,
+      "gates": [
+        "WORK"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "G2",
+      "label": "G2",
+      "x": 16,
+      "y": 12,
+      "gates": [
+        "FOOD"
+      ],
+      "dispensers": []
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 6 9
+walk 9 11
+use down
+clear 24 14
+walk 24 14
+walk 29 17
+harvest 27 19 14 7
+walk 30 14
+equip
+snap left
+walk 30 19
+cool
+equip
+walk 30 13
+equip
+snap right
+walk 30 19
+cool
+equip
+harvest 31 8 9 6
+walk 41 4
+```
+
+## 46 – Der Schlüssel im Gespinst
+
+Die Seidenstollen. 48 × 32 Felder, Quote 18, 120 Sekunden, Schwierigkeit 3/3.
+
+Gewinne die Fackel bei der weißen Wache. Zwei Felsen stehen über der goldenen Bahn bereit. Gewinne den Sonnenschlüssel direkt oder über einen Kokon; Feuer vernichtet den Kokon, erhält aber den Schlüssel. A verbindet nur die Arbeitsseiten und umgeht die Sonnentür nicht.
+
+Hinweis: Gewinne die Fackel bei der weißen Wache. Zwei Felsen stehen über der goldenen Bahn bereit. Gewinne den Sonnenschlüssel direkt oder über einen Kokon; Feuer vernichtet den Kokon, erhält aber den Schlüssel. A verbindet nur die Arbeitsseiten und umgeht die Sonnentür nicht.
+
+Geprüfter Durchlauf: 413 Takte / 41.3 Sekunden, 25 Kristallpunkte, 35 Wertungspunkte. Replay: public/replays/46.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXEXX
+XXXXXXX.RXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XX
+XXXP.......XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XX
+XXX.XXXX·X.XXXXXXXXXXXXX.......·XXXXXXXXXXXXX.XX
+XXX.XXX.C...XXXXXXXXXXXX.RXRXXX.XXXXXXXXXXXXX.XX
+XXX.XXX.....XXX...........X.....XXXXXXXXXXXXX.XX
+XXX.XXX...·.XXX.X.XXXXXXX·X·XXXXXXXXXXXXXXXXX.XX
+XXX.XXX.....XXX.X...·················XXXXXXXX.XX
+XXX.XXX.....XXX.XXXXXXXXXXXXX········XXXXXXXX.XX
+XXX.XXXXXXXXXXX.XXXXXXXXXXXXX········XXXXXXXX.XX
+XXX.XXXXXXXXXXX.XXXXXXXXXXXXX········XXXXXXXX.XX
+XXX.XXXXXXXXXXX.XXXXXXXXXXXXX········XXXXXXXX.XX
+XXX.XXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XX
+XXX.XXXXXXXXXXX.XXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XX
+XXX.XXXXX····XX.XXXXXXXXXXXXXX.XXXXXXXXXXXXXX.XX
+XXX.XXXXX····XX.XXXXXXXXXXXXXX.........XXXXXX.XX
+XXX.XXXXX·>··XX.XXXXXXXXXXXXXXXXXXXXXX.XXXXXX.XX
+XXX.XXXXX····XX.XXXXXXXXXXXXXXXXXXXXXX.XXXXXX.XX
+XXX.XXXXXXXXXXX.XXXXXXXXXXXXXXXXX...R...R...X.XX
+XXX.XXXXXXXXXXX.XXXXXXXXXXXXXXXXX.D.MM..R...X.XX
+XXX.........·..............XXXXXX.......M..MX.XX
+XXXXXXXXXXXXXXXXXXX.D....M.XXXXXX.....D.......XX
+XXXXXXXXXXXXXXXXXXX...M....XXXXXX.......M...XXXX
+XXXXXXXXXXXXXXXXXXX.....D..XXXXXX..M......D.XXXX
+XXXXXXXXXXXXXXXXXXX...·....XXXXXX.........·.XXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[
+  {
+    "id": "sun-46",
+    "seal": "sun",
+    "x": 20,
+    "y": 11,
+    "direction": "right"
+  }
+]
+```
+
+Spinnen, Netze und Fackel:
+```json
+{
+  "spiders": [
+    {
+      "x": 32,
+      "y": 13,
+      "direction": "left"
+    },
+    {
+      "x": 22,
+      "y": 28,
+      "direction": "right"
+    },
+    {
+      "x": 42,
+      "y": 28,
+      "direction": "left"
+    }
+  ],
+  "webs": [
+    {
+      "x": 21,
+      "y": 11
+    },
+    {
+      "x": 22,
+      "y": 11
+    },
+    {
+      "x": 23,
+      "y": 11
+    },
+    {
+      "x": 24,
+      "y": 11
+    },
+    {
+      "x": 25,
+      "y": 11
+    },
+    {
+      "x": 26,
+      "y": 11
+    },
+    {
+      "x": 27,
+      "y": 11
+    },
+    {
+      "x": 28,
+      "y": 11
+    },
+    {
+      "x": 29,
+      "y": 11
+    },
+    {
+      "x": 30,
+      "y": 11
+    },
+    {
+      "x": 29,
+      "y": 12
+    },
+    {
+      "x": 30,
+      "y": 12
+    },
+    {
+      "x": 31,
+      "y": 12
+    },
+    {
+      "x": 32,
+      "y": 12
+    },
+    {
+      "x": 33,
+      "y": 12
+    },
+    {
+      "x": 34,
+      "y": 12
+    },
+    {
+      "x": 35,
+      "y": 12
+    },
+    {
+      "x": 36,
+      "y": 12
+    },
+    {
+      "x": 29,
+      "y": 13
+    },
+    {
+      "x": 30,
+      "y": 13
+    },
+    {
+      "x": 31,
+      "y": 13
+    },
+    {
+      "x": 32,
+      "y": 13
+    },
+    {
+      "x": 33,
+      "y": 13
+    },
+    {
+      "x": 34,
+      "y": 13
+    },
+    {
+      "x": 35,
+      "y": 13
+    },
+    {
+      "x": 36,
+      "y": 13
+    },
+    {
+      "x": 29,
+      "y": 14
+    },
+    {
+      "x": 30,
+      "y": 14
+    },
+    {
+      "x": 31,
+      "y": 14
+    },
+    {
+      "x": 32,
+      "y": 14
+    },
+    {
+      "x": 33,
+      "y": 14
+    },
+    {
+      "x": 34,
+      "y": 14
+    },
+    {
+      "x": 35,
+      "y": 14
+    },
+    {
+      "x": 36,
+      "y": 14
+    },
+    {
+      "x": 29,
+      "y": 15
+    },
+    {
+      "x": 30,
+      "y": 15
+    },
+    {
+      "x": 31,
+      "y": 15
+    },
+    {
+      "x": 32,
+      "y": 15
+    },
+    {
+      "x": 33,
+      "y": 15
+    },
+    {
+      "x": 34,
+      "y": 15
+    },
+    {
+      "x": 35,
+      "y": 15
+    },
+    {
+      "x": 36,
+      "y": 15
+    },
+    {
+      "x": 22,
+      "y": 28
+    },
+    {
+      "x": 42,
+      "y": 28
+    }
+  ],
+  "torch": {
+    "x": 10,
+    "y": 10
+  }
+}
+```
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [
+    {
+      "id": "SUN",
+      "seal": "sun",
+      "x": 38,
+      "y": 21
+    }
+  ],
+  "portals": [
+    {
+      "id": "Aa",
+      "pair": "A",
+      "x": 12,
+      "y": 24
+    },
+    {
+      "id": "Ab",
+      "pair": "A",
+      "x": 31,
+      "y": 7
+    }
+  ]
+}
+```
+
+```json
+{
+  "gates": [],
+  "levers": [],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 7 6
+strike crystal-crawler right
+walk 10 10
+walk 20 11
+equip
+snap right
+walk 17 11
+equip
+harvest 19 24 8 5
+cool
+key sun-46
+move right
+move right
+move right
+walk 29 15
+move right
+walk 38 22
+harvest 33 22 11 7
+walk 45 4
+```
+
+## 47 – Die Feuerinseln
+
+Die Seidenstollen. 52 × 34 Felder, Quote 24, 140 Sekunden, Schwierigkeit 3/3.
+
+G1, G2 und G3 trennen Netzbrücken. Schließe die Brücke zum Rückweg, bevor du den gewünschten Ast zündest. Erhalte ein Netz als Bremse für die lila Patrouille. Der freie Mittelgang bleibt deine sichere Bedienseite; ein späterer Brand verändert die Gegnerwege.
+
+Hinweis: G1, G2 und G3 trennen Netzbrücken. Schließe die Brücke zum Rückweg, bevor du den gewünschten Ast zündest. Erhalte ein Netz als Bremse für die lila Patrouille. Der freie Mittelgang bleibt deine sichere Bedienseite; ein späterer Brand verändert die Gegnerwege.
+
+Geprüfter Durchlauf: 482 Takte / 48.2 Sekunden, 26 Kristallpunkte, 36 Wertungspunkte. Replay: public/replays/47.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXX............XXXXXX··············XXXXXXXXXXXXXXX
+XXXXX.M....M.....XXXXXX··············XXXXXXXXXXXXEXX
+XXXXX...·........XXXXXX············M·XXXXXXXXXXXX.XX
+XXXXX...M......M.XXXXXX··············XXXXXXXXXXXX.XX
+XXXXX..............#...··············XXXXXXXXXXXX.XX
+XXXXX.........M..XXXXXX>·············XXXXXXXXXXXX.XX
+XXXXX........D...XXXXXX···········C··XXXXXXXXXXXX.XX
+XXXXX............XXXXXX··············XXXXXXXXXXXX.XX
+XXXXXXXXXX.XXXXXXXXXXXX··············XXXXXXXXXXXX.XX
+XXXXXXXXXX.XXXXXXXXXXXXXXXXXX·X.XXXXXXXXXXXXXXXXX.XX
+XXXXXXXXXX.XXXXXXXXXXXXXXXXXX·X.XXXXXXXXXXXXXXXXX.XX
+XXXXXXXXXX.XXXXXXXXXXXXXXXXXX·X.XXXXXXXXXXXXXXXXX.XX
+XXXXXXXXXX.XXXXXXXX#XXXXXXXX#·X.#XXXXXXXXXXXXXXXX.XX
+XXXP..............................................XX
+XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXX
+XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXX#XXXXXXXXX.XXXXXXXXXX
+XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXX
+XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXX
+XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXX
+XXXXXXXX·················XXXXXX.XXXX...R........XXXX
+XXXXXXXX·················XXXXXX.XXXX.M.R....M...XXXX
+XXXXXXXX··M··············XXXXXX........M.....R..XXXX
+XXXXXXXX············M····XXXXXXXXXXX....M....M..XXXX
+XXXXXXXX·················....#..................XXXX
+XXXXXXXX·····M···········XXXXXXXXXXX..D.......M.XXXX
+XXXXXXXX····l·········D··XXXXXXXXXXX...M...D....XXXX
+XXXXXXXX·················XXXXXXXXXXX........·...XXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[]
+```
+
+Spinnen, Netze und Fackel:
+```json
+{
+  "spiders": [
+    {
+      "x": 28,
+      "y": 8,
+      "direction": "right"
+    },
+    {
+      "x": 44,
+      "y": 29,
+      "direction": "left"
+    },
+    {
+      "x": 19,
+      "y": 26,
+      "direction": "up"
+    }
+  ],
+  "webs": [
+    {
+      "x": 23,
+      "y": 7
+    },
+    {
+      "x": 24,
+      "y": 7
+    },
+    {
+      "x": 25,
+      "y": 7
+    },
+    {
+      "x": 26,
+      "y": 7
+    },
+    {
+      "x": 27,
+      "y": 7
+    },
+    {
+      "x": 28,
+      "y": 7
+    },
+    {
+      "x": 29,
+      "y": 7
+    },
+    {
+      "x": 30,
+      "y": 7
+    },
+    {
+      "x": 31,
+      "y": 7
+    },
+    {
+      "x": 32,
+      "y": 7
+    },
+    {
+      "x": 33,
+      "y": 7
+    },
+    {
+      "x": 34,
+      "y": 7
+    },
+    {
+      "x": 35,
+      "y": 7
+    },
+    {
+      "x": 23,
+      "y": 3
+    },
+    {
+      "x": 24,
+      "y": 3
+    },
+    {
+      "x": 25,
+      "y": 3
+    },
+    {
+      "x": 26,
+      "y": 3
+    },
+    {
+      "x": 27,
+      "y": 3
+    },
+    {
+      "x": 28,
+      "y": 3
+    },
+    {
+      "x": 29,
+      "y": 3
+    },
+    {
+      "x": 30,
+      "y": 3
+    },
+    {
+      "x": 31,
+      "y": 3
+    },
+    {
+      "x": 32,
+      "y": 3
+    },
+    {
+      "x": 33,
+      "y": 3
+    },
+    {
+      "x": 34,
+      "y": 3
+    },
+    {
+      "x": 35,
+      "y": 3
+    },
+    {
+      "x": 36,
+      "y": 3
+    },
+    {
+      "x": 23,
+      "y": 4
+    },
+    {
+      "x": 24,
+      "y": 4
+    },
+    {
+      "x": 25,
+      "y": 4
+    },
+    {
+      "x": 26,
+      "y": 4
+    },
+    {
+      "x": 27,
+      "y": 4
+    },
+    {
+      "x": 28,
+      "y": 4
+    },
+    {
+      "x": 29,
+      "y": 4
+    },
+    {
+      "x": 30,
+      "y": 4
+    },
+    {
+      "x": 31,
+      "y": 4
+    },
+    {
+      "x": 32,
+      "y": 4
+    },
+    {
+      "x": 33,
+      "y": 4
+    },
+    {
+      "x": 34,
+      "y": 4
+    },
+    {
+      "x": 35,
+      "y": 4
+    },
+    {
+      "x": 36,
+      "y": 4
+    },
+    {
+      "x": 23,
+      "y": 5
+    },
+    {
+      "x": 24,
+      "y": 5
+    },
+    {
+      "x": 25,
+      "y": 5
+    },
+    {
+      "x": 26,
+      "y": 5
+    },
+    {
+      "x": 27,
+      "y": 5
+    },
+    {
+      "x": 28,
+      "y": 5
+    },
+    {
+      "x": 29,
+      "y": 5
+    },
+    {
+      "x": 30,
+      "y": 5
+    },
+    {
+      "x": 31,
+      "y": 5
+    },
+    {
+      "x": 32,
+      "y": 5
+    },
+    {
+      "x": 33,
+      "y": 5
+    },
+    {
+      "x": 34,
+      "y": 5
+    },
+    {
+      "x": 36,
+      "y": 5
+    },
+    {
+      "x": 23,
+      "y": 6
+    },
+    {
+      "x": 24,
+      "y": 6
+    },
+    {
+      "x": 25,
+      "y": 6
+    },
+    {
+      "x": 26,
+      "y": 6
+    },
+    {
+      "x": 27,
+      "y": 6
+    },
+    {
+      "x": 28,
+      "y": 6
+    },
+    {
+      "x": 29,
+      "y": 6
+    },
+    {
+      "x": 30,
+      "y": 6
+    },
+    {
+      "x": 31,
+      "y": 6
+    },
+    {
+      "x": 32,
+      "y": 6
+    },
+    {
+      "x": 33,
+      "y": 6
+    },
+    {
+      "x": 34,
+      "y": 6
+    },
+    {
+      "x": 35,
+      "y": 6
+    },
+    {
+      "x": 36,
+      "y": 6
+    },
+    {
+      "x": 36,
+      "y": 7
+    },
+    {
+      "x": 23,
+      "y": 8
+    },
+    {
+      "x": 24,
+      "y": 8
+    },
+    {
+      "x": 25,
+      "y": 8
+    },
+    {
+      "x": 26,
+      "y": 8
+    },
+    {
+      "x": 27,
+      "y": 8
+    },
+    {
+      "x": 28,
+      "y": 8
+    },
+    {
+      "x": 29,
+      "y": 8
+    },
+    {
+      "x": 30,
+      "y": 8
+    },
+    {
+      "x": 31,
+      "y": 8
+    },
+    {
+      "x": 32,
+      "y": 8
+    },
+    {
+      "x": 33,
+      "y": 8
+    },
+    {
+      "x": 34,
+      "y": 8
+    },
+    {
+      "x": 35,
+      "y": 8
+    },
+    {
+      "x": 36,
+      "y": 8
+    },
+    {
+      "x": 23,
+      "y": 9
+    },
+    {
+      "x": 24,
+      "y": 9
+    },
+    {
+      "x": 25,
+      "y": 9
+    },
+    {
+      "x": 26,
+      "y": 9
+    },
+    {
+      "x": 27,
+      "y": 9
+    },
+    {
+      "x": 28,
+      "y": 9
+    },
+    {
+      "x": 29,
+      "y": 9
+    },
+    {
+      "x": 30,
+      "y": 9
+    },
+    {
+      "x": 31,
+      "y": 9
+    },
+    {
+      "x": 32,
+      "y": 9
+    },
+    {
+      "x": 33,
+      "y": 9
+    },
+    {
+      "x": 34,
+      "y": 9
+    },
+    {
+      "x": 35,
+      "y": 9
+    },
+    {
+      "x": 36,
+      "y": 9
+    },
+    {
+      "x": 23,
+      "y": 10
+    },
+    {
+      "x": 24,
+      "y": 10
+    },
+    {
+      "x": 25,
+      "y": 10
+    },
+    {
+      "x": 26,
+      "y": 10
+    },
+    {
+      "x": 27,
+      "y": 10
+    },
+    {
+      "x": 28,
+      "y": 10
+    },
+    {
+      "x": 29,
+      "y": 10
+    },
+    {
+      "x": 30,
+      "y": 10
+    },
+    {
+      "x": 31,
+      "y": 10
+    },
+    {
+      "x": 32,
+      "y": 10
+    },
+    {
+      "x": 33,
+      "y": 10
+    },
+    {
+      "x": 34,
+      "y": 10
+    },
+    {
+      "x": 35,
+      "y": 10
+    },
+    {
+      "x": 36,
+      "y": 10
+    },
+    {
+      "x": 23,
+      "y": 11
+    },
+    {
+      "x": 24,
+      "y": 11
+    },
+    {
+      "x": 25,
+      "y": 11
+    },
+    {
+      "x": 26,
+      "y": 11
+    },
+    {
+      "x": 27,
+      "y": 11
+    },
+    {
+      "x": 28,
+      "y": 11
+    },
+    {
+      "x": 29,
+      "y": 11
+    },
+    {
+      "x": 30,
+      "y": 11
+    },
+    {
+      "x": 31,
+      "y": 11
+    },
+    {
+      "x": 32,
+      "y": 11
+    },
+    {
+      "x": 33,
+      "y": 11
+    },
+    {
+      "x": 34,
+      "y": 11
+    },
+    {
+      "x": 35,
+      "y": 11
+    },
+    {
+      "x": 36,
+      "y": 11
+    },
+    {
+      "x": 29,
+      "y": 12
+    },
+    {
+      "x": 29,
+      "y": 13
+    },
+    {
+      "x": 29,
+      "y": 14
+    },
+    {
+      "x": 29,
+      "y": 15
+    },
+    {
+      "x": 8,
+      "y": 22
+    },
+    {
+      "x": 9,
+      "y": 22
+    },
+    {
+      "x": 10,
+      "y": 22
+    },
+    {
+      "x": 11,
+      "y": 22
+    },
+    {
+      "x": 12,
+      "y": 22
+    },
+    {
+      "x": 13,
+      "y": 22
+    },
+    {
+      "x": 14,
+      "y": 22
+    },
+    {
+      "x": 15,
+      "y": 22
+    },
+    {
+      "x": 16,
+      "y": 22
+    },
+    {
+      "x": 17,
+      "y": 22
+    },
+    {
+      "x": 18,
+      "y": 22
+    },
+    {
+      "x": 19,
+      "y": 22
+    },
+    {
+      "x": 20,
+      "y": 22
+    },
+    {
+      "x": 21,
+      "y": 22
+    },
+    {
+      "x": 22,
+      "y": 22
+    },
+    {
+      "x": 23,
+      "y": 22
+    },
+    {
+      "x": 24,
+      "y": 22
+    },
+    {
+      "x": 8,
+      "y": 23
+    },
+    {
+      "x": 9,
+      "y": 23
+    },
+    {
+      "x": 10,
+      "y": 23
+    },
+    {
+      "x": 11,
+      "y": 23
+    },
+    {
+      "x": 12,
+      "y": 23
+    },
+    {
+      "x": 13,
+      "y": 23
+    },
+    {
+      "x": 14,
+      "y": 23
+    },
+    {
+      "x": 15,
+      "y": 23
+    },
+    {
+      "x": 16,
+      "y": 23
+    },
+    {
+      "x": 17,
+      "y": 23
+    },
+    {
+      "x": 18,
+      "y": 23
+    },
+    {
+      "x": 19,
+      "y": 23
+    },
+    {
+      "x": 20,
+      "y": 23
+    },
+    {
+      "x": 21,
+      "y": 23
+    },
+    {
+      "x": 22,
+      "y": 23
+    },
+    {
+      "x": 23,
+      "y": 23
+    },
+    {
+      "x": 24,
+      "y": 23
+    },
+    {
+      "x": 8,
+      "y": 24
+    },
+    {
+      "x": 9,
+      "y": 24
+    },
+    {
+      "x": 11,
+      "y": 24
+    },
+    {
+      "x": 12,
+      "y": 24
+    },
+    {
+      "x": 13,
+      "y": 24
+    },
+    {
+      "x": 14,
+      "y": 24
+    },
+    {
+      "x": 15,
+      "y": 24
+    },
+    {
+      "x": 16,
+      "y": 24
+    },
+    {
+      "x": 17,
+      "y": 24
+    },
+    {
+      "x": 18,
+      "y": 24
+    },
+    {
+      "x": 19,
+      "y": 24
+    },
+    {
+      "x": 20,
+      "y": 24
+    },
+    {
+      "x": 21,
+      "y": 24
+    },
+    {
+      "x": 22,
+      "y": 24
+    },
+    {
+      "x": 23,
+      "y": 24
+    },
+    {
+      "x": 24,
+      "y": 24
+    },
+    {
+      "x": 8,
+      "y": 25
+    },
+    {
+      "x": 9,
+      "y": 25
+    },
+    {
+      "x": 10,
+      "y": 25
+    },
+    {
+      "x": 11,
+      "y": 25
+    },
+    {
+      "x": 12,
+      "y": 25
+    },
+    {
+      "x": 13,
+      "y": 25
+    },
+    {
+      "x": 14,
+      "y": 25
+    },
+    {
+      "x": 15,
+      "y": 25
+    },
+    {
+      "x": 16,
+      "y": 25
+    },
+    {
+      "x": 17,
+      "y": 25
+    },
+    {
+      "x": 18,
+      "y": 25
+    },
+    {
+      "x": 19,
+      "y": 25
+    },
+    {
+      "x": 21,
+      "y": 25
+    },
+    {
+      "x": 22,
+      "y": 25
+    },
+    {
+      "x": 23,
+      "y": 25
+    },
+    {
+      "x": 24,
+      "y": 25
+    },
+    {
+      "x": 8,
+      "y": 26
+    },
+    {
+      "x": 9,
+      "y": 26
+    },
+    {
+      "x": 10,
+      "y": 26
+    },
+    {
+      "x": 11,
+      "y": 26
+    },
+    {
+      "x": 12,
+      "y": 26
+    },
+    {
+      "x": 13,
+      "y": 26
+    },
+    {
+      "x": 14,
+      "y": 26
+    },
+    {
+      "x": 15,
+      "y": 26
+    },
+    {
+      "x": 16,
+      "y": 26
+    },
+    {
+      "x": 17,
+      "y": 26
+    },
+    {
+      "x": 18,
+      "y": 26
+    },
+    {
+      "x": 19,
+      "y": 26
+    },
+    {
+      "x": 20,
+      "y": 26
+    },
+    {
+      "x": 21,
+      "y": 26
+    },
+    {
+      "x": 22,
+      "y": 26
+    },
+    {
+      "x": 23,
+      "y": 26
+    },
+    {
+      "x": 24,
+      "y": 26
+    },
+    {
+      "x": 8,
+      "y": 27
+    },
+    {
+      "x": 9,
+      "y": 27
+    },
+    {
+      "x": 10,
+      "y": 27
+    },
+    {
+      "x": 11,
+      "y": 27
+    },
+    {
+      "x": 12,
+      "y": 27
+    },
+    {
+      "x": 14,
+      "y": 27
+    },
+    {
+      "x": 15,
+      "y": 27
+    },
+    {
+      "x": 16,
+      "y": 27
+    },
+    {
+      "x": 17,
+      "y": 27
+    },
+    {
+      "x": 18,
+      "y": 27
+    },
+    {
+      "x": 19,
+      "y": 27
+    },
+    {
+      "x": 20,
+      "y": 27
+    },
+    {
+      "x": 21,
+      "y": 27
+    },
+    {
+      "x": 22,
+      "y": 27
+    },
+    {
+      "x": 23,
+      "y": 27
+    },
+    {
+      "x": 24,
+      "y": 27
+    },
+    {
+      "x": 8,
+      "y": 28
+    },
+    {
+      "x": 9,
+      "y": 28
+    },
+    {
+      "x": 10,
+      "y": 28
+    },
+    {
+      "x": 11,
+      "y": 28
+    },
+    {
+      "x": 12,
+      "y": 28
+    },
+    {
+      "x": 13,
+      "y": 28
+    },
+    {
+      "x": 14,
+      "y": 28
+    },
+    {
+      "x": 15,
+      "y": 28
+    },
+    {
+      "x": 16,
+      "y": 28
+    },
+    {
+      "x": 17,
+      "y": 28
+    },
+    {
+      "x": 18,
+      "y": 28
+    },
+    {
+      "x": 19,
+      "y": 28
+    },
+    {
+      "x": 20,
+      "y": 28
+    },
+    {
+      "x": 21,
+      "y": 28
+    },
+    {
+      "x": 23,
+      "y": 28
+    },
+    {
+      "x": 24,
+      "y": 28
+    },
+    {
+      "x": 8,
+      "y": 29
+    },
+    {
+      "x": 9,
+      "y": 29
+    },
+    {
+      "x": 10,
+      "y": 29
+    },
+    {
+      "x": 11,
+      "y": 29
+    },
+    {
+      "x": 12,
+      "y": 29
+    },
+    {
+      "x": 13,
+      "y": 29
+    },
+    {
+      "x": 14,
+      "y": 29
+    },
+    {
+      "x": 15,
+      "y": 29
+    },
+    {
+      "x": 16,
+      "y": 29
+    },
+    {
+      "x": 17,
+      "y": 29
+    },
+    {
+      "x": 18,
+      "y": 29
+    },
+    {
+      "x": 19,
+      "y": 29
+    },
+    {
+      "x": 20,
+      "y": 29
+    },
+    {
+      "x": 21,
+      "y": 29
+    },
+    {
+      "x": 22,
+      "y": 29
+    },
+    {
+      "x": 23,
+      "y": 29
+    },
+    {
+      "x": 24,
+      "y": 29
+    },
+    {
+      "x": 44,
+      "y": 29
+    }
+  ],
+  "torch": {
+    "x": 8,
+    "y": 5
+  }
+}
+```
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "NORTH",
+      "label": "G1",
+      "x": 19,
+      "y": 7,
+      "open": true
+    },
+    {
+      "id": "EAST",
+      "label": "G2",
+      "x": 31,
+      "y": 18,
+      "open": true
+    },
+    {
+      "id": "SOUTH",
+      "label": "G3",
+      "x": 29,
+      "y": 26,
+      "open": true
+    }
+  ],
+  "levers": [
+    {
+      "id": "G1",
+      "label": "G1",
+      "x": 19,
+      "y": 15,
+      "gates": [
+        "NORTH"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "G2",
+      "label": "G2",
+      "x": 32,
+      "y": 15,
+      "gates": [
+        "EAST"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "G3",
+      "label": "G3",
+      "x": 28,
+      "y": 15,
+      "gates": [
+        "SOUTH"
+      ],
+      "dispensers": []
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 8 5
+harvest 5 3 12 8
+walk 19 16
+use up
+walk 29 16
+equip
+snap up
+walk 27 16
+cool
+equip
+walk 41 22
+harvest 36 22 12 8
+harvest 23 3 14 9
+walk 49 4
+```
+
+## 48 – Nachschub für die Spinnen
+
+Die Seidenstollen. 56 × 36 Felder, Quote 25, 115 Sekunden, Schwierigkeit 3/3.
+
+P1 hat insgesamt drei Helfer und wird nicht aufgefüllt. Einer kann den Grundweg öffnen; weitere öffnen einen Querweg, können aber Spinnen ernähren. Stoppen entfernt keine Käfer oder Kokons. Erschließe die Fackel hinter dem ersten Durchbruch und halte die Förderrinne für die Rückkehr frei.
+
+Hinweis: P1 hat insgesamt drei Helfer und wird nicht aufgefüllt. Einer kann den Grundweg öffnen; weitere öffnen einen Querweg, können aber Spinnen ernähren. Stoppen entfernt keine Käfer oder Kokons. Erschließe die Fackel hinter dem ersten Durchbruch und halte die Förderrinne für die Rückkehr frei.
+
+Geprüfter Durchlauf: 395 Takte / 39.5 Sekunden, 33 Kristallpunkte, 38 Wertungspunkte. Replay: public/replays/48.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXEXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX............XX.XX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.D.......M..XX.XX
+XXXP.......XXXXXXXXXXXXXXXXXXXXXXXXXXXX............XX.XX
+XXX.XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX.......D....XX.XX
+XXX.XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX...M........XX.XX
+XXX.XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX...............XX
+XXX.XXXXXX.#XXXXXXXXXXXXXXXXXXXXXXXXXXX......M...D.X.XXX
+XXX.XXXXXX.#XX#XXXXXXXXXXXXXXXXX·····..············X.XXX
+XXX.XXXXXXXX.#·····.HHHHHHHHHHHH·····XXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXX.X·····XXXXXXXXXXXXX·····XXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXX.X·····XXXXXXXXXXXXX·····XXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXX.XXXXX.XXXXXXXXXXXXX·····XXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXX.XXXXX.XXXXXXXXXXXXXXXXX.#XXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXX.XXXXX#XXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXX.XXX
+XXX.XXXXXXXX.XXXXX.XXXXXXXXXXXXXXXX.......R........X.XXX
+XXX.XXXXXXXX.XXXXX...·········XXXXX.D....MM........X.XXX
+XXX.XXXXXXXX.XXXXXXXX·········XXXXX.......M.D......X.XXX
+XXX.XXXXXXXX.XXXXXXXX·········.HHHH..............M.X.XXX
+XXX.XXXXXXXX.XXXXXXXX····>M···XXXXX............R...X.XXX
+XXX.XXXXXXXX.XXXXXXXX·M·····l·XXXXX....D.......R...X.XXX
+XXX.XXXXXXX#.XXXXXXXX·········XXXXX...........MM...X.XXX
+XXX.XXXXXXXX.XXXXXXXXXXXXXXXXXXXXXX................X.XXX
+XXX................XXXXXXXXXXXXXXXX...M.........D..X.XXX
+XXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXX................X.XXX
+XXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXX..............·.X.XXX
+XXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXX
+XXXXXXXXXXXXXXXXXX#..................................XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[]
+```
+
+Spinnen, Netze und Fackel:
+```json
+{
+  "spiders": [
+    {
+      "x": 23,
+      "y": 21,
+      "direction": "right"
+    },
+    {
+      "x": 29,
+      "y": 25,
+      "direction": "left"
+    },
+    {
+      "x": 45,
+      "y": 12,
+      "direction": "left"
+    },
+    {
+      "x": 49,
+      "y": 29,
+      "direction": "left"
+    }
+  ],
+  "webs": [
+    {
+      "x": 21,
+      "y": 20
+    },
+    {
+      "x": 22,
+      "y": 20
+    },
+    {
+      "x": 23,
+      "y": 20
+    },
+    {
+      "x": 24,
+      "y": 20
+    },
+    {
+      "x": 25,
+      "y": 20
+    },
+    {
+      "x": 26,
+      "y": 20
+    },
+    {
+      "x": 27,
+      "y": 20
+    },
+    {
+      "x": 28,
+      "y": 20
+    },
+    {
+      "x": 29,
+      "y": 20
+    },
+    {
+      "x": 21,
+      "y": 21
+    },
+    {
+      "x": 22,
+      "y": 21
+    },
+    {
+      "x": 23,
+      "y": 21
+    },
+    {
+      "x": 24,
+      "y": 21
+    },
+    {
+      "x": 25,
+      "y": 21
+    },
+    {
+      "x": 26,
+      "y": 21
+    },
+    {
+      "x": 27,
+      "y": 21
+    },
+    {
+      "x": 28,
+      "y": 21
+    },
+    {
+      "x": 29,
+      "y": 21
+    },
+    {
+      "x": 21,
+      "y": 22
+    },
+    {
+      "x": 22,
+      "y": 22
+    },
+    {
+      "x": 23,
+      "y": 22
+    },
+    {
+      "x": 24,
+      "y": 22
+    },
+    {
+      "x": 25,
+      "y": 22
+    },
+    {
+      "x": 26,
+      "y": 22
+    },
+    {
+      "x": 27,
+      "y": 22
+    },
+    {
+      "x": 28,
+      "y": 22
+    },
+    {
+      "x": 29,
+      "y": 22
+    },
+    {
+      "x": 21,
+      "y": 23
+    },
+    {
+      "x": 22,
+      "y": 23
+    },
+    {
+      "x": 23,
+      "y": 23
+    },
+    {
+      "x": 24,
+      "y": 23
+    },
+    {
+      "x": 25,
+      "y": 23
+    },
+    {
+      "x": 27,
+      "y": 23
+    },
+    {
+      "x": 28,
+      "y": 23
+    },
+    {
+      "x": 29,
+      "y": 23
+    },
+    {
+      "x": 21,
+      "y": 24
+    },
+    {
+      "x": 23,
+      "y": 24
+    },
+    {
+      "x": 24,
+      "y": 24
+    },
+    {
+      "x": 25,
+      "y": 24
+    },
+    {
+      "x": 26,
+      "y": 24
+    },
+    {
+      "x": 27,
+      "y": 24
+    },
+    {
+      "x": 28,
+      "y": 24
+    },
+    {
+      "x": 29,
+      "y": 24
+    },
+    {
+      "x": 21,
+      "y": 25
+    },
+    {
+      "x": 22,
+      "y": 25
+    },
+    {
+      "x": 23,
+      "y": 25
+    },
+    {
+      "x": 24,
+      "y": 25
+    },
+    {
+      "x": 25,
+      "y": 25
+    },
+    {
+      "x": 26,
+      "y": 25
+    },
+    {
+      "x": 27,
+      "y": 25
+    },
+    {
+      "x": 28,
+      "y": 25
+    },
+    {
+      "x": 29,
+      "y": 25
+    },
+    {
+      "x": 39,
+      "y": 12
+    },
+    {
+      "x": 40,
+      "y": 12
+    },
+    {
+      "x": 41,
+      "y": 12
+    },
+    {
+      "x": 42,
+      "y": 12
+    },
+    {
+      "x": 43,
+      "y": 12
+    },
+    {
+      "x": 44,
+      "y": 12
+    },
+    {
+      "x": 45,
+      "y": 12
+    },
+    {
+      "x": 46,
+      "y": 12
+    },
+    {
+      "x": 47,
+      "y": 12
+    },
+    {
+      "x": 48,
+      "y": 12
+    },
+    {
+      "x": 49,
+      "y": 12
+    },
+    {
+      "x": 50,
+      "y": 12
+    },
+    {
+      "x": 49,
+      "y": 29
+    }
+  ],
+  "torch": {
+    "x": 35,
+    "y": 15
+  }
+}
+```
+
+```json
+{
+  "pits": [
+    {
+      "id": "P1",
+      "label": "P1",
+      "x": 14,
+      "y": 12,
+      "direction": "down",
+      "delay": 20,
+      "interval": 100,
+      "maxAlive": 3,
+      "active": false,
+      "stock": 3
+    }
+  ]
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [],
+  "portals": []
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "OUT",
+      "label": "G3",
+      "x": 13,
+      "y": 13,
+      "open": false
+    },
+    {
+      "id": "RETURN",
+      "label": "G2",
+      "x": 18,
+      "y": 31,
+      "open": false
+    },
+    {
+      "id": "FOOD",
+      "label": "G1",
+      "x": 18,
+      "y": 18,
+      "open": false
+    }
+  ],
+  "levers": [
+    {
+      "id": "P1",
+      "label": "P1",
+      "x": 11,
+      "y": 12,
+      "gates": [],
+      "dispensers": [],
+      "pits": [
+        "P1"
+      ]
+    },
+    {
+      "id": "G3",
+      "label": "G3",
+      "x": 11,
+      "y": 11,
+      "gates": [
+        "OUT"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "G2",
+      "label": "G2",
+      "x": 37,
+      "y": 17,
+      "gates": [
+        "RETURN"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "G1",
+      "label": "G1",
+      "x": 11,
+      "y": 25,
+      "gates": [
+        "FOOD"
+      ],
+      "dispensers": []
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 10 12
+use right
+wait 23
+use right
+clear 31 13
+walk 10 11
+use right
+walk 35 15
+harvest 35 19 16 11
+walk 38 12
+equip
+snap right
+walk 37 12
+cool
+equip
+harvest 39 5 12 8
+walk 53 4
+```
+
+## 49 – Das geteilte Revier
+
+Die Seidenstollen. 60 × 38 Felder, Quote 29, 165 Sekunden, Schwierigkeit 3/3.
+
+Die 25 platzierten Kristallpunkte reichen nicht: Du brauchst zusätzlich Rubine oder die weiße Beute. Der Sonnenschlüssel öffnet das zweite Revier; die Mondtür schützt den einzigen Ausgang. A und B verbinden Arbeitsseiten. Trenne Netzbrücken, bevor du zündest: Der erste Brand darf die Käferbremse deines späteren Rückwegs nicht unbemerkt beseitigen. Nach der Sonnenöffnung sind zwei Sammelreihenfolgen möglich.
+
+Hinweis: Die 25 platzierten Kristallpunkte reichen nicht: Du brauchst zusätzlich Rubine oder die weiße Beute. Der Sonnenschlüssel öffnet das zweite Revier; die Mondtür schützt den einzigen Ausgang. A und B verbinden Arbeitsseiten. Trenne Netzbrücken, bevor du zündest: Der erste Brand darf die Käferbremse deines späteren Rückwegs nicht unbemerkt beseitigen. Nach der Sonnenöffnung sind zwei Sammelreihenfolgen möglich.
+
+Geprüfter Durchlauf: 551 Takte / 55.1 Sekunden, 29 Kristallpunkte, 54 Wertungspunkte. Replay: public/replays/49.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX....XX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXEXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.X.XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.......R.......C..X.XXX
+XXXXXXXXXXXXXXXXXXXXXX#XRXXXXXXXXXXXX.M.....M.........XX.XXX
+XXXXXXXXXXXXX............XX·.....XXXX.......R......M..XX.XXX
+XXXXXXXXXXXXX.XXXXXXXXXX·.XXXXXX.XXXX....M..M.........XX.XXX
+XXXXXXXXXXXXX.XXXXX········#··XX.XXXX..........M......XX.XXX
+XXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXX.XXXX..D.................XXX
+XXXXX......XX.XXXXXXXXXXXXXXXXXX.XXX.··>·········D····XXXXXX
+XXXXX.M....XX.XXXXXXXXXXXXXXXXXX.XXX.·················XXXXXX
+XXXXX....·.XX.XXXXXXXXXXXXXXXXXX.XXX..XXXXXXXXXXXXXXXXXXXXXX
+XXXXX...M..XX.XXXXXXXXXXXXXXXXXX.XXX.·X#XXXXXXXXXXXXXXXXXXXX
+XXXXX......XX.XXXXXXXXXXXXXXXXXX........#.....XXXXXXXXXXXXXX
+XXXXXXXX.XXXX.XXXXXXXXXXXXXXXXXX.XXXXXXXXXXXX.XXXXXXXXXXXXXX
+XXXXXXXX.XXXX.XXXXXXXXXXXXXXXXXX.XXXXXXXXXXXX.XXXX....·XXXXX
+XXXP..........XXXXXXXXXXXXXXXXXX.XXXXXXXXXXXX.XXXX.RXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXX.......XXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXX·XXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXX··········.XXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXX......R......X.XXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXX......R....D.X.XXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXX.M....M......X.XXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXX.......M.....X.XXX
+XXX.XXXXXXXXXXXXXXXXX·XXXXXXXXXX.XXXXXXXXX.............X.XXX
+XXX.XXXXXXXXXXXXXXXXX.XXXXXXXXXX.XXXXXXXXX.............X.XXX
+XXX.XXXXXXXXXXXXXXXXX.XXXXXXXXXX.XXXXXXXXX....M........X.XXX
+XXX.XXXX.XXXXXXXXXXXX.XXXXXXXXXX.XXXXXXXXX.l........M..X.XXX
+XXX...................XXX........XXXXXXXXX..D.........·X.XXX
+XXXXXXXX#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..·..........X.XXX
+XXXXXXXX.................................................XXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[
+  {
+    "id": "sun-49",
+    "seal": "sun",
+    "x": 19,
+    "y": 10,
+    "direction": "right"
+  },
+  {
+    "id": "moon-49",
+    "seal": "moon",
+    "x": 46,
+    "y": 22,
+    "direction": "right"
+  }
+]
+```
+
+Spinnen, Netze und Fackel:
+```json
+{
+  "spiders": [
+    {
+      "x": 28,
+      "y": 10,
+      "direction": "left"
+    },
+    {
+      "x": 50,
+      "y": 13,
+      "direction": "left"
+    },
+    {
+      "x": 44,
+      "y": 32,
+      "direction": "right"
+    },
+    {
+      "x": 54,
+      "y": 31,
+      "direction": "up"
+    }
+  ],
+  "webs": [
+    {
+      "x": 20,
+      "y": 10
+    },
+    {
+      "x": 21,
+      "y": 10
+    },
+    {
+      "x": 22,
+      "y": 10
+    },
+    {
+      "x": 23,
+      "y": 10
+    },
+    {
+      "x": 24,
+      "y": 10
+    },
+    {
+      "x": 25,
+      "y": 10
+    },
+    {
+      "x": 26,
+      "y": 10
+    },
+    {
+      "x": 28,
+      "y": 10
+    },
+    {
+      "x": 29,
+      "y": 10
+    },
+    {
+      "x": 37,
+      "y": 12
+    },
+    {
+      "x": 38,
+      "y": 12
+    },
+    {
+      "x": 39,
+      "y": 12
+    },
+    {
+      "x": 40,
+      "y": 12
+    },
+    {
+      "x": 41,
+      "y": 12
+    },
+    {
+      "x": 42,
+      "y": 12
+    },
+    {
+      "x": 43,
+      "y": 12
+    },
+    {
+      "x": 44,
+      "y": 12
+    },
+    {
+      "x": 45,
+      "y": 12
+    },
+    {
+      "x": 46,
+      "y": 12
+    },
+    {
+      "x": 47,
+      "y": 12
+    },
+    {
+      "x": 48,
+      "y": 12
+    },
+    {
+      "x": 50,
+      "y": 12
+    },
+    {
+      "x": 51,
+      "y": 12
+    },
+    {
+      "x": 52,
+      "y": 12
+    },
+    {
+      "x": 53,
+      "y": 12
+    },
+    {
+      "x": 37,
+      "y": 13
+    },
+    {
+      "x": 38,
+      "y": 13
+    },
+    {
+      "x": 39,
+      "y": 13
+    },
+    {
+      "x": 40,
+      "y": 13
+    },
+    {
+      "x": 41,
+      "y": 13
+    },
+    {
+      "x": 42,
+      "y": 13
+    },
+    {
+      "x": 43,
+      "y": 13
+    },
+    {
+      "x": 44,
+      "y": 13
+    },
+    {
+      "x": 45,
+      "y": 13
+    },
+    {
+      "x": 46,
+      "y": 13
+    },
+    {
+      "x": 47,
+      "y": 13
+    },
+    {
+      "x": 48,
+      "y": 13
+    },
+    {
+      "x": 49,
+      "y": 13
+    },
+    {
+      "x": 50,
+      "y": 13
+    },
+    {
+      "x": 51,
+      "y": 13
+    },
+    {
+      "x": 52,
+      "y": 13
+    },
+    {
+      "x": 53,
+      "y": 13
+    },
+    {
+      "x": 43,
+      "y": 30
+    },
+    {
+      "x": 54,
+      "y": 31
+    },
+    {
+      "x": 44,
+      "y": 32
+    }
+  ],
+  "torch": {
+    "x": 9,
+    "y": 14
+  }
+}
+```
+
+```json
+{
+  "pits": []
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [
+    {
+      "id": "SUN",
+      "seal": "sun",
+      "x": 34,
+      "y": 16
+    },
+    {
+      "id": "MOON",
+      "seal": "moon",
+      "x": 57,
+      "y": 3
+    }
+  ],
+  "portals": [
+    {
+      "id": "Aa",
+      "pair": "A",
+      "x": 21,
+      "y": 27
+    },
+    {
+      "id": "Ab",
+      "pair": "A",
+      "x": 27,
+      "y": 8
+    },
+    {
+      "id": "Ba",
+      "pair": "B",
+      "x": 37,
+      "y": 15
+    },
+    {
+      "id": "Bb",
+      "pair": "B",
+      "x": 54,
+      "y": 18
+    }
+  ]
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "RETURN",
+      "label": "G1",
+      "x": 8,
+      "y": 32,
+      "open": false
+    },
+    {
+      "id": "FOOD",
+      "label": "F",
+      "x": 27,
+      "y": 10,
+      "open": false
+    },
+    {
+      "id": "BRIDGE",
+      "label": "G1",
+      "x": 40,
+      "y": 16,
+      "open": true
+    }
+  ],
+  "levers": [
+    {
+      "id": "F",
+      "label": "F",
+      "x": 22,
+      "y": 7,
+      "gates": [
+        "FOOD"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "G1",
+      "label": "G1",
+      "x": 39,
+      "y": 15,
+      "gates": [
+        "BRIDGE",
+        "RETURN"
+      ],
+      "dispensers": []
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 9 14
+harvest 5 12 6 5
+walk 23 8
+strike sun-49 right
+key sun-49
+walk 22 8
+use up
+walk 25 9
+equip
+snap down
+walk 23 8
+cool
+equip
+harvest 19 10 11 1
+walk 39 16
+use up
+walk 36 12
+equip
+snap right
+walk 35 16
+cool
+equip
+walk 37 6
+walk 50 6
+walk 50 11
+equip
+snap down
+walk 50 8
+cool
+equip
+harvest 37 6 17 8
+walk 50 20
+strike moon-49 right
+key moon-49
+harvest 42 23 13 10
+walk 57 4
+```
+
+## 50 – Das Herz der Seidenstollen
+
+Die Seidenstollen. 64 × 40 Felder, Quote 32, 185 Sekunden, Schwierigkeit 3/3.
+
+Erhalte den ersten Helfer bis zum Durchbruch und hole dort die Fackel. Danach kannst du zuerst die Sonnenwache oder den endlichen P1-Nachschub bearbeiten. Sonne öffnet den Hauptabbau, Mond den ummauerten Ausgang. Sichere Netzbrücken und Heimweg vor dem Abbau. Ein stützender Kristall hält auch einen Riegelfels: Sammeln verändert den Rückgang.
+
+Hinweis: Erhalte den ersten Helfer bis zum Durchbruch und hole dort die Fackel. Danach kannst du zuerst die Sonnenwache oder den endlichen P1-Nachschub bearbeiten. Sonne öffnet den Hauptabbau, Mond den ummauerten Ausgang. Sichere Netzbrücken und Heimweg vor dem Abbau. Ein stützender Kristall hält auch einen Riegelfels: Sammeln verändert den Rückgang.
+
+Geprüfter Durchlauf: 625 Takte / 62.5 Sekunden, 32 Kristallpunkte, 52 Wertungspunkte. Replay: public/replays/50.json.
+
+```text
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX....XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX...........XXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXX.XXXXXXXXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#X.XRXXXXXXX.XXXXXXXXXXX
+XXX.XXXXXXXX#.XXXXXXXXXXXXXXXXXXXXX..........XXXXXXX.XXXXXXXXXXX
+XXX.XXXXXXXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXX·XXXXXXX.XXXXXXXXXXX
+XXX.XXXXXXXXX.XXXXXXXXXXXXXXXXXXXXX.XXX·······#··....XXXXXXXXXXX
+XXX.XXXXXXXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXX..XXXXXXXXXXX
+XXX.XXXXXXXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXX.XXXXXXXXXXXX
+XXX.XXXXXXXXX.XXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXX...........XXXXXXXXXXXXXXXXXXXXX.XXXXX.....R.......R....XXXXX
+XXXP..XXXXXXX.XXXXXXXXXXX.·····XXXX.XXXXX.M...R.M.....M....XXXXX
+XXX.XX·2·····#HHHHHHHHHHHH···M·XXXX.XXXXX.....M...D...RM...XXXXX
+XXX.XX·······XXXXXXXXXXXXX····......XXXXX....M...R....M....XXXXX
+XXX.XX·······XXXXXXXXXXXXX·M··......XXXXX........M......D..XXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXX·····XXX#.XXXXX..D.......M.......XXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXX.XXXX#XXXXX..................XXXXX
+XXX.XXXXXXXXXXXXXXXXXXXXXXXXXX.XXXX.XXXXX......M.....D...M.XXXXX
+XXX.XXXXXXXX#..#XXXXXXXXXXXXXX.XXXX.XXXXX.....D..........l.XXXXX
+XXX.XXXXXXXXX.X·······XXXXXXXX.XXX······X..CM.........M...DXXXXX
+XXX.XXXXXXXXX.XXXX#XXHHHHHHHHHHHH#.R.···.......>.........·.XXXXX
+XXX.XXXXXXXXX.X······XXXXXXXXX.XXX·M·M··XXXXXXXXXXXXXXXXXXXXRXXX
+XXX.XXXXXXXXX.X······XXXXXXXXX.XXX·.····XXXXX................XXX
+XXX.XXXXXXXXX.XXXXXXXXXXXXXXXX................XXXXXXXXXXXXXX·XXX
+XXX...........#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX·················XX
+XXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXX
+XXXXXXXX#XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXX
+XXXXXXXX....................................................XXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+In der Karte steht · für einen leeren Gang.
+
+Schlüsselträger:
+```json
+[
+  {
+    "id": "sun-50",
+    "seal": "sun",
+    "x": 39,
+    "y": 14,
+    "direction": "right"
+  },
+  {
+    "id": "moon-50",
+    "seal": "moon",
+    "x": 45,
+    "y": 32,
+    "direction": "right"
+  }
+]
+```
+
+Spinnen, Netze und Fackel:
+```json
+{
+  "spiders": [
+    {
+      "x": 18,
+      "y": 29,
+      "direction": "right"
+    },
+    {
+      "x": 27,
+      "y": 23,
+      "direction": "up"
+    },
+    {
+      "x": 47,
+      "y": 14,
+      "direction": "left"
+    },
+    {
+      "x": 57,
+      "y": 28,
+      "direction": "left"
+    },
+    {
+      "x": 54,
+      "y": 32,
+      "direction": "left"
+    }
+  ],
+  "webs": [
+    {
+      "x": 15,
+      "y": 27
+    },
+    {
+      "x": 16,
+      "y": 27
+    },
+    {
+      "x": 17,
+      "y": 27
+    },
+    {
+      "x": 18,
+      "y": 27
+    },
+    {
+      "x": 19,
+      "y": 27
+    },
+    {
+      "x": 20,
+      "y": 27
+    },
+    {
+      "x": 15,
+      "y": 29
+    },
+    {
+      "x": 16,
+      "y": 29
+    },
+    {
+      "x": 17,
+      "y": 29
+    },
+    {
+      "x": 18,
+      "y": 29
+    },
+    {
+      "x": 19,
+      "y": 29
+    },
+    {
+      "x": 20,
+      "y": 29
+    },
+    {
+      "x": 15,
+      "y": 30
+    },
+    {
+      "x": 16,
+      "y": 30
+    },
+    {
+      "x": 17,
+      "y": 30
+    },
+    {
+      "x": 18,
+      "y": 30
+    },
+    {
+      "x": 19,
+      "y": 30
+    },
+    {
+      "x": 20,
+      "y": 30
+    },
+    {
+      "x": 26,
+      "y": 23
+    },
+    {
+      "x": 27,
+      "y": 23
+    },
+    {
+      "x": 28,
+      "y": 23
+    },
+    {
+      "x": 29,
+      "y": 23
+    },
+    {
+      "x": 30,
+      "y": 23
+    },
+    {
+      "x": 40,
+      "y": 14
+    },
+    {
+      "x": 41,
+      "y": 14
+    },
+    {
+      "x": 42,
+      "y": 14
+    },
+    {
+      "x": 43,
+      "y": 14
+    },
+    {
+      "x": 44,
+      "y": 14
+    },
+    {
+      "x": 45,
+      "y": 14
+    },
+    {
+      "x": 47,
+      "y": 14
+    },
+    {
+      "x": 48,
+      "y": 14
+    },
+    {
+      "x": 57,
+      "y": 26
+    },
+    {
+      "x": 57,
+      "y": 28
+    },
+    {
+      "x": 46,
+      "y": 32
+    },
+    {
+      "x": 47,
+      "y": 32
+    },
+    {
+      "x": 48,
+      "y": 32
+    },
+    {
+      "x": 49,
+      "y": 32
+    },
+    {
+      "x": 50,
+      "y": 32
+    },
+    {
+      "x": 51,
+      "y": 32
+    },
+    {
+      "x": 52,
+      "y": 32
+    },
+    {
+      "x": 53,
+      "y": 32
+    },
+    {
+      "x": 54,
+      "y": 32
+    },
+    {
+      "x": 55,
+      "y": 32
+    },
+    {
+      "x": 56,
+      "y": 32
+    },
+    {
+      "x": 57,
+      "y": 32
+    },
+    {
+      "x": 58,
+      "y": 32
+    },
+    {
+      "x": 59,
+      "y": 32
+    },
+    {
+      "x": 60,
+      "y": 32
+    },
+    {
+      "x": 61,
+      "y": 32
+    }
+  ],
+  "torch": {
+    "x": 28,
+    "y": 22
+  }
+}
+```
+
+```json
+{
+  "pits": [
+    {
+      "id": "P1",
+      "label": "P1",
+      "x": 15,
+      "y": 26,
+      "direction": "down",
+      "delay": 25,
+      "interval": 110,
+      "maxAlive": 3,
+      "active": false,
+      "stock": 3
+    }
+  ]
+}
+```
+
+```json
+{
+  "keys": [],
+  "doors": [
+    {
+      "id": "SUN",
+      "seal": "sun",
+      "x": 41,
+      "y": 28
+    },
+    {
+      "id": "MOON",
+      "seal": "moon",
+      "x": 6,
+      "y": 5
+    }
+  ],
+  "portals": [
+    {
+      "id": "Aa",
+      "pair": "A",
+      "x": 28,
+      "y": 19
+    },
+    {
+      "id": "Ab",
+      "pair": "A",
+      "x": 38,
+      "y": 30
+    }
+  ]
+}
+```
+
+```json
+{
+  "gates": [
+    {
+      "id": "WORK",
+      "label": "G1",
+      "x": 13,
+      "y": 20,
+      "open": false
+    },
+    {
+      "id": "FOOD",
+      "label": "G2",
+      "x": 18,
+      "y": 28,
+      "open": false
+    },
+    {
+      "id": "SUN-FOOD",
+      "label": "F",
+      "x": 46,
+      "y": 14,
+      "open": false
+    },
+    {
+      "id": "PIT-CUT",
+      "label": "G3",
+      "x": 33,
+      "y": 28,
+      "open": true
+    },
+    {
+      "id": "BRIDGE",
+      "label": "G3",
+      "x": 35,
+      "y": 24,
+      "open": true
+    },
+    {
+      "id": "RETURN",
+      "label": "G3",
+      "x": 8,
+      "y": 34,
+      "open": false
+    }
+  ],
+  "levers": [
+    {
+      "id": "G1",
+      "label": "G1",
+      "x": 12,
+      "y": 12,
+      "gates": [
+        "WORK"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "G2",
+      "label": "G2",
+      "x": 12,
+      "y": 26,
+      "gates": [
+        "FOOD"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "P1",
+      "label": "P1",
+      "x": 14,
+      "y": 32,
+      "gates": [],
+      "dispensers": [],
+      "pits": [
+        "P1"
+      ]
+    },
+    {
+      "id": "F",
+      "label": "F",
+      "x": 40,
+      "y": 11,
+      "gates": [
+        "SUN-FOOD"
+      ],
+      "dispensers": []
+    },
+    {
+      "id": "G3",
+      "label": "G3",
+      "x": 34,
+      "y": 23,
+      "gates": [
+        "BRIDGE",
+        "PIT-CUT",
+        "RETURN"
+      ],
+      "dispensers": []
+    }
+  ],
+  "dispensers": []
+}
+```
+
+
+Lösungsskript (Koordinaten ab 0 einschließlich Außenwand):
+
+```text
+walk 13 12
+use left
+clear 25 20
+walk 25 20
+walk 25 19
+walk 26 19
+walk 28 22
+walk 43 12
+strike sun-50 right
+key sun-50
+walk 35 23
+use left
+walk 30 21
+equip
+snap up
+walk 32 21
+cool
+equip
+walk 38 29
+walk 51 18
+harvest 41 18 18 11
+walk 42 28
+equip
+move left
+snap left
+move right
+cool
+equip
+walk 45 31
+equip
+snap down
+walk 43 31
+cool
+equip
+key moon-50
+walk 6 4
+```
+
 ## Alternative in Höhle 10: Felsfalle
 
 Auch diese Lösung verwendet die normale Simulation und denselben Ausgang. Replay: public/replays/10-crush.json.
 
 ```text
+walk 7 5
 walk 12 20
 walk 12 19
 snap up

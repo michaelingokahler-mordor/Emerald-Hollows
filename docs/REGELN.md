@@ -1,4 +1,20 @@
-# Aktuelle Regeln – Lathmar: Emerald Hollows 0.11
+# Kapitel V — Regeln 0.12 für Höhlen 41–50
+
+Regelversion `emerald-hollows/7` ergänzt die bestehenden Käferregeln. Höhlen 01–40 behalten unverändert ihre bisherigen Regeln und Prüfsummen. [Kapitelaufgaben und Abnahme](KAPITEL-5-UMSETZUNG.md).
+
+- Spinnen weben freie Bodenfelder und verfolgen Schritte im verbundenen Netz. Lücken trennen die Wahrnehmung. Netze verdoppeln die Bewegungskosten des Miners und aller Käfer; Spinnen bleiben unbeeinträchtigt.
+- Gefressene Käfer werden Kokons mit 15 Sekunden Reifezeit. Im Kokon gibt es keine Käferbewegung, Verwandlung oder Einschlusszählung und keinen Explosionscountdown. Nach Reife entsteht genau eine neue Spinne.
+- Hacke plus Richtung öffnet einen angrenzenden Kokon. Der ursprüngliche Käfer ist drei Sekunden betäubt: kein Kontaktschaden, keine Bewegung, keine Fusion und kein Countdown. Spinnen können ihn währenddessen nicht erneut einspinnen. Danach beginnen normale Warnzeiten neu. Andere aktive Gegner bleiben gefährlich.
+- Ab 43 wird die Fackel in jeder Höhle neu erschlossen. E oder die Ausrüstungstaste wechselt Hacke/Fackel. Mit Fackel ist auch automatisches Graben beim Betreten von Erde gesperrt. Keine Brennstoffanzeige, keine direkte Waffe und kein Schutz vor Gegnerkontakt.
+- Fackel plus Richtung entzündet ein angrenzendes Netz; Explosionen zünden ebenfalls. Ein Feld brennt zwei Sekunden und entzündet nach einer Sekunde seitlich angrenzende Netzfelder. Diagonalen, Lücken, Wände und geschlossene Tore unterbrechen das Feuer. Flammen töten Miner, Käfer und Spinnen.
+- Feuer vernichtet einen Kokon samt Beute, ohne Rubin oder Nachwuchs. Goldene Beute behält ihren Schlüssel bei Befreiung; Vernichtung oder Geburt gibt ihn genau einmal frei. Schlüssel sind feuerfest.
+- Jede getötete Spinne hinterlässt einen Rubin (zwei Kristallpunkte). Bei einem direkten Felsentreffer wird das Geschoss verbraucht. Rubine fallen und rollen wie andere Edelsteine und überstehen Netzbrand. Kein zusätzlicher Spinnenbonus. Weiße Käfer ergeben nur beim Zerquetschen Diamanten.
+- Alle Pits in Spinnenhöhlen haben endlichen Gesamtvorrat. Abschalten beseitigt keine Käfer, Kokons oder Spinnen; Wiedereinschalten füllt nichts auf.
+- Pause hält alle Uhren an. Fortsetzen bewahrt Ausrüstung, Netze, Feuer und Kokons; Neustart setzt alles zurück. Speichern und Replay verwenden dieselbe feste Taktfolge, unabhängig von Bildrate.
+
+---
+
+# Regeln der bisherigen Höhlen — Lathmar: Emerald Hollows 0.11
 
 Regelversion 6 gilt in 05–07, 09–10, 12–13, 15–16, 19–38 und 40. Unverändert bleiben 01–04, 08, 11, 14, 17, 18 und 39. Die folgenden Ergänzungen ersetzen dort die historischen Käferregeln. Vollständige englische Fassung: [RULES.md](RULES.md).
 

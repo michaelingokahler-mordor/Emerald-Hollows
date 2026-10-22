@@ -1,3 +1,4 @@
+import {validateSilk,initializeSilk,advanceFire,moveSpiders,hatchCocoons,destroySilkCreature,openCocoon,igniteNet,collectTorch,disturb,isStunned,cleanSilk,burning} from './spiders';
 import {initializeBeetles,validateBeetles,moveBeetles,explodeTrapped,fallKeys,releaseKey,recordDefeat,containmentDone,containedBeetles} from './beetles';
 import {validateMining,initializeMining,spawnPits} from './mining';
 import { DELTAS, DIRECTIONS, rulesFor, isCrawler, type Direction, type Entity, type GameEvent, type GameState, type InputFrame, type LevelDefinition, type Replay, type Terrain } from './types';
@@ -23,7 +24,7 @@ export function crawlerIsTrapped(state:GameState,crawler:Entity):boolean {
   return seen.size<=2;
 }
 export function levelHash(level: LevelDefinition): string {
-  return hash({ map: level.map, quota: level.quota, time: level.timeSeconds, rules: rulesFor(level), ...(level.objective?{objective:level.objective}:{}),...(level.mechanisms?{mechanisms:level.mechanisms}:{}),...(level.passages?{passages:level.passages}:{}),...(level.mining?{mining:level.mining}:{}),...(level.keyCarriers?{keyCarriers:level.keyCarriers}:{}),...(level.containment?{containment:level.containment}:{}) });
+  return hash({ map: level.map, quota: level.quota, time: level.timeSeconds, rules: rulesFor(level), ...(level.objective?{objective:level.objective}:{}),...(level.mechanisms?{mechanisms:level.mechanisms}:{}),...(level.passages?{passages:level.passages}:{}),...(level.mining?{mining:level.mining}:{}),...(level.keyCarriers?{keyCarriers:level.keyCarriers}:{}),...(level.containment?{containment:level.containment}:{}),...(level.silk?{silk:level.silk}:{}) });
 }
 export function validateLevel(level: LevelDefinition): void {
   if (level.map.length !== level.height || level.map.some(r => r.length !== level.width)) throw new Error(`${level.id}: invalid dimensions`);
@@ -34,8 +35,8 @@ export function validateLevel(level: LevelDefinition): void {
   if (level.map.some((r,y) => [...r].some((c,x) => (x===0 || y===0 || x===level.width-1 || y===level.height-1) && !'#X'.includes(c)))) throw new Error(`${level.id}: open boundary`);
   const available = [...cells].reduce((n,c) => n+(c==='M'?1:c==='D'||c==='C'?3:0),0);
   const fusionPotential=hasMechanismRules(level)?3*Math.min([...cells].filter(c=>'^v<>'.includes(c)).length,[...cells].filter(c=>'urdl'.includes(c)).length):0;
-  if (available+fusionPotential+(hasBeetleRules(level)?3*([...cells].filter(c=>'1234'.includes(c)).length+(level.mining?.pits.reduce((n,p)=>n+(p.stock??1),0)??0)):0) < level.quota) throw new Error(`${level.id}: insufficient gems`);
-  validateMechanisms(level); validatePassages(level); validateMining(level); validateBeetles(level);
+  if (available+fusionPotential+(hasBeetleRules(level)?3*([...cells].filter(c=>'1234'.includes(c)).length+(level.mining?.pits.reduce((n,p)=>n+(p.stock??1),0)??0)):0)+(level.silk?2*(level.silk.spiders.length+[...cells].filter(c=>'^v<>urdlC1234'.includes(c)).length+(level.keyCarriers?.length??0)+(level.mining?.pits.reduce((n,p)=>n+(p.stock??0),0)??0)):0) < level.quota) throw new Error(`${level.id}: insufficient gems`);
+  validateMechanisms(level); validatePassages(level); validateMining(level); validateBeetles(level); validateSilk(level);
 }
 
 export class Simulation {
@@ -59,7 +60,7 @@ export class Simulation {
       }
     }
     this.state = { terrain, entities, player, tick:0, points:0, status:'playing', remainingTicks:this.level.timeSeconds*10,open:false,practice,deathReason:'',...(this.level.objective?{objectiveDone:false}:{}) };
-    initializeMechanisms(this.level,this.state); initializePassages(this.level,this.state); initializeMining(this.level,this.state); initializeBeetles(this.level,this.state);
+    initializeMechanisms(this.level,this.state); initializePassages(this.level,this.state); initializeMining(this.level,this.state); initializeBeetles(this.level,this.state); initializeSilk(this.level,this.state);
   }
   entityAt(x:number,y:number): Entity | undefined { return this.fallingIndex?this.fallingIndex.get(`${x},${y}`):this.state.entities.find(e => e.x===x && e.y===y); }
   terrainAt(x:number,y:number): Terrain { return this.state.terrain[y]?.[x] ?? 'steel'; }
@@ -68,9 +69,9 @@ export class Simulation {
   private emit(type:GameEvent['type'],x:number,y:number): void { this.events.push({type,x,y}); }
   private die(reason:string): void { this.state.status='dead'; this.state.deathReason=reason; this.emit('death',this.state.player.x,this.state.player.y); }
   private collect(e:Entity): void {
-    this.state.points += e.kind==='diamond'?3:1;
+    this.state.points += e.kind==='diamond'?3:e.kind==='ruby'?2:1;
     this.state.entities = this.state.entities.filter(item => item.id!==e.id);
-    this.emit(e.kind==='diamond'?'diamond':'emerald',e.x,e.y);
+    this.emit(e.kind==='diamond'?'diamond':e.kind==='ruby'?'ruby':'emerald',e.x,e.y);
     this.refreshExit();
   }
   private refreshExit():void {
@@ -89,9 +90,10 @@ export class Simulation {
     if (s.status!=='playing') return this.events;
     this.inputs.push({...input}); s.tick++;
     const moved = new Set<number>();
+    if(input.toggleTool&&s.silk?.hasTorch){s.silk.tool=s.silk.tool==='torch'?'pickaxe':'torch';this.emit('equip',s.player.x,s.player.y);}
     const freshAction=!!input.snap&&!!input.direction&&!s.mechanisms?.held;
     if(s.mechanisms)s.mechanisms.held=!!input.snap&&!!input.direction;
-    if (input.direction) {
+    if (input.direction&&(input.snap||!s.silk||s.tick>=s.silk.playerDue)) {
       s.player.direction=input.direction;
       const d=DELTAS[input.direction]; const x=s.player.x+d.x,y=s.player.y+d.y;
       if(!input.snap)unlockDoor(this.level,s,x,y,this.events);
@@ -100,40 +102,49 @@ export class Simulation {
       const terrain=this.terrainAt(x,y); const occupant=this.entityAt(x,y);
       if (input.snap) {
         if(freshAction&&activateLever(this.level,s,x,y,this.events)){/* One complete switch per fresh chord. */}
+        else if(s.silk?.tool==='torch'){igniteNet(s,x,y,this.events);}
+        else if(occupant?.kind==='cocoon'){openCocoon(s,occupant,this.events);}
         else if (terrain==='earth') { s.terrain[y][x]='empty'; this.emit('dig',x,y); }
-        else if (occupant?.kind==='emerald' || occupant?.kind==='diamond') this.collect(occupant);
-        if(!this.entityAt(x,y)&&this.terrainAt(x,y)==='empty')collectKey(this.level,s,x,y,this.events);
+        else if (occupant?.kind==='emerald' || occupant?.kind==='diamond' || occupant?.kind==='ruby') this.collect(occupant);
+        if(!this.entityAt(x,y)&&this.terrainAt(x,y)==='empty'){collectKey(this.level,s,x,y,this.events);collectTorch(this.level,s,{x,y},this.events);}
       } else if (terrain==='exit') {
         if (s.open) { s.player.x=x; s.player.y=y; s.status='won'; this.emit('win',x,y); return this.events; }
-      } else if (terrain==='empty' || terrain==='earth') {
+      } else if (terrain==='empty' || terrain==='earth'&&s.silk?.tool!=='torch') {
         const target=portalTarget(this.level,x,y);
         const blockedArrival=target&&!arrivalFree(s,target.x,target.y);
         if(blockedArrival)this.emit('blocked',x,y);
         let canMove=!occupant&&!blockedArrival;
-        if (!blockedArrival&&(occupant?.kind==='emerald' || occupant?.kind==='diamond')) { this.collect(occupant); canMove=true; }
-        else if (!blockedArrival && occupant && isCrawler(occupant.kind)) { s.player.x=x; s.player.y=y; this.die(occupant.kind==='digger'?'Du bist mit einem Grabe-Käfer zusammengestoßen.':occupant.kind==='crystal-crawler'?'Du bist mit einem Kristallkrabbler zusammengestoßen.':'Du bist mit einem Schieferkrabbler zusammengestoßen.'); return this.events; }
+        if (!blockedArrival&&(occupant?.kind==='emerald' || occupant?.kind==='diamond' || occupant?.kind==='ruby')) { this.collect(occupant); canMove=true; }
+        else if (!blockedArrival && occupant && (isCrawler(occupant.kind)&&!isStunned(s,occupant)||occupant.kind==='spider')) { s.player.x=x; s.player.y=y; this.die(occupant.kind==='spider'?'Du bist mit einer Spinne zusammengestoßen.':occupant.kind==='digger'?'Du bist mit einem Grabe-Käfer zusammengestoßen.':occupant.kind==='crystal-crawler'?'Du bist mit einem Kristallkrabbler zusammengestoßen.':'Du bist mit einem Schieferkrabbler zusammengestoßen.'); return this.events; }
         else if (!blockedArrival && occupant?.kind==='rock' && !occupant.falling && d.y===0 && this.empty(x+d.x,y)) {
           occupant.x+=d.x; moved.add(occupant.id); canMove=true; this.emit('push',x,y);
         }
         if (canMove) {
-          s.player.x=x; s.player.y=y; if (terrain==='earth') { s.terrain[y][x]='empty'; this.emit('dig',x,y); }
+          const oldWeb=!!s.silk?.webs[`${s.player.x},${s.player.y}`];
+          s.player.x=x; s.player.y=y; if(s.silk){s.silk.playerDue=s.tick+(oldWeb||s.silk.webs[`${x},${y}`]?2:1);disturb(s,s.player,0);collectTorch(this.level,s,s.player,this.events);}
+          if (terrain==='earth') { s.terrain[y][x]='empty'; this.emit('dig',x,y); }
           collectKey(this.level,s,x,y,this.events);
           if(target){s.player.x=target.x;s.player.y=target.y;s.passages!.transfers++;this.emit('teleport',target.x,target.y);}
         }
       }
     }
-    const falling = s.entities.filter(e=>!isCrawler(e.kind)).sort((a,b)=>b.y-a.y || a.x-b.x || a.id-b.id);
+    if(s.silk){advanceFire(s,this.events);if(String(s.status)==='dead')return this.events;explodeTrapped(this.level,s,this.events);advanceFire(s,this.events);if(String(s.status)==='dead')return this.events;}
+    const falling = s.entities.filter(e=>['rock','emerald','diamond','ruby'].includes(e.kind)&&(!s.silk||s.tick>(e.bornTick??-1))).sort((a,b)=>b.y-a.y || a.x-b.x || a.id-b.id);
     // Dense v5 ore fields use an ephemeral occupancy index during gravity only.
     // Updating it in finally preserves the exact original sequential tick order.
-    if(s.mining)this.fallingIndex=new Map(s.entities.map(e=>[`${e.x},${e.y}`,e]));
+    if(s.mining&&!s.silk)this.fallingIndex=new Map(s.entities.map(e=>[`${e.x},${e.y}`,e]));
     try { for (const e of falling) {
       const oldCell=`${e.x},${e.y}`;let removed=false;
       try {
       if (moved.has(e.id)) continue;
       const below=this.entityAt(e.x,e.y+1);
       const playerBelow=this.playerAt(e.x,e.y+1);
-      if (e.falling && (playerBelow || below && isCrawler(below.kind))) {
+      if (e.falling && (playerBelow || below && (isCrawler(below.kind)||below.kind==='spider'||below.kind==='cocoon'))) {
         if (playerBelow) { e.y++; this.die('Ein fallender Stein oder Kristall hat dich getroffen.'); return this.events; }
+        if(below!.kind==='spider'||below!.kind==='cocoon'){
+          const spider=below!.kind==='spider';destroySilkCreature(s,below!,this.events);
+          if(spider){s.entities=s.entities.filter(a=>a.id!==e.id);removed=true;}else{e.y++;moved.add(e.id);}continue;
+        }
         if(below!.kind==='crystal-crawler'||below!.kind==='key-crawler'){
           if(below!.kind==='key-crawler'){
             releaseKey(s,below!,this.events);recordDefeat(s,below!,'crushed');
@@ -157,7 +168,7 @@ export class Simulation {
       if (this.empty(e.x,e.y+1)) { e.y++; e.falling=true; moved.add(e.id); continue; }
       if (e.falling) this.emit('impact',e.x,e.y);
       e.falling=false;
-      if (below && !isCrawler(below.kind)) {
+      if (below && ['rock','emerald','diamond','ruby'].includes(below.kind)) {
         for (const dx of [-1,1]) {
           if (this.empty(e.x+dx,e.y) && this.empty(e.x+dx,e.y+1)) { e.x+=dx; e.falling=true; moved.add(e.id); break; }
         }
@@ -168,7 +179,7 @@ export class Simulation {
     if (hasBeetleRules(this.level)) {
       if(s.tick%3===0)moveBeetles(this.level,s,this.events);
       if(String(s.status)==='dead')return this.events;
-      explodeTrapped(this.level,s,this.events);
+      if(!s.silk)explodeTrapped(this.level,s,this.events);
       if(String(s.status)==='dead')return this.events;
     } else if (s.tick%3===0) {
       const newborn=new Set<number>();fuseCrawlers(s,this.events,newborn);
@@ -186,6 +197,7 @@ export class Simulation {
         }
       }
     }
+    if(s.silk){moveSpiders(this.level,s,this.events);if(String(s.status)==='dead')return this.events;hatchCocoons(s,this.events);cleanSilk(this.level,s);}
     spawnPits(this.level,s,this.events);
     if(this.level.objective==='trap')s.objectiveDone=hasBeetleRules(this.level)?containmentDone(this.level,s):s.entities.some(e=>isCrawler(e.kind)&&this.isTrapped(e));
     this.refreshExit();

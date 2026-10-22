@@ -1,3 +1,4 @@
+import {isStunned} from './spiders';
 import {hasMechanismRules,type LevelDefinition,type Entity,type GameState,type GameEvent} from './types';
 
 export function validateMechanisms(l:LevelDefinition):void{
@@ -32,7 +33,7 @@ export function activateLever(level:LevelDefinition,s:GameState,x:number,y:numbe
  const occupied=(x:number,y:number)=>s.player.x===x&&s.player.y===y||s.entities.some(e=>e.x===x&&e.y===y);
  const gates=defs.gates.filter(g=>lever.gates.includes(g.id)),dispensers=defs.dispensers.filter(d=>lever.dispensers.includes(d.id));
  if(gates.some(g=>m.gates[g.id]&&occupied(g.x,g.y))||dispensers.some(d=>m.stocks[d.id]===0||m.cooldowns[d.id]>s.tick||s.terrain[d.y+1][d.x]!=='empty'||occupied(d.x,d.y+1))){events.push({type:'blocked',x,y});return true;}
- for(const g of gates){m.gates[g.id]=!m.gates[g.id];s.terrain[g.y][g.x]=m.gates[g.id]?'empty':'wall';}
+ for(const g of gates){m.gates[g.id]=!m.gates[g.id];s.terrain[g.y][g.x]=m.gates[g.id]?'empty':'wall';if(s.silk&&!m.gates[g.id])delete s.silk.webs[`${g.x},${g.y}`];}
  for(const d of dispensers){m.stocks[d.id]--;m.released++;m.cooldowns[d.id]=s.tick+3;s.entities.push({id:m.nextId++,kind:'rock',x:d.x,y:d.y+1,direction:'down',falling:false});events.push({type:'release',x:d.x,y:d.y});}
  for(const id of lever.pits??[]){const pit=s.mining!.pits[id],def=level.mining!.pits.find(p=>p.id===id)!;pit.active=def.stock!==undefined&&pit.spawned>=def.stock?false:!pit.active;if(pit.active)pit.due=s.tick+def.delay;}
  m.levers[lever.id]=!m.levers[lever.id];events.push({type:'switch',x,y});return true;
@@ -40,7 +41,7 @@ export function activateLever(level:LevelDefinition,s:GameState,x:number,y:numbe
 export function fuseCrawlers(s:GameState,events:GameEvent[],newborn:Set<number>):void{
  const m=s.mechanisms;if(!m)return;
  const pairs:Array<[Entity,Entity]>=[];
- for(const blue of s.entities.filter(e=>e.kind==='crawler'))for(const purple of s.entities.filter(e=>e.kind==='purple-crawler'))if(Math.abs(blue.x-purple.x)+Math.abs(blue.y-purple.y)===1)pairs.push([blue,purple]);
+ for(const blue of s.entities.filter(e=>e.kind==='crawler'&&!isStunned(s,e)))for(const purple of s.entities.filter(e=>e.kind==='purple-crawler'&&!isStunned(s,e)))if(Math.abs(blue.x-purple.x)+Math.abs(blue.y-purple.y)===1)pairs.push([blue,purple]);
  pairs.sort((a,b)=>Math.min(a[0].id,a[1].id)-Math.min(b[0].id,b[1].id)||Math.max(a[0].id,a[1].id)-Math.max(b[0].id,b[1].id));
  for(const [blue,purple]of pairs){
   if(!s.entities.includes(blue)||!s.entities.includes(purple))continue;
