@@ -34,19 +34,25 @@ Level 11–20 sind neu gebaut; ab Kapitelstufe 4 stehen größere Abbaugebiete u
 
 14–20 wurden neu entworfen; 11–13 bleiben bestehen. Die Änderungen und Gegenprüfungen stehen in [Kapitelrollen 0.8](KAPITEL-2-ROLLEN-0.8.md). Ab jetzt gelten die [Leveldesign-Regeln](LEVELDESIGN-REGELN.md) für kommende Kapitel. Vor dem Bau von 21–30 werden Leitentscheidung, Folge, Sammelplanung und Abgrenzung je Karte festgehalten; ein Lösungsreplay allein ist keine Abnahme.
 
-## Weitere Kapitel — ab 21 noch nicht implementiert
+## Aktueller Stand und weitere Kapitel — 22. Oktober 2026
+
+Die frühere Kapitelzuordnung wurde während der Entwicklung geändert. Der Regelkern und die spielbaren Karten haben Vorrang vor historischen Vorschlägen. Spinnen sind noch nicht implementiert. Der Nutzer hat ihre Kernregeln am 22. Oktober hier festgehalten: Netze bremsen andere Wesen; Fressen im Netz erzeugt Nachwuchs; Explosionen können Netze entzünden. Der [Entwurf für 41–50](KAPITEL-5-ENTWURF-41-50.md) trennt diese Vorgaben von offenen Details. Grün oder Rubin beim Spinnentod bleibt eine Entscheidung. [Recherche zur Explosion](EXPLOSIONEN-REFERENZEN-2026-10-22.md).
 
 | Level | Einführung und Schwerpunkt |
 |---|---|
 | 11–20 | Implementiert: Hebel, Tore, zwei Käferrichtungen, Fusion und Steinspender |
-| 21–30 | Entwurf: Schlüssel, komplexere Torverbindungen; Zwergen-Abzweig in 25, Teleporter ab 26 zur Besprechung |
-| 31–40 | Dynamit, sichtbare Zündzeit, zerstörbare Mauern, 3 × 3 Explosion |
-| 41–50 | Paarweise Teleporter-Türen innerhalb einer Höhle; Verfolger |
+| 21–30 | Implementiert: Sonnen-/Mondschlüssel, goldene Schlüsselträger und feste Portalpaare. Zwergen-Geheimzweig weiterhin versiegelt. |
+| 31–40 | Implementiert: Grabekäfer, Muttergestein, verzögerte und wiederkehrende Pits. Die frühere Dynamit-Zuordnung wurde nicht umgesetzt. |
+| 41–50 | Neuer Entwurf: Spinnen, bremsende Netze, Vermehrung durch Fressen und Netzbrand. Bewegungs-, Feuer- und Funddetails noch offen; Teleporter sind bereits vorhanden. |
 | 51–60 | Säure, ablassbare Wasserbecken, Schleusen und Treibsand |
 | 61–70 | Corruption: deterministisches Wachstum und kontrollierte Freiräume |
 | 71–80 | Zeitweise aktive Zauberwände, Fels-zu-Smaragd; Elfen-Abzweig in 75 |
 | 81–90 | Größere verbundene Kammern und verschiebbare Steinriegel |
 | 91–100 | Kombinationen, Rückwege und Finale ohne neue Grundregeln |
+
+Weiterhin offen sind platzierbares Dynamit mit eigener Zündzeit, Säure, Wasser mit ablassbaren Becken und Schleusen, Treibsand, Corruption sowie zeitweise aktive Zauberwände zur Umwandlung von Felsen in Smaragde. Für Dynamit ist nach der geänderten Kapitel-IV-Belegung noch kein neuer Einführungsplatz festgelegt. Käferexplosionen sind bereits vorhanden und ersetzen kein bedienbares Dynamit.
+
+Hebelgesteuerte verschiebbare Steinriegel sind ebenfalls offen; gewöhnliches Schieben einzelner Felsen ist schon spielbar. Die beiden Geheimkampagnen G1–G10 und E1–E10 einschließlich ihrer Übergänge fehlen. Die vorgesehenen schiebenden Zwerge und Elfen mit angekündigten Fernangriffen sind noch nicht implementiert.
 
 Ziel: **100 Hauptlevel plus 20 Geheimlevel**, insgesamt 120. Jede Erweiterung erhält eigene Prüfkarten und erfolgreiche Lösungsreplays. Handgebaute Karten wachsen schrittweise bis 64 × 40; kleine schwierige Räume bleiben dazwischen. Spätere bekannte Lösungen sollen überwiegend 3–8 Minuten dauern. Die Demo verspricht diese Länge noch nicht.
 
