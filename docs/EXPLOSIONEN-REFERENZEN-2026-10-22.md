@@ -48,6 +48,8 @@ Das Raster bleibt erkennbar; die Explosion soll wie ein kurzer Ausbruch wirken. 
 
 Für brennende Netze ist eine **andere, anhaltende Animation** nötig: glühende Fäden, kleine wandernde Flammen und sichtbares Verschwinden des Netzes. Die kurze Explosion darf nicht mit einem weiter gefährlichen Brandfeld verwechselt werden. Die Branddauer gehört in die Simulation; die Darstellung liest diesen Zustand.
 
+Im [endgültigen Kapitelplan für 41–50](KAPITEL-5-ENTWURF-41-50.md) ist dafür festgelegt: **zwei Sekunden Brand pro Netzfeld, Entzündung direkt benachbarter Netzfelder nach einer Sekunde**. Jede Flamme hat ihre eigene Uhr. Das sind die gewählten Spielregeln von Emerald Hollows, keine aus den historischen Vorbildern ermittelten Zeiten. Die Explosionsanimation verkürzt oder verlängert diese Branduhren nicht.
+
 ## Abnahme vor Integration
 
 - Standbilder und eine laufende Bildfolge auf dunklem Boden, Erde, Stahl und neben Edelsteinen vergleichen.
