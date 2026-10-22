@@ -3,6 +3,7 @@ import {readFileSync} from 'node:fs';
 import {LEVELS} from '../src/levels';
 import previous from '../src/levels-v010.json';
 import {UNCHANGED_V011} from '../src/revision-v011';
+import {FEEDBACK_CAVE_IDS} from '../src/feedback-caves-v012';
 import {Simulation,levelHash,runReplay,hash} from '../src/core/simulation';
 import {DELTAS,isCrawler,type LevelDefinition,type Replay} from '../src/core/types';
 import {portalTarget} from '../src/core/passages';
@@ -26,12 +27,13 @@ function omit(id:string,lever:string){const s=new Simulation(cave(id));for(const
 describe('v0.11 map revision and compatible records',()=>{
  for(const l of LEVELS)it(`${l.id}: current proof, complete reset, and only changed hashes retire`,()=>{
   const old=(previous as LevelDefinition[]).find(o=>o.id===l.id)!;
-  expect(levelHash(old)===levelHash(l)).toBe(UNCHANGED_V011.includes(l.id));
-  expect(compatibleHashes(l).includes(levelHash(old))).toBe(UNCHANGED_V011.includes(l.id));
+  const unchanged=UNCHANGED_V011.includes(l.id)&&!FEEDBACK_CAVE_IDS.includes(l.id);
+  expect(levelHash(old)===levelHash(l)).toBe(unchanged);
+  expect(compatibleHashes(l).includes(levelHash(old))).toBe(unchanged);
   const r=proof(l.id),s=runReplay(l,r);expect(s.state.status).toBe('won');expect(checkedReplay(r)).toEqual(r);
   expect(s.state.tick).toBeLessThanOrEqual(l.timeSeconds*10);
   s.reset();expect(hash(s.state)).toBe(hash(new Simulation(l).state));
-  if(!UNCHANGED_V011.includes(l.id)){expect(l.rulesVersion).toBe('emerald-hollows/6');expect(l.passages?.keys??[]).toEqual([]);expect(l.timeSeconds%5).toBe(0);expect(l.timeSeconds).toBeLessThanOrEqual(r.inputs.length*.3);}
+  if(!unchanged){expect(l.rulesVersion).toBe('emerald-hollows/6');expect(l.passages?.keys??[]).toEqual([]);expect(l.timeSeconds%5).toBe(0);expect(l.timeSeconds).toBeLessThanOrEqual(r.inputs.length*.3);}
  });
 });
 describe('v6 mandatory-action counter-runs',()=>{

@@ -1,0 +1,232 @@
+[
+  {
+    "id": "07",
+    "name": "Der richtige Augenblick",
+    "subtitle": "Ein Abwurf aus sicherer Entfernung",
+    "width": 28,
+    "height": 18,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXRXXXXXXXXXX",
+      "XX.P.....................XXX",
+      "XXXXXXXXXXXXXXXXX XXXXXX.XXX",
+      "XXXXXXXXXXXXXXXXX XXXXXX.XXX",
+      "XXXXXXX >               .XXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXX.XXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXX.XXX",
+      "XXXXXE...XXXXXXXXXXXXXXX.XXX",
+      "XXXXX....XXXXXXXXXXXXXXX.XXX",
+      "XXXXX...........D.D.D....XXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "quota": 9,
+    "timeSeconds": 20,
+    "difficulty": 3,
+    "rulesVersion": "emerald-hollows/6",
+    "objective": "crush",
+    "hint": "Beobachte die aktuelle Laufrichtung. Entferne die Stütze von der Seite so, dass der fallende Fels den Käfer erreicht. Nach dem Treffer führt die untere Sammlung zurück zum Ausgang.",
+    "solution": "Beobachte die aktuelle Laufrichtung. Entferne die Stütze von der Seite so, dass der fallende Fels den Käfer erreicht. Nach dem Treffer führt die untere Sammlung zurück zum Ausgang.",
+    "route": "walk 16 5; strike crawler right; wait 4; walk 24 5; walk 24 13; walk 20 13; walk 18 13; walk 16 13; walk 5 13; walk 5 11",
+    "parTicks": 0,
+    "mechanisms": {
+      "gates": [],
+      "levers": [],
+      "dispensers": []
+    },
+    "mining": {
+      "pits": []
+    },
+    "english": {
+      "name": "The Right Moment",
+      "subtitle": "The changing mine",
+      "hint": "Observe the current patrol direction. Remove the support from the side so the falling rock intercepts the beetle. After the hit, collect along the lower return gallery."
+    }
+  },
+  {
+    "id": "08",
+    "name": "Der lange Bogen",
+    "subtitle": "Es gibt mehr als einen Weg",
+    "width": 30,
+    "height": 20,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "X############################X",
+      "X############################X",
+      "X##P................R....E###X",
+      "X##.####.###########.####.###X",
+      "X##.####.###########.####.###X",
+      "X##.####.###########.####.###X",
+      "X##.####.################.###X",
+      "X##.####...D..D...#######.###X",
+      "X##.#############.#######.###X",
+      "X##.#############.#######.###X",
+      "X##.#############.#######.###X",
+      "X##.#############.#######.###X",
+      "X##.#############.#######.###X",
+      "X##.#############.#######.###X",
+      "X##....D....D.....D....D..###X",
+      "X############################X",
+      "X############################X",
+      "X############################X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "quota": 12,
+    "timeSeconds": 16,
+    "difficulty": 2,
+    "hint": "Wähle deine Route: Sechs Diamanten bieten 18 Punkte, aber vier Diamanten (12 Punkte) reichen. Vier liegen im unteren Rundgang, zwei im mittleren Abzweig. Du kannst Schätze aus beiden Wegen kombinieren; ein vollständiges Ausräumen ist nicht nötig.",
+    "solution": "Links nach unten graben, die vier Diamanten entlang der unteren Galerie einsammeln und rechts zum Ausgang aufsteigen. Die Kammer in der Mitte ist optional.",
+    "route": "walk 3 15; walk 7 15; walk 12 15; walk 18 15; walk 23 15; walk 25 15; walk 25 3",
+    "parTicks": 0
+  },
+  {
+    "id": "10",
+    "name": "Ein Tor nach Lathmar",
+    "subtitle": "Am Ende der alten Mine",
+    "width": 40,
+    "height": 26,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXX......XXX..DEXX",
+      "XX......XXXXXXXXXXXXXXXXX.XXXX.XXXDXXXXX",
+      "XX....R.XXXXXXXXXXXXXXXXX.XXXX.RXX.XXXXX",
+      "XX......XXXXXXXXXXXXXXXXX.XX X..XXDXXXXX",
+      "XX......XXXXXXXXXXXXXXXXX.XX XX XX.XXXXX",
+      "XX......XXXXXXXXXXXXXXXX...R  <     XXXX",
+      "XX......XXXXXXXXXXXXXXXX.XX...XXXXXXXXXX",
+      "XXXX.XXXXXXXXXXXXXXXXXXX.XX...XXXXXXXXXX",
+      "XXXX.XXXXXXXXXXXXXXXXXXX.XXX XXXXXXXXXXX",
+      "XXXX.XXXXXX.D.D.D.D.RD.D.DXX XXXXXXXXXXX",
+      "XXXX.XXXXXX.XXXXXXX .XX.XXXX XXXXXXXXXXX",
+      "XXXX.XXXXXX.XXXXXXXX XX.XXXX XXXXXXXXXXX",
+      "XXXX.XXXXXX.XXXXXXXX XX.XXXX XXXXXXXXXXX",
+      "XXXX.XXXXXX.XXXXXXXX XX.XXXXXXXXXXXXXXXX",
+      "XXXX.XXXXXX.XXXXXXXX XX.XXXXXXXXXXXXXXXX",
+      "XXXX.XXXXX.R.XXXXXXX XX....XXXXXXXXXXXXX",
+      "XXXX.XXXXX.X.XXXXXXX XX.M..XXXXXXXXXXXXX",
+      "XX.P..........XXXXXX XX....XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXX XX...MXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "quota": 30,
+    "timeSeconds": 40,
+    "difficulty": 3,
+    "hint": "Die enge Bucht wird zur Sprengfalle: Schiebe den Riegel, wenn der Käfer oben ist, und ziehe dich vor dem roten Pulsieren zurück. Alternativ nutze den oberen Felsabwurf. Hinter der Wache liegen drei notwendige Diamanten.",
+    "solution": "Die enge Bucht wird zur Sprengfalle: Schiebe den Riegel, wenn der Käfer oben ist, und ziehe dich vor dem roten Pulsieren zurück. Alternativ nutze den oberen Felsabwurf. Hinter der Wache liegen drei notwendige Diamanten.",
+    "route": "walk 12 20; walk 12 19; snap up; walk 12 20; walk 10 20; walk 10 18; move right; walk 11 12; walk 12 12; walk 14 12; walk 16 12; walk 18 12; walk 19 12; walk 19 13; snap right; wait 12; walk 19 12; walk 21 12; walk 23 12; walk 25 12; walk 24 12; walk 24 8; walk 26 8; until 28 6 crawler; move right; walk 25 8; wait 61; walk 27 9; walk 27 9; walk 27 10; walk 29 10; walk 29 8; walk 30 8; walk 34 6; walk 34 4; walk 36 3; walk 37 3",
+    "parTicks": 0,
+    "rulesVersion": "emerald-hollows/6",
+    "mechanisms": {
+      "gates": [],
+      "levers": [],
+      "dispensers": []
+    },
+    "mining": {
+      "pits": []
+    },
+    "english": {
+      "name": "A Gate to Lathmar",
+      "subtitle": "The changing mine",
+      "hint": "The narrow alcove becomes a blast trap: push the barrier while the beetle is above, then withdraw from its red warning. Alternatively use the upper rock drop. Three necessary diamonds lie beyond the guard."
+    }
+  },
+  {
+    "id": "12",
+    "name": "Die zweite Runde",
+    "subtitle": "Beobachten, verbinden, sammeln",
+    "width": 36,
+    "height": 26,
+    "map": [
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXX     XXX     XXXXXXXXXXXXXXXXXXX",
+      "XXXX  X <XXX  X lXXXXX  >#l  XXXXXXX",
+      "XXXX     XXX     XXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "XXXXXXXXXXXXXXXXXXXX#XXXXXXXXXXXXXXX",
+      "XXXP...........................XXXXX",
+      "XXX.XXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX",
+      "XXX.XXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX",
+      "XXX.XXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXX",
+      "XXR...........XXXXXXX.....D......RXX",
+      "XX.M.........MXXXXXXXM....X.....M.XX",
+      "XX.X....M....XXXXXXXXX.....M....X.XX",
+      "XX......X.....XXXXXXX......X......XX",
+      "XX..XXXXXXX..DXXXXXXXM.XXXXXXXX...XX",
+      "XX...M......MXXXXXXXXX.M......M...XX",
+      "XX...X......X.XXXXXXX..XD..........X",
+      "XXM.....M.....XXXXXXX...X..M.....M.X",
+      "XXX..XXXXXXX..XXXXXXX...XXXXXXXX.X.X",
+      "XX...........MXXXXXXXM............#X",
+      "XX...........XXXXXXXXX.............X",
+      "XX...M....M...XXXXXXX...M.....M..M.X",
+      "XX...X....X...XXXXXXX...X.....X..X.X",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXEX",
+      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    ],
+    "mechanisms": {
+      "gates": [
+        {
+          "id": "F",
+          "label": "F",
+          "x": 25,
+          "y": 3,
+          "open": false
+        },
+        {
+          "id": "G",
+          "label": "F",
+          "x": 34,
+          "y": 20,
+          "open": false
+        }
+      ],
+      "levers": [
+        {
+          "id": "F-lever",
+          "label": "F",
+          "x": 20,
+          "y": 6,
+          "gates": [
+            "F",
+            "G"
+          ],
+          "dispensers": [],
+          "view": {
+            "x": 18,
+            "y": 1,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "dispensers": []
+    },
+    "quota": 22,
+    "timeSeconds": 60,
+    "difficulty": 2,
+    "rulesVersion": "emerald-hollows/6",
+    "parTicks": 0,
+    "route": "harvest 2 11 12 13; walk 20 7; use up; wait 18; harvest 21 11 13 13; walk 34 24",
+    "hint": "Beobachte die aktuellen Farben: Blau folgt rechts, Lila links; wiederholte Runden ändern die Richtung. Bereite F vor und nutze die Querung, wenn die Patrouille entfernt ist. Verbinde danach die beiden Sammelbezirke.",
+    "solution": "Beobachte die aktuellen Farben: Blau folgt rechts, Lila links; wiederholte Runden ändern die Richtung. Bereite F vor und nutze die Querung, wenn die Patrouille entfernt ist. Verbinde danach die beiden Sammelbezirke.",
+    "english": {
+      "name": "The second circuit",
+      "subtitle": "Observe, connect, collect",
+      "hint": "Watch the current colours: blue follows right, purple left; repeated loops change direction. Prepare F and cross when the patrol is away, then connect both collecting districts."
+    },
+    "mining": {
+      "pits": []
+    }
+  }
+]

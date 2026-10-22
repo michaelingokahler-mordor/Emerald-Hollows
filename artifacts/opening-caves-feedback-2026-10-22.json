@@ -1,0 +1,241 @@
+{
+  "at": "2026-10-22T11:06:13.263778+00:00",
+  "status": "PASS",
+  "changedMapHashes": [
+    "07",
+    "08",
+    "10",
+    "12"
+  ],
+  "unchangedMapHashes": 36,
+  "tests": {
+    "command": "npm test -- --maxWorkers=2 --testTimeout=60000",
+    "filesPassed": 15,
+    "testsPassed": 523
+  },
+  "build": "npm run build: PASS",
+  "levels": [
+    {
+      "id": "07",
+      "hash": "3c0c13be",
+      "quota": 9,
+      "timeSeconds": 25,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 8.6,
+          "points": 9,
+          "score": 14,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "2": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "hash": "1057e31d",
+      "quota": 40,
+      "timeSeconds": 30,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 10.9,
+          "points": 40,
+          "score": 45,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "42": "crushed"
+          }
+        },
+        {
+          "name": "east",
+          "seconds": 12.7,
+          "points": 40,
+          "score": 40,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {}
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "hash": "ca4ee86c",
+      "quota": 33,
+      "timeSeconds": 50,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 21.7,
+          "points": 33,
+          "score": 38,
+          "remainingGems": 2,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "8": "exploded"
+          }
+        },
+        {
+          "name": "crush",
+          "seconds": 16.9,
+          "points": 33,
+          "score": 38,
+          "remainingGems": 2,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "8": "crushed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "hash": "036c8f0b",
+      "quota": 18,
+      "timeSeconds": 90,
+      "routes": [
+        {
+          "name": "main",
+          "seconds": 30.9,
+          "points": 18,
+          "score": 38,
+          "remainingGems": 0,
+          "excavated": 1,
+          "spawned": {},
+          "defeated": {
+            "3": "transmuted",
+            "4": "transmuted"
+          }
+        }
+      ]
+    }
+  ],
+  "startPhases": {
+    "initialWaitTicks": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "allSixRoutesPassed": true
+  },
+  "browser": {
+    "status": "PASS",
+    "reports": [
+      {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "results": [
+          {
+            "id": "07",
+            "status": "won",
+            "ticks": 86,
+            "points": 9
+          },
+          {
+            "id": "08",
+            "status": "won",
+            "ticks": 109,
+            "points": 40
+          },
+          {
+            "id": "10",
+            "status": "won",
+            "ticks": 217,
+            "points": 33
+          },
+          {
+            "id": "12",
+            "status": "won",
+            "ticks": 309,
+            "points": 18
+          }
+        ],
+        "errors": [],
+        "note": "Accelerated solution replay and touch layout emulation. No human playtest or physical device."
+      },
+      {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "results": [
+          {
+            "id": "07",
+            "status": "won",
+            "ticks": 86,
+            "points": 9
+          },
+          {
+            "id": "08",
+            "status": "won",
+            "ticks": 109,
+            "points": 40
+          },
+          {
+            "id": "10",
+            "status": "won",
+            "ticks": 217,
+            "points": 33
+          },
+          {
+            "id": "12",
+            "status": "won",
+            "ticks": 309,
+            "points": 18
+          }
+        ],
+        "errors": [],
+        "note": "Accelerated solution replay and touch layout emulation. No human playtest or physical device."
+      }
+    ]
+  },
+  "api": {
+    "status": "PASS",
+    "date": "2026-10-22T11:05:02.564Z",
+    "checks": [
+      "profile creation",
+      "auth ownership",
+      "recovery",
+      "bounded verification",
+      "idempotent upload",
+      "leaderboard",
+      "practice rejection",
+      "invalid inputs",
+      "wrong final hash",
+      "CORS",
+      "archived 0.2, 0.6, 0.7 and four revised 0.8 runs accepted and excluded from current boards",
+      "four revised caves confirmed with score",
+      "all thirty chapter 2, 3 and 4 levels verified with scores and checkpoint continuation",
+      "time first and score tiebreaker",
+      "equal-score equal-time shared rank",
+      "slower score cannot replace faster record",
+      "recovery retains archived unlocks",
+      "all forty exact published 0.10 offline proofs accepted: nine current, thirty-one archived",
+      "four exact previous 0.11 feedback cave proofs remain archived and excluded from new boards",
+      "v6 support and current revised scores confirmed",
+      "old timer proof accepted but over-limit result remains archived",
+      "eligible old and new timer results merge once per profile",
+      "restored timer-compatible best result uses current hash"
+    ]
+  },
+  "historicalProofs": "Four exact previous public replays retained; previous map definitions and queued proofs verified, records archived, unlocks retained.",
+  "humanPlaytest": false,
+  "physicalMobileDevice": false
+}

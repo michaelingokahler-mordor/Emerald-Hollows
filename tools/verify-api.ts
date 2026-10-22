@@ -7,6 +7,7 @@ import {CHAPTER_TWO as V07} from '../src/chapter-two-v07';
 import {REVISED_CAVES as V08} from '../src/chapter-two-v08';
 import {LEGACY_LEVELS} from '../src/legacy-levels';
 import previousTimers from '../src/levels-v09.json';
+import previousFeedback from '../src/levels-v011-feedback.json';
 import {levelHash} from '../src/core/simulation';
 import type {LevelDefinition} from '../src/core/types';
 import {solve} from './solution';
@@ -59,7 +60,9 @@ recovered=await call('/profile',undefined,auth);assert.equal(recovered.records.l
 // Submit the exact published 0.10 inputs, not a newly solved approximation.
 const legacy=await call('/profiles',{nickname:'Archive '+Date.now().toString(36)},undefined,201),legacyAuth=legacy.id+'.'+legacy.token;
 for(let n=1;n<=40;n++){const id=String(n).padStart(2,'0'),replay=JSON.parse(await readFile(`tests/fixtures/replays-v010/${id}.json`,'utf8'));await submit(replay,legacyAuth);}
-const legacyProfile=await call('/profile',undefined,legacyAuth);assert.equal(legacyProfile.records.length,10);assert.equal(legacyProfile.archivedRecords.length,30);
+const legacyProfile=await call('/profile',undefined,legacyAuth);assert.equal(legacyProfile.records.length,9);assert.equal(legacyProfile.archivedRecords.length,31);
+for(const level of previousFeedback as LevelDefinition[]){const replay=JSON.parse(await readFile(`tests/fixtures/replays-v011/${level.id}.json`,'utf8'));await submit(replay,legacyAuth);assert.ok(!(await call('/leaderboard/'+level.id)).entries.some((e:any)=>e.nickname===legacy.nickname));}
+const priorFeedbackProfile=await call('/profile',undefined,legacyAuth);for(const l of previousFeedback as LevelDefinition[])assert.ok(priorFeedbackProfile.archivedRecords.some((r:any)=>r.level_id===l.id&&r.level_hash===levelHash(l)));
 await call('/runs',{id:crypto.randomUUID(),replay:{...r,practice:true}},auth,400);
 await call('/runs',{id:crypto.randomUUID(),replay:{...r,inputs:[{direction:'cheat'}]}},auth,400);
 const wrong=crypto.randomUUID();await call('/runs',{id:wrong,replay:{...solve(LEVELS[0]).exportReplay(),expectedHash:'aaaaaaaa'}},auth,201);assert.equal((await call('/runs/'+wrong+'/verify',{},auth)).status,'rejected');
@@ -68,12 +71,16 @@ const denied=await fetch(base+'/profiles',{method:'POST',headers:{Origin:'https:
 // Equal time uses score as a tiebreaker. A faster low-score run still ranks first.
 const nameC='MinerC '+Date.now().toString(36),c=await call('/profiles',{nickname:nameC},undefined,201),third=c.id+'.'+c.token;
 async function submit(replay:ReturnType<ReturnType<typeof solve>['exportReplay']>,token:string){const id=crypto.randomUUID();await call('/runs',{id,replay},token,201);let status='pending';while(status==='pending')status=(await call('/runs/'+id+'/verify',{},token)).status;assert.equal(status,'confirmed');}
-const highLevel={...LEVELS[7],route:'walk 8 3; walk 8 8; walk 11 8; walk 14 8; walk 17 8; walk 17 15; walk 7 15; walk 12 15; walk 18 15; walk 23 15; walk 25 15; walk 25 3'};
-await submit(solve(LEVELS[7],20).exportReplay(),auth);await submit(solve(highLevel).exportReplay(),other);await submit(solve(LEVELS[7],19).exportReplay(),third);
+const pad=(route:string,ticks:number)=>route.replace('walk 33 3',`walk 33 4; wait ${ticks}; walk 33 3`);
+const east='harvest 20 9 11 11; harvest 8 5 11 15; walk 33 21; walk 33 3';
+const highLevel={...LEVELS[7],route:pad(LEVELS[7].route,20)},lowLevel={...LEVELS[7],route:pad(east,2)},fastLevel={...LEVELS[7],route:east};
+const highSim=solve(highLevel),lowSim=solve(lowLevel),fastSim=solve(fastLevel);
+assert.equal(highSim.state.tick,lowSim.state.tick);assert.ok(fastSim.state.tick<lowSim.state.tick);assert.ok(scoreBreakdown(highLevel,highSim.state).total>scoreBreakdown(lowLevel,lowSim.state).total);
+await submit(lowSim.exportReplay(),auth);await submit(highSim.exportReplay(),other);await submit(fastSim.exportReplay(),third);
 let scored=(await call('/leaderboard/08')).entries;const rank=(name:string)=>scored.find((e:any)=>e.nickname===name).rank;
 assert.ok(rank(nameC)<rank(nameB)&&rank(nameB)<rank(nameA));
 await submit(solve(highLevel).exportReplay(),auth);scored=(await call('/leaderboard/08')).entries;assert.equal(rank(nameA),rank(nameB));
-await submit(solve(highLevel,1).exportReplay(),auth);const best=(await call('/profile',undefined,auth)).records.find((r:any)=>r.level_id==='08');assert.equal(best.ticks,66);assert.equal(best.score,18);assert.equal(best.points,18);
+await submit(solve({...highLevel,route:pad(LEVELS[7].route,21)}).exportReplay(),auth);const best=(await call('/profile',undefined,auth)).records.find((r:any)=>r.level_id==='08');assert.equal(best.ticks,highSim.state.tick);assert.equal(best.score,scoreBreakdown(highLevel,highSim.state).total);assert.equal(best.points,40);
 
 const report={date:new Date().toISOString(),target:'local Wrangler/D1',status:'PASS',checks:['profile creation','auth ownership','recovery','bounded verification','idempotent upload','leaderboard','practice rejection','invalid inputs','wrong final hash','CORS','archived 0.2, 0.6, 0.7 and four revised 0.8 runs accepted and excluded from current boards','four revised caves confirmed with score','all thirty chapter 2, 3 and 4 levels verified with scores and checkpoint continuation','time first and score tiebreaker','equal-score equal-time shared rank','slower score cannot replace faster record','recovery retains archived unlocks'],verificationRequests:requests};
 const oldTimer=(previousTimers as LevelDefinition[])[0];
@@ -86,5 +93,5 @@ const compatible=(await call('/leaderboard/01')).entries.filter((e:any)=>e.nickn
 assert.equal(compatible.length,1);assert.equal(compatible[0].ticks,76);
 const recoveredTimer=(await call('/profile',undefined,third)).records.filter((r:any)=>r.level_id==='01');
 assert.equal(recoveredTimer.length,1);assert.equal(recoveredTimer[0].ticks,76);assert.equal(recoveredTimer[0].level_hash,levelHash(LEVELS[0]));
-report.checks.push('all forty exact published 0.10 offline proofs accepted: ten current, thirty archived','v6 support and current revised scores confirmed','old timer proof accepted but over-limit result remains archived','eligible old and new timer results merge once per profile','restored timer-compatible best result uses current hash');
+report.checks.push('all forty exact published 0.10 offline proofs accepted: nine current, thirty-one archived','four exact previous 0.11 feedback cave proofs remain archived and excluded from new boards','v6 support and current revised scores confirmed','old timer proof accepted but over-limit result remains archived','eligible old and new timer results merge once per profile','restored timer-compatible best result uses current hash');
 await writeFile('artifacts/api-verification.json',JSON.stringify(report,null,2)+'\n');console.log(report);

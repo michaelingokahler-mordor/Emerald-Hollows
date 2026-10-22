@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-21T15:33:53.773Z",
+  "at": "2026-10-22T11:02:42.973Z",
   "note": "Automated solutions, checkpoints, 30/60/144 FPS and local server verifier. Not optimal times or human play feedback.",
   "levels": [
     {
@@ -126,13 +126,13 @@
     },
     {
       "id": "07",
-      "hash": "8582274e",
+      "hash": "3c0c13be",
       "quota": 9,
-      "timeSeconds": 20,
+      "timeSeconds": 25,
       "routes": [
         {
           "name": "main",
-          "seconds": 8,
+          "seconds": 8.6,
           "points": 9,
           "score": 14,
           "remainingGems": 0,
@@ -146,16 +146,28 @@
     },
     {
       "id": "08",
-      "hash": "f557c3d8",
-      "quota": 12,
-      "timeSeconds": 16,
+      "hash": "1057e31d",
+      "quota": 40,
+      "timeSeconds": 30,
       "routes": [
         {
           "name": "main",
-          "seconds": 4.6,
-          "points": 12,
-          "score": 12,
-          "remainingGems": 2,
+          "seconds": 10.9,
+          "points": 40,
+          "score": 45,
+          "remainingGems": 0,
+          "excavated": 0,
+          "spawned": {},
+          "defeated": {
+            "42": "crushed"
+          }
+        },
+        {
+          "name": "east",
+          "seconds": 12.7,
+          "points": 40,
+          "score": 40,
+          "remainingGems": 0,
           "excavated": 0,
           "spawned": {},
           "defeated": {}
@@ -184,32 +196,32 @@
     },
     {
       "id": "10",
-      "hash": "58f81010",
-      "quota": 30,
-      "timeSeconds": 40,
+      "hash": "ca4ee86c",
+      "quota": 33,
+      "timeSeconds": 50,
       "routes": [
         {
           "name": "main",
-          "seconds": 15.7,
-          "points": 30,
-          "score": 35,
+          "seconds": 21.7,
+          "points": 33,
+          "score": 38,
           "remainingGems": 2,
           "excavated": 0,
           "spawned": {},
           "defeated": {
-            "7": "exploded"
+            "8": "exploded"
           }
         },
         {
           "name": "crush",
-          "seconds": 14.5,
-          "points": 30,
-          "score": 35,
+          "seconds": 16.9,
+          "points": 33,
+          "score": 38,
           "remainingGems": 2,
           "excavated": 0,
           "spawned": {},
           "defeated": {
-            "7": "crushed"
+            "8": "crushed"
           }
         }
       ]
@@ -234,19 +246,22 @@
     },
     {
       "id": "12",
-      "hash": "e0194e10",
-      "quota": 22,
-      "timeSeconds": 60,
+      "hash": "036c8f0b",
+      "quota": 18,
+      "timeSeconds": 90,
       "routes": [
         {
           "name": "main",
-          "seconds": 21.5,
-          "points": 31,
-          "score": 31,
+          "seconds": 30.9,
+          "points": 18,
+          "score": 38,
           "remainingGems": 0,
-          "excavated": 0,
+          "excavated": 1,
           "spawned": {},
-          "defeated": {}
+          "defeated": {
+            "3": "transmuted",
+            "4": "transmuted"
+          }
         }
       ]
     },

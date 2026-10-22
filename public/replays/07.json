@@ -2,7 +2,7 @@
   "version": 1,
   "rulesVersion": "emerald-hollows/6",
   "levelId": "07",
-  "levelHash": "8582274e",
+  "levelHash": "3c0c13be",
   "practice": false,
   "inputs": [
     {
@@ -44,17 +44,22 @@
     {
       "direction": "right"
     },
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "right",
+      "snap": true
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
     {
       "direction": "right",
       "snap": true
@@ -73,63 +78,102 @@
     {},
     {},
     {},
-    {},
-    {},
-    {},
-    {},
     {
-      "direction": "right"
+      "direction": "left"
     },
     {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "down"
-    },
-    {
-      "direction": "down"
-    },
-    {
-      "direction": "down"
-    },
-    {
-      "direction": "down"
-    },
-    {
-      "direction": "down"
-    },
-    {
-      "direction": "down"
-    },
-    {
-      "direction": "down"
-    },
-    {
-      "direction": "down"
+      "direction": "left"
     },
     {
       "direction": "left"
     },
     {
       "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right",
+      "snap": false
+    },
+    {
+      "direction": "right",
+      "snap": false
+    },
+    {
+      "direction": "right",
+      "snap": false
+    },
+    {
+      "direction": "right",
+      "snap": false
+    },
+    {
+      "direction": "right",
+      "snap": false
+    },
+    {
+      "direction": "right",
+      "snap": false
+    },
+    {
+      "direction": "right",
+      "snap": false
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
     },
     {
       "direction": "left"
@@ -189,5 +233,5 @@
       "direction": "up"
     }
   ],
-  "expectedHash": "9c0d2f5a"
+  "expectedHash": "dc340574"
 }

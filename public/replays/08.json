@@ -1,11 +1,114 @@
 {
   "version": 1,
-  "rulesVersion": "crystal-delve/1",
+  "rulesVersion": "emerald-hollows/6",
   "levelId": "08",
-  "levelHash": "f557c3d8",
+  "levelHash": "1057e31d",
   "practice": false,
   "inputs": [
     {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "left",
+      "snap": true
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "left",
+      "snap": true
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "left",
+      "snap": true
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "left",
+      "snap": true
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "left",
+      "snap": true
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "left",
+      "snap": true
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "down",
+      "snap": true
+    },
+    {
       "direction": "down"
     },
     {
@@ -21,6 +124,9 @@
       "direction": "down"
     },
     {
+      "direction": "right"
+    },
+    {
       "direction": "down"
     },
     {
@@ -33,6 +139,143 @@
       "direction": "down"
     },
     {
+      "direction": "left"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "left"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "down"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "up"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "up",
+      "snap": true
+    },
+    {
+      "direction": "up",
+      "snap": true
+    },
+    {
+      "direction": "up",
+      "snap": true
+    },
+    {
+      "direction": "up",
+      "snap": true
+    },
+    {
+      "direction": "up",
+      "snap": true
+    },
+    {
+      "direction": "up",
+      "snap": true
+    },
+    {
+      "direction": "up",
+      "snap": true
+    },
+    {
+      "direction": "up",
+      "snap": true
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
+      "direction": "right"
+    },
+    {
       "direction": "down"
     },
     {
@@ -51,61 +294,22 @@
       "direction": "right"
     },
     {
-      "direction": "right"
+      "direction": "up"
     },
     {
-      "direction": "right"
+      "direction": "up"
     },
     {
-      "direction": "right"
+      "direction": "up"
     },
     {
-      "direction": "right"
+      "direction": "up"
     },
     {
-      "direction": "right"
+      "direction": "up"
     },
     {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
-    },
-    {
-      "direction": "right"
+      "direction": "up"
     },
     {
       "direction": "up"
@@ -144,5 +348,5 @@
       "direction": "up"
     }
   ],
-  "expectedHash": "5d9e546a"
+  "expectedHash": "fac9b911"
 }

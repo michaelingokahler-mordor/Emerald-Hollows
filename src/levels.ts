@@ -1,4 +1,5 @@
 import {reviseV011} from './revision-v011';
+import {reviseFeedbackCave} from './feedback-caves-v012';
 import {CHAPTER_FOUR} from './chapter-four';
 import {CHAPTER_THREE} from './chapter-three';
 import {TIME_LIMITS} from './time-limits';
@@ -69,4 +70,4 @@ export const LEVELS: LevelDefinition[] = [
   "parTicks": 0,
   "rulesVersion": "emerald-hollows/2"
 }
-,...CHAPTER_TWO,...CHAPTER_THREE,...CHAPTER_FOUR].map(l=>({...l,timeSeconds:TIME_LIMITS[l.id]??l.timeSeconds})).map(l=>reviseV011(l as LevelDefinition)) as LevelDefinition[];
+,...CHAPTER_TWO,...CHAPTER_THREE,...CHAPTER_FOUR].map(l=>({...l,timeSeconds:TIME_LIMITS[l.id]??l.timeSeconds})).map(l=>reviseFeedbackCave(reviseV011(l as LevelDefinition))) as LevelDefinition[];

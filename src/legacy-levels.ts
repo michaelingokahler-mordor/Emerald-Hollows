@@ -1,9 +1,10 @@
 import version010 from './levels-v010.json';
+import feedbackPrevious from './levels-v011-feedback.json';
 import type { LevelDefinition } from './core/types';
 import previousTimers from './levels-v09.json';
 import {CHAPTER_TWO as CHAPTER_TWO_V06} from './chapter-two-v06';
 // Retained only to verify outstanding older runs and keep historical records. Not selectable.
-export const LEGACY_LEVELS:LevelDefinition[]=[...(version010 as LevelDefinition[]),
+export const LEGACY_LEVELS:LevelDefinition[]=[...(feedbackPrevious as LevelDefinition[]),...(version010 as LevelDefinition[]),
   {
     "id": "06",
     "name": "Das Herz der alten Mine",

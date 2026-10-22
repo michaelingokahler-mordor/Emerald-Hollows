@@ -10,6 +10,14 @@ The full game is planned to contain **120 levels: 100 main caves and 20 hidden l
 - [Development roadmap (German)](docs/ENTWICKLUNGSPLAN.md)
 - [Chapter 3 implementation and verification (German)](docs/KAPITEL-3-UMSETZUNG.md)
 
+## Cave revisions — 22 October 2026
+
+Cave **07** now requires clearing the drop shaft, hitting the guard, then pushing the same rock into a disposal pit. Cave **08** has two adjacent rock/gem columns, **20 rocks, 20 gems and two beetles**. Collecting changes the columns' supports; stepping into an active cut can be fatal. Both west-first and east-first routes are verified.
+
+Cave **10** adds a required diamond in the upper left chamber. Cave **12** requires both beetle diamonds and puts the exit behind a walled chamber's gate. Its two rock hatches have protected controls and mobile camera framing. The four previous maps remain available for queued offline runs; their records are archived. Other caves keep their maps and records.
+
+See the [design and verification notes (German)](docs/HOEHLEN-FEEDBACK-2026-10-22.md). Automated routes establish playability; human feedback on these revisions is still pending.
+
 ## Update 0.11.0 — Changing beetles
 
 Thirty caves now use rule version 6. Blue and purple beetles change their wall-following direction after repeated loops; amber diggers and white diamond beetles change into one another. A shimmering warning precedes each change. White armour replaces the old diamond badge.
@@ -56,7 +64,7 @@ Choose English or German in the main menu or Settings. English is the default. C
 
 ### The forty caves
 
-The opening caves introduce collecting, falling rocks, pushing, and rolling. Cave 05 introduces changing patrols, 06 uses a containment explosion to open a gallery, 07 teaches a timed rock drop, and 09 requires a hit during the white beetle phase. Its single-shot dispenser provides a safe observation arena. Cave 08 deliberately offers surplus crystals and different collection routes.
+The opening caves introduce collecting, falling rocks, pushing, and rolling. Cave 05 introduces changing patrols, 06 uses a containment explosion to open a gallery, 07 combines a prepared rock drop with clearing the landed projectile, and 09 requires a hit during the white beetle phase. Its single-shot dispenser provides a safe observation arena. Cave 08 tests collecting beside loaded rock columns, with two possible starting districts.
 
 Cave 10 is the first substantial combined challenge. Three required diamonds lie beyond a guarded passage. A containment explosion and a rock trap provide different supported solutions.
 

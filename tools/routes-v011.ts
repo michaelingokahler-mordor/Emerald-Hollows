@@ -7,7 +7,8 @@ import {CHAPTER_THREE_ROUTES} from '../src/chapter-three';
 import type {LevelDefinition} from '../src/core/types';
 export const ROUTES_V011:Record<string,Record<string,string>>=Object.fromEntries(LEVELS.map(l=>[l.id,{main:l.route}]));
 ROUTES_V011['05'].observe=ROUTES_V011['05'].main.replace('strike crawler right','wait 54');
-ROUTES_V011['10'].crush=FINALE_CRUSH_ROUTE.replace('wait 16; snap right','strike beetle right');
+ROUTES_V011['10'].crush='walk 7 5; '+FINALE_CRUSH_ROUTE.replace('wait 16; snap right','strike beetle right');
+ROUTES_V011['08'].east='harvest 20 9 11 11; harvest 8 5 11 15; walk 33 21; walk 33 3';
 ROUTES_V011['18'].shortcut=CHAPTER_TWO_ALTERNATIVES['18'];
 for(const [id,name]of [['24','east'],['25','discovery']] as const){
  const original=(old as LevelDefinition[]).find(l=>l.id===id)!;
