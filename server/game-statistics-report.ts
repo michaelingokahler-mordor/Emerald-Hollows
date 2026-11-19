@@ -47,6 +47,7 @@ export function statisticsReport(): Response {
     const gameNames = {
       'war-of-the-wizards': 'War of the Wizards',
       'emerald-hollows': 'Lathmar: Emerald Hollows',
+      'velvet-cruise': 'Velvet Cruise',
     };
     const endpoint = new URL('/game-statistics/report', location.href);
     const today = formatDay.format(new Date());

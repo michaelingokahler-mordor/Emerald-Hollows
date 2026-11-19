@@ -11,7 +11,7 @@ const dayMs = 86_400_000;
 const berlinDate = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Berlin', dateStyle: 'short' });
 const sourceHostname = /^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+(?:[a-z](?:[a-z0-9-]{0,61}[a-z0-9])?)$/;
 const eventId = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
-const games = ['war-of-the-wizards', 'emerald-hollows'];
+const games = ['war-of-the-wizards', 'emerald-hollows', 'velvet-cruise'];
 const types = ['game_loaded', 'run_start'];
 
 function dateValue(value: string | null): number {

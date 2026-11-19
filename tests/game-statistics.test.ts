@@ -91,3 +91,23 @@ test('rejects unexpected origins, inflated payloads, private URL fields and unau
   expect((await worker.fetch(report(secret), { ...environment, GAME_STATS_REPORT_SECRET: undefined })).status).toBe(503);
   expect((await worker.fetch(new Request(api + '/health'), environment)).status).toBe(200);
 });
+
+test('adds Velvet Cruise without replaying or losing earlier event IDs and aggregates', async () => {
+  const { DB, sqlite } = database();
+  const environment = { DB, GAME_STATS_REPORT_SECRET: secret, ALLOWED_ORIGINS: origin };
+  const previous = event('war-of-the-wizards', 'run_start');
+  const race = { ...event('velvet-cruise', 'run_start'), timestamp: previous.timestamp };
+  expect((await worker.fetch(ingest(previous, origin, 'DE'), environment)).status).toBe(204);
+
+  sqlite.exec(readFileSync(new URL('../server/migrations/0004_velvet_cruise_statistics.sql', import.meta.url), 'utf8'));
+  for (const data of [previous, race, race]) {
+    expect((await worker.fetch(ingest(data, origin, 'DE'), environment)).status).toBe(204);
+  }
+  const day = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Berlin', dateStyle: 'short' }).format(previous.timestamp);
+  const response = await worker.fetch(report(secret, day, day), environment);
+  expect((await response.json() as { rows: unknown[] }).rows).toEqual([
+    { day, game: 'velvet-cruise', source: 'example.org', country: 'DE', game_loaded: 0, run_start: 1 },
+    { day, game: 'war-of-the-wizards', source: 'example.org', country: 'DE', game_loaded: 0, run_start: 1 },
+  ]);
+  expect(sqlite.prepare('SELECT count(*) AS total FROM game_statistics_events').get()?.total).toBe(2);
+});
