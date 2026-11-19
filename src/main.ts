@@ -11,6 +11,7 @@ import { nextLevel, unlockedLevels } from './campaign';
 import { OnlineService, type RankedEntry } from './online';
 import { installTouch } from './touch';
 import { registerOffline } from './pwa';
+import { recordGameStatistic } from './game-statistics';
 import {scoreBreakdown} from './core/scoring';
 import { localize, translate } from './i18n';
 import './style.css';
@@ -34,7 +35,7 @@ async function loadRanking():Promise<void>{ranking=[];rankingMessage='Bestzeiten
 const escapeHtml=(s:string)=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 function persist():void{try{writeSave(localStorage,save);storageOk=true;}catch{storageOk=false;}if(!storageOk)notice('Der Browser kann Fortschritt gerade nicht speichern. Bitte exportiere eine Sicherung unter Profil & Sicherung.');}
 function notice(text:string):void{noticeSource=text;document.querySelector('#notice')!.textContent=translate(text,save.language);window.clearTimeout(noticeTimeout);noticeTimeout=window.setTimeout(()=>{noticeSource='';document.querySelector('#notice')!.textContent='';},9000);}
-const scene=new CaveScene({simulation:()=>simulation,active:()=>screen==='play',input:()=>replay?replay.inputs[replayCursor++]??{}:input.consume(performance.now()),changed,ready:()=>{ready=true;render();},interrupted:()=>pause(),volume:()=>({music:save.music,sfx:save.sfx})});
+const scene=new CaveScene({simulation:()=>simulation,active:()=>screen==='play',input:()=>replay?replay.inputs[replayCursor++]??{}:input.consume(performance.now()),changed,ready:()=>{ready=true;render();recordGameStatistic('game_loaded');},interrupted:()=>pause(),volume:()=>({music:save.music,sfx:save.sfx})});
 const game=new Phaser.Game({type:Phaser.AUTO,parent:stage,backgroundColor:'#101b20',width:1280,height:720,scene:[scene],antialias:true,pixelArt:false,scale:{mode:Phaser.Scale.NONE},audio:{disableWebAudio:false},render:{roundPixels:false}});
 const observer=new ResizeObserver(()=>resize());observer.observe(stage);
 function resize():void{if(ready&&stage.clientWidth&&stage.clientHeight)scene.resize(stage.clientWidth,stage.clientHeight,window.devicePixelRatio||1);}
@@ -48,7 +49,11 @@ function start(i:number,solution?:Replay):void{
   if(!solution){save.lastLevel=i;delete save.suspended;persist();}
   blockedUntil=0;input.clear();screen='ready';render();scene.begin();resize();
 }
-function resume():void{input.clear();scene.clock.reset();screen='play';render();scene.startMusic();}
+function resume():void{
+  const newAttempt = screen === 'ready' && !replay;
+  input.clear();scene.clock.reset();screen='play';render();scene.startMusic();
+  if (newAttempt) recordGameStatistic('run_start');
+}
 function pause():void{if(screen==='play'){screen='pause';input.clear();clearTouch();scene.clock.reset();checkpoint();render();}}
 function changed(_events:GameEvent[]):void{
   if(_events.some(e=>e.type==='torch'))notice('Fackel gefunden. E oder Ausrüstung wechselt das Werkzeug. Mit Fackel kannst du nicht graben.');

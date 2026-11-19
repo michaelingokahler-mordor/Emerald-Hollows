@@ -112,6 +112,28 @@ The website runs on GitHub Pages; the API uses Cloudflare Workers Free and D1. D
 
 Daily encrypted server backups are kept in a separate private repository. See the [operations and recovery guide (German)](docs/BETRIEB.md). Never publish keys, tokens, `.dev.vars`, private backups, or local D1 databases. Git and the source package exclude these files.
 
+## Browser game statistics
+
+The Emerald Hollows Worker accepts play counts for Emerald Hollows and War of
+the Wizards at `POST /game-statistics/events`. The client on Sabnock Works
+reports successful game loads and new attempts. In Emerald Hollows, a run
+starts when the player enters a newly prepared cave. Resumes and solution
+replays do not count. The Worker records daily aggregates by game, referring
+hostname and Cloudflare's approximate country code. Missing country is shown
+as unknown. The report counts events and may miss events when a player is
+offline or their browser blocks analytics.
+
+Use the Worker URL with `/game-statistics/` for the protected report. Configure
+`GAME_STATS_REPORT_SECRET` as a Worker secret with at least 32 characters. Use
+a dedicated random key. The browser sends the key in the authorization header
+to the report endpoint. The report excludes referrer paths, query strings, IP
+addresses and player identifiers.
+
+Apply `0003_game_statistics.sql` with Wrangler before deploying the Worker
+and the two browser builds. The migration adds separate tables and a trigger
+for atomic counting and deduplication. It leaves scores, profiles and replays
+in their existing tables. Use `npm run server:migrate` for local testing.
+
 ## Development
 
 ```sh

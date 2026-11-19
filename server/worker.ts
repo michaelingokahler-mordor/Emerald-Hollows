@@ -5,9 +5,10 @@ import { LEVELS } from '../src/levels';
 import {compatibleHashes,currentServerRecords,type ServerRecord} from '../src/record-compatibility';
 import { normalizeName, validName } from '../src/storage';
 import {scoreBreakdown,SCORE_VERSION} from '../src/core/scoring';
+import { handleGameStatistics, type GameStatisticsEnv } from './game-statistics';
 interface Statement {bind(...values:unknown[]):Statement;first<T=Record<string,unknown>>():Promise<T|null>;all<T=Record<string,unknown>>():Promise<{results:T[]}>;run():Promise<unknown>}
 export interface Database {prepare(query:string):Statement;batch(statements:Statement[]):Promise<unknown[]>}
-export interface Env {DB:Database;ALLOWED_ORIGINS:string;BACKUP_READ_TOKEN?:string}
+export interface Env extends GameStatisticsEnv {ALLOWED_ORIGINS:string;BACKUP_READ_TOKEN?:string}
 interface Run {id:string;profile_id:string;replay:string;state:string|null;cursor:number;status:string}
 const json=(data:unknown,status=200)=>Response.json(data,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 const sha=async(s:string)=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s))),b=>b.toString(16).padStart(2,'0')).join('');
@@ -119,6 +120,11 @@ async function handle(request:Request,env:Env):Promise<Response>{
   return json({error:'not_found'},404);
 }
 export default {async fetch(request:Request,env:Env):Promise<Response>{
+  const path = new URL(request.url).pathname;
+  if (path === '/game-statistics' || path.startsWith('/game-statistics/')) {
+    try { return await handleGameStatistics(request, env); }
+    catch { return json({ error: 'temporarily_unavailable' }, 503); }
+  }
   const origin=request.headers.get('Origin'),allowed=env.ALLOWED_ORIGINS.split(',');
   if(origin&&!allowed.includes(origin))return json({error:'origin'},403);
   let response:Response;
