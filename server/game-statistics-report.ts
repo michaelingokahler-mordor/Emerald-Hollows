@@ -81,14 +81,21 @@ export function statisticsReport(): Response {
     field('filters').addEventListener('submit', async event => {
       event.preventDefault();
       pending?.abort();
+      const key = field('key').value.trim();
+      field('results').hidden = true;
+      if (key.length < 32 || key.length > 505 || !/^[\x20-\x7e]+$/.test(key)) {
+        pending = undefined;
+        field('status').textContent = 'Füge den vollständigen Berichtsschlüssel aus dem Startskript ein.';
+        field('key').focus();
+        return;
+      }
       const request = new AbortController();
       pending = request;
-      field('results').hidden = true;
       field('status').textContent = 'Wird geladen …';
       endpoint.search = new URLSearchParams({ from: field('from').value, to: field('to').value });
       try {
         const response = await fetch(endpoint, {
-          headers: { Authorization: 'Bearer ' + field('key').value },
+          headers: { Authorization: 'Bearer ' + key },
           cache: 'no-store', credentials: 'omit', signal: request.signal,
         });
         if (pending !== request) return;
